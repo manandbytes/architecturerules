@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+
+<!--<!DOCTYPE architecture
+        SYSTEM "architecture-rules.dtd">-->
+
+
+<architecture>
+
+    <configuration>
+
+        <sources no-packages="ignore">
+            <source not-found="ignore">core/target/classes</source>
+            <source not-found="ignore">util/target/classes</source>
+            <source not-found="ignore">parent-pom/target/classes</source>
+            <source not-found="ignore">web/target/classes</source>
+        </sources>
+
+        <cyclicalDependency test="true"/>
+
+    </configuration>
+
+
+    <rules>
+
+        <rule>
+            <id>dao</id>
+            <package>com.nereson.pagerank.core.dao</package>
+            <violations>
+                <violation>com.nereson.pagerank.core.services</violation>
+                <violation>com.nereson.pagerank.core.builder</violation>
+                <violation>com.nereson.pagerank.util</violation>
+            </violations>
+            <comment>The dao interface package should rely on nothing.</comment>
+        </rule>
+
+        <rule>
+            <id>strategy</id>
+            <package>com.nereson.pagerank.core.strategies</package>
+            <violations>
+                <violation>com.nereson.pagerank.core.services</violation>
+                <violation>com.nereson.pagerank.core.dao.hibernate</violation>
+            </violations>
+            <comment>strategies should be as pluggable as possible</comment>
+        </rule>
+
+        <rule>
+            <id>model</id>
+            <package>com.nereson.pagerank.core.model</package>
+            <violations>
+                <violation>com.nereson.pagerank.core.dao</violation>
+                <violation>com.nereson.pagerank.core.dao.hibernate</violation>
+                <violation>com.nereson.pagerank.core.services</violation>
+                <violation>com.nereson.pagerank.core.strategy</violation>
+                <violation>com.nereson.pagerank.core.builder</violation>
+                <violation>com.nereson.pagerank.util</violation>
+            </violations>
+            <comment>model should remain competely isolated</comment>
+        </rule>
+
+    </rules>
+
+</architecture>
+
+

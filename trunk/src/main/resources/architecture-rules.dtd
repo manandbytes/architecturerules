@@ -1,0 +1,22 @@
+<!DOCTYPE architecture [
+        <!ELEMENT architecture (configuration|rules)*>
+
+        <!ELEMENT sources (source)*>
+        <!ATTLIST sources no-packages (ignore|exception) "exception">
+
+        <!ELEMENT rule (id|package|violations|comment)*>
+        <!ELEMENT violations (violation)*>
+        <!ELEMENT rules (rule)*>
+        <!ELEMENT violation (#PCDATA)>
+        <!ELEMENT configuration (sources|cyclicalDependency)*>
+        <!ELEMENT comment (#PCDATA)>
+
+        <!ELEMENT source (#PCDATA)>
+        <!ATTLIST sources not-found (ignore|exception) "ignore">
+
+        <!ELEMENT package (#PCDATA)>
+        <!ELEMENT id (#PCDATA)>
+        <!ELEMENT cyclicalDependency (#PCDATA)>
+        <!ATTLIST cyclicalDependency test CDATA #REQUIRED>
+        
+        ]>

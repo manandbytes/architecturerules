@@ -1,0 +1,89 @@
+#summary maven-generated dependency list
+
+=Project Dependencies=
+
+==compile==
+
+The following is a list of compile dependencies for this project. These dependencies are required to compile and run the application:
+
+|| *GroupId*             || *ArtifactId* || *Version* || *Type* ||
+|| commons-io            || commons-io   || 1.1       || jar    || 
+|| jdepend               || jdepend      || 2.9.1     || jar    || 
+|| junit                 || junit        || 3.8.1     || jar    || 
+|| org.springframework   || spring       || 2.0.5     || jar	|| 
+|| xerces                || xercesImpl   || 2.6.2     || jar	|| 
+|| xml-apis              || xml-apis     || 1.3.04    || jar	|| 
+
+=Project Transitive Dependencies=
+
+The following is a list of transitive dependencies for this project. Transitive dependencies are the dependencies of the project dependencies.
+==compile==
+
+The following is a list of compile dependencies for this project. These dependencies are required to compile and run the application:
+GroupId	ArtifactId	Version	Classifier	Type	Optional
+avalon-framework	avalon-framework	4.1.3	-	jar	
+commons-logging	commons-logging	1.1	-	jar	
+javax.servlet	servlet-api	2.3	-	jar	
+log4j	log4j	1.2.12	-	jar	
+logkit	logkit	1.0.1	-	jar	
+
+=Project Dependency Graph=
+
+==Dependency Tree==
+
+    * com.nereson:architecture-rules:jar
+          o junit:junit:jar
+          o jdepend:jdepend:jar
+          o commons-io:commons-io:jar
+          o xerces:xercesImpl:jar
+          o xml-apis:xml-apis:jar
+          o org.springframework:spring:jar
+                + commons-logging:commons-logging:jar
+                      # log4j:log4j:jar
+                      # logkit:logkit:jar
+                      # avalon-framework:avalon-framework:jar
+                      # javax.servlet:servlet-api:jar
+
+==Dependency Listings==
+
+*architecture-rules*
+
+Leverages an XML configuration file to test your code's architecture via unit tests. Able to assert that specific packages do not depend on each other and able to check for cyclic redundancies among your packages.
+
+*Unnamed - junit:junit:jar:3.8.1*
+
+*Unnamed - jdepend:jdepend:jar:2.9.1*
+
+*IO*
+
+Commons-IO contains utility classes, stream implementations, file filters, and endian classes.
+
+http://jakarta.apache.org/commons/io/
+
+*Unnamed - xerces:xercesImpl:jar:2.6.2*
+
+*XML Commons External Components XML APIs*
+
+xml-commons provides an Apache-hosted set of DOM, SAX, and JAXP interfaces for use in other xml-based projects. Our hope is that we can standardize on both a common version and packaging scheme for these critical XML standards interfaces to make the lives of both our developers and users easier. The External Components portion of xml-commons contains interfaces that are defined by external standards organizations. For DOM, that's the W3C; for SAX it's David Megginson and sax.sourceforge.net; for JAXP it's Sun.
+
+http://xml.apache.org/commons/components/external/
+
+*Spring Framework*
+
+Spring Framework
+
+http://www.springframework.org
+
+*Logging*
+
+Commons Logging is a thin adapter allowing configurable bridging to other, well known logging systems.
+
+http://jakarta.apache.org/commons/${pom.artifactId.substring(8)}/
+
+*Unnamed - log4j:log4j:jar:1.2.12*
+
+*Unnamed - logkit:logkit:jar:1.0.1*
+
+*Unnamed - avalon-framework:avalon-framework:jar:4.1.3*
+
+*Unnamed - javax.servlet:servlet-api:jar:2.3*

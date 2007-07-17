@@ -1,5 +1,5 @@
 #summary description of possible exceptions
-#labels Featured,Phase-Implementation
+#labels Phase-Implementation
 
 = Introduction =
 

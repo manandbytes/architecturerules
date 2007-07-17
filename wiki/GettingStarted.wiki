@@ -15,6 +15,9 @@ Here are the steps that we'll go over
 
 
 == Get the library ==
+
+Download the latest from [downloads]
+
 == Write your architecture rules ==
 == Write your test ==
 ==Run the tests ==

@@ -27,7 +27,7 @@ class ArchitecturalRulesService extends AbstractArchitecturalRules {
     }
 
 
-    public void performRulesTest() throws DependencyConstraintException {
+    public void performRulesTest() throws DependencyConstraintException, CyclicRedundencyException {
 
         log.info("perform rules test required");
 
@@ -49,15 +49,17 @@ class ArchitecturalRulesService extends AbstractArchitecturalRules {
             log.info("checking rule " + rule.getId());
             log.debug("checking for dependency violations in " + rule.getPackageName());
 
-            if (!isLayeringValid(rule.getPackageName(), rule.getViolations())) {
+            try {
 
-                log.warn("dependency violation in " + rule.getPackageName());
-                throw new DependencyConstraintException(rule);
+                testLayeringValid(rule.getPackageName(), rule.getViolations());
 
-            } else {
+            } catch (DependencyConstraintException e) {
 
-                log.debug("no dependency violations in " + rule.getPackageName());
+                /* just creates a more descriptive message which identifies the rule by its id */
+                throw new DependencyConstraintException("rule " + rule.getId() + " failed: " + e.getMessage());
             }
+
+            log.debug("no dependency violations in " + rule.getPackageName());
         }
 
         log.info("Architecture rules service has completed its tests.");

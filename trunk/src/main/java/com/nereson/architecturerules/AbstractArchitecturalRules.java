@@ -108,10 +108,10 @@ abstract class AbstractArchitecturalRules {
      * @param layer
      * @param rules
      * @return
+     * @throws DependencyConstraintException when a rule is broken
+     * @throws CyclicRedundencyException
      */
-    protected boolean isLayeringValid(final String layer, final Collection rules) {
-
-        boolean rulesCorrect = true;
+    protected void testLayeringValid(final String layer, final Collection rules) throws DependencyConstraintException, CyclicRedundencyException {
 
         Collection packages = jdepend.analyze();
 
@@ -126,7 +126,7 @@ abstract class AbstractArchitecturalRules {
             if (throwExceptionWhenNoPackages) {
 
                 log.debug("throwing CyclicRedundencyException");
-                throw new RuntimeException("cyclic redundency does exist");
+                throw new CyclicRedundencyException("cyclic redundency does exist");
             }
 
         } else {
@@ -139,24 +139,23 @@ abstract class AbstractArchitecturalRules {
             JavaPackage javaPackage = (JavaPackage) packageIterator.next();
 
             log.debug("checking dependencies on package " + javaPackage.getName());
-            rulesCorrect = isEfferentsValid(layer, rules, rulesCorrect, javaPackage, javaPackage.getName());
+            testEfferentsValid(layer, rules, javaPackage, javaPackage.getName());
         }
 
-        return rulesCorrect;
     }
 
 
     /**
      * @param layer
      * @param rules
-     * @param rulesCorrect
      * @param jPackage
      * @param analyzedPackageName
      * @return
+     * @throws DependencyConstraintException
      */
-    protected boolean isEfferentsValid(final String layer, final Collection rules,
-                                       boolean rulesCorrect, final JavaPackage jPackage,
-                                       final String analyzedPackageName) {
+    protected void testEfferentsValid(final String layer, final Collection rules,
+                                       final JavaPackage jPackage,
+                                       final String analyzedPackageName) throws DependencyConstraintException {
 
         Collection efferents = jPackage.getEfferents();
 
@@ -165,18 +164,14 @@ abstract class AbstractArchitecturalRules {
 
             if (rules.contains(efferentPackage.getName()) && analyzedPackageName.equals(layer)) {
 
-                rulesCorrect = false;
-
-                final String message = "architecture rule failure: "
-                        + analyzedPackageName
-                        + " is not allowed to depend upon " + efferentPackage.getName();
+                final String message = analyzedPackageName
+                        + " is not allowed to depend upon "
+                        + efferentPackage.getName();
 
                 log.error(message);
 
-                break;
+                throw new DependencyConstraintException(message);
             }
         }
-
-        return rulesCorrect;
     }
 }

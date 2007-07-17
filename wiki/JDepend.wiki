@@ -1,4 +1,4 @@
-#summary One-sentence summary of this page.
+#jdepend
 
 = Introduction =
 
@@ -8,4 +8,3 @@ This library wraps the jdepend library to make it a little easier to use and con
 = Details =
 
 Learn more about JDepend [http://clarkware.com/software/JDepend.html here].
-

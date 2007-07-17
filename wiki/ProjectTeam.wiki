@@ -1,5 +1,5 @@
 #summary maven-generated dependency list
-#labels maven-generated,ProjectTeam,Featured
+#labels maven-generated,ProjectTeam
 
 = The Team =
 

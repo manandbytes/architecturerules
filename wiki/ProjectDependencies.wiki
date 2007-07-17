@@ -10,13 +10,13 @@
 
 The following is a list of compile dependencies for this project. These dependencies are required to compile and run the application:
 
-|| *GroupId*             || *ArtifactId* || *Version* || *Type* ||
-|| commons-io            || commons-io   || 1.1       || jar    || 
-|| jdepend               || jdepend      || 2.9.1     || jar    || 
-|| junit                 || junit        || 3.8.1     || jar    || 
-|| org.springframework   || spring       || 2.0.5     || jar	|| 
-|| xerces                || xercesImpl   || 2.6.2     || jar	|| 
-|| xml-apis              || xml-apis     || 1.3.04    || jar	|| 
+|| *GroupId*             || *ArtifactId* || *Version* || *Type* || *Download* ||
+|| commons-io            || commons-io   || 1.1       || jar    ||  [ftp://ibiblio.org/pub/packages/maven2/commons-io/commons-io/1.1/commons-io-1.1-javadoc.jar download]          ||
+|| jdepend               || jdepend      || 2.9.1     || jar    || [ftp://ibiblio.org/pub/packages/maven2/jdepend/jdepend/2.9.1/jdepend-2.9.1.jar download]           ||
+|| junit                 || junit        || 3.8.1     || jar    || [ftp://ibiblio.org/pub/packages/maven2/junit/junit/3.8.1/junit-3.8.1.jar download]           || 
+|| org.springframework   || spring       || 2.0.5     || jar	|| [ftp://ibiblio.org/pub/packages/maven2/org/springframework/spring/2.0.5/spring-2.0.5.jar download]           || 
+|| xerces                || xercesImpl   || 2.6.2     || jar	|| [ftp://ibiblio.org/pub/packages/maven2/xerces/xercesImpl/2.6.2/xercesImpl-2.6.2-sources.jar download]           || 
+|| xml-apis              || xml-apis     || 1.3.04    || jar	|| [ftp://ibiblio.org/pub/packages/maven2/xml-apis/xml-apis/1.3.04/xml-apis-1.3.04.jar download]           ||
 
 
 =Project Transitive Dependencies=

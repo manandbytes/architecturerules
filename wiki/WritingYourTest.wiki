@@ -1,0 +1,49 @@
+#summary example junit TestCase usage
+
+= Introduction =
+
+Once your configuration is complete ([SampleConfiguration]) you just need to instanciate the class and run `checkArchitecture`
+
+
+= Complete example =
+
+{{{
+import junit.framework.TestCase;
+import com.nereson.architecturerules.*;
+
+
+public class ArchitecturalRulesTest extends TestCase {
+
+
+    public ArchitecturalRulesTest(String name) {
+        super(name);
+    }
+
+
+    public void test() {
+
+
+        ArchitectureTestService architectureTestService = new ArchitectureTestService();
+
+        try {
+
+            architectureTestService.checkArchitecture();
+
+        } catch (CyclicRedundencyException e) {
+
+            fail("cyclic redundency exists: " + e.getMessage());
+
+        } catch (DependencyConstraintException e) {
+
+            fail("dependency constraint violated: " + e.getMessage());
+
+        } catch (SourceNotFoundException e) {
+
+            fail("required source directory not found: " + e.getMessage());
+            
+        } catch (NoPackagesFoundException e) {
+            
+            fail("no packages found in the given sources: " + e.getMessage());
+        }
+    }
+}}}}

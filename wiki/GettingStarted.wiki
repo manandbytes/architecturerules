@@ -16,8 +16,20 @@ Here are the steps that we'll go over
 
 == Get the library ==
 
-Download the latest from [downloads]
+Download the latest from [http://code.google.com/p/architecturerules/downloads/list downloads]
 
 == Write your architecture rules ==
+
+Create architecture-rules.xml _anywhere_ in your classpath. If you are using maven, I'd suggest `src/test/resources`.
+
+Write your configuration and rules by following this [SampleConfiguration sample configuration example].
+
+
 == Write your test ==
+
+Create your test class. See [WritingYourTest writing your test] example.
+
 ==Run the tests ==
+
+Its a junit test. Run your unit tests however you do that. With your IDE, or with maven via `mvn test`
+

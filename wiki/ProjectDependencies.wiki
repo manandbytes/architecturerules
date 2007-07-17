@@ -1,5 +1,5 @@
 #summary maven-generated dependency list
-#labels maven-generated,ProjectDependencies,Phase-Implementation,Featured
+#labels maven-generated,ProjectDependencies,Phase-Implementation
 
 
 

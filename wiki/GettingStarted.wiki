@@ -21,6 +21,8 @@ Download the latest from [http://code.google.com/p/architecturerules/downloads/l
 
 Ensure you also have the dependencies listed [ProjectDependencies here] in your classpath.
 
+Better yet, if you are maven2 user. Download the source via *svn checkout http://architecturerules.googlecode.com/svn/trunk/ architecturerules* and then just run `mvn install` and allow maven to get the dependencies for you.
+
 == Write your architecture rules ==
 
 Create architecture-rules.xml _anywhere_ in your classpath. If you are using maven, I'd suggest `src/test/resources`.

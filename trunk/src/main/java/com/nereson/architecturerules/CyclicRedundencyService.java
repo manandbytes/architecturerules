@@ -22,8 +22,9 @@ class CyclicRedundencyService extends AbstractArchitecturalRules {
     /**
      * Constructor instanciates a new CyclicRedundencyService
      * @throws SourceNotFoundException when a required source is not found
+     * @throws NoPackagesFoundException when no packages are found in the given configuraiton for sources
      */
-    public CyclicRedundencyService() throws SourceNotFoundException {
+    public CyclicRedundencyService() throws SourceNotFoundException, NoPackagesFoundException {
         super();
 
         log.info("instanciating new CyclicRedundencyService");

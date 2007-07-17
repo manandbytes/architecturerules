@@ -1,9 +1,5 @@
 <?xml version="1.0"?>
 
-<!--<!DOCTYPE architecture
-        SYSTEM "architecture-rules.dtd">-->
-
-
 <architecture>
 
     <configuration>
@@ -35,7 +31,7 @@
 
         <rule>
             <id>strategy</id>
-            <package>com.nereson.pagerank.core.strategies</package>
+            <package></package>
             <violations>
                 <violation>com.nereson.pagerank.core.services</violation>
                 <violation>com.nereson.pagerank.core.dao.hibernate</violation>

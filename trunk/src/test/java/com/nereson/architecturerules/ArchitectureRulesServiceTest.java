@@ -29,9 +29,29 @@ public class ArchitectureRulesServiceTest extends TestCase {
     }
 
 
-    public void test() throws Exception {
+    public void test() {
 
         ArchitectureTestService architectureTestService = new ArchitectureTestService();
-        architectureTestService.checkArchitecture();
+
+        try {
+
+            architectureTestService.checkArchitecture();
+
+        } catch (CyclicRedundencyException e) {
+
+            fail(e.getMessage());
+
+        } catch (DependencyConstraintException e) {
+
+            fail(e.getMessage());
+
+        } catch (SourceNotFoundException e) {
+
+            fail(e.getMessage());
+
+        } catch (NoPackagesFoundException e) {
+
+            fail(e.getMessage());
+        }
     }
 }

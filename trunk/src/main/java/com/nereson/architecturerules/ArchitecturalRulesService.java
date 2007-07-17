@@ -20,7 +20,7 @@ class ArchitecturalRulesService extends AbstractArchitecturalRules {
     private static final Log log = LogFactory.getLog(ArchitecturalRulesService.class);
 
 
-    public ArchitecturalRulesService() throws SourceNotFoundException {
+    public ArchitecturalRulesService() throws SourceNotFoundException, NoPackagesFoundException {
         super();
 
         log.info("instanciating new ArchitecturalRulesService");

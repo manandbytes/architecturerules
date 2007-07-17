@@ -172,7 +172,7 @@ class Rule {
 
     public String describe(final boolean outputToConsole) {
 
-        StringBuilder stringBuilder = new StringBuilder();
+        StringBuffer stringBuilder = new StringBuffer();
         stringBuilder.append("<rule>").append("\r\n");
         stringBuilder.append("\t").append("<id>").append(id).append("</id>").append("\r\n");
         stringBuilder.append("\t").append("<packageName>").append(packageName).append("</packageName>").append("\r\n");

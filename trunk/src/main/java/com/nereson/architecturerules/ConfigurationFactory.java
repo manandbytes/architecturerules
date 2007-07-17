@@ -72,7 +72,7 @@ class ConfigurationFactory {
 
         // There's a name conflict with java.net.ContentHandler
         // so we have to use the fully package qualified name.
-        org.xml.sax.ContentHandler handler = new ArchitectureRulesConfigurationHandler(rules, sources, throwExceptionWhenNoPackages, doCyclicDependencyTest);
+        org.xml.sax.ContentHandler handler = new ArchitectureRulesConfigurationHandler();
         parser.setContentHandler(handler);
 
         InputStream inputStream = new ByteArrayInputStream(configuration.getBytes());
@@ -81,6 +81,12 @@ class ConfigurationFactory {
         parser.parse(source);
 
         inputStream.close();
+
+
+        doCyclicDependencyTest = ((ArchitectureRulesConfigurationHandler) handler).isDoCyclicDependencyTest();
+        throwExceptionWhenNoPackages = ((ArchitectureRulesConfigurationHandler) handler).isThrowExceptionWhenNoPackages();
+        sources.addAll(((ArchitectureRulesConfigurationHandler) handler).getSources());
+        rules.addAll(((ArchitectureRulesConfigurationHandler) handler).getRules());
     }
 
 

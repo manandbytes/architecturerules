@@ -27,7 +27,7 @@ abstract class AbstractArchitecturalRules {
     private Collection packages;
 
 
-    protected AbstractArchitecturalRules() throws SourceNotFoundException {
+    protected AbstractArchitecturalRules() throws SourceNotFoundException, NoPackagesFoundException {
 
         log.info("instanciating new AbstractArchitecturalRules");
 
@@ -88,8 +88,8 @@ abstract class AbstractArchitecturalRules {
 
             if (throwExceptionWhenNoPackages) {
 
-                log.debug("throwing CyclicRedundencyException");
-                throw new RuntimeException("cyclic redundency does exist");
+                log.debug("throwing RuntimeException because no packages were found");
+                throw new NoPackagesFoundException("no packages were found with the given configuraiton. check your <sources />");
             }
 
         } else {

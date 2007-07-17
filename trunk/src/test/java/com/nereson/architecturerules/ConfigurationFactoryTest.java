@@ -14,7 +14,7 @@ import java.util.Set;
  * @author <Authors name>
  * @version 1.0
  * @since <pre>07/15/2007</pre>
- */
+ */                                                                                       
 public class ConfigurationFactoryTest extends TestCase {
 
 

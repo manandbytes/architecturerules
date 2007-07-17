@@ -22,7 +22,13 @@ public class ArchitectureTestService {
     }
 
 
-    public void checkArchitecture() throws CyclicRedundencyException, DependencyConstraintException, SourceNotFoundException {
+    /**
+     * @throws CyclicRedundencyException
+     * @throws DependencyConstraintException
+     * @throws SourceNotFoundException
+     * @throws NoPackagesFoundException
+     */
+    public void checkArchitecture() throws CyclicRedundencyException, DependencyConstraintException, SourceNotFoundException, NoPackagesFoundException {
 
         log.debug("checking to see if cyclic dependency test is requested by configuration");
 

@@ -8,8 +8,7 @@ import org.xml.sax.ContentHandler;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 
 /**
@@ -23,8 +22,8 @@ class ArchitectureRulesConfigurationHandler extends DefaultHandler {
 
     private static final Log log = LogFactory.getLog(ArchitectureRulesConfigurationHandler.class);
 
-    private Set rules;
-    private List sources;
+    private Set rules = new HashSet();
+    private List sources = new ArrayList();
     private boolean throwExceptionWhenNoPackages;
     private boolean doCyclicDependencyTest;
 
@@ -42,14 +41,9 @@ class ArchitectureRulesConfigurationHandler extends DefaultHandler {
     private String lastSourceNotFoundExceptionFlag;
 
 
-    public ArchitectureRulesConfigurationHandler(Set rules, List packages, boolean throwExceptionWhenNoPackages, boolean doCyclicDependencyTest) {
+    public ArchitectureRulesConfigurationHandler() {
 
         super();
-
-        this.rules = rules;
-        this.sources = packages;
-        this.throwExceptionWhenNoPackages = throwExceptionWhenNoPackages;
-        this.doCyclicDependencyTest = doCyclicDependencyTest;
     }
 
 
@@ -177,5 +171,45 @@ class ArchitectureRulesConfigurationHandler extends DefaultHandler {
         this.nextValueIsRuleViolation = false;
         this.nextValueIsRuleComment = false;
         this.nextValueEndsRule = false;
+    }
+
+
+    /**
+     * Getter for property 'rules'.
+     *
+     * @return Value for property 'rules'.
+     */
+    public Set getRules() {
+        return rules;
+    }
+
+
+    /**
+     * Getter for property 'sources'.
+     *
+     * @return Value for property 'sources'.
+     */
+    public List getSources() {
+        return sources;
+    }
+
+
+    /**
+     * Getter for property 'throwExceptionWhenNoPackages'.
+     *
+     * @return Value for property 'throwExceptionWhenNoPackages'.
+     */
+    public boolean isThrowExceptionWhenNoPackages() {
+        return throwExceptionWhenNoPackages;
+    }
+
+
+    /**
+     * Getter for property 'doCyclicDependencyTest'.
+     *
+     * @return Value for property 'doCyclicDependencyTest'.
+     */
+    public boolean isDoCyclicDependencyTest() {
+        return doCyclicDependencyTest;
     }
 }

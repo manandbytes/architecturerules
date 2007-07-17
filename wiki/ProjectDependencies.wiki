@@ -11,7 +11,7 @@
 The following is a list of compile dependencies for this project. These dependencies are required to compile and run the application:
 
 || *GroupId*             || *ArtifactId* || *Version* || *Type* || *Download* ||
-|| commons-io            || commons-io   || 1.1       || jar    ||  [ftp://ibiblio.org/pub/packages/maven2/commons-io/commons-io/1.1/commons-io-1.1-javadoc.jar download]          ||
+|| commons-io            || commons-io   || 1.1       || jar    ||  [ftp://ibiblio.org/pub/packages/maven2/commons-io/commons-io/1.1/commons-io-1.1.jardownload]          ||
 || jdepend               || jdepend      || 2.9.1     || jar    || [ftp://ibiblio.org/pub/packages/maven2/jdepend/jdepend/2.9.1/jdepend-2.9.1.jar download]           ||
 || junit                 || junit        || 3.8.1     || jar    || [ftp://ibiblio.org/pub/packages/maven2/junit/junit/3.8.1/junit-3.8.1.jar download]           || 
 || org.springframework   || spring       || 2.0.5     || jar	|| [ftp://ibiblio.org/pub/packages/maven2/org/springframework/spring/2.0.5/spring-2.0.5.jar download]           || 

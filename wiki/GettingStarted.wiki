@@ -19,6 +19,8 @@ Here are the steps that we'll go over
 
 Download the latest from [http://code.google.com/p/architecturerules/downloads/list downloads]
 
+Ensure you also have the dependencies listed [ProjectDependencies here] in your classpath.
+
 == Write your architecture rules ==
 
 Create architecture-rules.xml _anywhere_ in your classpath. If you are using maven, I'd suggest `src/test/resources`.

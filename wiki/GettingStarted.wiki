@@ -7,7 +7,14 @@ This is a complete tutorial to get you testing your architecture with this archi
 
 = Details =
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+Here are the steps that we'll go over
+  * Get the library
+  * Write your architecture rules
+  * Write your test
+  * Run the tests
+
+
+== Get the library ==
+== Write your architecture rules ==
+== Write your test ==
+==Run the tests ==

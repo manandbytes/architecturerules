@@ -1,4 +1,4 @@
-#summary maven-generated dependency list
+#summary maven-generated project team list
 #labels maven-generated,ProjectTeam
 
 = The Team =

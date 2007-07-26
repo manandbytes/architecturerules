@@ -15,7 +15,7 @@ import java.util.*;
  *
  * @author mnereson
  */
-public class ClassPathResource {
+class ClassPathResource {
 
 
     private static final String FOLDER_SEPARATOR = "/";

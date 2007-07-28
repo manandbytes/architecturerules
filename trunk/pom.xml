@@ -194,11 +194,7 @@
                                 <requireJavaVersion>
                                     <!-- java 5 or higher -->
                                     <version>[1.4,)</version>
-                                </requireJavaVersion>
-                                <requireOS>
-                                    <!-- paths will all be written for windows environment at this stage -->
-                                    <family>windows</family>
-                                </requireOS>
+                                </requireJavaVersion>                                
                             </rules>
                         </configuration>
                     </execution>

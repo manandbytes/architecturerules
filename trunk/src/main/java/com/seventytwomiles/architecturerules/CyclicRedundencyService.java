@@ -24,7 +24,7 @@ class CyclicRedundencyService extends AbstractArchitecturalRules {
 
 
     /**
-     * <p>Constructor instanciates a new <code>CyclicRedundencyService</code></p>
+     * <p>Constructor instantiates a new <code>CyclicRedundencyService</code></p>
      *
      * @throws SourceNotFoundException when an required source directory does
      * not exist and when <tt>exception</tt>=<tt>"true"</tt> in the source
@@ -43,7 +43,7 @@ class CyclicRedundencyService extends AbstractArchitecturalRules {
 
     /**
      * <p>Check all the packages in all of the source directories and search for
-     * any cyclic reduency. </p>
+     * any cyclic redundency. </p>
      *
      * @throws CyclicRedundencyException when cyclic redundency is found
      */
@@ -51,7 +51,7 @@ class CyclicRedundencyService extends AbstractArchitecturalRules {
 
         log.info("cyclic reduendency check requested");
 
-        log.debug("prforming cyclic reduendency check");
+        log.debug("performing cyclic reduendency check");
         if (jdepend.containsCycles()) {
 
             log.warn("found cyclic redundendcies");

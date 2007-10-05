@@ -29,21 +29,21 @@ Here is an example. Read on for the break down.
 
         <rule>
             <id>dao</id>
-            <package>com.nereson.pagerank.core.dao</package>
+            <package>com.seventytwomiles.project.core.dao</package>
             <violations>
-                <violation>com.nereson.pagerank.core.services</violation>
-                <violation>com.nereson.pagerank.core.builder</violation>
-                <violation>com.nereson.pagerank.util</violation>
+                <violation>com.seventytwomiles.project.core.services</violation>
+                <violation>com.seventytwomiles.project.core.builder</violation>
+                <violation>com.seventytwomiles.project.util</violation>
             </violations>
             <comment>The dao interface package should rely on nothing.</comment>
         </rule>
 
         <rule>
             <id>strategy</id>
-            <package>com.nereson.pagerank.core.strategies</package>
+            <package>com.seventytwomiles.project.core.strategies</package>
             <violations>
-                <violation>com.nereson.pagerank.core.services</violation>
-                <violation>com.nereson.pagerank.core.dao.hibernate</violation>
+                <violation>com.seventytwomiles.project.core.services</violation>
+                <violation>com.seventytwomiles.project.core.dao.hibernate</violation>
             </violations>
             <comment>strategies should be as pluggable as possible</comment>
         </rule>
@@ -52,12 +52,12 @@ Here is an example. Read on for the break down.
             <id>model</id>
             <package>com.nereson.pagerank.core.model</package>
             <violations>
-                <violation>com.nereson.pagerank.core.dao</violation>
-                <violation>com.nereson.pagerank.core.dao.hibernate</violation>
-                <violation>com.nereson.pagerank.core.services</violation>
-                <violation>com.nereson.pagerank.core.strategy</violation>
-                <violation>com.nereson.pagerank.core.builder</violation>
-                <violation>com.nereson.pagerank.util</violation>
+                <violation>com.seventytwomiles.project.core.dao</violation>
+                <violation>com.seventytwomiles.project.core.dao.hibernate</violation>
+                <violation>com.seventytwomiles.project.core.services</violation>
+                <violation>com.seventytwomiles.project.core.strategy</violation>
+                <violation>com.seventytwomiles.project.core.builder</violation>
+                <violation>com.seventytwomiles.project.util</violation>
             </violations>
             <comment>model should remain competely isolated</comment>
         </rule>
@@ -115,11 +115,11 @@ Rules define a `package`, and then go on to list each package that would be cons
 {{{
 <rule>
     <id>dao</id>
-    <package>com.nereson.pagerank.core.dao</package>
+    <package>com.seventytwomiles.project.core.dao</package>
     <violations>
-        <violation>com.nereson.pagerank.core.services</violation>
-        <violation>com.nereson.pagerank.core.builder</violation>
-        <violation>com.nereson.pagerank.util</violation>
+        <violation>com.seventytwomiles.project.core.services</violation>
+        <violation>com.seventytwomiles.project.core.builder</violation>
+        <violation>com.seventytwomiles.project.util</violation>
     </violations>
     <comment>The dao interface package should rely on nothing.</comment>
 </rule>
@@ -132,5 +132,3 @@ You can not add a `violation` that is identical to the `package`. This is becaus
 = Conclusion = 
 
 Thats all there is to it. You can define as many `rules` as you would like, and `cyclicalDependency`  is not required at all.
-
-

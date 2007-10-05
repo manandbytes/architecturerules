@@ -1,8 +1,9 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.nereson</groupId>
+    <groupId>com.seventytwomiles</groupId>
     <artifactId>architecture-rules</artifactId>
     <packaging>jar</packaging>
     <version>1.1</version>
@@ -11,7 +12,8 @@
     <name>architecture-rules</name>
     <description>
         Leverages an XML configuration file to test your code's architecture via
-        unit tests. Able to assert that specific packages do not depend on each other
+        unit tests. Able to assert that specific packages do not depend on each
+        other
         and able to check for cyclic redundancies among your packages.
     </description>
 
@@ -67,7 +69,8 @@
 
     <scm>
         <connection>scm:svn://hp/pagerank/architecturerules</connection>
-        <developerConnection>scm:svn://hp/pagerank/architecturerules</developerConnection>
+        <developerConnection>scm:svn://hp/pagerank/architecturerules
+        </developerConnection>
         <url>http://hp/svn/pagerank/architecturerules</url>
     </scm>
 
@@ -152,19 +155,20 @@
         <plugins>
 
 
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-source-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-
+            <!--
+                       <plugin>
+                            <groupId>org.apache.maven.plugins</groupId>
+                            <artifactId>maven-source-plugin</artifactId>
+                            <executions>
+                                <execution>
+                                    <phase>package</phase>
+                                    <goals>
+                                        <goal>jar</goal>
+                                    </goals>
+                                </execution>
+                            </executions>
+                        </plugin>
+            -->
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -194,7 +198,7 @@
                                 <requireJavaVersion>
                                     <!-- java 5 or higher -->
                                     <version>[1.4,)</version>
-                                </requireJavaVersion>                                
+                                </requireJavaVersion>
                             </rules>
                         </configuration>
                     </execution>
@@ -205,7 +209,6 @@
         </plugins>
 
     </build>
-
 
 </project>
 

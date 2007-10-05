@@ -2,7 +2,10 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
+
     <modelVersion>4.0.0</modelVersion>
+
+
     <groupId>com.seventytwomiles</groupId>
     <artifactId>architecture-rules</artifactId>
     <packaging>jar</packaging>
@@ -68,10 +71,12 @@
 
 
     <scm>
-        <connection>scm:svn://hp/pagerank/architecturerules</connection>
-        <developerConnection>scm:svn://hp/pagerank/architecturerules
+        <connection>scm:svn:http://architecturerules.googlecode.com/svn/trunk/
+        </connection>
+        <developerConnection>
+            scm:svn:http://architecturerules.googlecode.com/svn/trunk/
         </developerConnection>
-        <url>http://hp/svn/pagerank/architecturerules</url>
+        <url>http://architecturerules.googlecode.com/svn/trunk/</url>
     </scm>
 
 
@@ -79,18 +84,15 @@
 
         <plugins>
 
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-project-info-reports-plugin</artifactId>
             </plugin>
 
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
             </plugin>
-
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -100,19 +102,16 @@
                 </configuration>
             </plugin>
 
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-report-plugin</artifactId>
             </plugin>
-
 
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>cobertura-maven-plugin</artifactId>
                 <version>2.0</version>
             </plugin>
-
 
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
@@ -143,7 +142,6 @@
                 <groupId>net.sf</groupId>
                 <artifactId>stat-scm</artifactId>
             </plugin>
-
 
         </plugins>
 
@@ -235,12 +233,10 @@
             <url>http://maven.opensymphony.com</url>
         </repository>
 
-
         <repository>
             <id>apache</id>
             <url>http://people.apache.org/repo/m2-snapshot-repository</url>
         </repository>
-
 
         <repository>
             <id>maven1</id>
@@ -248,6 +244,7 @@
         </repository>
 
     </repositories>
+
 
     <pluginRepositories>
 

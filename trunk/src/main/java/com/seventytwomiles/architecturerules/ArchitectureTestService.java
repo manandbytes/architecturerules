@@ -14,15 +14,25 @@ import org.apache.commons.logging.LogFactory;
 public class ArchitectureTestService {
 
 
+    /**
+     * <p>todo: javadoc this</p>
+     *
+     * @parameter
+     */
     private static final Log log = LogFactory.getLog(ArchitectureTestService.class);
 
 
+    /**
+     * <p></p>
+     */
     public ArchitectureTestService() {
         log.info("instanciating new ArchitectureTestService");
     }
 
 
     /**
+     * <p></p>
+     *
      * @throws CyclicRedundencyException
      * @throws DependencyConstraintException
      * @throws SourceNotFoundException
@@ -40,7 +50,7 @@ public class ArchitectureTestService {
 
             log.debug("cyclic reduendency test is requested");
 
-            CyclicRedundencyService redundencyService = new CyclicRedundencyService();
+            final CyclicRedundencyService redundencyService = new CyclicRedundencyService();
             redundencyService.performCyclicRedundencyCheck();
 
         } else {
@@ -50,7 +60,7 @@ public class ArchitectureTestService {
         }
 
 
-        ArchitecturalRulesService architecturalRulesService = new ArchitecturalRulesService();
+        final ArchitecturalRulesService architecturalRulesService = new ArchitecturalRulesService();
         architecturalRulesService.performRulesTest();
     }
 }

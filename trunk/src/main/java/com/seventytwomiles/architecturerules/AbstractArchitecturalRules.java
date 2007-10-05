@@ -21,22 +21,44 @@ import java.util.List;
 abstract class AbstractArchitecturalRules {
 
 
+    /**
+     * <p></p>
+     *
+     * @parameter
+     */
     private static final Log log = LogFactory.getLog(AbstractArchitecturalRules.class);
 
-    protected JDepend jdepend;
+    /**
+     * <p></p>
+     *
+     * @parameter
+     */
+    protected final JDepend jdepend;
+
+    /**
+     * <p></p>
+     *
+     * @parameter
+     */
     private Collection packages;
 
 
+    /**
+     * <p></p>
+     *
+     * @throws SourceNotFoundException
+     * @throws NoPackagesFoundException
+     */
     protected AbstractArchitecturalRules() throws SourceNotFoundException, NoPackagesFoundException {
 
         log.info("instanciating new AbstractArchitecturalRules");
 
         jdepend = new JDepend();
 
-        List sources = ConfigurationFactory.getSources();
+        final List sources = ConfigurationFactory.getSources();
 
-        for (Iterator sourceIterator = sources.iterator(); sourceIterator.hasNext();)
-        {
+        for (Iterator sourceIterator = sources.iterator();
+             sourceIterator.hasNext();) {
 
             final String[] source = (String[]) sourceIterator.next();
 
@@ -58,7 +80,7 @@ abstract class AbstractArchitecturalRules {
 
                 log.debug(message.toString());
 
-            } catch (IOException e) {
+            } catch (final IOException e) {
 
                 message.append(throwExceptionIfNotFound ? "required " : "");
                 message.append("source ");
@@ -107,6 +129,8 @@ abstract class AbstractArchitecturalRules {
 
 
     /**
+     * <p></p>
+     *
      * @param layer
      * @param rules
      * @return
@@ -118,6 +142,7 @@ abstract class AbstractArchitecturalRules {
         final Collection packages = jdepend.analyze();
 
         log.debug("checking how many packages were found by JDepend");
+
         if (packages.isEmpty()) {
 
             log.warn("no packages were found with the given configuraiton. check your <sources />");
@@ -136,19 +161,20 @@ abstract class AbstractArchitecturalRules {
             log.debug("jdepend found " + packages.size() + " to analyze for dependency architecture");
         }
 
-        for (Iterator packageIterator = packages.iterator(); packageIterator.hasNext();)
-        {
+        for (Iterator packageIterator = packages.iterator();
+             packageIterator.hasNext();) {
 
             final JavaPackage javaPackage = (JavaPackage) packageIterator.next();
 
             log.debug("checking dependencies on package " + javaPackage.getName());
             testEfferentsValid(layer, rules, javaPackage, javaPackage.getName());
         }
-
     }
 
 
     /**
+     * <p></p>
+     *
      * @param layer
      * @param rules
      * @param jPackage
@@ -164,8 +190,8 @@ abstract class AbstractArchitecturalRules {
 
         JavaPackage efferentPackage;
 
-        for (Iterator packageIterator = efferents.iterator(); packageIterator.hasNext();)
-        {
+        for (Iterator packageIterator = efferents.iterator();
+             packageIterator.hasNext();) {
 
             efferentPackage = (JavaPackage) packageIterator.next();
 

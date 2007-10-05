@@ -17,36 +17,57 @@ import java.util.Set;
 class ArchitecturalRulesService extends AbstractArchitecturalRules {
 
 
+    /**
+     * <p>todo: javadoc this</p>
+     *
+     * @parameter
+     */
     private static final Log log = LogFactory.getLog(ArchitecturalRulesService.class);
 
 
+    /**
+     * <p></p>
+     *
+     * @throws SourceNotFoundException
+     * @throws NoPackagesFoundException
+     */
     public ArchitecturalRulesService() throws SourceNotFoundException, NoPackagesFoundException {
+
         super();
 
         log.info("instanciating new ArchitecturalRulesService");
     }
 
 
+    /**
+     * <p></p>
+     *
+     * @throws DependencyConstraintException
+     * @throws CyclicRedundencyException
+     */
     public void performRulesTest() throws DependencyConstraintException, CyclicRedundencyException {
 
         log.info("perform rules test required");
 
         log.debug("loading all rules");
-        Set rules = ConfigurationFactory.getRules();
+        final Set rules = ConfigurationFactory.getRules();
 
-        StringBuffer ruleList = new StringBuffer();
-        for (Iterator ruleIterator = rules.iterator(); ruleIterator.hasNext();)
-        {
+        final StringBuffer ruleList = new StringBuffer();
+        Rule rule;
 
-            Rule rule = (Rule) ruleIterator.next();
+        for (Iterator ruleIterator = rules.iterator();
+             ruleIterator.hasNext();) {
+
+            rule = (Rule) ruleIterator.next();
             ruleList.append("[").append(rule.getId()).append(" for ").append(rule.getPackageName()).append("] ");
         }
 
         log.debug("loaded " + rules.size() + " rules " + ruleList.toString());
 
-        for (Iterator ruleIterator = rules.iterator(); ruleIterator.hasNext();)
-        {
-            Rule rule = (Rule) ruleIterator.next();
+        for (Iterator ruleIterator = rules.iterator();
+             ruleIterator.hasNext();) {
+
+            rule = (Rule) ruleIterator.next();
 
             log.info("checking rule " + rule.getId());
             log.debug("checking for dependency violations in " + rule.getPackageName());

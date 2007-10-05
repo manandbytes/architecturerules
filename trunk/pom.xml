@@ -74,7 +74,7 @@
         <connection>scm:svn:http://architecturerules.googlecode.com/svn/trunk/
         </connection>
         <developerConnection>
-            scm:svn:http://architecturerules.googlecode.com/svn/trunk/
+            scm:https://architecturerules.googlecode.com/svn/trunk/
         </developerConnection>
         <url>http://architecturerules.googlecode.com/svn/trunk/</url>
     </scm>

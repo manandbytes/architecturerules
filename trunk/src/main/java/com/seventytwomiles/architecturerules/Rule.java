@@ -15,12 +15,41 @@ import java.util.List;
 class Rule {
 
 
+    /**
+     * <p></p>
+     *
+     * @parameter
+     */
     private String id;
+
+    /**
+     * <p></p>
+     *
+     * @parameter
+     */
     private String packageName;
+
+    /**
+     * <p></p>
+     *
+     * @parameter
+     */
     private String comment;
+
+    /**
+     * <p></p>
+     *
+     * @parameter
+     */
     private List violations = new ArrayList();
 
 
+    /**
+     * <p></p>
+     *
+     * @param id
+     * @param packageName
+     */
     public Rule(final String id, final String packageName) {
 
         this.id = id;
@@ -37,9 +66,9 @@ class Rule {
 
 
     /**
-     * Getter for property 'id'.
+     * Getter for property {@link #id}.
      *
-     * @return Value for property 'id'.
+     * @return Value for property <tt>id</tt>.
      */
     public String getId() {
         return id;
@@ -47,9 +76,9 @@ class Rule {
 
 
     /**
-     * Getter for property 'comment'.
+     * Getter for property {@link #comment}.
      *
-     * @return Value for property 'comment'.
+     * @return Value for property <tt>comment</tt>.
      */
     public String getComment() {
         return comment;
@@ -57,9 +86,9 @@ class Rule {
 
 
     /**
-     * Setter for property 'comment'.
+     * Setter for property {@link #comment}.
      *
-     * @param comment Value to set for property 'comment'.
+     * @param comment Value to set for property <tt>comment</tt>.
      */
     public void setComment(final String comment) {
         this.comment = comment;
@@ -67,9 +96,9 @@ class Rule {
 
 
     /**
-     * Getter for property 'packageName'.
+     * Getter for property {@link #packageName}.
      *
-     * @return Value for property 'packageName'.
+     * @return Value for property <tt>packageName</tt>.
      */
     public String getPackageName() {
         return packageName;
@@ -92,16 +121,19 @@ class Rule {
      * upon
      * @return boolean true if the violation is added to the List of
      *         violoatizons
-     * @throws IllegalRuleException when the packageName is also a violation:
-     * this is a Illegal Rule because it can not be tessted and its better to
-     * ask the developer to understand what they are asking me to test, rather
-     * than just ignore the configuration entry
+     * @throws IllegalArchitectureRuleException when the packageName is also a
+     * violation: this is a Illegal Rule because it can not be tessted and its
+     * better to ask the developer to understand what they are asking me to
+     * test, rather than just ignore the configuration entry
      */
-    public boolean addViolation(final String violation) throws IllegalRuleException {
+    public boolean addViolation(final String violation) throws IllegalArchitectureRuleException {
 
         if (violation.equalsIgnoreCase(packageName))
-            throw new IllegalRuleException(id + " can not add architecture violation to own package: " +
-                    "remove <violation>" + violation + "</violation> from rule " + id);
+            throw new IllegalArchitectureRuleException(
+                    "Could not add architecture rule violation that creates rule " +
+                            "that says a package can not use itself. Remove " +
+                            "<violation>" + violation + "</violation> " +
+                            "from rule " + id);
 
         return violations.add(violation);
     }
@@ -118,9 +150,9 @@ class Rule {
 
 
     /**
-     * Setter for property 'id'.
+     * Setter for property {@link #id}.
      *
-     * @param id Value to set for property 'id'.
+     * @param id Value to set for property <tt>id</tt>.
      */
     public void setId(final String id) {
         this.id = id;
@@ -128,9 +160,9 @@ class Rule {
 
 
     /**
-     * Setter for property 'packageName'.
+     * Setter for property {@link #packageName}.
      *
-     * @param packageName Value to set for property 'packageName'.
+     * @param packageName Value to set for property <tt>packageName</tt>.
      */
     public void setPackageName(final String packageName) {
         this.packageName = packageName;
@@ -175,18 +207,26 @@ class Rule {
     }
 
 
+    /**
+     * <p>Describes the properties of this rule in an xml-like format.</p>
+     *
+     * @param outputToConsole boolean <tt>true</tt> to output the description to
+     * the console
+     * @return String of xml that describes this <code>Rule</code>.
+     */
     public String describe(final boolean outputToConsole) {
 
-        StringBuffer stringBuilder = new StringBuffer();
+        final StringBuffer stringBuilder = new StringBuffer();
         stringBuilder.append("<rule>").append("\r\n");
         stringBuilder.append("\t").append("<id>").append(id).append("</id>").append("\r\n");
         stringBuilder.append("\t").append("<packageName>").append(packageName).append("</packageName>").append("\r\n");
         stringBuilder.append("\t").append("<comment>").append(comment).append("</comment>").append("\r\n");
         stringBuilder.append("\t").append("<violations>").append("\r\n");
 
-        for (Iterator violationIterator = violations.iterator(); violationIterator.hasNext();)
-        {
-            String violation = (String) violationIterator.next();
+        for (Iterator violationIterator = violations.iterator();
+             violationIterator.hasNext();) {
+
+            final String violation = (String) violationIterator.next();
             stringBuilder.append("\t\t").append("<violation>").append(violation).append("</violation>").append("\r\n");
         }
 
@@ -198,6 +238,4 @@ class Rule {
 
         return stringBuilder.toString();
     }
-
-
 }

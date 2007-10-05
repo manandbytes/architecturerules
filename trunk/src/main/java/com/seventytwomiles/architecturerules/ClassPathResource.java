@@ -11,47 +11,82 @@ import java.util.*;
 
 
 /**
- * <p>These classes are all extracted from Spring in order to remove the
- * dependency on the Spring library.</p>
+ * <p>These classes are all extracted from the Spring Framework in order to
+ * remove the dependency on the Spring library.</p>
  *
  * @author mnereson
  */
 class ClassPathResource {
 
 
+    /**
+     * <p>todo: javadoc this</p>
+     *
+     * @parameter
+     */
     private static final String FOLDER_SEPARATOR = "/";
 
+    /**
+     * <p>todo: javadoc this</p>
+     *
+     * @parameter
+     */
     private static final String WINDOWS_FOLDER_SEPARATOR = "\\";
 
+    /**
+     * <p>todo: javadoc this</p>
+     *
+     * @parameter
+     */
     private static final String TOP_PATH = "..";
 
+    /**
+     * <p>todo: javadoc this</p>
+     *
+     * @parameter
+     */
     private static final String CURRENT_PATH = ".";
 
+    /**
+     * <p>todo: javadoc this</p>
+     *
+     * @parameter
+     */
     private final String path;
 
+    /**
+     * <p>todo: javadoc this</p>
+     *
+     * @parameter
+     */
     private ClassLoader classLoader;
 
+    /**
+     * <p>todo: javadoc this</p>
+     *
+     * @parameter
+     */
     private Class clazz;
 
 
     /**
-     * Create a new ClassPathResource for ClassLoader usage. A leading slash
+     * <p>Create a new ClassPathResource for ClassLoader usage. A leading slash
      * will be removed, as the ClassLoader resource access methods will not
-     * accept it. <p>The thread context class loader will be used for loading
-     * the resource.
+     * accept it. The thread context class loader will be used for loading the
+     * resource.</p>
      *
      * @param path the absolute path within the class path
      * @see java.lang.ClassLoader#getResourceAsStream(String)
      */
-    public ClassPathResource(String path) {
+    public ClassPathResource(final String path) {
         this(path, (ClassLoader) null);
     }
 
 
     /**
-     * Create a new ClassPathResource for ClassLoader usage. A leading slash
+     * <p>Create a new ClassPathResource for ClassLoader usage. A leading slash
      * will be removed, as the ClassLoader resource access methods will not
-     * accept it.
+     * accept it.</p>
      *
      * @param path the absolute path within the classpath
      * @param classLoader the class loader to load the resource with, or
@@ -72,9 +107,9 @@ class ClassPathResource {
 
 
     /**
-     * Create a new ClassPathResource for Class usage. The path can be relative
-     * to the given class, or absolute within the classpath via a leading
-     * slash.
+     * <p>Create a new ClassPathResource for Class usage. The path can be
+     * relative to the given class, or absolute within the classpath via a
+     * leading slash.</p>
      *
      * @param path relative or absolute path within the class path
      * @param clazz the class to load resources with
@@ -91,14 +126,14 @@ class ClassPathResource {
 
 
     /**
-     * Create a new ClassPathResource with optional ClassLoader and Class. Only
-     * for internal usage.
+     * <p>Create a new ClassPathResource with optional ClassLoader and Class.
+     * Only for internal usage.</p>
      *
      * @param path relative or absolute path within the classpath
      * @param classLoader the class loader to load the resource with, if any
      * @param clazz the class to load resources with, if any
      */
-    protected ClassPathResource(String path, ClassLoader classLoader, Class clazz) {
+    protected ClassPathResource(final String path, final ClassLoader classLoader, final Class clazz) {
         this.path = path;
         this.classLoader = classLoader;
         this.clazz = clazz;
@@ -106,8 +141,8 @@ class ClassPathResource {
 
 
     /**
-     * This implementation returns a description that includes the class path
-     * location.
+     * <p>This implementation returns a description that includes the class path
+     * location.</p>
      *
      * @return String description of File
      */
@@ -117,8 +152,8 @@ class ClassPathResource {
 
 
     /**
-     * This implementation returns a File reference for the underlying class
-     * path resource, provided that it refers to a file in the file system.
+     * <p>This implementation returns a File reference for the underlying class
+     * path resource, provided that it refers to a file in the file system.</p>
      *
      * @return File
      * @throws IOException when file not found
@@ -129,8 +164,8 @@ class ClassPathResource {
 
 
     /**
-     * This implementation returns a URL for the underlying class path
-     * resource.
+     * <p>This implementation returns a URL for the underlying class path
+     * resource.</p>
      *
      * @return URL
      * @throws FileNotFoundException when file not found
@@ -149,7 +184,7 @@ class ClassPathResource {
 
 
     /**
-     * This implementation compares the underlying class path locations.
+     * <p>This implementation compares the underlying class path locations.</p>
      */
     public boolean equals(final Object object) {
 
@@ -168,11 +203,11 @@ class ClassPathResource {
 
 
     /**
-     * Determine if the given objects are equal, returning <code>true</code> if
-     * both are <code>null</code> or <code>false</code> if only one is
+     * <p>Determine if the given objects are equal, returning <code>true</code>
+     * if both are <code>null</code> or <code>false</code> if only one is
      * <code>null</code>. <p>Compares arrays with <code>Arrays.equals</code>,
      * performing an equality check based on the array elements rather than the
-     * array reference.
+     * array reference.</p>
      *
      * @param object1 first Object to compare
      * @param object2 second Object to compare
@@ -222,9 +257,9 @@ class ClassPathResource {
 
 
     /**
-     * This implementation checks whether a File can be opened, falling back to
-     * whether an InputStream can be opened. This will cover both directories
-     * and content resources.
+     * <p>This implementation checks whether a File can be opened, falling back
+     * to whether an InputStream can be opened. This will cover both directories
+     * and content resources.</p>
      *
      * @return boolean
      */
@@ -235,16 +270,16 @@ class ClassPathResource {
 
             return getFile().exists();
 
-        } catch (IOException ex) {
+        } catch (final IOException ex) {
 
             // Fall back to stream existence: can we open the stream?
             try {
 
-                InputStream inputStream = getInputStream();
+                final InputStream inputStream = getInputStream();
                 inputStream.close();
                 return true;
 
-            } catch (Throwable throwable) {
+            } catch (final Throwable throwable) {
 
                 return false;
             }
@@ -253,8 +288,8 @@ class ClassPathResource {
 
 
     /**
-     * This implementation opens an InputStream for the given class path
-     * resource.
+     * <p>This implementation opens an InputStream for the given class path
+     * resource.</p>
      *
      * @return InputStream
      * @throws FileNotFoundException when file not found
@@ -264,7 +299,7 @@ class ClassPathResource {
     private InputStream getInputStream() throws FileNotFoundException {
 
 
-        InputStream inputStream = clazz != null ? clazz.getResourceAsStream(path) : classLoader.getResourceAsStream(path);
+        final InputStream inputStream = clazz != null ? clazz.getResourceAsStream(path) : classLoader.getResourceAsStream(path);
 
         if (inputStream == null)
             throw new FileNotFoundException(getDescription() + " cannot be opened because it does not exist");
@@ -274,10 +309,10 @@ class ClassPathResource {
 
 
     /**
-     * Normalize the path by suppressing sequences like "path/.." and inner
+     * <p>Normalize the path by suppressing sequences like "path/.." and inner
      * simple dots. <p>The result is convenient for path comparison. For other
      * uses, notice that Windows separators ("\") are replaced by simple
-     * slashes.
+     * slashes.</p>
      *
      * @param path the original path
      * @return the normalized path
@@ -300,7 +335,8 @@ class ClassPathResource {
         }
 
         String[] pathArray = delimitedListToStringArray(pathToUse, FOLDER_SEPARATOR);
-        List pathElements = new LinkedList();
+
+        final List pathElements = new LinkedList();
         int tops = 0;
 
         for (int i = pathArray.length - 1; i >= 0; i--) {
@@ -338,8 +374,8 @@ class ClassPathResource {
 
 
     /**
-     * Replace all occurences of a substring within a string with another
-     * string.
+     * <p>Replace all occurences of a substring within a string with another
+     * string.</p>
      *
      * @param inString String to examine
      * @param oldPattern String to replace
@@ -354,14 +390,14 @@ class ClassPathResource {
         if (oldPattern == null || newPattern == null)
             return inString;
 
-        StringBuffer stringBuffer = new StringBuffer();
+        final StringBuffer stringBuffer = new StringBuffer();
 
         // output StringBuffer we'll build up
         int pos = 0; // our position in the old string
         int index = inString.indexOf(oldPattern);
 
         // the index of an occurrence we've found, or -1
-        int patLen = oldPattern.length();
+        final int patLen = oldPattern.length();
 
         while (index >= 0) {
 
@@ -379,8 +415,8 @@ class ClassPathResource {
 
 
     /**
-     * Convenience method to return a String array as a delimited (e.g. CSV)
-     * String. E.g. useful for <code>toString()</code> implementations.
+     * <p>Convenience method to return a String array as a delimited (e.g. CSV)
+     * String. E.g. useful for <code>toString()</code> implementations.</p>
      *
      * @param objects the array to display
      * @param delminator the delimiter to use (probably a ",")
@@ -391,9 +427,10 @@ class ClassPathResource {
         if (isEmpty(objects))
             return "";
 
-        StringBuffer stringBuffer = new StringBuffer();
+        final StringBuffer stringBuffer = new StringBuffer();
 
         for (int i = 0; i < objects.length; i++) {
+
             if (i > 0)
                 stringBuffer.append(delminator);
 
@@ -405,8 +442,8 @@ class ClassPathResource {
 
 
     /**
-     * Return whether the given objectArray is empty: that is, <code>null</code>
-     * or of zero length.
+     * <p>Return whether the given objectArray is empty: that is,
+     * <code>null</code> or of zero length.</p>
      *
      * @param objectArray the objectArray to check
      * @return whether the given objectArray is empty
@@ -417,8 +454,8 @@ class ClassPathResource {
 
 
     /**
-     * Convenience method to return a Collection as a delimited (e.g. CSV)
-     * String. E.g. useful for <code>toString()</code> implementations.
+     * <p>Convenience method to return a Collection as a delimited (e.g. CSV)
+     * String. E.g. useful for <code>toString()</code> implementations.</p>
      *
      * @param collection the Collection to display
      * @param deliminator the delimiter to use (probably a ",")
@@ -431,23 +468,23 @@ class ClassPathResource {
         if (collection.isEmpty())
             return "";
 
-        StringBuffer sb = new StringBuffer();
-        Iterator it = collection.iterator();
+        final StringBuffer stringBuffer = new StringBuffer();
+        final Iterator iterator = collection.iterator();
 
-        while (it.hasNext()) {
-            sb.append(prefix).append(it.next()).append(suffix);
+        while (iterator.hasNext()) {
+            stringBuffer.append(prefix).append(iterator.next()).append(suffix);
 
-            if (it.hasNext())
-                sb.append(deliminator);
+            if (iterator.hasNext())
+                stringBuffer.append(deliminator);
         }
 
-        return sb.toString();
+        return stringBuffer.toString();
     }
 
 
     /**
-     * Convenience method to return a Collection as a delimited (e.g. CSV)
-     * String. E.g. useful for <code>toString()</code> implementations.
+     * <p>Convenience method to return a Collection as a delimited (e.g. CSV)
+     * String. E.g. useful for <code>toString()</code> implementations.</p>
      *
      * @param collection the Collection to display
      * @param delminator the delimiter to use (probably a ",")
@@ -464,39 +501,40 @@ class ClassPathResource {
      * still be considered as single delimiter string, rather than as bunch of
      * potential delimiter characters - in contrast to <code>tokenizeToStringArray</code>.
      *
-     * @param str the input String
+     * @param string the input String
      * @param delimiter the delimiter between elements (this is a single
      * delimiter, rather than a bunch individual delimiter characters)
      * @return an array of the tokens in the list
      */
-    private static String[] delimitedListToStringArray(final String str, final String delimiter) {
+    private static String[] delimitedListToStringArray(final String string, final String delimiter) {
 
-        if (str == null)
+        if (string == null)
             return new String[0];
 
         if (delimiter == null)
-            return new String[]{str};
+            return new String[]{string};
 
-        List result = new ArrayList();
+        final List result = new ArrayList();
+
         if ("".equals(delimiter)) {
 
-            for (int i = 0; i < str.length(); i++)
-                result.add(str.substring(i, i + 1));
+            for (int i = 0; i < string.length(); i++)
+                result.add(string.substring(i, i + 1));
 
         } else {
 
             int position = 0;
             int deletePosition;
 
-            while ((deletePosition = str.indexOf(delimiter, position)) != -1) {
+            while ((deletePosition = string.indexOf(delimiter, position)) != -1) {
 
-                result.add(str.substring(position, deletePosition));
+                result.add(string.substring(position, deletePosition));
                 position = deletePosition + delimiter.length();
             }
 
             // Add rest of String, but not in case of empty input.
-            if (str.length() > 0 && position <= str.length())
-                result.add(str.substring(position));
+            if (string.length() > 0 && position <= string.length())
+                result.add(string.substring(position));
         }
 
         return toStringArray(result);
@@ -504,8 +542,8 @@ class ClassPathResource {
 
 
     /**
-     * Copy the given Collection into a String array. The Collection must
-     * contain String elements only.
+     * <p>Copy the given Collection into a String array. The Collection must
+     * contain String elements only.</p>
      *
      * @param collection the Collection to copy
      * @return the String array (<code>null</code> if the passed-in Collection
@@ -523,8 +561,8 @@ class ClassPathResource {
 
 
 /**
- * Utility methods for resolving resource locations to files in the file system.
- * Mainly for internal use within the framework.
+ * <p>Utility methods for resolving resource locations to files in the file
+ * system. Mainly for internal use within the framework.</p>
  *
  * @author Juergen Hoeller
  * @since 1.1.5
@@ -533,14 +571,16 @@ abstract class ResourceUtils {
 
 
     /**
-     * URL protocol for a file in the file system: "file"
+     * <p>URL protocol for a file in the file system: "file"</p>
+     *
+     * @parameter
      */
     private static final String URL_PROTOCOL_FILE = "file";
 
 
     /**
-     * Resolve the given resource URL to a <code>java.io.File</code>, i.e. to a
-     * file in the file system.
+     * <p>Resolve the given resource URL to a <code>java.io.File</code>, i.e. to
+     * a file in the file system.</p>
      *
      * @param resourceUrl the resource URL to resolve
      * @param description a description of the original resource that the URL
@@ -565,26 +605,29 @@ abstract class ResourceUtils {
 
 
 /**
- * Miscellaneous class utility methods. Mainly for internal use within the
- * framework; consider Jakarta's Commons Lang for a more comprehensive suite of
- * class utilities.
+ * <p>Miscellaneous class utility methods. Mainly for internal use within the
+ * spring framework; consider Jakarta's Commons Lang for a more comprehensive
+ * suite of class utilities.</p>
+ *
+ * <p>This was extracted from Spring in order to remove the dependency on Spring
+ * for Architecture Rules.</p>
  *
  * @author Keith Donald
  * @author Rob Harrop
  * @author Juergen Hoeller
- * @since 1.1
  */
 class ClassUtils {
 
 
     /**
-     * Return a default ClassLoader to use (never <code>null</code>). Returns
-     * the thread context ClassLoader, if available. The ClassLoader that loaded
-     * the ClassUtils class will be used as fallback. <p>Call this method if you
-     * intend to use the thread context ClassLoader in a scenario where you
-     * absolutely need a non-null ClassLoader reference: for example, for class
-     * path resource loading (but not necessarily for <code>Class.forName</code>,
-     * which accepts a <code>null</code> ClassLoader reference as well).
+     * <p>Return a default <code>ClassLoader</code> to use (never
+     * <code>null</code>). Returns the thread context ClassLoader, if available.
+     * The ClassLoader that loaded the ClassUtils class will be used as
+     * fallback. <p>Call this method if you intend to use the thread context
+     * ClassLoader in a scenario where you absolutely need a non-null
+     * ClassLoader reference: for example, for class path resource loading (but
+     * not necessarily for <code>Class.forName</code>, which accepts a
+     * <code>null</code> ClassLoader reference as well).</p>
      *
      * @return ClassLoader
      * @see java.lang.Thread#getContextClassLoader()
@@ -599,6 +642,4 @@ class ClassUtils {
 
         return classLoader;
     }
-
-
 }

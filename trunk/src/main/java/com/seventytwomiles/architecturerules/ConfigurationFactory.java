@@ -3,6 +3,7 @@ package com.seventytwomiles.architecturerules;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.xml.sax.ContentHandler;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
@@ -23,18 +24,50 @@ import java.util.Set;
 class ConfigurationFactory {
 
 
+    /**
+     * <p>todo: javadoc this</p>
+     *
+     * @parameter
+     */
     private static final Log log = LogFactory.getLog(ConfigurationFactory.class);
 
+    /**
+     * <p>todo: javadoc this</p>
+     *
+     * @parameter
+     */
     private static final String configurationFileName = "architecture-rules.xml";
 
-    private static Set rules = new HashSet(); // of Rules
-    private static List sources = new ArrayList(); // String[] sourcename, booleanvalue
+    /**
+     * <p>todo: javadoc this</p>
+     *
+     * @parameter
+     */
+    private static final Set rules = new HashSet(); // of Rules
+
+    /**
+     * <p>todo: javadoc this</p>
+     *
+     * @parameter
+     */
+    private static final List sources = new ArrayList(); // String[] sourcename, booleanvalue
+    /**
+     * <p>todo: javadoc this</p>
+     *
+     * @parameter
+     */
     private static boolean throwExceptionWhenNoPackages = false;
+
+    /**
+     * <p>todo: javadoc this</p>
+     *
+     * @parameter
+     */
     private static boolean doCyclicDependencyTest = true;
 
     /**
-     * Starts by reading the configuraiton file, then validates the content, and finally processess the
-     * information.
+     * <p>Starts by reading the configuraiton file, then validates the content, and finally processess the
+     * information.</p>
      *
      * @throws RuntimeException when configuration file can not be found, or when configuraiton
      * is not valid
@@ -43,12 +76,12 @@ class ConfigurationFactory {
 
         try {
 
-            String configuration = getConfigurationAsXml();
+            final String configuration = getConfigurationAsXml();
 
             validateConfigruation(configuration);
             processConfiguration(configuration);
 
-        } catch (Exception e) {
+        } catch (final Exception e) {
 
             throw new RuntimeException(e);
         }
@@ -56,6 +89,8 @@ class ConfigurationFactory {
 
 
     /**
+     * <p></p>
+     *
      * @param configuration String xml content to process
      * @throws IOException when input stream can not be opened or closed
      * @throws SAXException when configuration can not be parsed
@@ -63,17 +98,17 @@ class ConfigurationFactory {
     private static void processConfiguration(final String configuration) throws SAXException, IOException {
 
         // Read the response XML document
-        XMLReader parser = XMLReaderFactory.createXMLReader("org.apache.xerces.parsers.SAXParser");
+        final XMLReader parser = XMLReaderFactory.createXMLReader("org.apache.xerces.parsers.SAXParser");
 
         /**
          * There's a name conflict with java.net.ContentHandler
          * so we have to use the fully package qualified name.
          */
-        org.xml.sax.ContentHandler handler = new ArchitectureRulesConfigurationHandler();
+        final ContentHandler handler = new ArchitectureRulesConfigurationHandler();
         parser.setContentHandler(handler);
 
-        InputStream inputStream = new ByteArrayInputStream(configuration.getBytes());
-        InputSource source = new InputSource(inputStream);
+        final InputStream inputStream = new ByteArrayInputStream(configuration.getBytes());
+        final InputSource source = new InputSource(inputStream);
 
         parser.parse(source);
         inputStream.close();
@@ -86,6 +121,8 @@ class ConfigurationFactory {
 
 
     /**
+     * <p></p>
+     *
      * @param configuration String xml content to validate
      * @see "architecture-rules.dtd"
      */
@@ -143,17 +180,24 @@ class ConfigurationFactory {
 }
 
 
+/**
+ * <p></p>
+ *
+ * @author unknown
+ */
 class FileUtils {
 
 
     /**
-     * The default buffer size to use.
+     * <p>The default buffer size to use.</p>
+     *
+     * @parameter
      */
     private static final int DEFAULT_BUFFER_SIZE = 1024 * 4;
 
 
     /**
-     * <p> Reads the contents of a file into a String. </p> <p> There is no
+     * <p> Reads the contents of a file into a String. There is no
      * readFileToString method without encoding parameter because the default
      * encoding can differ between platforms and therefore results in
      * inconsistent results. </p>
@@ -181,11 +225,11 @@ class FileUtils {
 
 
     /**
-     * Get the contents of an <code>InputStream</code> as a String using the
+     * <p>Get the contents of an <code>InputStream</code> as a String using the
      * specified character encoding. <p> Character encoding names can be found
      * at <a href="http://www.iana.org/assignments/character-sets">IANA</a>. <p>
      * This method buffers the input internally, so there is no need to use a
-     * <code>BufferedInputStream</code>.
+     * <code>BufferedInputStream</code>.</p>
      *
      * @param input the <code>InputStream</code> to read from
      * @param encoding the encoding to use, null means platform default
@@ -204,11 +248,11 @@ class FileUtils {
 
 
     /**
-     * Copy bytes from an <code>InputStream</code> to chars on a
+     * <p>Copy bytes from an <code>InputStream</code> to chars on a
      * <code>Writer</code> using the default character encoding of the platform.
      * <p> This method buffers the input internally, so there is no need to use
      * a <code>BufferedInputStream</code>. <p> This method uses {@link
-     * InputStreamReader}.
+     * InputStreamReader}.</p>
      *
      * @param input the <code>InputStream</code> to read from
      * @param output the <code>Writer</code> to write to
@@ -224,12 +268,12 @@ class FileUtils {
 
 
     /**
-     * Copy bytes from an <code>InputStream</code> to chars on a
+     * <p>Copy bytes from an <code>InputStream</code> to chars on a
      * <code>Writer</code> using the specified character encoding. <p> This
      * method buffers the inputStream internally, so there is no need to use a
      * <code>BufferedInputStream</code>. <p> Character encoding names can be
      * found at <a href="http://www.iana.org/assignments/character-sets">IANA</a>.
-     * <p> This method uses {@link InputStreamReader}.
+     * <p> This method uses {@link InputStreamReader}.</p>
      *
      * @param inputStream the <code>InputStream</code> to read from
      * @param outputStream the <code>Writer</code> to write to
@@ -253,9 +297,9 @@ class FileUtils {
 
 
     /**
-     * Copy chars from a <code>Reader</code> to a <code>Writer</code>. <p> This
-     * method buffers the input internally, so there is no need to use a
-     * <code>BufferedReader</code>.
+     * [<p>Copy chars from a <code>Reader</code> to a <code>Writer</code>. <p>
+     * This method buffers the input internally, so there is no need to use a
+     * <code>BufferedReader</code>.</p>
      *
      * @param input the <code>Reader</code> to read from
      * @param output the <code>Writer</code> to write to

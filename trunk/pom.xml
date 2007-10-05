@@ -17,8 +17,8 @@
         Leverages an XML configuration file to test your code's architecture via
         unit tests. Able to assert that specific packages do not depend on each
         other
-        and able to check for cyclic redundancies among your packages.
-    </description>
+        and able to check for cyclic redundancies among your packages. TEST
+    </description> 
 
 
     <dependencies>

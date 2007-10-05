@@ -209,5 +209,155 @@
 
     </build>
 
+
+    <repositories>
+
+        <repository>
+            <id>ibiblio</id>
+            <url>http://www.ibiblio.org/maven2</url>
+        </repository>
+
+        <repository>
+            <id>ibiblio2</id>
+            <url>http://mirrors.ibiblio.org/pub/mirrors/maven2/</url>
+        </repository>
+
+        <repository>
+            <id>spring</id>
+            <url>
+                https://svn.sourceforge.net/svnroot/springframework/repos/repo
+            </url>
+        </repository>
+
+        <repository>
+            <id>opensymphony</id>
+            <layout>legacy</layout>
+            <url>http://maven.opensymphony.com</url>
+        </repository>
+
+
+        <repository>
+            <id>apache</id>
+            <url>http://people.apache.org/repo/m2-snapshot-repository</url>
+        </repository>
+
+
+        <repository>
+            <id>maven1</id>
+            <url>http://repo1.maven.org/maven2/</url>
+        </repository>
+
+    </repositories>
+
+    <pluginRepositories>
+
+        <pluginRepository>
+            <id>codehaus snapshot repository</id>
+            <url>http://snapshots.repository.codehaus.org</url>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+                <checksumPolicy>ignore</checksumPolicy>
+            </snapshots>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+        </pluginRepository>
+
+        <pluginRepository>
+            <id>codehaus repository</id>
+            <url>http://maven.codehaus.org/maven2</url>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+                <checksumPolicy>ignore</checksumPolicy>
+            </snapshots>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+        </pluginRepository>
+
+        <pluginRepository>
+            <id>mortbay</id>
+            <url>http://www.mortbay.org/maven2/snapshot</url>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+                <checksumPolicy>ignore</checksumPolicy>
+            </snapshots>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+        </pluginRepository>
+
+        <!-- build number plugin -->
+        <pluginRepository>
+            <id>tlc</id>
+            <url>http://commons.ucalgary.ca/pub/m2</url>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+                <checksumPolicy>ignore</checksumPolicy>
+            </snapshots>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+        </pluginRepository>
+
+        <pluginRepository>
+            <id>ibiblio-org</id>
+            <url>http://ibiblio.org/maven2</url>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+                <checksumPolicy>ignore</checksumPolicy>
+            </snapshots>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+        </pluginRepository>
+
+        <pluginRepository>
+            <id>maven-org</id>
+            <url>http://repo1.maven.org/maven2</url>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+                <checksumPolicy>ignore</checksumPolicy>
+            </snapshots>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+        </pluginRepository>
+
+        <pluginRepository>
+            <id>stat-scm-sourceforge</id>
+            <url>http://stat-scm.sourceforge.net/maven2</url>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+                <checksumPolicy>ignore</checksumPolicy>
+            </snapshots>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+        </pluginRepository>
+
+        <pluginRepository>
+            <id>stat-scm-sourceforge-snapshot</id>
+            <url>http://stat-scm.sourceforge.net/maven2-snapshots</url>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+                <checksumPolicy>ignore</checksumPolicy>
+            </snapshots>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+        </pluginRepository>
+
+    </pluginRepositories>
+
+
 </project>
 

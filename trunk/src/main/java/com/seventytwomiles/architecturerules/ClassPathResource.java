@@ -20,60 +20,60 @@ class ClassPathResource {
 
 
     /**
-     * <p>todo: javadoc this</p>
+     * <p>symbol that separates folders</p>
      *
-     * @parameter
+     * @parameter FOLDER_SEPARATOR String
      */
     private static final String FOLDER_SEPARATOR = "/";
 
     /**
-     * <p>todo: javadoc this</p>
+     * <p>symbol that separates folders on the Windows platform</p>
      *
-     * @parameter
+     * @parameter WINDOWS_FOLDER_SEPARATOR String
      */
     private static final String WINDOWS_FOLDER_SEPARATOR = "\\";
 
     /**
-     * <p>todo: javadoc this</p>
+     * <p>Parent directory path</p>
      *
-     * @parameter
+     * @parameter TOP_PATH String
      */
     private static final String TOP_PATH = "..";
 
     /**
-     * <p>todo: javadoc this</p>
+     * <p>Current path</p>
      *
-     * @parameter
+     * @parameter CURRENT_PATH String
      */
     private static final String CURRENT_PATH = ".";
 
     /**
-     * <p>todo: javadoc this</p>
+     * <p>the path that you are in</p>
      *
-     * @parameter
+     * @parameter path String
      */
     private final String path;
 
     /**
-     * <p>todo: javadoc this</p>
+     * <p>instance of ClassLoader</p>
      *
-     * @parameter
+     * @parameter classLoader String
      */
     private ClassLoader classLoader;
 
     /**
-     * <p>todo: javadoc this</p>
+     * <p>instance of Class</p>
      *
-     * @parameter
+     * @parameter clazz String
      */
     private Class clazz;
 
 
     /**
-     * <p>Create a new ClassPathResource for ClassLoader usage. A leading slash
-     * will be removed, as the ClassLoader resource access methods will not
-     * accept it. The thread context class loader will be used for loading the
-     * resource.</p>
+     * <p>Create a new <code>ClassPathResource</code> for ClassLoader usage. A
+     * leading slash will be removed, as the ClassLoader resource access methods
+     * will not accept it. The thread context class loader will be used for
+     * loading the resource.</p>
      *
      * @param path the absolute path within the class path
      * @see java.lang.ClassLoader#getResourceAsStream(String)
@@ -84,9 +84,9 @@ class ClassPathResource {
 
 
     /**
-     * <p>Create a new ClassPathResource for ClassLoader usage. A leading slash
-     * will be removed, as the ClassLoader resource access methods will not
-     * accept it.</p>
+     * <p>Create a new <code>ClassPathResource</code> for ClassLoader usage. A
+     * leading slash will be removed, as the ClassLoader resource access methods
+     * will not accept it.</p>
      *
      * @param path the absolute path within the classpath
      * @param classLoader the class loader to load the resource with, or
@@ -107,9 +107,9 @@ class ClassPathResource {
 
 
     /**
-     * <p>Create a new ClassPathResource for Class usage. The path can be
-     * relative to the given class, or absolute within the classpath via a
-     * leading slash.</p>
+     * <p>Create a new <code>ClassPathResource</code> for Class usage. The path
+     * can be relative to the given class, or absolute within the classpath via
+     * a leading slash.</p>
      *
      * @param path relative or absolute path within the class path
      * @param clazz the class to load resources with
@@ -126,8 +126,8 @@ class ClassPathResource {
 
 
     /**
-     * <p>Create a new ClassPathResource with optional ClassLoader and Class.
-     * Only for internal usage.</p>
+     * <p>Create a new <code>ClassPathResource</code> with optional ClassLoader
+     * and Class. Only for internal usage.</p>
      *
      * @param path relative or absolute path within the classpath
      * @param classLoader the class loader to load the resource with, if any
@@ -562,10 +562,11 @@ class ClassPathResource {
 
 /**
  * <p>Utility methods for resolving resource locations to files in the file
- * system. Mainly for internal use within the framework.</p>
+ * system. Mainly for internal use within the framework. <a
+ * href="http://code.google.com/p/architecturerules/issues/detail?id=2&can=1">
+ * issue 2 (remove unneccessary dependencies)</a></p>
  *
  * @author Juergen Hoeller
- * @since 1.1.5
  */
 abstract class ResourceUtils {
 
@@ -609,8 +610,9 @@ abstract class ResourceUtils {
  * spring framework; consider Jakarta's Commons Lang for a more comprehensive
  * suite of class utilities.</p>
  *
- * <p>This was extracted from Spring in order to remove the dependency on Spring
- * for Architecture Rules.</p>
+ * <p>This was extracted from Spring in order to remove the dependency on apache
+ * commons-io. <a href="http://code.google.com/p/architecturerules/issues/detail?id=2&can=1">
+ * issue 2 (remove unneccessary dependencies)</a>/p>
  *
  * @author Keith Donald
  * @author Rob Harrop

@@ -9,7 +9,8 @@ import java.util.Set;
 
 
 /**
- * <p>todo: javadocs</p>
+ * <p>Drives the tests by reading the configuraiton then asserting each defined
+ * <code>Rule</code>.</p>
  *
  * @author mnereson
  * @see AbstractArchitecturalRules
@@ -18,7 +19,7 @@ class ArchitecturalRulesService extends AbstractArchitecturalRules {
 
 
     /**
-     * <p>todo: javadoc this</p>
+     * <p>Log to log with</p>
      *
      * @parameter
      */
@@ -26,10 +27,15 @@ class ArchitecturalRulesService extends AbstractArchitecturalRules {
 
 
     /**
-     * <p></p>
+     * <p>Instancates a new ArchitecturalRulesService which will begin reading
+     * all the configured sources</p>
      *
-     * @throws SourceNotFoundException
-     * @throws NoPackagesFoundException
+     * @throws SourceNotFoundException when an required source directory does
+     * not exist and when <tt>exception</tt>=<tt>"true"</tt> in the source
+     * configuration
+     * @throws NoPackagesFoundException when none of the source directories
+     * exist and <tt>no-packages</tt>="<tt>ignore</tt>" in the sources
+     * configuraiton
      */
     public ArchitecturalRulesService() throws SourceNotFoundException, NoPackagesFoundException {
 
@@ -42,8 +48,8 @@ class ArchitecturalRulesService extends AbstractArchitecturalRules {
     /**
      * <p></p>
      *
-     * @throws DependencyConstraintException
-     * @throws CyclicRedundencyException
+     * @throws DependencyConstraintException when a rule is broken
+     * @throws CyclicRedundencyException when cyclic redundency is found
      */
     public void performRulesTest() throws DependencyConstraintException, CyclicRedundencyException {
 
@@ -53,6 +59,7 @@ class ArchitecturalRulesService extends AbstractArchitecturalRules {
         final Set rules = ConfigurationFactory.getRules();
 
         final StringBuffer ruleList = new StringBuffer();
+
         Rule rule;
 
         for (Iterator ruleIterator = rules.iterator();

@@ -17,7 +17,8 @@ import java.util.Set;
 
 
 /**
- * <p>todo: javadocs</p>
+ * <p>Reads the configuration file at {@link @configurationFileName} into
+ * <code>Rules</code> and source paths.</p>
  *
  * @author mnereson
  */
@@ -25,43 +26,46 @@ class ConfigurationFactory {
 
 
     /**
-     * <p>todo: javadoc this</p>
+     * <p>log to log with</p>
      *
-     * @parameter
+     * @parameter log Log
      */
     private static final Log log = LogFactory.getLog(ConfigurationFactory.class);
 
     /**
-     * <p>todo: javadoc this</p>
+     * <p>Name of the configuration file.</p>
      *
-     * @parameter
+     * @parameter configurationFileName String
      */
     private static final String configurationFileName = "architecture-rules.xml";
 
     /**
-     * <p>todo: javadoc this</p>
+     * <p>Set of Rules read from the configuraiton file at {@link
+     * #configurationFileName}</p>
      *
-     * @parameter
+     * @parameter rules Set
      */
     private static final Set rules = new HashSet(); // of Rules
 
     /**
-     * <p>todo: javadoc this</p>
+     * <p>List of source paths read from configuraiton file at  {@link
+     * #configurationFileName}</p>
      *
-     * @parameter
+     * @parameter sources List
      */
     private static final List sources = new ArrayList(); // String[] sourcename, booleanvalue
     /**
-     * <p>todo: javadoc this</p>
+     * <p>Weather or not to throw exception when no packages are found for a
+     * given path.</p>
      *
-     * @parameter
+     * @parameter throwExceptionWhenNoPackages boolean
      */
     private static boolean throwExceptionWhenNoPackages = false;
 
     /**
-     * <p>todo: javadoc this</p>
+     * <p>Wehather or not to check for cyclic dependencies.</p>
      *
-     * @parameter
+     * @parameter doCyclicDependencyTest boolean
      */
     private static boolean doCyclicDependencyTest = true;
 
@@ -89,7 +93,8 @@ class ConfigurationFactory {
 
 
     /**
-     * <p></p>
+     * <p>Process the xml configuration file. Read all the source directories
+     * and Rules.</p>
      *
      * @param configuration String xml content to process
      * @throws IOException when input stream can not be opened or closed
@@ -104,7 +109,7 @@ class ConfigurationFactory {
          * There's a name conflict with java.net.ContentHandler
          * so we have to use the fully package qualified name.
          */
-        final ContentHandler handler = new ArchitectureRulesConfigurationHandler();
+        final ContentHandler handler = new ConfigurationHandler();
         parser.setContentHandler(handler);
 
         final InputStream inputStream = new ByteArrayInputStream(configuration.getBytes());
@@ -113,27 +118,31 @@ class ConfigurationFactory {
         parser.parse(source);
         inputStream.close();
 
-        doCyclicDependencyTest = ((ArchitectureRulesConfigurationHandler) handler).isDoCyclicDependencyTest();
-        throwExceptionWhenNoPackages = ((ArchitectureRulesConfigurationHandler) handler).isThrowExceptionWhenNoPackages();
-        sources.addAll(((ArchitectureRulesConfigurationHandler) handler).getSources());
-        rules.addAll(((ArchitectureRulesConfigurationHandler) handler).getRules());
+        doCyclicDependencyTest = ((ConfigurationHandler) handler).isDoCyclicDependencyTest();
+        throwExceptionWhenNoPackages = ((ConfigurationHandler) handler).isThrowExceptionWhenNoPackages();
+        sources.addAll(((ConfigurationHandler) handler).getSources());
+        rules.addAll(((ConfigurationHandler) handler).getRules());
     }
 
 
     /**
-     * <p></p>
+     * <p>Validate the configuration file.</p>
      *
      * @param configuration String xml content to validate
      * @see "architecture-rules.dtd"
      */
     private static void validateConfigruation(final String configuration) {
 
+        /* TODO: write this*/
     }
 
 
     /**
+     * <p>Read Xml configuration file name {@link #configurationFileName} as
+     * String</p>
+     *
      * @return String returns the contents fo the configurationFile
-     * @throws IOException if configuraiton file can not be loaded from
+     * @throws IOException if configuration file can not be loaded from
      * classpath
      */
     private static String getConfigurationAsXml() throws IOException {
@@ -144,10 +153,9 @@ class ConfigurationFactory {
 
 
     /**
-     * @return List of String[]{source, boolean }. The first element in the
-     *         array is the source, the second is a boolean true or false and
-     *         indicates how to handle the situation when the source is empty or
-     *         does not exist.
+     * <p>Getter for property {@link #sources}.</p>
+     *
+     * @return Value for property <tt>sources</tt>.
      */
     public static List getSources() {
         return sources;
@@ -155,7 +163,9 @@ class ConfigurationFactory {
 
 
     /**
-     * @return Map
+     * <p>Getter for property {@link #rules}.</p>
+     *
+     * @return Value for property <tt>rules</tt>.
      */
     public static Set getRules() {
         return rules;
@@ -163,7 +173,8 @@ class ConfigurationFactory {
 
 
     /**
-     * @return boolean
+     * @return boolean <tt>true</tt> when <samp>&lt;sources
+     *         no-packages="exception"> </samp>
      */
     public static boolean throwExceptionWhenNoPackages() {
         return throwExceptionWhenNoPackages;
@@ -171,7 +182,8 @@ class ConfigurationFactory {
 
 
     /**
-     * @return boolean
+     * @return boolean <tt>true</tt> when <samp>&lt;cyclicalDependency
+     *         test="true"/> </samp>
      */
     public static boolean doCyclicDependencyTest() {
         return doCyclicDependencyTest;
@@ -181,7 +193,10 @@ class ConfigurationFactory {
 
 
 /**
- * <p></p>
+ * <p>FileUtils utility class extracted from the Spring Framework in order to
+ * remove the dependency on Spring for this one class.  <a
+ * href="http://code.google.com/p/architecturerules/issues/detail?id=2&can=1">
+ * issue 2 (remove unneccessary dependencies)</a></p>
  *
  * @author unknown
  */
@@ -191,7 +206,7 @@ class FileUtils {
     /**
      * <p>The default buffer size to use.</p>
      *
-     * @parameter
+     * @parameter DEFAULT_BUFFER_SIZE int
      */
     private static final int DEFAULT_BUFFER_SIZE = 1024 * 4;
 
@@ -297,7 +312,7 @@ class FileUtils {
 
 
     /**
-     * [<p>Copy chars from a <code>Reader</code> to a <code>Writer</code>. <p>
+     * <p>Copy chars from a <code>Reader</code> to a <code>Writer</code>. <p>
      * This method buffers the input internally, so there is no need to use a
      * <code>BufferedReader</code>.</p>
      *
@@ -311,6 +326,7 @@ class FileUtils {
     public static int copy(Reader input, Writer output) throws IOException {
 
         final char[] buffer = new char[DEFAULT_BUFFER_SIZE];
+
         int count = 0;
         int n;
 
@@ -325,12 +341,12 @@ class FileUtils {
 
 
     /**
-     * Copy chars from a <code>Reader</code> to bytes on an
+     * <code>Copy chars from a <code>Reader</code> to bytes on an
      * <code>OutputStream</code> using the default character encoding of the
      * platform, and calling flush. <p> This method buffers the input
      * internally, so there is no need to use a <code>BufferedReader</code>. <p>
      * Due to the implementation of OutputStreamWriter, this method performs a
-     * flush. <p> This method uses {@link OutputStreamWriter}.
+     * flush. <p> This method uses {@link OutputStreamWriter}.</code>
      *
      * @param input the <code>Reader</code> to read from
      * @param output the <code>OutputStream</code> to write to
@@ -348,9 +364,9 @@ class FileUtils {
 
 
     /**
-     * Unconditionally close an <code>InputStream</code>. <p> Equivalent to
-     * {@link InputStream#close()}, except any exceptions will be ignored. This
-     * is typically used in finally blocks.
+     * <code>Unconditionally close an <code>InputStream</code>. <p> Equivalent
+     * to {@link InputStream#close()}, except any exceptions will be ignored.
+     * This is typically used in finally blocks.</code>
      *
      * @param input the InputStream to close, may be null or already closed
      */

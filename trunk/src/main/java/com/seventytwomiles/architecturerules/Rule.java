@@ -2,13 +2,13 @@ package com.seventytwomiles.architecturerules;
 
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
-import java.util.List;
 
 
 /**
- * <p>todo: javadocs</p>
+ * <p>Represents a <code>Rule</code> that may not be violoated.</p>
  *
  * @author mnereson
  */
@@ -16,39 +16,43 @@ class Rule {
 
 
     /**
-     * <p></p>
+     * <p>Unique id of this Rule as defined. Used to refer to this Rule in
+     * messages.</p>
      *
-     * @parameter
+     * @parameter id String
      */
     private String id;
 
     /**
-     * <p></p>
+     * <p>Name of the package that this rule applies to</p>
      *
-     * @parameter
+     * @parameter packageName String
      */
     private String packageName;
 
     /**
-     * <p></p>
+     * <p>Comment about this rule that could be used in messages or just to make
+     * the configuration file more readable.</p>
      *
-     * @parameter
+     * @parameter comment String
      */
     private String comment;
 
     /**
-     * <p></p>
+     * <p>Collection of Strings. These Strings are package names. The names of
+     * the packages that the {@link #packageName} may NOT depend upon</p>
      *
-     * @parameter
+     * @parameter violations Collection
      */
-    private List violations = new ArrayList();
+    private Collection violations = new ArrayList();
 
 
     /**
-     * <p></p>
+     * <p>Instanciates a new <code>Rule</code> with the given <tt>id</tt> and
+     * <tt>packageName</tt>. Probobly only used by tests.</p>
      *
-     * @param id
-     * @param packageName
+     * @param id String id of this Rule to refer to it by
+     * @param packageName String full name of the package to inspect
      */
     public Rule(final String id, final String packageName) {
 
@@ -58,7 +62,7 @@ class Rule {
 
 
     /**
-     * Constructs a new Rule.
+     * <p>Constructs a new Rule.</p>
      */
     public Rule() {
 
@@ -66,7 +70,7 @@ class Rule {
 
 
     /**
-     * Getter for property {@link #id}.
+     * <p>Getter for property {@link #id}.</p>
      *
      * @return Value for property <tt>id</tt>.
      */
@@ -76,7 +80,7 @@ class Rule {
 
 
     /**
-     * Getter for property {@link #comment}.
+     * <p>Getter for property {@link #comment}.</p>
      *
      * @return Value for property <tt>comment</tt>.
      */
@@ -86,7 +90,7 @@ class Rule {
 
 
     /**
-     * Setter for property {@link #comment}.
+     * <p>Setter for property {@link #comment}.</p>
      *
      * @param comment Value to set for property <tt>comment</tt>.
      */
@@ -96,7 +100,7 @@ class Rule {
 
 
     /**
-     * Getter for property {@link #packageName}.
+     * <p>Getter for property {@link #packageName}.</p>
      *
      * @return Value for property <tt>packageName</tt>.
      */
@@ -106,10 +110,12 @@ class Rule {
 
 
     /**
+     * <p>Remove a violation from this Rule.</p>
+     *
      * @param vioation String a package this this Rule's package should not test
      * on
-     * @return boolean true if the violation is renived from the List of
-     *         violoations
+     * @return boolean <tt>true</tt> if the violation is renived from the List
+     *         of violoations
      */
     public boolean removeViolation(final String vioation) {
         return violations.remove(vioation);
@@ -117,9 +123,11 @@ class Rule {
 
 
     /**
+     * <p>Add a new violation to this <code>Rule</code>.</p>
+     *
      * @param violation String a package this this Rule's package may NOT depend
      * upon
-     * @return boolean true if the violation is added to the List of
+     * @return boolean <tt>true</tt> if the violation is added to the List of
      *         violoatizons
      * @throws IllegalArchitectureRuleException when the packageName is also a
      * violation: this is a Illegal Rule because it can not be tessted and its
@@ -140,17 +148,17 @@ class Rule {
 
 
     /**
-     * Get all of the violations.
+     * <p>Get all of the violations.</p>
      *
      * @return List unmodifiable
      */
-    public List getViolations() {
-        return Collections.unmodifiableList(this.violations);
+    public Collection getViolations() {
+        return Collections.unmodifiableCollection(violations);
     }
 
 
     /**
-     * Setter for property {@link #id}.
+     * <p>Setter for property {@link #id}.</p>
      *
      * @param id Value to set for property <tt>id</tt>.
      */
@@ -160,7 +168,7 @@ class Rule {
 
 
     /**
-     * Setter for property {@link #packageName}.
+     * <p>Setter for property {@link #packageName}.</p>
      *
      * @param packageName Value to set for property <tt>packageName</tt>.
      */

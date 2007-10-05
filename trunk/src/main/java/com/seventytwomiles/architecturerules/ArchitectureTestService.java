@@ -6,7 +6,7 @@ import org.apache.commons.logging.LogFactory;
 
 
 /**
- * <p>todo: javadocs</p>
+ * <p>Tests </p>
  *
  * @author mnereson
  * @see AbstractArchitecturalRules
@@ -15,15 +15,15 @@ public class ArchitectureTestService {
 
 
     /**
-     * <p>todo: javadoc this</p>
+     * <p>Log to log with</p>
      *
-     * @parameter
+     * @parameter log Log
      */
     private static final Log log = LogFactory.getLog(ArchitectureTestService.class);
 
 
     /**
-     * <p></p>
+     * <p>Instanciates a new <code>ArchitectureTestService</code></p>
      */
     public ArchitectureTestService() {
         log.info("instanciating new ArchitectureTestService");
@@ -31,12 +31,16 @@ public class ArchitectureTestService {
 
 
     /**
-     * <p></p>
+     * <p>Check known architecture for any cyclical redundencies</p>
      *
-     * @throws CyclicRedundencyException
-     * @throws DependencyConstraintException
-     * @throws SourceNotFoundException
-     * @throws NoPackagesFoundException
+     * @throws SourceNotFoundException when an required source directory does
+     * not exist and when <tt>exception</tt>=<tt>"true"</tt> in the source
+     * configuration
+     * @throws NoPackagesFoundException when none of the source directories
+     * exist and <tt>no-packages</tt>="<tt>ignore</tt>" in the sources
+     * configuraiton
+     * @throws DependencyConstraintException when a rule is broken
+     * @throws CyclicRedundencyException when cyclic redundency is found
      */
     public void checkArchitecture() throws CyclicRedundencyException, DependencyConstraintException, SourceNotFoundException, NoPackagesFoundException {
 

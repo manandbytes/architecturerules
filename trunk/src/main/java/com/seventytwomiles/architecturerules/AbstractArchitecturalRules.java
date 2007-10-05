@@ -14,56 +14,88 @@ import java.util.List;
 
 
 /**
- * <p>todo: javadocs</p>
+ * <p>Provides support for any type of rule that can be asserted using the
+ * jdepend library</p>
  *
  * @author mnereson
+ * @see ArchitecturalRulesService
+ * @see CyclicRedundencyService
  */
 abstract class AbstractArchitecturalRules {
 
 
     /**
-     * <p></p>
+     * <p>log to debug with.</p>
      *
-     * @parameter
+     * @parameter log Log
      */
     private static final Log log = LogFactory.getLog(AbstractArchitecturalRules.class);
 
     /**
-     * <p></p>
+     * <p>instance of jdepend to assert architecture with</p>
      *
-     * @parameter
+     * @parameter jdepend JDepend
      */
     protected final JDepend jdepend;
 
     /**
-     * <p></p>
+     * <p>all packages that will be analyized</p>
      *
-     * @parameter
+     * @parameter packages Collection
      */
     private Collection packages;
 
+    /**
+     * <p>Location in a String array where the source path is located</p>
+     *
+     * @parameter SOURCE_POSITION int
+     */
+    private static final int SOURCE_POSITION = 0;
 
     /**
-     * <p></p>
+     * <p>Location in a String array where the source-not-found rule is
+     * located</p>
      *
-     * @throws SourceNotFoundException
-     * @throws NoPackagesFoundException
+     * @parameter SOURCE_NOT_FOUND_POSITION int
+     */
+    private static final int SOURCE_NOT_FOUND_POSITION = 1;
+
+
+    /**
+     * <p>Constructor that loads up the configuration and loads all the packages
+     * in the source paths</p>
+     *
+     * @throws SourceNotFoundException when an required source directory does
+     * not exist and when <tt>exception</tt>=<tt>"true"</tt> in the source
+     * configuration
+     * @throws NoPackagesFoundException when none of the source directories
+     * exist and <tt>no-packages</tt>="<tt>ignore</tt>" in the sources
+     * configuraiton
      */
     protected AbstractArchitecturalRules() throws SourceNotFoundException, NoPackagesFoundException {
 
         log.info("instanciating new AbstractArchitecturalRules");
 
+        /* instanciate JDepend */
         jdepend = new JDepend();
 
+        /* read source paths from configuration file */
         final List sources = ConfigurationFactory.getSources();
 
+        /* add each source to jdepend */
         for (Iterator sourceIterator = sources.iterator();
              sourceIterator.hasNext();) {
 
+            /* read the next source directory */
             final String[] source = (String[]) sourceIterator.next();
 
-            final String sourcePath = source[0];
-            final boolean throwExceptionIfNotFound = Boolean.valueOf(source[1]).booleanValue();
+            /* read the source path */
+            final String sourcePath = source[SOURCE_POSITION];
+
+            /* read not-found instruction */
+            final String sourcesNotFoundRule = source[SOURCE_NOT_FOUND_POSITION];
+            final boolean isConfiguredToThrowExceptionWhenSourceNotFound =
+                    Boolean.valueOf(sourcesNotFoundRule).booleanValue();
 
             final StringBuffer message = new StringBuffer();
 
@@ -72,7 +104,7 @@ abstract class AbstractArchitecturalRules {
                 jdepend.addDirectory(sourcePath);
 
                 message.append("loaded ");
-                message.append(throwExceptionIfNotFound ? "required " : "");
+                message.append(isConfiguredToThrowExceptionWhenSourceNotFound ? "required " : "");
                 message.append("source ");
                 message.append(new File("").getAbsolutePath());
                 message.append("\\");
@@ -82,7 +114,9 @@ abstract class AbstractArchitecturalRules {
 
             } catch (final IOException e) {
 
-                message.append(throwExceptionIfNotFound ? "required " : "");
+                /* source not found */
+
+                message.append(isConfiguredToThrowExceptionWhenSourceNotFound ? "required " : "");
                 message.append("source ");
                 message.append(new File("").getAbsolutePath());
                 message.append("\\");
@@ -91,7 +125,7 @@ abstract class AbstractArchitecturalRules {
 
                 log.warn(message.toString());
 
-                if (throwExceptionIfNotFound) {
+                if (isConfiguredToThrowExceptionWhenSourceNotFound) {
 
                     log.error(sourcePath + " was not found", e);
                     throw new SourceNotFoundException(sourcePath + " was not found", e);
@@ -99,18 +133,22 @@ abstract class AbstractArchitecturalRules {
             }
         }
 
+        /**
+         * ask jdepened to analyze each package in each of the source
+         * directories that were added above
+         */
         log.debug("fetching packages");
-        this.packages = jdepend.analyze();
+        packages = jdepend.analyze();
 
         log.debug("checking how many packages were found by JDepend");
         if (packages.isEmpty()) {
 
             log.warn("no packages were found with the given configuraiton. check your <sources />");
 
-            final boolean throwExceptionWhenNoPackages = ConfigurationFactory.throwExceptionWhenNoPackages();
-            log.debug("throw excpetion when no packages? " + throwExceptionWhenNoPackages);
+            final boolean isConfiguredToThrowExceptionWhenNoPackagesFound = ConfigurationFactory.throwExceptionWhenNoPackages();
+            log.debug("throw excpetion when no packages? " + isConfiguredToThrowExceptionWhenNoPackagesFound);
 
-            if (throwExceptionWhenNoPackages) {
+            if (isConfiguredToThrowExceptionWhenNoPackagesFound) {
 
                 log.debug("throwing RuntimeException because no packages were found");
                 throw new NoPackagesFoundException("no packages were found with the given configuraiton. check your <sources />");
@@ -129,13 +167,14 @@ abstract class AbstractArchitecturalRules {
 
 
     /**
-     * <p></p>
+     * <p>Test the given layer (a package, but package is java keyword) against
+     * the given Rules</p>
      *
-     * @param layer
-     * @param rules
-     * @return
+     * @param layer String the package to test
+     * @param rules Colleciton of rules defining which packages the layer may
+     * not utilize
      * @throws DependencyConstraintException when a rule is broken
-     * @throws CyclicRedundencyException
+     * @throws CyclicRedundencyException when cyclic redundency is found
      */
     protected void testLayeringValid(final String layer, final Collection rules) throws DependencyConstraintException, CyclicRedundencyException {
 
@@ -147,10 +186,10 @@ abstract class AbstractArchitecturalRules {
 
             log.warn("no packages were found with the given configuraiton. check your <sources />");
 
-            final boolean throwExceptionWhenNoPackages = ConfigurationFactory.throwExceptionWhenNoPackages();
-            log.debug("throw excpetion when no packages? " + throwExceptionWhenNoPackages);
+            final boolean isConfiguredToThrowExceptionWhenNoPackagesFound = ConfigurationFactory.throwExceptionWhenNoPackages();
+            log.debug("throw excpetion when no packages? " + isConfiguredToThrowExceptionWhenNoPackagesFound);
 
-            if (throwExceptionWhenNoPackages) {
+            if (isConfiguredToThrowExceptionWhenNoPackagesFound) {
 
                 log.debug("throwing CyclicRedundencyException");
                 throw new CyclicRedundencyException("cyclic redundency does exist");
@@ -173,14 +212,15 @@ abstract class AbstractArchitecturalRules {
 
 
     /**
-     * <p></p>
+     * <p>Test a given layer (java package) against a Collection of
+     * <code>Rules</code></p>
      *
-     * @param layer
-     * @param rules
-     * @param jPackage
-     * @param analyzedPackageName
-     * @return
-     * @throws DependencyConstraintException
+     * @param layer String name of the package to test
+     * @param rules Colleciton of rules defining which packages the given
+     * package may not depend upon
+     * @param jPackage JavaPackage
+     * @param analyzedPackageName String full name
+     * @throws DependencyConstraintException when a rule is broken
      */
     protected void testEfferentsValid(final String layer, final Collection rules,
                                       final JavaPackage jPackage,

@@ -6,7 +6,8 @@ import org.apache.commons.logging.LogFactory;
 
 
 /**
- * <p>todo: javadocs</p>
+ * <p>Checks for cyclic redundency among app packages in the source
+ * folders.</p>
  *
  * @author mnereson
  * @see AbstractArchitecturalRules
@@ -15,9 +16,9 @@ class CyclicRedundencyService extends AbstractArchitecturalRules {
 
 
     /**
-     * <p>todo: javadoc this</p>
+     * <p>Log to log with</p>
      *
-     * @parameter
+     * @parameter log Log
      */
     private static final Log log = LogFactory.getLog(CyclicRedundencyService.class);
 
@@ -25,9 +26,12 @@ class CyclicRedundencyService extends AbstractArchitecturalRules {
     /**
      * <p>Constructor instanciates a new <code>CyclicRedundencyService</code></p>
      *
-     * @throws SourceNotFoundException when a required source is not found
-     * @throws NoPackagesFoundException when no packages are found in the given
-     * configuraiton for sources
+     * @throws SourceNotFoundException when an required source directory does
+     * not exist and when <tt>exception</tt>=<tt>"true"</tt> in the source
+     * configuration
+     * @throws NoPackagesFoundException when none of the source directories
+     * exist and <tt>no-packages</tt>="<tt>ignore</tt>" in the sources
+     * configuraiton
      */
     public CyclicRedundencyService() throws SourceNotFoundException, NoPackagesFoundException {
 
@@ -38,11 +42,10 @@ class CyclicRedundencyService extends AbstractArchitecturalRules {
 
 
     /**
-     * <p></p>
+     * <p>Check all the packages in all of the source directories and search for
+     * any cyclic reduency. </p>
      *
-     * @throws CyclicRedundencyException when cyclic reduendency is found
-     * @throws RuntimeException when no packages were found with the given
-     * configuraiton if an exception is requested by the configuration
+     * @throws CyclicRedundencyException when cyclic redundency is found
      */
     public void performCyclicRedundencyCheck() throws CyclicRedundencyException {
 

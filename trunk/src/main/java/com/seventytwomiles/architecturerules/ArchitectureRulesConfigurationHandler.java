@@ -1,4 +1,4 @@
-package com.nereson.architecturerules;
+package com.seventytwomiles.architecturerules;
 
 
 import org.apache.commons.logging.Log;
@@ -8,7 +8,10 @@ import org.xml.sax.ContentHandler;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 
 /**

@@ -12,7 +12,7 @@
     </appender>
 
     <!-- ========================================================================================== loggeres        -->
-    <logger name="com.nereson" additivity="false">
+    <logger name="com.seventytwomiles" additivity="false">
         <level value="TRACE"/>
         <appender-ref ref="Chainsaw"/>
     </logger>

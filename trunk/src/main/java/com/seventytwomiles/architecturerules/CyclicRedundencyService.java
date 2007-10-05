@@ -1,10 +1,8 @@
-package com.nereson.architecturerules;
+package com.seventytwomiles.architecturerules;
 
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-
-import java.util.Collection;
 
 
 /**
@@ -21,8 +19,10 @@ class CyclicRedundencyService extends AbstractArchitecturalRules {
 
     /**
      * Constructor instanciates a new CyclicRedundencyService
+     *
      * @throws SourceNotFoundException when a required source is not found
-     * @throws NoPackagesFoundException when no packages are found in the given configuraiton for sources
+     * @throws NoPackagesFoundException when no packages are found in the given
+     * configuraiton for sources
      */
     public CyclicRedundencyService() throws SourceNotFoundException, NoPackagesFoundException {
         super();
@@ -33,8 +33,8 @@ class CyclicRedundencyService extends AbstractArchitecturalRules {
 
     /**
      * @throws CyclicRedundencyException when cyclic reduendency is found
-     * @throws RuntimeException          when no packages were found with the given configuraiton if
-     *                                   an exception is requested by the configuration
+     * @throws RuntimeException when no packages were found with the given
+     * configuraiton if an exception is requested by the configuration
      */
     public void performCyclicRedundencyCheck() throws CyclicRedundencyException {
 

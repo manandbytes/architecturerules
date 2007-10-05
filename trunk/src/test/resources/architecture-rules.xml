@@ -20,11 +20,12 @@
 
         <rule>
             <id>dao</id>
-            <package>com.nereson.pagerank.core.dao</package>
+            <package>com.seventytwomiles.pagerank.core.dao</package>
             <violations>
-                <violation>com.nereson.pagerank.core.services</violation>
-                <violation>com.nereson.pagerank.core.builder</violation>
-                <violation>com.nereson.pagerank.util</violation>
+                <violation>com.seventytwomiles.pagerank.core.services
+                </violation>
+                <violation>com.seventytwomiles.pagerank.core.builder</violation>
+                <violation>com.seventytwomiles.pagerank.util</violation>
             </violations>
             <comment>The dao interface package should rely on nothing.</comment>
         </rule>
@@ -33,22 +34,27 @@
             <id>strategy</id>
             <package></package>
             <violations>
-                <violation>com.nereson.pagerank.core.services</violation>
-                <violation>com.nereson.pagerank.core.dao.hibernate</violation>
+                <violation>com.seventytwomiles.pagerank.core.services
+                </violation>
+                <violation>com.seventytwomiles.pagerank.core.dao.hibernate
+                </violation>
             </violations>
             <comment>strategies should be as pluggable as possible</comment>
         </rule>
 
         <rule>
             <id>model</id>
-            <package>com.nereson.pagerank.core.model</package>
+            <package>com.seventytwomiles.pagerank.core.model</package>
             <violations>
-                <violation>com.nereson.pagerank.core.dao</violation>
-                <violation>com.nereson.pagerank.core.dao.hibernate</violation>
-                <violation>com.nereson.pagerank.core.services</violation>
-                <violation>com.nereson.pagerank.core.strategy</violation>
-                <violation>com.nereson.pagerank.core.builder</violation>
-                <violation>com.nereson.pagerank.util</violation>
+                <violation>com.seventytwomiles.pagerank.core.dao</violation>
+                <violation>com.seventytwomiles.pagerank.core.dao.hibernate
+                </violation>
+                <violation>com.seventytwomiles.pagerank.core.services
+                </violation>
+                <violation>com.seventytwomiles.pagerank.core.strategy
+                </violation>
+                <violation>com.seventytwomiles.pagerank.core.builder</violation>
+                <violation>com.seventytwomiles.pagerank.util</violation>
             </violations>
             <comment>model should remain competely isolated</comment>
         </rule>

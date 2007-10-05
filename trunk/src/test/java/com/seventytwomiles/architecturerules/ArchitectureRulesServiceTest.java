@@ -1,4 +1,4 @@
-package com.nereson.architecturerules;
+package com.seventytwomiles.architecturerules;
 
 
 import junit.framework.TestCase;

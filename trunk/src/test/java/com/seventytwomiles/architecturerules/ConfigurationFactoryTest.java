@@ -1,4 +1,4 @@
-package com.nereson.architecturerules;
+package com.seventytwomiles.architecturerules;
 
 
 import junit.framework.TestCase;
@@ -14,7 +14,7 @@ import java.util.Set;
  * @author <Authors name>
  * @version 1.0
  * @since <pre>07/15/2007</pre>
- */                                                                                       
+ */
 public class ConfigurationFactoryTest extends TestCase {
 
 
@@ -37,7 +37,8 @@ public class ConfigurationFactoryTest extends TestCase {
 
         List sources = ConfigurationFactory.getSources();
 
-        for (Iterator sourceIterator = sources.iterator(); sourceIterator.hasNext();) {
+        for (Iterator sourceIterator = sources.iterator(); sourceIterator.hasNext();)
+        {
 
             String[] source = (String[]) sourceIterator.next();
 
@@ -51,7 +52,8 @@ public class ConfigurationFactoryTest extends TestCase {
 
         Set rules = ConfigurationFactory.getRules();
 
-        for (Iterator ruleIterator = rules.iterator(); ruleIterator.hasNext();) {
+        for (Iterator ruleIterator = rules.iterator(); ruleIterator.hasNext();)
+        {
 
             Rule rule = (Rule) ruleIterator.next();
 

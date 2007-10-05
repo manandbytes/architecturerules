@@ -1,4 +1,4 @@
-package com.nereson.architecturerules;
+package com.seventytwomiles.architecturerules;
 
 
 import org.apache.commons.logging.Log;
@@ -35,7 +35,8 @@ class ArchitecturalRulesService extends AbstractArchitecturalRules {
         Set rules = ConfigurationFactory.getRules();
 
         StringBuffer ruleList = new StringBuffer();
-        for (Iterator ruleIterator = rules.iterator(); ruleIterator.hasNext();) {
+        for (Iterator ruleIterator = rules.iterator(); ruleIterator.hasNext();)
+        {
 
             Rule rule = (Rule) ruleIterator.next();
             ruleList.append("[").append(rule.getId()).append(" for ").append(rule.getPackageName()).append("] ");
@@ -43,7 +44,8 @@ class ArchitecturalRulesService extends AbstractArchitecturalRules {
 
         log.debug("loaded " + rules.size() + " rules " + ruleList.toString());
 
-        for (Iterator ruleIterator = rules.iterator(); ruleIterator.hasNext();) {
+        for (Iterator ruleIterator = rules.iterator(); ruleIterator.hasNext();)
+        {
             Rule rule = (Rule) ruleIterator.next();
 
             log.info("checking rule " + rule.getId());

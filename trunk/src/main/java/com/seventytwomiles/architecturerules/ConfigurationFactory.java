@@ -1,4 +1,4 @@
-package com.nereson.architecturerules;
+package com.seventytwomiles.architecturerules;
 
 
 import org.apache.commons.logging.Log;
@@ -57,7 +57,7 @@ class ConfigurationFactory {
 
     /**
      * @param configuration String xml content to process
-     * @throws IOException  when input stream can not be opened or closed
+     * @throws IOException when input stream can not be opened or closed
      * @throws SAXException when configuration can not be parsed
      */
     private static void processConfiguration(final String configuration) throws SAXException, IOException {
@@ -96,7 +96,8 @@ class ConfigurationFactory {
 
     /**
      * @return String returns the contents fo the configurationFile
-     * @throws IOException if configuraiton file can not be loaded from classpath
+     * @throws IOException if configuraiton file can not be loaded from
+     * classpath
      */
     private static String getConfigurationAsXml() throws IOException {
 
@@ -106,9 +107,10 @@ class ConfigurationFactory {
 
 
     /**
-     * @return List of String[]{source, boolean }. The first element in the array is the source, the second
-     *         is a boolean true or false and indicates how to handle the situation when the source is empty
-     *         or does not exist.
+     * @return List of String[]{source, boolean }. The first element in the
+     *         array is the source, the second is a boolean true or false and
+     *         indicates how to handle the situation when the source is empty or
+     *         does not exist.
      */
     public static List getSources() {
         return sources;
@@ -151,24 +153,21 @@ class FileUtils {
 
 
     /**
-     * <p>
-     * Reads the contents of a file into a String.
-     * </p>
-     * <p>
-     * There is no readFileToString method without encoding parameter because
-     * the default encoding can differ between platforms and therefore results
-     * in inconsistent results.
-     * </p>
+     * <p> Reads the contents of a file into a String. </p> <p> There is no
+     * readFileToString method without encoding parameter because the default
+     * encoding can differ between platforms and therefore results in
+     * inconsistent results. </p>
      *
-     * @param file     the file to read
+     * @param file the file to read
      * @param encoding the encoding to use, null means platform default
      * @return The file contents or null if read failed.
-     * @throws IOException                  in case of an I/O error
-     * @throws UnsupportedEncodingException if the encoding is not supported by the VM
+     * @throws IOException in case of an I/O error
+     * @throws UnsupportedEncodingException if the encoding is not supported by
+     * the VM
      */
     public static String readFileToString(final File file, final String encoding) throws IOException {
 
-        InputStream inputStream = new FileInputStream(file);
+        final InputStream inputStream = new FileInputStream(file);
 
         try {
 
@@ -182,24 +181,21 @@ class FileUtils {
 
 
     /**
-     * Get the contents of an <code>InputStream</code> as a String
-     * using the specified character encoding.
-     * <p>
-     * Character encoding names can be found at
-     * <a href="http://www.iana.org/assignments/character-sets">IANA</a>.
-     * <p>
+     * Get the contents of an <code>InputStream</code> as a String using the
+     * specified character encoding. <p> Character encoding names can be found
+     * at <a href="http://www.iana.org/assignments/character-sets">IANA</a>. <p>
      * This method buffers the input internally, so there is no need to use a
      * <code>BufferedInputStream</code>.
      *
-     * @param input    the <code>InputStream</code> to read from
+     * @param input the <code>InputStream</code> to read from
      * @param encoding the encoding to use, null means platform default
      * @return the requested String
      * @throws NullPointerException if the input is null
-     * @throws IOException          if an I/O error occurs
+     * @throws IOException if an I/O error occurs
      */
     public static String toString(final InputStream input, final String encoding) throws IOException {
 
-        StringWriter stringWriter = new StringWriter();
+        final StringWriter stringWriter = new StringWriter();
 
         copy(input, stringWriter, encoding);
 
@@ -210,42 +206,36 @@ class FileUtils {
     /**
      * Copy bytes from an <code>InputStream</code> to chars on a
      * <code>Writer</code> using the default character encoding of the platform.
-     * <p>
-     * This method buffers the input internally, so there is no need to use a
-     * <code>BufferedInputStream</code>.
-     * <p>
-     * This method uses {@link InputStreamReader}.
+     * <p> This method buffers the input internally, so there is no need to use
+     * a <code>BufferedInputStream</code>. <p> This method uses {@link
+     * InputStreamReader}.
      *
-     * @param input  the <code>InputStream</code> to read from
+     * @param input the <code>InputStream</code> to read from
      * @param output the <code>Writer</code> to write to
      * @throws NullPointerException if the input or output is null
-     * @throws IOException          if an I/O error occurs
+     * @throws IOException if an I/O error occurs
      * @since Commons IO 1.1
      */
     public static void copy(final InputStream input, final Writer output) throws IOException {
 
-        InputStreamReader inputStreamReader = new InputStreamReader(input);
+        final InputStreamReader inputStreamReader = new InputStreamReader(input);
         copy(inputStreamReader, output);
     }
 
 
     /**
      * Copy bytes from an <code>InputStream</code> to chars on a
-     * <code>Writer</code> using the specified character encoding.
-     * <p>
-     * This method buffers the inputStream internally, so there is no need to use a
-     * <code>BufferedInputStream</code>.
-     * <p>
-     * Character encoding names can be found at
-     * <a href="http://www.iana.org/assignments/character-sets">IANA</a>.
-     * <p>
-     * This method uses {@link InputStreamReader}.
+     * <code>Writer</code> using the specified character encoding. <p> This
+     * method buffers the inputStream internally, so there is no need to use a
+     * <code>BufferedInputStream</code>. <p> Character encoding names can be
+     * found at <a href="http://www.iana.org/assignments/character-sets">IANA</a>.
+     * <p> This method uses {@link InputStreamReader}.
      *
-     * @param inputStream  the <code>InputStream</code> to read from
+     * @param inputStream the <code>InputStream</code> to read from
      * @param outputStream the <code>Writer</code> to write to
-     * @param encoding     the encoding to use, null means platform default
+     * @param encoding the encoding to use, null means platform default
      * @throws NullPointerException if the inputStream or outputStream is null
-     * @throws IOException          if an I/O error occurs
+     * @throws IOException if an I/O error occurs
      * @since Commons IO 1.1
      */
     public static void copy(final InputStream inputStream, final Writer outputStream, final String encoding) throws IOException {
@@ -256,23 +246,22 @@ class FileUtils {
 
         } else {
 
-            InputStreamReader inputStreamReader = new InputStreamReader(inputStream, encoding);
+            final InputStreamReader inputStreamReader = new InputStreamReader(inputStream, encoding);
             copy(inputStreamReader, outputStream);
         }
     }
 
 
     /**
-     * Copy chars from a <code>Reader</code> to a <code>Writer</code>.
-     * <p>
-     * This method buffers the input internally, so there is no need to use a
+     * Copy chars from a <code>Reader</code> to a <code>Writer</code>. <p> This
+     * method buffers the input internally, so there is no need to use a
      * <code>BufferedReader</code>.
      *
-     * @param input  the <code>Reader</code> to read from
+     * @param input the <code>Reader</code> to read from
      * @param output the <code>Writer</code> to write to
      * @return the number of characters copied
      * @throws NullPointerException if the input or output is null
-     * @throws IOException          if an I/O error occurs
+     * @throws IOException if an I/O error occurs
      * @since Commons IO 1.1
      */
     public static int copy(Reader input, Writer output) throws IOException {
@@ -294,35 +283,30 @@ class FileUtils {
     /**
      * Copy chars from a <code>Reader</code> to bytes on an
      * <code>OutputStream</code> using the default character encoding of the
-     * platform, and calling flush.
-     * <p>
-     * This method buffers the input internally, so there is no need to use a
-     * <code>BufferedReader</code>.
-     * <p>
+     * platform, and calling flush. <p> This method buffers the input
+     * internally, so there is no need to use a <code>BufferedReader</code>. <p>
      * Due to the implementation of OutputStreamWriter, this method performs a
-     * flush.
-     * <p>
-     * This method uses {@link OutputStreamWriter}.
+     * flush. <p> This method uses {@link OutputStreamWriter}.
      *
-     * @param input  the <code>Reader</code> to read from
+     * @param input the <code>Reader</code> to read from
      * @param output the <code>OutputStream</code> to write to
      * @throws NullPointerException if the input or output is null
-     * @throws IOException          if an I/O error occurs
+     * @throws IOException if an I/O error occurs
      * @since Commons IO 1.1
      */
     public static void copy(final Reader input, final OutputStream output) throws IOException {
 
-        OutputStreamWriter out = new OutputStreamWriter(output);
+        final OutputStreamWriter out = new OutputStreamWriter(output);
+
         copy(input, out);
         out.flush();
     }
 
 
     /**
-     * Unconditionally close an <code>InputStream</code>.
-     * <p>
-     * Equivalent to {@link InputStream#close()}, except any exceptions will be ignored.
-     * This is typically used in finally blocks.
+     * Unconditionally close an <code>InputStream</code>. <p> Equivalent to
+     * {@link InputStream#close()}, except any exceptions will be ignored. This
+     * is typically used in finally blocks.
      *
      * @param input the InputStream to close, may be null or already closed
      */

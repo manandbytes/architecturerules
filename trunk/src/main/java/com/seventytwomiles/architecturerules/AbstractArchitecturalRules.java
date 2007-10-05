@@ -1,4 +1,4 @@
-package com.nereson.architecturerules;
+package com.seventytwomiles.architecturerules;
 
 
 import jdepend.framework.JDepend;
@@ -35,13 +35,15 @@ abstract class AbstractArchitecturalRules {
 
         List sources = ConfigurationFactory.getSources();
 
-        for (Iterator sourceIterator = sources.iterator(); sourceIterator.hasNext();) {
-            String[] source = (String[]) sourceIterator.next();
+        for (Iterator sourceIterator = sources.iterator(); sourceIterator.hasNext();)
+        {
 
-            String sourcePath = source[0];
-            boolean throwExceptionIfNotFound = Boolean.valueOf(source[1]).booleanValue();
+            final String[] source = (String[]) sourceIterator.next();
 
-            StringBuffer message = new StringBuffer();
+            final String sourcePath = source[0];
+            final boolean throwExceptionIfNotFound = Boolean.valueOf(source[1]).booleanValue();
+
+            final StringBuffer message = new StringBuffer();
 
             try {
 
@@ -113,7 +115,7 @@ abstract class AbstractArchitecturalRules {
      */
     protected void testLayeringValid(final String layer, final Collection rules) throws DependencyConstraintException, CyclicRedundencyException {
 
-        Collection packages = jdepend.analyze();
+        final Collection packages = jdepend.analyze();
 
         log.debug("checking how many packages were found by JDepend");
         if (packages.isEmpty()) {
@@ -134,9 +136,10 @@ abstract class AbstractArchitecturalRules {
             log.debug("jdepend found " + packages.size() + " to analyze for dependency architecture");
         }
 
-        for (Iterator packageIterator = packages.iterator(); packageIterator.hasNext();) {
+        for (Iterator packageIterator = packages.iterator(); packageIterator.hasNext();)
+        {
 
-            JavaPackage javaPackage = (JavaPackage) packageIterator.next();
+            final JavaPackage javaPackage = (JavaPackage) packageIterator.next();
 
             log.debug("checking dependencies on package " + javaPackage.getName());
             testEfferentsValid(layer, rules, javaPackage, javaPackage.getName());
@@ -154,13 +157,17 @@ abstract class AbstractArchitecturalRules {
      * @throws DependencyConstraintException
      */
     protected void testEfferentsValid(final String layer, final Collection rules,
-                                       final JavaPackage jPackage,
-                                       final String analyzedPackageName) throws DependencyConstraintException {
+                                      final JavaPackage jPackage,
+                                      final String analyzedPackageName) throws DependencyConstraintException {
 
-        Collection efferents = jPackage.getEfferents();
+        final Collection efferents = jPackage.getEfferents();
 
-        for (Iterator packageIterator = efferents.iterator(); packageIterator.hasNext();) {
-            JavaPackage efferentPackage = (JavaPackage) packageIterator.next();
+        JavaPackage efferentPackage;
+
+        for (Iterator packageIterator = efferents.iterator(); packageIterator.hasNext();)
+        {
+
+            efferentPackage = (JavaPackage) packageIterator.next();
 
             if (rules.contains(efferentPackage.getName()) && analyzedPackageName.equals(layer)) {
 

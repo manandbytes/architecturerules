@@ -1,4 +1,4 @@
-package com.nereson.architecturerules;
+package com.seventytwomiles.architecturerules;
 
 
 import java.util.ArrayList;
@@ -77,8 +77,10 @@ class Rule {
 
 
     /**
-     * @param vioation String a package this this Rule's package should not test on
-     * @return boolean true if the violation is renived from the List of violoations
+     * @param vioation String a package this this Rule's package should not test
+     * on
+     * @return boolean true if the violation is renived from the List of
+     *         violoations
      */
     public boolean removeViolation(final String vioation) {
         return violations.remove(vioation);
@@ -86,11 +88,14 @@ class Rule {
 
 
     /**
-     * @param violation String a package this this Rule's package may NOT depend upon
-     * @return boolean true if the violation is added to the List of violoatizons
-     * @throws IllegalRuleException when the packageName is also a violation: this is a Illegal Rule because
-     *                              it can not be tessted and its better to ask the developer to understand what
-     *                              they are asking me to test, rather than just ignore the configuration entry
+     * @param violation String a package this this Rule's package may NOT depend
+     * upon
+     * @return boolean true if the violation is added to the List of
+     *         violoatizons
+     * @throws IllegalRuleException when the packageName is also a violation:
+     * this is a Illegal Rule because it can not be tessted and its better to
+     * ask the developer to understand what they are asking me to test, rather
+     * than just ignore the configuration entry
      */
     public boolean addViolation(final String violation) throws IllegalRuleException {
 
@@ -179,7 +184,8 @@ class Rule {
         stringBuilder.append("\t").append("<comment>").append(comment).append("</comment>").append("\r\n");
         stringBuilder.append("\t").append("<violations>").append("\r\n");
 
-        for (Iterator violationIterator = violations.iterator(); violationIterator.hasNext();) {
+        for (Iterator violationIterator = violations.iterator(); violationIterator.hasNext();)
+        {
             String violation = (String) violationIterator.next();
             stringBuilder.append("\t\t").append("<violation>").append(violation).append("</violation>").append("\r\n");
         }

@@ -28,9 +28,9 @@ For example:
 {{{
 <rule>
     <id>dao</id>
-    <package>com.nereson.pagerank.core.dao</package>
+    <package>com.seventytwomiles.project.core.dao</package>
     <violations>
-        <violation>com.nereson.pagerank.core.dao</violation>
+        <violation>com.seventytwomiles.project.core.dao</violation>
     <violations>
     <comment>The dao interface package should rely on nothing.</comment>
 </rule>

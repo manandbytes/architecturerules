@@ -113,7 +113,7 @@
                 <version>2.0</version>
             </plugin>
 
-            <plugin>
+            <!--<plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>changelog-maven-plugin</artifactId>
                 <reportSets>
@@ -130,7 +130,7 @@
                         </reports>
                     </reportSet>
                 </reportSets>
-            </plugin>
+            </plugin>-->
 
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>

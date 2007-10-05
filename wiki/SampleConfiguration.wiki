@@ -50,7 +50,7 @@ Here is an example. Read on for the break down.
 
         <rule>
             <id>model</id>
-            <package>com.nereson.pagerank.core.model</package>
+            <package>com.seventytwomiles.project.core.model</package>
             <violations>
                 <violation>com.seventytwomiles.project.core.dao</violation>
                 <violation>com.seventytwomiles.project.core.dao.hibernate</violation>

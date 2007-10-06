@@ -21,7 +21,12 @@
 
     <rules>
 
-        <rule>
+        <rule id="dao">
+
+            <comment>
+                The dao interface package should rely on nothing.
+            </comment>
+
             <id>dao</id>
             <package>
                 com.seventytwomiles.pagerank.core.dao
@@ -37,10 +42,14 @@
                     com.seventytwomiles.pagerank.util
                 </violation>
             </violations>
-            <comment>The dao interface package should rely on nothing.</comment>
         </rule>
 
-        <rule>
+        <rule id="strategy">
+
+            <comment>
+                Strategies should be as pluggable as possible
+            </comment>
+
             <id>strategy</id>
             <package>
                 com.seventytwomiles.pagerank.serviceproviders.startegies
@@ -53,10 +62,14 @@
                     com.seventytwomiles.pagerank.core.dao.hibernate
                 </violation>
             </violations>
-            <comment>strategies should be as pluggable as possible</comment>
         </rule>
 
-        <rule>
+        <rule id="model">
+
+            <comment>
+                Model should remain competely isolated
+            </comment>
+
             <id>model</id>
             <package>
                 com.seventytwomiles.pagerank.core.model
@@ -81,7 +94,6 @@
                     com.seventytwomiles.pagerank.util
                 </violation>
             </violations>
-            <comment>model should remain competely isolated</comment>
         </rule>
 
     </rules>

@@ -14,7 +14,8 @@ import org.xml.sax.helpers.XMLReaderFactory;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.*;
+import java.util.Collection;
+import java.util.HashSet;
 
 
 /**
@@ -99,7 +100,9 @@ public class ConfigurationFactory {
         /**
          *
          * TODO: luminary do rewrite this method
-         *
+         * TODO: instanciate new SourceDirectory rather than a String for each source
+         * TODO: if configuration loading is small enough that it can fit into this file, delete ConfiguraitonHandler, which is the current xml parser that reads the xml file
+         * TODO: if a new file is created, call it ConfigurationDigester ? 
          */
 
         // Read the response XML document
@@ -132,7 +135,6 @@ public class ConfigurationFactory {
      * @see "architecture-rules.dtd"
      */
     private void validateConfigruation(final String configuration) {
-
         /* TODO: write this*/
     }
 
@@ -140,6 +142,8 @@ public class ConfigurationFactory {
     /**
      * <p>Read Xml configuration file to String.</p>
      *
+     * @param configurationFileName String name of the XML file in teh classpath
+     * to load and read
      * @return String returns the contentsofo the configurationFile
      * @throws IOException if configuration file can not be loaded from
      * classpath
@@ -187,7 +191,6 @@ public class ConfigurationFactory {
     public boolean doCyclicDependencyTest() {
         return doCyclicDependencyTest;
     }
-
 }
 
 

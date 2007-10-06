@@ -104,7 +104,7 @@ public class Configuration {
     /**
      * <p>Add a new source directory</p>
      *
-     * @param source
+     * @param source String relative path to source directory
      * @return boolean <tt>true</tt> if this list did not already contain the
      *         specified element.
      */

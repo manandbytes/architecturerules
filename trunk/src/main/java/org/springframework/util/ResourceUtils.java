@@ -1,8 +1,8 @@
 package org.springframework.util;
 
 
-import java.io.FileNotFoundException;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.net.URL;
 import java.net.URLDecoder;
 
@@ -45,6 +45,7 @@ public abstract class ResourceUtils {
         if (!URL_PROTOCOL_FILE.equals(resourceUrl.getProtocol()))
             throw new FileNotFoundException(description + " cannot be resolved to absolute file path  because it does not reside in the file system: " + resourceUrl);
 
+        //noinspection deprecation
         return new File(URLDecoder.decode(resourceUrl.getFile()));
     }
 

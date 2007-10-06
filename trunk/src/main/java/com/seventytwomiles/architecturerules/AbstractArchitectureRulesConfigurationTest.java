@@ -75,11 +75,12 @@ public abstract class AbstractArchitectureRulesConfigurationTest extends TestCas
 
 
     /**
-     * <p>todo javadoc</p>
+     * <p>Get the name of the xml configuration file that is located in the
+     * classpath.</p>
      *
      * <p>Recommend <samp>architecture-rules.xml</samp></p>
      *
-     * @return String todo javadoc
+     * @return String name of the xml file including <samp>.xml</smmp>
      */
     abstract String getConfigurationFileName();
 

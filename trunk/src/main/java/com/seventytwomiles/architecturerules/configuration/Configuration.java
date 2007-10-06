@@ -2,14 +2,24 @@ package com.seventytwomiles.architecturerules.configuration;
 
 
 import com.seventytwomiles.architecturerules.domain.Rule;
+import junit.framework.Assert;
 
-import java.util.*;
+import java.util.Collection;
+import java.util.HashSet;
 
 
 /**
- * <p>todo: javadocs</p>
+ * <p>An instance of <code>Configuration</code> allows the applicaiton to
+ * specifiy where the source directories are, what rules to test against and
+ * under what conditions should an <code>Exception</code> be thrown.</p>
+ *
+ * <p>This <code>Configuraiton</code> may be loaded by configraiton from an XML
+ * file in the classpath, through programatic configuraiton, or both.</p>
  *
  * @author mnereson
+ * @see ConfigurationFactory
+ * @see ConfigurationHandler
+ * @see UnmodifiableConfiguration
  */
 public class Configuration {
 
@@ -66,7 +76,16 @@ public class Configuration {
      */
     public boolean addRule(final Rule rule) {
 
-        /* todo: validate input */
+        /* validate input */
+        Assert.assertNotNull("rule can not be null", rule);
+
+        Assert.assertNotNull("rule id can not be null", rule.getId());
+        Assert.assertFalse("rule id must not be empty", rule.getId().equals(""));
+
+        Assert.assertNotNull("rule package can not be null", rule.getPackageName());
+        Assert.assertFalse("rule package must not be empty", rule.getPackageName().equals(""));
+
+        Assert.assertFalse("rule violations must not be empty", rule.getViolations().isEmpty());
 
         return rules.add(rule);
     }
@@ -91,7 +110,11 @@ public class Configuration {
      */
     public boolean addSource(final String source) {
 
-        /* todo: validate input */
+        /* TODO: replace argument with SourceDirectory and update the validation below */
+
+        /* validate input */
+        Assert.assertNotNull("source can not be null", source);
+        Assert.assertFalse("source must not be empty", source.equals(""));
 
         return sources.add(source);
     }

@@ -18,7 +18,7 @@
         unit tests. Able to assert that specific packages do not depend on each
         other
         and able to check for cyclic redundancies among your packages. TEST
-    </description> 
+    </description>
 
 
     <dependencies>
@@ -39,7 +39,6 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>3.8.1</version>
-            <scope>test</scope>
         </dependency>
 
         <dependency>

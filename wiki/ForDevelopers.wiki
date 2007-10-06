@@ -1,5 +1,4 @@
 #labels Phase-Implementation
-#how to get started
 
 = Introduction =
 
@@ -16,15 +15,18 @@ The follow the following steps:
   # create a folder, something like {{{c:\dev\svnlocal\architecturerules}}}
   # open command window or console and {{{cd c:\dev\svnlocal\architecturerules}}}
   # type {{{svn checkout http://architecturerules.googlecode.com/svn/trunk/ architecturerules}}}
+
+||*note* If you plan to make contributions, become a project member prior to checking out, because you'll need to use https:// with a username and password. If you checkout with http:// then decide to contribute, you'll have to delete your local checked out copy and start fresh with an https:// checkout.||
+
   
-For IntelliJ users: 
+For *IntelliJ* users: 
  # type {{{mvn idea:idea -DownloadSources=true}}} _this could take a few minutes if you just installed maven_
  # close console
  # open {{{c:\dev\svnlocal\architecturerules\architecturerules.ipr}}} with IntelliJ
  # in IntelliJ goto {{{settings > version control}}} and ensure subversion is selected
 
 
-For Eclipse users: 
+For *Eclipse* users: 
  # For eclipse users: type {{{mvn eclipse:eclipse}}} _this could take a few minutes if you just installed maven_
  # close console
  # start eclipse
@@ -32,4 +34,5 @@ For Eclipse users:
  # navigate to  
  # open {{{c:\dev\svnlocal\architecturerules\}}} and select the project file
 
-Note: My eclipse instructions could be wrong. I don't use it. Please update this page if you find corrections neccessary.
+
+||*note* My eclipse instructions could be wrong. I don't use it. Please update this page if you find corrections neccessary.||

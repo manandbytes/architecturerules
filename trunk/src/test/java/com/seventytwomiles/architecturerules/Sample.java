@@ -11,10 +11,10 @@ import com.seventytwomiles.architecturerules.domain.Rule;
  * @author mnereson
  * @see AbstractArchitectureRulesConfigurationTest
  */
-public class SampleTest /*extends AbstractArchitectureRulesConfigurationTest*/ {
+public class Sample /*extends AbstractArchitectureRulesConfigurationTest*/ {
 
 
-    public SampleTest() {
+    public void Sample() {   // this is what the contructor would look like (remove void)
 
         final Configuration configuration = getConfiguration();
 
@@ -44,7 +44,7 @@ public class SampleTest /*extends AbstractArchitectureRulesConfigurationTest*/ {
      * @see AbstractArchitectureRulesConfigurationTest#testArchitecture()
      */
     public void testArchitecture() {
-        assertTrue(doTests());
+        //assertTrue(doTests());
     }
 
 
@@ -54,9 +54,9 @@ public class SampleTest /*extends AbstractArchitectureRulesConfigurationTest*/ {
     }
 
 
-    private Object doTests() {
+    private boolean doTests() {
         // FROM SUPERCLASS
-        return null;
+        return true;
     }
 
 

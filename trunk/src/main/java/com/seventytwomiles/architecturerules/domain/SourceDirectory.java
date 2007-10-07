@@ -2,7 +2,8 @@ package com.seventytwomiles.architecturerules.domain;
 
 
 /**
- * <p>todo: javadocs</p>
+ * <p>Representation of a source directory to search for packages and .class
+ * files in.</p>
  *
  * @author mnereson
  */
@@ -10,14 +11,15 @@ public class SourceDirectory {
 
 
     /**
-     * <p></p>
+     * <p>When true, if this source {@link #path} is not found a
+     * <code>SourcesNotFoundException</code> will be thrown.</p>
      *
      * @parameter shouldThrowExceptionWhenNotFound boolean
      */
     private boolean shouldThrowExceptionWhenNotFound = false;
 
     /**
-     * <p></p>
+     * <p>Relative url to the path to search in for .class files.</p>
      *
      * @parameter path String
      */
@@ -45,15 +47,30 @@ public class SourceDirectory {
     }
 
 
+    /**
+     * <p></p>
+     */
     public SourceDirectory() {
     }
 
 
+    /**
+     * <p></p>
+     *
+     * @param path String {@link #path}
+     */
     public SourceDirectory(final String path) {
         this.path = path;
     }
 
 
+    /**
+     * <p></p>
+     *
+     * @param path String {@link #path}
+     * @param shouldThrowExceptionWhenNotFound boolean {@link
+     * #shouldThrowExceptionWhenNotFound}
+     */
     public SourceDirectory(final String path, final boolean shouldThrowExceptionWhenNotFound) {
         this.shouldThrowExceptionWhenNotFound = shouldThrowExceptionWhenNotFound;
         this.path = path;
@@ -61,7 +78,7 @@ public class SourceDirectory {
 
 
     /**
-     * Getter for property {@link #path}.
+     * <p>Getter for property {@link #path}.</p>
      *
      * @return Value for property <tt>path</tt>.
      */
@@ -71,7 +88,7 @@ public class SourceDirectory {
 
 
     /**
-     * Setter for property {@link #path}.
+     * <p>Setter for property {@link #path}.</p>
      *
      * @param path Value to set for property <tt>path</tt>.
      */
@@ -81,21 +98,7 @@ public class SourceDirectory {
 
 
     /**
-     * Returns a string representation of the object. In general, the
-     * <code>toString</code> method returns a string that "textually represents"
-     * this object. The result should be a concise but informative
-     * representation that is easy for a person to read. It is recommended that
-     * all subclasses override this method. <p> The <code>toString</code> method
-     * for class <code>Object</code> returns a string consisting of the name of
-     * the class of which the object is an instance, the at-sign character
-     * `<code>@</code>', and the unsigned hexadecimal representation of the hash
-     * code of the object. In other words, this method returns a string equal to
-     * the value of: <blockquote>
-     * <pre>
-     * getClass().getName() + '@' + Integer.toHexString(hashCode())
-     * </pre></blockquote>
-     *
-     * @return a string representation of the object.
+     * @see Object#toString()
      */
     public String toString() {
         return path;

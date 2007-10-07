@@ -119,4 +119,15 @@ public class RuleTest extends TestCase {
     public void testRemoveViolations() throws Exception {
         //TODO: Test goes here...
     }
+
+
+    /**
+     * <p>Tests for {@link Rule#equals(Object)}  </p>
+     *
+     * @throws Exception when <code>Rule</code> throws an unexpected
+     * <code>Exception</code>
+     */
+    public void testEquals() throws Exception {
+        //TODO: Test goes here...
+    }
 }

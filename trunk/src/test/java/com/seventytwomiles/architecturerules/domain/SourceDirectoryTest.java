@@ -1,6 +1,7 @@
 package com.seventytwomiles.architecturerules.domain;
 
 
+import junit.framework.AssertionFailedError;
 import junit.framework.TestCase;
 
 
@@ -53,7 +54,19 @@ public class SourceDirectoryTest extends TestCase {
      * <code>Exception</code>
      */
     public void testInterestingConstructors() throws Exception {
-        //TODO: Test goes here...
+
+
+        sourceDirectory = new SourceDirectory("core/target/classes");
+        assertEquals("core/target/classes", sourceDirectory.getPath());
+
+
+        sourceDirectory = new SourceDirectory("core/target/classes", true);
+        assertEquals("core/target/classes", sourceDirectory.getPath());
+        assertTrue(sourceDirectory.shouldThrowExceptionWhenNotFound());
+
+        sourceDirectory = new SourceDirectory("core/target/classes", false);
+        assertEquals("core/target/classes", sourceDirectory.getPath());
+        assertFalse(sourceDirectory.shouldThrowExceptionWhenNotFound());
     }
 
 
@@ -65,7 +78,12 @@ public class SourceDirectoryTest extends TestCase {
      * <code>Exception</code>
      */
     public void testSetShouldThrowExceptionWhenNotFound() throws Exception {
-        //TODO: Test goes here...
+
+        sourceDirectory.setShouldThrowExceptionWhenNotFound(true);
+        assertTrue(sourceDirectory.shouldThrowExceptionWhenNotFound());
+
+        sourceDirectory.setShouldThrowExceptionWhenNotFound(false);
+        assertFalse(sourceDirectory.shouldThrowExceptionWhenNotFound());
     }
 
 
@@ -77,8 +95,50 @@ public class SourceDirectoryTest extends TestCase {
      * <code>Exception</code>
      */
     public void testSetGetPath() throws Exception {
-        //TODO: Test goes here...
+
+        sourceDirectory.setPath("core/target/classes");
+        assertEquals("core/target/classes", sourceDirectory.getPath());
+
+        try {
+
+            sourceDirectory.setPath(null);
+            fail("excpected AssertionFailedError");
+
+        } catch (AssertionFailedError e) {
+
+        }
+
+        try {
+
+            sourceDirectory.setPath("");
+            fail("excpected AssertionFailedError");
+
+        } catch (AssertionFailedError e) {
+
+        }
     }
 
 
+    /**
+     * <p>Test for {@link SourceDirectory#equals(Object)} </p>
+     *
+     * @throws Exception when <code>SourceDirectory</code> throws and unexpected
+     * <code>Exception</code>
+     */
+    public void testEquals() {
+
+        SourceDirectory that;
+
+        sourceDirectory.setPath("core/target/classes");
+        that = new SourceDirectory("core/target/classes");
+        assertTrue(sourceDirectory.equals(that));
+        assertTrue(sourceDirectory.hashCode() == that.hashCode());
+
+        that = new SourceDirectory("web/target/classes");
+        assertFalse(sourceDirectory.equals(that));
+        assertFalse(sourceDirectory.hashCode() == that.hashCode());
+
+    }
 }
+
+

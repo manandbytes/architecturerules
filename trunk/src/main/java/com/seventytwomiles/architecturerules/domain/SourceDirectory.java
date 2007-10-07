@@ -1,6 +1,9 @@
 package com.seventytwomiles.architecturerules.domain;
 
 
+import junit.framework.Assert;
+
+
 /**
  * <p>Representation of a source directory to search for packages and .class
  * files in.</p>
@@ -93,6 +96,10 @@ public class SourceDirectory {
      * @param path Value to set for property <tt>path</tt>.
      */
     public void setPath(final String path) {
+
+        Assert.assertNotNull(path);
+        Assert.assertFalse("".equals(path));
+
         this.path = path;
     }
 
@@ -102,5 +109,30 @@ public class SourceDirectory {
      */
     public String toString() {
         return path;
+    }
+
+
+    /**
+     * @see Object#equals(Object)
+     */
+    public boolean equals(final Object object) {
+
+        if (this == object)
+            return true;
+
+        if (object == null || getClass() != object.getClass())
+            return false;
+
+        final SourceDirectory that = (SourceDirectory) object;
+
+        if (path != null ? !path.equals(that.path) : that.path != null)
+            return false;
+
+        return true;
+    }
+
+
+    public int hashCode() {
+        return (path != null ? path.hashCode() : 0);
     }
 }

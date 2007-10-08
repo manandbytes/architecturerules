@@ -2,10 +2,11 @@ package com.seventytwomiles.architecturerules.domain;
 
 
 import com.seventytwomiles.architecturerules.exceptions.IllegalArchitectureRuleException;
+import junit.framework.Assert;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.Iterator;
 
 
@@ -46,7 +47,15 @@ public class Rule {
      *
      * @parameter violations Collection
      */
-    private Collection violations = new ArrayList();
+    private Collection violations = new HashSet();
+
+
+    /**
+     * <p>Constructs a new Rule.</p>
+     */
+    public Rule() {
+
+    }
 
 
     /**
@@ -58,16 +67,9 @@ public class Rule {
      */
     public Rule(final String id, final String packageName) {
 
-        this.id = id;
-        this.packageName = packageName;
-    }
-
-
-    /**
-     * <p>Constructs a new Rule.</p>
-     */
-    public Rule() {
-
+        /* calls setters to that asserterations can be made */
+        setId(id);
+        setPackageName(packageName);
     }
 
 
@@ -97,6 +99,9 @@ public class Rule {
      * @param comment Value to set for property <tt>comment</tt>.
      */
     public void setComment(final String comment) {
+
+        Assert.assertNotNull("comment can not be null", comment);
+
         this.comment = comment;
     }
 
@@ -114,13 +119,18 @@ public class Rule {
     /**
      * <p>Remove a violation from this Rule.</p>
      *
-     * @param vioation String a package this this Rule's package should not test
-     * on
+     * @param violation String a package this this Rule's package should not
+     * test on
      * @return boolean <tt>true</tt> if the violation is renived from the List
      *         of violoations
      */
-    public boolean removeViolation(final String vioation) {
-        return violations.remove(vioation);
+    public boolean removeViolation(final String violation) {
+
+        Assert.assertNotNull("null violation can not be removed", violation);
+        //noinspection ConstantConditions because assertNotNull is right above
+        Assert.assertFalse("empty violation can not be removed", violation.equals(""));
+
+        return violations.remove(violation);
     }
 
 
@@ -138,6 +148,10 @@ public class Rule {
      */
     public boolean addViolation(final String violation) throws IllegalArchitectureRuleException {
 
+        Assert.assertNotNull("null violation can not be added", violation);
+        //noinspection ConstantConditions because assertNotNull is right above
+        Assert.assertFalse("empty violation can not be added", violation.equals(""));
+
         if (violation.equalsIgnoreCase(packageName))
             throw new IllegalArchitectureRuleException(
                     "Could not add architecture rule violation that creates rule " +
@@ -152,7 +166,13 @@ public class Rule {
     /**
      * <p>Get all of the violations.</p>
      *
-     * @return List unmodifiable
+     * <p>Note: this Collection is unmodifiable, use {@link #addViolation} and
+     * {@link #removeViolation}</p>
+     *
+     * @return Collection unmodifiable
+     * @throws UnsupportedOperationException when <code>getViolations.add(Object)</code>
+     * or <code>getViolations.remove(Object)</code> is called. Use {@link
+     * #addViolation} and {@link #removeViolation}.
      */
     public Collection getViolations() {
         return Collections.unmodifiableCollection(violations);
@@ -165,6 +185,10 @@ public class Rule {
      * @param id Value to set for property <tt>id</tt>.
      */
     public void setId(final String id) {
+
+        Assert.assertNotNull("id can not be null", id);
+        Assert.assertFalse("id can not be empty", id.equals(""));
+
         this.id = id;
     }
 
@@ -175,6 +199,10 @@ public class Rule {
      * @param packageName Value to set for property <tt>packageName</tt>.
      */
     public void setPackageName(final String packageName) {
+
+        Assert.assertNotNull("packageName can not be null", packageName);
+        Assert.assertFalse("packageName can not be empty", packageName.equals(""));
+
         this.packageName = packageName;
     }
 

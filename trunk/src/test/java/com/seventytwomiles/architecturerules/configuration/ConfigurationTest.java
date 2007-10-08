@@ -115,10 +115,10 @@ public class ConfigurationTest extends TestCase {
             rule.setId("");
             configuration.addRule(rule);
             fail("expected AssertionFailedError");
+
         } catch (AssertionFailedError e) {
 
-            assertTrue(e.getMessage().contains("rule id must not be empty"));
-
+            assertTrue(e.getMessage().contains("id can not be empty"));
         }
 
         try {
@@ -140,7 +140,7 @@ public class ConfigurationTest extends TestCase {
 
         } catch (AssertionFailedError e) {
 
-            assertTrue(e.getMessage().contains("rule package must not be empty"));
+            assertTrue(e.getMessage().contains("packageName can not be empty"));
         }
 
         try {

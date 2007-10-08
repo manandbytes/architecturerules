@@ -137,7 +137,6 @@ public class SourceDirectoryTest extends TestCase {
         that = new SourceDirectory("web/target/classes");
         assertFalse(sourceDirectory.equals(that));
         assertFalse(sourceDirectory.hashCode() == that.hashCode());
-
     }
 }
 

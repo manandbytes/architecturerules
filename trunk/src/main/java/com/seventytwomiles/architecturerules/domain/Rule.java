@@ -155,9 +155,9 @@ public class Rule {
         if (violation.equalsIgnoreCase(packageName))
             throw new IllegalArchitectureRuleException(
                     "Could not add architecture rule violation that creates rule " +
-                            "that says a package can not use itself. Remove " +
-                            "<violation>" + violation + "</violation> " +
-                            "from rule " + id);
+                    "that says a package can not use itself. Remove " +
+                    "<violation>" + violation + "</violation> " +
+                    "from rule " + id);
 
         return violations.add(violation);
     }
@@ -215,7 +215,10 @@ public class Rule {
         if (this == object)
             return true;
 
-        if (object == null || getClass() != object.getClass())
+        if (object == null)
+            return false;
+
+        if (!(object instanceof Rule))
             return false;
 
         final Rule that = (Rule) object;

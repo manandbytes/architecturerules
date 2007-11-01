@@ -65,7 +65,10 @@ public class RuleTest extends TestCase {
         rule = new Rule("dao", "com.seventytwomiles.dao");
         assertTrue(rule.getId().equals("dao"));
         assertTrue(rule.getPackageName().equals("com.seventytwomiles.dao"));
+    }
 
+
+    public void testInterestingConstructors_illegalArguments() throws Exception {
 
         try {
 
@@ -122,7 +125,10 @@ public class RuleTest extends TestCase {
 
         rule.setId("controllers");
         assertTrue(rule.getId().equals("controllers"));
+    }
 
+
+    public void testSetGetId_illegalArguments() throws Exception {
 
         try {
 
@@ -161,6 +167,10 @@ public class RuleTest extends TestCase {
 
         rule.setComment("");
         assertTrue(rule.getComment().equals(""));
+    }
+
+
+    public void testSetGetComment_illegalArguments() throws Exception {
 
         try {
 
@@ -171,7 +181,6 @@ public class RuleTest extends TestCase {
 
             assertTrue(e.getMessage().contains("comment"));
         }
-
     }
 
 
@@ -186,7 +195,17 @@ public class RuleTest extends TestCase {
 
         rule.setPackageName("com.seventytwomiles.web.controllers");
         assertTrue(rule.getPackageName().equals("com.seventytwomiles.web.controllers"));
+    }
 
+
+    /**
+     * <p>Tests for {@link Rule#getPackageName()}  and {@link
+     * Rule#setPackageName(String)} </p>
+     *
+     * @throws Exception when <code>Rule</code> throws an unexpected
+     * <code>Exception</code>
+     */
+    public void testSetGetPackageName_illegalArguments() throws Exception {
 
         try {
 
@@ -239,8 +258,17 @@ public class RuleTest extends TestCase {
 
         assertFalse(rule.removeViolation("com.seventytwomiles.package.does.not.exist"));
         assertEquals(1, rule.getViolations().size());
+    }
 
 
+    /**
+     * <p>Tests for {@link Rule#getViolations()}, {@link
+     * Rule#addViolation(String)} and {@link Rule#removeViolation(String)}</p>
+     *
+     * @throws Exception when <code>Rule</code> throws an unexpected
+     * <code>Exception</code>
+     */
+    public void testAddGetViolations_illegalArguments() throws Exception {
         try {
 
             rule.addViolation("");

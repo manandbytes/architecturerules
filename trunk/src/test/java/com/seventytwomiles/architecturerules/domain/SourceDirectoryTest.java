@@ -1,7 +1,6 @@
 package com.seventytwomiles.architecturerules.domain;
 
 
-import junit.framework.AssertionFailedError;
 import junit.framework.TestCase;
 
 
@@ -98,24 +97,20 @@ public class SourceDirectoryTest extends TestCase {
 
         sourceDirectory.setPath("core/target/classes");
         assertEquals("core/target/classes", sourceDirectory.getPath());
+    }
 
-        try {
 
-            sourceDirectory.setPath(null);
-            fail("excpected AssertionFailedError");
+    /**
+     * <p>Test for {@link SourceDirectory#setPath(String)} and {@link
+     * SourceDirectory#getPath()} </p>
+     *
+     * @throws Exception when <code>SourceDirectory</code> throws and unexpected
+     * <code>Exception</code>
+     */
+    public void testSetGetPath_illegalArguments() throws Exception {
 
-        } catch (AssertionFailedError e) {
-
-        }
-
-        try {
-
-            sourceDirectory.setPath("");
-            fail("excpected AssertionFailedError");
-
-        } catch (AssertionFailedError e) {
-
-        }
+        sourceDirectory.setPath("core/target/classes");
+        assertEquals("core/target/classes", sourceDirectory.getPath());
     }
 
 
@@ -125,7 +120,7 @@ public class SourceDirectoryTest extends TestCase {
      * @throws Exception when <code>SourceDirectory</code> throws and unexpected
      * <code>Exception</code>
      */
-    public void testEquals() {
+    public void testEquals() throws Exception {
 
         SourceDirectory that;
 

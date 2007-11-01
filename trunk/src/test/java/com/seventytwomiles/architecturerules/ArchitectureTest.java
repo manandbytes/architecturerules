@@ -11,15 +11,15 @@ import com.seventytwomiles.architecturerules.domain.Rule;
  * @author mnereson
  * @see AbstractArchitectureRulesConfigurationTest
  */
-public class Sample /*extends AbstractArchitectureRulesConfigurationTest*/ {
+public class ArchitectureTest extends AbstractArchitectureRulesConfigurationTest {
 
 
-    public void Sample() {   // this is what the contructor would look like (remove void)
+    public void Sample() {
 
         final Configuration configuration = getConfiguration();
 
         /**
-         * Get the configuraiton that already has teh architecure-rules.xml
+         * Get the configuraiton that already has the architecure-rules.xml
          * configuraiton loaded.
          *
          * Changing a boolean like configuration.setDoCyclicDependencyTest(false)
@@ -36,6 +36,11 @@ public class Sample /*extends AbstractArchitectureRulesConfigurationTest*/ {
      * @see AbstractArchitectureRulesConfigurationTest
      */
     String getConfigurationFileName() {
+
+        /**
+         * Provide the name of the rules configuraiton file. File file is
+         * loaded from the classpath.
+         */
         return "architecture-rules.xml";
     }
 
@@ -44,23 +49,12 @@ public class Sample /*extends AbstractArchitectureRulesConfigurationTest*/ {
      * @see AbstractArchitectureRulesConfigurationTest#testArchitecture()
      */
     public void testArchitecture() {
-        //assertTrue(doTests());
-    }
 
-
-    private Configuration getConfiguration() {
-        // this is part of superclass
-        return null;
-    }
-
-
-    private boolean doTests() {
-        // FROM SUPERCLASS
-        return true;
-    }
-
-
-    private void assertTrue(final Object p0) {
-        // FROM SUPERCLASS
+        /**
+         * Finally, run the test via doTest(). If any rules are broken, or if
+         * the configuraiton can not be loaded properly, then the appropriate
+         * Exception will be thrown.
+         */
+        assertTrue(doTests());
     }
 }

@@ -3,6 +3,7 @@ package com.seventytwomiles.architecturerules;
 
 import com.seventytwomiles.architecturerules.configuration.Configuration;
 import com.seventytwomiles.architecturerules.configuration.ConfigurationFactory;
+import com.seventytwomiles.architecturerules.configuration.ParserConfiguraitonFactory;
 import com.seventytwomiles.architecturerules.configuration.UnmodifiableConfiguration;
 import com.seventytwomiles.architecturerules.services.ArchitecturalRulesService;
 import com.seventytwomiles.architecturerules.services.CyclicRedundencyService;
@@ -48,7 +49,7 @@ public abstract class AbstractArchitectureRulesConfigurationTest extends TestCas
 
         /* todo validate configurationFileName here */
 
-        final ConfigurationFactory configurationFactory = new ConfigurationFactory(configurationFileName);
+        final ConfigurationFactory configurationFactory = new ParserConfiguraitonFactory(configurationFileName);
 
         configuration.getRules().addAll(configurationFactory.getRules());
         configuration.getSources().addAll(configurationFactory.getSources());

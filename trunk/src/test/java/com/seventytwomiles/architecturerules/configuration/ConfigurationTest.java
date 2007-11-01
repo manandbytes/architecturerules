@@ -79,13 +79,34 @@ public class ConfigurationTest extends TestCase {
     /**
      * <p>Test for {@link Configuration#addRule(Rule)} </p>
      *
-     * @throws Exception when <code>Configuraiton</code> throws unexected
+     * @throws Exception when <code>Configuraiton</code> throws unexpected
      * <code>Exception</code>
      */
     public void testAddRule() throws Exception {
 
         /* is empty by default */
         assertTrue(configuration.getRules().isEmpty());
+
+        Rule rule;
+
+        rule = new Rule("dao", "com.seventytwomiles.dao");
+        rule.addViolation("com.seventytwomiles.web.controllers");
+
+        configuration.addRule(rule);
+
+        assertEquals(1, configuration.getRules().size());
+        assertTrue(configuration.getRules().contains(rule));
+    }
+
+
+    /**
+     * <p>Test for {@link Configuration#addRule(Rule)} when the Rule is
+     * invalid</p>
+     *
+     * @throws Exception when <code>Configuraiton</code> throws unexected
+     * <code>Exception</code>
+     */
+    public void testAddRule_illegalArguments() throws Exception {
 
         Rule rule = null;
 
@@ -153,10 +174,6 @@ public class ConfigurationTest extends TestCase {
 
             assertTrue(e.getMessage().contains("rule violations must not be empty"));
         }
-
-        rule.addViolation("com.seventytwomiles.web.controllers");
-
-        configuration.addRule(rule);
     }
 
 

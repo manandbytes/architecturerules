@@ -17,7 +17,7 @@ import java.util.HashSet;
  * file in the classpath, through programatic configuraiton, or both.</p>
  *
  * @author mnereson
- * @see ConfigurationFactory
+ * @see ParserConfiguraitonFactory
  * @see ConfigurationHandler
  * @see UnmodifiableConfiguration
  */

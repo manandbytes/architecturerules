@@ -120,12 +120,15 @@ public class SourceDirectory {
         if (this == object)
             return true;
 
-        if (object == null || getClass() != object.getClass())
+        if (object == null)
+            return false;
+
+        if (!(object instanceof SourceDirectory))
             return false;
 
         final SourceDirectory that = (SourceDirectory) object;
 
-        if (path != null ? !path.equals(that.path) : that.path != null)
+        if (path != null ? !path.equals(that.getPath()) : that.getPath() != null)
             return false;
 
         return true;

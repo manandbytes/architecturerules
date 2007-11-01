@@ -115,6 +115,75 @@ public class SourceDirectoryTest extends TestCase {
 
 
     /**
+     * <p>Test for {@link SourceDirectory#setNotFound(String)} </p>
+     *
+     * @throws Exception when <code>SourceDirectory</code> throws and unexpected
+     * <code>Exception</code>
+     */
+    public void testSetNotFound() throws Exception {
+
+        /* check the initial state*/
+        assertFalse(sourceDirectory.shouldThrowExceptionWhenNotFound());
+
+        /* change value */
+        sourceDirectory.setNotFound("exception");
+
+        /* check ending state */
+        assertTrue(sourceDirectory.shouldThrowExceptionWhenNotFound());
+
+        /* check the initial state*/
+        assertTrue(sourceDirectory.shouldThrowExceptionWhenNotFound());
+
+        /* change value */
+        sourceDirectory.setNotFound("ignore");
+
+        /* check ending state */
+        assertFalse(sourceDirectory.shouldThrowExceptionWhenNotFound());
+    }
+
+
+    /**
+     * <p>Test for {@link SourceDirectory#setNotFound(String)} when illegal
+     * arguments are passed</p>
+     *
+     * @throws Exception when <code>SourceDirectory</code> throws and unexpected
+     * <code>Exception</code>
+     */
+    public void testSetNotFound_illegalArguments() throws Exception {
+
+        try {
+
+            sourceDirectory.setNotFound("");
+            fail("expected IllegalArgumentException");
+
+        } catch (Exception e) {
+
+            assertTrue(e instanceof IllegalArgumentException);
+        }
+
+        try {
+
+            sourceDirectory.setNotFound(null);
+            fail("expected IllegalArgumentException");
+
+        } catch (Exception e) {
+
+            assertTrue(e instanceof IllegalArgumentException);
+        }
+
+        try {
+
+            sourceDirectory.setNotFound("http://www.72miles.com");
+            fail("expected IllegalArgumentException");
+
+        } catch (Exception e) {
+
+            assertTrue(e instanceof IllegalArgumentException);
+        }
+    }
+
+
+    /**
      * <p>Test for {@link SourceDirectory#equals(Object)} </p>
      *
      * @throws Exception when <code>SourceDirectory</code> throws and unexpected
@@ -134,5 +203,7 @@ public class SourceDirectoryTest extends TestCase {
         assertFalse(sourceDirectory.hashCode() == that.hashCode());
     }
 }
+
+
 
 

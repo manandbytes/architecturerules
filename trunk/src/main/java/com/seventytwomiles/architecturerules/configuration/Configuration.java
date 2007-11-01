@@ -1,6 +1,8 @@
 package com.seventytwomiles.architecturerules.configuration;
 
 
+import com.seventytwomiles.architecturerules.configuration.xml.ConfigurationHandler;
+import com.seventytwomiles.architecturerules.configuration.xml.ParserConfiguraitonFactory;
 import com.seventytwomiles.architecturerules.domain.Rule;
 import junit.framework.Assert;
 
@@ -82,8 +84,8 @@ public class Configuration {
         Assert.assertNotNull("rule id can not be null", rule.getId());
         Assert.assertFalse("rule id must not be empty", rule.getId().equals(""));
 
-        Assert.assertNotNull("rule package can not be null", rule.getPackageName());
-        Assert.assertFalse("rule package must not be empty", rule.getPackageName().equals(""));
+        Assert.assertNotNull("rule packages can not be null", rule.getPackages());
+        Assert.assertFalse("rule packages must not be empty", rule.getPackages().isEmpty());
 
         Assert.assertFalse("rule violations must not be empty", rule.getViolations().isEmpty());
 

@@ -150,23 +150,12 @@ public class ConfigurationTest extends TestCase {
 
         } catch (AssertionFailedError e) {
 
-            assertTrue(e.getMessage().contains("rule package can not be null"));
+            assertTrue(e.getMessage().contains("rule packages must not be empty"));
         }
 
         try {
 
-            rule.setPackageName("");
-            configuration.addRule(rule);
-            fail("expected AssertionFailedError");
-
-        } catch (AssertionFailedError e) {
-
-            assertTrue(e.getMessage().contains("packageName can not be empty"));
-        }
-
-        try {
-
-            rule.setPackageName("com.seventytwomiles.dao");
+            rule.addPackage("com.seventytwomiles.dao");
             configuration.addRule(rule);
             fail("expected AssertionFailedError");
 

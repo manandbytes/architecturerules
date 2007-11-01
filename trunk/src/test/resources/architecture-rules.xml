@@ -27,10 +27,15 @@
                 The dao interface package should rely on nothing.
             </comment>
 
-            <id>dao</id>
-            <package>
-                com.seventytwomiles.pagerank.core.dao
-            </package>
+            <packages>
+                <package>
+                    com.seventytwomiles.pagerank.core.dao
+                </package>
+                <package>
+                    com.seventytwomiles.pagerank.core.dao.hibernate
+                </package>
+            </packages>
+
             <violations>
                 <violation>
                     com.seventytwomiles.pagerank.core.services
@@ -50,10 +55,13 @@
                 Strategies should be as pluggable as possible
             </comment>
 
-            <id>strategy</id>
-            <package>
-                com.seventytwomiles.pagerank.serviceproviders.startegies
-            </package>
+            <packages>
+                <package>
+                    com.seventytwomiles.pagerank.serviceproviders.startegies
+                </package>
+            </packages>
+
+
             <violations>
                 <violation>
                     com.seventytwomiles.pagerank.core.services
@@ -70,10 +78,12 @@
                 Model should remain competely isolated
             </comment>
 
-            <id>model</id>
-            <package>
-                com.seventytwomiles.pagerank.core.model
-            </package>
+            <packages>
+                <package>
+                    com.seventytwomiles.pagerank.core.model
+                </package>
+            </packages>
+
             <violations>
                 <violation>
                     com.seventytwomiles.pagerank.core.dao

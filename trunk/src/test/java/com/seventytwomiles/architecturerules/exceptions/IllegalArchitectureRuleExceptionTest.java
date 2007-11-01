@@ -67,7 +67,7 @@ public class IllegalArchitectureRuleExceptionTest extends TestCase {
         final Rule rule = new Rule();
         rule.setId("dao");
         rule.setComment("dao layer");
-        rule.setPackageName("com.seventytwomiles.dao");
+        rule.addPackage("com.seventytwomiles.dao");
 
 
         exception = new IllegalArchitectureRuleException(rule);

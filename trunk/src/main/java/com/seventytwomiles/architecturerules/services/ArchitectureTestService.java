@@ -1,12 +1,12 @@
 package com.seventytwomiles.architecturerules.services;
 
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import com.seventytwomiles.architecturerules.exceptions.SourcesNotFoundException;
+import com.seventytwomiles.architecturerules.exceptions.CyclicRedundancyException;
 import com.seventytwomiles.architecturerules.exceptions.DependencyConstraintException;
 import com.seventytwomiles.architecturerules.exceptions.NoPackagesFoundException;
-import com.seventytwomiles.architecturerules.exceptions.CyclicRedundancyException;
+import com.seventytwomiles.architecturerules.exceptions.SourceNotFoundException;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 
 /**
@@ -37,7 +37,7 @@ public class ArchitectureTestService {
     /**
      * <p>Check known architecture for any cyclical redundencies</p>
      *
-     * @throws SourcesNotFoundException when an required source directory does
+     * @throws SourceNotFoundException when an required source directory does
      * not exist and when <tt>exception</tt>=<tt>"true"</tt> in the source
      * configuration
      * @throws NoPackagesFoundException when none of the source directories
@@ -46,7 +46,7 @@ public class ArchitectureTestService {
      * @throws DependencyConstraintException when a rule is broken
      * @throws CyclicRedundancyException when cyclic redundency is found
      */
-    public void checkArchitecture() throws CyclicRedundancyException, DependencyConstraintException, SourcesNotFoundException, NoPackagesFoundException {
+    public void checkArchitecture() throws CyclicRedundancyException, DependencyConstraintException, SourceNotFoundException, NoPackagesFoundException {
 
 
     }

@@ -13,13 +13,13 @@ import java.util.Collection;
  * @noinspection JavaDoc
  * @see RuntimeException
  */
-public class SourcesNotFoundException extends RuntimeException {
+public class SourceNotFoundException extends RuntimeException {
 
 
     /**
      * @see RuntimeException#RuntimeException()
      */
-    public SourcesNotFoundException() {
+    public SourceNotFoundException() {
         super("sources not found");
     }
 
@@ -27,7 +27,7 @@ public class SourcesNotFoundException extends RuntimeException {
     /**
      * @see RuntimeException#RuntimeException(String)
      */
-    public SourcesNotFoundException(final String message) {
+    public SourceNotFoundException(final String message) {
         super(message);
     }
 
@@ -35,7 +35,7 @@ public class SourcesNotFoundException extends RuntimeException {
     /**
      * @see RuntimeException#RuntimeException(Throwable)
      */
-    public SourcesNotFoundException(final Throwable cause) {
+    public SourceNotFoundException(final Throwable cause) {
         super("sources not found", cause);
     }
 
@@ -43,12 +43,12 @@ public class SourcesNotFoundException extends RuntimeException {
     /**
      * @see RuntimeException#RuntimeException(String,Throwable)
      */
-    public SourcesNotFoundException(final String message, final Throwable cause) {
+    public SourceNotFoundException(final String message, final Throwable cause) {
         super(message, cause);
     }
 
 
-    public SourcesNotFoundException(final Collection sources) {
+    public SourceNotFoundException(final Collection sources) {
 
 
         super("unable to find any source files in given source directories {0}"

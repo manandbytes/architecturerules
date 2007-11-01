@@ -2,9 +2,9 @@ package com.seventytwomiles.architecturerules;
 
 
 import com.seventytwomiles.architecturerules.configuration.Configuration;
-import com.seventytwomiles.architecturerules.configuration.ConfigurationFactory;
-import com.seventytwomiles.architecturerules.configuration.ParserConfiguraitonFactory;
 import com.seventytwomiles.architecturerules.configuration.UnmodifiableConfiguration;
+import com.seventytwomiles.architecturerules.configuration.xml.ConfigurationFactory;
+import com.seventytwomiles.architecturerules.configuration.xml.ParserConfiguraitonFactory;
 import com.seventytwomiles.architecturerules.services.ArchitecturalRulesService;
 import com.seventytwomiles.architecturerules.services.CyclicRedundencyService;
 import junit.framework.TestCase;

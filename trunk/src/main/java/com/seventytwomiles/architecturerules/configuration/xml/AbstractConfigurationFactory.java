@@ -1,6 +1,7 @@
-package com.seventytwomiles.architecturerules.configuration;
+package com.seventytwomiles.architecturerules.configuration.xml;
 
 
+import com.seventytwomiles.architecturerules.exceptions.InvalidConfigurationException;
 import org.apache.commons.io.FileUtils;
 import org.springframework.core.io.ClassPathResource;
 
@@ -52,11 +53,10 @@ public abstract class AbstractConfigurationFactory implements ConfigurationFacto
      * <p>Validate the configuration.</p>
      *
      * @param configuration String xml content to validate
+     * @throws InvalidConfigurationException when the configuration is invalid
      * @see "architecture-rules.dtd"
      */
-    protected void validateConfigruation(final String configuration) {
-        /* todo: validate configuraiton */
-    }
+    abstract void validateConfigruation(final String configuration) throws InvalidConfigurationException;
 
 
     /**
@@ -65,11 +65,14 @@ public abstract class AbstractConfigurationFactory implements ConfigurationFacto
      * @param configurationFileName String name of the XML file in teh classpath
      * to load and read
      * @return String returns the contentsofo the configurationFile
-     * @throws IOException if configuration file can not be loaded from
-     * classpath
      */
-    protected String getConfigurationAsXml(final String configurationFileName) throws IOException {
+    protected String getConfigurationAsXml(final String configurationFileName) {
 
+        /**
+         * This code kinda sucks. First, an exeption is thrown if the resources
+         * does not exist, then an exception could be thrown if the resource
+         * could not be read.
+         */
         final ClassPathResource resource = new ClassPathResource(configurationFileName);
 
         if (!resource.exists())
@@ -77,7 +80,18 @@ public abstract class AbstractConfigurationFactory implements ConfigurationFacto
                                                + configurationFileName
                                                + " from classpath. File not found.");
 
-        final String xml = FileUtils.readFileToString(resource.getFile(), null);
+        final String xml;
+
+        try {
+
+            xml = FileUtils.readFileToString(resource.getFile(), null);
+
+        } catch (final IOException e) {
+
+            throw new IllegalArgumentException("could not load resource "
+                                               + configurationFileName
+                                               + " from classpath. File not found.", e);
+        }
 
         return xml;
     }

@@ -3,6 +3,8 @@ package com.seventytwomiles.architecturerules.exceptions;
 
 import com.seventytwomiles.architecturerules.domain.Rule;
 
+import java.util.Arrays;
+
 
 /**
  * <p>Exception to be thrown when a Rule is illegal constructed. That is, an
@@ -57,7 +59,9 @@ public class IllegalArchitectureRuleException extends RuntimeException {
 
         super("rule '{id}' contains an invalid violation that referes to itself; remove violation '{violation}' or change package"
                 .replace("{id}", rule.getId())
-                .replace("{violation}", rule.getPackageName()),
-                cause);
+                .replace("{violation}", Arrays.deepToString(rule.getPackages().toArray()))
+                .replace("[", "")
+                .replace("]", ""),
+              cause);
     }
 }

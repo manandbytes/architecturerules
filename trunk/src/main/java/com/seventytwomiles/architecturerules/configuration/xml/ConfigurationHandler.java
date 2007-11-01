@@ -1,4 +1,4 @@
-package com.seventytwomiles.architecturerules.configuration;
+package com.seventytwomiles.architecturerules.configuration.xml;
 
 
 import com.seventytwomiles.architecturerules.domain.Rule;
@@ -166,7 +166,7 @@ public class ConfigurationHandler extends DefaultHandler {
         if (localName.equalsIgnoreCase("sources")) {
 
             /* TODO: load SourceDirectory instead of String */
-            
+
             nextValueIsSources = true;
 
             final String attributeValue = attributes.getValue(0).toLowerCase();
@@ -252,7 +252,7 @@ public class ConfigurationHandler extends DefaultHandler {
 
         } else if (nextValueIsRulePackage) {
 
-            rule.setPackageName(value);
+            rule.addPackage(value);
 
         } else if (nextValueIsRuleViolation) {
 

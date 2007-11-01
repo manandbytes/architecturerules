@@ -27,7 +27,7 @@ public class DependencyConstraintExceptionTest extends TestCase {
         final Rule rule = new Rule();
         rule.setId("dao");
         rule.setComment("dao layer");
-        rule.setPackageName("com.seventytwomiles.dao");
+        rule.addPackage("com.seventytwomiles.dao");
         rule.addViolation("com.seventytwomiles.web.controllers");
 
         exception = new DependencyConstraintException();
@@ -73,14 +73,14 @@ public class DependencyConstraintExceptionTest extends TestCase {
         final Rule rule = new Rule();
         rule.setId("dao");
         rule.setComment("dao layer");
-        rule.setPackageName("com.seventytwomiles.dao");
+        rule.addPackage("com.seventytwomiles.dao");
         rule.addViolation("com.seventytwomiles.web.controllers");
 
         exception = new DependencyConstraintException(rule);
         message = exception.getMessage();
         cause = exception.getCause();
 
-        assertEquals("dependency constraint failed in 'dao' rule which constrains package 'com.seventytwomiles.dao'", message);
+        assertEquals("dependency constraint failed in 'dao' rule which constrains packages 'com.seventytwomiles.dao'", message);
         assertEquals(null, cause);
 
 
@@ -88,7 +88,7 @@ public class DependencyConstraintExceptionTest extends TestCase {
         message = exception.getMessage();
         cause = exception.getCause();
 
-        assertEquals("dependency constraint failed in 'dao' rule which constrains package 'com.seventytwomiles.dao'", message);
+        assertEquals("dependency constraint failed in 'dao' rule which constrains packages 'com.seventytwomiles.dao'", message);
         assertTrue(cause instanceof IllegalArgumentException);
     }
 }

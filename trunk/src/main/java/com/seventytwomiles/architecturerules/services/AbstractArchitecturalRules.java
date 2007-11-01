@@ -2,10 +2,10 @@ package com.seventytwomiles.architecturerules.services;
 
 
 import com.seventytwomiles.architecturerules.configuration.Configuration;
-import com.seventytwomiles.architecturerules.exceptions.SourcesNotFoundException;
-import com.seventytwomiles.architecturerules.exceptions.DependencyConstraintException;
 import com.seventytwomiles.architecturerules.exceptions.CyclicRedundancyException;
+import com.seventytwomiles.architecturerules.exceptions.DependencyConstraintException;
 import com.seventytwomiles.architecturerules.exceptions.NoPackagesFoundException;
+import com.seventytwomiles.architecturerules.exceptions.SourceNotFoundException;
 import jdepend.framework.JDepend;
 import jdepend.framework.JavaPackage;
 import org.apache.commons.logging.Log;
@@ -72,14 +72,14 @@ abstract class AbstractArchitecturalRules {
      * in the source paths</p>
      *
      * @param configuration Configuration
-     * @throws SourcesNotFoundException when an required source directory does
+     * @throws SourceNotFoundException when an required source directory does
      * not exist and when <tt>exception</tt>=<tt>"true"</tt> in the source
      * configuration
      * @throws NoPackagesFoundException when none of the source directories
      * exist and <tt>no-packages</tt>="<tt>ignore</tt>" in the sources
      * configuraiton
      */
-    protected AbstractArchitecturalRules(final Configuration configuration) throws SourcesNotFoundException, NoPackagesFoundException {
+    protected AbstractArchitecturalRules(final Configuration configuration) throws SourceNotFoundException, NoPackagesFoundException {
 
         log.info("instanciating new AbstractArchitecturalRules");
 
@@ -103,7 +103,7 @@ abstract class AbstractArchitecturalRules {
 
             /* read not-found instruction */
             final String sourcesNotFoundRule = source[SOURCE_NOT_FOUND_POSITION];
-            
+
             final boolean isConfiguredToThrowExceptionWhenSourceNotFound =
                     Boolean.valueOf(sourcesNotFoundRule).booleanValue();
 
@@ -138,7 +138,7 @@ abstract class AbstractArchitecturalRules {
                 if (isConfiguredToThrowExceptionWhenSourceNotFound) {
 
                     log.error(sourcePath + " was not found", e);
-                    throw new SourcesNotFoundException(sourcePath + " was not found", e);
+                    throw new SourceNotFoundException(sourcePath + " was not found", e);
                 }
             }
         }
@@ -248,8 +248,8 @@ abstract class AbstractArchitecturalRules {
             if (rules.contains(efferentPackage.getName()) && analyzedPackageName.equals(layer)) {
 
                 final String message = analyzedPackageName
-                        + " is not allowed to depend upon "
-                        + efferentPackage.getName();
+                                       + " is not allowed to depend upon "
+                                       + efferentPackage.getName();
 
                 log.error(message);
 

@@ -55,16 +55,15 @@ public class RuleTest extends TestCase {
 
 
     /**
-     * <p>Tests for {@link Rule#Rule(String,String)}</p>
+     * <p>Tests for {@link Rule#Rule(String)}</p>
      *
      * @throws Exception when <code>Rule</code> throws an unexpected
      * <code>Exception</code>
      */
     public void testInterestingConstructors() throws Exception {
 
-        rule = new Rule("dao", "com.seventytwomiles.dao");
+        rule = new Rule("dao");
         assertTrue(rule.getId().equals("dao"));
-        assertTrue(rule.getPackageName().equals("com.seventytwomiles.dao"));
     }
 
 
@@ -72,7 +71,7 @@ public class RuleTest extends TestCase {
 
         try {
 
-            rule = new Rule(null, "com.seventytwomiles.dao");
+            rule = new Rule(null);
             fail("expected AssertionFailedError because id can not be null");
 
         } catch (final AssertionFailedError e) {
@@ -83,7 +82,7 @@ public class RuleTest extends TestCase {
 
         try {
 
-            rule = new Rule("", "com.seventytwomiles.dao");
+            rule = new Rule("");
             fail("expected AssertionFailedError because id can not be empty");
 
         } catch (final AssertionFailedError e) {
@@ -91,27 +90,6 @@ public class RuleTest extends TestCase {
             assertTrue(e.getMessage().contains("id"));
         }
 
-
-        try {
-
-            rule = new Rule("dao", null);
-            fail("expected AssertionFailedError because packageName can not be null");
-
-        } catch (final AssertionFailedError e) {
-
-            assertTrue(e.getMessage().contains("packageName"));
-        }
-
-
-        try {
-
-            rule = new Rule("dao", "");
-            fail("expected AssertionFailedError because packageName can not be empty");
-
-        } catch (final AssertionFailedError e) {
-
-            assertTrue(e.getMessage().contains("packageName"));
-        }
     }
 
 
@@ -184,49 +162,13 @@ public class RuleTest extends TestCase {
     }
 
 
-    /**
-     * <p>Tests for {@link Rule#getPackageName()}  and {@link
-     * Rule#setPackageName(String)} </p>
-     *
-     * @throws Exception when <code>Rule</code> throws an unexpected
-     * <code>Exception</code>
-     */
-    public void testSetGetPackageName() throws Exception {
+    public void testAddPackage() throws Exception {
 
-        rule.setPackageName("com.seventytwomiles.web.controllers");
-        assertTrue(rule.getPackageName().equals("com.seventytwomiles.web.controllers"));
     }
 
 
-    /**
-     * <p>Tests for {@link Rule#getPackageName()}  and {@link
-     * Rule#setPackageName(String)} </p>
-     *
-     * @throws Exception when <code>Rule</code> throws an unexpected
-     * <code>Exception</code>
-     */
-    public void testSetGetPackageName_illegalArguments() throws Exception {
+    public void testAddPackage_illegalArguments() throws Exception {
 
-        try {
-
-            rule.setPackageName("");
-            fail("expected AssertionFailedError because packageName can not be empty");
-
-        } catch (final AssertionFailedError e) {
-
-            assertTrue(e.getMessage().contains("packageName"));
-        }
-
-
-        try {
-
-            rule.setPackageName(null);
-            fail("expected AssertionFailedError because packageName can not be null");
-
-        } catch (final AssertionFailedError e) {
-
-            assertTrue(e.getMessage().contains("packageName"));
-        }
     }
 
 
@@ -301,7 +243,8 @@ public class RuleTest extends TestCase {
             // success
         }
 
-        rule = new Rule("dao", "com.seventytwomiles.dao");
+        rule = new Rule("dao");
+        rule.addPackage("com.seventytwomiles.dao");
 
         try {
 
@@ -345,14 +288,17 @@ public class RuleTest extends TestCase {
      */
     public void testEquals() throws Exception {
 
-        Rule that = new Rule("web", "com.seventytwomiles.web");
+
+        Rule that = new Rule("web");
+        that.addPackage("com.seventytwomiles.web");
 
         rule.setId("web");
-        rule.setPackageName("com.seventytwomiles.web");
+        rule.addPackage("com.seventytwomiles.web");
         assertTrue(rule.equals(that));
         assertTrue(rule.hashCode() == that.hashCode());
 
-        that = new Rule("controllers", "com.seventytwomiles.web.controllers");
+        that = new Rule("controllers");
+        that.addPackage("com.seventytwomiles.web.controllers");
         assertFalse(rule.equals(that));
         assertFalse(rule.hashCode() == that.hashCode());
     }

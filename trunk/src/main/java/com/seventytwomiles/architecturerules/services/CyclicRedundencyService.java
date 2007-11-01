@@ -4,7 +4,7 @@ package com.seventytwomiles.architecturerules.services;
 import com.seventytwomiles.architecturerules.configuration.Configuration;
 import com.seventytwomiles.architecturerules.exceptions.CyclicRedundancyException;
 import com.seventytwomiles.architecturerules.exceptions.NoPackagesFoundException;
-import com.seventytwomiles.architecturerules.exceptions.SourcesNotFoundException;
+import com.seventytwomiles.architecturerules.exceptions.SourceNotFoundException;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
@@ -32,14 +32,14 @@ public class CyclicRedundencyService extends AbstractArchitecturalRules {
      *
      * @param configuraiton Configuration which contains the source directories
      * to inspect
-     * @throws SourcesNotFoundException when an required source directory does
+     * @throws SourceNotFoundException when an required source directory does
      * not exist and when <tt>exception</tt>=<tt>"true"</tt> in the source
      * configuration
      * @throws NoPackagesFoundException when none of the source directories
      * exist and <tt>no-packages</tt>="<tt>ignore</tt>" in the sources
      * configuraiton
      */
-    public CyclicRedundencyService(final Configuration configuraiton) throws SourcesNotFoundException, NoPackagesFoundException {
+    public CyclicRedundencyService(final Configuration configuraiton) throws SourceNotFoundException, NoPackagesFoundException {
 
         super(configuraiton);
 

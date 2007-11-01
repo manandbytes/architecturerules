@@ -6,10 +6,11 @@ import com.seventytwomiles.architecturerules.domain.Rule;
 import com.seventytwomiles.architecturerules.exceptions.CyclicRedundancyException;
 import com.seventytwomiles.architecturerules.exceptions.DependencyConstraintException;
 import com.seventytwomiles.architecturerules.exceptions.NoPackagesFoundException;
-import com.seventytwomiles.architecturerules.exceptions.SourcesNotFoundException;
+import com.seventytwomiles.architecturerules.exceptions.SourceNotFoundException;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
 
@@ -37,14 +38,14 @@ public class ArchitecturalRulesService extends AbstractArchitecturalRules {
      * begin reading all the configured sources</p>
      *
      * @param configuration Configuration
-     * @throws SourcesNotFoundException when an required source directory does
+     * @throws SourceNotFoundException when an required source directory does
      * not exist and when <tt>exception</tt>=<tt>"true"</tt> in the source
      * configuration
      * @throws NoPackagesFoundException when none of the source directories
      * exist and <tt>no-packages</tt>="<tt>ignore</tt>" in the sources
      * configuraiton
      */
-    public ArchitecturalRulesService(final Configuration configuration) throws SourcesNotFoundException, NoPackagesFoundException {
+    public ArchitecturalRulesService(final Configuration configuration) throws SourceNotFoundException, NoPackagesFoundException {
 
         super(configuration);
 
@@ -74,9 +75,11 @@ public class ArchitecturalRulesService extends AbstractArchitecturalRules {
 
                 rule = (Rule) ruleIterator.next();
 
+                final String packages = Arrays.deepToString(rule.getPackages().toArray());
+
                 String ruleDescription = "['{0}' for {1}] "
                         .replace("{0}", rule.getId())
-                        .replace("{1}", rule.getPackageName());
+                        .replace("{1}", packages);
 
                 log.debug(ruleDescription);
             }
@@ -88,11 +91,18 @@ public class ArchitecturalRulesService extends AbstractArchitecturalRules {
             rule = (Rule) ruleIterator.next();
 
             log.info("checking rule " + rule.getId());
-            log.debug("checking for dependency violations in " + rule.getPackageName());
+            log.debug("checking for dependency violations in " + rule.getPackages());
 
             try {
 
-                testLayeringValid(rule.getPackageName(), rule.getViolations());
+                final Collection packages = rule.getPackages();
+
+                for (Iterator packageIterator = packages.iterator();
+                     packageIterator.hasNext();) {
+
+                    String packageName = (String) packageIterator.next();
+                    testLayeringValid(packageName, rule.getViolations());
+                }
 
             } catch (DependencyConstraintException e) {
 
@@ -100,7 +110,7 @@ public class ArchitecturalRulesService extends AbstractArchitecturalRules {
                 throw new DependencyConstraintException("rule " + rule.getId() + " failed: " + e.getMessage());
             }
 
-            log.debug("no dependency violations in " + rule.getPackageName());
+            log.debug("no dependency violations in " + rule.getPackages());
         }
 
         log.info("architecture rules service has completed its tests.");

@@ -1,6 +1,7 @@
-package com.seventytwomiles.architecturerules.configuration;
+package com.seventytwomiles.architecturerules.configuration.xml;
 
 
+import com.seventytwomiles.architecturerules.exceptions.InvalidConfigurationException;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.xml.sax.ContentHandler;
@@ -95,6 +96,15 @@ public class ParserConfiguraitonFactory extends AbstractConfigurationFactory {
     }
 
 
+    /**
+     * <p>Validate the configuration.</p>
+     *
+     * @param configuration String xml content to validate
+     * @see "architecture-rules.dtd"
+     */
+    void validateConfigruation(final String configuration) throws InvalidConfigurationException {
+        /* TODO: implement if this class is going to be kept around */
+    }
 }
 
 

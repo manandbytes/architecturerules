@@ -9,7 +9,7 @@ import java.util.HashSet;
 
 
 /**
- * <code>SourcesNotFoundException Tester.</code>
+ * <code>SourceNotFoundException Tester.</code>
  *
  * @author mnereson
  */
@@ -23,12 +23,12 @@ public class SourceNotFoundExceptionTest extends TestCase {
 
     public void testTypicalConstructors() {
 
-        SourcesNotFoundException exception;
+        SourceNotFoundException exception;
         String message;
         Throwable cause;
 
 
-        exception = new SourcesNotFoundException();
+        exception = new SourceNotFoundException();
         message = exception.getMessage();
         cause = exception.getCause();
 
@@ -36,7 +36,7 @@ public class SourceNotFoundExceptionTest extends TestCase {
         assertEquals(null, cause);
 
 
-        exception = new SourcesNotFoundException("no source classes found");
+        exception = new SourceNotFoundException("no source classes found");
         message = exception.getMessage();
         cause = exception.getCause();
 
@@ -44,7 +44,7 @@ public class SourceNotFoundExceptionTest extends TestCase {
         assertEquals(null, cause);
 
 
-        exception = new SourcesNotFoundException(new IllegalArgumentException());
+        exception = new SourceNotFoundException(new IllegalArgumentException());
         message = exception.getMessage();
         cause = exception.getCause();
 
@@ -52,7 +52,7 @@ public class SourceNotFoundExceptionTest extends TestCase {
         assertTrue(cause instanceof IllegalArgumentException);
 
 
-        exception = new SourcesNotFoundException("no source classes found", new IllegalArgumentException());
+        exception = new SourceNotFoundException("no source classes found", new IllegalArgumentException());
         message = exception.getMessage();
         cause = exception.getCause();
 
@@ -63,7 +63,7 @@ public class SourceNotFoundExceptionTest extends TestCase {
 
     public void testInterestingConstructors() {
 
-        SourcesNotFoundException exception;
+        SourceNotFoundException exception;
         String message;
         Throwable cause;
 
@@ -74,7 +74,7 @@ public class SourceNotFoundExceptionTest extends TestCase {
         sourceDirectories.add(new SourceDirectory("web/target/classes"));
 
 
-        exception = new SourcesNotFoundException(sourceDirectories);
+        exception = new SourceNotFoundException(sourceDirectories);
         message = exception.getMessage();
         cause = exception.getCause();
 

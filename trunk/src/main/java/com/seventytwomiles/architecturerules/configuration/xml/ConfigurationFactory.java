@@ -1,4 +1,4 @@
-package com.seventytwomiles.architecturerules.configuration;
+package com.seventytwomiles.architecturerules.configuration.xml;
 
 
 import java.util.Collection;

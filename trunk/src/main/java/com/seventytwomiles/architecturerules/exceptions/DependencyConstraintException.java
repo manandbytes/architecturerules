@@ -3,6 +3,8 @@ package com.seventytwomiles.architecturerules.exceptions;
 
 import com.seventytwomiles.architecturerules.domain.Rule;
 
+import java.util.Arrays;
+
 
 /**
  * <p>Exception to be thrown when any <code>Rule</code> fails, that is to say,
@@ -63,9 +65,10 @@ public class DependencyConstraintException extends RuntimeException {
      */
     public DependencyConstraintException(final Rule rule, final Throwable cause) {
 
-        this("dependency constraint failed in '{id}' rule which constrains package '{efferent}'"
+        this("dependency constraint failed in '{id}' rule which constrains packages '{efferent}'"
                 .replace("{id}", rule.getId())
-                .replace("{efferent}", rule.getPackageName()),
-                cause);
+                .replace("{efferent}", (Arrays.deepToString(rule.getPackages().toArray())))
+                .replace("[", "")
+                .replace("]", ""), cause);
     }
 }

@@ -27,11 +27,13 @@ public class Rule {
     private String id;
 
     /**
-     * <p>Name of the package that this rule applies to</p>
+     * <p>Collection of Strings. These Strings are package names. The names of
+     * the packages that will be check against the {@link #violations}. These
+     * packages may NOT depend upon the packages listed in violations.</p>
      *
-     * @parameter packageName String
+     * @parameter violations Collection
      */
-    private String packageName;
+    private Collection packages = new HashSet();
 
     /**
      * <p>Comment about this rule that could be used in messages or just to make
@@ -43,7 +45,7 @@ public class Rule {
 
     /**
      * <p>Collection of Strings. These Strings are package names. The names of
-     * the packages that the {@link #packageName} may NOT depend upon</p>
+     * the packages that the {@link #packages} may NOT depend upon</p>
      *
      * @parameter violations Collection
      */
@@ -54,22 +56,32 @@ public class Rule {
      * <p>Constructs a new Rule.</p>
      */
     public Rule() {
-
+        // do nothing
     }
 
 
     /**
-     * <p>Instanciates a new <code>Rule</code> with the given <tt>id</tt> and
-     * <tt>packageName</tt>. Probobly only used by tests.</p>
+     * <p>Instanciates a new Rule with the given <tt>id</tt>.</p>
      *
-     * @param id String id of this Rule to refer to it by
-     * @param packageName String full name of the package to inspect
+     * @param id sets the {@link #id}
      */
-    public Rule(final String id, final String packageName) {
+    public Rule(final String id) {
+        this.id = id;
+    }
 
-        /* calls setters to that asserterations can be made */
-        setId(id);
-        setPackageName(packageName);
+
+    /**
+     * <p>Instanciates a new Rule with the given <tt>id</tt>.</p>
+     *
+     * <p>This constructor is to provide some sense of backwards compatability
+     * with the releases in series 1 (1.0 and 1.1)</p>
+     *
+     * @param id sets the {@link #id}
+     * @param packageName a {@link @packages} to assert on.
+     */
+    public Rule(final String id, String packageName) {
+        this.id = id;
+        addPackage(packageName);
     }
 
 
@@ -107,12 +119,33 @@ public class Rule {
 
 
     /**
-     * <p>Getter for property {@link #packageName}.</p>
+     * <p>Getter for property {@link #packages}</p>
      *
-     * @return Value for property <tt>packageName</tt>.
+     * @return Value for property <tt>packages</tt>.
      */
-    public String getPackageName() {
-        return packageName;
+    public Collection getPackages() {
+        return packages;
+    }
+
+
+    /**
+     * <p></p>
+     *
+     * @param packageName String
+     * @return boolean
+     * @throws IllegalArchitectureRuleException when
+     */
+    public boolean addPackage(final String packageName) throws IllegalArchitectureRuleException {
+
+        Assert.assertNotNull("null packageName can not be added", packageName);
+        Assert.assertFalse("empty packageName can not be added", packageName.equals(""));
+
+        if (violations.contains(packageName))
+            throw new IllegalArchitectureRuleException(
+                    "Could not add " + packageName + " package because there is already " +
+                    "a violation with the same package name for rule " + id);
+
+        return packages.add(packageName);
     }
 
 
@@ -141,7 +174,7 @@ public class Rule {
      * upon
      * @return boolean <tt>true</tt> if the violation is added to the List of
      *         violoatizons
-     * @throws IllegalArchitectureRuleException when the packageName is also a
+     * @throws IllegalArchitectureRuleException when the packages is also a
      * violation: this is a Illegal Rule because it can not be tessted and its
      * better to ask the developer to understand what they are asking me to
      * test, rather than just ignore the configuration entry
@@ -149,10 +182,9 @@ public class Rule {
     public boolean addViolation(final String violation) throws IllegalArchitectureRuleException {
 
         Assert.assertNotNull("null violation can not be added", violation);
-        //noinspection ConstantConditions because assertNotNull is right above
         Assert.assertFalse("empty violation can not be added", violation.equals(""));
 
-        if (violation.equalsIgnoreCase(packageName))
+        if (packages.contains(violation))
             throw new IllegalArchitectureRuleException(
                     "Could not add architecture rule violation that creates rule " +
                     "that says a package can not use itself. Remove " +
@@ -194,20 +226,6 @@ public class Rule {
 
 
     /**
-     * <p>Setter for property {@link #packageName}.</p>
-     *
-     * @param packageName Value to set for property <tt>packageName</tt>.
-     */
-    public void setPackageName(final String packageName) {
-
-        Assert.assertNotNull("packageName can not be null", packageName);
-        Assert.assertFalse("packageName can not be empty", packageName.equals(""));
-
-        this.packageName = packageName;
-    }
-
-
-    /**
      * @see Object#equals(Object)
      */
     public boolean equals(final Object object) {
@@ -223,7 +241,7 @@ public class Rule {
 
         final Rule that = (Rule) object;
 
-        if (id != null ? !id.equals(that.id) : that.id != null)
+        if (id != null ? !id.equals(that.getId()) : that.getId() != null)
             return false;
 
         return true;
@@ -260,7 +278,7 @@ public class Rule {
         final StringBuffer stringBuilder = new StringBuffer();
         stringBuilder.append("<rule>").append("\r\n");
         stringBuilder.append("\t").append("<id>").append(id).append("</id>").append("\r\n");
-        stringBuilder.append("\t").append("<packageName>").append(packageName).append("</packageName>").append("\r\n");
+        stringBuilder.append("\t").append("<packages>").append(packages).append("</packages>").append("\r\n");
         stringBuilder.append("\t").append("<comment>").append(comment).append("</comment>").append("\r\n");
         stringBuilder.append("\t").append("<violations>").append("\r\n");
 

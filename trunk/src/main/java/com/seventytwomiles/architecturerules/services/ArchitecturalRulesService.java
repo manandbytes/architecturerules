@@ -77,7 +77,7 @@ public class ArchitecturalRulesService extends AbstractArchitecturalRules {
 
                 final String packages = Arrays.deepToString(rule.getPackages().toArray());
 
-                String ruleDescription = "['{0}' for {1}] "
+                final String ruleDescription = "['{0}' for {1}] "
                         .replace("{0}", rule.getId())
                         .replace("{1}", packages);
 
@@ -100,7 +100,7 @@ public class ArchitecturalRulesService extends AbstractArchitecturalRules {
                 for (Iterator packageIterator = packages.iterator();
                      packageIterator.hasNext();) {
 
-                    String packageName = (String) packageIterator.next();
+                    final String packageName = (String) packageIterator.next();
                     testLayeringValid(packageName, rule.getViolations());
                 }
 

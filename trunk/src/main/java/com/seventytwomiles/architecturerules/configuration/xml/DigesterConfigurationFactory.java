@@ -71,13 +71,13 @@ public class DigesterConfigurationFactory extends AbstractConfigurationFactory {
             processCyclicDependencyConfiguration(configurationXml);
             processSourcesNotFoundConfiguration(configurationXml);
 
-        } catch (IOException e) {
+        } catch (final IOException e) {
 
             /* TODO: handle this better? */
             e.printStackTrace();
             throw new RuntimeException(e);
 
-        } catch (SAXException e) {
+        } catch (final SAXException e) {
 
             /* TODO: handle this better? */
             e.printStackTrace();
@@ -228,7 +228,7 @@ public class DigesterConfigurationFactory extends AbstractConfigurationFactory {
         digester.addSetNext(XmlConfiguration.source, "add");
 
         final StringReader configurationReader = new StringReader(configurationXml);
-        List parsedSources = (ArrayList) digester.parse(configurationReader);
+        final List parsedSources = (ArrayList) digester.parse(configurationReader);
 
         sources.clear();
         sources.addAll(parsedSources);

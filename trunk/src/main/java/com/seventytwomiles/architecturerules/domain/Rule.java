@@ -164,7 +164,6 @@ public class Rule {
     public boolean removeViolation(final String violation) {
 
         Assert.assertNotNull("null violation can not be removed", violation);
-        //noinspection ConstantConditions because assertNotNull is right above
         Assert.assertFalse("empty violation can not be removed", violation.equals(""));
 
         return violations.remove(violation);

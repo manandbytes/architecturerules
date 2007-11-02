@@ -1,4 +1,4 @@
 #summary announcements
 #labels Featured
 
-[http://www.springframework.org/themes/spring/icon-comment.png] *2-nov-2007* Version 2.0-rc1 has been released and is available under Downloads, however I won't announce its release until I find time this weekend to update all of this documentation on the many changes in this release.
+[http://www.springframework.org/themes/spring/icon-comment.png] *2-nov-2007* Version 2.0-rc1 has been released and is available under Downloads. Please check the documentation. The configuration has changed a little, and the Unit test usage has changed greatly. See [Migration].

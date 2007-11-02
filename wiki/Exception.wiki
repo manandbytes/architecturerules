@@ -5,6 +5,7 @@
 
 This library can throw a lot of different exceptions, each indicating a different problem either with the configuration or with the results of the tests.
 
+All of these Exceptions are `RuntimeExceptions` since this entire library is designed to be run as a unit test. By making them RuntimeExcpeptions, your unit test reports will contain the exact error, message, and stacktrace.
 
 = Exceptions =
 
@@ -12,27 +13,60 @@ This library can throw a lot of different exceptions, each indicating a differen
 
 If the cyclic redundancy test is run (via setting `<cyclicalDependency test="true"/>`) and any cyclic redundancies are found, this exception is thrown.
 
+When any cyclic dependencies are encountered, this exception is thrown. The exception message will report _all_ packages that are involved in cyclic dependencies. An example message looks like:
+
+{{{
+com.seventytwomiles.architecturerules.exceptions.CyclicRedundancyException: 
+cylic depencencies found:
+
+	-- test.com.seventytwomiles.services
+	¦  ¦
+	¦  ¦-- test.com.seventytwomiles.model
+	¦  ¦
+	¦  ¦-- test.com.seventytwomiles.dao.hibernate
+	¦
+	¦
+	-- test.com.seventytwomiles.model
+	¦  ¦
+	¦  ¦-- test.com.seventytwomiles.services
+	¦
+	¦
+	-- test.com.seventytwomiles.dao.hibernate
+	   ¦
+	   ¦-- test.com.seventytwomiles.services	
+}}}
+
 == DependencyConstraintException ==
 
 When any defined violation occurs, this exception is thrown. The message will tell you which package was violated, who who the violating package was. The message (as of the time of this writing) looks like
 
-_Dependency Constraint failed in dao rule which constrains package com.nereson.pagerank.core.services_
+_Dependency Constraint failed in dao rule which constrains package com.seventytwomiles.pagerank.core.services_
 
 
-== IllegalRuleException ==
+== IllegalArchitectureRuleException ==
 
-`IllegalRuleException` is thrown when a rule defines a `violation` in the `package` that it describes.
+`IllegalArchitectureRuleException` is thrown when a rule defines a `violation` in the `package` that it describes.
 
 For example: 
 
 {{{
-<rule>
-    <id>dao</id>
-    <package>com.seventytwomiles.project.core.dao</package>
+<rule id="dao">
+
+    <comment>
+        The dao interface package should rely on nothing.
+    </comment>
+
+    <packages>
+        <package>
+            com.seventytwomiles.pagerank.core.dao
+        </package>     
+    </packages>
+
     <violations>
-        <violation>com.seventytwomiles.project.core.dao</violation>
-    <violations>
-    <comment>The dao interface package should rely on nothing.</comment>
+        <violation>
+            com.seventytwomiles.pagerank.core.dao
+        </violation>       
+    </violations>
 </rule>
 }}}
 
@@ -59,7 +93,7 @@ If you are getting this exception and don't want it because you understand that 
 <sources no-packages="exception">
 }}}
 
-When no packages are found in any of your `sources` the `NoPackagesFoundException` is thrown. When no packages are found, no tests are run, which can be deceiving when everything comes back looking ok. To disable this exception (which is highly not recommented) set:
+When no packages are found in any of your `sources` the `NoPackagesFoundException` is thrown. When no packages are found, no tests are run, which can be deceiving when everything comes back looking ok. To disable this exception (which is highly not recommended) set:
 
 {{{
 <sources no-packages="ignore">

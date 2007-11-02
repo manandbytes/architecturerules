@@ -1,10 +1,12 @@
 package com.seventytwomiles.architecturerules.configuration;
 
 
-import com.seventytwomiles.architecturerules.configuration.xml.ConfigurationHandler;
-import com.seventytwomiles.architecturerules.configuration.xml.ParserConfiguraitonFactory;
+import com.seventytwomiles.architecturerules.configuration.xml.ConfigurationFactory;
 import com.seventytwomiles.architecturerules.domain.Rule;
+import com.seventytwomiles.architecturerules.domain.SourceDirectory;
 import junit.framework.Assert;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 import java.util.Collection;
 import java.util.HashSet;
@@ -19,12 +21,13 @@ import java.util.HashSet;
  * file in the classpath, through programatic configuraiton, or both.</p>
  *
  * @author mnereson
- * @see ParserConfiguraitonFactory
- * @see ConfigurationHandler
+ * @see ConfigurationFactory
  * @see UnmodifiableConfiguration
  */
 public class Configuration {
 
+
+    private static final Log log = LogFactory.getLog(Configuration.class);
 
     /**
      * <p><code>Rules</code> that are read from the configuration file or added
@@ -32,7 +35,7 @@ public class Configuration {
      *
      * @parameter rules Set
      */
-    private final Collection rules = new HashSet();
+    protected final Collection rules = new HashSet();
 
     /**
      * <p>List of <code>SourceDirectory</code> that are read from the
@@ -40,7 +43,7 @@ public class Configuration {
      *
      * @parameter sources List
      */
-    private final Collection sources = new HashSet();
+    protected final Collection sources = new HashSet();
 
     /**
      * <p>sets to true when <samp>&lt;sources no-packages="exception"&gt;</samp>,
@@ -48,7 +51,7 @@ public class Configuration {
      *
      * @parameter throwExceptionWhenNoPackages boolean
      */
-    private boolean throwExceptionWhenNoPackages;
+    protected boolean throwExceptionWhenNoPackages;
 
     /**
      * <p>sets to true when <samp>&lt;cyclicalDependency test="true"/> </samp>,
@@ -56,7 +59,7 @@ public class Configuration {
      *
      * @parameter doCyclicDependencyTest boolean
      */
-    private boolean doCyclicDependencyTest;
+    protected boolean doCyclicDependencyTest;
 
 
     /**
@@ -103,22 +106,17 @@ public class Configuration {
     }
 
 
-    /**
-     * <p>Add a new source directory</p>
-     *
-     * @param source String relative path to source directory
-     * @return boolean <tt>true</tt> if this list did not already contain the
-     *         specified element.
-     */
-    public boolean addSource(final String source) {
+    public boolean addSource(final SourceDirectory sourceDirectory) {
 
-        /* TODO: replace argument with SourceDirectory and update the validation below */
+        if (sourceDirectory == null)
+            throw new IllegalArgumentException("sourceDirectory can not be null");
 
-        /* validate input */
-        Assert.assertNotNull("source can not be null", source);
-        Assert.assertFalse("source must not be empty", source.equals(""));
+        final String path = sourceDirectory.getPath();
 
-        return sources.add(source);
+        if (path == null || path.equals(""))
+            throw new IllegalArgumentException("sourceDirectory.path can not be empty or null");
+
+        return sources.add(sourceDirectory);
     }
 
 

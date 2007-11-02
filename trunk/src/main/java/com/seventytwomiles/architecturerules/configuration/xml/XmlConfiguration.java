@@ -2,7 +2,7 @@ package com.seventytwomiles.architecturerules.configuration.xml;
 
 
 /**
- * <p>todo: javadocs</p>
+ * <p>Holds settings and paths for XML configuration.</p>
  *
  * @author mnereson
  */

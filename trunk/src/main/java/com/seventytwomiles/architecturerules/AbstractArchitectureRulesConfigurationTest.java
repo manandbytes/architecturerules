@@ -4,10 +4,12 @@ package com.seventytwomiles.architecturerules;
 import com.seventytwomiles.architecturerules.configuration.Configuration;
 import com.seventytwomiles.architecturerules.configuration.UnmodifiableConfiguration;
 import com.seventytwomiles.architecturerules.configuration.xml.ConfigurationFactory;
-import com.seventytwomiles.architecturerules.configuration.xml.ParserConfiguraitonFactory;
+import com.seventytwomiles.architecturerules.configuration.xml.DigesterConfigurationFactory;
 import com.seventytwomiles.architecturerules.services.ArchitecturalRulesService;
 import com.seventytwomiles.architecturerules.services.CyclicRedundencyService;
 import junit.framework.TestCase;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 
 /**
@@ -17,6 +19,9 @@ import junit.framework.TestCase;
  * @noinspection PointlessBooleanExpression
  */
 public abstract class AbstractArchitectureRulesConfigurationTest extends TestCase {
+
+
+    private static final Log log = LogFactory.getLog(AbstractArchitectureRulesConfigurationTest.class);
 
     /* -------------------------------------------------- fields and mutators */
 
@@ -47,9 +52,7 @@ public abstract class AbstractArchitectureRulesConfigurationTest extends TestCas
 
         final String configurationFileName = getConfigurationFileName();
 
-        /* todo validate configurationFileName here */
-
-        final ConfigurationFactory configurationFactory = new ParserConfiguraitonFactory(configurationFileName);
+        final ConfigurationFactory configurationFactory = new DigesterConfigurationFactory(configurationFileName);
 
         configuration.getRules().addAll(configurationFactory.getRules());
         configuration.getSources().addAll(configurationFactory.getSources());

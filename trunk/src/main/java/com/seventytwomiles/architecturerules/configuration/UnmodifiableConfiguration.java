@@ -1,9 +1,11 @@
 package com.seventytwomiles.architecturerules.configuration;
 
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
 import java.util.Collection;
 import java.util.Collections;
-import java.util.HashSet;
 
 
 /**
@@ -14,37 +16,7 @@ import java.util.HashSet;
 public final class UnmodifiableConfiguration extends Configuration {
 
 
-    /**
-     * <p><code>Rules</code> that are read from the configuration file or added
-     * programatically.</p>
-     *
-     * @parameter rules Set
-     */
-    private final Collection rules = new HashSet();
-
-    /**
-     * <p>List of <code>SourceDirectory</code> that are read from the
-     * configuration file and or added programatically.</p>
-     *
-     * @parameter sources List
-     */
-    private final Collection sources = new HashSet();
-
-    /**
-     * <p>sets to true when <samp>&lt;sources no-packages="exception"&gt;</samp>,
-     * false when <samp>&lt;sources no-packages="ignore"&gt;</samp></p>
-     *
-     * @parameter shouldThrowExceptionWhenNoPackages boolean
-     */
-    private boolean shouldThrowExceptionWhenNoPackages;
-
-    /**
-     * <p>sets to true when <samp>&lt;cyclicalDependency test="true"/> </samp>,
-     * false when <samp>&lt;cyclicalDependency test="false"/> </samp></p>
-     *
-     * @parameter doCyclicDependencyTest boolean
-     */
-    private boolean doCyclicDependencyTest;
+    private static final Log log = LogFactory.getLog(UnmodifiableConfiguration.class);
 
 
     /**
@@ -57,7 +29,7 @@ public final class UnmodifiableConfiguration extends Configuration {
         this.rules.addAll(configuration.getRules());
         this.sources.addAll(configuration.getSources());
         this.doCyclicDependencyTest = configuration.shouldDoCyclicDependencyTest();
-        this.shouldThrowExceptionWhenNoPackages = configuration.shouldThrowExceptionWhenNoPackages();
+        this.throwExceptionWhenNoPackages = configuration.shouldThrowExceptionWhenNoPackages();
     }
 
 
@@ -82,21 +54,24 @@ public final class UnmodifiableConfiguration extends Configuration {
 
 
     /**
-     * <p> Getter for property {@link #shouldThrowExceptionWhenNoPackages}.</p>
+     * <p>Setter for property {@link #throwExceptionWhenNoPackages}.</p>
      *
-     * @return Value for property <tt>shouldThrowExceptionWhenNoPackages</tt>.
+     * @param throwExceptionWhenNoPackages Value to set for property
+     * <tt>throwExceptionWhenNoPackages</tt>.
      */
-    public boolean shouldThrowExceptionWhenNoPackages() {
-        return shouldThrowExceptionWhenNoPackages;
+    public void setThrowExceptionWhenNoPackages(final boolean throwExceptionWhenNoPackages) {
+        throw new UnsupportedOperationException("");
     }
 
 
     /**
-     * <p>Getter for property {@link #doCyclicDependencyTest}.</p>
+     * <p>Setter for property {@link #doCyclicDependencyTest}.</p>
      *
-     * @return Value for property <tt>doCyclicDependencyTest</tt>.
+     * @param doCyclicDependencyTest Value to set for property
+     * <tt>doCyclicDependencyTest</tt>.
      */
-    public boolean shouldDoCyclicDependencyTest() {
-        return doCyclicDependencyTest;
+    public void setDoCyclicDependencyTest(final boolean doCyclicDependencyTest) {
+        throw new UnsupportedOperationException("");
+
     }
 }

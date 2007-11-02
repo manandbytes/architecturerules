@@ -2,6 +2,7 @@ package com.seventytwomiles.architecturerules.configuration;
 
 
 import com.seventytwomiles.architecturerules.domain.Rule;
+import com.seventytwomiles.architecturerules.domain.SourceDirectory;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
@@ -25,8 +26,8 @@ public class UnmodifiableConfigurationTest extends TestCase {
 
     public void setUp() throws Exception {
 
-        configuration.addSource("core/target/classes");
-        configuration.addSource("dao/target/classes");
+        configuration.addSource(new SourceDirectory("core/target/classes"));
+        configuration.addSource(new SourceDirectory("dao/target/classes"));
 
         final Rule rule = new Rule("dao", "com.seventytwomiles.dao");
         rule.addViolation("com.seventymiles.services");

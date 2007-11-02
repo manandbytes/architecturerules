@@ -3,6 +3,8 @@ package com.seventytwomiles.architecturerules.domain;
 
 import com.seventytwomiles.architecturerules.exceptions.IllegalArchitectureRuleException;
 import junit.framework.Assert;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 import java.util.Collection;
 import java.util.Collections;
@@ -17,6 +19,8 @@ import java.util.Iterator;
  */
 public class Rule {
 
+
+    private static final Log log = LogFactory.getLog(Rule.class);
 
     /**
      * <p>Unique id of this Rule as defined. Used to refer to this Rule in

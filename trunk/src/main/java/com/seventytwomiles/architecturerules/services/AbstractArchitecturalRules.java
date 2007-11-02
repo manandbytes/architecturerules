@@ -2,6 +2,7 @@ package com.seventytwomiles.architecturerules.services;
 
 
 import com.seventytwomiles.architecturerules.configuration.Configuration;
+import com.seventytwomiles.architecturerules.domain.SourceDirectory;
 import com.seventytwomiles.architecturerules.exceptions.CyclicRedundancyException;
 import com.seventytwomiles.architecturerules.exceptions.DependencyConstraintException;
 import com.seventytwomiles.architecturerules.exceptions.NoPackagesFoundException;
@@ -28,14 +29,19 @@ import java.util.Iterator;
 abstract class AbstractArchitecturalRules {
 
 
-    protected final Configuration configuration;
-
     /**
      * <p>log to debug with.</p>
      *
      * @parameter log Log
      */
     private static final Log log = LogFactory.getLog(AbstractArchitecturalRules.class);
+
+    /**
+     * <p>The <code>Configuration</code> to test against.</p>
+     *
+     * @parameter configuraiton Configuration
+     */
+    protected final Configuration configuration;
 
     /**
      * <p>instance of jdepend to assert architecture with</p>
@@ -50,21 +56,6 @@ abstract class AbstractArchitecturalRules {
      * @parameter packages Collection
      */
     private Collection packages;
-
-    /**
-     * <p>Location in a String array where the source path is located</p>
-     *
-     * @parameter SOURCE_POSITION int
-     */
-    private static final int SOURCE_POSITION = 0;
-
-    /**
-     * <p>Location in a String array where the source-not-found rule is
-     * located</p>
-     *
-     * @parameter SOURCE_NOT_FOUND_POSITION int
-     */
-    private static final int SOURCE_NOT_FOUND_POSITION = 1;
 
 
     /**
@@ -96,16 +87,10 @@ abstract class AbstractArchitecturalRules {
              sourceIterator.hasNext();) {
 
             /* read the next source directory */
-            final String[] source = (String[]) sourceIterator.next();
+            final SourceDirectory source = (SourceDirectory) sourceIterator.next();
 
             /* read the source path */
-            final String sourcePath = source[SOURCE_POSITION];
-
-            /* read not-found instruction */
-            final String sourcesNotFoundRule = source[SOURCE_NOT_FOUND_POSITION];
-
-            final boolean isConfiguredToThrowExceptionWhenSourceNotFound =
-                    Boolean.valueOf(sourcesNotFoundRule).booleanValue();
+            final String sourcePath = source.getPath();
 
             final StringBuffer message = new StringBuffer();
 
@@ -114,7 +99,7 @@ abstract class AbstractArchitecturalRules {
                 jdepend.addDirectory(sourcePath);
 
                 message.append("loaded ");
-                message.append(isConfiguredToThrowExceptionWhenSourceNotFound ? "required " : "");
+                message.append(source.shouldThrowExceptionWhenNotFound() ? "required " : "");
                 message.append("source ");
                 message.append(new File("").getAbsolutePath());
                 message.append("\\");
@@ -126,7 +111,7 @@ abstract class AbstractArchitecturalRules {
 
                 /* source not found */
 
-                message.append(isConfiguredToThrowExceptionWhenSourceNotFound ? "required " : "");
+                message.append(source.shouldThrowExceptionWhenNotFound() ? "required " : "");
                 message.append("source ");
                 message.append(new File("").getAbsolutePath());
                 message.append("\\");
@@ -135,7 +120,7 @@ abstract class AbstractArchitecturalRules {
 
                 log.warn(message.toString());
 
-                if (isConfiguredToThrowExceptionWhenSourceNotFound) {
+                if (source.shouldThrowExceptionWhenNotFound()) {
 
                     log.error(sourcePath + " was not found", e);
                     throw new SourceNotFoundException(sourcePath + " was not found", e);

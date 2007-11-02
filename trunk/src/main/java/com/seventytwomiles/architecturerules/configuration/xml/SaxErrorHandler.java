@@ -1,13 +1,16 @@
 package com.seventytwomiles.architecturerules.configuration.xml;
 
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.xml.sax.ErrorHandler;
 import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 
 
 /**
- * <p>todo: javadocs</p>
+ * <p>Implementation of <code>ErrorHandler</code> to handle errors within
+ * commons digester parsing.</p>
  *
  * @author mnereson
  * @see ErrorHandler
@@ -15,11 +18,15 @@ import org.xml.sax.SAXParseException;
 public class SaxErrorHandler implements ErrorHandler {
 
 
+    private static final Log log = LogFactory.getLog(SaxErrorHandler.class);
+
+
     /**
      * @see ErrorHandler#warning(SAXParseException)
      */
     public void warning(final SAXParseException exception) throws SAXException {
-        System.out.println(exception.getMessage());
+
+        log.warn(exception);
 
         onAnything(exception);
     }
@@ -29,7 +36,8 @@ public class SaxErrorHandler implements ErrorHandler {
      * @see ErrorHandler#error(SAXParseException)
      */
     public void error(final SAXParseException exception) throws SAXException {
-        System.out.println(exception.getMessage());
+
+        log.error("error", exception);
 
         onAnything(exception);
     }
@@ -39,7 +47,8 @@ public class SaxErrorHandler implements ErrorHandler {
      * @see ErrorHandler#fatalError(SAXParseException)
      */
     public void fatalError(final SAXParseException exception) throws SAXException {
-        System.out.println(exception.getMessage());
+
+        log.error("fatal error", exception);
 
         onAnything(exception);
     }

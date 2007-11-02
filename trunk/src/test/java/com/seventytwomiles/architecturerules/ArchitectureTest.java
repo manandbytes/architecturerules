@@ -14,7 +14,7 @@ import com.seventytwomiles.architecturerules.domain.Rule;
 public class ArchitectureTest extends AbstractArchitectureRulesConfigurationTest {
 
 
-    public void Sample() {
+    public void ArchitectureTest() {
 
         final Configuration configuration = getConfiguration();
 

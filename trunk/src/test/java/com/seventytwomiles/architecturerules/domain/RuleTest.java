@@ -302,4 +302,16 @@ public class RuleTest extends TestCase {
         assertFalse(rule.equals(that));
         assertFalse(rule.hashCode() == that.hashCode());
     }
+
+
+    public void testDescribe() throws Exception {
+
+        rule = new Rule("web", "com.seventytwomiles.web");
+        rule.addViolation("com.seventytwomiles.dao");
+
+        String description = rule.describe();
+
+        assertTrue(description.contains("web"));
+        assertTrue(description.contains("com.seventytwomiles.web"));
+    }
 }

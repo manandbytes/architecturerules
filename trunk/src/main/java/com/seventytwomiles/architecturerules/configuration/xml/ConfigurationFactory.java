@@ -5,7 +5,8 @@ import java.util.Collection;
 
 
 /**
- * <p>todo: javadocs</p>
+ * <p>Interface for <code>ConfigurationFactory</code> implementations to adhere
+ * to.</p>
  *
  * @author mnereson
  */

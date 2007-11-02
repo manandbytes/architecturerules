@@ -1,12 +1,19 @@
 package com.seventytwomiles.architecturerules.domain;
 
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
+
 /**
  * <p>todo: javadocs</p>
  *
  * @author mnereson
  */
 public class SourcesConfiguration {
+
+
+    private static final Log log = LogFactory.getLog(SourcesConfiguration.class);
 
 
     private String noPackages = "ignore";

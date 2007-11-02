@@ -1,6 +1,10 @@
 package com.seventytwomiles.architecturerules.domain;
 
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
+
 /**
  * <p>todo: javadocs</p>
  *
@@ -8,6 +12,8 @@ package com.seventytwomiles.architecturerules.domain;
  */
 public class CyclicDependencyConfiguration {
 
+
+    private static final Log log = LogFactory.getLog(CyclicDependencyConfiguration.class);
 
     private String test = "true";
 

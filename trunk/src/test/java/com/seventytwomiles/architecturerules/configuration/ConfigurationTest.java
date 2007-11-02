@@ -2,6 +2,7 @@ package com.seventytwomiles.architecturerules.configuration;
 
 
 import com.seventytwomiles.architecturerules.domain.Rule;
+import com.seventytwomiles.architecturerules.domain.SourceDirectory;
 import junit.framework.AssertionFailedError;
 import junit.framework.TestCase;
 
@@ -163,6 +164,38 @@ public class ConfigurationTest extends TestCase {
 
             assertTrue(e.getMessage().contains("rule violations must not be empty"));
         }
+    }
+
+
+    public void addSource() throws Exception {
+
+        assertTrue(configuration.addSource(new SourceDirectory("core/target/classes")));
+        assertEquals(1, configuration.getSources().size());
+    }
+
+
+    public void addSource_illegalArguments() throws Exception {
+
+        try {
+
+            configuration.addSource(null);
+            fail("expected IllegalArgumentException");
+
+        } catch (Exception e) {
+
+            assertTrue(e instanceof IllegalArgumentException);
+        }
+
+        try {
+
+            configuration.addSource(new SourceDirectory(""));
+            fail("expected IllegalArgumentException");
+
+        } catch (Exception e) {
+
+            assertTrue(e instanceof IllegalArgumentException);
+        }
+
     }
 
 

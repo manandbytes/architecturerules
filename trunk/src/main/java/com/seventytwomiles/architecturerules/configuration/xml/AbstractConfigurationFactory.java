@@ -1,8 +1,9 @@
 package com.seventytwomiles.architecturerules.configuration.xml;
 
 
-import com.seventytwomiles.architecturerules.exceptions.InvalidConfigurationException;
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.core.io.ClassPathResource;
 
 import java.io.IOException;
@@ -11,13 +12,16 @@ import java.util.HashSet;
 
 
 /**
- * <p>todo: javadocs</p>
+ * <p>Abstract Factory that provides common functionality for
+ * <code>ConfigurationFactory</code> implementations.</p>
  *
  * @author mnereson
  * @see ConfigurationFactory
  */
 public abstract class AbstractConfigurationFactory implements ConfigurationFactory {
 
+
+    private static final Log log = LogFactory.getLog(AbstractConfigurationFactory.class);
 
     /**
      * <p>Set of Rules read from the configuration file</p>
@@ -53,10 +57,9 @@ public abstract class AbstractConfigurationFactory implements ConfigurationFacto
      * <p>Validate the configuration.</p>
      *
      * @param configuration String xml content to validate
-     * @throws InvalidConfigurationException when the configuration is invalid
      * @see "architecture-rules.dtd"
      */
-    abstract void validateConfigruation(final String configuration) throws InvalidConfigurationException;
+    abstract void validateConfigruation(final String configuration);
 
 
     /**

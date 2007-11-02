@@ -19,7 +19,7 @@ import java.util.List;
 
 
 /**
- * <p>todo: javadocs</p>
+ * <p>Apache Commons Digester implementatino of the <code>ConfigurationFactory</code></p>
  *
  * @author mnereson
  * @see AbstractConfigurationFactory
@@ -30,27 +30,20 @@ public class DigesterConfigurationFactory extends AbstractConfigurationFactory {
     private static final Log log = LogFactory.getLog(DigesterConfigurationFactory.class);
 
 
-    /**
-     * <pre>
-     * TODO: javadocs
-     * TODO: process Rules and SourceDirectories
-     * TODO: delete ConfigurationHandler and ParserConfiguraitonFactory
-     * </pre>
-     */
     protected DigesterConfigurationFactory() {
         /* FOR TESTS ONLY */
     }
 
 
     /**
-     * <p>TODO: javadocs </p>
+     * <p>Instanciates a new <code>ConfigurationFactory</code> and processes the
+     * configuration found in the <code>File</code> with the given
+     * <tt>configurationFileName</tt>.</p>
      *
-     * @param configurationFileName name of the file in the classpath to load
-     * configuration from.
-     * @throws InvalidConfigurationException when configuraiton is invalid
+     * @param configurationFileName name of the <code>File</code> in the
+     * classpath to load configuration from.
      */
-    public DigesterConfigurationFactory(final String configurationFileName) throws InvalidConfigurationException {
-
+    public DigesterConfigurationFactory(final String configurationFileName) {
 
         final String configurationXml;
 
@@ -58,21 +51,18 @@ public class DigesterConfigurationFactory extends AbstractConfigurationFactory {
 
         validateConfigruation(configurationXml);
         processConfiguration(configurationXml);
-
-
     }
 
 
     /**
-     * <p></p>
+     * <p>Read the configuration in the configuration l File to a
+     * <code>Configuration</code> entity.</p>
      *
-     * <p>protected scope so that it could be individually tested</p>
+     * <p>protected scope so that it could be individually tested.</p>
      *
      * @param configurationXml String of xml configuration
-     * @throws InvalidConfigurationException when any configuration element is
-     * invalid
      */
-    protected void processConfiguration(final String configurationXml) throws InvalidConfigurationException {
+    protected void processConfiguration(final String configurationXml) {
 
         try {
 
@@ -104,10 +94,8 @@ public class DigesterConfigurationFactory extends AbstractConfigurationFactory {
      * @param configurationXml String xml to parse
      * @throws IOException when an input/output error occurs
      * @throws SAXException when given xml can not be parsed
-     * @throws InvalidConfigurationException when an invalid no-packages value
-     * is set
      */
-    protected void processSourcesNotFoundConfiguration(final String configurationXml) throws IOException, SAXException, InvalidConfigurationException {
+    protected void processSourcesNotFoundConfiguration(final String configurationXml) throws IOException, SAXException {
 
         final Digester digester = getDigester();
 
@@ -151,10 +139,8 @@ public class DigesterConfigurationFactory extends AbstractConfigurationFactory {
      * @param configurationXml String xml to parse
      * @throws IOException when an input/output error occurs
      * @throws SAXException when given xml can not be parsed
-     * @throws InvalidConfigurationException when an invalid cyclicalDependency
-     * value is set
      */
-    protected void processCyclicDependencyConfiguration(final String configurationXml) throws IOException, SAXException, InvalidConfigurationException {
+    protected void processCyclicDependencyConfiguration(final String configurationXml) throws IOException, SAXException {
 
         final Digester digester = getDigester();
 
@@ -255,7 +241,7 @@ public class DigesterConfigurationFactory extends AbstractConfigurationFactory {
      * @param configurationXml String xml content to validate
      * @see "architecture-rules.dtd"
      */
-    protected void validateConfigruation(final String configurationXml) throws InvalidConfigurationException {
+    protected void validateConfigruation(final String configurationXml) {
 
 
         final Digester digester = new Digester();

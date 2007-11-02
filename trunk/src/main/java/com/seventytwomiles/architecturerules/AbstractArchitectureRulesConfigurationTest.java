@@ -92,6 +92,6 @@ public abstract class AbstractArchitectureRulesConfigurationTest extends TestCas
     /**
      * <p>Implement this method and call {@link #doTests}</p>
      */
-    public abstract void testArchitecture();
+    abstract void testArchitecture();
 
 }

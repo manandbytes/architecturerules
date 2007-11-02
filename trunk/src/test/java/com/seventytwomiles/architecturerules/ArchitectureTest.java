@@ -21,11 +21,11 @@ public class ArchitectureTest extends AbstractArchitectureRulesConfigurationTest
         final Configuration configuration = getConfiguration();
 
         /**
-         * Get the configuraiton that already has the architecure-rules.xml
-         * configuraiton loaded.
+         * Get the configuration that already has the architecture-rules.xml
+         * configuration loaded.
          *
          * Changing a boolean like configuration.setDoCyclicDependencyTest(false)
-         * would override the value in the configuraiton file, because the
+         * would override the value in the configuration file, because the
          * configuration file is loaded first.
          */
 

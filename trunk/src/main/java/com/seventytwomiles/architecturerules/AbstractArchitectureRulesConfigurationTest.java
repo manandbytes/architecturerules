@@ -30,7 +30,7 @@ public abstract class AbstractArchitectureRulesConfigurationTest extends TestCas
      *
      * @parameter configuration Configuration
      */
-    final Configuration configuration = new Configuration();
+    final private Configuration configuration = new Configuration();
 
 
     /**

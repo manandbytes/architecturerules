@@ -3,6 +3,8 @@ package com.seventytwomiles.architecturerules;
 
 import com.seventytwomiles.architecturerules.configuration.Configuration;
 import com.seventytwomiles.architecturerules.domain.Rule;
+import com.seventytwomiles.architecturerules.domain.SourceDirectory;
+import com.seventytwomiles.architecturerules.exceptions.CyclicRedundancyException;
 
 
 /**
@@ -56,6 +58,32 @@ public class ArchitectureTest extends AbstractArchitectureRulesConfigurationTest
          * the configuraiton can not be loaded properly, then the appropriate
          * Exception will be thrown.
          */
-        /*assertTrue(doTests());*/
+        assertTrue(doTests());
+
+
+        final Configuration configuration = getConfiguration();
+        configuration.setDoCyclicDependencyTest(true);
+        assertTrue(doTests());
+
+        configuration.getSources().clear();
+        configuration.getSources().add(new SourceDirectory("target\\classes", true));
+
+        assertTrue(doTests());
+
+        configuration.getSources().clear();
+        configuration.getSources().add(new SourceDirectory("target\\test-classes", true));
+
+        try {
+
+            assertTrue(doTests());
+
+        } catch (final CyclicRedundancyException e) {
+
+            final String message = e.getMessage();
+
+            assertTrue(message.contains("test.com.seventytwomiles.services"));
+            assertTrue(message.contains("test.com.seventytwomiles.model"));
+            assertTrue(message.contains("test.com.seventytwomiles.dao.hibernate"));
+        }
     }
 }

@@ -92,8 +92,9 @@ public class SourceDirectory {
      * #shouldThrowExceptionWhenNotFound}
      */
     public SourceDirectory(final String path, final boolean shouldThrowExceptionWhenNotFound) {
-        this.shouldThrowExceptionWhenNotFound = shouldThrowExceptionWhenNotFound;
-        this.path = path;
+
+        setShouldThrowExceptionWhenNotFound(shouldThrowExceptionWhenNotFound);
+        setPath(path);
     }
 
 
@@ -115,7 +116,7 @@ public class SourceDirectory {
      * @return Value for property <tt>shouldThrowExceptionWhenNotFound</tt>.
      */
     public boolean shouldThrowExceptionWhenNotFound() {
-        return this.shouldThrowExceptionWhenNotFound;
+        return shouldThrowExceptionWhenNotFound;
     }
 
 

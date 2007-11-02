@@ -73,7 +73,6 @@ public class SourceNotFoundExceptionTest extends TestCase {
         sourceDirectories.add(new SourceDirectory("parent-pom/target/classes"));
         sourceDirectories.add(new SourceDirectory("web/target/classes"));
 
-
         exception = new SourceNotFoundException(sourceDirectories);
         message = exception.getMessage();
         cause = exception.getCause();

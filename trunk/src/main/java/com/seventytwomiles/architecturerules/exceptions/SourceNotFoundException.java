@@ -50,7 +50,6 @@ public class SourceNotFoundException extends RuntimeException {
 
     public SourceNotFoundException(final Collection sources) {
 
-
         super("unable to find any source files in given source directories {0}"
                 .replace("{0}", Arrays.toString(sources.toArray())));
     }

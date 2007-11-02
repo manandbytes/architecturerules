@@ -3,14 +3,12 @@ package com.seventytwomiles.architecturerules.services;
 
 import com.seventytwomiles.architecturerules.configuration.Configuration;
 import com.seventytwomiles.architecturerules.domain.Rule;
-import com.seventytwomiles.architecturerules.exceptions.CyclicRedundancyException;
 import com.seventytwomiles.architecturerules.exceptions.DependencyConstraintException;
 import com.seventytwomiles.architecturerules.exceptions.NoPackagesFoundException;
 import com.seventytwomiles.architecturerules.exceptions.SourceNotFoundException;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
 
@@ -26,7 +24,7 @@ public class ArchitecturalRulesService extends AbstractArchitecturalRules {
 
 
     /**
-     * <p>Log to log with</p>
+     * <p>Log to log with.</p>
      *
      * @parameter log Log
      */
@@ -54,13 +52,12 @@ public class ArchitecturalRulesService extends AbstractArchitecturalRules {
 
 
     /**
-     * <p></p>
+     * <p>Assert that no <code>Rule</code> in the given <code>Configuraiton</code>
+     * has been violated.</p>
      *
      * @return boolean <tt>true</tt> when tests pass
-     * @throws DependencyConstraintException when a rule is broken
-     * @throws CyclicRedundancyException when cyclic redundency is found
      */
-    public boolean performRulesTest() throws DependencyConstraintException, CyclicRedundancyException {
+    public boolean performRulesTest() {
 
         log.info("perform rules test required");
 
@@ -68,20 +65,17 @@ public class ArchitecturalRulesService extends AbstractArchitecturalRules {
 
         Rule rule;
 
+        /**
+         * If logging is enabled, describe each rule that is going to be
+         * validated.
+         */
         if (log.isDebugEnabled()) {
 
             for (Iterator ruleIterator = rules.iterator();
                  ruleIterator.hasNext();) {
 
                 rule = (Rule) ruleIterator.next();
-
-                final String packages = Arrays.deepToString(rule.getPackages().toArray());
-
-                final String ruleDescription = "['{0}' for {1}] "
-                        .replace("{0}", rule.getId())
-                        .replace("{1}", packages);
-
-                log.debug(ruleDescription);
+                log.debug(rule.getDescriptionOfRule());
             }
         }
 
@@ -91,7 +85,7 @@ public class ArchitecturalRulesService extends AbstractArchitecturalRules {
             rule = (Rule) ruleIterator.next();
 
             log.info("checking rule " + rule.getId());
-            log.debug("checking for dependency violations in " + rule.getPackages());
+            log.debug("checking for dependency violations in " + rule.describePackges());
 
             try {
 
@@ -104,7 +98,7 @@ public class ArchitecturalRulesService extends AbstractArchitecturalRules {
                     testLayeringValid(packageName, rule.getViolations());
                 }
 
-            } catch (DependencyConstraintException e) {
+            } catch (final DependencyConstraintException e) {
 
                 /* just creates a more descriptive message which identifies the rule by its id */
                 throw new DependencyConstraintException("rule " + rule.getId() + " failed: " + e.getMessage());

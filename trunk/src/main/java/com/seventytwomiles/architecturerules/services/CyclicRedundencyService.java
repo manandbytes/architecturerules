@@ -5,8 +5,11 @@ import com.seventytwomiles.architecturerules.configuration.Configuration;
 import com.seventytwomiles.architecturerules.exceptions.CyclicRedundancyException;
 import com.seventytwomiles.architecturerules.exceptions.NoPackagesFoundException;
 import com.seventytwomiles.architecturerules.exceptions.SourceNotFoundException;
+import jdepend.framework.JavaPackage;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+
+import java.util.*;
 
 
 /**
@@ -57,17 +60,135 @@ public class CyclicRedundencyService extends AbstractArchitecturalRules {
 
         log.info("cyclic reduendency check requested");
 
-        log.debug("performing cyclic reduendency check");
-        if (jdepend.containsCycles()) {
 
-            log.warn("found cyclic redundendcies");
-            throw new CyclicRedundancyException("cyclic redundency does exist");
+        final Collection packages = getPackages();
+
+        final Map efferentMap = getEfferentMap(packages);
+
+        Map cycles = processEfferntMapForCycles(efferentMap);
+
+        if (cycles.isEmpty()) {
+
+            log.info("found no cyclic redundencies");
 
         } else {
 
-            log.info("found no cyclic redundencies");
+            log.warn("found cyclic redundendcies");
+
+            final String message = buildCyclicReduncencyMessage(cycles);
+            throw new CyclicRedundancyException(message);
         }
 
         log.info("cyclic redundency test completed");
+    }
+
+
+    private String buildCyclicReduncencyMessage(final Map cyclesMap) {
+
+        StringBuffer message = new StringBuffer();
+        message.append("cylic depencencies found:").append("\r\n").append("\r\n\t");
+
+        final Iterator entryIterator = cyclesMap.entrySet().iterator();
+        while (entryIterator.hasNext()) {
+
+            final Map.Entry entry = (Map.Entry) entryIterator.next();
+
+            final String packageName = entry.getKey().toString();
+            final List cyclicDependencies = (ArrayList) entry.getValue();
+
+            message.append("-- ").append(packageName).append("\r\n\t");
+
+            for (Iterator dependencyIterator = cyclicDependencies.iterator();
+                 dependencyIterator.hasNext();) {
+
+                final String dependency = (String) dependencyIterator.next();
+
+                message.append("¦  ¦").append("\r\n\t");
+                message.append("¦  ¦-- ").append(dependency).append("\r\n\t");
+
+                if (!dependencyIterator.hasNext())
+                    message.append("¦").append("\r\n\t");
+            }
+
+            if (entryIterator.hasNext())
+                message.append("¦").append("\r\n\t");
+        }
+
+        return message.toString();
+    }
+
+
+    private Map processEfferntMapForCycles(final Map efferentMap) {
+
+        final Map cycles = new HashMap();
+
+        final Iterator entryIterator = efferentMap.entrySet().iterator();
+        while (entryIterator.hasNext()) {
+
+            final Map.Entry entry = (Map.Entry) entryIterator.next();
+            final String packageName = entry.getKey().toString();
+            final List efferents = (ArrayList) entry.getValue();
+
+            final List cyclicDependencies = new ArrayList();
+            for (Iterator efferentIterator = efferents.iterator();
+                 efferentIterator.hasNext();) {
+
+                final String efferent = (String) efferentIterator.next();
+
+                if (efferentMap.containsKey(efferent)) {
+                    final List dependencies = (ArrayList) efferentMap.get(efferent);
+                    if (dependencies.contains(packageName))
+                        cyclicDependencies.add(efferent);
+                }
+            }
+
+            if (!cyclicDependencies.isEmpty())
+                cycles.put(packageName, cyclicDependencies);
+        }
+
+        return cycles;
+    }
+
+
+    /**
+     * <p>Associates a package to all of its dependencies.</p>
+     *
+     * @param packages Collection of <code>JavaPackages</code>
+     * @return Map<String, List<String>> name of package a list of names of
+     *         packages that it depends on.
+     */
+    private Map getEfferentMap(final Collection packages) {
+
+        /**
+         * Map<String, List<String>>
+         */
+        final Map efferentMap = new HashMap(); // package name, list of dpendency package names
+        JavaPackage javaPackage; // Reusable JavaPackge to use inside of interation
+
+        log.debug("performing cyclic reduendency check");
+        for (final Iterator packageIterator = packages.iterator();
+             packageIterator.hasNext();) {
+
+            javaPackage = (JavaPackage) packageIterator.next();
+
+            final List efferents = new ArrayList();
+            JavaPackage efferent;
+
+            /**
+             * When cycles exist, build a Map of [package, List of cycles]
+             */
+            for (final Iterator efferentIterator = javaPackage.getEfferents().iterator();
+                 efferentIterator.hasNext();) {
+
+                efferent = (JavaPackage) efferentIterator.next();
+                efferents.add(efferent.getName());
+            }
+
+            /* only added when there are efferents */
+            if (!efferents.isEmpty())
+                efferentMap.put(javaPackage.getName(), efferents);
+        }
+
+        return efferentMap;
     }
 }

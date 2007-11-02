@@ -1,11 +1,6 @@
 package com.seventytwomiles.architecturerules.exceptions;
 
 
-import com.seventytwomiles.architecturerules.domain.Rule;
-
-import java.util.Arrays;
-
-
 /**
  * <p>Exception to be thrown when any <code>Rule</code> fails, that is to say,
  * the rule is violoated</p>
@@ -50,24 +45,18 @@ public class DependencyConstraintException extends RuntimeException {
 
 
     /**
-     * <p></p>
+     * <p>Reports which <code>Rule</code> was broken, by its <tt>id</tt>, and
+     * what packages that <code>Rule</code> governs.</p>
      *
-     * @param rule Rule that failed
+     * @param ruleId
+     * @param packages
+     * @param cause
      */
-    public DependencyConstraintException(final Rule rule) {
-        this(rule, null);
-    }
-
-
-    /**
-     * @param rule Rule that failed
-     * @param cause Throwable
-     */
-    public DependencyConstraintException(final Rule rule, final Throwable cause) {
+    public DependencyConstraintException(final String ruleId, final String packages, final Throwable cause) {
 
         this("dependency constraint failed in '{id}' rule which constrains packages '{efferent}'"
-                .replace("{id}", rule.getId())
-                .replace("{efferent}", (Arrays.deepToString(rule.getPackages().toArray())))
+                .replace("{id}", ruleId)
+                .replace("{efferent}", packages)
                 .replace("[", "")
                 .replace("]", ""), cause);
     }

@@ -76,7 +76,7 @@ public class DependencyConstraintExceptionTest extends TestCase {
         rule.addPackage("com.seventytwomiles.dao");
         rule.addViolation("com.seventytwomiles.web.controllers");
 
-        exception = new DependencyConstraintException(rule);
+        exception = new DependencyConstraintException(rule.getId(), rule.describePackges(), null);
         message = exception.getMessage();
         cause = exception.getCause();
 
@@ -84,7 +84,7 @@ public class DependencyConstraintExceptionTest extends TestCase {
         assertEquals(null, cause);
 
 
-        exception = new DependencyConstraintException(rule, new IllegalArgumentException());
+        exception = new DependencyConstraintException(rule.getId(), rule.describePackges(), new IllegalArgumentException());
         message = exception.getMessage();
         cause = exception.getCause();
 

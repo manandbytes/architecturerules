@@ -6,10 +6,7 @@ import junit.framework.Assert;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Iterator;
+import java.util.*;
 
 
 /**
@@ -137,9 +134,8 @@ public class Rule {
      *
      * @param packageName String
      * @return boolean
-     * @throws IllegalArchitectureRuleException when
      */
-    public boolean addPackage(final String packageName) throws IllegalArchitectureRuleException {
+    public boolean addPackage(final String packageName) {
 
         Assert.assertNotNull("null packageName can not be added", packageName);
         Assert.assertFalse("empty packageName can not be added", packageName.equals(""));
@@ -177,12 +173,8 @@ public class Rule {
      * upon
      * @return boolean <tt>true</tt> if the violation is added to the List of
      *         violoatizons
-     * @throws IllegalArchitectureRuleException when the packages is also a
-     * violation: this is a Illegal Rule because it can not be tessted and its
-     * better to ask the developer to understand what they are asking me to
-     * test, rather than just ignore the configuration entry
      */
-    public boolean addViolation(final String violation) throws IllegalArchitectureRuleException {
+    public boolean addViolation(final String violation) {
 
         Assert.assertNotNull("null violation can not be added", violation);
         Assert.assertFalse("empty violation can not be added", violation.equals(""));
@@ -299,5 +291,27 @@ public class Rule {
             System.out.println(stringBuilder.toString());
 
         return stringBuilder.toString();
+    }
+
+
+    public String getDescriptionOfRule() {
+
+        final String ruleDescription = "['{0}' for {1}] "
+                .replace("{0}", getId())
+                .replace("{1}", describePackges());
+
+        return ruleDescription;
+    }
+
+
+    public String describePackges() {
+
+        String packagesDescription = Arrays.deepToString(packages.toArray());
+
+        packagesDescription = packagesDescription
+                .replace("[", "")
+                .replace("]", "");
+
+        return packagesDescription;
     }
 }

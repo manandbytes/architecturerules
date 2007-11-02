@@ -89,48 +89,70 @@ abstract class AbstractArchitecturalRules {
             /* read the next source directory */
             final SourceDirectory source = (SourceDirectory) sourceIterator.next();
 
-            /* read the source path */
-            final String sourcePath = source.getPath();
-
-            final StringBuffer message = new StringBuffer();
-
-            try {
-
-                jdepend.addDirectory(sourcePath);
-
-                message.append("loaded ");
-                message.append(source.shouldThrowExceptionWhenNotFound() ? "required " : "");
-                message.append("source ");
-                message.append(new File("").getAbsolutePath());
-                message.append("\\");
-                message.append(sourcePath);
-
-                log.debug(message.toString());
-
-            } catch (final IOException e) {
-
-                /* source not found */
-
-                message.append(source.shouldThrowExceptionWhenNotFound() ? "required " : "");
-                message.append("source ");
-                message.append(new File("").getAbsolutePath());
-                message.append("\\");
-                message.append(sourcePath);
-                message.append(" does not exist");
-
-                log.warn(message.toString());
-
-                if (source.shouldThrowExceptionWhenNotFound()) {
-
-                    log.error(sourcePath + " was not found", e);
-                    throw new SourceNotFoundException(sourcePath + " was not found", e);
-                }
-            }
+            addSourceToJdepend(source);
         }
 
+        analyze();
+    }
+
+
+    /**
+     * <p>Add a sourceDirectory path to JDepend instance. Throws Exception when
+     * sourceDirectory path can not be found, if a given
+     * <code>SourceDirectory</code> is configured to do so.</p>
+     *
+     * @param sourceDirectory a <code>SourceDirectory</code> to read path from
+     */
+    private void addSourceToJdepend(final SourceDirectory sourceDirectory) {
+
+        final String sourcePath = sourceDirectory.getPath();
+
+        final StringBuffer message = new StringBuffer();
+
+        try {
+
+            jdepend.addDirectory(sourcePath);
+
+            message.append("loaded ");
+            message.append(sourceDirectory.shouldThrowExceptionWhenNotFound() ? "required " : "");
+            message.append("sourceDirectory ");
+            message.append(new File("").getAbsolutePath());
+            message.append("\\");
+            message.append(sourcePath);
+
+            log.debug(message.toString());
+
+        } catch (final IOException e) {
+
+            /* sourceDirectory not found */
+
+            message.append(sourceDirectory.shouldThrowExceptionWhenNotFound() ? "required " : "");
+            message.append("sourceDirectory ");
+            message.append(new File("").getAbsolutePath());
+            message.append("\\");
+            message.append(sourcePath);
+            message.append(" does not exist");
+
+            log.warn(message.toString());
+
+            if (sourceDirectory.shouldThrowExceptionWhenNotFound()) {
+
+                log.error(sourcePath + " was not found", e);
+                throw new SourceNotFoundException(sourcePath + " was not found", e);
+            }
+        }
+    }
+
+
+    /**
+     * <p>Analyze with JDepend. Call after JDepend knows about all of the source
+     * paths.</p>
+     */
+    private void analyze() {
+
         /**
-         * ask jdepened to analyze each package in each of the source
-         * directories that were added above
+         * Ask jdepened to analyze each package in each of the source
+         * directories that were added above.
          */
         log.debug("fetching packages");
         packages = jdepend.analyze();
@@ -138,15 +160,15 @@ abstract class AbstractArchitecturalRules {
         log.debug("checking how many packages were found by JDepend");
         if (packages.isEmpty()) {
 
-            log.warn("no packages were found with the given configuraiton. check your <sources />");
+            log.warn("no packages were found with the given configuraiton. check your <sources /> configuration");
 
-            final boolean isConfiguredToThrowExceptionWhenNoPackagesFound = this.configuration.shouldThrowExceptionWhenNoPackages();
+            final boolean isConfiguredToThrowExceptionWhenNoPackagesFound = configuration.shouldThrowExceptionWhenNoPackages();
             log.debug("throw excpetion when no packages? " + isConfiguredToThrowExceptionWhenNoPackagesFound);
 
             if (isConfiguredToThrowExceptionWhenNoPackagesFound) {
 
                 log.debug("throwing RuntimeException because no packages were found");
-                throw new NoPackagesFoundException("no packages were found with the given configuraiton. check your <sources />");
+                throw new NoPackagesFoundException("no packages were found with the given configuraiton. check your <sources /> configuration");
             }
 
         } else {
@@ -156,6 +178,12 @@ abstract class AbstractArchitecturalRules {
     }
 
 
+    /**
+     * <p>All of the packages that were, or will be analyzed by the JDepend
+     * instance, given the source paths that it knows about.</p>
+     *
+     * @return Collection
+     */
     public Collection getPackages() {
         return this.packages;
     }
@@ -171,7 +199,8 @@ abstract class AbstractArchitecturalRules {
      * @throws DependencyConstraintException when a rule is broken
      * @throws CyclicRedundancyException when cyclic redundency is found
      */
-    protected void testLayeringValid(final String layer, final Collection rules) throws DependencyConstraintException, CyclicRedundancyException {
+    protected void testLayeringValid(final String layer,
+                                     final Collection rules) throws DependencyConstraintException, CyclicRedundancyException {
 
         final Collection packages = jdepend.analyze();
 
@@ -217,7 +246,8 @@ abstract class AbstractArchitecturalRules {
      * @param analyzedPackageName String full name
      * @throws DependencyConstraintException when a rule is broken
      */
-    protected void testEfferentsValid(final String layer, final Collection rules,
+    protected void testEfferentsValid(final String layer,
+                                      final Collection rules,
                                       final JavaPackage jPackage,
                                       final String analyzedPackageName) throws DependencyConstraintException {
 

@@ -10,7 +10,6 @@ import org.apache.commons.digester.Digester;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.xml.sax.SAXException;
-import org.xml.sax.SAXParseException;
 
 import java.io.IOException;
 import java.io.StringReader;
@@ -276,12 +275,7 @@ public class DigesterConfigurationFactory extends AbstractConfigurationFactory {
      */
     private Digester getDigester() {
 
-        final SaxErrorHandler errorHandler = new SaxErrorHandler() {
-
-            public void onAnything(final SAXParseException exception) {
-                log.error("could not parse configuration ", exception);
-            }
-        };
+        final SaxErrorHandler errorHandler = new SaxErrorHandler();
 
         final Digester digester = new Digester();
         digester.setErrorHandler(errorHandler);

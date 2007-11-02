@@ -70,7 +70,7 @@ public class IllegalArchitectureRuleExceptionTest extends TestCase {
         rule.addPackage("com.seventytwomiles.dao");
 
 
-        exception = new IllegalArchitectureRuleException(rule);
+        exception = new IllegalArchitectureRuleException(rule.getId(), rule.describePackges());
         message = exception.getMessage();
         cause = exception.getCause();
 
@@ -78,7 +78,7 @@ public class IllegalArchitectureRuleExceptionTest extends TestCase {
         assertEquals(null, cause);
 
 
-        exception = new IllegalArchitectureRuleException(rule, new IllegalArgumentException());
+        exception = new IllegalArchitectureRuleException(rule.getId(), rule.describePackges(), new IllegalArgumentException());
         message = exception.getMessage();
         cause = exception.getCause();
 

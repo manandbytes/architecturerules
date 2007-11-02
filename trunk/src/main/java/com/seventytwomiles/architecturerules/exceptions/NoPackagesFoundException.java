@@ -1,16 +1,13 @@
 package com.seventytwomiles.architecturerules.exceptions;
 
 
-import com.seventytwomiles.architecturerules.domain.SourceDirectory;
-
-
 /**
  * <p>Exception to be thrown when no packages are found in the given source path
  * if <samp>&lt;sources no-packages="exception"> </samp></p>
  *
  * @author mnereson
  * @noinspection JavaDoc
- * @see Exception
+ * @see RuntimeException
  */
 public class NoPackagesFoundException extends RuntimeException {
 
@@ -20,14 +17,6 @@ public class NoPackagesFoundException extends RuntimeException {
      */
     public NoPackagesFoundException() {
         super("no packages found");
-    }
-
-
-    /**
-     * @see RuntimeException#RuntimeException(String)
-     */
-    public NoPackagesFoundException(final String message) {
-        super(message);
     }
 
 
@@ -47,9 +36,9 @@ public class NoPackagesFoundException extends RuntimeException {
     }
 
 
-    public NoPackagesFoundException(final SourceDirectory sourceDirectory) {
+    public NoPackagesFoundException(final String path) {
 
         super("source directory '{0}' does not exist or can not be found"
-                .replace("{0}", sourceDirectory.getPath()));
+                .replace("{0}", path));
     }
 }

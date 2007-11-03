@@ -9,7 +9,7 @@ import junit.framework.TestCase;
 
 
 /**
- * <p><code>ArchitecturalRulesService</code> Tester.</p>
+ * <p><code>RulesService</code> Tester.</p>
  *
  * @author mnereson
  */
@@ -21,14 +21,14 @@ public class ArchitecturalRulesServiceTest extends TestCase {
     }
 
 
-    private ArchitecturalRulesService architecturalRulesService;
+    private RulesService rulesService;
 
     private Configuration configuration = new Configuration();
 
-    private SourceDirectory testClassesSourceDirectory = new SourceDirectory("target\\test-classes", true);
+    private final SourceDirectory testClassesSourceDirectory = new SourceDirectory("target\\test-classes", true);
 
-    Rule goodModelRule;
-    Rule badControllerRule;
+    private Rule goodModelRule;
+    private Rule badControllerRule;
 
 
     public void setUp() throws Exception {
@@ -48,7 +48,7 @@ public class ArchitecturalRulesServiceTest extends TestCase {
 
     public void tearDown() throws Exception {
 
-        architecturalRulesService = null;
+        rulesService = null;
         configuration = null;
 
         super.tearDown();
@@ -60,9 +60,9 @@ public class ArchitecturalRulesServiceTest extends TestCase {
         /* setup good configuration */
         configuration.addRule(goodModelRule);
 
-        architecturalRulesService = new ArchitecturalRulesService(configuration);
+        rulesService = new RulesServiceImpl(configuration);
 
-        assertTrue(architecturalRulesService.performRulesTest());
+        assertTrue(rulesService.performRulesTest());
     }
 
 
@@ -71,11 +71,11 @@ public class ArchitecturalRulesServiceTest extends TestCase {
         /* setup bad configuration */
         configuration.addRule(badControllerRule);
 
-        architecturalRulesService = new ArchitecturalRulesService(configuration);
+        rulesService = new RulesServiceImpl(configuration);
 
         try {
 
-            assertTrue(architecturalRulesService.performRulesTest());
+            assertTrue(rulesService.performRulesTest());
 
         } catch (final Exception e) {
 

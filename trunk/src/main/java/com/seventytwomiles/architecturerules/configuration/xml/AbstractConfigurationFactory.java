@@ -28,14 +28,14 @@ public abstract class AbstractConfigurationFactory implements ConfigurationFacto
      *
      * @parameter rules Set
      */
-    protected final Collection rules = new HashSet();
+    final Collection rules = new HashSet();
 
     /**
      * <p>Set of  <code>Source</code> read from configuration file</p>
      *
      * @parameter sources Set
      */
-    protected final Collection sources = new HashSet();
+    final Collection sources = new HashSet();
 
     /**
      * <p>Weather or not to throw exception when no packages are found for a
@@ -43,14 +43,14 @@ public abstract class AbstractConfigurationFactory implements ConfigurationFacto
      *
      * @parameter throwExceptionWhenNoPackages boolean
      */
-    protected boolean throwExceptionWhenNoPackages = false;
+    boolean throwExceptionWhenNoPackages = false;
 
     /**
      * <p>Weather or not to check for cyclic dependencies.</p>
      *
      * @parameter doCyclicDependencyTest boolean
      */
-    protected boolean doCyclicDependencyTest = true;
+    boolean doCyclicDependencyTest = true;
 
 
     /**
@@ -69,7 +69,7 @@ public abstract class AbstractConfigurationFactory implements ConfigurationFacto
      * to load and read
      * @return String returns the contentsofo the configurationFile
      */
-    protected String getConfigurationAsXml(final String configurationFileName) {
+    String getConfigurationAsXml(final String configurationFileName) {
 
         /**
          * This code kinda sucks. First, an exeption is thrown if the resources

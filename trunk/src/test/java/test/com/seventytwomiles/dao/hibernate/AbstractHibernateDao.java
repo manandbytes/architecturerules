@@ -19,7 +19,7 @@ public class AbstractHibernateDao implements Dao {
 
 
     Person loadPerson(final int id) {
-        Person person = new Person();
+        Person person = new Person(id);
         return person;
     }
 }

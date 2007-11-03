@@ -160,6 +160,7 @@ public class ClassPathResource {
      *
      * @return File
      * @throws IOException when file not found
+     * @noinspection RedundantThrows
      */
     public File getFile() throws IOException {
         return ResourceUtils.getFile(getURL(), getDescription());

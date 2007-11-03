@@ -6,7 +6,7 @@ package com.seventytwomiles.architecturerules.configuration.xml;
  *
  * @author mnereson
  */
-public class XmlConfiguration {
+class XmlConfiguration {
 
 
     /**

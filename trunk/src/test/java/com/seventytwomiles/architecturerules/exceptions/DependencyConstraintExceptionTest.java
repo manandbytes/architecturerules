@@ -27,7 +27,7 @@ public class DependencyConstraintExceptionTest extends TestCase {
         final Rule rule = new Rule();
         rule.setId("dao");
         rule.setComment("dao layer");
-        rule.addPackage("com.seventytwomiles.dao");
+        assertTrue(rule.addPackage("com.seventytwomiles.dao"));
         rule.addViolation("com.seventytwomiles.web.controllers");
 
         exception = new DependencyConstraintException();
@@ -73,7 +73,7 @@ public class DependencyConstraintExceptionTest extends TestCase {
         final Rule rule = new Rule();
         rule.setId("dao");
         rule.setComment("dao layer");
-        rule.addPackage("com.seventytwomiles.dao");
+        assertTrue(rule.addPackage("com.seventytwomiles.dao"));
         rule.addViolation("com.seventytwomiles.web.controllers");
 
         exception = new DependencyConstraintException(rule.getId(), rule.describePackges(), null);

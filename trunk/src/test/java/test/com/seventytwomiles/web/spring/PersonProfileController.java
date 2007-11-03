@@ -6,7 +6,7 @@ package test.com.seventytwomiles.web.spring;
  *
  * @author mnereson
  */
-public class PersonProfileController {
+class PersonProfileController {
 
 
 }

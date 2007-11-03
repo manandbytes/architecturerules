@@ -29,7 +29,7 @@ public class DigesterConfigurationFactory extends AbstractConfigurationFactory {
     private static final Log log = LogFactory.getLog(DigesterConfigurationFactory.class);
 
 
-    protected DigesterConfigurationFactory() {
+    DigesterConfigurationFactory() {
         /* FOR TESTS ONLY */
     }
 
@@ -61,7 +61,7 @@ public class DigesterConfigurationFactory extends AbstractConfigurationFactory {
      *
      * @param configurationXml String of xml configuration
      */
-    protected void processConfiguration(final String configurationXml) {
+    void processConfiguration(final String configurationXml) {
 
         try {
 
@@ -94,7 +94,7 @@ public class DigesterConfigurationFactory extends AbstractConfigurationFactory {
      * @throws IOException when an input/output error occurs
      * @throws SAXException when given xml can not be parsed
      */
-    protected void processSourcesNotFoundConfiguration(final String configurationXml) throws IOException, SAXException {
+    void processSourcesNotFoundConfiguration(final String configurationXml) throws IOException, SAXException {
 
         final Digester digester = getDigester();
 
@@ -139,7 +139,7 @@ public class DigesterConfigurationFactory extends AbstractConfigurationFactory {
      * @throws IOException when an input/output error occurs
      * @throws SAXException when given xml can not be parsed
      */
-    protected void processCyclicDependencyConfiguration(final String configurationXml) throws IOException, SAXException {
+    void processCyclicDependencyConfiguration(final String configurationXml) throws IOException, SAXException {
 
         final Digester digester = getDigester();
 
@@ -184,7 +184,7 @@ public class DigesterConfigurationFactory extends AbstractConfigurationFactory {
      * @throws IOException when an input/output error occurs
      * @throws SAXException when given xml can not be parsed
      */
-    protected void processRules(final String configurationXml) throws IOException, SAXException {
+    void processRules(final String configurationXml) throws IOException, SAXException {
 
         final Digester digester = getDigester();
 
@@ -214,7 +214,7 @@ public class DigesterConfigurationFactory extends AbstractConfigurationFactory {
      * @throws IOException when an input/output error occurs
      * @throws SAXException when given xml can not be parsed
      */
-    protected void processSources(final String configurationXml) throws IOException, SAXException {
+    void processSources(final String configurationXml) throws IOException, SAXException {
 
         final Digester digester = getDigester();
 
@@ -240,7 +240,7 @@ public class DigesterConfigurationFactory extends AbstractConfigurationFactory {
      * @param configurationXml String xml content to validate
      * @see "architecture-rules.dtd"
      */
-    protected void validateConfigruation(final String configurationXml) {
+    void validateConfigruation(final String configurationXml) {
 
 
         final Digester digester = new Digester();

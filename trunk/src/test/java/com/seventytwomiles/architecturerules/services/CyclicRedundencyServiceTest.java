@@ -23,9 +23,9 @@ public class CyclicRedundencyServiceTest extends TestCase {
 
     private CyclicRedundencyService cyclicRedundencyService;
     private Configuration configuration = new Configuration();
-    private SourceDirectory testClassesSourceDirectory = new SourceDirectory("target\\test-classes", true);
-    private Rule controllerRule = new Rule();
-    private Rule modelRule = new Rule();
+    private final SourceDirectory testClassesSourceDirectory = new SourceDirectory("target\\test-classes", true);
+    private final Rule controllerRule = new Rule();
+    private final Rule modelRule = new Rule();
 
 
     public void setUp() throws Exception {
@@ -53,7 +53,7 @@ public class CyclicRedundencyServiceTest extends TestCase {
 
         configuration.setThrowExceptionWhenNoPackages(true);
 
-        cyclicRedundencyService = new CyclicRedundencyService(configuration);
+        cyclicRedundencyService = new CyclicRedendencyServiceImpl(configuration);
     }
 
 

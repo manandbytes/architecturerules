@@ -15,7 +15,7 @@ import org.xml.sax.SAXParseException;
  * @author mnereson
  * @see ErrorHandler
  */
-public class SaxErrorHandler implements ErrorHandler {
+class SaxErrorHandler implements ErrorHandler {
 
 
     private static final Log log = LogFactory.getLog(SaxErrorHandler.class);
@@ -54,7 +54,7 @@ public class SaxErrorHandler implements ErrorHandler {
     }
 
 
-    public void onAnything(final SAXParseException exception) {
+    private void onAnything(final SAXParseException exception) {
         // do nothing
     }
 }

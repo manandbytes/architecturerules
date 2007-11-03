@@ -138,22 +138,6 @@ public class DigesterConfigurationFactoryCompleteConfigurationTest extends TestC
             "";
 
 
-    /**
-     * @see TestCase#setName(String)
-     */
-    public void setUp() throws Exception {
-        super.setUp();
-    }
-
-
-    /**
-     * @see TestCase#tearDown()
-     */
-    public void tearDown() throws Exception {
-        super.tearDown();
-    }
-
-
     public void testProcessConfiguration() throws Exception {
 
 

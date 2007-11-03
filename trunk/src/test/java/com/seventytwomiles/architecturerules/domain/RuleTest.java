@@ -163,12 +163,12 @@ public class RuleTest extends TestCase {
 
 
     public void testAddPackage() throws Exception {
-
+        //TODO: write this method
     }
 
 
     public void testAddPackage_illegalArguments() throws Exception {
-
+        //TODO: write this method
     }
 
 
@@ -244,7 +244,7 @@ public class RuleTest extends TestCase {
         }
 
         rule = new Rule("dao");
-        rule.addPackage("com.seventytwomiles.dao");
+        assertTrue(rule.addPackage("com.seventytwomiles.dao"));
 
         try {
 
@@ -290,15 +290,15 @@ public class RuleTest extends TestCase {
 
 
         Rule that = new Rule("web");
-        that.addPackage("com.seventytwomiles.web");
+        assertTrue(that.addPackage("com.seventytwomiles.web"));
 
         rule.setId("web");
-        rule.addPackage("com.seventytwomiles.web");
+        assertTrue(rule.addPackage("com.seventytwomiles.web"));
         assertTrue(rule.equals(that));
         assertTrue(rule.hashCode() == that.hashCode());
 
         that = new Rule("controllers");
-        that.addPackage("com.seventytwomiles.web.controllers");
+        assertTrue(that.addPackage("com.seventytwomiles.web.controllers"));
         assertFalse(rule.equals(that));
         assertFalse(rule.hashCode() == that.hashCode());
     }

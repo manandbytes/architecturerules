@@ -20,7 +20,7 @@ import java.util.Iterator;
  * @author mnereson
  * @see AbstractArchitecturalRules
  */
-public class ArchitecturalRulesService extends AbstractArchitecturalRules {
+public class RulesServiceImpl extends AbstractArchitecturalRules implements RulesService {
 
 
     /**
@@ -28,12 +28,12 @@ public class ArchitecturalRulesService extends AbstractArchitecturalRules {
      *
      * @parameter log Log
      */
-    private static final Log log = LogFactory.getLog(ArchitecturalRulesService.class);
+    private static final Log log = LogFactory.getLog(RulesServiceImpl.class);
 
 
     /**
-     * <p>Instantiates a new <code>ArchitecturalRulesService</code> which will
-     * begin reading all the configured sources</p>
+     * <p>Instantiates a new <code>RulesService</code> which will begin reading
+     * all the configured sources</p>
      *
      * @param configuration Configuration
      * @throws SourceNotFoundException when an required source directory does
@@ -43,11 +43,11 @@ public class ArchitecturalRulesService extends AbstractArchitecturalRules {
      * exist and <tt>no-packages</tt>="<tt>ignore</tt>" in the sources
      * configuraiton
      */
-    public ArchitecturalRulesService(final Configuration configuration) throws SourceNotFoundException, NoPackagesFoundException {
+    public RulesServiceImpl(final Configuration configuration) throws SourceNotFoundException, NoPackagesFoundException {
 
         super(configuration);
 
-        log.info("instanciating new ArchitecturalRulesService");
+        log.info("instanciating new RulesService");
     }
 
 

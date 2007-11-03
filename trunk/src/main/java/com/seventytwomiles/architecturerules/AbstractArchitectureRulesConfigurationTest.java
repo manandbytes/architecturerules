@@ -5,8 +5,10 @@ import com.seventytwomiles.architecturerules.configuration.Configuration;
 import com.seventytwomiles.architecturerules.configuration.UnmodifiableConfiguration;
 import com.seventytwomiles.architecturerules.configuration.xml.ConfigurationFactory;
 import com.seventytwomiles.architecturerules.configuration.xml.DigesterConfigurationFactory;
-import com.seventytwomiles.architecturerules.services.ArchitecturalRulesService;
+import com.seventytwomiles.architecturerules.services.CyclicRedendencyServiceImpl;
 import com.seventytwomiles.architecturerules.services.CyclicRedundencyService;
+import com.seventytwomiles.architecturerules.services.RulesService;
+import com.seventytwomiles.architecturerules.services.RulesServiceImpl;
 import junit.framework.TestCase;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -38,7 +40,7 @@ public abstract class AbstractArchitectureRulesConfigurationTest extends TestCas
      *
      * @return Value for property <tt>configuration</tt>.
      */
-    public Configuration getConfiguration() {
+    Configuration getConfiguration() {
 
         return configuration;
     }
@@ -59,16 +61,16 @@ public abstract class AbstractArchitectureRulesConfigurationTest extends TestCas
     }
 
 
-    public boolean doTests() {
+    boolean doTests() {
 
-        final ArchitecturalRulesService rulesService;
-        rulesService = new ArchitecturalRulesService(new UnmodifiableConfiguration(configuration));
+        final RulesService rulesService;
+        rulesService = new RulesServiceImpl(new UnmodifiableConfiguration(configuration));
 
         final boolean rulesResults = rulesService.performRulesTest();
 
         if (configuration.shouldDoCyclicDependencyTest()) {
 
-            final CyclicRedundencyService redundencyService = new CyclicRedundencyService(new UnmodifiableConfiguration(configuration));
+            final CyclicRedundencyService redundencyService = new CyclicRedendencyServiceImpl(new UnmodifiableConfiguration(configuration));
             redundencyService.performCyclicRedundencyCheck();
         }
 

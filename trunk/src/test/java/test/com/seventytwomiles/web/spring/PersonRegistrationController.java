@@ -11,9 +11,12 @@ import test.com.seventytwomiles.dao.hibernate.PersonDaoImpl;
  * @author mnereson
  * @noinspection UnusedDeclaration
  */
-public class PersonRegistrationController {
+class PersonRegistrationController {
 
 
+    /**
+     * @noinspection UnusedAssignment
+     */
     public PersonRegistrationController() {
 
         final PersonDao personDao = new PersonDaoImpl();

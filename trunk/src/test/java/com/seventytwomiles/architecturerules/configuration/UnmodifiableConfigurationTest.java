@@ -21,7 +21,7 @@ public class UnmodifiableConfigurationTest extends TestCase {
     }
 
 
-    Configuration configuration = new Configuration();
+    private Configuration configuration = new Configuration();
 
 
     public void setUp() throws Exception {

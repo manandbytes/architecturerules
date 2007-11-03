@@ -17,7 +17,7 @@ import test.com.seventytwomiles.services.PersonServiceImpl;
 public class PersonDaoImpl extends AbstractHibernateDao implements PersonDao {
 
 
-    private PersonService personService = new PersonServiceImpl();
+    private final PersonService personService = new PersonServiceImpl();
 
 
     public PersonDaoImpl() {

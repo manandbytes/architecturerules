@@ -19,8 +19,8 @@ import java.util.HashSet;
 public class PersonServiceImpl implements PersonService {
 
 
-    private Collection persons = new HashSet();
-    private PersonDao personDao = new PersonDaoImpl();
+    private final Collection persons = new HashSet();
+    private final PersonDao personDao = new PersonDaoImpl();
 
 
     public void createPerson(final Person person) {

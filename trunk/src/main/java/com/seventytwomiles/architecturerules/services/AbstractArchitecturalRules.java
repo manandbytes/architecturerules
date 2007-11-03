@@ -23,8 +23,8 @@ import java.util.Iterator;
  * jdepend library</p>
  *
  * @author mnereson
- * @see ArchitecturalRulesService
- * @see CyclicRedundencyService
+ * @see RulesServiceImpl
+ * @see CyclicRedendencyServiceImpl
  */
 abstract class AbstractArchitecturalRules {
 
@@ -41,14 +41,14 @@ abstract class AbstractArchitecturalRules {
      *
      * @parameter configuraiton Configuration
      */
-    protected final Configuration configuration;
+    final Configuration configuration;
 
     /**
      * <p>instance of jdepend to assert architecture with</p>
      *
      * @parameter jdepend JDepend
      */
-    protected final JDepend jdepend;
+    private final JDepend jdepend;
 
     /**
      * <p>all packages that will be analyized</p>
@@ -113,27 +113,32 @@ abstract class AbstractArchitecturalRules {
 
             jdepend.addDirectory(sourcePath);
 
-            message.append("loaded ");
-            message.append(sourceDirectory.shouldThrowExceptionWhenNotFound() ? "required " : "");
-            message.append("sourceDirectory ");
-            message.append(new File("").getAbsolutePath());
-            message.append("\\");
-            message.append(sourcePath);
+            if (log.isDebugEnabled()) {
 
-            log.debug(message.toString());
+                message.append("loaded ");
+                message.append(sourceDirectory.shouldThrowExceptionWhenNotFound() ? "required " : "");
+                message.append("sourceDirectory ");
+                message.append(new File("").getAbsolutePath());
+                message.append("\\");
+                message.append(sourcePath);
+
+                log.debug(message.toString());
+            }
 
         } catch (final IOException e) {
 
             /* sourceDirectory not found */
+            if (log.isWarnEnabled()) {
 
-            message.append(sourceDirectory.shouldThrowExceptionWhenNotFound() ? "required " : "");
-            message.append("sourceDirectory ");
-            message.append(new File("").getAbsolutePath());
-            message.append("\\");
-            message.append(sourcePath);
-            message.append(" does not exist");
+                message.append(sourceDirectory.shouldThrowExceptionWhenNotFound() ? "required " : "");
+                message.append("sourceDirectory ");
+                message.append(new File("").getAbsolutePath());
+                message.append("\\");
+                message.append(sourcePath);
+                message.append(" does not exist");
 
-            log.warn(message.toString());
+                log.warn(message.toString());
+            }
 
             if (sourceDirectory.shouldThrowExceptionWhenNotFound()) {
 
@@ -184,7 +189,7 @@ abstract class AbstractArchitecturalRules {
      *
      * @return Collection
      */
-    public Collection getPackages() {
+    Collection getPackages() {
         return this.packages;
     }
 
@@ -199,8 +204,8 @@ abstract class AbstractArchitecturalRules {
      * @throws DependencyConstraintException when a rule is broken
      * @throws CyclicRedundancyException when cyclic redundency is found
      */
-    protected void testLayeringValid(final String layer,
-                                     final Collection rules) throws DependencyConstraintException, CyclicRedundancyException {
+    void testLayeringValid(final String layer,
+                           final Collection rules) throws DependencyConstraintException, CyclicRedundancyException {
 
         final Collection packages = jdepend.analyze();
 
@@ -246,10 +251,10 @@ abstract class AbstractArchitecturalRules {
      * @param analyzedPackageName String full name
      * @throws DependencyConstraintException when a rule is broken
      */
-    protected void testEfferentsValid(final String layer,
-                                      final Collection rules,
-                                      final JavaPackage jPackage,
-                                      final String analyzedPackageName) throws DependencyConstraintException {
+    private void testEfferentsValid(final String layer,
+                                    final Collection rules,
+                                    final JavaPackage jPackage,
+                                    final String analyzedPackageName) throws DependencyConstraintException {
 
         final Collection efferents = jPackage.getEfferents();
 

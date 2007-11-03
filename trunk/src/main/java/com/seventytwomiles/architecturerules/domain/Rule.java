@@ -34,7 +34,7 @@ public class Rule {
      *
      * @parameter violations Collection
      */
-    private Collection packages = new HashSet();
+    private final Collection packages = new HashSet();
 
     /**
      * <p>Comment about this rule that could be used in messages or just to make
@@ -50,7 +50,7 @@ public class Rule {
      *
      * @parameter violations Collection
      */
-    private Collection violations = new HashSet();
+    private final Collection violations = new HashSet();
 
 
     /**
@@ -268,7 +268,7 @@ public class Rule {
      * the console
      * @return String of xml that describes this <code>Rule</code>.
      */
-    public String describe(final boolean outputToConsole) {
+    private String describe(final boolean outputToConsole) {
 
         final StringBuffer stringBuilder = new StringBuffer();
         stringBuilder.append("<rule>").append("\r\n");

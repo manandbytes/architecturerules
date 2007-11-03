@@ -35,7 +35,7 @@ public class Configuration {
      *
      * @parameter rules Set
      */
-    protected final Collection rules = new HashSet();
+    final Collection rules = new HashSet();
 
     /**
      * <p>List of <code>SourceDirectory</code> that are read from the
@@ -43,7 +43,7 @@ public class Configuration {
      *
      * @parameter sources List
      */
-    protected final Collection sources = new HashSet();
+    final Collection sources = new HashSet();
 
     /**
      * <p>sets to true when <samp>&lt;sources no-packages="exception"&gt;</samp>,
@@ -51,7 +51,7 @@ public class Configuration {
      *
      * @parameter throwExceptionWhenNoPackages boolean
      */
-    protected boolean throwExceptionWhenNoPackages;
+    boolean throwExceptionWhenNoPackages;
 
     /**
      * <p>sets to true when <samp>&lt;cyclicalDependency test="true"/> </samp>,
@@ -59,7 +59,7 @@ public class Configuration {
      *
      * @parameter doCyclicDependencyTest boolean
      */
-    protected boolean doCyclicDependencyTest;
+    boolean doCyclicDependencyTest;
 
 
     /**

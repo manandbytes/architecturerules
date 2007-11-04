@@ -7,6 +7,6 @@
 Not sure yet, I am working on it.
 
 
-= Maven =
+= Maven2 =
 
 `mvn -Dtest=ArchitectureTest test`

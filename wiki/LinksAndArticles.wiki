@@ -10,3 +10,4 @@ A listing of web pages that mention architecture rules
   * [http://junit.org/node/264 junit.org]
   * [http://www.dzone.com/links/assert_your_architecture.html dzone] _2.0-rc1 release_
   * [http://mikenereson.blogspot.com/2007/07/architecture-rules.html Spring-Hibernate-Maven lessons learned] _1.1 release_
+  * [http://www.koders.com/info.aspx?c=ProjectInfo&pid=AEGKWH316B886LL3ZEZVWUN88A Koders analysis]

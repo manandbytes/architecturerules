@@ -3,6 +3,23 @@
 = Introduction =
 
 Some developers wish to assert their architecture, without running their entire test suite. This explains ways to run you ArchitectureTest (without having to run all of your test) for various tools.
+ 
+Here is how to assert your architecture with
+
+  * Maven
+  * Maven 2
+  * Ant
+
+= Maven2 =
+
+`mvn -Dtest=ArchitectureTest test`
+
+
+= Maven =
+
+`$> maven -Dtestcase=ArchitectureTest test:single`
+
+  If any maven 1 user confirms that this works, please inform us.
 
 = Ant =
 
@@ -42,11 +59,3 @@ Also, you will need to point to all of the libs. If you're an ant user, you prob
 
 </project>
 }}}
-
-= Maven =
-
-I don't know. I use Maven2 now. If anyone has this answer, please let me know.
-
-= Maven2 =
-
-`mvn -Dtest=ArchitectureTest test`

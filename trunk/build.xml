@@ -30,6 +30,8 @@
                      path="C:\dev\m2repo\logkit\logkit\1.0.1\logkit-1.0.1.jar"/>
     </path>
 
+    <target name="compile"/>
+
     <target name="test-architecture" depends="compile">
         <junit haltonerror="true">
             <classpath refid="class.path"/>

@@ -12,7 +12,7 @@ Here is how to assert your architecture with
 
 = Maven2 =
 
-`mvn -Dtest=ArchitectureTest test`
+`$> mvn -Dtest=ArchitectureTest test`
 
 
 = Maven =

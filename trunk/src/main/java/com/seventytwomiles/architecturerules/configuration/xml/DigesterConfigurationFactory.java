@@ -244,7 +244,7 @@ public class DigesterConfigurationFactory extends AbstractConfigurationFactory {
 
 
         final Digester digester = new Digester();
-        digester.setValidating(true);
+        digester.setValidating(false); // TODO: set to true to actually validate
 
         /**
          * TODO: apply DTD to configuration then try digester.parse

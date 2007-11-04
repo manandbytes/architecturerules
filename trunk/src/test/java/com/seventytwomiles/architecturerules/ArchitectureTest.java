@@ -79,6 +79,8 @@ public class ArchitectureTest extends AbstractArchitectureRulesConfigurationTest
 
         } catch (final CyclicRedundancyException e) {
 
+            e.printStackTrace();
+
             final String message = e.getMessage();
 
             assertTrue(message.contains("test.com.seventytwomiles.services"));

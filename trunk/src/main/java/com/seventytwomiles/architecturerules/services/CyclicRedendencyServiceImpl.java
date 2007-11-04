@@ -42,7 +42,7 @@ public class CyclicRedendencyServiceImpl extends AbstractArchitecturalRules impl
      * exist and <tt>no-packages</tt>="<tt>ignore</tt>" in the sources
      * configuraiton
      */
-    public CyclicRedendencyServiceImpl(final Configuration configuraiton) throws SourceNotFoundException, NoPackagesFoundException {
+    public CyclicRedendencyServiceImpl(final Configuration configuraiton) {
 
         super(configuraiton);
 
@@ -53,10 +53,8 @@ public class CyclicRedendencyServiceImpl extends AbstractArchitecturalRules impl
     /**
      * <p>Check all the packages in all of the source directories and search for
      * any cyclic redundenc/p>
-     *
-     * @throws CyclicRedundancyException when cyclic redundency is found
      */
-    public void performCyclicRedundencyCheck() throws CyclicRedundancyException {
+    public void performCyclicRedundencyCheck() {
 
         log.info("cyclic reduendency check requested");
 
@@ -73,9 +71,10 @@ public class CyclicRedendencyServiceImpl extends AbstractArchitecturalRules impl
 
         } else {
 
-            log.warn("found cyclic redundendcies");
+            log.warn("found " + cycles.size() + " cyclic redundendcies");
 
             final String message = buildCyclicReduncencyMessage(cycles);
+
             throw new CyclicRedundancyException(message);
         }
 
@@ -83,6 +82,12 @@ public class CyclicRedendencyServiceImpl extends AbstractArchitecturalRules impl
     }
 
 
+    /**
+     * TODO: javadocs
+     *
+     * @param cyclesMap
+     * @return
+     */
     private String buildCyclicReduncencyMessage(final Map cyclesMap) {
 
         StringBuffer message = new StringBuffer();
@@ -118,6 +123,12 @@ public class CyclicRedendencyServiceImpl extends AbstractArchitecturalRules impl
     }
 
 
+    /**
+     * TODO: javadocs
+     *
+     * @param efferentMap
+     * @return
+     */
     private Map processEfferntMapForCycles(final Map efferentMap) {
 
         final Map cycles = new HashMap();

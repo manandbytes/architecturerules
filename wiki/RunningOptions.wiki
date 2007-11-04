@@ -1,0 +1,12 @@
+#summary ways to run the architecture test
+
+
+
+= Ant =
+
+Not sure yet, I am working on it.
+
+
+= Maven =
+
+`mvn -Dtest=ArchitectureTest test`

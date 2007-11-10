@@ -56,7 +56,7 @@ textarea:focus  { background-color: #fff; }
 #blogtitle a:hover span { color: #456B8C; background-color: transparent; }
 
 #about                  { clear: both; display: block; font-size: small; line-height: 1.2; background-color: #E7EFFF;  margin: 0 0 20px 0; }
-#about p                { padding: 5px 10px; margin: 0 0 5px 0; }
+#about p                { padding: 5px 10px; margin: 4px 4px 20px 4px; }
 #twitter                { text-align: center; margin-bottom: 10px; }
 
 #mainmenu            	{ font-size: medium; margin: 10px 0 0 0; padding: 0 0 0px 0; text-align: center; list-style-type: none; position: relative; top: 5px;}
@@ -70,6 +70,7 @@ textarea:focus  { background-color: #fff; }
 .postmetadata span.author { display: inline; }
 .more-link          { margin-left: 5px; }
 .date               { color: #999; display: inline; }
+.released           { text-transform: uppercase;}
 .posttitle          { font-size: 1.5em; line-height: 1.9; padding: 0 0 0 50px; margin: 3px 0; background: url('http://www.springframework.org/themes/spring/icon-comment.png') no-repeat}
 .posttitle a        { text-decoration: none; border-bottom: 1px solid #ccc; display: block; color: #456; }
 .single .posttitle, 
@@ -82,7 +83,9 @@ textarea:focus  { background-color: #fff; }
 .entry ul           { padding: 0 0 0 35px; margin: 0; }
 .entry li           { list-style-type: disc; margin: 7px 0 8px 10px; }
 .entry form         { text-align:center; }
+.entry span         { color: #000000; }
 .attachment         { text-align: center; margin: 5px 0px; }
+.release			{ background: url('http://www.springframework.org/themes/spring/background.png') no-repeat bottom center; }
 
 #comments, #respond { margin: 20px 0 0 0; }
 #commentlist        { margin: 10px 0 0 0; padding: 0; border-top: 1px solid #ccc; }
@@ -110,10 +113,6 @@ textarea:focus  { background-color: #fff; }
 #secondary ul ul ul { margin: 0 0 0 10px; }
 #secondary ul ul li, 
 #secondary ul ol li { margin: 10px 0 10px 0; padding: 0; }
-
-#searchform         { margin: 10px 0 0 0; border: 0; padding: 0; text-align: center; }
-.search_input       { width: 90%; font-size: smaller; line-height: 2em; border: 1px solid #ccc; padding: 5px; color: #666; }
-#wijit              { text-align: center; }
 
 #recentposts, #recentposts li { text-indent: 0; padding: 0; }
 #recentposts li     { list-style: none; }
@@ -149,6 +148,15 @@ ul#mailinglists a.rss	{ width: 20px; float: left; }
 
 ul#issues               { float: left; margin-bottom: 10px;}
 
+ul.changes              { float: left; margin-bottom: 10px;}
+ul.changes li           { font-size:x-small;}
+ul.changes li a         { text-decoration: none; }
+ul.changes li span      { color: #000; text-transform: lowercase;}
+
+ol#releases				{ background-color: #f8f8f8; border: 1px solid #f0f0f0;} 
+
 #footbar           		{ clear: both; background-color: #e8fecd; width: 770px; margin: 0 auto; height: 80px; margin: 20px auto 0 auto;}
 #footbar p         		{ margin: 10px;}
 #footbar a         		{ margin: 1px 3px; display: inline; }
+
+.svn					{ background-color: #f8f8f8; border: 1px solid #f0f0f0; display: block; color: gray !important; font-family: monospace;}

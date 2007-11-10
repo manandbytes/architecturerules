@@ -17,6 +17,7 @@ html, body  { margin: 0; padding: 0; }
 /* Basic element styles */
 body            { background: #fff url(images/bodybg.gif) top repeat-x; color: #555; font: small/1.3 Verdana; }
 a               { color: #36c; text-decoration: underline; }
+a span          { text-decoration: underline; }
 /*a:visited       { color: #d08; }*/
 a:hover         { color: #000; background-color: transparant; /*#f5f6f9*/; }
 p               { margin: 10px 0 15px 0; }
@@ -47,7 +48,7 @@ textarea:focus  { background-color: #fff; }
 #secondary              { font-size: small; border-left: 1px solid #f0f0f0; border-bottom: 1px solid #f0f0f0; }
 #skiplinks              { text-align: right; text-transform: lowercase; border: none; margin-bottom: 0; }
 
-#blogtitle              { float: left; width: 510px; font: 250%/150% Georgia; margin: 0 0 10px 10px; padding-bottom: 0; }
+#blogtitle              { float: left; width: auto; font: 250%/150% Georgia; margin: 0 0 10px 10px; padding-bottom: 0; }
 #blogtitle a            { border-bottom: 0; text-decoration: none; color: #739ABD; }
 #blogtitle a span       { color: #739ABD; }
 #blogtitle a:visited    { color: #739ABD; }
@@ -58,21 +59,18 @@ textarea:focus  { background-color: #fff; }
 #about p                { padding: 5px 10px; margin: 0 0 5px 0; }
 #twitter                { text-align: center; margin-bottom: 10px; }
 
-#mainmenu            { font-size: medium; margin: 10px 0 0 0; padding: 0 0 0px 0; text-align: center; list-style-type: none; position: relative; top: 5px;}
-#mainmenu li         { margin: 0 15px; padding: 0; display: inline; }
-#mainmenu li a       { padding: 10px; text-transform: lowercase; text-decoration: none; color: #000; border: none; display: inline !important; }
+#mainmenu            	{ font-size: medium; margin: 10px 0 0 0; padding: 0 0 0px 0; text-align: center; list-style-type: none; position: relative; top: 5px;}
+#mainmenu li         	{ margin: 0 15px; padding: 0; display: inline; position: relative; top: -5px;}
+#mainmenu li a       	{ padding: 10px; text-transform: lowercase; text-decoration: none; color: #000; border: none; display: inline !important; padding-bottom: 10px;}
 #mainmenu li a:hover,
 #mainmenu li.current_page_item a { background-color: #fff; } 
 
-.ads { margin: 10px 0 0 0; text-align: center; }
-.googlelinkunit { text-align: center; margin-top: 20px 0; clear: both; display: block; }
-.buttonad { text-align: center; }
 
 .postmetadata       { margin-top: 0; padding-top: 0; color: #999; font-size: small; }
 .postmetadata span.author { display: inline; }
 .more-link          { margin-left: 5px; }
-.date               { color: #999; }
-.posttitle          { font-size: 1.5em; line-height: 1.7; padding: 0 0 0 50px; margin: 3px 0; background: url('http://www.springframework.org/themes/spring/icon-comment.png') no-repeat}
+.date               { color: #999; display: inline; }
+.posttitle          { font-size: 1.5em; line-height: 1.9; padding: 0 0 0 50px; margin: 3px 0; background: url('http://www.springframework.org/themes/spring/icon-comment.png') no-repeat}
 .posttitle a        { text-decoration: none; border-bottom: 1px solid #ccc; display: block; color: #456; }
 .single .posttitle, 
 .page .posttitle    { border-bottom: 1px solid #ccc; }
@@ -122,27 +120,35 @@ textarea:focus  { background-color: #fff; }
 #recentposts li a, 
 #personalfavorites li a, 
 #textads li a, 
-#recentcomments li, 
+#moreinformation li, 
 #contactme li       { display: block; padding: 5px; border-top: 1px dotted #eee; border-bottom: 1px solid #fff; }
 #recentposts li a:hover, 
 #personalfavorites li a:hover, 
 #textads li a:hover, 
-#recentcomments li:hover, 
-#contactme li:hover { border-color: #ccc; background-color: #e8fecd/*#f5f6f9*/; }
+#moreinformation li:hover, 
+#contactme li:hover { border-color: #ccc; background-color: #f5f6f9; }
 ul#badges li, 
 ul#affiliations li  { list-style: none; display: inline; }
-#footbar           { clear: both; margin: 20px 0; padding: 10px; background-color: #e8fecd; }
-#footbar a         { margin: 1px 3px; display: inline; }
+
 .wp_quotes_author   { font-weight: bold; text-align: right; }
 .blogrush           { text-align: center; }
-
-#footer             { margin: 0; clear: both; padding: 5px; text-align: center; font-size: x-small; }
 
 .alignright         { float: right;  margin: 10px 0 5px 10px;}
 .alignleft          { float: left; margin: 10px 10px 5px 0; }
 .clearfix:after     {  content: ".";  display: block;  clear: both;  visibility: hidden;  line-height: 0;  height: 0;  }
 .clearfix           { display: inline-block; }
 
-#downloadnow { background-color: #e8fecd; width: 480px; margin: 0 auto; font-size: 14px; }
-#downloadnow p { padding: 0px 10px; margin: 0 auto; width: 300px; }
-#downloadnow p img { padding-right: 5px; }
+#downloadnow 		{ background-color: #e8fecd; width: 370px; margin: 0 auto; font-size: 14px; }
+#downloadnow p 		{ padding: 10px 10px; margin: 0 auto; width: 300px; }
+#downloadnow p img 	{ padding-right: 5px; }
+
+ul#mailinglists  		{ float: left; margin-bottom: 10px;}
+ul#mailinglists li		{ clear: both; }
+ul#mailinglists a 		{ font-size: x-small; width: 150px; float: left; margin: 1px;}
+ul#mailinglists a.rss	{ width: 20px; float: left; }
+
+ul#issues               { float: left; margin-bottom: 10px;}
+
+#footbar           		{ clear: both; background-color: #e8fecd; width: 770px; margin: 0 auto; height: 80px; margin: 20px auto 0 auto;}
+#footbar p         		{ margin: 10px;}
+#footbar a         		{ margin: 1px 3px; display: inline; }

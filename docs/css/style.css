@@ -159,4 +159,7 @@ ol#releases				{ background-color: #f8f8f8; border: 1px solid #f0f0f0;}
 #footbar p         		{ margin: 10px;}
 #footbar a         		{ margin: 1px 3px; display: inline; }
 
+div#backtogoogle		{ float: right; margin-top: 40px; }
+div#backtogoogle a		{ color: gray; text-decoration: none; font-size: 10px; padding-right: 10px;}
+
 .svn					{ background-color: #f8f8f8; border: 1px solid #f0f0f0; display: block; color: gray !important; font-family: monospace;}

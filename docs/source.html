@@ -4,10 +4,8 @@
 <head profile="http://gmpg.org/xfn/11">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>architecture rules</title>
-
 <link rel="stylesheet" type="text/css" href="css/style.css" />
 <link rel="stylesheet" type="text/css" href="css/nifty.css" />
-
 <!--[if lt IE 8]>
 <style type="text/css">
   #mainmenu li a, #recentposts li a, #personalfavorites li a, #textads li a, #recentcomments li, #contactme li {display:inline-block;}
@@ -15,68 +13,47 @@
   *html #page {width:expression(document.documentElement.clientWidth > 1010? "1010px" : auto")}
 </style>
 <![endif]-->
-
 </head>
 <body>
 <div id="page">
   <div id="blogtitle" class="primary"><a href="http://architecturerules.googlecode.com/svn/docs/index.html">architecture</a><span>rules</span></div>
+  <div id="backtogoogle"><a href="http://code.google.com/p/architecturerules/">google code landing page</a></div>
   <div id="about">
-    <p class="description">
-	<strong>Assert Your Architecture!</strong> Architecture Rules leverages an <a href="http://code.google.com/p/architecturerules/wiki/SampleConfiguration">xml configuration file</a> and optional programatic configuration to assert your code's architecture via <a href="http://code.google.com/p/architecturerules/wiki/WritingYourTest">unit tests</a> or <a href="http://code.google.com/p/architecturerules/wiki/RunningOptions">ant tasks</a>. This test is able to assert that specific packages do not depend on others and is able to check for and report on cyclic dependencies among your project's packages and classes. This project wraps a industry accepted <a href="http://clarkware.com/software/JDepend.html" target="_jdepend">JDepend</a> to simplify the process of maintaining a solid software architecture.	
-	</p>
-     <ul id="mainmenu">
-      <li id="home" class="page_item"><a title="home" href="index.html" accesskey="h"><span>H</span>ome</a></li>      
+    <p class="description"> <strong>Assert Your Architecture!</strong> Architecture Rules leverages an <a href="http://code.google.com/p/architecturerules/wiki/SampleConfiguration">xml configuration file</a> and optional programatic configuration to assert your code's architecture via <a href="http://code.google.com/p/architecturerules/wiki/WritingYourTest">unit tests</a> or <a href="http://code.google.com/p/architecturerules/wiki/RunningOptions">ant tasks</a>. This test is able to assert that specific packages do not depend on others and is able to check for and report on cyclic dependencies among your project's packages and classes. This project wraps a industry accepted <a href="http://clarkware.com/software/JDepend.html" target="_jdepend">JDepend</a> to simplify the process of maintaining a solid software architecture. </p>
+    <ul id="mainmenu">
+      <li id="home" class="page_item"><a title="home" href="index.html" accesskey="h"><span>H</span>ome</a></li>
       <li id="source" class="page_item current_page_item"><a href="source.html"><span>S</span>ource</a></li>
-	  <li id="source" class="page_item"><a href="downloads.html"><span>D</span>ownloads</a></li>	  
+      <li id="source" class="page_item"><a href="downloads.html"><span>D</span>ownloads</a></li>
     </ul>
   </div>
   <!-- /about -->
-
   <div id="primary" class="single hfeed">
     <div class="hentry post programming" id="post-1581">
       <h1 class="posttitle entry-title">Source Repository</h1>
       <p class="postmetadata">Subversion</p>
       <div class="entry entry-content">
         <p> This project is wide open. Please, download the latest source, run the test, maybe even contribute - I'm sure you can find a <span>todo</span> in a comment somewhere.</p>
-
-		<p> Project members authenticate over HTTPS to allow committing changes. </p>
-		
-		<span class="svn"> 
-		svn checkout https://architecturerules.googlecode.com/svn/trunk/ architecturerules --username yourname
-		</span>
-		
-		<p>If you are a contributor, your password is avaiable at google.com <a href="http://code.google.com/hosting/settings">accounts</a></p>
-		
-		<p> Also, anyone may anonymously checkout the latest project source code. This code, however, is read-only. For this use:</p>
-		
-		<span class="svn"> 
-		svn checkout http://architecturerules.googlecode.com/svn/trunk/ architecturerules
-		</span>
-
-      </div>
+        <p> Project members authenticate over HTTPS to allow committing changes. </p>
+        <span class="svn"> svn checkout https://architecturerules.googlecode.com/svn/trunk/ architecturerules --username yourname </span>
+        <p>If you are a contributor, your password is avaiable at google.com <a href="http://code.google.com/hosting/settings">accounts</a></p>
+        <p> Also, anyone may anonymously checkout the latest project source code. This code, however, is read-only. For this use:</p>
+        <span class="svn"> svn checkout http://architecturerules.googlecode.com/svn/trunk/ architecturerules </span> </div>
       <!-- entry -->
     </div>
     <!-- post -->
   </div>
   <div id="secondary">
-  
     <h4>mailing<span>lists</span></h4>
-	
     <ul id="mailinglists">
       <li> <a href="http://groups.google.com/group/architecture-rules-users/topics?gvc=2" >architecture-rules-user</a> <a href="http://groups.google.com/group/architecture-rules-users/feed/rss_v2_0_topics.xml" class="rss"> rss </a> </li>
       <li> <a href="http://groups.google.com/group/architecture-rules-dev/topics?gvc=2">architecture-rules-dev</a> <a href="http://groups.google.com/group/architecture-rules-dev/feed/rss_v2_0_topics.xml" class="rss"> rss </a> </li>
       <li> <a href="http://groups.google.com/group/architecture-rules-activity/topics?gvc=2">architecture-rules-activity</a> <a href="http://groups.google.com/group/architecture-rules-activity/feed/rss_v2_0_topics.xml" class="rss"> rss </a> </li>
     </ul>
-	
-	<h4>issue<span>list</span></h4>
-	
-	<ul id="issues">
+    <h4>issue<span>list</span></h4>
+    <ul id="issues">
       <li class="alignleft"><a href="http://code.google.com/p/architecturerules/issues/list" accesskey="I">view issues</a></li>
       <li class="alignright"><a href="http://code.google.com/p/architecturerules/issues/list" accesskey="I">report issue</a></li>
     </ul>
-	
-	
-	
     <h4>more<span>information</span></h4>
     <p>Just a little something something for the people.</p>
     <ul id="moreinformation">

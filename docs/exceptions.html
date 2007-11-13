@@ -20,47 +20,27 @@
 <div id="page">
   <div id="blogtitle" class="primary"><a href="http://architecturerules.googlecode.com/svn/docs/index.html">architecture</a><span>rules</span></div>
   <div id="backtogoogle"><a href="http://code.google.com/p/architecturerules/">google code landing page</a></div>
+  <div id="backtogoogle"><a href="http://code.google.com/p/architecturerules/">google code landing page</a></div>
   <div id="about">
     <p class="description"> <strong>Assert Your Architecture!</strong> with this open source <strong>java</strong> library. Architecture Rules leverages an <a href="http://code.google.com/p/architecturerules/wiki/SampleConfiguration">xml configuration file</a> and optional programatic configuration to assert your code's architecture via <a href="http://code.google.com/p/architecturerules/wiki/WritingYourTest">unit tests</a> or <a href="http://code.google.com/p/architecturerules/wiki/RunningOptions">ant tasks</a>. This test is able to assert that specific packages do not depend on others and is able to check for and report on cyclic dependencies among your project's packages and classes. This project wraps a industry accepted <a href="http://clarkware.com/software/JDepend.html" target="_jdepend">JDepend</a> to simplify the process of maintaining a solid software architecture.</p>
     <ul id="mainmenu">
-      <li id="home" class="page_item"><a title="home" href="index.html" accesskey="h"><span>H</span>ome</a></li>
+      <li id="home" class="page_item current_page_item"><a title="home" href="index.html" accesskey="h"><span>H</span>ome</a></li>
       <li id="source" class="page_item"><a href="source.html"><span>S</span>ource</a></li>
-      <li id="downloads" class="page_item current_page_item"><a href="downloads.html"><span>D</span>ownloads</a></li>
+      <li id="downloads" class="page_item"><a href="downloads.html"><span>D</span>ownloads</a></li>
     </ul>
   </div>
   <!-- /about -->
   <div id="primary" class="single hfeed">
-    <div class="hentry post" id="releases" >
-      <h1 class="posttitle entry-title">Releases</h1>
-      <div class="entry entry-content" >
-        <ol id="releases">
-          <li><a href="#release-2.0rc1">2.0-rc1</a></li>
-        </ol>
-      </div>
-    </div>
-    <div class="hentry post release" id="release-2.0rc1" ><abbr class="released date" title="2007-11-02T11:59">nov-02-2007</abbr>
-      <h1 class="posttitle entry-title">Release 2.0-rc1</h1>
-      <p class="postmetadata">enhancement release</p>
-      <div class="entry entry-content" >
-        <p> First real release. This probobly should have been the 1.0 series. This release finished the issues and tasks that should have been completed before attempting to release the tool. It added a real xml parsing strategy to the <a href="http://architecturerules.googlecode.com/svn/trunk/src/main/java/com/seventytwomiles/architecturerules/configuration/xml/DigesterConfigurationFactory.java">ConfigurationFactory</a> - <a href="http://commons.apache.org/digester/">commons digester</a>. Also, test coverage is now at 88%, beating the goal of 80%. And finally, rather than just reporting that a cyclic dependency exists, the exact packages with the cyclic dependency are exposed. Soon, even the classes will be identified.</p>
-        <div id="downloadnow">
-          <p> <img src="http://code.google.com/hosting/images/dl_arrow.gif" /><a href="http://architecturerules.googlecode.com/files/architecture-rules-2.0-rc1-sources.jar">architecture-rules-2.0-rc1-sources.jar</a><br />
-            <img src="http://code.google.com/hosting/images/dl_arrow.gif" /><a href="http://architecturerules.googlecode.com/files/architecture-rules-2.0-rc1.jar">architecture-rules-2.0-rc1.jar</a> </p>
-        </div>
-        <!-- /download  -->
-        <h2>changes</h2>
-        <ul class="changes">
-          <li id="issue-1"><a href="">issue-1</a> more complete test coverage</li>
-          <li id="issue-4"><a href="">issue-4</a> allow programatic configuration <span>usability</span></li>
-          <li id="issue-5"><a href="">issue-5</a> rewrite configurationhandler with new xml parser <span>maintainability performance</span></li>
-          <li id="issue-6"><a href="">issue-6</a> report which packages were cyclic in dependency <span>usability</span></li>
-          <li id="issue-7"><a href="">issue-7</a> exceptions should be unchecked <span>usability</span></li>
-          <li id="issue-8"><a href="">issue-8</a> change rule configuration of id to name value pair <span>usability</span></li>
-        </ul>
-        <!-- /changes  -->
-        <h2>migration</h2>
-        <p>See <a href="migration1.x-2.0rc1.html">1.x to 2.0-rc1 migration</a></p>
-      </div>
+    <div class="hentry post programming" id="post-1581">
+      <h1 class="posttitle entry-title">Source Repository</h1>
+      <p class="postmetadata">Subversion</p>
+      <div class="entry entry-content">
+        <p> This project is wide open. Please, download the latest source, run the test, maybe even contribute - I'm sure you can find a <span>todo</span> in a comment somewhere.</p>
+        <p> Project members authenticate over HTTPS to allow committing changes. </p>
+        <span class="svn"> svn checkout https://architecturerules.googlecode.com/svn/trunk/ architecturerules --username yourname </span>
+        <p>If you are a contributor, your password is avaiable at google.com <a href="http://code.google.com/hosting/settings">accounts</a></p>
+        <p> Also, anyone may anonymously checkout the latest project source code. This code, however, is read-only. For this use:</p>
+        <span class="svn"> svn checkout http://architecturerules.googlecode.com/svn/trunk/ architecturerules </span> </div>
       <!-- entry -->
     </div>
     <!-- post -->
@@ -79,7 +59,7 @@
     </ul>
     <h4>more<span>information</span></h4>
     <p>Just a little something something for the people.</p>
-    <ul id="moreinformation">
+   <ul id="moreinformation">
       <li><a href="getting-started.html">Getting Started</a> configuration examples and how to run the test</li>
       <li><a href="sample-configuration.html">Sample Configuration</a> to get you started</li>
       <li><a href="ant-task.html">Ant Task</a> to run from ant rather than JUnit</li>

@@ -163,3 +163,26 @@ div#backtogoogle		{ float: right; margin-top: 40px; }
 div#backtogoogle a		{ color: gray; text-decoration: none; font-size: 10px; padding-right: 10px;}
 
 .svn					{ background-color: #f8f8f8; border: 1px solid #f0f0f0; display: block; color: gray !important; font-family: monospace;}
+
+
+.alert {
+	background: #FFFFCC url('http://www.famfamfam.com/lab/icons/silk/icons/exclamation.png') center no-repeat;
+	background-position: 15px 50%; /* x-pos y-pos */
+	text-align: left;
+	padding: 15px 20px ;
+	padding-left: 45px;
+	border-top: 2px solid #FFCC99;
+	border-bottom: 2px solid #FFCC99;
+	}
+	
+.alert a { color: #CC6600; }
+	
+.info {
+	background: #E7EFFF url('http://www.famfamfam.com/lab/icons/silk/icons/information.png') center no-repeat;
+	background-position: 15px 50%; /* x-pos y-pos */
+	text-align: left;
+	padding: 15px 20px ;
+	padding-left: 45px;
+	border-top: 2px solid #3399FF;
+	border-bottom: 2px solid #3399FF;
+	}

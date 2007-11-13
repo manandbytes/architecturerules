@@ -35,13 +35,52 @@
         <img src="http://code.google.com/hosting/images/dl_arrow.gif" /><a href="http://architecturerules.googlecode.com/files/architecture-rules-2.0-rc1.jar">architecture-rules-2.0-rc1.jar</a> </p>
     </div>
     <!-- /download  -->
-    <div class="hentry post programming" id="post-1581"><abbr class="published date" title="2007-11-07T09:11:53">date</abbr>
-      <h1 class="posttitle entry-title">Post Title</h1>
-      <p class="postmetadata">post subtitle</p>
+    <div class="hentry post programming" id="introduction">
+      <h1 class="posttitle entry-title">Introduction</h1>
+      <p class="postmetadata"></p>
       <div class="entry entry-content">
-        <p> Lorem ipsum dolor sit amet, consectetuer adipiscing elit. In faucibus nunc placerat mi. Sed tellus justo, consequat sed, bibendum at, sollicitudin vitae, orci. Sed ante. Fusce fermentum risus cursus tortor. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. In faucibus nunc placerat mi. Sed tellus justo, consequat sed, bibendum at, sollicitudin vitae, orci. Sed ante. Fusce fermentum risus cursus tortor. </p>
-        <blockquote> Lorem ipsum dolor sit amet, consectetuer adipiscing elit. In faucibus nunc placerat mi. Sed tellus justo, consequat sed, bibendum at, sollicitudin vitae, orci. </blockquote>
-        <p> Lorem ipsum dolor sit amet, consectetuer adipiscing elit. In faucibus nunc placerat mi. Sed tellus justo, consequat sed, bibendum at, sollicitudin vitae, orci. Sed ante. Fusce fermentum risus cursus tortor. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. In faucibus nunc placerat mi. Sed tellus justo, consequat sed, bibendum at, sollicitudin vitae, orci. Sed ante. Fusce fermentum risus cursus tortor. </p>
+        <p> JDepend traverses Java class file directories and generates design quality metrics for each Java package. JDepend allows you to automatically measure the quality of a design in terms of its extensibility, reusability, and maintainability to manage package dependencies effectively.
+        <p>
+        <p>However, experiences using JDepend have been in maintaining difficult configuration and stumbling while trying to get a quick overview of the established rules.</p>
+        <blockquote>Enter: <strong>Architecture-Rules</strong></blockquote>
+        <h3>Benefits</h3>
+        <ul>
+          <li>Assert your architecture through unit tests</li>
+          <li>Fail a build when architecture rules are broken</li>
+          <li>Allow any IDE with unit testing capabilities to enforce an architecture</li>
+          <li>Allow continuous integration servers to enforce an architecture</li>
+          <li>Easy to read and maintain architecture rules and configuration</li>
+          <li>Allows for multiple architecture configuration. One for each module.</li>
+        </ul>
+        <h3> Why assert your architecture? </h3>
+        <p> <a href="http://clarkware.com/software/JDepend.html#uses">JDepend </a> explains why you should design a good architecture and why you should monitor it. </p>
+        <p> Here are some applicable experts: </p>
+        <h4>Identify Package Dependency Cycles</h4>
+        <blockquote> Packages participating in a package dependency cycle are in a deadly embrace with 
+          respect to reusability and their release cycle. Package dependency cycles can be 
+          easily identified by reviewing the textual reports of dependency cycles. Once 
+          these dependency cycles have been identified with JDepend, they can be broken 
+          by employing various object-oriented techniques. </blockquote>
+        <h4>Package Release Modules</h4>
+        <blockquote> Packages that are cohesive and independent can be released as autonomous modules 
+          with their own release schedules and version numbers. Single packages, or groups 
+          of related packages collaborating in a framework, that are candidates for 
+          independent release can be harvested by evaluating their design quality metrics 
+          using JDepend.</blockquote>
+        <h4>Isolate Third-Party Package Dependencies</h4>
+        <blockquote>Third-party package dependencies can be easily identified and isolated by examining 
+          the afferent couplings to those packages. Once the dependency on these third-party 
+          packages has been measured with JDepend, the dependency can be managed by 
+          effectively designing abstract and stable packages that encapsulate the 
+          third-party package implementation details. </blockquote>
+        <h4>Invert Dependencies</h4>
+        <blockquote>The goal of using JDepend is to ultimately invert package dependencies such that
+          low-abstraction packages depend upon high-abstraction packages. This inversion 
+          of dependencies allows the high-abstraction packages to be reused independently while
+          being extensible to an open set of implementations. In general, dependencies upon 
+          stable packages are desirable, while dependencies upon instable packages are 
+          undesirable. JDepend allows dependencies to be iteratively examined and refactored as 
+          an integral part of software design and development.</blockquote>
       </div>
       <!-- entry -->
     </div>

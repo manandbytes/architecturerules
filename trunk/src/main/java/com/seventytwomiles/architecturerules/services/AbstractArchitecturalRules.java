@@ -24,7 +24,7 @@ import java.util.Iterator;
  *
  * @author mnereson
  * @see RulesServiceImpl
- * @see CyclicRedendencyServiceImpl
+ * @see CyclicRedundencyServiceImpl
  */
 abstract class AbstractArchitecturalRules {
 

@@ -19,7 +19,7 @@ import java.util.*;
  * @author mnereson
  * @see AbstractArchitecturalRules
  */
-public class CyclicRedendencyServiceImpl extends AbstractArchitecturalRules implements CyclicRedundencyService {
+public class CyclicRedundencyServiceImpl extends AbstractArchitecturalRules implements CyclicRedundencyService {
 
 
     /**
@@ -27,7 +27,7 @@ public class CyclicRedendencyServiceImpl extends AbstractArchitecturalRules impl
      *
      * @parameter log Log
      */
-    private static final Log log = LogFactory.getLog(CyclicRedendencyServiceImpl.class);
+    private static final Log log = LogFactory.getLog(CyclicRedundencyServiceImpl.class);
 
 
     /**
@@ -42,7 +42,7 @@ public class CyclicRedendencyServiceImpl extends AbstractArchitecturalRules impl
      * exist and <tt>no-packages</tt>="<tt>ignore</tt>" in the sources
      * configuraiton
      */
-    public CyclicRedendencyServiceImpl(final Configuration configuraiton) {
+    public CyclicRedundencyServiceImpl(final Configuration configuraiton) {
 
         super(configuraiton);
 
@@ -61,6 +61,19 @@ public class CyclicRedendencyServiceImpl extends AbstractArchitecturalRules impl
 
         final Collection packages = getPackages();
 
+        /**
+         * TODO: replace these
+         *  final Map efferentMap = getEfferentMap(packages);
+         *  Map cycles = processEfferntMapForCycles(efferentMap);
+         *
+         *  With a simpler method that compares affernts and efferents.
+         *  When a package is in both, a cyclic redundency exists.
+         *
+         *  TODO: report classes involved
+         *  Report on which class is causing the cyclic redundancy.
+         *  The information is all available from withing the JavaPackage
+         *  class.
+         */
         final Map efferentMap = getEfferentMap(packages);
 
         Map cycles = processEfferntMapForCycles(efferentMap);
@@ -126,8 +139,8 @@ public class CyclicRedendencyServiceImpl extends AbstractArchitecturalRules impl
     /**
      * TODO: javadocs
      *
-     * @param efferentMap
-     * @return
+     * @param efferentMap Map
+     * @return Map
      */
     private Map processEfferntMapForCycles(final Map efferentMap) {
 

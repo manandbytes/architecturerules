@@ -5,8 +5,8 @@ import com.seventytwomiles.architecturerules.configuration.Configuration;
 import com.seventytwomiles.architecturerules.configuration.UnmodifiableConfiguration;
 import com.seventytwomiles.architecturerules.configuration.xml.ConfigurationFactory;
 import com.seventytwomiles.architecturerules.configuration.xml.DigesterConfigurationFactory;
-import com.seventytwomiles.architecturerules.services.CyclicRedendencyServiceImpl;
 import com.seventytwomiles.architecturerules.services.CyclicRedundencyService;
+import com.seventytwomiles.architecturerules.services.CyclicRedundencyServiceImpl;
 import com.seventytwomiles.architecturerules.services.RulesService;
 import com.seventytwomiles.architecturerules.services.RulesServiceImpl;
 import junit.framework.TestCase;
@@ -50,14 +50,19 @@ public abstract class AbstractArchitectureRulesConfigurationTest extends TestCas
 
     protected AbstractArchitectureRulesConfigurationTest() {
 
-        /* 1. load configuration */
+        /* 1. load configuration if a configuration file name was provided */
 
         final String configurationFileName = getConfigurationFileName();
 
-        final ConfigurationFactory configurationFactory = new DigesterConfigurationFactory(configurationFileName);
+        final ConfigurationFactory configurationFactory;
 
-        configuration.getRules().addAll(configurationFactory.getRules());
-        configuration.getSources().addAll(configurationFactory.getSources());
+        if (configurationFileName != null && configurationFileName.length() > 0) {
+
+            configurationFactory = new DigesterConfigurationFactory(configurationFileName);
+
+            configuration.getRules().addAll(configurationFactory.getRules());
+            configuration.getSources().addAll(configurationFactory.getSources());
+        }
     }
 
 
@@ -70,7 +75,7 @@ public abstract class AbstractArchitectureRulesConfigurationTest extends TestCas
 
         if (configuration.shouldDoCyclicDependencyTest()) {
 
-            final CyclicRedundencyService redundencyService = new CyclicRedendencyServiceImpl(new UnmodifiableConfiguration(configuration));
+            final CyclicRedundencyService redundencyService = new CyclicRedundencyServiceImpl(new UnmodifiableConfiguration(configuration));
             redundencyService.performCyclicRedundencyCheck();
         }
 
@@ -88,7 +93,9 @@ public abstract class AbstractArchitectureRulesConfigurationTest extends TestCas
      *
      * @return String name of the xml file including <samp>.xml</smmp>
      */
-    abstract String getConfigurationFileName();
+    protected String getConfigurationFileName() {
+        return "";
+    }
 
 
     /**

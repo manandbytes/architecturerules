@@ -2,8 +2,12 @@
 
     <path id="class.path">
 
-        <pathelement id="test classes" path="target\test-classes"/>
-        <pathelement id="main classes" path="target\classes"/>
+        <pathelement id="test classes" path=".\target\test-classes"/>
+        <pathelement id="main classes" path=".\target\classes"/>
+
+        <pathelement id="test"
+                     path="C:\dev\svnlocal\72miles\architecturerules\trunk\target\test-classes"/>
+
 
         <!-- updated list of dependencies available at http://code.google.com/p/architecturerules/wiki/ProjectDependencies -->
         <pathelement id="commons-digester"
@@ -28,17 +32,37 @@
                      path="C:\dev\m2repo\log4j\log4j\1.2.12\log4j-1.2.12.jar"/>
         <pathelement id="logkit"
                      path="C:\dev\m2repo\logkit\logkit\1.0.1\logkit-1.0.1.jar"/>
+        <pathelement id="ant"
+                     path="c:\dev\m2repo\org\apache\ant\ant\1.7.0\ant-1.7.0.jar"/>
+        <pathelement id="ant-launcher"
+                     path="c:\dev\m2repo\org\apache\ant\ant-launcher\1.7.0\ant-launcher-1.7.0.jar"/>
     </path>
 
     <target name="compile"/>
 
-    <target name="test-architecture" depends="compile">
+    <taskdef name="assertArchitecture"
+             classname="com.seventytwomiles.architecturerules.ant.AssertArchitectureTask">
+        <classpath refid="class.path"/>
+    </taskdef>
+
+    <target name="assert-architecture-pass" depends="compile">
+        <assertArchitecture
+                configurationFileName="architecture-rules-pass.xml"/>
+    </target>
+
+    <target name="assert-architecture-fail" depends="compile">
+        <assertArchitecture
+                configurationFileName="architecture-rules-fail-cyclic.xml"/>
+    </target>
+
+
+    <!--<target name="test-architecture" depends="compile">
         <junit haltonerror="true">
             <classpath refid="class.path"/>
             <formatter type="brief" usefile="false"/>
             <test name="com.seventytwomiles.architecturerules.ArchitectureTest"
                   haltonfailure="true"/>
         </junit>
-    </target>
+    </target>-->
 
 </project>

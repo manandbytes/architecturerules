@@ -53,7 +53,7 @@ public class CyclicRedundencyServiceTest extends TestCase {
 
         configuration.setThrowExceptionWhenNoPackages(true);
 
-        cyclicRedundencyService = new CyclicRedendencyServiceImpl(configuration);
+        cyclicRedundencyService = new CyclicRedundencyServiceImpl(configuration);
     }
 
 
@@ -66,7 +66,7 @@ public class CyclicRedundencyServiceTest extends TestCase {
     }
 
 
-    public void test() throws Exception {
+    public void testPerformCyclicRedundencyCheck() throws Exception {
 
         try {
 

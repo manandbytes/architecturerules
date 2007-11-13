@@ -76,7 +76,8 @@ public abstract class AbstractConfigurationFactory implements ConfigurationFacto
          * does not exist, then an exception could be thrown if the resource
          * could not be read.
          */
-        final ClassPathResource resource = new ClassPathResource(configurationFileName);
+        final ClassLoader classLoader = getClass().getClassLoader();
+        final ClassPathResource resource = new ClassPathResource(configurationFileName, classLoader);
 
         if (!resource.exists())
             throw new IllegalArgumentException("could not load resource "

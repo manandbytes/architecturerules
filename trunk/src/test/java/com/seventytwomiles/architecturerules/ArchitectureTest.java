@@ -23,13 +23,21 @@ public class ArchitectureTest extends AbstractArchitectureRulesConfigurationTest
         /**
          * Get the configuration that already has the architecture-rules.xml
          * configuration loaded.
-         *
+         */
+
+        /**
          * Changing a boolean like configuration.setDoCyclicDependencyTest(false)
          * would override the value in the configuration file, because the
          * configuration file is loaded first.
          */
 
-        final Rule rule = new Rule("test", "com.seventytwomiles.test");
+        final Rule rule = new Rule("services");
+        rule.setComment("services may not depend on web layer.");
+        rule.addPackage("com.company.app.core.services");
+        rule.addViolation("com.company.app.web");
+        rule.addViolation("com.company.app.web.spring");
+        rule.addViolation("com.company.app.web.decorators");
+
         configuration.addRule(rule);
         configuration.setDoCyclicDependencyTest(false);
     }
@@ -38,7 +46,7 @@ public class ArchitectureTest extends AbstractArchitectureRulesConfigurationTest
     /**
      * @see AbstractArchitectureRulesConfigurationTest
      */
-    String getConfigurationFileName() {
+    protected String getConfigurationFileName() {
 
         /**
          * Provide the name of the rules configuraiton file. File file is

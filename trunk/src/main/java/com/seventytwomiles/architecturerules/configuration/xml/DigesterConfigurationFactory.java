@@ -29,8 +29,8 @@ public class DigesterConfigurationFactory extends AbstractConfigurationFactory {
     private static final Log log = LogFactory.getLog(DigesterConfigurationFactory.class);
 
 
-    DigesterConfigurationFactory() {
-        /* FOR TESTS ONLY */
+    public DigesterConfigurationFactory() {
+
     }
 
 

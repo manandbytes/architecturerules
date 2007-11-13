@@ -99,7 +99,7 @@ public class SourceDirectory {
      * @param path String {@link #path}
      */
     public SourceDirectory(final String path) {
-        this.path = path;
+        setPath(path);
     }
 
 
@@ -124,6 +124,7 @@ public class SourceDirectory {
      * @param notFound boolean {@link @notFound}
      */
     public SourceDirectory(final String path, final String notFound) {
+
         setPath(path);
         setNotFound(notFound);
     }
@@ -174,8 +175,15 @@ public class SourceDirectory {
      */
     public void setPath(final String path) {
 
-        Assert.assertNotNull(path);
-        Assert.assertFalse("".equals(path));
+        try {
+
+            Assert.assertNotNull(path);
+            Assert.assertFalse("".equals(path));
+
+        } catch (final Throwable e) {
+
+            throw new IllegalArgumentException(e.getMessage(), e);
+        }
 
         this.path = path;
     }
@@ -201,8 +209,8 @@ public class SourceDirectory {
         if (!(notFound.equalsIgnoreCase(NOT_FOUND_IGNORE) ||
               notFound.equalsIgnoreCase(NOT_FOUND_EXEPTION))) {
 
-            throw new IllegalArgumentException("'not-found' property of " + notFound +
-                                               " is invalid. valid values are " +
+            throw new IllegalArgumentException("'not-found' property of '" + notFound +
+                                               "' is invalid. valid values are " +
                                                NOT_FOUND_IGNORE + " and "
                                                + NOT_FOUND_EXEPTION);
         }

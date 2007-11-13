@@ -208,7 +208,7 @@ public class ConfigurationTest extends TestCase {
         try {
 
             configuration.addSource(new SourceDirectory(""));
-            fail("expected IllegalArgumentException");
+            fail("expected AssertionFailedError");
 
         } catch (Exception e) {
 

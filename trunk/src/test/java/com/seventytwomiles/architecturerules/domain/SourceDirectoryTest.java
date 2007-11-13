@@ -73,11 +73,15 @@ public class SourceDirectoryTest extends TestCase {
      */
     public void testInterestingConstructors() throws Exception {
 
-
+        /**
+         * Test SourceDirectory#SourceDirectory(String)
+         */
         sourceDirectory = new SourceDirectory("core/target/classes");
         assertEquals("core/target/classes", sourceDirectory.getPath());
 
-
+        /**
+         * Test SourceDirectory#SourceDirectory(String, boolean)
+         */
         sourceDirectory = new SourceDirectory("core/target/classes", true);
         assertEquals("core/target/classes", sourceDirectory.getPath());
         assertTrue(sourceDirectory.shouldThrowExceptionWhenNotFound());
@@ -85,6 +89,101 @@ public class SourceDirectoryTest extends TestCase {
         sourceDirectory = new SourceDirectory("core/target/classes", false);
         assertEquals("core/target/classes", sourceDirectory.getPath());
         assertFalse(sourceDirectory.shouldThrowExceptionWhenNotFound());
+
+        /**
+         * Test SourceDirectory#SourceDirectory(String, String)
+         */
+        sourceDirectory = new SourceDirectory("core/target/classes", "ignore");
+        assertEquals("core/target/classes", sourceDirectory.getPath());
+        assertFalse(sourceDirectory.shouldThrowExceptionWhenNotFound());
+
+        sourceDirectory = new SourceDirectory("core/target/classes", "exception");
+        assertEquals("core/target/classes", sourceDirectory.getPath());
+        assertTrue(sourceDirectory.shouldThrowExceptionWhenNotFound());
+    }
+
+
+    /**
+     * <p>Test for {@link SourceDirectory#SourceDirectory(String)} and {@link
+     * SourceDirectory#SourceDirectory(String,boolean)} </p>
+     *
+     * @throws Exception when <code>SourceDirectory</code> throws and unexpected
+     * <code>Exception</code>
+     */
+    public void testInterestingConstructors_illegalArguments() throws Exception {
+
+
+        try {
+
+            sourceDirectory = new SourceDirectory("");
+            fail("expected IllegalArgumentException");
+
+        } catch (final Exception e) {
+
+            assertTrue(e instanceof IllegalArgumentException);
+        }
+
+        try {
+
+            sourceDirectory = new SourceDirectory(null);
+            fail("expected IllegalArgumentException");
+
+        } catch (final Exception e) {
+
+            assertTrue(e instanceof IllegalArgumentException);
+        }
+
+
+        try {
+
+            sourceDirectory = new SourceDirectory("", true);
+            fail("expected IllegalArgumentException");
+
+        } catch (final Exception e) {
+
+            assertTrue(e instanceof IllegalArgumentException);
+        }
+
+        try {
+
+            sourceDirectory = new SourceDirectory(null, true);
+            fail("expected IllegalArgumentException");
+
+        } catch (final Exception e) {
+
+            assertTrue(e instanceof IllegalArgumentException);
+        }
+
+        try {
+
+            sourceDirectory = new SourceDirectory("core/target/classes", "monkey");
+            fail("expected IllegalArgumentException");
+
+        } catch (final Exception e) {
+
+            assertTrue(e instanceof IllegalArgumentException);
+        }
+
+
+        try {
+
+            sourceDirectory = new SourceDirectory("core/target/classes", "");
+            fail("expected IllegalArgumentException");
+
+        } catch (final Exception e) {
+
+            assertTrue(e instanceof IllegalArgumentException);
+        }
+
+        try {
+
+            sourceDirectory = new SourceDirectory("core/target/classes", null);
+            fail("expected IllegalArgumentException");
+
+        } catch (final Exception e) {
+
+            assertTrue(e instanceof IllegalArgumentException);
+        }
     }
 
 

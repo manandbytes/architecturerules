@@ -44,10 +44,7 @@ class SaxErrorHandler implements ErrorHandler {
      * @see ErrorHandler#warning(SAXParseException)
      */
     public void warning(final SAXParseException exception) throws SAXException {
-
         log.warn(exception);
-
-        onAnything(exception);
     }
 
 
@@ -55,10 +52,7 @@ class SaxErrorHandler implements ErrorHandler {
      * @see ErrorHandler#error(SAXParseException)
      */
     public void error(final SAXParseException exception) throws SAXException {
-
         log.error("error", exception);
-
-        onAnything(exception);
     }
 
 
@@ -68,12 +62,5 @@ class SaxErrorHandler implements ErrorHandler {
     public void fatalError(final SAXParseException exception) throws SAXException {
 
         log.error("fatal error", exception);
-
-        onAnything(exception);
-    }
-
-
-    private void onAnything(final SAXParseException exception) {
-        // do nothing
     }
 }

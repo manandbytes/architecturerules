@@ -6,7 +6,8 @@ import test.com.seventytwomiles.model.Person;
 
 
 /**
- * <p>todo: javadocs</p>
+ * <p>Test abstract DAO class that depends on the model package and dao
+ * package.</p>
  *
  * @author mikenereson
  */

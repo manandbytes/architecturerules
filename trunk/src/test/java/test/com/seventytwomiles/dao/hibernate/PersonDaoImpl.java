@@ -7,7 +7,8 @@ import test.com.seventytwomiles.services.PersonServiceImpl;
 
 
 /**
- * <p>todo: javadocs</p>
+ * <p>Test implemenation of the <code>PersonDao</code> that depends upon the
+ * service layer.</p>
  *
  * @author mikenereson
  * @noinspection UnusedDeclaration

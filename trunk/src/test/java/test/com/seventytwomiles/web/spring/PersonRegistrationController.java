@@ -6,7 +6,7 @@ import test.com.seventytwomiles.dao.hibernate.PersonDaoImpl;
 
 
 /**
- * <p>todo: javadocs</p>
+ * <p>Test Controller that depends on the DAO layer.</p>
  *
  * @author mikenereson
  * @noinspection UnusedDeclaration

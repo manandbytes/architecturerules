@@ -6,7 +6,7 @@ import test.com.seventytwomiles.services.PersonServiceImpl;
 
 
 /**
- * <p>todo: javadocs</p>
+ * <p>Test model object</p>
  *
  * @author mikenereson
  * @noinspection UnusedDeclaration

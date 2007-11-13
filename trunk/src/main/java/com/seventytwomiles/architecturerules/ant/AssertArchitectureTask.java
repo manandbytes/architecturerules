@@ -1,5 +1,24 @@
 package com.seventytwomiles.architecturerules.ant;
 
+/*
+ * Copyright 2007 the original author or authors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ * For more infomration visit
+ * http://architecturerules.googlecode.com/svn/docs/index.html
+ */
+
 
 import com.seventytwomiles.architecturerules.configuration.Configuration;
 import com.seventytwomiles.architecturerules.configuration.UnmodifiableConfiguration;
@@ -14,7 +33,20 @@ import org.apache.tools.ant.Task;
 
 
 /**
- * <p>todo: javadocs</p>
+ * <p>Ant task to assert architecture.</p>
+ *
+ * <p>Usage looks like:</p>
+ *
+ * <pre>
+ * &lt;taskdef name="assertArchitecture"
+ *          classname="com.seventytwomiles.architecturerules.ant.AssertArchitectureTask">
+ *    &lt;classpath refid="class.path"/>
+ * &lt;/taskdef>
+ *
+ * &lt;target name="assert-architecture" depends="compile">
+ *    &lt;assertArchitecture configurationFileName="architecture-rules-pass.xml"/>
+ * &lt;/target>
+ * </pre>
  *
  * @author mikenereson
  */
@@ -22,7 +54,8 @@ public class AssertArchitectureTask extends Task {
 
 
     /**
-     * <p></p>
+     * <p>The name of the configuraiton file that is in the classpath that holds
+     * the xml configuraiton. Recommend architecture-rules.xml</p>
      *
      * @parameter configurationFileName String
      */
@@ -30,7 +63,9 @@ public class AssertArchitectureTask extends Task {
 
 
     /**
-     * <p></p>
+     * <p>Reference the configuraiton that is built by the ConfiguraitonFactory
+     * that reads the configurationFile. This configuration may be
+     * modified.</p>
      *
      * @parameter configuration Configuration
      */
@@ -50,7 +85,6 @@ public class AssertArchitectureTask extends Task {
         /**
          * 1. load configuration
          */
-
         final ConfigurationFactory configurationFactory = new DigesterConfigurationFactory(configurationFileName);
 
         configuration.getRules().addAll(configurationFactory.getRules());

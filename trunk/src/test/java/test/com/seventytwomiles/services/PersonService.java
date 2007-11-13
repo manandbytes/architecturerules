@@ -7,7 +7,7 @@ import java.util.Collection;
 
 
 /**
- * <p>todo: javadocs</p>
+ * <p>Test service interface.</p>
  *
  * @author mikenereson
  */

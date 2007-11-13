@@ -1,5 +1,24 @@
 package com.seventytwomiles.architecturerules;
 
+/*
+ * Copyright 2007 the original author or authors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ * For more infomration visit
+ * http://architecturerules.googlecode.com/svn/docs/index.html
+ */
+
 
 import com.seventytwomiles.architecturerules.configuration.Configuration;
 import com.seventytwomiles.architecturerules.configuration.UnmodifiableConfiguration;
@@ -15,7 +34,18 @@ import org.apache.commons.logging.LogFactory;
 
 
 /**
- * <p>todo: javadocs</p>
+ * <p>Abstract class that the users of this library will extend in order to
+ * create a unit test that asserts architecture. </p>
+ *
+ * <p>Once extended, implement <tt>testArchitecture</tt> and call
+ * <tt>doTest()</tt>. Also override <tt>getConfigurationFileName()</tt> if you
+ * want to load an XML configuration file.</p>
+ *
+ * <p>If you want to define the configuration programatically in addition to the
+ * xml configuration, or want to solely use programatic configuraiton, you may
+ * call <tt>getConfiguration</tt> which will return <code>Configuration</code>
+ * that you may then add new <code>Rule</code>, or <code>SourceDirectory</code>
+ * to. </p>
  *
  * @author mikenereson
  * @noinspection PointlessBooleanExpression
@@ -93,7 +123,7 @@ public abstract class AbstractArchitectureRulesConfigurationTest extends TestCas
      *
      * @return String name of the xml file including <samp>.xml</smmp>
      */
-    protected String getConfigurationFileName() {
+    String getConfigurationFileName() {
         return "";
     }
 

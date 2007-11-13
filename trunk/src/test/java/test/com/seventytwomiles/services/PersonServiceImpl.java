@@ -11,7 +11,8 @@ import java.util.HashSet;
 
 
 /**
- * <p>todo: javadocs</p>
+ * <p>Test implementation of the PersonService that depends upon the DAO layer
+ * and the model package.</p>
  *
  * @author mikenereson
  * @noinspection UnusedDeclaration

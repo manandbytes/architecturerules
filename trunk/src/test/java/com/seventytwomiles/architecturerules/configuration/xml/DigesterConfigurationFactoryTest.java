@@ -1,10 +1,28 @@
 package com.seventytwomiles.architecturerules.configuration.xml;
 
+/*
+* Copyright 2007 the original author or authors.
+*
+* Licensed under the Apache License, Version 2.0 (the "License");
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*
+* http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+*
+* For more infomration visit
+* http://architecturerules.googlecode.com/svn/docs/index.html
+*/
+
 
 import com.seventytwomiles.architecturerules.domain.Rule;
 import com.seventytwomiles.architecturerules.domain.SourceDirectory;
 import com.seventytwomiles.architecturerules.exceptions.InvalidConfigurationException;
-import junit.framework.TestCase;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,21 +42,10 @@ public class DigesterConfigurationFactoryTest extends AbstractDigesterTest {
 
 
     /**
-     * @see TestCase#setName(String)
+     * <p>Test process sources</p>
+     *
+     * @throws Exception when anything goes wrong
      */
-    public void setUp() throws Exception {
-        super.setUp();
-    }
-
-
-    /**
-     * @see TestCase#tearDown()
-     */
-    public void tearDown() throws Exception {
-        super.tearDown();
-    }
-
-
     public void testProcessSources() throws Exception {
 
         DigesterConfigurationFactory factory = new DigesterConfigurationFactory();

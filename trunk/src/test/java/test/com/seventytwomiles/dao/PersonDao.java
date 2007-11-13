@@ -2,7 +2,7 @@ package test.com.seventytwomiles.dao;
 
 
 /**
- * <p>todo: javadocs</p>
+ * <p>Test dao interface</p>
  *
  * @author mikenereson
  */

@@ -2,7 +2,7 @@ package test.com.seventytwomiles.web.spring;
 
 
 /**
- * <p>todo: javadocs</p>
+ * <p>Test controller that does not depend on any other class.</p>
  *
  * @author mikenereson
  */

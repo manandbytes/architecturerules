@@ -20,7 +20,7 @@ import java.util.List;
 /**
  * <p>Apache Commons Digester implementatino of the <code>ConfigurationFactory</code></p>
  *
- * @author mnereson
+ * @author mikenereson
  * @see AbstractConfigurationFactory
  */
 public class DigesterConfigurationFactory extends AbstractConfigurationFactory {

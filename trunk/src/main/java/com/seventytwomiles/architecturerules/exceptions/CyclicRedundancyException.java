@@ -10,7 +10,7 @@ import java.util.List;
  *
  * TODO: report which packages were cyclical
  *
- * @author mnereson
+ * @author mikenereson
  * @noinspection JavaDoc
  * @see RuntimeException
  */

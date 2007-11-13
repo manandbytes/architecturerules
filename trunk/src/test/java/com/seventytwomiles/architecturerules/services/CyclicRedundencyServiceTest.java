@@ -11,7 +11,7 @@ import junit.framework.TestCase;
 /**
  * <p><code>CyclicRedundencyService</code> Tester.</p>
  *
- * @author mnereson
+ * @author mikenereson
  */
 public class CyclicRedundencyServiceTest extends TestCase {
 

@@ -10,7 +10,7 @@ import com.seventytwomiles.architecturerules.exceptions.CyclicRedundancyExceptio
 /**
  * <p>todo: javadocs</p>
  *
- * @author mnereson
+ * @author mikenereson
  * @see AbstractArchitectureRulesConfigurationTest
  */
 public class ArchitectureTest extends AbstractArchitectureRulesConfigurationTest {

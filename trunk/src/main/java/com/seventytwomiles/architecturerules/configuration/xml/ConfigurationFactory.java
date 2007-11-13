@@ -8,7 +8,7 @@ import java.util.Collection;
  * <p>Interface for <code>ConfigurationFactory</code> implementations to adhere
  * to.</p>
  *
- * @author mnereson
+ * @author mikenereson
  */
 public interface ConfigurationFactory {
 

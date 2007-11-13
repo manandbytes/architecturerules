@@ -9,7 +9,7 @@ import junit.framework.TestCase;
 /**
  * <p><code>Rule</code> Tester.</p>
  *
- * @author mnereson
+ * @author mikenereson
  */
 public class RuleTest extends TestCase {
 

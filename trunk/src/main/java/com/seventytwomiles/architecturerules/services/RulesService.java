@@ -4,7 +4,7 @@ package com.seventytwomiles.architecturerules.services;
 /**
  * <p>todo: javadocs</p>
  *
- * @author mnereson
+ * @author mikenereson
  */
 public interface RulesService {
 

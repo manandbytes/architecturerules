@@ -5,7 +5,7 @@ package com.seventytwomiles.architecturerules.exceptions;
  * <p>Exception to be thrown when no packages are found in the given source path
  * if <samp>&lt;sources no-packages="exception"> </samp></p>
  *
- * @author mnereson
+ * @author mikenereson
  * @noinspection JavaDoc
  * @see RuntimeException
  */

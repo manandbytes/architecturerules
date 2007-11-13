@@ -7,7 +7,7 @@ import junit.framework.TestCase;
 /**
  * <p><code>SourceDirectory</code> Tester.</p>
  *
- * @author mnereson
+ * @author mikenereson
  */
 public class SourceDirectoryTest extends TestCase {
 

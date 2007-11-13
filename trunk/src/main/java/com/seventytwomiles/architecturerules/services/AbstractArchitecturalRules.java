@@ -22,7 +22,7 @@ import java.util.Iterator;
  * <p>Provides support for any type of rule that can be asserted using the
  * jdepend library</p>
  *
- * @author mnereson
+ * @author mikenereson
  * @see RulesServiceImpl
  * @see CyclicRedundencyServiceImpl
  */

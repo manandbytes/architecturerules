@@ -11,7 +11,7 @@ import junit.framework.TestSuite;
 /**
  * <p>UnmodifiableConfiguration Tester.</p>
  *
- * @author mnereson
+ * @author mikenereson
  */
 public class UnmodifiableConfigurationTest extends TestCase {
 

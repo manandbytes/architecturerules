@@ -7,7 +7,7 @@ import junit.framework.TestCase;
 /**
  * <p>todo: javadocs</p>
  *
- * @author mnereson
+ * @author mikenereson
  * @see TestCase
  */
 public class AbstractDigesterTest extends TestCase {

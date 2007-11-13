@@ -5,7 +5,7 @@ package com.seventytwomiles.architecturerules.exceptions;
  * <p>Exception to be thrown when a Rule is illegal constructed. That is, an
  * illegal violation is created.</p>
  *
- * @author mnereson
+ * @author mikenereson
  * @noinspection JavaDoc
  * @see RuntimeException
  */

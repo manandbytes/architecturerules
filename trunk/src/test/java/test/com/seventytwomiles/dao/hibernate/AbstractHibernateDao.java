@@ -8,7 +8,7 @@ import test.com.seventytwomiles.model.Person;
 /**
  * <p>todo: javadocs</p>
  *
- * @author mnereson
+ * @author mikenereson
  */
 public class AbstractHibernateDao implements Dao {
 

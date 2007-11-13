@@ -17,7 +17,7 @@ import java.util.Iterator;
  * <p>Drives the tests by reading the configuraiton then asserting each defined
  * <code>Rule</code>.</p>
  *
- * @author mnereson
+ * @author mikenereson
  * @see AbstractArchitecturalRules
  */
 public class RulesServiceImpl extends AbstractArchitecturalRules implements RulesService {

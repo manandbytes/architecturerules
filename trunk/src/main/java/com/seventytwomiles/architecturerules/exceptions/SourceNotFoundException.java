@@ -9,7 +9,7 @@ import java.util.Collection;
  * <p>Exception to be thrown when a configured source is not found and
  * <samp>&lt;source not-found="exception"></samp></p>
  *
- * @author mnereson
+ * @author mikenereson
  * @noinspection JavaDoc
  * @see RuntimeException
  */

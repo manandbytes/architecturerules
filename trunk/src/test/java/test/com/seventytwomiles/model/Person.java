@@ -8,7 +8,7 @@ import test.com.seventytwomiles.services.PersonServiceImpl;
 /**
  * <p>todo: javadocs</p>
  *
- * @author mnereson
+ * @author mikenereson
  * @noinspection UnusedDeclaration
  */
 public class Person {

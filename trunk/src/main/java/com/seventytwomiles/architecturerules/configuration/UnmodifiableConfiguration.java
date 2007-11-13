@@ -11,7 +11,7 @@ import java.util.Collections;
 /**
  * <p>todo: javadocs</p>
  *
- * @author mnereson
+ * @author mikenereson
  */
 public final class UnmodifiableConfiguration extends Configuration {
 

@@ -11,7 +11,7 @@ import org.apache.commons.logging.LogFactory;
  * <p>Representation of a source directory to search for packages and .class
  * files in.</p>
  *
- * @author mnereson
+ * @author mikenereson
  */
 public class SourceDirectory {
 

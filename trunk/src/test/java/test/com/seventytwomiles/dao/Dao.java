@@ -4,7 +4,7 @@ package test.com.seventytwomiles.dao;
 /**
  * <p>todo: javadocs</p>
  *
- * @author mnereson
+ * @author mikenereson
  */
 public interface Dao {
 

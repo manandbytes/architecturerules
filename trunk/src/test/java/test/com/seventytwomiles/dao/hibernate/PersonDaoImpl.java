@@ -9,7 +9,7 @@ import test.com.seventytwomiles.services.PersonServiceImpl;
 /**
  * <p>todo: javadocs</p>
  *
- * @author mnereson
+ * @author mikenereson
  * @noinspection UnusedDeclaration
  * @see AbstractHibernateDao
  * @see PersonDao

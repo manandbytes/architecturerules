@@ -13,7 +13,7 @@ import java.util.HashSet;
 /**
  * <p>todo: javadocs</p>
  *
- * @author mnereson
+ * @author mikenereson
  * @noinspection UnusedDeclaration
  */
 public class PersonServiceImpl implements PersonService {

@@ -8,7 +8,7 @@ import junit.framework.TestCase;
 /**
  * <code>NoPackagesFoundException Tester.</code>
  *
- * @author mnereson
+ * @author mikenereson
  */
 public class NoPackagesFoundExceptionTest extends TestCase {
 

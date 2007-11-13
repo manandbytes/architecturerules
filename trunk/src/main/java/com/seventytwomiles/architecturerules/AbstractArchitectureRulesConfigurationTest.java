@@ -17,7 +17,7 @@ import org.apache.commons.logging.LogFactory;
 /**
  * <p>todo: javadocs</p>
  *
- * @author mnereson
+ * @author mikenereson
  * @noinspection PointlessBooleanExpression
  */
 public abstract class AbstractArchitectureRulesConfigurationTest extends TestCase {

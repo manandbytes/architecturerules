@@ -16,7 +16,7 @@ import java.util.*;
  * <p>These classes are all extracted from the Spring Framework in order to
  * remove the dependency on the Spring library.</p>
  *
- * @author mnereson
+ * @author mikenereson
  * @noinspection SimplifiableIfStatement
  */
 public class ClassPathResource {

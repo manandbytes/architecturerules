@@ -7,7 +7,7 @@ import junit.framework.TestCase;
 /**
  * <code>CyclicRedundancyException Tester.</code>
  *
- * @author mnereson
+ * @author mikenereson
  */
 public class CyclicRedundencyExceptionTest extends TestCase {
 

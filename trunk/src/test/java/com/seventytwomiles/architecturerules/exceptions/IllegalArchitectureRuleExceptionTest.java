@@ -8,7 +8,7 @@ import junit.framework.TestCase;
 /**
  * <code>IllegalArchitectureRuleException Tester.</code>
  *
- * @author mnereson
+ * @author mikenereson
  */
 public class IllegalArchitectureRuleExceptionTest extends TestCase {
 

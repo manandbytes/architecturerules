@@ -5,11 +5,9 @@ import junit.framework.TestCase;
 
 
 /**
- * AssertArchitectureTask Tester.
+ * <p><code>AssertArchitectureTask</code> Tester.</p>
  *
- * @author <Authors name>
- * @version 1.0
- * @since <pre>11/08/2007</pre>
+ * @author mikenereson
  */
 public class AssertArchitectureTaskTest extends TestCase {
 

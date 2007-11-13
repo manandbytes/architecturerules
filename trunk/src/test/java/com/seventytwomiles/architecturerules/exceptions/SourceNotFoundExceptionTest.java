@@ -11,7 +11,7 @@ import java.util.HashSet;
 /**
  * <code>SourceNotFoundException Tester.</code>
  *
- * @author mnereson
+ * @author mikenereson
  */
 public class SourceNotFoundExceptionTest extends TestCase {
 

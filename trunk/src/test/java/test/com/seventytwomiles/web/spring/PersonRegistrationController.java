@@ -8,7 +8,7 @@ import test.com.seventytwomiles.dao.hibernate.PersonDaoImpl;
 /**
  * <p>todo: javadocs</p>
  *
- * @author mnereson
+ * @author mikenereson
  * @noinspection UnusedDeclaration
  */
 class PersonRegistrationController {

@@ -8,7 +8,7 @@ import junit.framework.TestCase;
 /**
  * <code>DependencyConstraintException Tester.</code>
  *
- * @author mnereson
+ * @author mikenereson
  */
 public class DependencyConstraintExceptionTest extends TestCase {
 

@@ -12,7 +12,7 @@ import org.xml.sax.SAXParseException;
  * <p>Implementation of <code>ErrorHandler</code> to handle errors within
  * commons digester parsing.</p>
  *
- * @author mnereson
+ * @author mikenereson
  * @see ErrorHandler
  */
 class SaxErrorHandler implements ErrorHandler {

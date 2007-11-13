@@ -16,7 +16,7 @@ import java.util.*;
  * <p>Checks for cyclic redundency among app packages in the source
  * folders.</p>
  *
- * @author mnereson
+ * @author mikenereson
  * @see AbstractArchitecturalRules
  */
 public class CyclicRedundencyServiceImpl extends AbstractArchitecturalRules implements CyclicRedundencyService {

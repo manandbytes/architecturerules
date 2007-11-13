@@ -12,7 +12,7 @@ import java.util.*;
 /**
  * <p>Represents a <code>Rule</code> that may not be violoated.</p>
  *
- * @author mnereson
+ * @author mikenereson
  */
 public class Rule {
 

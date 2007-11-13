@@ -20,7 +20,7 @@ import java.util.HashSet;
  * <p>This <code>Configuraiton</code> may be loaded by configraiton from an XML
  * file in the classpath, through programatic configuraiton, or both.</p>
  *
- * @author mnereson
+ * @author mikenereson
  * @see ConfigurationFactory
  * @see UnmodifiableConfiguration
  */

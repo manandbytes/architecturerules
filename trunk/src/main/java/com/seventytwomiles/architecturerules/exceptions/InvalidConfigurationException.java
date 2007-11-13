@@ -4,7 +4,7 @@ package com.seventytwomiles.architecturerules.exceptions;
 /**
  * <p>todo: javadocs</p>
  *
- * @author mnereson
+ * @author mikenereson
  * @noinspection JavaDoc
  * @see Exception
  */

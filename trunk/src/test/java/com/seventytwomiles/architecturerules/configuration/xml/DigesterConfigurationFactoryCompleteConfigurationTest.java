@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * DigesterConfigurationFactory Tester.
  *
- * @author mnereson
+ * @author mikenereson
  */
 public class DigesterConfigurationFactoryCompleteConfigurationTest extends TestCase {
 

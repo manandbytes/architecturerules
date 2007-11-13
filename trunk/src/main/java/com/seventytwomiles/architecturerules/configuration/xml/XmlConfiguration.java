@@ -4,7 +4,7 @@ package com.seventytwomiles.architecturerules.configuration.xml;
 /**
  * <p>Holds settings and paths for XML configuration.</p>
  *
- * @author mnereson
+ * @author mikenereson
  */
 class XmlConfiguration {
 

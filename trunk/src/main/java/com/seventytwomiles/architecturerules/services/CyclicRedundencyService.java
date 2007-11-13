@@ -7,7 +7,7 @@ import com.seventytwomiles.architecturerules.exceptions.CyclicRedundancyExceptio
 /**
  * <p>todo: javadocs</p>
  *
- * @author mnereson
+ * @author mikenereson
  */
 public interface CyclicRedundencyService {
 

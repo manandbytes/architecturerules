@@ -16,7 +16,7 @@ import org.apache.tools.ant.Task;
 /**
  * <p>todo: javadocs</p>
  *
- * @author mnereson
+ * @author mikenereson
  */
 public class AssertArchitectureTask extends Task {
 

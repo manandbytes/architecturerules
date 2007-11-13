@@ -5,7 +5,7 @@ package com.seventytwomiles.architecturerules.exceptions;
  * <p>Exception to be thrown when any <code>Rule</code> fails, that is to say,
  * the rule is violoated</p>
  *
- * @author mnereson
+ * @author mikenereson
  * @noinspection JavaDoc
  * @see RuntimeException
  */

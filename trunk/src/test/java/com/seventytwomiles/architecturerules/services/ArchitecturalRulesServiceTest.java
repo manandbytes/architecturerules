@@ -11,7 +11,7 @@ import junit.framework.TestCase;
 /**
  * <p><code>RulesService</code> Tester.</p>
  *
- * @author mnereson
+ * @author mikenereson
  */
 public class ArchitecturalRulesServiceTest extends TestCase {
 

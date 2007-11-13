@@ -10,7 +10,7 @@ import junit.framework.TestCase;
 /**
  * <p>Configuration Tester</p>
  *
- * @author mnereson
+ * @author mikenereson
  */
 public class ConfigurationTest extends TestCase {
 

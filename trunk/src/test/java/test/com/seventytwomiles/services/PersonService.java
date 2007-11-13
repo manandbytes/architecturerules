@@ -9,7 +9,7 @@ import java.util.Collection;
 /**
  * <p>todo: javadocs</p>
  *
- * @author mnereson
+ * @author mikenereson
  */
 public interface PersonService {
 

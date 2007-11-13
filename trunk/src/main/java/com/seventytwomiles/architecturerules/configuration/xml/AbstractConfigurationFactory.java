@@ -15,7 +15,7 @@ import java.util.HashSet;
  * <p>Abstract Factory that provides common functionality for
  * <code>ConfigurationFactory</code> implementations.</p>
  *
- * @author mnereson
+ * @author mikenereson
  * @see ConfigurationFactory
  */
 public abstract class AbstractConfigurationFactory implements ConfigurationFactory {

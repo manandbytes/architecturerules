@@ -10,7 +10,7 @@ import com.seventytwomiles.architecturerules.exceptions.DependencyConstraintExce
 /**
  * <p>Tests rules. Also tests programatic-only configuration.</p>
  *
- * @author mnereson
+ * @author mikenereson
  * @see AbstractArchitectureRulesConfigurationTest
  */
 public class ArchitectureTestProgramatic extends AbstractArchitectureRulesConfigurationTest {

@@ -172,6 +172,7 @@ configuration.addRule(rule);
  */
 configuration.setDoCyclicDependencyTest(false);		
 	  </pre>
+        <p>In this example, the configuration is pre-populated with the configuration found in the XML file with the name returned by the method <tt>String getConfigurationFileName()</tt> in your unit test. If you do not implement this method, or of you return <tt>""</tt> then the configuraiton will be empty.</p>
       </div>
     </div>
   </div>
@@ -229,14 +230,12 @@ configuration.setDoCyclicDependencyTest(false);
 		RoundedTop("div#footbar","#fff","#e8fecd");
 	}
 </script>
-
 <script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
 </script>
 <script type="text/javascript">
 _uacct = "UA-616623-3";
 urchinTracker();
 </script>
-
 </div>
 </body>
 </html>

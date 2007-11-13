@@ -39,40 +39,40 @@
         <h4>architecture-rules.xml</h4>
         <pre name="code" class="xml:nocontrols:nogutter">
 		<?xml version="1.0"?>
-		
+
 		<architecture>
-		
-			<configuration>	
+
+			<configuration>
 				<sources no-packages="ignore">
 					<source not-found="ignore">core\target\classes</source>
 					<source not-found="ignore">web\target\classes</source>
-					<source not-found="ignore">web-ws\target\classes</source>				
+					<source not-found="ignore">web-ws\target\classes</source>
 				</sources>
 				<cyclicalDependency test="true"></cyclicalDependency>
 			</configuration>
-				
+
 			<rules>
-		
-				<rule id="dao">	
-					<comment>dao layer depends on no other layers</comment>		
+
+				<rule id="dao">
+					<comment>dao layer depends on no other layers</comment>
 					<packages>
 						<package>com.company.app.core.dao</package>
 						<package>com.company.app.core.dao.hibernate</package>
-					</packages>		
+					</packages>
 					<violations>
 						<violation>com.company.app.core.services</violation>
 						<violation>com.company.app.web</violation>
 						<violation>com.company.app.web.spring</violation>
 					</violations>
 				</rule>
-		
-				<rule id="presentation">		
-					<comment>presentation layer may not use dao directly</comment>		
+
+				<rule id="presentation">
+					<comment>presentation layer may not use dao directly</comment>
 					<packages>
 						<package>com.company.app.web</package>
 						<package>com.company.app.web.spring</package>
 						<package>com.company.app.web.decorators</package>
-					</packages>		
+					</packages>
 					<violations>
 						<violation>com.company.app.core.dao</violation>
 						<violation>com.company.app.core.dao.hibernate</violation>
@@ -80,10 +80,10 @@
 						<violation>com.company.app.core.dao.jdbc</violation>
 					</violations>
 				</rule>
-		
+
 			</rules>
-		
-		</architecture>		
+
+		</architecture>
 		</pre>
       </div>
       <!-- entry -->
@@ -95,7 +95,7 @@
       <div class="entry entry-content">
         <p>Here is an explaination of the various xml nodes.</p>
         <h3>Sources</h3>
-        <pre name="code" class="xml:nocontrols:nogutter">			
+        <pre name="code" class="xml:nocontrols:nogutter">
 		<sources no-packages="ignore">
 			<source not-found="ignore">core\target\classes</source>
 			<source not-found="ignore">web\target\classes</source>
@@ -116,25 +116,25 @@
           <li><tt>exception</tt> will throw a <a href="exceptions.html#NoPackagesFoundException">NoPackagesFoundException</a>: No packages found when no packages are found in any of the given sources.</li>
         </ul>
         <h3>Cyclic Dependency Test</h3>
-        <pre name="code" class="xml:nocontrols:nogutter">	
+        <pre name="code" class="xml:nocontrols:nogutter">
 <cyclicalDependency test="true"></cyclicalDependency>
 </pre>
         <p> Easy as true or false to indicate weather you want this test to run or not. When this test runs and fails, a <a href="exceptions.html#CyclicRedundencyException">CyclicRedundencyException</a> is thrown. </p>
         <h3>Rules</h3>
         <p> Rules define a package, and then go on to list each package that would be considered a violation to depend on. An id is used to refer to the rule when something goes wrong, and a comment may be entered in order to document the rule for future developers (or even for yourself for that matter.) </p>
-        <pre name="code" class="xml:nocontrols:nogutter">	
-	<rule id="dao">   
-		<comment>dao layer depends on no other layers</comment>       
-		<packages>  
-			<package>com.company.app.core.dao</package>  
-			<package>com.company.app.core.dao.hibernate</package>  
-		</packages>       
-		<violations>  
-			<violation>com.company.app.core.services</violation>  
-			<violation>com.company.app.web</violation>  
-			<violation>com.company.app.web.spring</violation>  
-		</violations>  
-	</rule>  
+        <pre name="code" class="xml:nocontrols:nogutter">
+	<rule id="dao">
+		<comment>dao layer depends on no other layers</comment>
+		<packages>
+			<package>com.company.app.core.dao</package>
+			<package>com.company.app.core.dao.hibernate</package>
+		</packages>
+		<violations>
+			<violation>com.company.app.core.services</violation>
+			<violation>com.company.app.web</violation>
+			<violation>com.company.app.web.spring</violation>
+		</violations>
+	</rule>
 	</pre>
         <p> ids can not be duplicated, but packages can. If you want to break up violations for the same package you can do that.</p>
         <p> You can add more than one package to a rule. For example <tt>..dao</tt> and <tt>..dao.hibernate</tt> packages are probably going to be the same, so you can define them in a single rule. This is a change from the version 1 releases</p>
@@ -148,7 +148,7 @@
         <p>You also have the option of programatic configuration when running architecture-rules as a unit test - you don't have this option when running via the <a href="ant-task.html">ant-task</a>. Assuming you followed the <a href="getting-started.html">getting started</a> tutorial, you now have a unit test that extends <tt>AbstractArchitectureRulesConfigurationTest</tt>. From here, you can simply call <tt>getConfiguration()</tt> which will return the Configuration entity that has been populated with the settings from <tt>architecture-rules.xml</tt>. With this Configuration reference, you may not create new <tt>Rule</tt> and <tt>SourceDirectory</tt> entities and add them to the configuration.</p>
         <h3>Example</h3>
         <pre name="code" class="java:nocontrols:nogutter">
-	  
+
 /**
  * Get the configuration that already has the architecture-rules.xml
  * configuration loaded.
@@ -165,12 +165,12 @@ rule.addViolation("com.company.app.web.decorators");
 configuration.addRule(rule);
 
 /**
- * Changing a boolean like 
- * configuration.setDoCyclicDependencyTest(false) would override 
- * the value in the configuration file, because the configuration 
+ * Changing a boolean like
+ * configuration.setDoCyclicDependencyTest(false) would override
+ * the value in the configuration file, because the configuration
  * file is loaded first.
  */
-configuration.setDoCyclicDependencyTest(false);		
+configuration.setDoCyclicDependencyTest(false);
 	  </pre>
         <p>In this example, the configuration is pre-populated with the configuration found in the XML file with the name returned by the method <tt>String getConfigurationFileName()</tt> in your unit test. If you do not implement this method, or of you return <tt>""</tt> then the configuraiton will be empty.</p>
       </div>
@@ -196,6 +196,7 @@ configuration.setDoCyclicDependencyTest(false);
       <li><a href="ant-task.html">Ant Task</a> to run from ant rather than JUnit</li>
       <li><a href="exceptions.html">Exceptions</a> descriptions of all them</li>
       <li><a href="alternatives.html">Alternative</a> architecture monitoring java solutions</li>
+      <li><a href="http://architecturerules.googlecode.com/svn/docs/maven-generated-site/project-reports.html">Maven</a> generated site</li>
     </ul>
     <h4>licence<span>details</span></h4>
     <p>Licenced under <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License 2.0</a> - <small>allows use of the source code for the development of free and open source software as well as proprietary and closed source software.</small></p>
@@ -217,11 +218,11 @@ configuration.setDoCyclicDependencyTest(false);
 <!-- nifty -->
 <script type="text/javascript" src="js/nifty.js" language="JavaScript">
 </script>
-<script language="javascript">	
+<script language="javascript">
 	window.onload = function () {
     	dp.SyntaxHighlighter.ClipboardSwf = 'http://syntaxhighlighter.googlecode.com/svn/tags/1.5.1/Scripts/clipboard.swf';
 	    dp.SyntaxHighlighter.HighlightAll('code');
-	
+
 		if(!NiftyCheck())
             return;
 

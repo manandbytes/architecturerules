@@ -1,5 +1,4 @@
 #summary announcements
-#labels Featured
 
 http://www.springframework.org/themes/spring/icon-comment.png *2-nov-2007* 
 So far so good. My goal is 80%. I have a few more tests in mind that should get me closer to 85%.

@@ -15,7 +15,7 @@ html, body  { margin: 0; padding: 0; }
 #footer     { margin: 0; padding: 0; clear: both; padding: 5px; }
 
 /* Basic element styles */
-body            { background: #fff url(images/bodybg.gif) top repeat-x; color: #555; font: small/1.3 Verdana; }
+body            { background: #fff; color: #555; font: small/1.3 Verdana; }
 a               { color: #36c; text-decoration: underline; }
 a span          { text-decoration: underline; }
 /*a:visited       { color: #d08; }*/
@@ -71,7 +71,7 @@ textarea:focus  { background-color: #fff; }
 .more-link          { margin-left: 5px; }
 .date               { color: #999; display: inline; }
 .released           { text-transform: uppercase;}
-.posttitle          { font-size: 1.5em; line-height: 1.9; padding: 0 0 0 50px; margin: 3px 0; background: url('http://www.springframework.org/themes/spring/icon-comment.png') no-repeat}
+.posttitle          { font-size: 1.5em; line-height: 1.9; padding: 0 0 0 50px; margin: 3px 0; background: url('../images/icon-comment.png') no-repeat}
 .posttitle a        { text-decoration: none; border-bottom: 1px solid #ccc; display: block; color: #456; }
 .single .posttitle, 
 .page .posttitle    { border-bottom: 1px solid #ccc; }
@@ -85,7 +85,7 @@ textarea:focus  { background-color: #fff; }
 .entry form         { text-align:center; }
 .entry span         { color: #000000; }
 .attachment         { text-align: center; margin: 5px 0px; }
-.release			{ background: url('http://www.springframework.org/themes/spring/background.png') no-repeat bottom center; }
+.release			{ background: url('../images/dl_background.png') no-repeat bottom center; }
 
 #comments, #respond { margin: 20px 0 0 0; }
 #commentlist        { margin: 10px 0 0 0; padding: 0; border-top: 1px solid #ccc; }
@@ -166,7 +166,7 @@ div#backtogoogle a		{ color: gray; text-decoration: none; font-size: 10px; paddi
 
 
 .alert {
-	background: #FFFFCC url('http://www.famfamfam.com/lab/icons/silk/icons/exclamation.png') center no-repeat;
+	background: #FFFFCC url('../images/exclamation.png') center no-repeat;
 	background-position: 15px 50%; /* x-pos y-pos */
 	text-align: left;
 	padding: 15px 20px ;
@@ -178,7 +178,7 @@ div#backtogoogle a		{ color: gray; text-decoration: none; font-size: 10px; paddi
 .alert a { color: #CC6600; }
 	
 .info {
-	background: #E7EFFF url('http://www.famfamfam.com/lab/icons/silk/icons/information.png') center no-repeat;
+	background: #E7EFFF url('../images/information.png') center no-repeat;
 	background-position: 15px 50%; /* x-pos y-pos */
 	text-align: left;
 	padding: 15px 20px ;

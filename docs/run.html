@@ -22,7 +22,7 @@
   <div id="blogtitle" class="primary"><a href="http://architecturerules.googlecode.com/svn/docs/index.html">architecture</a><span>rules</span></div>
   <div id="backtogoogle"><a href="http://code.google.com/p/architecturerules/">google code landing page</a></div>
   <div id="about">
-    <p class="description"> <strong>Assert Your Architecture!</strong> with this <em>open source</em> <strong>java</strong> library. Architecture Rules leverages an <a href="sample-configuration.html">xml configuration file</a> and optional programatic configuration to assert your code's architecture via <a href="getting-started.html#write-unit-test">unit tests</a> or <a href="run.html#ant-task">ant tasks</a>. This test is able to assert that specific packages do not depend on others and is able to check for and report on cyclic dependencies among your project's packages and classes. This project wraps a industry accepted <a href="http://clarkware.com/software/JDepend.html" target="_jdepend">JDepend</a> to simplify the process of maintaining a solid software architecture.</p>
+    <p class="description"> <strong>Assert Your Architecture!</strong> with this <em>open source</em> <strong>java</strong> library. Architecture Rules leverages an <a href="sample-configuration.html">xml configuration file</a> and optional programmatic configuration to assert your code's architecture via <a href="getting-started.html#write-unit-test">unit tests</a> or <a href="run.html#ant-task">ant tasks</a>. This test is able to assert that specific packages do not depend on others and is able to check for and report on cyclic dependencies among your project's packages and classes. This project wraps a industry accepted <a href="http://clarkware.com/software/JDepend.html" target="_jdepend">JDepend</a> to simplify the process of maintaining a solid software architecture.</p>
     <ul id="mainmenu">
       <li id="home" class="page_item current_page_item"><a title="home" href="index.html" accesskey="h"><span>H</span>ome</a></li>
       <li id="source" class="page_item"><a href="source.html"><span>S</span>ource</a></li>
@@ -51,18 +51,18 @@
       <p class="postmetadata"></p>
       <div class="entry entry-content">
 
-        <p>If you are not a Maven user, this Ant task is the the preffered means for asserting your architecture. The downside to this method of running the test, is that
-        there is no means for you to provide any programattic configuration - the entire configuraiton must be read from the configuration file. If you must use Ant, and
-        you must provide programatic configuration, you will need to see the next option, <a href="#ant-unit-test">Ant Unit Test</a>.</p>
+        <p>If you are not a Maven user, this Ant task is the the preferred means for asserting your architecture. The downside to this method of running the test, is that
+        there is no means for you to provide any programmatic configuration - the entire configuration must be read from the configuration file. If you must use Ant, and
+        you must provide programmatic configuration, you will need to see the next option, <a href="#ant-unit-test">Ant Unit Test</a>.</p>
 
         <p>To use the Ant task, you must define the task with the <tt>taskdef</tt> directive, and then create a target to call assertArchitecture, and provide a name of the
         xml configuration file which you have placed in the project's classpath.</p>
 
-		<p>To run with ant, you must include your own compile goal. This configuraiton below includes <tt>depends="compile"</tt> within the test-architecture goal, so you need to implement that goal, or change the depends to your own goal, whatever you may have called your compile goal.</p>
+		<p>To run with ant, you must include your own compile goal. This configuration below includes <tt>depends="compile"</tt> within the test-architecture goal, so you need to implement that goal, or change the depends to your own goal, whatever you may have called your compile goal.</p>
 
 	   	<p>Also, you will need to point to all of the libs. If you're an ant user, you probably have a /libs directory that you can point to.<p>
 
-        <p>For an up-to-date list of dependencys, see the <a href="dependencies.html">dependencies list</a>.
+        <p>For an up-to-date list of dependencies, see the <a href="dependencies.html">dependencies list</a>.
 
         <pre name="code" class="xml:nocontrols:nogutter">
 
@@ -103,13 +103,13 @@
 	  <p class="postmetadata"></p>
 	  <div class="entry entry-content">
 
-       <p>To run with ant, you must include your own compile goal. This configuraiton below includes <tt>depends="compile"</tt> within the test-architecture goal, so you need to implement that goal, or change the depends to your own goal, whatever you may have called your compile goal.</p>
+       <p>To run with ant, you must include your own compile goal. This configuration below includes <tt>depends="compile"</tt> within the test-architecture goal, so you need to implement that goal, or change the depends to your own goal, whatever you may have called your compile goal.</p>
 
 	   <p>Also, you will need to point to all of the libs. If you're an ant user, you probably have a /libs directory that you can point to.<p>
 
-       <p>For an up-to-date list of dependencys, see the <a href="dependencies.html">dependencies list</a>.
+       <p>For an up-to-date list of dependencies, see the <a href="dependencies.html">dependencies list</a>.
 
-	  <pre name="code" class="xml:nocontrols:nogutter">
+	   <pre name="code" class="xml:nocontrols:nogutter">
 <project basedir=".">
 
     <path id="class.path">
@@ -206,7 +206,7 @@
       <li><a href="http://architecturerules.googlecode.com/svn/docs/maven-generated-site/project-reports.html">Maven</a>-generated site</li>
     </ul>
     <h4>licence<span>details</span></h4>
-    <p>Licenced under <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License 2.0</a> - <small>allows use of the source code for the development of free and open source software as well as proprietary and closed source software.</small></p>
+    <p>Licensed under <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License 2.0</a> - <small>allows use of the source code for the development of free and open source software as well as proprietary and closed source software.</small></p>
   </div>
 </div>
 <!-- footer -->

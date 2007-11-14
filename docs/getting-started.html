@@ -22,7 +22,7 @@
   <div id="blogtitle" class="primary"><a href="http://architecturerules.googlecode.com/svn/docs/index.html">architecture</a><span>rules</span></div>
   <div id="backtogoogle"><a href="http://code.google.com/p/architecturerules/">google code landing page</a></div>
   <div id="about">
-    <p class="description"> <strong>Assert Your Architecture!</strong> with this <em>open source</em> <strong>java</strong> library. Architecture Rules leverages an <a href="sample-configuration.html">xml configuration file</a> and optional programatic configuration to assert your code's architecture via <a href="getting-started.html#write-unit-test">unit tests</a> or <a href="run.html#ant-task">ant tasks</a>. This test is able to assert that specific packages do not depend on others and is able to check for and report on cyclic dependencies among your project's packages and classes. This project wraps a industry accepted <a href="http://clarkware.com/software/JDepend.html" target="_jdepend">JDepend</a> to simplify the process of maintaining a solid software architecture.</p>
+    <p class="description"> <strong>Assert Your Architecture!</strong> with this <em>open source</em> <strong>java</strong> library. Architecture Rules leverages an <a href="sample-configuration.html">xml configuration file</a> and optional programmatic configuration to assert your code's architecture via <a href="getting-started.html#write-unit-test">unit tests</a> or <a href="run.html#ant-task">ant tasks</a>. This test is able to assert that specific packages do not depend on others and is able to check for and report on cyclic dependencies among your project's packages and classes. This project wraps a industry accepted <a href="http://clarkware.com/software/JDepend.html" target="_jdepend">JDepend</a> to simplify the process of maintaining a solid software architecture.</p>
     <ul id="mainmenu">
       <li id="home" class="page_item current_page_item"><a title="home" href="index.html" accesskey="h"><span>H</span>ome</a></li>
       <li id="source" class="page_item"><a href="source.html"><span>S</span>ource</a></li>
@@ -69,7 +69,7 @@
 
         <p>First, the easiest and most common method is to download the pre-compiled package from the <a href="downloads.html">downloads</a> page.</p>
 
-        <p>Or, you can get the latest development commit from subversion. Details on accessing subversion are avaiable on the <a href="source.html">souce</a> page.
+        <p>Or, you can get the latest development commit from subversion. Details on accessing subversion are available on the <a href="source.html">source</a> page.
         Note however, that the code in subversion is not always stable. Be sure to run the tests to find out.</p>
 
       </div><!-- entry -->
@@ -79,14 +79,14 @@
       <h1 class="posttitle entry-title">Write your architecture rules</h1>
       <div class="entry entry-content">
 
-        <p>Next, you will create your architecture rules. This page will only discuss the xml configuraiton option, but be aware that you can
-        also populate the configuraiton programatically - or both with a configuration file and programatically.</p>
+        <p>Next, you will create your architecture rules. This page will only discuss the xml configuration option, but be aware that you can
+        also populate the configuration programmatically - or both with a configuration file and programmatically.</p>
 
         <p>First, create the xml configuration file. The standard naming convention for this file is <tt>architecture-rules.xml</tt> but you are
         able to name this file whatever you want. Place this file in your classpath, such as <tt>src/test/resources</tt>.</p>
 
         <p>Next, you'll actually write your rules. This requires some though. Think about your layers and modules and strive for separation of
-        concern and loosly coupled modules. See the <a href="sample-configuration.html">sample configuration</a> example to write your rules.</p>
+        concern and loosely coupled modules. See the <a href="sample-configuration.html">sample configuration</a> example to write your rules.</p>
 
       </div><!-- entry -->
     </div><!-- post -->
@@ -96,7 +96,7 @@
       <div class="entry entry-content">
 
         <p>First, note that if you are using the Ant task method of executing your test you don't need to write the unit test. See the next section
-        on <a href="#write-ant-task">writting the Ant task.</a></p>
+        on <a href="#write-ant-task">writing the Ant task.</a></p>
 
 		<h3>XML Configuration</h3>
 
@@ -128,7 +128,7 @@ public class SimpleArchitectureTest
     String getConfigurationFileName() {
 
         /**
-         * Provide the name of the rules configuraiton file.
+         * Provide the name of the rules configuration file.
          * File file is loaded from the classpath.
          */
         return "architecture-rules.xml";
@@ -142,7 +142,7 @@ public class SimpleArchitectureTest
 
         /**
          * Run the test via doTest(). If any rules are broken,
-         * or ifthe configuraiton can not be loaded properly,
+         * or if the configuration can not be loaded properly,
          * then the appropriate Exception will be thrown.
          */
         assertTrue(doTests());
@@ -150,11 +150,11 @@ public class SimpleArchitectureTest
 }
         </pre>
 
-		<h3>Programattic Configuration</h3>
+		<h3>Programmatic Configuration</h3>
 
-        <p>You may also opt to provide only programatic configuration, and provide no xml configuration. To do this, call <tt>getConfiguration()</tt> which will return
+        <p>You may also opt to provide only programmatic configuration, and provide no xml configuration. To do this, call <tt>getConfiguration()</tt> which will return
         and instance of <tt>com.seventytwomiles.architecturerules.configuration.Configuration</tt> for you to setup. Once configured, again, implement <tt>testArchitecture()</tt>
-        to call <tt>assertTrue(doTests());</tt>. A copmlete example looks like: </p>
+        to call <tt>assertTrue(doTests());</tt>. A complete example looks like: </p>
 
         <pre name="code" class="java:nogutter:nocontrols">
 public class SimpleProgramaticArchitectureTest
@@ -170,7 +170,7 @@ public class SimpleProgramaticArchitectureTest
 
         super.setUp();
 
-        /* get the configuraiton reference */
+        /* get the configuration reference */
         final Configuration configuration = getConfiguration();
 
         /* add sources */
@@ -197,7 +197,7 @@ public class SimpleProgramaticArchitectureTest
     protected String getConfigurationFileName() {
 
         /**
-         * Provide the name of the rules configuraiton file.
+         * Provide the name of the rules configuration file.
          * File file is loaded from the classpath.
          */
         return "architecture-rules.xml";
@@ -211,7 +211,7 @@ public class SimpleProgramaticArchitectureTest
 
         /**
          * Run the test via doTest(). If any rules are broken,
-         * or if the configuraiton can not be loaded properly,
+         * or if the configuration can not be loaded properly,
          * then the appropriate Exception will be thrown.
          */
         assertTrue(doTests());
@@ -222,10 +222,10 @@ public class SimpleProgramaticArchitectureTest
 
 		<h3>Mixed Configuration</h3>
 
-        <p>Finally, you may mix programattic and xml configuration. To do this, implement <tt>String getConfigurationFileName()</tt>
+        <p>Finally, you may mix programmatic and xml configuration. To do this, implement <tt>String getConfigurationFileName()</tt>
 to return "architecture-rules.xml" and continue to <tt>getConfiguraiton()</tt> in <tt>onSetup();</tt>. This will give you an instance
-of the configuraiton which is preloaded with the configuraiton found in the xml file. You may not programattically add to or modify
-that configuraiton.</p>
+of the configuration which is preloaded with the configuration found in the xml file. You may not programmatically add to or modify
+that configuration</p>
 
       </div><!-- entry -->
     </div><!-- post -->
@@ -240,8 +240,8 @@ that configuraiton.</p>
         <p>Complete details for this Task can be found <a href="run.html#ant-task">here</a> and the list of required dependencies is
         located <a href="dependencies">here</a>.</p>
 
-		<p>By chosing to use the ant Task, you give up the ability to provide programatic configuraiton. All configuraiton will be read
-		from the xml configuration file. If you must provide programatic configuraiton, there is still an alternative Ant route, that
+		<p>By choosing to use the ant Task, you give up the ability to provide programmatic configuration All configuration will be read
+		from the xml configuration file. If you must provide programmatic configuration, there is still an alternative Ant route, that
 		utilizes the <tt>junit</tt> task. Details are <a href="run.html#ant-unit-test">here</a>.</p>
 
       </div><!-- entry -->
@@ -293,7 +293,7 @@ that configuraiton.</p>
       <li><a href="http://architecturerules.googlecode.com/svn/docs/maven-generated-site/project-reports.html">Maven</a>-generated site</li>
     </ul>
     <h4>licence<span>details</span></h4>
-    <p>Licenced under <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License 2.0</a> - <small>allows use of the source code for the development of free and open source software as well as proprietary and closed source software.</small></p>
+    <p>Licensed under <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License 2.0</a> - <small>allows use of the source code for the development of free and open source software as well as proprietary and closed source software.</small></p>
   </div>
 </div>
 <!-- footer -->

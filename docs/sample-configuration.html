@@ -22,7 +22,7 @@
   <div id="blogtitle" class="primary"><a href="http://architecturerules.googlecode.com/svn/docs/index.html">architecture</a><span>rules</span></div>
   <div id="backtogoogle"><a href="http://code.google.com/p/architecturerules/">google code landing page</a></div>
   <div id="about">
-    <p class="description"> <strong>Assert Your Architecture!</strong> with this <em>open source</em> <strong>java</strong> library. Architecture Rules leverages an <a href="sample-configuration.html">xml configuration file</a> and optional programatic configuration to assert your code's architecture via <a href="getting-started.html#write-unit-test">unit tests</a> or <a href="run.html#ant-task">ant tasks</a>. This test is able to assert that specific packages do not depend on others and is able to check for and report on cyclic dependencies among your project's packages and classes. This project wraps a industry accepted <a href="http://clarkware.com/software/JDepend.html" target="_jdepend">JDepend</a> to simplify the process of maintaining a solid software architecture.</p>
+    <p class="description"> <strong>Assert Your Architecture!</strong> with this <em>open source</em> <strong>java</strong> library. Architecture Rules leverages an <a href="sample-configuration.html">xml configuration file</a> and optional programmatic configuration to assert your code's architecture via <a href="getting-started.html#write-unit-test">unit tests</a> or <a href="run.html#ant-task">ant tasks</a>. This test is able to assert that specific packages do not depend on others and is able to check for and report on cyclic dependencies among your project's packages and classes. This project wraps a industry accepted <a href="http://clarkware.com/software/JDepend.html" target="_jdepend">JDepend</a> to simplify the process of maintaining a solid software architecture.</p>
     <ul id="mainmenu">
       <li id="home" class="page_item current_page_item"><a title="home" href="index.html" accesskey="h"><span>H</span>ome</a></li>
       <li id="source" class="page_item"><a href="source.html"><span>S</span>ource</a></li>
@@ -93,7 +93,7 @@
       <h1 class="posttitle entry-title">Sample Configuration Breakdown</h1>
       <p class="postmetadata">XML</p>
       <div class="entry entry-content">
-        <p>Here is an explaination of the various xml nodes.</p>
+        <p>Here is an explanation of the various xml nodes.</p>
         <h3>Sources</h3>
         <pre name="code" class="xml:nocontrols:nogutter">
 		<sources no-packages="ignore">
@@ -138,14 +138,14 @@
 	</pre>
         <p> ids can not be duplicated, but packages can. If you want to break up violations for the same package you can do that.</p>
         <p> You can add more than one package to a rule. For example <tt>..dao</tt> and <tt>..dao.hibernate</tt> packages are probably going to be the same, so you can define them in a single rule. This is a change from the version 1 releases</p>
-        <p> You can not add a violation that is identical to the package. This is because, in reality, if you have a class that uses a class in the same package, no imports are defined, and therefor this situation can not be tested. If you try this, you will get an <a href="exceptions.html#IllegalRuleException">IllegalRuleException</a> </p>
+        <p> You can not add a violation that is identical to the package. This is because, in reality, if you have a class that uses a class in the same package, no imports are defined, and therefore this situation can not be tested. If you try this, you will get an <a href="exceptions.html#IllegalRuleException">IllegalRuleException</a> </p>
       </div>
     </div>
     <div class="hentry post programming" id="">
       <h1 class="posttitle entry-title">Sample Configuration</h1>
-      <p class="postmetadata">Programatic</p>
+      <p class="postmetadata">Programmatic</p>
       <div class="entry entry-content">
-        <p>You also have the option of programatic configuration when running architecture-rules as a unit test - you don't have this option when running via the <a href="run.html#ant-task">ant-task</a>. Assuming you followed the <a href="getting-started.html">getting started</a> tutorial, you now have a unit test that extends <tt>AbstractArchitectureRulesConfigurationTest</tt>. From here, you can simply call <tt>getConfiguration()</tt> which will return the Configuration entity that has been populated with the settings from <tt>architecture-rules.xml</tt>. With this Configuration reference, you may not create new <tt>Rule</tt> and <tt>SourceDirectory</tt> entities and add them to the configuration.</p>
+        <p>You also have the option of programmatic configuration when running architecture-rules as a unit test - you don't have this option when running via the <a href="run.html#ant-task">ant-task</a>. Assuming you followed the <a href="getting-started.html">getting started</a> tutorial, you now have a unit test that extends <tt>AbstractArchitectureRulesConfigurationTest</tt>. From here, you can simply call <tt>getConfiguration()</tt> which will return the Configuration entity that has been populated with the settings from <tt>architecture-rules.xml</tt>. With this Configuration reference, you may not create new <tt>Rule</tt> and <tt>SourceDirectory</tt> entities and add them to the configuration.</p>
         <h3>Example</h3>
         <pre name="code" class="java:nocontrols:nogutter">
 
@@ -172,7 +172,7 @@ configuration.addRule(rule);
  */
 configuration.setDoCyclicDependencyTest(false);
 	  </pre>
-        <p>In this example, the configuration is pre-populated with the configuration found in the XML file with the name returned by the method <tt>String getConfigurationFileName()</tt> in your unit test. If you do not implement this method, or of you return <tt>""</tt> then the configuraiton will be empty.</p>
+        <p>In this example, the configuration is pre-populated with the configuration found in the XML file with the name returned by the method <tt>String getConfigurationFileName()</tt> in your unit test. If you do not implement this method, or of you return <tt>""</tt> then the configuration will be empty.</p>
       </div>
     </div>
   </div>
@@ -199,7 +199,7 @@ configuration.setDoCyclicDependencyTest(false);
       <li><a href="http://architecturerules.googlecode.com/svn/docs/maven-generated-site/project-reports.html">Maven</a>-generated site</li>
     </ul>
     <h4>licence<span>details</span></h4>
-    <p>Licenced under <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License 2.0</a> - <small>allows use of the source code for the development of free and open source software as well as proprietary and closed source software.</small></p>
+    <p>Licence under <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License 2.0</a> - <small>allows use of the source code for the development of free and open source software as well as proprietary and closed source software.</small></p>
   </div>
 </div>
 <!-- footer -->

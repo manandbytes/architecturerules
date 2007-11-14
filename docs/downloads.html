@@ -21,7 +21,7 @@
   <div id="blogtitle" class="primary"><a href="http://architecturerules.googlecode.com/svn/docs/index.html">architecture</a><span>rules</span></div>
   <div id="backtogoogle"><a href="http://code.google.com/p/architecturerules/">google code landing page</a></div>
   <div id="about">
-    <p class="description"> <strong>Assert Your Architecture!</strong> with this <em>open source</em> <strong>java</strong> library. Architecture Rules leverages an <a href="sample-configuration.html">xml configuration file</a> and optional programatic configuration to assert your code's architecture via <a href="getting-started.html#write-unit-test">unit tests</a> or <a href="run.html#ant-task">ant tasks</a>. This test is able to assert that specific packages do not depend on others and is able to check for and report on cyclic dependencies among your project's packages and classes. This project wraps a industry accepted <a href="http://clarkware.com/software/JDepend.html" target="_jdepend">JDepend</a> to simplify the process of maintaining a solid software architecture.</p>
+    <p class="description"> <strong>Assert Your Architecture!</strong> with this <em>open source</em> <strong>java</strong> library. Architecture Rules leverages an <a href="sample-configuration.html">xml configuration file</a> and optional programmatic configuration to assert your code's architecture via <a href="getting-started.html#write-unit-test">unit tests</a> or <a href="run.html#ant-task">ant tasks</a>. This test is able to assert that specific packages do not depend on others and is able to check for and report on cyclic dependencies among your project's packages and classes. This project wraps a industry accepted <a href="http://clarkware.com/software/JDepend.html" target="_jdepend">JDepend</a> to simplify the process of maintaining a solid software architecture.</p>
     <ul id="mainmenu">
       <li id="home" class="page_item"><a title="home" href="index.html" accesskey="h"><span>H</span>ome</a></li>
       <li id="source" class="page_item"><a href="source.html"><span>S</span>ource</a></li>
@@ -62,9 +62,9 @@
         <ul class="changes">
           <li id="issue-10"><a href="http://code.google.com/p/architecturerules/issues/detail?id=10">issue-10</a> run test with Ant and other tools <span>usability</span></li>
           <li id="issue-11"><a href="http://code.google.com/p/architecturerules/issues/detail?id=11">issue-11</a> remove log4j.xml from package</li>
-          <li id="issue-13"><a href="http://code.google.com/p/architecturerules/issues/detail?id=13">issue-13</a> Use JavaPackage logic to locate cyclces <span>performance maintainability</span></li>
-          <li id="issue-14"><a href="http://code.google.com/p/architecturerules/issues/detail?id=14">issue-14</a> allow programatic-only configuration <span>usability</span></li>
-          <li id="issue-15"><a href="http://code.google.com/p/architecturerules/issues/detail?id=15">issue-15</a> add appropriate copywrite to sources <span>usability maintainability</span></li>
+          <li id="issue-13"><a href="http://code.google.com/p/architecturerules/issues/detail?id=13">issue-13</a> Use JavaPackage logic to locate cycles <span>performance maintainability</span></li>
+          <li id="issue-14"><a href="http://code.google.com/p/architecturerules/issues/detail?id=14">issue-14</a> allow programmatic-only configuration <span>usability</span></li>
+          <li id="issue-15"><a href="http://code.google.com/p/architecturerules/issues/detail?id=15">issue-15</a> add appropriate copy write to sources <span>usability maintainability</span></li>
           <li id="issue-16"><a href="http://code.google.com/p/architecturerules/issues/detail?id=16">issue-16</a> provide test-sources jar <span>usability</span></li>
         </ul>
         <!-- /changes  -->
@@ -78,7 +78,7 @@
       <h1 class="posttitle entry-title">Release 2.0-rc1</h1>
       <p class="postmetadata">enhancement release</p>
       <div class="entry entry-content" >
-        <p> First real release. This probobly should have been the 1.0 series. This release finished the issues and tasks that should have been completed before attempting to release the tool. It added a real xml parsing strategy to the <a href="http://architecturerules.googlecode.com/svn/docs/maven-generated-site/xref/com/seventytwomiles/architecturerules/configuration/xml/ConfigurationFactory.html">ConfigurationFactory</a> - <a href="http://commons.apache.org/digester/">commons digester</a>. Also, test coverage is now at 88%, beating the goal of 80%. And finally, rather than just reporting that a cyclic dependency exists, the exact packages with the cyclic dependency are exposed. Soon, even the classes will be identified.</p>
+        <p> First real release. This probably should have been the 1.0 series. This release finished the issues and tasks that should have been completed before attempting to release the tool. It added a real xml parsing strategy to the <a href="http://architecturerules.googlecode.com/svn/docs/maven-generated-site/xref/com/seventytwomiles/architecturerules/configuration/xml/ConfigurationFactory.html">ConfigurationFactory</a> - <a href="http://commons.apache.org/digester/">commons digester</a>. Also, test coverage is now at 88%, beating the goal of 80%. And finally, rather than just reporting that a cyclic dependency exists, the exact packages with the cyclic dependency are exposed. Soon, even the classes will be identified.</p>
         <div class="downloadnow">
           <ol>
             <li><a href="http://architecturerules.googlecode.com/files/architecture-rules-2.0-rc1.jar">architecture-rules-2.0-rc1.jar</a> </li>
@@ -89,7 +89,7 @@
         <h2>changes</h2>
         <ul class="changes">
           <li id="issue-1"><a href="http://code.google.com/p/architecturerules/issues/detail?id=1">issue-1</a> more complete test coverage</li>
-          <li id="issue-4"><a href="http://code.google.com/p/architecturerules/issues/detail?id=4">issue-4</a> allow programatic configuration <span>usability</span></li>
+          <li id="issue-4"><a href="http://code.google.com/p/architecturerules/issues/detail?id=4">issue-4</a> allow programmatic configuration <span>usability</span></li>
           <li id="issue-5"><a href="http://code.google.com/p/architecturerules/issues/detail?id=5">issue-5</a> rewrite configurationhandler with new xml parser <span>maintainability performance</span></li>
           <li id="issue-6"><a href="http://code.google.com/p/architecturerules/issues/detail?id=6">issue-6</a> report which packages were cyclic in dependency <span>usability</span></li>
           <li id="issue-7"><a href="http://code.google.com/p/architecturerules/issues/detail?id=7">issue-7</a> exceptions should be unchecked <span>usability</span></li>
@@ -117,7 +117,7 @@
 
         <h2>changes</h2>
         <ul class="changes">
-          <li id="issue-2"><a href="http://code.google.com/p/architecturerules/issues/detail?id=2">issue-2</a> remove unneccessary dependencies <span>maintainability</span></li>
+          <li id="issue-2"><a href="http://code.google.com/p/architecturerules/issues/detail?id=2">issue-2</a> remove unnecessary dependencies <span>maintainability</span></li>
           <li id="issue-3"><a href="http://code.google.com/p/architecturerules/issues/detail?id=3">issue-3</a> complete javadocs <span>maintainability</span></li>
         </ul><!-- /changes  -->
 
@@ -167,7 +167,7 @@
       <li><a href="http://architecturerules.googlecode.com/svn/docs/maven-generated-site/project-reports.html">Maven</a>-generated site</li>
     </ul>
     <h4>licence<span>details</span></h4>
-    <p>Licenced under <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License 2.0</a> - <small>allows use of the source code for the development of free and open source software as well as proprietary and closed source software.</small></p>
+    <p>Licensed under <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License 2.0</a> - <small>allows use of the source code for the development of free and open source software as well as proprietary and closed source software.</small></p>
   </div>
 </div>
 <!-- footer -->

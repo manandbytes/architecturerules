@@ -8,7 +8,7 @@
 <title>architecture rules</title>
 <link rel="stylesheet" type="text/css" href="css/style.css" />
 <link rel="stylesheet" type="text/css" href="css/nifty.css" />
-<link rel="stylesheet" type="text/css" href="css/syntax.css"  />
+<link rel="stylesheet" type="text/css" href="css/syntax.css"/>
 <!--[if lt IE 8]>
 <style type="text/css">
   #mainmenu li a, #recentposts li a, #personalfavorites li a, #textads li a, #recentcomments li, #contactme li {display:inline-block;}
@@ -22,7 +22,7 @@
   <div id="blogtitle" class="primary"><a href="http://architecturerules.googlecode.com/svn/docs/index.html">architecture</a><span>rules</span></div>
   <div id="backtogoogle"><a href="http://code.google.com/p/architecturerules/">google code landing page</a></div>
   <div id="about">
-    <p class="description"> <strong>Assert Your Architecture!</strong> with this <em>open source</em> <strong>java</strong> library. Architecture Rules leverages an <a href="sample-configuration.html">xml configuration file</a> and optional programatic configuration to assert your code's architecture via <a href="getting-started.html">unit tests</a> or <a href="ant-task.html">ant tasks</a>. This test is able to assert that specific packages do not depend on others and is able to check for and report on cyclic dependencies among your project's packages and classes. This project wraps a industry accepted <a href="http://clarkware.com/software/JDepend.html" target="_jdepend">JDepend</a> to simplify the process of maintaining a solid software architecture.</p>
+    <p class="description"> <strong>Assert Your Architecture!</strong> with this <em>open source</em> <strong>java</strong> library. Architecture Rules leverages an <a href="sample-configuration.html">xml configuration file</a> and optional programatic configuration to assert your code's architecture via <a href="getting-started.html">unit tests</a> or <a href="run.html#ant-task">ant tasks</a>. This test is able to assert that specific packages do not depend on others and is able to check for and report on cyclic dependencies among your project's packages and classes. This project wraps a industry accepted <a href="http://clarkware.com/software/JDepend.html" target="_jdepend">JDepend</a> to simplify the process of maintaining a solid software architecture.</p>
     <ul id="mainmenu">
       <li id="home" class="page_item current_page_item"><a title="home" href="index.html" accesskey="h"><span>H</span>ome</a></li>
       <li id="source" class="page_item"><a href="source.html"><span>S</span>ource</a></li>
@@ -145,7 +145,7 @@
       <h1 class="posttitle entry-title">Sample Configuration</h1>
       <p class="postmetadata">Programatic</p>
       <div class="entry entry-content">
-        <p>You also have the option of programatic configuration when running architecture-rules as a unit test - you don't have this option when running via the <a href="ant-task.html">ant-task</a>. Assuming you followed the <a href="getting-started.html">getting started</a> tutorial, you now have a unit test that extends <tt>AbstractArchitectureRulesConfigurationTest</tt>. From here, you can simply call <tt>getConfiguration()</tt> which will return the Configuration entity that has been populated with the settings from <tt>architecture-rules.xml</tt>. With this Configuration reference, you may not create new <tt>Rule</tt> and <tt>SourceDirectory</tt> entities and add them to the configuration.</p>
+        <p>You also have the option of programatic configuration when running architecture-rules as a unit test - you don't have this option when running via the <a href="run.html#ant-task">ant-task</a>. Assuming you followed the <a href="getting-started.html">getting started</a> tutorial, you now have a unit test that extends <tt>AbstractArchitectureRulesConfigurationTest</tt>. From here, you can simply call <tt>getConfiguration()</tt> which will return the Configuration entity that has been populated with the settings from <tt>architecture-rules.xml</tt>. With this Configuration reference, you may not create new <tt>Rule</tt> and <tt>SourceDirectory</tt> entities and add them to the configuration.</p>
         <h3>Example</h3>
         <pre name="code" class="java:nocontrols:nogutter">
 
@@ -193,7 +193,7 @@ configuration.setDoCyclicDependencyTest(false);
     <ul id="moreinformation">
       <li><a href="getting-started.html">Getting Started</a> configuration examples and how to run the test</li>
       <li><a href="sample-configuration.html">Sample Configuration</a> to get you started</li>
-      <li><a href="ant-task.html">Ant Task</a> to run from ant rather than JUnit</li>
+      <li><a href="run.html#ant-task">Ant Task</a> to run from ant rather than JUnit</li>
       <li><a href="exceptions.html">Exceptions</a> descriptions of all them</li>
       <li><a href="alternatives.html">Alternative</a> architecture monitoring java solutions</li>
       <li><a href="http://architecturerules.googlecode.com/svn/docs/maven-generated-site/project-reports.html">Maven</a>-generated site</li>
@@ -205,7 +205,7 @@ configuration.setDoCyclicDependencyTest(false);
 <!-- footer -->
 <div style="clear: both;"></div>
 <div id="footbar">
-  <p>need some content?</p>
+  <p>Need some footer content...</p>
 </div>
 <!-- /footer -->
 <!-- syntaxhighlighter -->

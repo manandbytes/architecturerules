@@ -63,19 +63,6 @@ public class SimpleProgramaticArchitectureTest extends AbstractArchitectureRules
 
 
     /**
-     * @see AbstractArchitectureRulesConfigurationTest
-     */
-    protected String getConfigurationFileName() {
-
-        /**
-         * Provide the name of the rules configuraiton file. File file is
-         * loaded from the classpath.
-         */
-        return "architecture-rules.xml";
-    }
-
-
-    /**
      * @see AbstractArchitectureRulesConfigurationTest#testArchitecture()
      */
     public void testArchitecture() {

@@ -154,6 +154,8 @@ ul.changes li a         { text-decoration: none; }
 ul.changes li span      { color: #000; text-transform: lowercase;}
 
 ol#toc			{ background-color: #f8f8f8; border: 1px solid #f0f0f0; } 
+ol#toc li 	        { list-style: none; } 
+ol#toc ol 	        { border: none; margin: 0; padding: 0 0 0 10px;} 
 
 ol#releases li		{ display: block; line-height: 20px; clear: right; !important; clear: both; display: block !important; margin: 3px !important;  }
 ol#releases li.current  { filter: alpha(opacity=100); -moz-opacity:  1; opacity:  1; } 

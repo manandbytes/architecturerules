@@ -8,6 +8,7 @@
 <title>architecture rules</title>
 <link rel="stylesheet" type="text/css" href="css/style.css" />
 <link rel="stylesheet" type="text/css" href="css/nifty.css" />
+<link rel="stylesheet" type="text/css" href="css/syntax.css"/>
 <!--[if lt IE 8]>
 <style type="text/css">
   #mainmenu li a, #recentposts li a, #personalfavorites li a, #textads li a, #recentcomments li, #contactme li {display:inline-block;}
@@ -29,19 +30,246 @@
     </ul>
   </div>
   <!-- /about -->
+
   <div id="primary" class="single hfeed">
-    <div class="hentry post programming" id="">
+
+    <div class="hentry post programming" id="getting-started">
       <h1 class="posttitle entry-title">Getting Started</h1>
-      <p class="postmetadata"></p>
       <div class="entry entry-content">
-        <p>
-        <p class="alert">This page has not been transcribed yet. Please refer <a href="http://code.google.com/p/architecturerules/wiki/GettingStarted">here</a>.</p>
+        <p>This tutorial will get you started and have you <strong>Asserting Your Architecture!</strong> in a matter of minutes.</p>
+
+        <p>The steps that are covered include:</p>
+
+        <ol id="toc">
+		  <li><a href="#get">Get the Library</a></li>
+		  <li><a href="#architecture-rules.xml">Write your architecture rules</a></li>
+		  <li><a href="#write-unit-test">Write</a>
+		  <ol id="toc">
+	 	    <li><a href="#write-unit-test">Write your unit test</a></li>
+		    <li><a href="#write-ant-task">Write your Ant task</a></li>
+		  </ol>
+		  </li>
+		  <li><a href="#execute-unit-test">Execute</a>
+		  <ol id="toc">
+		    <li><a href="#execute-unit-test">Execute your unit test</a></li>
+		    <li><a href="#execute-ant-task">Execute your Ant task</a></li>
+		  </ol>
+		  </li>
+        </ol>
+
+      </div><!-- entry -->
+    </div><!-- post -->
+
+
+    <div class="hentry post programming" id="get">
+      <h1 class="posttitle entry-title">Get the Library</h1>
+      <div class="entry entry-content">
+
+        <p>You can get the library from one of two locations.</p>
+
+        <p>First, the easiest and most common method is to download the pre-compiled package from the <a href="downloads.html">downloads</a> page.</p>
+
+        <p>Or, you can get the latest development commit from subversion. Details on accessing subversion are avaiable on the <a href="source.html">souce</a> page.
+        Note however, that the code in subversion is not always stable. Be sure to run the tests to find out.</p>
+
+      </div><!-- entry -->
+    </div><!-- post -->
+
+    <div class="hentry post programming" id="architecture-rules.xml">
+      <h1 class="posttitle entry-title">Write your architecture rules</h1>
+      <div class="entry entry-content">
+
+        <p>Next, you will create your architecture rules. This page will only discuss the xml configuraiton option, but be aware that you can
+        also populate the configuraiton programatically - or both with a configuration file and programatically.</p>
+
+        <p>First, create the xml configuration file. The standard naming convention for this file is <tt>architecture-rules.xml</tt> but you are
+        able to name this file whatever you want. Place this file in your classpath, such as <tt>src/test/resources</tt>.</p>
+
+        <p>Next, you'll actually write your rules. This requires some though. Think about your layers and modules and strive for separation of
+        concern and loosly coupled modules. See the <a href="sample-configuration.html">sample configuration</a> example to write your rules.</p>
+
+      </div><!-- entry -->
+    </div><!-- post -->
+
+    <div class="hentry post programming" id="write-unit-test">
+      <h1 class="posttitle entry-title">Write your unit test</h1>
+      <div class="entry entry-content">
+
+        <p>First, note that if you are using the Ant task method of executing your test you don't need to write the unit test. See the next section
+        on <a href="#write-ant-task">writting the Ant task.</a></p>
+
+		<h3>XML Configuration</h3>
+
+        <p>To write the unit test,
+
+        <ol>
+          <li>extend <tt>com.seventytwomiles.architecturerules.AbstractArchitectureRulesConfigurationTest</tt></li>
+          <li>implement <tt>String getConfigurationFileName()</tt> to return "architecture-rules.xml"</li>
+         <li>implement <tt>void testArchitecture()</tt> which should simple call <tt>assertTrue(doTests());</tt> </li>
+        </ol>
         </p>
-      </div>
-      <!-- entry -->
-    </div>
-    <!-- post -->
-  </div>
+
+        <p>A complete, simple example looks like:</a>
+
+        <pre name="code" class="java:nogutter:nocontrols">
+/**
+ * <p>Architecture test example.</p>
+ *
+ * @author mikenereson
+ * @see AbstractArchitectureRulesConfigurationTest
+ */
+public class SimpleArchitectureTest
+                 extends AbstractArchitectureRulesConfigurationTest {
+
+
+    /**
+     * @see AbstractArchitectureRulesConfigurationTest
+     */
+    String getConfigurationFileName() {
+
+        /**
+         * Provide the name of the rules configuraiton file.
+         * File file is loaded from the classpath.
+         */
+        return "architecture-rules.xml";
+    }
+
+
+    /**
+     * @see AbstractArchitectureRulesConfigurationTest#testArchitecture
+     */
+    public void testArchitecture() {
+
+        /**
+         * Run the test via doTest(). If any rules are broken,
+         * or ifthe configuraiton can not be loaded properly,
+         * then the appropriate Exception will be thrown.
+         */
+        assertTrue(doTests());
+    }
+}
+        </pre>
+
+		<h3>Programattic Configuration</h3>
+
+        <p>You may also opt to provide only programatic configuration, and provide no xml configuration. To do this, call <tt>getConfiguration()</tt> which will return
+        and instance of <tt>com.seventytwomiles.architecturerules.configuration.Configuration</tt> for you to setup. Once configured, again, implement <tt>testArchitecture()</tt>
+        to call <tt>assertTrue(doTests());</tt>. A copmlete example looks like: </p>
+
+        <pre name="code" class="java:nogutter:nocontrols">
+public class SimpleProgramaticArchitectureTest
+                  extends AbstractArchitectureRulesConfigurationTest {
+
+
+    /**
+     * Sets up the fixture, for example, open a network
+     * connection. This method is called before a test
+     * is executed.
+     */
+    protected void setUp() throws Exception {
+
+        super.setUp();
+
+        /* get the configuraiton reference */
+        final Configuration configuration = getConfiguration();
+
+        /* add sources */
+        configuration.addSource(
+                  new SourceDirectory("target\\test-classes", true));
+
+        /* set options */
+        configuration.setDoCyclicDependencyTest(false);
+        configuration.setThrowExceptionWhenNoPackages(true);
+
+        /* add Rules */
+        final Rule daoRule = new Rule("dao");
+        daoRule.setComment("dao may not access presentation.");
+        daoRule.addPackage("test.com.seventytwomiles.dao.hibernate");
+        daoRule.addViolation("test.com.seventytwomiles.web.spring");
+
+        configuration.addRule(daoRule);
+    }
+
+
+    /**
+     * @see AbstractArchitectureRulesConfigurationTest
+     */
+    protected String getConfigurationFileName() {
+
+        /**
+         * Provide the name of the rules configuraiton file.
+         * File file is loaded from the classpath.
+         */
+        return "architecture-rules.xml";
+    }
+
+
+    /**
+     * @see AbstractArchitectureRulesConfigurationTest#testArchitecture
+     */
+    public void testArchitecture() {
+
+        /**
+         * Run the test via doTest(). If any rules are broken,
+         * or if the configuraiton can not be loaded properly,
+         * then the appropriate Exception will be thrown.
+         */
+        assertTrue(doTests());
+    }
+}
+        </pre>
+
+
+		<h3>Mixed Configuration</h3>
+
+        <p>Finally, you may mix programattic and xml configuration. To do this, implement <tt>String getConfigurationFileName()</tt>
+to return "architecture-rules.xml" and continue to <tt>getConfiguraiton()</tt> in <tt>onSetup();</tt>. This will give you an instance
+of the configuraiton which is preloaded with the configuraiton found in the xml file. You may not programattically add to or modify
+that configuraiton.</p>
+
+      </div><!-- entry -->
+    </div><!-- post -->
+
+    <div class="hentry post programming" id="write-ant-task">
+      <h1 class="posttitle entry-title">Write your Ant task</h1>
+      <div class="entry entry-content">
+
+        <p>If you would prefer to utilize Ant rather than write a unit test you may do so by defining a new <tt>taskdef</tt> for
+        <tt>com.seventytwomiles.architecturerules.ant.AssertArchitectureTask</tt>.</p>
+
+        <p>Complete details for this Task can be found <a href="run.html#ant-task">here</a> and the list of required dependencies is
+        located <a href="dependencies">here</a>.</p>
+
+		<p>By chosing to use the ant Task, you give up the ability to provide programatic configuraiton. All configuraiton will be read
+		from the xml configuration file. If you must provide programatic configuraiton, there is still an alternative Ant route, that
+		utilizes the <tt>junit</tt> task. Details are <a href="run.html#ant-unit-test">here</a>.</p>
+
+      </div><!-- entry -->
+    </div><!-- post -->
+
+    <div class="hentry post programming" id="execute-unit-test">
+      <h1 class="posttitle entry-title">Execute your unit test</h1>
+      <div class="entry entry-content">
+
+        <p class="alert">This section has not been written yet. If anyone would like to provide this content, please mail the content
+        to the dev mailing list <a href="http://groups.google.com/group/architecture-rules-dev/topics?gvc=2">here</a>.</p>
+
+      </div><!-- entry -->
+    </div><!-- post -->
+
+
+
+    <div class="hentry post programming" id="execute-ant-task">
+      <h1 class="posttitle entry-title">Execute your Ant task</h1>
+      <div class="entry entry-content">
+
+        <p class="alert">This section has not been written yet. If anyone would like to provide this content, please mail the content
+        to the dev mailing list <a href="http://groups.google.com/group/architecture-rules-dev/topics?gvc=2">here</a>.</p>
+
+      </div><!-- entry -->
+    </div><!-- post -->
+
+  </div><!-- primary -->
   <div id="secondary">
     <h4>mailing<span>lists</span></h4>
     <ul id="mailinglists">
@@ -74,20 +302,28 @@
   <p>Need some footer content...</p>
 </div>
 <!-- /footer -->
+<!-- syntaxhighlighter -->
+<script type="text/javascript" src="http://syntaxhighlighter.googlecode.com/svn/tags/1.5.1/Scripts/shCore.js" language="JavaScript">
+</script>
+<script type="text/javascript" src="http://syntaxhighlighter.googlecode.com/svn/tags/1.5.1/Scripts/shBrushXml.js" language="JavaScript">
+</script>
+<script type="text/javascript" src="http://syntaxhighlighter.googlecode.com/svn/tags/1.5.1/Scripts/shBrushJava.js" language="JavaScript">
+</script>
+<!-- nifty -->
 <script type="text/javascript" src="js/nifty.js" language="JavaScript">
 </script>
-<script type="text/javascript">
-//<![CDATA[
-    window.onload=function(){
-        if(!NiftyCheck())
+<script language="javascript">
+	window.onload = function () {
+    	dp.SyntaxHighlighter.ClipboardSwf = 'http://syntaxhighlighter.googlecode.com/svn/tags/1.5.1/Scripts/clipboard.swf';
+	    dp.SyntaxHighlighter.HighlightAll('code');
+
+		if(!NiftyCheck())
             return;
 
-		  Rounded("div#about","#fff","#E7EFFF");
-		  Rounded("div#downloadnow","#fff","#e8fecd");
-		  RoundedTop("div#footbar","#fff","#e8fecd");
-
-    }
-//]]>
+		Rounded("div#about","#fff","#E7EFFF");
+		Rounded("div#downloadnow","#fff","#e8fecd");
+		RoundedTop("div#footbar","#fff","#e8fecd");
+	}
 </script>
 
 <script src="http://www.google-analytics.com/urchin.js" type="text/javascript">

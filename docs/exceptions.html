@@ -8,6 +8,7 @@
 <title>architecture rules</title>
 <link rel="stylesheet" type="text/css" href="css/style.css" />
 <link rel="stylesheet" type="text/css" href="css/nifty.css" />
+<link rel="stylesheet" type="text/css" href="css/syntax.css"/>
 <!--[if lt IE 8]>
 <style type="text/css">
   #mainmenu li a, #recentposts li a, #personalfavorites li a, #textads li a, #recentcomments li, #contactme li {display:inline-block;}
@@ -29,19 +30,169 @@
     </ul>
   </div>
   <!-- /about -->
+
   <div id="primary" class="single hfeed">
-    <div class="hentry post programming" id="">
-      <h1 class="posttitle entry-title">Exceptions</h1>
+
+
+    <div class="hentry post programming" id="toc">
+      <h1 class="posttitle entry-title">Execution Options</h1>
       <p class="postmetadata"></p>
+      <p>There are various ways to <strong>Assert your Architecture!</strong> with Architecture Rules.</p>
       <div class="entry entry-content">
-        <p>
-        <p class="alert">This page has not been transcribed yet. Please refer <a href="http://code.google.com/p/architecturerules/wiki/Exception">here</a>.</p>
-        </p>
-      </div>
-      <!-- entry -->
-    </div>
-    <!-- post -->
-  </div>
+      	<ol id="toc">
+      	  <li><a href="#Exceptions">Exceptions</a>
+          <ol id="toc">
+            <li><a href="#CyclicRedundencyException">CyclicRedundencyException</a></li>
+            <li><a href="#DependencyConstraintException">DependencyConstraintException</a></li>
+            <li><a href="#IllegalArchitectureRuleException">IllegalArchitectureRuleException</a></li>
+            <li><a href="#SourceNotFoundException">SourceNotFoundException</a></li>
+            <li><a href="#NoPackagesFoundException">NoPackagesFoundException</a></li>
+          </ol>
+          </li>
+        </ol>
+	  </div>
+	</div>
+
+    <div class="hentry post programming" id="Exceptions">
+      <h1 class="posttitle entry-title">Exceptions</h1>
+
+      <div class="entry entry-content">
+
+        <p>This page documents the many Exceptions that the Architecture Rules library may through throughout the course
+        of buildling the configuraiton, and executing the rules and cyclic dependency testing. All of these exceptions
+        are RuntimeExceptions unless otherwise stated.</p>
+
+      </div><!-- entry -->
+    </div><!-- post -->
+
+
+    <div class="hentry post programming" id="CyclicRedundencyException">
+      <h1 class="posttitle entry-title">CyclicRedundencyException</h1>
+
+      <div class="entry entry-content">
+
+        <p>If the cyclic redundancy test is run (via setting <tt>&lt;cyclicalDependency test="true"/></tt>) and any cyclic redundancies are found, this exception is thrown.</p>
+
+		<p>When any cyclic dependencies are encountered, this exception is thrown. The exception message will report all packages that are involved in cyclic dependencies.</p>
+
+		<p>An example message looks like:</p>
+
+		<pre >
+com.seventytwomiles.architecturerules.exceptions.CyclicRedundancyException:
+cylic depencencies found:
+
+-- test.com.seventytwomiles.services
+&#124;  &#124;
+&#124;  &#124;-- test.com.seventytwomiles.model
+&#124;  &#124;
+&#124;  &#124;-- test.com.seventytwomiles.dao.hibernate
+&#124;
+&#124;
+-- test.com.seventytwomiles.model
+&#124;  &#124;
+&#124;  &#124;-- test.com.seventytwomiles.services
+&#124;
+&#124;
+-- test.com.seventytwomiles.dao.hibernate
+   &#124;
+   &#124;-- test.com.seventytwomiles.services
+		</pre>
+      </div><!-- entry -->
+    </div><!-- post -->
+
+
+    <div class="hentry post programming" id="DependencyConstraintException">
+      <h1 class="posttitle entry-title">DependencyConstraintException</h1>
+
+      <div class="entry entry-content">
+
+        <p>When any defined violation occurs, this exception is thrown. The message will tell you which package was violated, who who the violating package was.</p>
+
+        <p>The message (as of the time of this writing) looks like:</p>
+
+		<tt>dependency constraint failed in 'dao' rule which constrains packages 'com.seventytwomiles.dao'</tt>
+
+      </div><!-- entry -->
+    </div><!-- post -->
+
+
+    <div class="hentry post programming" id="IllegalArchitectureRuleException">
+      <h1 class="posttitle entry-title">IllegalArchitectureRuleException</h1>
+
+      <div class="entry entry-content">
+
+        <p><tt>IllegalArchitectureRuleException</tt> is thrown when a rule defines a violation in the package that it describes.</p>
+
+		<p>For example:</p>
+
+		<pre name="code" class="xml:nocontrols:nogutter">
+		<rule id="dao">
+		  <comment>dao layer depends on no other layers</comment>
+  		  <packages>
+		    <package>com.company.app.core.dao</package>
+		    <package>com.company.app.core.dao.hibernate</package>
+		  </packages>
+		  <violations>
+		    <violation>com.company.app.core.dao</violation>
+		  </violations>
+		</rule>
+		</pre>
+
+		<p>Would throw this exception because JDepend can not test that the dao package does not depend on the dao package.
+		An exception is thrown telling you to remove this violation. The violation could be ignored by the tests, but it is not.
+		Users should understand that this can not be tested and remove this violation.</p>
+
+
+      </div><!-- entry -->
+    </div><!-- post -->
+
+
+    <div class="hentry post programming" id="SourceNotFoundException">
+      <h1 class="posttitle entry-title">SourceNotFoundException</h1>
+
+      <div class="entry entry-content">
+
+        <p>When a source is defined and the not-found property is set to exception this <tt>SourceNotFoundException</tt> will be thrown if the source directory does not exist or can not be found.</p>
+
+		<pre name="code" class="xml:nocontrols:nogutter">
+		<source not-found="exception">core/target/classes</source>
+		</pre>
+
+		</p>If you are getting this exception and don't want it because you understand that your entire project was not built and so a given source may not exit all the time, then use this configuration:</p>
+
+		<pre name="code" class="xml:nocontrols:nogutter">
+		<source not-found="ignore">core/target/classes</source>
+		</pre>
+
+      </div><!-- entry -->
+    </div><!-- post -->
+
+
+    <div class="hentry post programming" id="NoPackagesFoundException">
+      <h1 class="posttitle entry-title">NoPackagesFoundException</h1>
+
+      <div class="entry entry-content">
+
+		<pre name="code" class="xml:nocontrols:nogutter">
+        <sources no-packages="exception">...</sources>
+        </pre>
+
+		<p>When no packages are found in any of your sources the <tt>NoPackagesFoundException</tt> is thrown. When no packages are found, no tests are run, which can be deceiving when everything comes back looking ok.</p>
+
+		<p>To disable this exception (which is not recommended) set:<p>
+
+		<pre name="code" class="xml:nocontrols:nogutter">
+		<sources no-packages="ignore">...</sources>
+		</pre>
+
+      </div><!-- entry -->
+    </div><!-- post -->
+
+
+
+  </div><!-- primary -->
+
+
   <div id="secondary">
     <h4>mailing<span>lists</span></h4>
     <ul id="mailinglists">
@@ -74,20 +225,28 @@
   <p>Need some footer content...</p>
 </div>
 <!-- /footer -->
+<!-- syntaxhighlighter -->
+<script type="text/javascript" src="http://syntaxhighlighter.googlecode.com/svn/tags/1.5.1/Scripts/shCore.js" language="JavaScript">
+</script>
+<script type="text/javascript" src="http://syntaxhighlighter.googlecode.com/svn/tags/1.5.1/Scripts/shBrushXml.js" language="JavaScript">
+</script>
+<script type="text/javascript" src="http://syntaxhighlighter.googlecode.com/svn/tags/1.5.1/Scripts/shBrushJava.js" language="JavaScript">
+</script>
+<!-- nifty -->
 <script type="text/javascript" src="js/nifty.js" language="JavaScript">
 </script>
-<script type="text/javascript">
-//<![CDATA[
-    window.onload=function(){
-        if(!NiftyCheck())
+<script language="javascript">
+	window.onload = function () {
+    	dp.SyntaxHighlighter.ClipboardSwf = 'http://syntaxhighlighter.googlecode.com/svn/tags/1.5.1/Scripts/clipboard.swf';
+	    dp.SyntaxHighlighter.HighlightAll('code');
+
+		if(!NiftyCheck())
             return;
 
-		  Rounded("div#about","#fff","#E7EFFF");
-		  Rounded("div#downloadnow","#fff","#e8fecd");
-		  RoundedTop("div#footbar","#fff","#e8fecd");
-
-    }
-//]]>
+		Rounded("div#about","#fff","#E7EFFF");
+		Rounded("div#downloadnow","#fff","#e8fecd");
+		RoundedTop("div#footbar","#fff","#e8fecd");
+	}
 </script>
 
 <script src="http://www.google-analytics.com/urchin.js" type="text/javascript">

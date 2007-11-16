@@ -1,4 +1,5 @@
 #summary migration procedures
+#labels Deprecated
 
 = Introduction =
 

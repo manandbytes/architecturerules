@@ -1,0 +1,5 @@
+#summary everything that you need to know
+
+Can be found here...
+
+[http://architecturerules.googlecode.com/svn/docs/index.html http://architecturerules.googlecode.com/svn/docs/images/logo-medium.png]

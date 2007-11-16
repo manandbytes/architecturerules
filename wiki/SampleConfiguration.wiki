@@ -1,5 +1,5 @@
 #summary sample xml configuration file
-#labels sample,configuration,Phase-Implementation
+#labels sample,configuration,Phase-Implementation,Deprecated
 
 = Introduction =
 

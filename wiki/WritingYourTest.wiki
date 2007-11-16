@@ -1,5 +1,5 @@
 #summary example junit TestCase usage
-#labels Phase-Implementation
+#labels Phase-Implementation,Deprecated
 
 = Introduction =
 

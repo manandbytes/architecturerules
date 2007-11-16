@@ -1,5 +1,5 @@
 #summary Complete tutorial to get you started
-#labels Phase-Implementation
+#labels Phase-Implementation,Deprecated
 
 = Introduction =
 
@@ -41,5 +41,3 @@ Create your test class. See [WritingYourTest writing your test] example.
 ==Run the tests ==
 
 Its a junit test. Run your unit tests however you do that. With your IDE, or with maven via `mvn test`
-
-

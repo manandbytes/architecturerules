@@ -1,4 +1,5 @@
 #summary architecture rules on the internet
+#labels Deprecated
 
 = Introduction =
 

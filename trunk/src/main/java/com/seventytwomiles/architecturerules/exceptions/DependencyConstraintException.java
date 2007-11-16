@@ -74,9 +74,9 @@ public class DependencyConstraintException extends RuntimeException {
     public DependencyConstraintException(final String ruleId, final String packages, final Throwable cause) {
 
         this("dependency constraint failed in '{id}' rule which constrains packages '{efferent}'"
-                .replace("{id}", ruleId)
-                .replace("{efferent}", packages)
-                .replace("[", "")
-                .replace("]", ""), cause);
+                .replaceAll("\\{id}", ruleId)
+                .replaceAll("\\{efferent}", packages.trim())
+                .replaceAll("\\[", "")
+                .replaceAll("\\]", ""), cause);
     }
 }

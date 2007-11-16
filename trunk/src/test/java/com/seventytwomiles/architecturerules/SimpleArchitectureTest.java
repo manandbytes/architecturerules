@@ -32,7 +32,7 @@ public class SimpleArchitectureTest extends AbstractArchitectureRulesConfigurati
     /**
      * @see AbstractArchitectureRulesConfigurationTest
      */
-    protected String getConfigurationFileName() {
+    public String getConfigurationFileName() {
 
         /**
          * Provide the name of the rules configuraiton file. File file is

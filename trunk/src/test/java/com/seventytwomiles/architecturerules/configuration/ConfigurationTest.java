@@ -137,7 +137,8 @@ public class ConfigurationTest extends TestCase {
 
         } catch (AssertionFailedError e) {
 
-            assertTrue(e.getMessage().contains("rule can not be null"));
+            final String message = e.getMessage();
+            assertTrue(message.indexOf("rule can not be null") > -1);
         }
 
         try {
@@ -148,7 +149,8 @@ public class ConfigurationTest extends TestCase {
 
         } catch (AssertionFailedError e) {
 
-            assertTrue(e.getMessage().contains("rule id can not be null"));
+            final String message = e.getMessage();
+            assertTrue(message.indexOf("rule id can not be null") > -1);
         }
 
         try {
@@ -159,7 +161,8 @@ public class ConfigurationTest extends TestCase {
 
         } catch (AssertionFailedError e) {
 
-            assertTrue(e.getMessage().contains("id can not be empty"));
+            final String message = e.getMessage();
+            assertTrue(message.indexOf("id can not be empty") > -1);
         }
 
         try {
@@ -170,7 +173,7 @@ public class ConfigurationTest extends TestCase {
 
         } catch (AssertionFailedError e) {
 
-            assertTrue(e.getMessage().contains("rule packages must not be empty"));
+            assertTrue(e.getMessage().indexOf("rule packages must not be empty") > -1);
         }
 
         try {
@@ -181,7 +184,8 @@ public class ConfigurationTest extends TestCase {
 
         } catch (AssertionFailedError e) {
 
-            assertTrue(e.getMessage().contains("rule violations must not be empty"));
+            final String message = e.getMessage();
+            assertTrue(message.indexOf("rule violations must not be empty") > -1);
         }
     }
 

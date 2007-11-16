@@ -20,10 +20,6 @@ package com.seventytwomiles.architecturerules.exceptions;
 */
 
 
-import java.util.Arrays;
-import java.util.List;
-
-
 /**
  * <p>Thrown to indicate that a cyclic redendency was found.</p>
  *
@@ -69,15 +65,8 @@ public class CyclicRedundancyException extends RuntimeException {
     public CyclicRedundancyException(final String packageName, final String efferentPackage) {
 
         super("'{0}' is involved in an cyclically redundant dependency with '{1}'"
-                .replace("{0}", packageName)
-                .replace("{1}", efferentPackage));
-    }
-
-
-    public CyclicRedundancyException(final List cycles) {
-
-        super("cyclic redundencies were found in each of the following packages: "
-              + Arrays.deepToString(cycles.toArray()));
+                .replaceAll("\\{0}", packageName)
+                .replaceAll("\\{1}", efferentPackage));
     }
 
 }

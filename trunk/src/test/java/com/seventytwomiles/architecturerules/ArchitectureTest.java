@@ -65,7 +65,7 @@ public class ArchitectureTest extends AbstractArchitectureRulesConfigurationTest
     /**
      * @see AbstractArchitectureRulesConfigurationTest
      */
-    protected String getConfigurationFileName() {
+    public String getConfigurationFileName() {
 
         /**
          * Provide the name of the rules configuraiton file. File file is
@@ -110,9 +110,9 @@ public class ArchitectureTest extends AbstractArchitectureRulesConfigurationTest
 
             final String message = e.getMessage();
 
-            assertTrue(message.contains("test.com.seventytwomiles.services"));
-            assertTrue(message.contains("test.com.seventytwomiles.model"));
-            assertTrue(message.contains("test.com.seventytwomiles.dao.hibernate"));
+            assertTrue(message.indexOf("test.com.seventytwomiles.services") > -1);
+            assertTrue(message.indexOf("test.com.seventytwomiles.model") > -1);
+            assertTrue(message.indexOf("test.com.seventytwomiles.dao.hibernate") > -1);
         }
     }
 }

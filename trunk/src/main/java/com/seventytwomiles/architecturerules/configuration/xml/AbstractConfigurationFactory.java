@@ -113,7 +113,7 @@ public abstract class AbstractConfigurationFactory implements ConfigurationFacto
 
             throw new IllegalArgumentException("could not load resource "
                                                + configurationFileName
-                                               + " from classpath. File not found.", e);
+                                               + " from classpath. File not found.");
         }
 
         return xml;

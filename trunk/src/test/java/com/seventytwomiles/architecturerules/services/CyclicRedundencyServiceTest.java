@@ -125,16 +125,16 @@ public class CyclicRedundencyServiceTest extends TestCase {
 
         } catch (final CyclicRedundancyException e) {
 
-            final String message = e.getMessage().replace("\r", "");
+            final String message = e.getMessage().replaceAll("\r", "");
 
             assertTrue(expected.equals(message));
 
             /**
              * ..services depends on ..model and ..dao.hibernate.
              */
-            assertTrue(message.contains("test.com.seventytwomiles.services"));
-            assertTrue(message.contains("test.com.seventytwomiles.model"));
-            assertTrue(message.contains("test.com.seventytwomiles.dao.hibernate"));
+            assertTrue(message.indexOf("test.com.seventytwomiles.services") > -1);
+            assertTrue(message.indexOf("test.com.seventytwomiles.model") > -1);
+            assertTrue(message.indexOf("test.com.seventytwomiles.dao.hibernate") > -1);
         }
     }
 }

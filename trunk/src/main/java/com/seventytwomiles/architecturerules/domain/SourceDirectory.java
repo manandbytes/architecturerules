@@ -182,7 +182,7 @@ public class SourceDirectory {
 
         } catch (final Throwable e) {
 
-            throw new IllegalArgumentException(e.getMessage(), e);
+            throw new IllegalArgumentException(e.getMessage());
         }
 
         this.path = path;

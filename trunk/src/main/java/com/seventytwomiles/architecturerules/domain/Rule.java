@@ -25,7 +25,10 @@ import junit.framework.Assert;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import java.util.*;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Iterator;
 
 
 /**
@@ -316,8 +319,8 @@ public class Rule {
     public String getDescriptionOfRule() {
 
         final String ruleDescription = "['{0}' for {1}] "
-                .replace("{0}", getId())
-                .replace("{1}", describePackges());
+                .replaceAll("\\{0}", getId())
+                .replaceAll("\\{1}", describePackges());
 
         return ruleDescription;
     }
@@ -325,12 +328,26 @@ public class Rule {
 
     public String describePackges() {
 
-        String packagesDescription = Arrays.deepToString(packages.toArray());
+        StringBuffer packagesDescription = new StringBuffer();
 
-        packagesDescription = packagesDescription
-                .replace("[", "")
-                .replace("]", "");
+        final Object[] pacakgesArray = packages.toArray();
 
-        return packagesDescription;
+        final int totalPackages = pacakgesArray.length;
+
+        for (int i = 0; i < totalPackages; i++) {
+            String packageName = (String) pacakgesArray[i];
+            packagesDescription
+                    .append(packageName.trim())
+                    .append(" ");
+
+            if (i + 1 < totalPackages)
+                packagesDescription.append(",");
+        }
+
+        final String description = packagesDescription.toString()
+                .replaceAll("\\[", "")
+                .replaceAll("\\]", "");
+
+        return description;
     }
 }

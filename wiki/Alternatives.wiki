@@ -1,4 +1,5 @@
 #summary alternative solutions
+#labels Deprecated
 
   * [http://innig.net/macker/ Macker]
 

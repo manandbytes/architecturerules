@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+
+<architecture>
+
+    <configuration>
+
+        <sources no-packages="exception">
+            <source not-found="exception">target\test-classes</source>
+            <source not-found="exception">target\classes</source>
+        </sources>
+
+        <cyclicalDependency test="true"/>
+
+    </configuration>
+
+
+    <rules>
+
+
+    </rules>
+
+</architecture>
+
+

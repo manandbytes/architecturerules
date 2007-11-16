@@ -96,7 +96,7 @@ public abstract class AbstractArchitectureRulesConfigurationTest extends TestCas
     }
 
 
-    boolean doTests() {
+    protected final boolean doTests() {
 
         final RulesService rulesService;
         rulesService = new RulesServiceImpl(new UnmodifiableConfiguration(configuration));
@@ -123,7 +123,7 @@ public abstract class AbstractArchitectureRulesConfigurationTest extends TestCas
      *
      * @return String name of the xml file including <samp>.xml</smmp>
      */
-    String getConfigurationFileName() {
+    public String getConfigurationFileName() {
         return "";
     }
 
@@ -131,6 +131,6 @@ public abstract class AbstractArchitectureRulesConfigurationTest extends TestCas
     /**
      * <p>Implement this method and call {@link #doTests}</p>
      */
-    abstract void testArchitecture();
+    public abstract void testArchitecture();
 
 }

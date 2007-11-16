@@ -1,5 +1,5 @@
 #summary rules for your configuration
-#labels Phase-Implementation
+#labels Phase-Implementation,Deprecated
 
 = Introduction =
 

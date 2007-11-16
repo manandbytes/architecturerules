@@ -1,5 +1,5 @@
 #summary maven-generated project team list
-#labels maven-generated,ProjectTeam
+#labels maven-generated,ProjectTeam,Deprecated
 
 = The Team =
 

@@ -1,5 +1,5 @@
 #summary how to setup environment to contribute
-#labels Phase-Implementation
+#labels Phase-Implementation,Deprecated
 
 = Introduction =
 

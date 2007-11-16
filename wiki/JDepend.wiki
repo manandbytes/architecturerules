@@ -1,4 +1,5 @@
 #summary jdepend
+#labels Deprecated
 
 = Introduction =
 

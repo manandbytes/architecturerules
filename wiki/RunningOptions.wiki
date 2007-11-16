@@ -1,4 +1,5 @@
 #summary ways to run the architecture test
+#labels Deprecated
 
 = Introduction =
 

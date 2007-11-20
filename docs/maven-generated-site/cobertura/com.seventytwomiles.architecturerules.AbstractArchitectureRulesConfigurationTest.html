@@ -293,7 +293,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;56</td>
-  <td class="nbHitsCovered">&nbsp;6</td>
+  <td class="nbHitsCovered">&nbsp;10</td>
   <td class="src"><pre class="src">&nbsp;    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Log log = LogFactory.getLog(AbstractArchitectureRulesConfigurationTest.<span class="keyword">class</span>);</pre></td>
 </tr>
 <tr>
@@ -338,7 +338,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;65</td>
-  <td class="nbHitsCovered">&nbsp;12</td>
+  <td class="nbHitsCovered">&nbsp;28</td>
   <td class="src"><pre class="src">&nbsp;    <span class="keyword">final</span> <span class="keyword">private</span> Configuration configuration = <span class="keyword">new</span> Configuration();</pre></td>
 </tr>
 <tr>
@@ -388,7 +388,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;75</td>
-  <td class="nbHitsCovered">&nbsp;4</td>
+  <td class="nbHitsCovered">&nbsp;8</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> configuration;</pre></td>
 </tr>
 <tr>
@@ -418,7 +418,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;81</td>
-  <td class="nbHitsCovered">&nbsp;12</td>
+  <td class="nbHitsCovered">&nbsp;28</td>
   <td class="src"><pre class="src">&nbsp;    <span class="keyword">protected</span> AbstractArchitectureRulesConfigurationTest() {</pre></td>
 </tr>
 <tr>
@@ -438,7 +438,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;85</td>
-  <td class="nbHitsCovered">&nbsp;12</td>
+  <td class="nbHitsCovered">&nbsp;28</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> String configurationFileName = getConfigurationFileName();</pre></td>
 </tr>
 <tr>
@@ -458,7 +458,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;89</td>
-  <td class="nbHitsCovered">&nbsp;12</td>
+  <td class="nbHitsCovered">&nbsp;28</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">if</span> (configurationFileName != <span class="keyword">null</span> &amp;&amp; configurationFileName.length() &gt; 0) {</pre></td>
 </tr>
 <tr>
@@ -468,7 +468,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;91</td>
-  <td class="nbHitsCovered">&nbsp;8</td>
+  <td class="nbHitsCovered">&nbsp;16</td>
   <td class="src"><pre class="src">&nbsp;            configurationFactory = <span class="keyword">new</span> DigesterConfigurationFactory(configurationFileName);</pre></td>
 </tr>
 <tr>
@@ -478,12 +478,12 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;93</td>
-  <td class="nbHitsCovered">&nbsp;8</td>
+  <td class="nbHitsCovered">&nbsp;16</td>
   <td class="src"><pre class="src">&nbsp;            configuration.getRules().addAll(configurationFactory.getRules());</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;94</td>
-  <td class="nbHitsCovered">&nbsp;8</td>
+  <td class="nbHitsCovered">&nbsp;16</td>
   <td class="src"><pre class="src">&nbsp;            configuration.getSources().addAll(configurationFactory.getSources());</pre></td>
 </tr>
 <tr>
@@ -493,7 +493,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;96</td>
-  <td class="nbHitsCovered">&nbsp;12</td>
+  <td class="nbHitsCovered">&nbsp;28</td>
   <td class="src"><pre class="src">&nbsp;    }</pre></td>
 </tr>
 <tr>
@@ -523,7 +523,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;102</td>
-  <td class="nbHitsCovered">&nbsp;15</td>
+  <td class="nbHitsCovered">&nbsp;29</td>
   <td class="src"><pre class="src">&nbsp;        rulesService = <span class="keyword">new</span> RulesServiceImpl(<span class="keyword">new</span> UnmodifiableConfiguration(configuration));</pre></td>
 </tr>
 <tr>
@@ -533,7 +533,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;104</td>
-  <td class="nbHitsCovered">&nbsp;15</td>
+  <td class="nbHitsCovered">&nbsp;29</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> <span class="keyword">boolean</span> rulesResults = rulesService.performRulesTest();</pre></td>
 </tr>
 <tr>
@@ -543,7 +543,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;106</td>
-  <td class="nbHitsCovered">&nbsp;15</td>
+  <td class="nbHitsCovered">&nbsp;29</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">if</span> (configuration.shouldDoCyclicDependencyTest()) {</pre></td>
 </tr>
 <tr>
@@ -553,12 +553,12 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;108</td>
-  <td class="nbHitsCovered">&nbsp;9</td>
+  <td class="nbHitsCovered">&nbsp;15</td>
   <td class="src"><pre class="src">&nbsp;            <span class="keyword">final</span> CyclicRedundencyService redundencyService = <span class="keyword">new</span> CyclicRedundencyServiceImpl(<span class="keyword">new</span> UnmodifiableConfiguration(configuration));</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;109</td>
-  <td class="nbHitsCovered">&nbsp;9</td>
+  <td class="nbHitsCovered">&nbsp;15</td>
   <td class="src"><pre class="src">&nbsp;            redundencyService.performCyclicRedundencyCheck();</pre></td>
 </tr>
 <tr>
@@ -573,7 +573,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;112</td>
-  <td class="nbHitsCovered">&nbsp;12</td>
+  <td class="nbHitsCovered">&nbsp;24</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> rulesResults;</pre></td>
 </tr>
 <tr>
@@ -648,7 +648,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;127</td>
-  <td class="nbHitsCovered">&nbsp;4</td>
+  <td class="nbHitsCovered">&nbsp;12</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> <span class="string">""</span>;</pre></td>
 </tr>
 <tr>

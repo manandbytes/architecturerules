@@ -81,10 +81,10 @@
 <a name="72" href="#72">72</a>      <strong>public</strong> <a href="../../../../com/seventytwomiles/architecturerules/exceptions/IllegalArchitectureRuleException.html">IllegalArchitectureRuleException</a>(<strong>final</strong> String ruleId, <strong>final</strong> String rulePackages, <strong>final</strong> Throwable cause) {
 <a name="73" href="#73">73</a>  
 <a name="74" href="#74">74</a>          <strong>super</strong>(<span class="string">"rule '{id}' contains an invalid violation that referes to itself; remove violation '{violation}' or change package"</span>
-<a name="75" href="#75">75</a>                  .replace(<span class="string">"{id}"</span>, ruleId)
-<a name="76" href="#76">76</a>                  .replace(<span class="string">"{violation}"</span>, rulePackages)
-<a name="77" href="#77">77</a>                  .replace(<span class="string">"["</span>, <span class="string">""</span>)
-<a name="78" href="#78">78</a>                  .replace(<span class="string">"]"</span>, <span class="string">""</span>),
+<a name="75" href="#75">75</a>                  .replaceAll(<span class="string">"&#47;&#47;{id}"</span>, ruleId)
+<a name="76" href="#76">76</a>                  .replaceAll(<span class="string">"&#47;&#47;{violation}"</span>, rulePackages.trim())
+<a name="77" href="#77">77</a>                  .replaceAll(<span class="string">"&#47;&#47;["</span>, <span class="string">""</span>)
+<a name="78" href="#78">78</a>                  .replaceAll(<span class="string">"&#47;&#47;]"</span>, <span class="string">""</span>),
 <a name="79" href="#79">79</a>                cause);
 <a name="80" href="#80">80</a>      }
 <a name="81" href="#81">81</a>  }

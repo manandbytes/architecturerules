@@ -203,12 +203,12 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;38</td>
-  <td class="nbHitsCovered">&nbsp;2</td>
+  <td class="nbHitsCovered">&nbsp;3</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">super</span>(<span class="string">"dependency constraint"</span>);</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;39</td>
-  <td class="nbHitsCovered">&nbsp;2</td>
+  <td class="nbHitsCovered">&nbsp;3</td>
   <td class="src"><pre class="src">&nbsp;    }</pre></td>
 </tr>
 <tr>
@@ -243,12 +243,12 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;46</td>
-  <td class="nbHitsCovered">&nbsp;2</td>
+  <td class="nbHitsCovered">&nbsp;3</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">super</span>(message);</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;47</td>
-  <td class="nbHitsCovered">&nbsp;2</td>
+  <td class="nbHitsCovered">&nbsp;3</td>
   <td class="src"><pre class="src">&nbsp;    }</pre></td>
 </tr>
 <tr>
@@ -283,12 +283,12 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;54</td>
-  <td class="nbHitsCovered">&nbsp;2</td>
+  <td class="nbHitsCovered">&nbsp;3</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">super</span>(<span class="string">"dependency constraint"</span>, cause);</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;55</td>
-  <td class="nbHitsCovered">&nbsp;2</td>
+  <td class="nbHitsCovered">&nbsp;3</td>
   <td class="src"><pre class="src">&nbsp;    }</pre></td>
 </tr>
 <tr>
@@ -323,12 +323,12 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;62</td>
-  <td class="nbHitsCovered">&nbsp;10</td>
+  <td class="nbHitsCovered">&nbsp;13</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">super</span>(message, cause);</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;63</td>
-  <td class="nbHitsCovered">&nbsp;6</td>
+  <td class="nbHitsCovered">&nbsp;9</td>
   <td class="src"><pre class="src">&nbsp;    }</pre></td>
 </tr>
 <tr>
@@ -393,32 +393,32 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;76</td>
-  <td class="nbHitsCovered">&nbsp;4</td>
+  <td class="nbHitsCovered">&nbsp;6</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">this</span>(<span class="string">"dependency constraint failed in '{id}' rule which constrains packages '{efferent}'"</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;77</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;                .replace(<span class="string">"{id}"</span>, ruleId)</pre></td>
+  <td class="src"><pre class="src">&nbsp;                .replaceAll(<span class="string">"\\{id}"</span>, ruleId)</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;78</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;                .replace(<span class="string">"{efferent}"</span>, packages)</pre></td>
+  <td class="src"><pre class="src">&nbsp;                .replaceAll(<span class="string">"\\{efferent}"</span>, packages.trim())</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;79</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;                .replace(<span class="string">"["</span>, <span class="string">""</span>)</pre></td>
+  <td class="src"><pre class="src">&nbsp;                .replaceAll(<span class="string">"\\["</span>, <span class="string">""</span>)</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;80</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;                .replace(<span class="string">"]"</span>, <span class="string">""</span>), cause);</pre></td>
+  <td class="src"><pre class="src">&nbsp;                .replaceAll(<span class="string">"\\]"</span>, <span class="string">""</span>), cause);</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;81</td>
-  <td class="nbHitsCovered">&nbsp;4</td>
+  <td class="nbHitsCovered">&nbsp;6</td>
   <td class="src"><pre class="src">&nbsp;    }</pre></td>
 </tr>
 <tr>

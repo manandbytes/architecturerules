@@ -12,7 +12,7 @@
 <div class="separator">&nbsp;</div>
 <table class="report">
 <thead><tr>  <td class="heading">Classes in this File</td>  <td class="heading" width="20%"><a class="dfn" href="help.html" onclick="popupwindow('help.html'); return false;">Line Coverage</a></td>  <td class="heading" width="20%"><a class="dfn" href="help.html" onclick="popupwindow('help.html'); return false;">Branch Coverage</a></td>  <td class="heading" width="10%"><a class="dfn" href="help.html" onclick="popupwindow('help.html'); return false;">Complexity</a></td></tr></thead>
-  <tr><td class="text"><a href="com.seventytwomiles.architecturerules.services.AbstractArchitecturalRules.html">AbstractArchitecturalRules</a></td><td class="value"><table cellpadding="0" cellspacing="0" align="right"><tr><td>77%&nbsp;</td><td><table class="percentGraph" cellpadding="0" cellspacing="0" width="100"><tr><td class="covered" width="76"></td><td class="uncovered" width="23"></td></tr></table></td></tr></table></td><td class="value"><table cellpadding="0" cellspacing="0" align="right"><tr><td>88%&nbsp;</td><td><table class="percentGraph" cellpadding="0" cellspacing="0" width="100"><tr><td class="covered" width="88"></td><td class="uncovered" width="12"></td></tr></table></td></tr></table></td><td class="value"><span class="hidden">3.6666666666666665;</span>3.667</td></tr>
+  <tr><td class="text"><a href="com.seventytwomiles.architecturerules.services.AbstractArchitecturalRules.html">AbstractArchitecturalRules</a></td><td class="value"><table cellpadding="0" cellspacing="0" align="right"><tr><td>80%&nbsp;</td><td><table class="percentGraph" cellpadding="0" cellspacing="0" width="100"><tr><td class="covered" width="80"></td><td class="uncovered" width="19"></td></tr></table></td></tr></table></td><td class="value"><table cellpadding="0" cellspacing="0" align="right"><tr><td>92%&nbsp;</td><td><table class="percentGraph" cellpadding="0" cellspacing="0" width="100"><tr><td class="covered" width="92"></td><td class="uncovered" width="7"></td></tr></table></td></tr></table></td><td class="value"><span class="hidden">3.6666666666666665;</span>3.667</td></tr>
 </table>
 <div class="separator">&nbsp;</div>
 <table cellspacing="0" cellpadding="0" class="src">
@@ -293,7 +293,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;56</td>
-  <td class="nbHitsCovered">&nbsp;4</td>
+  <td class="nbHitsCovered">&nbsp;6</td>
   <td class="src"><pre class="src">&nbsp;    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Log log = LogFactory.getLog(AbstractArchitecturalRules.<span class="keyword">class</span>);</pre></td>
 </tr>
 <tr>
@@ -473,7 +473,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;92</td>
-  <td class="nbHitsCovered">&nbsp;88</td>
+  <td class="nbHitsCovered">&nbsp;103</td>
   <td class="src"><pre class="src">&nbsp;    <span class="keyword">protected</span> AbstractArchitecturalRules(<span class="keyword">final</span> Configuration configuration) <span class="keyword">throws</span> SourceNotFoundException, NoPackagesFoundException {</pre></td>
 </tr>
 <tr>
@@ -483,7 +483,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;94</td>
-  <td class="nbHitsCovered">&nbsp;24</td>
+  <td class="nbHitsCovered">&nbsp;39</td>
   <td class="src"><pre class="src">&nbsp;        log.info(<span class="string">"instanciating new AbstractArchitecturalRules"</span>);</pre></td>
 </tr>
 <tr>
@@ -493,7 +493,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;96</td>
-  <td class="nbHitsCovered">&nbsp;48</td>
+  <td class="nbHitsCovered">&nbsp;63</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">this</span>.configuration = configuration;</pre></td>
 </tr>
 <tr>
@@ -508,7 +508,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;99</td>
-  <td class="nbHitsCovered">&nbsp;24</td>
+  <td class="nbHitsCovered">&nbsp;39</td>
   <td class="src"><pre class="src">&nbsp;        jdepend = <span class="keyword">new</span> JDepend();</pre></td>
 </tr>
 <tr>
@@ -523,7 +523,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;102</td>
-  <td class="nbHitsCovered">&nbsp;24</td>
+  <td class="nbHitsCovered">&nbsp;39</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> Collection sources = <span class="keyword">this</span>.configuration.getSources();</pre></td>
 </tr>
 <tr>
@@ -538,12 +538,12 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;105</td>
-  <td class="nbHitsCovered">&nbsp;24</td>
+  <td class="nbHitsCovered">&nbsp;39</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">for</span> (Iterator sourceIterator = sources.iterator();</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;106</td>
-  <td class="nbHitsCovered">&nbsp;88</td>
+  <td class="nbHitsCovered">&nbsp;141</td>
   <td class="src"><pre class="src">&nbsp;             sourceIterator.hasNext();) {</pre></td>
 </tr>
 <tr>
@@ -558,7 +558,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;109</td>
-  <td class="nbHitsCovered">&nbsp;64</td>
+  <td class="nbHitsCovered">&nbsp;102</td>
   <td class="src"><pre class="src">&nbsp;            <span class="keyword">final</span> SourceDirectory source = (SourceDirectory) sourceIterator.next();</pre></td>
 </tr>
 <tr>
@@ -568,12 +568,12 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;111</td>
-  <td class="nbHitsCovered">&nbsp;64</td>
+  <td class="nbHitsCovered">&nbsp;102</td>
   <td class="src"><pre class="src">&nbsp;            addSourceToJdepend(source);</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;112</td>
-  <td class="nbHitsCovered">&nbsp;64</td>
+  <td class="nbHitsCovered">&nbsp;102</td>
   <td class="src"><pre class="src">&nbsp;        }</pre></td>
 </tr>
 <tr>
@@ -583,12 +583,12 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;114</td>
-  <td class="nbHitsCovered">&nbsp;88</td>
+  <td class="nbHitsCovered">&nbsp;103</td>
   <td class="src"><pre class="src">&nbsp;        analyze();</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;115</td>
-  <td class="nbHitsCovered">&nbsp;24</td>
+  <td class="nbHitsCovered">&nbsp;39</td>
   <td class="src"><pre class="src">&nbsp;    }</pre></td>
 </tr>
 <tr>
@@ -648,7 +648,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;127</td>
-  <td class="nbHitsCovered">&nbsp;64</td>
+  <td class="nbHitsCovered">&nbsp;102</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> String sourcePath = sourceDirectory.getPath();</pre></td>
 </tr>
 <tr>
@@ -658,7 +658,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;129</td>
-  <td class="nbHitsCovered">&nbsp;64</td>
+  <td class="nbHitsCovered">&nbsp;102</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> StringBuffer message = <span class="keyword">new</span> StringBuffer();</pre></td>
 </tr>
 <tr>
@@ -678,7 +678,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;133</td>
-  <td class="nbHitsCovered">&nbsp;104</td>
+  <td class="nbHitsCovered">&nbsp;142</td>
   <td class="src"><pre class="src">&nbsp;            jdepend.addDirectory(sourcePath);</pre></td>
 </tr>
 <tr>
@@ -688,7 +688,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;135</td>
-  <td class="nbHitsCovered">&nbsp;64</td>
+  <td class="nbHitsCovered">&nbsp;78</td>
   <td class="src"><pre class="src">&nbsp;            <span class="keyword">if</span> (log.isDebugEnabled()) {</pre></td>
 </tr>
 <tr>
@@ -698,32 +698,32 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;137</td>
-  <td class="nbHitsCovered">&nbsp;64</td>
+  <td class="nbHitsCovered">&nbsp;78</td>
   <td class="src"><pre class="src">&nbsp;                message.append(<span class="string">"loaded "</span>);</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;138</td>
-  <td class="nbHitsCovered">&nbsp;64</td>
+  <td class="nbHitsCovered">&nbsp;78</td>
   <td class="src"><pre class="src">&nbsp;                message.append(sourceDirectory.shouldThrowExceptionWhenNotFound() ? <span class="string">"required "</span> : <span class="string">""</span>);</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;139</td>
-  <td class="nbHitsCovered">&nbsp;24</td>
+  <td class="nbHitsCovered">&nbsp;38</td>
   <td class="src"><pre class="src">&nbsp;                message.append(<span class="string">"sourceDirectory "</span>);</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;140</td>
-  <td class="nbHitsCovered">&nbsp;64</td>
+  <td class="nbHitsCovered">&nbsp;78</td>
   <td class="src"><pre class="src">&nbsp;                message.append(<span class="keyword">new</span> File(<span class="string">""</span>).getAbsolutePath());</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;141</td>
-  <td class="nbHitsCovered">&nbsp;24</td>
+  <td class="nbHitsCovered">&nbsp;38</td>
   <td class="src"><pre class="src">&nbsp;                message.append(<span class="string">"\\"</span>);</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;142</td>
-  <td class="nbHitsCovered">&nbsp;24</td>
+  <td class="nbHitsCovered">&nbsp;38</td>
   <td class="src"><pre class="src">&nbsp;                message.append(sourcePath);</pre></td>
 </tr>
 <tr>
@@ -733,7 +733,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;144</td>
-  <td class="nbHitsCovered">&nbsp;24</td>
+  <td class="nbHitsCovered">&nbsp;38</td>
   <td class="src"><pre class="src">&nbsp;                log.debug(message.toString());</pre></td>
 </tr>
 <tr>
@@ -748,7 +748,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;147</td>
-  <td class="nbHitsCovered">&nbsp;40</td>
+  <td class="nbHitsCovered">&nbsp;64</td>
   <td class="src"><pre class="src">&nbsp;        } <span class="keyword">catch</span> (<span class="keyword">final</span> IOException e) {</pre></td>
 </tr>
 <tr>
@@ -763,7 +763,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;150</td>
-  <td class="nbHitsCovered">&nbsp;40</td>
+  <td class="nbHitsCovered">&nbsp;64</td>
   <td class="src"><pre class="src">&nbsp;            <span class="keyword">if</span> (log.isWarnEnabled()) {</pre></td>
 </tr>
 <tr>
@@ -773,32 +773,32 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;152</td>
-  <td class="nbHitsCovered">&nbsp;40</td>
+  <td class="nbHitsCovered">&nbsp;64</td>
   <td class="src"><pre class="src">&nbsp;                message.append(sourceDirectory.shouldThrowExceptionWhenNotFound() ? <span class="string">"required "</span> : <span class="string">""</span>);</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;153</td>
-  <td class="nbHitsCovered">&nbsp;40</td>
+  <td class="nbHitsCovered">&nbsp;64</td>
   <td class="src"><pre class="src">&nbsp;                message.append(<span class="string">"sourceDirectory "</span>);</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;154</td>
-  <td class="nbHitsCovered">&nbsp;40</td>
+  <td class="nbHitsCovered">&nbsp;64</td>
   <td class="src"><pre class="src">&nbsp;                message.append(<span class="keyword">new</span> File(<span class="string">""</span>).getAbsolutePath());</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;155</td>
-  <td class="nbHitsCovered">&nbsp;40</td>
+  <td class="nbHitsCovered">&nbsp;64</td>
   <td class="src"><pre class="src">&nbsp;                message.append(<span class="string">"\\"</span>);</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;156</td>
-  <td class="nbHitsCovered">&nbsp;40</td>
+  <td class="nbHitsCovered">&nbsp;64</td>
   <td class="src"><pre class="src">&nbsp;                message.append(sourcePath);</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;157</td>
-  <td class="nbHitsCovered">&nbsp;40</td>
+  <td class="nbHitsCovered">&nbsp;64</td>
   <td class="src"><pre class="src">&nbsp;                message.append(<span class="string">" does not exist"</span>);</pre></td>
 </tr>
 <tr>
@@ -808,7 +808,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;159</td>
-  <td class="nbHitsCovered">&nbsp;40</td>
+  <td class="nbHitsCovered">&nbsp;64</td>
   <td class="src"><pre class="src">&nbsp;                log.warn(message.toString());</pre></td>
 </tr>
 <tr>
@@ -823,7 +823,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;162</td>
-  <td class="nbHitsCovered">&nbsp;64</td>
+  <td class="nbHitsCovered">&nbsp;88</td>
   <td class="src"><pre class="src">&nbsp;            <span class="keyword">if</span> (sourceDirectory.shouldThrowExceptionWhenNotFound()) {</pre></td>
 </tr>
 <tr>
@@ -848,12 +848,12 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;167</td>
-  <td class="nbHitsCovered">&nbsp;24</td>
+  <td class="nbHitsCovered">&nbsp;38</td>
   <td class="src"><pre class="src">&nbsp;        }</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;168</td>
-  <td class="nbHitsCovered">&nbsp;64</td>
+  <td class="nbHitsCovered">&nbsp;102</td>
   <td class="src"><pre class="src">&nbsp;    }</pre></td>
 </tr>
 <tr>
@@ -918,12 +918,12 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;181</td>
-  <td class="nbHitsCovered">&nbsp;48</td>
+  <td class="nbHitsCovered">&nbsp;63</td>
   <td class="src"><pre class="src">&nbsp;        log.debug(<span class="string">"fetching packages"</span>);</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;182</td>
-  <td class="nbHitsCovered">&nbsp;24</td>
+  <td class="nbHitsCovered">&nbsp;39</td>
   <td class="src"><pre class="src">&nbsp;        packages = jdepend.analyze();</pre></td>
 </tr>
 <tr>
@@ -933,12 +933,12 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;184</td>
-  <td class="nbHitsCovered">&nbsp;24</td>
+  <td class="nbHitsCovered">&nbsp;39</td>
   <td class="src"><pre class="src">&nbsp;        log.debug(<span class="string">"checking how many packages were found by JDepend"</span>);</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;185</td>
-  <td class="nbHitsCovered">&nbsp;24</td>
+  <td class="nbHitsCovered">&nbsp;39</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">if</span> (packages.isEmpty()) {</pre></td>
 </tr>
 <tr>
@@ -948,8 +948,8 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;187</td>
-  <td class="nbHitsUncovered">&nbsp;0</td>
-  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;            log.warn(<span class="string">"no packages were found with the given configuraiton. check your &lt;sources /&gt; configuration"</span>);</span></pre></td>
+  <td class="nbHitsCovered">&nbsp;1</td>
+  <td class="src"><pre class="src">&nbsp;            log.warn(<span class="string">"no packages were found with the given configuraiton. check your &lt;sources /&gt; configuration"</span>);</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;188</td>
@@ -958,13 +958,13 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;189</td>
-  <td class="nbHitsUncovered">&nbsp;0</td>
-  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;            <span class="keyword">final</span> <span class="keyword">boolean</span> isConfiguredToThrowExceptionWhenNoPackagesFound = configuration.shouldThrowExceptionWhenNoPackages();</span></pre></td>
+  <td class="nbHitsCovered">&nbsp;1</td>
+  <td class="src"><pre class="src">&nbsp;            <span class="keyword">final</span> <span class="keyword">boolean</span> isConfiguredToThrowExceptionWhenNoPackagesFound = configuration.shouldThrowExceptionWhenNoPackages();</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;190</td>
-  <td class="nbHitsUncovered">&nbsp;0</td>
-  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;            log.debug(<span class="string">"throw excpetion when no packages? "</span> + isConfiguredToThrowExceptionWhenNoPackagesFound);</span></pre></td>
+  <td class="nbHitsCovered">&nbsp;1</td>
+  <td class="src"><pre class="src">&nbsp;            log.debug(<span class="string">"throw excpetion when no packages? "</span> + isConfiguredToThrowExceptionWhenNoPackagesFound);</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;191</td>
@@ -973,8 +973,8 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;192</td>
-  <td class="nbHitsUncovered">&nbsp;0</td>
-  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;            <span class="keyword">if</span> (isConfiguredToThrowExceptionWhenNoPackagesFound) {</span></pre></td>
+  <td class="nbHitsCovered">&nbsp;1</td>
+  <td class="src"><pre class="src">&nbsp;            <span class="keyword">if</span> (isConfiguredToThrowExceptionWhenNoPackagesFound) {</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;193</td>
@@ -1003,8 +1003,8 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;198</td>
-  <td class="nbHitsUncovered">&nbsp;0</td>
-  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;        } <span class="keyword">else</span> {</span></pre></td>
+  <td class="nbHitsCovered">&nbsp;1</td>
+  <td class="src"><pre class="src">&nbsp;        } <span class="keyword">else</span> {</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;199</td>
@@ -1013,7 +1013,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;200</td>
-  <td class="nbHitsCovered">&nbsp;24</td>
+  <td class="nbHitsCovered">&nbsp;38</td>
   <td class="src"><pre class="src">&nbsp;            log.debug(<span class="string">"jdepend found "</span> + packages.size() + <span class="string">" to analyze for cyclic redundencies"</span>);</pre></td>
 </tr>
 <tr>
@@ -1023,7 +1023,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;202</td>
-  <td class="nbHitsCovered">&nbsp;24</td>
+  <td class="nbHitsCovered">&nbsp;39</td>
   <td class="src"><pre class="src">&nbsp;    }</pre></td>
 </tr>
 <tr>
@@ -1073,7 +1073,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;212</td>
-  <td class="nbHitsCovered">&nbsp;54</td>
+  <td class="nbHitsCovered">&nbsp;59</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> <span class="keyword">this</span>.packages;</pre></td>
 </tr>
 <tr>
@@ -1158,7 +1158,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;229</td>
-  <td class="nbHitsCovered">&nbsp;88</td>
+  <td class="nbHitsCovered">&nbsp;115</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> Collection packages = jdepend.analyze();</pre></td>
 </tr>
 <tr>
@@ -1168,7 +1168,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;231</td>
-  <td class="nbHitsCovered">&nbsp;44</td>
+  <td class="nbHitsCovered">&nbsp;71</td>
   <td class="src"><pre class="src">&nbsp;        log.debug(<span class="string">"checking how many packages were found by JDepend"</span>);</pre></td>
 </tr>
 <tr>
@@ -1178,7 +1178,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;233</td>
-  <td class="nbHitsCovered">&nbsp;908</td>
+  <td class="nbHitsCovered">&nbsp;935</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">if</span> (packages.isEmpty()) {</pre></td>
 </tr>
 <tr>
@@ -1253,7 +1253,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;248</td>
-  <td class="nbHitsCovered">&nbsp;44</td>
+  <td class="nbHitsCovered">&nbsp;71</td>
   <td class="src"><pre class="src">&nbsp;            log.debug(<span class="string">"jdepend found "</span> + packages.size() + <span class="string">" to analyze for dependency architecture"</span>);</pre></td>
 </tr>
 <tr>
@@ -1268,12 +1268,12 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;251</td>
-  <td class="nbHitsCovered">&nbsp;44</td>
+  <td class="nbHitsCovered">&nbsp;71</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">for</span> (Iterator packageIterator = packages.iterator();</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;252</td>
-  <td class="nbHitsCovered">&nbsp;864</td>
+  <td class="nbHitsCovered">&nbsp;1403</td>
   <td class="src"><pre class="src">&nbsp;             packageIterator.hasNext();) {</pre></td>
 </tr>
 <tr>
@@ -1283,7 +1283,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;254</td>
-  <td class="nbHitsCovered">&nbsp;820</td>
+  <td class="nbHitsCovered">&nbsp;1332</td>
   <td class="src"><pre class="src">&nbsp;            <span class="keyword">final</span> JavaPackage javaPackage = (JavaPackage) packageIterator.next();</pre></td>
 </tr>
 <tr>
@@ -1293,22 +1293,22 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;256</td>
-  <td class="nbHitsCovered">&nbsp;820</td>
+  <td class="nbHitsCovered">&nbsp;1332</td>
   <td class="src"><pre class="src">&nbsp;            log.debug(<span class="string">"checking dependencies on package "</span> + javaPackage.getName());</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;257</td>
-  <td class="nbHitsCovered">&nbsp;820</td>
+  <td class="nbHitsCovered">&nbsp;1332</td>
   <td class="src"><pre class="src">&nbsp;            testEfferentsValid(layer, rules, javaPackage, javaPackage.getName());</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;258</td>
-  <td class="nbHitsCovered">&nbsp;820</td>
+  <td class="nbHitsCovered">&nbsp;1332</td>
   <td class="src"><pre class="src">&nbsp;        }</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;259</td>
-  <td class="nbHitsCovered">&nbsp;864</td>
+  <td class="nbHitsCovered">&nbsp;891</td>
   <td class="src"><pre class="src">&nbsp;    }</pre></td>
 </tr>
 <tr>
@@ -1403,7 +1403,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;278</td>
-  <td class="nbHitsCovered">&nbsp;820</td>
+  <td class="nbHitsCovered">&nbsp;1332</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> Collection efferents = jPackage.getEfferents();</pre></td>
 </tr>
 <tr>
@@ -1423,12 +1423,12 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;282</td>
-  <td class="nbHitsCovered">&nbsp;820</td>
+  <td class="nbHitsCovered">&nbsp;1332</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">for</span> (Iterator packageIterator = efferents.iterator();</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;283</td>
-  <td class="nbHitsCovered">&nbsp;3064</td>
+  <td class="nbHitsCovered">&nbsp;4971</td>
   <td class="src"><pre class="src">&nbsp;             packageIterator.hasNext();) {</pre></td>
 </tr>
 <tr>
@@ -1438,7 +1438,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;285</td>
-  <td class="nbHitsCovered">&nbsp;2244</td>
+  <td class="nbHitsCovered">&nbsp;3639</td>
   <td class="src"><pre class="src">&nbsp;            efferentPackage = (JavaPackage) packageIterator.next();</pre></td>
 </tr>
 <tr>
@@ -1448,7 +1448,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;287</td>
-  <td class="nbHitsCovered">&nbsp;2244</td>
+  <td class="nbHitsCovered">&nbsp;3639</td>
   <td class="src"><pre class="src">&nbsp;            <span class="keyword">if</span> (rules.contains(efferentPackage.getName()) &amp;&amp; analyzedPackageName.equals(layer)) {</pre></td>
 </tr>
 <tr>
@@ -1503,7 +1503,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;298</td>
-  <td class="nbHitsCovered">&nbsp;820</td>
+  <td class="nbHitsCovered">&nbsp;1332</td>
   <td class="src"><pre class="src">&nbsp;    }</pre></td>
 </tr>
 <tr>

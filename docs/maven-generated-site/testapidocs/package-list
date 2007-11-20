@@ -1,0 +1,13 @@
+com.seventytwomiles.architecturerules
+com.seventytwomiles.architecturerules.ant
+com.seventytwomiles.architecturerules.configuration
+com.seventytwomiles.architecturerules.configuration.xml
+com.seventytwomiles.architecturerules.domain
+com.seventytwomiles.architecturerules.exceptions
+com.seventytwomiles.architecturerules.services
+test.com.seventytwomiles.dao
+test.com.seventytwomiles.dao.hibernate
+test.com.seventytwomiles.model
+test.com.seventytwomiles.services
+test.com.seventytwomiles.test
+test.com.seventytwomiles.web.spring

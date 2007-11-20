@@ -203,12 +203,12 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;38</td>
-  <td class="nbHitsCovered">&nbsp;2</td>
+  <td class="nbHitsCovered">&nbsp;3</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">super</span>(<span class="string">"illegal architecture rule"</span>);</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;39</td>
-  <td class="nbHitsCovered">&nbsp;2</td>
+  <td class="nbHitsCovered">&nbsp;3</td>
   <td class="src"><pre class="src">&nbsp;    }</pre></td>
 </tr>
 <tr>
@@ -243,12 +243,12 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;46</td>
-  <td class="nbHitsCovered">&nbsp;4</td>
+  <td class="nbHitsCovered">&nbsp;6</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">super</span>(message);</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;47</td>
-  <td class="nbHitsCovered">&nbsp;4</td>
+  <td class="nbHitsCovered">&nbsp;6</td>
   <td class="src"><pre class="src">&nbsp;    }</pre></td>
 </tr>
 <tr>
@@ -283,12 +283,12 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;54</td>
-  <td class="nbHitsCovered">&nbsp;2</td>
+  <td class="nbHitsCovered">&nbsp;3</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">super</span>(<span class="string">"illegal architecture rule"</span>, cause);</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;55</td>
-  <td class="nbHitsCovered">&nbsp;6</td>
+  <td class="nbHitsCovered">&nbsp;7</td>
   <td class="src"><pre class="src">&nbsp;    }</pre></td>
 </tr>
 <tr>
@@ -323,12 +323,12 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;62</td>
-  <td class="nbHitsCovered">&nbsp;2</td>
+  <td class="nbHitsCovered">&nbsp;3</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">super</span>(message, cause);</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;63</td>
-  <td class="nbHitsCovered">&nbsp;2</td>
+  <td class="nbHitsCovered">&nbsp;3</td>
   <td class="src"><pre class="src">&nbsp;    }</pre></td>
 </tr>
 <tr>
@@ -353,12 +353,12 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;68</td>
-  <td class="nbHitsCovered">&nbsp;2</td>
+  <td class="nbHitsCovered">&nbsp;3</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">this</span>(ruleId, rulePackages, <span class="keyword">null</span>);</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;69</td>
-  <td class="nbHitsCovered">&nbsp;2</td>
+  <td class="nbHitsCovered">&nbsp;3</td>
   <td class="src"><pre class="src">&nbsp;    }</pre></td>
 </tr>
 <tr>
@@ -383,28 +383,28 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;74</td>
-  <td class="nbHitsCovered">&nbsp;4</td>
+  <td class="nbHitsCovered">&nbsp;6</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">super</span>(<span class="string">"rule '{id}' contains an invalid violation that referes to itself; remove violation '{violation}' or change package"</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;75</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;                .replace(<span class="string">"{id}"</span>, ruleId)</pre></td>
+  <td class="src"><pre class="src">&nbsp;                .replaceAll(<span class="string">"\\{id}"</span>, ruleId)</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;76</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;                .replace(<span class="string">"{violation}"</span>, rulePackages)</pre></td>
+  <td class="src"><pre class="src">&nbsp;                .replaceAll(<span class="string">"\\{violation}"</span>, rulePackages.trim())</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;77</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;                .replace(<span class="string">"["</span>, <span class="string">""</span>)</pre></td>
+  <td class="src"><pre class="src">&nbsp;                .replaceAll(<span class="string">"\\["</span>, <span class="string">""</span>)</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;78</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;                .replace(<span class="string">"]"</span>, <span class="string">""</span>),</pre></td>
+  <td class="src"><pre class="src">&nbsp;                .replaceAll(<span class="string">"\\]"</span>, <span class="string">""</span>),</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;79</td>
@@ -413,7 +413,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;80</td>
-  <td class="nbHitsCovered">&nbsp;4</td>
+  <td class="nbHitsCovered">&nbsp;6</td>
   <td class="src"><pre class="src">&nbsp;    }</pre></td>
 </tr>
 <tr>

@@ -74,7 +74,7 @@
 <a name="65" href="#65">65</a>      <em>/**<em>*</em></em>
 <a name="66" href="#66">66</a>  <em>     * @see AbstractArchitectureRulesConfigurationTest</em>
 <a name="67" href="#67">67</a>  <em>     */</em>
-<a name="68" href="#68">68</a>      <strong>protected</strong> String getConfigurationFileName() {
+<a name="68" href="#68">68</a>      <strong>public</strong> String getConfigurationFileName() {
 <a name="69" href="#69">69</a>  
 <a name="70" href="#70">70</a>          <em>/**<em>*</em></em>
 <a name="71" href="#71">71</a>  <em>         * Provide the name of the rules configuraiton file. File file is</em>
@@ -119,9 +119,9 @@
 <a name="110" href="#110">110</a> 
 <a name="111" href="#111">111</a>             <strong>final</strong> String message = e.getMessage();
 <a name="112" href="#112">112</a> 
-<a name="113" href="#113">113</a>             assertTrue(message.contains(<span class="string">"test.com.seventytwomiles.services"</span>));
-<a name="114" href="#114">114</a>             assertTrue(message.contains(<span class="string">"test.com.seventytwomiles.model"</span>));
-<a name="115" href="#115">115</a>             assertTrue(message.contains(<span class="string">"test.com.seventytwomiles.dao.hibernate"</span>));
+<a name="113" href="#113">113</a>             assertTrue(message.indexOf(<span class="string">"test.com.seventytwomiles.services"</span>) > -1);
+<a name="114" href="#114">114</a>             assertTrue(message.indexOf(<span class="string">"test.com.seventytwomiles.model"</span>) > -1);
+<a name="115" href="#115">115</a>             assertTrue(message.indexOf(<span class="string">"test.com.seventytwomiles.dao.hibernate"</span>) > -1);
 <a name="116" href="#116">116</a>         }
 <a name="117" href="#117">117</a>     }
 <a name="118" href="#118">118</a> }

@@ -105,7 +105,7 @@
 <a name="96" href="#96">96</a>      }
 <a name="97" href="#97">97</a>  
 <a name="98" href="#98">98</a>  
-<a name="99" href="#99">99</a>      <strong>boolean</strong> doTests() {
+<a name="99" href="#99">99</a>      <strong>protected</strong> <strong>final</strong> <strong>boolean</strong> doTests() {
 <a name="100" href="#100">100</a> 
 <a name="101" href="#101">101</a>         <strong>final</strong> <a href="../../../com/seventytwomiles/architecturerules/services/RulesService.html">RulesService</a> rulesService;
 <a name="102" href="#102">102</a>         rulesService = <strong>new</strong> <a href="../../../com/seventytwomiles/architecturerules/services/RulesServiceImpl.html">RulesServiceImpl</a>(<strong>new</strong> <a href="../../../com/seventytwomiles/architecturerules/configuration/UnmodifiableConfiguration.html">UnmodifiableConfiguration</a>(configuration));
@@ -132,7 +132,7 @@
 <a name="123" href="#123">123</a> <em>     *</em>
 <a name="124" href="#124">124</a> <em>     * @return String name of the xml file including &lt;samp>.xml&lt;/smmp></em>
 <a name="125" href="#125">125</a> <em>     */</em>
-<a name="126" href="#126">126</a>     String getConfigurationFileName() {
+<a name="126" href="#126">126</a>     <strong>public</strong> String getConfigurationFileName() {
 <a name="127" href="#127">127</a>         <strong>return</strong> <span class="string">""</span>;
 <a name="128" href="#128">128</a>     }
 <a name="129" href="#129">129</a> 
@@ -140,7 +140,7 @@
 <a name="131" href="#131">131</a>     <em>/**<em>*</em></em>
 <a name="132" href="#132">132</a> <em>     * &lt;p>Implement this method and call {@link #doTests}&lt;/p></em>
 <a name="133" href="#133">133</a> <em>     */</em>
-<a name="134" href="#134">134</a>     <strong>abstract</strong> <strong>void</strong> testArchitecture();
+<a name="134" href="#134">134</a>     <strong>public</strong> <strong>abstract</strong> <strong>void</strong> testArchitecture();
 <a name="135" href="#135">135</a> 
 <a name="136" href="#136">136</a> }
 </pre>

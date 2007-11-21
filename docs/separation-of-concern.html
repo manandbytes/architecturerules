@@ -1,16 +1,22 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
+
 <head profile="http://gmpg.org/xfn/11">
+
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="description" content="Assert Your Architecture - with this open source java library. Leverages XML and optional programatic configuration to assert your code's architecture via unit tests or ant tasks. Able to check for layer independence and cyclic dependencies." />
 <meta name="keywords" content="open source java xml jdepend architecture rules unit test junit" />
 <meta name="Expires" content="0">
 <meta name="ROBOTS" content="INDEX, FOLLOW">
+
 <title>architecture rules</title>
+
+
 <link rel="stylesheet" type="text/css" href="css/style.css" />
 <link rel="stylesheet" type="text/css" href="css/nifty.css" />
-<link rel="stylesheet" type="text/css" href="css/syntax.css"/>
+<link rel="stylesheet" type="text/css" href="css/syntax.css" />
+
 <!--[if lt IE 8]>
 <style type="text/css">
   #mainmenu li a, #recentposts li a, #personalfavorites li a, #textads li a, #recentcomments li, #contactme li {display:inline-block;}
@@ -18,8 +24,13 @@
   *html #page {width:expression(document.documentElement.clientWidth > 1010? "1010px" : auto")}
 </style>
 <![endif]-->
+
+<script type="text/javascript" src="js/prototype-1.5.1.1.js"></script>
+
 </head>
+
 <body>
+
 <div id="page">
   <div id="blogtitle" class="primary"><a href="http://architecturerules.googlecode.com/svn/docs/index.html">architecture</a><span>rules</span></div>
   <div id="backtogoogle"><a href="http://code.google.com/p/architecturerules/">google code landing page</a></div>
@@ -46,75 +57,60 @@
 
 
   </div><!-- /primary -->
-  <div id="secondary">
 
-    <h4>architecture<span>propaganda</span></h4>
-    <p></p>
-    <ul id="moreinformation">
-      <li><a href="cyclic-dependencies.html">Cyclic Dependencies</a> the&nbsp;negative consequences</li>
-      <li><a href="separation-of-concern.html">Separation of Concern</a> assert independent layers</li>
-      <li><a href="automation.html">Automate</a> architecture assertions</li>
-      <li><a href="best-practices.html">Best Practices</a> of architecture-rules usage</li>
-    </ul>
 
-    <h4>more<span>information</span></h4>
-    <p></p>
-    <ul id="moreinformation">
-      <li><a href="getting-started.html">Getting Started</a> configuration examples and how to run the test</li>
-      <li><a href="sample-configuration.html">Sample Configuration</a> to get you started</li>
-      <li><a href="run.html#ant-task">Ant Task</a> to run from ant rather than JUnit</li>
-      <li><a href="exceptions.html">Exceptions</a> descriptions of all them</li>
-      <li><a href="alternatives.html">Alternative</a> architecture monitoring java solutions</li>
-      <li><a href="dependencies.html">Dependencies</a> </li>
-      <li><a href="http://architecturerules.googlecode.com/svn/docs/maven-generated-site/project-reports.html">Maven</a>-generated site</li>
-    </ul>
+  <div id="secondary"></div>
+        <!-- /secondary -->
 
-    <h4>issue<span>list</span></h4>
-    <ul id="issues">
-      <li><a href="http://code.google.com/p/architecturerules/issues/list">view issues</a></li>
-      <li><a href="http://code.google.com/p/architecturerules/issues/entry">report issue</a></li>
-    </ul>
+        </div><!-- /page -->
 
-    <h4>licence<span>details</span></h4>
-    <p>Licensed under <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License 2.0</a> - <small>allows use of the source code for the development of free and open source software as well as proprietary and closed source software.</small></p>
+      <!-- footer -->
+      <div style="clear: both;" ></div>
+      <div id="footer"></div>
+      <!-- /footer -->
 
-  </div>
-  <!-- /secondary --></div>
-<!-- footer -->
-<div style="clear: both;"></div>
-<div id="footbar">
-  <p>Need some footer content...</p>
-</div>
-<!-- /footer -->
+
+      <script type="text/javascript">
+      	new Ajax.Updater('secondary', 'component_rightnav.html', { method: 'get' });
+      	new Ajax.Updater('footer', 'component_footer.html', { method: 'get' });
+      </script>
+
 <!-- syntaxhighlighter -->
 <script type="text/javascript" src="http://syntaxhighlighter.googlecode.com/svn/tags/1.5.1/Scripts/shCore.js" language="JavaScript">
 </script>
 <script type="text/javascript" src="http://syntaxhighlighter.googlecode.com/svn/tags/1.5.1/Scripts/shBrushXml.js" language="JavaScript">
+
 </script>
 <script type="text/javascript" src="http://syntaxhighlighter.googlecode.com/svn/tags/1.5.1/Scripts/shBrushJava.js" language="JavaScript">
 </script>
-<!-- nifty -->
-<script type="text/javascript" src="js/nifty.js" language="JavaScript">
-</script>
-<script language="javascript">
-	window.onload = function () {
-    	dp.SyntaxHighlighter.ClipboardSwf = 'http://syntaxhighlighter.googlecode.com/svn/tags/1.5.1/Scripts/clipboard.swf';
+
+      <!-- nifty - rounded corners -->
+      <script type="text/javascript" src="js/nifty.js" language="JavaScript"></script>
+      <script type="text/javascript">
+      //<![CDATA[
+          window.onload=function(){
+
+          if(NiftyCheck()) {
+
+			  Rounded("div#about","#fff","#E7EFFF");
+			  RoundedTop("div#footbar","#fff","#e8fecd");
+			  Rounded("div.downloadnow","#fff","#e8fecd");
+  		  }
+
+  		  dp.SyntaxHighlighter.ClipboardSwf = 'http://syntaxhighlighter.googlecode.com/svn/tags/1.5.1/Scripts/clipboard.swf';
 	    dp.SyntaxHighlighter.HighlightAll('code');
+          }
+      //]]>
+      </script>
 
-		if(!NiftyCheck())
-            return;
+      <!-- google analytics -->
+      <script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+      </script>
+      <script type="text/javascript">
+      _uacct = "UA-616623-3";
+      urchinTracker();
+      </script>
 
-		  Rounded("div#about","#fff","#E7EFFF");
-		  RoundedTop("div#footbar","#fff","#e8fecd");
-	}
-</script>
-<!-- http://ifacethoughts.net/2007/11/07/popular-programming-languages/  -->
-<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
-</script>
-<script type="text/javascript">
-_uacct = "UA-616623-3";
-urchinTracker();
-</script>
-</div>
-</body>
-</html>
+      </div>
+      </body>
+    </html>

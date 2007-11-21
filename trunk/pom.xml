@@ -19,7 +19,7 @@
         other
         and able to check for cyclic redundancies among your packages. TEST
     </description>
-
+    <url>http://architecturerules.googlecode.com/svn/docs/index.html</url>
 
     <dependencies>
 
@@ -141,6 +141,13 @@
                 <artifactId>jxr-maven-plugin</artifactId>
             </plugin>
 
+            <plugin>
+                <groupId>net.sf</groupId>
+                <artifactId>stat-scm</artifactId>
+                <version>1.0.0</version>
+            </plugin>
+
+
         </plugins>
 
     </reporting>
@@ -200,6 +207,7 @@
                     </execution>
                 </executions>
             </plugin>
+
 
         </plugins>
 
@@ -351,6 +359,12 @@
             </releases>
         </pluginRepository>
 
+<pluginRepository>
+   			<id>stat-scm-sourceforge</id>
+   			<name>stat-scm Sourceforge Maven 2 repository</name>
+   			<url>http://stat-scm.sourceforge.net/maven2</url>
+   		</pluginRepository>
+  
     </pluginRepositories>
 
 

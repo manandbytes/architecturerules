@@ -157,8 +157,11 @@ cyclic dependencies found:
               Determine a Package's Purpose
             </h3>
             <p>
-              Cyclic dependencies diminish the ability to determine a package's
-              purpose.
+              When future developers come along to maintain the software the presence
+              of cycles can diminish the ability for that developer to determine a
+              package's purpose. This hurts the software's clarity and understandability.
+              The end result will be the introduction of bugs, or an increase in the
+              amount of time required to modify the software.
             </p>
 
             <h3>
@@ -211,26 +214,39 @@ cyclic dependencies found:
 			  This modularity by design, allows the Spring Framework to released as a full
 			  framework (spring.jar) or modularly, so that the users can use the features that they
 			  are interested, and nothing more (spring-core, spring-ldap, spring-orm, spring-aop,
-			  spring-beans, spring-mock, and on and on...)
+			  spring-beans, spring-mock, and on and on...). See all of the modules
+			  <a href="http://www.mvnrepository.com/artifact/org.springframework">here</a>.
 			</p>
 			<p>
 			  When cyclic dependencies exist, your ability to make and release independent modules
 			  is removed. Packages that may not be releated must be released as a single jar,
 			  or module.
 			</p>
-            <h3>When are Cycles Acceptable</h3>
+          </div>
+          <!-- /entry -->
+        </div>
+        <!-- /post -->
+
+        <div class="hentry post programming" id="acceptable-cyclic-dependencies">
+          <h1 class="posttitle entry-title">
+            When are Cycles Acceptable
+          </h1>
+          <div class="entry entry-content">
             <p>
-              Generally speaking, cycles are most always accepted when in the same
-              package. For example two domain objects in the same package, such as
-              User and Account. A User has Accounts, and an Account has a User. Since
-              these two classes are in the same package, the package remains
-              encapsulated.
+		      Generally speaking, cycles are most always accepted when in the same
+		      package. For example two domain objects in the same package, such as
+		      User and Account. A User has Accounts, and an Account has a User. Since
+		      these two classes are in the same package, the package remains
+		      encapsulated.
             </p>
           </div>
-          <!-- entry -->
+          <!-- /entry -->
         </div>
-        <!-- post -->
+        <!-- /post -->
+
       </div>
+      <!-- /primary -->
+
       <div id="secondary">
       </div>
       <!-- /secondary -->

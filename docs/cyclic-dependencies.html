@@ -105,29 +105,7 @@
 			    <li>Clarity</li>
 			  </ul>
             </p>
-            <p class="clear" style="padding-top: 10px;">
-              ArchitectureRules wraps <a
-              href="http://clarkware.com/software/JDepend.html">JDepend</a>, a
-              java library which is able to identify these cyclic dependencies.
-              Upon detecting a cyclic dependency, a <a
-              href="exceptions.html#CyclicRedundencyException">CyclicDependencyException</a>
-              is thrown, a RuntimeException whose message notifies you of which
-              packages are involved in a clyclic dependency:
-            </p>
-<pre name="code" class="xml:nogutter:nocontrols">
-...architecturerules.exceptions.CyclicRedundancyException:
-cyclic dependencies found:
-
--- test.com.seventytwomiles.services
-|  |
-|  |-- test.com.seventytwomiles.dao.hibernate|
-|
--- test.com.seventytwomiles.dao.hibernate
-   |
-   |-- test.com.seventytwomiles.services
-
-</pre>
-            <p>
+           <p class="clear" style="padding-top: 10px;">
               By using Architecture Rules to Assert your Architecture, you are taking
               the first step in developing a strong architecture by <strong>actively
               managing package relationships</strong>.
@@ -222,6 +200,28 @@ cyclic dependencies found:
 			  is removed. Packages that may not be releated must be released as a single jar,
 			  or module.
 			</p>
+			<p>
+			  ArchitectureRules wraps <a
+			  href="http://clarkware.com/software/JDepend.html">JDepend</a>, a
+			  java library which is able to identify these cyclic dependencies.
+			  Upon detecting a cyclic dependency, a <a
+			  href="exceptions.html#CyclicRedundencyException">CyclicDependencyException</a>
+			  is thrown, a RuntimeException whose message notifies you of which
+			  packages are involved in a clyclic dependency:
+			</p>
+<pre name="code" class="xml:nogutter:nocontrols">
+...architecturerules.exceptions.CyclicRedundancyException:
+cyclic dependencies found:
+
+-- test.com.seventytwomiles.services
+|  |
+|  |-- test.com.seventytwomiles.dao.hibernate|
+|
+-- test.com.seventytwomiles.dao.hibernate
+   |
+   |-- test.com.seventytwomiles.services
+
+</pre>
           </div>
           <!-- /entry -->
         </div>

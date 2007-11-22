@@ -81,8 +81,32 @@
             <p>
               Two packages are said to be involved in a cyclic dependency when
               package A depends on package B and package B depends on package
-              A. This is called a direct cyclic dependency. ArchitectureRules
-              wraps <a
+              A. This is called a direct cyclic dependency. Cyclic dependencies
+              are created in various ways at different layers within a software
+              system. It's also possible for a cyclic relationship in one layer
+              to cause cycles in another.
+            </p>
+            <p>
+              Cyclic dependencies hurt a software system's
+              <a href="http://www.softed.com/Resources/WhitePapers/SoftQual_Realities.aspx">goals</a>:
+              <ul class="alignleft">
+			    <li>Understandability</li>
+			    <li>Flexibility</li>
+			    <li>Modularity</li>
+              </ul>
+              <ul class="alignleft">
+                <li>Modifiability</li>
+                <li>Reliability</li>
+                <li>Maintainability</li>
+              </ul>
+              <ul class="alignleft">
+			    <li>Testability</li>
+			    <li>Resuability</li>
+			    <li>Clarity</li>
+			  </ul>
+            </p>
+            <p class="clear" style="padding-top: 10px;">
+              ArchitectureRules wraps <a
               href="http://clarkware.com/software/JDepend.html">JDepend</a>, a
               java library which is able to identify these cyclic dependencies.
               Upon detecting a cyclic dependency, a <a
@@ -96,24 +120,16 @@ cyclic dependencies found:
 
 -- test.com.seventytwomiles.services
 |  |
-|  |-- test.com.seventytwomiles.model
-|  |
-|  |-- test.com.seventytwomiles.dao.hibernate
-|
-|
--- test.com.seventytwomiles.model
-|  |
-|  |-- test.com.seventytwomiles.services
-|
+|  |-- test.com.seventytwomiles.dao.hibernate|
 |
 -- test.com.seventytwomiles.dao.hibernate
    |
    |-- test.com.seventytwomiles.services
-          
+
 </pre>
             <p>
-              Cyclic dependencies create these negative consequences for the
-              system:
+              Aside from the adverse affects on the software development goals, cyclic
+              dependencies create these negative consequences for the system:
             </p>
             <ul id="consequences">
               <li>
@@ -130,25 +146,10 @@ cyclic dependencies found:
                 Packages cooperating in a cycle must be released as an atomic
                 unit.
               </li>
-              <li>
-                <p class="alert">
-                  Please share additional negative consequences to be added to
-                  this page on the <a
-                  href="http://groups.google.com/group/architecture-rules-users/topics?gvc=2">
-                  architecture-rules-user</a> mailing list.
-                </p>
-              </li>
             </ul>
             <h3>
               Determine a Package's Purpose
             </h3>
-            <p class="alert" style="font-size: 10px;">
-              This propagranda still being researched and written. Anything
-              that you may have to add would be welcomed. Please submit to the
-              <a
-              href="http://groups.google.com/group/architecture-rules-users/topics?gvc=2">
-              architecture-rules-user</a> mailing list.
-            </p>
             <p>
               Cyclic dependencies diminish the ability to determine a package's
               purpose.
@@ -166,6 +167,10 @@ cyclic dependencies found:
             <p>
               This makes it difficult to accurately assess and manage the
               impact of changes to the system.
+            </p>
+            <p>
+              It's a maintenance and testing issue, since you can't do anything
+              to either class without possibly affecting the other.
             </p>
             <h3>
               Separation of Layers
@@ -191,6 +196,14 @@ cyclic dependencies found:
               <a
               href="http://groups.google.com/group/architecture-rules-users/topics?gvc=2">
               architecture-rules-user</a> mailing list.
+            </p>
+            <h3>When are Cycles Acceptable</h3>
+            <p>
+              Generally speaking, cycles are most always accepted when in the same
+              package. For example two domain objects in the same package, such as
+              User and Account. A User has Accounts, and an Account has a User. Since
+              these two classes are in the same package, the package remains
+              encapsulated.
             </p>
           </div>
           <!-- entry -->
@@ -245,7 +258,7 @@ cyclic dependencies found:
     <script src="http://www.google-analytics.com/urchin.js"
     type="text/javascript">
     //<![CDATA[
-      
+
     //]]>
     </script><script type="text/javascript">
     //<![CDATA[

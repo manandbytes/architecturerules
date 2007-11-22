@@ -134,6 +134,7 @@ ul#affiliations li  { list-style: none; display: inline; }
 
 .alignright         { float: right;  margin: 10px 0 5px 10px;}
 .alignleft          { float: left; margin: 10px 10px 5px 0; }
+.clear		    { clear: both; }
 li.aligncenter        { text-align: center; }
 .clearfix:after     {  content: ".";  display: block;  clear: both;  visibility: hidden;  line-height: 0;  height: 0;  }
 .clearfix           { display: inline-block; }
@@ -177,7 +178,7 @@ ol#releases li.oldest	{ filter:  alpha(opacity=30);  -moz-opacity:.30; opacity:.
 div#backtogoogle		{ float: right; margin-top: 40px; }
 div#backtogoogle a		{ color: gray; text-decoration: none; font-size: 10px; padding-right: 10px 20px;}
 
-.svn					{ background-color: #f8f8f8; border: 1px solid #f0f0f0; display: block; color: gray !important; font-family: monospace;}
+.svn, .lists		{ background-color: #f8f8f8; border: 1px solid #f0f0f0; display: block; color: gray !important; font-family: monospace;}
 
 
 .alert, .info {  background-position: center; background-repeat: no-repeat; background-position: 15px 50%; text-align: left; padding: 10px 20px; padding-left: 45px; font-size: 10px; }

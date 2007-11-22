@@ -197,3 +197,12 @@ table tr.alt { background-color: #F8F8F8; }
 table tfoot td { border-top: solid 3px #E7EFFF; }
 caption { caption-side:top; font-size: 12px;  }
 
+
+
+a.tooltip { color: #d08 !important; text-decoration: none; border-bottom: dashed #d08 1px; }
+a.tooltip:hover { text-decoration: none; position:relative; }
+a.tooltip span { display:none; text-decoration: none; padding: 1px; }
+a.tooltip:hover span { position:absolute; z-index:10; top:35px; left:0px; width:152px; display:block; padding:10px; background-color:#FFFFCC; border:2px solid #C0C097; }
+.tooltip b { position:absolute; width:26px; height:15px; top:-15px; left:20px; background-image:url('../images/tooltiparrow.gif'); font-size:1px; }
+.tooltip strong { color: #333333; text-align: center; text-decoration: none; display: none; }
+.tooltip p { font: 11px verdana; line-height: 18px; color: #592C16; text-align: left; text-decoration: none; padding: 1px; margin: 0;}

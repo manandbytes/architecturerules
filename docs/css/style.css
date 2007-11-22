@@ -169,7 +169,7 @@ ol#releases li.oldest	{ filter:  alpha(opacity=30);  -moz-opacity:.30; opacity:.
 .footbar           		{ background-color: #e8fecd; width: 248px; height: 100%; margin: 20px 4px 0 4px; display: inline; float: left; }
 .footbar .col			   { float: left; width: 252px; border-right: inset gray 1px; height: 110px; }
 .footbar .last			   { border-right: none; }
-.footbar h4         		{ text-align: center; width: 100%; margin: 6px 2px; }
+.footbar h4         		{ text-align: center; width: 100%; margin: 6px 2px; font-family: Georgia; font-style: italic; }
 .footbar p         		{ padding: 8px; margin: 0 auto; width: 210px; font-size: 10px; }
 .footbar ul         		{ font-size: 10px; padding: 0px; margin: 6px;}
 .footbar ul li      		{ padding: 8px; list-style: none; border-bottom: dashed gray 1px; margin: 0 auto; width: 210px;}

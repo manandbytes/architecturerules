@@ -128,6 +128,11 @@ cyclic dependencies found:
 
 </pre>
             <p>
+              By using Architecture Rules to Assert your Architecture, you are taking
+              the first step in developing a strong architecture by <strong>actively
+              managing package relationships</strong>.
+            </p>
+            <p>
               Aside from the adverse affects on the software development goals, cyclic
               dependencies create these negative consequences for the system:
             </p>
@@ -147,6 +152,7 @@ cyclic dependencies found:
                 unit.
               </li>
             </ul>
+
             <h3>
               Determine a Package's Purpose
             </h3>
@@ -154,49 +160,64 @@ cyclic dependencies found:
               Cyclic dependencies diminish the ability to determine a package's
               purpose.
             </p>
+
             <h3>
               Changes Impact Unrelated Components
             </h3>
-            <p class="alert">
-              This propagranda still being researched and written. Anything
-              that you may have to add would be welcomed. Please submit to the
-              <a
-              href="http://groups.google.com/group/architecture-rules-users/topics?gvc=2">
-              architecture-rules-user</a> mailing list.
+            <p>
+              When a class involved in a cycle is modified, it could change the bahavior
+              of the other class involved in the cycle. This makes it difficult to
+              accurately assess and manage the impact of changes to the system. This
+              directly hinders the modifiability of your software. Reliability is
+              also attacked since changing the behavior of an unreleated class could
+              introduce a bug.
             </p>
             <p>
-              This makes it difficult to accurately assess and manage the
-              impact of changes to the system.
+              Affecting other components also introduces a maintenance and testing issue,
+              since you can't do anything to either class without possibly affecting the
+              other. A situation exists where class A needs to compile against class B,
+              but class B needs to compile against class A.
             </p>
-            <p>
-              It's a maintenance and testing issue, since you can't do anything
-              to either class without possibly affecting the other.
-            </p>
+
             <h3>
               Separation of Layers
             </h3>
-            <p class="alert">
-              This propagranda still being researched and written. Anything
-              that you may have to add would be welcomed. Please submit to the
-              <a
-              href="http://groups.google.com/group/architecture-rules-users/topics?gvc=2">
-              architecture-rules-user</a> mailing list.
-            </p>
             <p>
               Most architectural approaches recognize the advantages of layered
-              architectures. Cyclic dependencies across layers couple the
-              layers, defeating the purpose of layering.
+              architectures. For example, if you develop a presentation layer, a
+              business or logic layer, and a database access layer, you are able
+              to swap out one implementation of a layer for another. Such as
+              replacing a JDBC data access layer with one that utilizes Hibernate,
+              or a JSP presentation layer for a Flash or PHP presentation layer.
             </p>
+            <p>
+              Cyclic dependencies across layers couple the layers, defeating the purpose
+              of layering. If a cycle exists between the service layer and the data
+              access layer, then those two layers are no longer interchangable. Thus,
+              modifiability of the software is lowered. The layers are no longer
+              encapsulated.
+            </p>
+
             <h3>
               Packages Must be Released as an Atomic Unit
             </h3>
-            <p class="alert">
-              This propagranda still being researched and written. Anything
-              that you may have to add would be welcomed. Please submit to the
-              <a
-              href="http://groups.google.com/group/architecture-rules-users/topics?gvc=2">
-              architecture-rules-user</a> mailing list.
+            <p>
+              The <a href="http://www.springframework.org/">Spring Framework</a> is inspring
+              when it comes to its modular design. The Spring Framework can be considered as
+              a collection of smaller frameworks. Most of these frameworks are designed to work
+              independently of each other yet provide better functionalities when used together.
             </p>
+			<p>
+			  This modularity by design, allows the Spring Framework to released as a full
+			  framework (spring.jar) or modularly, so that the users can use the features that they
+			  are interested, and nothing more (spring-core, spring-ldap, spring-orm, spring-aop,
+			  spring-beans, spring-mock, and on and on...)
+			</p>
+			<p>
+			  When cyclic dependencies exist, your ability to make and release independent modules
+			  is removed. Packages that may not be releated must be released as a single jar,
+			  or module.
+			</p>
             <h3>When are Cycles Acceptable</h3>
             <p>
               Generally speaking, cycles are most always accepted when in the same

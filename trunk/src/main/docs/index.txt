@@ -106,11 +106,11 @@ the appropropriate position to the next number.
 
 # notify mailing lists of release
 
-    to: architecture-rules-dev@googlegroups.com, architecture-rules-users@googlegroups.com,
+    to: architecture-rules-dev@googlegroups.com, architecture-rules-users@googlegroups.com
     subject: Release ${pom.xml-version}
 
         ________________________________________________________________________
-        Release 2.0.1
+        Release ${version}
 
         ${release date} ${fix, enhancement} release
 

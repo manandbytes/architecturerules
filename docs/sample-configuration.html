@@ -93,17 +93,17 @@
         &lt;architecture&gt;
 
             &lt;configuration&gt;
-                &lt;sources&gt;
-                    &lt;source&gt;core\target\classes&lt;/source&gt;
-                    &lt;source&gt;web\target\classes&lt;/source&gt;
-                    &lt;source&gt;web-ws\target\classes&lt;/source&gt;
+                &lt;sources  no-packages=&quot;exception&quot;&gt;
+                    &lt;source not-found=&quot;ignore&quot;&gt;core\target\classes&lt;/source&gt;
+                    &lt;source not-found=&quot;ignore&quot;&gt;web\target\classes&lt;/source&gt;
+                    &lt;source not-found=&quot;exception&quot;&gt;web-ws\target\classes&lt;/source&gt;
                 &lt;/sources&gt;
-                &lt;cyclicaldependency&gt;&lt;/cyclicaldependency&gt;
+                &lt;cyclicaldependency test=&quot;true&quot;&gt;&lt;/cyclicaldependency&gt;
             &lt;/configuration&gt;
 
             &lt;rules&gt;
 
-                &lt;rule&gt;
+                &lt;rule id=&quot;dao&quot;&gt;
                     <comment>dao layer depends on no other layers</comment>
                     &lt;packages&gt;
                         &lt;package&gt;com.company.app.core.dao&lt;/package&gt;
@@ -116,7 +116,7 @@
                     &lt;/violations&gt;
                 &lt;/rule&gt;
 
-                &lt;rule&gt;
+                &lt;rule id=&quot;web&quot;&gt;
                     <comment>presentation layer may not use dao directly</comment>
                     &lt;packages&gt;
                         &lt;package&gt;com.company.app.web&lt;/package&gt;
@@ -134,7 +134,7 @@
             &lt;/rules&gt;
 
         &lt;/architecture&gt;
-       
+
 </pre>
           </div>
           <!-- entry -->
@@ -155,19 +155,21 @@
               Sources
             </h3>
 <pre name="code" class="xml:nocontrols:nogutter">
-        &lt;sources&gt;
-            &lt;source&gt;core\target\classes&lt;/source&gt;
-            &lt;source&gt;web\target\classes&lt;/source&gt;
-            &lt;source&gt;web-ws\target\classes&lt;/source&gt;
-        &lt;/sources&gt;
-       
+                &lt;sources  no-packages=&quot;exception&quot;&gt;
+                    &lt;source not-found=&quot;ignore&quot;&gt;core\target\classes&lt;/source&gt;
+                    &lt;source not-found=&quot;ignore&quot;&gt;web\target\classes&lt;/source&gt;
+                    &lt;source not-found=&quot;exception&quot;&gt;web-ws\target\classes&lt;/source&gt;
+                &lt;/sources&gt;
+
 </pre>
             <p>
               Sources are the directories that JDepend will analyze. The
               Jdepend docs call these sources, but in reality you want to point
               to your complied classes.
             </p>
-            <tt>&lt;sources no-packages="ignore"&gt;</tt> 
+<pre name="code" class="xml:nocontrols:nogutter">
+&lt;sources no-packages="ignore"&gt;
+</pre>
             <p>
               Valid no-packages values are ignore and exception.
             </p>
@@ -182,8 +184,9 @@
                 when the directory does not exit
               </li>
             </ul>
-            <tt>&lt;source
-            not-found="ignore"&gt;core/target/classes&lt;/source&gt;</tt> 
+<pre name="code" class="xml:nocontrols:nogutter">
+&lt;source not-found="ignore"&gt;core/target/classes&lt;/source&gt;
+</pre>
             <p>
               Sources can be a relative path or an absolute path. Valid
               not-found values are ignore and exception.
@@ -204,7 +207,7 @@
               Cyclic Dependency Test
             </h3>
 <pre name="code" class="xml:nocontrols:nogutter">
-&lt;cyclicaldependency&gt;&lt;/cyclicaldependency&gt;
+&lt;cyclicaldependency test=&quot;true&quot;&gt;&lt;/cyclicaldependency&gt;
 </pre>
             <p>
               Easy as true or false to indicate weather you want this test to
@@ -223,19 +226,19 @@
               even for yourself for that matter.)
             </p>
 <pre name="code" class="xml:nocontrols:nogutter">
-    &lt;rule&gt;
-        <comment>dao layer depends on no other layers</comment>
-        &lt;packages&gt;
-            &lt;package&gt;com.company.app.core.dao&lt;/package&gt;
-            &lt;package&gt;com.company.app.core.dao.hibernate&lt;/package&gt;
-        &lt;/packages&gt;
-        &lt;violations&gt;
-            &lt;violation&gt;com.company.app.core.services&lt;/violation&gt;
-            &lt;violation&gt;com.company.app.web&lt;/violation&gt;
-            &lt;violation&gt;com.company.app.web.spring&lt;/violation&gt;
-        &lt;/violations&gt;
-    &lt;/rule&gt;
-   
+&lt;rule id=&quot;dao&quot;&gt;
+	<comment>dao layer depends on no other layers</comment>
+	&lt;packages&gt;
+		&lt;package&gt;com.company.app.core.dao&lt;/package&gt;
+		&lt;package&gt;com.company.app.core.dao.hibernate&lt;/package&gt;
+	&lt;/packages&gt;
+	&lt;violations&gt;
+		&lt;violation&gt;com.company.app.core.services&lt;/violation&gt;
+		&lt;violation&gt;com.company.app.web&lt;/violation&gt;
+		&lt;violation&gt;com.company.app.web.spring&lt;/violation&gt;
+	&lt;/violations&gt;
+&lt;/rule&gt;
+
 </pre>
             <p>
               ids can not be duplicated, but packages can. If you want to break
@@ -306,7 +309,7 @@ configuration.addRule(rule);
  * file is loaded first.
  */
 configuration.setDoCyclicDependencyTest(false);
-     
+
 </pre>
             <p>
               In this example, the configuration is pre-populated with the
@@ -366,7 +369,7 @@ configuration.setDoCyclicDependencyTest(false);
     <script src="http://www.google-analytics.com/urchin.js"
     type="text/javascript">
     //<![CDATA[
-          
+
     //]]>
     </script><script type="text/javascript">
     //<![CDATA[

@@ -43,7 +43,7 @@ public class ExtendTest extends AbstractArchitectureRulesConfigurationTest {
      * @return String name of the xml file including <samp>.xml</smmp>
      */
     protected String getConfigurationFileName() {
-        return super.getConfigurationFileName();    //To change body of overridden methods use File | Settings | File Templates.
+        return super.getConfigurationFileName();
     }
 
 
@@ -53,8 +53,8 @@ public class ExtendTest extends AbstractArchitectureRulesConfigurationTest {
     public void testArchitecture() {
 
         final Configuration configuration = getConfiguration();
-        configuration.setDoCyclicDependencyTest(true);
-        configuration.setThrowExceptionWhenNoPackages(true);
+        configuration.setDoCyclicDependencyTest(false);
+        configuration.setThrowExceptionWhenNoPackages(false);
 
         assertTrue(doTests());
     }

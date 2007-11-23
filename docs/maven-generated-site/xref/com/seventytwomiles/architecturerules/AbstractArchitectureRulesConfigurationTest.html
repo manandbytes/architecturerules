@@ -30,8 +30,8 @@
 <a name="21" href="#21">21</a>  
 <a name="22" href="#22">22</a>  
 <a name="23" href="#23">23</a>  <strong>import</strong> com.seventytwomiles.architecturerules.configuration.Configuration;
-<a name="24" href="#24">24</a>  <strong>import</strong> com.seventytwomiles.architecturerules.configuration.UnmodifiableConfiguration;
-<a name="25" href="#25">25</a>  <strong>import</strong> com.seventytwomiles.architecturerules.configuration.xml.ConfigurationFactory;
+<a name="24" href="#24">24</a>  <strong>import</strong> com.seventytwomiles.architecturerules.configuration.ConfigurationFactory;
+<a name="25" href="#25">25</a>  <strong>import</strong> com.seventytwomiles.architecturerules.configuration.UnmodifiableConfiguration;
 <a name="26" href="#26">26</a>  <strong>import</strong> com.seventytwomiles.architecturerules.configuration.xml.DigesterConfigurationFactory;
 <a name="27" href="#27">27</a>  <strong>import</strong> com.seventytwomiles.architecturerules.services.CyclicRedundencyService;
 <a name="28" href="#28">28</a>  <strong>import</strong> com.seventytwomiles.architecturerules.services.CyclicRedundencyServiceImpl;
@@ -79,7 +79,7 @@
 <a name="70" href="#70">70</a>  <em>     *</em>
 <a name="71" href="#71">71</a>  <em>     * @return Value for property &lt;tt>configuration&lt;/tt>.</em>
 <a name="72" href="#72">72</a>  <em>     */</em>
-<a name="73" href="#73">73</a>      <a href="../../../com/seventytwomiles/architecturerules/configuration/Configuration.html">Configuration</a> getConfiguration() {
+<a name="73" href="#73">73</a>      <strong>protected</strong> <a href="../../../com/seventytwomiles/architecturerules/configuration/Configuration.html">Configuration</a> getConfiguration() {
 <a name="74" href="#74">74</a>  
 <a name="75" href="#75">75</a>          <strong>return</strong> configuration;
 <a name="76" href="#76">76</a>      }
@@ -93,7 +93,7 @@
 <a name="84" href="#84">84</a>  
 <a name="85" href="#85">85</a>          <strong>final</strong> String configurationFileName = getConfigurationFileName();
 <a name="86" href="#86">86</a>  
-<a name="87" href="#87">87</a>          <strong>final</strong> <a href="../../../com/seventytwomiles/architecturerules/configuration/xml/ConfigurationFactory.html">ConfigurationFactory</a> configurationFactory;
+<a name="87" href="#87">87</a>          <strong>final</strong> <a href="../../../com/seventytwomiles/architecturerules/configuration/ConfigurationFactory.html">ConfigurationFactory</a> configurationFactory;
 <a name="88" href="#88">88</a>  
 <a name="89" href="#89">89</a>          <strong>if</strong> (configurationFileName != <strong>null</strong> &amp;&amp; configurationFileName.length() > 0) {
 <a name="90" href="#90">90</a>  
@@ -132,7 +132,7 @@
 <a name="123" href="#123">123</a> <em>     *</em>
 <a name="124" href="#124">124</a> <em>     * @return String name of the xml file including &lt;samp>.xml&lt;/smmp></em>
 <a name="125" href="#125">125</a> <em>     */</em>
-<a name="126" href="#126">126</a>     <strong>public</strong> String getConfigurationFileName() {
+<a name="126" href="#126">126</a>     <strong>protected</strong> String getConfigurationFileName() {
 <a name="127" href="#127">127</a>         <strong>return</strong> <span class="string">""</span>;
 <a name="128" href="#128">128</a>     }
 <a name="129" href="#129">129</a> 
@@ -140,7 +140,7 @@
 <a name="131" href="#131">131</a>     <em>/**<em>*</em></em>
 <a name="132" href="#132">132</a> <em>     * &lt;p>Implement this method and call {@link #doTests}&lt;/p></em>
 <a name="133" href="#133">133</a> <em>     */</em>
-<a name="134" href="#134">134</a>     <strong>public</strong> <strong>abstract</strong> <strong>void</strong> testArchitecture();
+<a name="134" href="#134">134</a>     <strong>protected</strong> <strong>abstract</strong> <strong>void</strong> testArchitecture();
 <a name="135" href="#135">135</a> 
 <a name="136" href="#136">136</a> }
 </pre>

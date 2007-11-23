@@ -134,12 +134,12 @@
 <tr>
   <td class="numLine">&nbsp;24</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="keyword">import</span> com.seventytwomiles.architecturerules.configuration.UnmodifiableConfiguration;</pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="keyword">import</span> com.seventytwomiles.architecturerules.configuration.ConfigurationFactory;</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;25</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="keyword">import</span> com.seventytwomiles.architecturerules.configuration.xml.ConfigurationFactory;</pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="keyword">import</span> com.seventytwomiles.architecturerules.configuration.UnmodifiableConfiguration;</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;26</td>
@@ -278,7 +278,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;53</td>
-  <td class="nbHitsCovered">&nbsp;12</td>
+  <td class="nbHitsCovered">&nbsp;20</td>
   <td class="src"><pre class="src">&nbsp;<span class="keyword">public</span> <span class="keyword">class</span> AssertArchitectureTask <span class="keyword">extends</span> Task {</pre></td>
 </tr>
 <tr>
@@ -373,7 +373,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;72</td>
-  <td class="nbHitsCovered">&nbsp;12</td>
+  <td class="nbHitsCovered">&nbsp;20</td>
   <td class="src"><pre class="src">&nbsp;    <span class="keyword">final</span> <span class="keyword">private</span> Configuration configuration = <span class="keyword">new</span> Configuration();</pre></td>
 </tr>
 <tr>
@@ -413,7 +413,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;80</td>
-  <td class="nbHitsCovered">&nbsp;24</td>
+  <td class="nbHitsCovered">&nbsp;40</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">super</span>.execute();</pre></td>
 </tr>
 <tr>
@@ -423,12 +423,12 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;82</td>
-  <td class="nbHitsCovered">&nbsp;24</td>
+  <td class="nbHitsCovered">&nbsp;40</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">if</span> (<span class="keyword">null</span> == configurationFileName || <span class="string">""</span>.equals(configurationFileName))</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;83</td>
-  <td class="nbHitsCovered">&nbsp;18</td>
+  <td class="nbHitsCovered">&nbsp;30</td>
   <td class="src"><pre class="src">&nbsp;            <span class="keyword">throw</span> <span class="keyword">new</span> IllegalStateException(<span class="string">"set configurationFileName property"</span>);</pre></td>
 </tr>
 <tr>
@@ -453,7 +453,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;88</td>
-  <td class="nbHitsCovered">&nbsp;6</td>
+  <td class="nbHitsCovered">&nbsp;10</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> ConfigurationFactory configurationFactory = <span class="keyword">new</span> DigesterConfigurationFactory(configurationFileName);</pre></td>
 </tr>
 <tr>
@@ -463,22 +463,22 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;90</td>
-  <td class="nbHitsCovered">&nbsp;6</td>
+  <td class="nbHitsCovered">&nbsp;10</td>
   <td class="src"><pre class="src">&nbsp;        configuration.getRules().addAll(configurationFactory.getRules());</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;91</td>
-  <td class="nbHitsCovered">&nbsp;6</td>
+  <td class="nbHitsCovered">&nbsp;10</td>
   <td class="src"><pre class="src">&nbsp;        configuration.getSources().addAll(configurationFactory.getSources());</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;92</td>
-  <td class="nbHitsCovered">&nbsp;6</td>
+  <td class="nbHitsCovered">&nbsp;10</td>
   <td class="src"><pre class="src">&nbsp;        configuration.setDoCyclicDependencyTest(configurationFactory.doCyclicDependencyTest());</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;93</td>
-  <td class="nbHitsCovered">&nbsp;6</td>
+  <td class="nbHitsCovered">&nbsp;10</td>
   <td class="src"><pre class="src">&nbsp;        configuration.setThrowExceptionWhenNoPackages(configurationFactory.throwExceptionWhenNoPackages());</pre></td>
 </tr>
 <tr>
@@ -508,12 +508,12 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;99</td>
-  <td class="nbHitsCovered">&nbsp;6</td>
+  <td class="nbHitsCovered">&nbsp;10</td>
   <td class="src"><pre class="src">&nbsp;        rulesService = <span class="keyword">new</span> RulesServiceImpl(<span class="keyword">new</span> UnmodifiableConfiguration(configuration));</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;100</td>
-  <td class="nbHitsCovered">&nbsp;6</td>
+  <td class="nbHitsCovered">&nbsp;10</td>
   <td class="src"><pre class="src">&nbsp;        rulesService.performRulesTest();</pre></td>
 </tr>
 <tr>
@@ -538,7 +538,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;105</td>
-  <td class="nbHitsCovered">&nbsp;6</td>
+  <td class="nbHitsCovered">&nbsp;10</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">if</span> (configuration.shouldDoCyclicDependencyTest()) {</pre></td>
 </tr>
 <tr>
@@ -548,12 +548,12 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;107</td>
-  <td class="nbHitsCovered">&nbsp;6</td>
+  <td class="nbHitsCovered">&nbsp;10</td>
   <td class="src"><pre class="src">&nbsp;            <span class="keyword">final</span> CyclicRedundencyService redundencyService = <span class="keyword">new</span> CyclicRedundencyServiceImpl(<span class="keyword">new</span> UnmodifiableConfiguration(configuration));</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;108</td>
-  <td class="nbHitsCovered">&nbsp;6</td>
+  <td class="nbHitsCovered">&nbsp;10</td>
   <td class="src"><pre class="src">&nbsp;            redundencyService.performCyclicRedundencyCheck();</pre></td>
 </tr>
 <tr>
@@ -563,7 +563,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;110</td>
-  <td class="nbHitsCovered">&nbsp;6</td>
+  <td class="nbHitsCovered">&nbsp;10</td>
   <td class="src"><pre class="src">&nbsp;    }</pre></td>
 </tr>
 <tr>
@@ -613,12 +613,12 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;120</td>
-  <td class="nbHitsCovered">&nbsp;18</td>
+  <td class="nbHitsCovered">&nbsp;30</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">this</span>.configurationFileName = configurationFileName;</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;121</td>
-  <td class="nbHitsCovered">&nbsp;18</td>
+  <td class="nbHitsCovered">&nbsp;30</td>
   <td class="src"><pre class="src">&nbsp;    }</pre></td>
 </tr>
 <tr>

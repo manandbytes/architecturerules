@@ -22,16 +22,16 @@
                     <label>configuration</label>
                   <branch>
                       <label>xml</label>
-                      <leaf><label>AbstractConfigurationFactory.java</label><weight>159</weight><value>100.0</value></leaf>
-                      <leaf><label>ConfigurationFactory.java</label><weight>63</weight><value>100.0</value></leaf>
-                      <leaf><label>DigesterConfigurationFactory.java</label><weight>302</weight><value>100.0</value></leaf>
+                      <leaf><label>AbstractConfigurationFactory.java</label><weight>27</weight><value>100.0</value></leaf>
+                      <leaf><label>ConfigurationFactory.java</label><weight>21</weight><value>100.0</value></leaf>
+                      <leaf><label>DigesterConfigurationFactory.java</label><weight>303</weight><value>100.0</value></leaf>
                       <leaf><label>SaxErrorHandler.java</label><weight>66</weight><value>100.0</value></leaf>
                       <leaf><label>XmlConfiguration.java</label><weight>75</weight><value>100.0</value></leaf>
                   </branch>
-                    <leaf><label>Configuration.java</label><weight>182</weight><value>10.43956043956044</value></leaf>
-                    <leaf><label>ConfigurationFactory.java</label><weight>161</weight><value>-100.0</value></leaf>
+                    <leaf><label>Configuration.java</label><weight>181</weight><value>10.497237569060774</value></leaf>
+                    <leaf><label>ConfigurationFactory.java</label><weight>216</weight><value>-100.0</value></leaf>
                     <leaf><label>UnmodifiableConfiguration.java</label><weight>97</weight><value>-5.154639175257731</value></leaf>
-                    <leaf><label>package.html</label><weight>32</weight><value>59.375</value></leaf>
+                    <leaf><label>package.html</label><weight>72</weight><value>26.38888888888889</value></leaf>
                 </branch>
 
                 <branch>
@@ -40,7 +40,7 @@
                     <leaf><label>Rule.java</label><weight>353</weight><value>16.147308781869686</value></leaf>
                     <leaf><label>SourceDirectory.java</label><weight>267</weight><value>48.31460674157304</value></leaf>
                     <leaf><label>SourcesConfiguration.java</label><weight>60</weight><value>100.0</value></leaf>
-                    <leaf><label>package.html</label><weight>32</weight><value>59.375</value></leaf>
+                    <leaf><label>package.html</label><weight>73</weight><value>26.027397260273972</value></leaf>
                 </branch>
 
                 <branch>
@@ -51,7 +51,7 @@
                     <leaf><label>InvalidConfigurationException.java</label><weight>65</weight><value>100.0</value></leaf>
                     <leaf><label>NoPackagesFoundException.java</label><weight>63</weight><value>12.698412698412698</value></leaf>
                     <leaf><label>SourceNotFoundException.java</label><weight>76</weight><value>100.0</value></leaf>
-                    <leaf><label>package.html</label><weight>32</weight><value>59.375</value></leaf>
+                    <leaf><label>package.html</label><weight>103</weight><value>18.446601941747574</value></leaf>
                 </branch>
 
                 <branch>
@@ -63,10 +63,10 @@
                     <leaf><label>CyclicRedundencyServiceImpl.java</label><weight>215</weight><value>100.0</value></leaf>
                     <leaf><label>RulesService.java</label><weight>40</weight><value>100.0</value></leaf>
                     <leaf><label>RulesServiceImpl.java</label><weight>133</weight><value>100.0</value></leaf>
-                    <leaf><label>package.html</label><weight>32</weight><value>59.375</value></leaf>
+                    <leaf><label>package.html</label><weight>72</weight><value>26.38888888888889</value></leaf>
                 </branch>
                   <leaf><label>AbstractArchitectureRulesConfigurationTest.java</label><weight>136</weight><value>31.61764705882353</value></leaf>
-                  <leaf><label>package.html</label><weight>32</weight><value>59.375</value></leaf>
+                  <leaf><label>package.html</label><weight>71</weight><value>26.76056338028169</value></leaf>
               </branch>
             </branch>
           </branch>
@@ -79,7 +79,7 @@
                   <label>commons</label>
                 <branch>
                     <label>io</label>
-                    <leaf><label>FileUtils.java</label><weight>226</weight><value>7.079646017699115</value></leaf>
+                    <leaf><label>FileUtils.java</label><weight>229</weight><value>6.986899563318777</value></leaf>
                 </branch>
               </branch>
             </branch>
@@ -90,14 +90,14 @@
                   <label>core</label>
                 <branch>
                     <label>io</label>
-                    <leaf><label>ClassPathResource.java</label><weight>541</weight><value>3.1423290203327174</value></leaf>
+                    <leaf><label>ClassPathResource.java</label><weight>544</weight><value>3.125</value></leaf>
                 </branch>
               </branch>
 
               <branch>
                   <label>util</label>
-                  <leaf><label>ClassUtils.java</label><weight>59</weight><value>27.11864406779661</value></leaf>
-                  <leaf><label>ResourceUtils.java</label><weight>69</weight><value>23.18840579710145</value></leaf>
+                  <leaf><label>ClassUtils.java</label><weight>62</weight><value>25.806451612903224</value></leaf>
+                  <leaf><label>ResourceUtils.java</label><weight>72</weight><value>22.22222222222222</value></leaf>
               </branch>
             </branch>
           </branch>
@@ -195,7 +195,7 @@
 
                 <branch>
                     <label>test</label>
-                    <leaf><label>ExtendTest.java</label><weight>54</weight><value>100.0</value></leaf>
+                    <leaf><label>ExtendTest.java</label><weight>61</weight><value>100.0</value></leaf>
                 </branch>
 
                 <branch>
@@ -208,14 +208,14 @@
                 </branch>
               </branch>
             </branch>
-              <leaf><label>package.html</label><weight>6</weight><value>100.0</value></leaf>
+              <leaf><label>package.html</label><weight>69</weight><value>100.0</value></leaf>
           </branch>
         </branch>
 
         <branch>
             <label>resources</label>
-            <leaf><label>architecture-rules-fail-cyclic.xml</label><weight>24</weight><value>100.0</value></leaf>
-            <leaf><label>architecture-rules-pass.xml</label><weight>112</weight><value>100.0</value></leaf>
+            <leaf><label>architecture-rules-fail-cyclic.xml</label><weight>25</weight><value>100.0</value></leaf>
+            <leaf><label>architecture-rules-pass.xml</label><weight>113</weight><value>100.0</value></leaf>
             <leaf><label>architecture-rules.xml</label><weight>112</weight><value>8.035714285714286</value></leaf>
             <leaf><label>log4j.xml</label><weight>30</weight><value>100.0</value></leaf>
         </branch>
@@ -225,6 +225,6 @@
   <branch>
       <label>[root]</label>
       <leaf><label>build.xml</label><weight>68</weight><value>100.0</value></leaf>
-      <leaf><label>pom.xml</label><weight>372</weight><value>-0.2688172043010753</value></leaf>
+      <leaf><label>pom.xml</label><weight>366</weight><value>-0.273224043715847</value></leaf>
   </branch>
 </root>

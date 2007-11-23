@@ -30,8 +30,8 @@
 <a name="21" href="#21">21</a>  
 <a name="22" href="#22">22</a>  
 <a name="23" href="#23">23</a>  <strong>import</strong> com.seventytwomiles.architecturerules.configuration.Configuration;
-<a name="24" href="#24">24</a>  <strong>import</strong> com.seventytwomiles.architecturerules.configuration.UnmodifiableConfiguration;
-<a name="25" href="#25">25</a>  <strong>import</strong> com.seventytwomiles.architecturerules.configuration.xml.ConfigurationFactory;
+<a name="24" href="#24">24</a>  <strong>import</strong> com.seventytwomiles.architecturerules.configuration.ConfigurationFactory;
+<a name="25" href="#25">25</a>  <strong>import</strong> com.seventytwomiles.architecturerules.configuration.UnmodifiableConfiguration;
 <a name="26" href="#26">26</a>  <strong>import</strong> com.seventytwomiles.architecturerules.configuration.xml.DigesterConfigurationFactory;
 <a name="27" href="#27">27</a>  <strong>import</strong> com.seventytwomiles.architecturerules.services.CyclicRedundencyService;
 <a name="28" href="#28">28</a>  <strong>import</strong> com.seventytwomiles.architecturerules.services.CyclicRedundencyServiceImpl;
@@ -94,7 +94,7 @@
 <a name="85" href="#85">85</a>          <em>/**<em>*</em></em>
 <a name="86" href="#86">86</a>  <em>         * 1. load configuration</em>
 <a name="87" href="#87">87</a>  <em>         */</em>
-<a name="88" href="#88">88</a>          <strong>final</strong> <a href="../../../../com/seventytwomiles/architecturerules/configuration/xml/ConfigurationFactory.html">ConfigurationFactory</a> configurationFactory = <strong>new</strong> <a href="../../../../com/seventytwomiles/architecturerules/configuration/xml/DigesterConfigurationFactory.html">DigesterConfigurationFactory</a>(configurationFileName);
+<a name="88" href="#88">88</a>          <strong>final</strong> <a href="../../../../com/seventytwomiles/architecturerules/configuration/ConfigurationFactory.html">ConfigurationFactory</a> configurationFactory = <strong>new</strong> <a href="../../../../com/seventytwomiles/architecturerules/configuration/xml/DigesterConfigurationFactory.html">DigesterConfigurationFactory</a>(configurationFileName);
 <a name="89" href="#89">89</a>  
 <a name="90" href="#90">90</a>          configuration.getRules().addAll(configurationFactory.getRules());
 <a name="91" href="#91">91</a>          configuration.getSources().addAll(configurationFactory.getSources());

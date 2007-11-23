@@ -70,7 +70,7 @@ public abstract class AbstractArchitectureRulesConfigurationTest extends TestCas
      *
      * @return Value for property <tt>configuration</tt>.
      */
-    Configuration getConfiguration() {
+    protected Configuration getConfiguration() {
 
         return configuration;
     }
@@ -123,7 +123,7 @@ public abstract class AbstractArchitectureRulesConfigurationTest extends TestCas
      *
      * @return String name of the xml file including <samp>.xml</smmp>
      */
-    public String getConfigurationFileName() {
+    protected String getConfigurationFileName() {
         return "";
     }
 
@@ -131,6 +131,6 @@ public abstract class AbstractArchitectureRulesConfigurationTest extends TestCas
     /**
      * <p>Implement this method and call {@link #doTests}</p>
      */
-    public abstract void testArchitecture();
+    protected abstract void testArchitecture();
 
 }

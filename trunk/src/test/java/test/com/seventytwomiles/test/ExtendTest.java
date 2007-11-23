@@ -1,8 +1,5 @@
 package test.com.seventytwomiles.test;
 
-
-import com.seventytwomiles.architecturerules.AbstractArchitectureRulesConfigurationTest;
-
 /*
 * Copyright 2007 the original author or authors.
 *
@@ -23,11 +20,16 @@ import com.seventytwomiles.architecturerules.AbstractArchitectureRulesConfigurat
 */
 
 
+import com.seventytwomiles.architecturerules.AbstractArchitectureRulesConfigurationTest;
+import com.seventytwomiles.architecturerules.configuration.Configuration;
+
+
 /**
- * <p>todo: javadocs</p>
+ * <p>Sample subclass of AbstractArchitectureRulesConfigurationTest that is in a
+ * different package. Used to test inheritance.</p>
  *
  * @author mnereson
- * @see $interface
+ * @see AbstractArchitectureRulesConfigurationTest
  */
 public class ExtendTest extends AbstractArchitectureRulesConfigurationTest {
 
@@ -40,7 +42,7 @@ public class ExtendTest extends AbstractArchitectureRulesConfigurationTest {
      *
      * @return String name of the xml file including <samp>.xml</smmp>
      */
-    public String getConfigurationFileName() {
+    protected String getConfigurationFileName() {
         return super.getConfigurationFileName();    //To change body of overridden methods use File | Settings | File Templates.
     }
 
@@ -49,6 +51,11 @@ public class ExtendTest extends AbstractArchitectureRulesConfigurationTest {
      * <p>Implement this method and call {@link #doTests}</p>
      */
     public void testArchitecture() {
+
+        final Configuration configuration = getConfiguration();
+        configuration.setDoCyclicDependencyTest(true);
+        configuration.setThrowExceptionWhenNoPackages(true);
+
         assertTrue(doTests());
     }
 }

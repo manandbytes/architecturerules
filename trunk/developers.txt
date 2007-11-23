@@ -29,24 +29,45 @@ the appropropriate position to the next number.
 
 # Commit all files.
 
-# svn tag version=pom.xml version
+# Create release with Maven
 
-# build artifacts and site
+    from /trunk/
+    mvn clean release:prepare
+    use defaults for the three questions that are asked
 
-    mvn clean package site
+    ******** Can I do mvn clean release:prepare site ??             ********
+    ******** because otherwise, the javadocs version is -SNAPSHOT   ********
+
+    this command will
+        create the subversion tag
+        update pom.xml for the next
+        create artifacts in /trunk/target
+
+# build site
+
+    mvn site
 
 # upload the artifacts to http://code.google.com/p/architecturerules/downloads/list
 
-    trunk/target/architecture-rules-2.0.2.jar
-    trunk/target/architecture-rules-2.0.2-sources.jar
-    trunk/target/architecture-rules-2.0.2-test-sources.jar
+    trunk/target/architecture-rules-${version}.jar
+    trunk/target/architecture-rules-${version}-sources.jar
+    trunk/target/architecture-rules-${version}-test-sources.jar
 
     set all to _featured_
     set all others to _deprecated_ and removed _featured_ from previous version
 
+# update issues release-next to release-${version}
+
+    for each issue where Release = next
+        update Release-${version}
+
 # copy maven-generated site
 
     copy trunk\target\site to docs\maven-generated-site
+    svn add new files
+    set *.html svn:mime-type = text/html
+    set *.css svn:mime-type = text/css
+    set *.gif svn:mime-type = image/gif
 
 # copy javadocs to site
 
@@ -54,11 +75,11 @@ the appropropriate position to the next number.
     to docs\api\${pom.xml-version}
     add docs\api\${pom.xml-version} to SVN
     set svn:mime-type on all html to text/html
-    set svn:mime-type on all css to text/css
-    commit docs\api\${pom.xml-version}
-    update docs\api-javadocs.html
+    set svn:mime-type on all css to text/css    
 
-# update downloads.html
+# update docs\api-javadocs.html
+
+# update docs\downloads.html
 
     add new release to TOC
     add new release content
@@ -68,7 +89,17 @@ the appropropriate position to the next number.
 # update index.html
 
     update downloads to new download
-    
+
+# verify changes
+
+    verify links to new downloads
+    verifiy new api docs uploaded (check version at top of page)
+    verify new downloads listed on index.html
+    verify new downloads described at downloads.html
+    verity new maven-generated site by checking date of index
+
+# commit /docs
+
 # notify mailing lists of release
 
     to: architecture-rules-dev@googlegroups.com, architecture-rules-users@googlegroups.com,

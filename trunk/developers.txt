@@ -1,0 +1,33 @@
+
+This plain text file provides notes for developers and development.
+
+ _____      _
+|  __ \    | |
+| |__) |___| | ___  __ _ ___  ___  ___
+|  _  // _ \ |/ _ \/ _` / __|/ _ \/ __|
+| | \ \  __/ |  __/ (_| \__ \  __/\__ \
+|_|  \_\___|_|\___|\__,_|___/\___||___/
+
+
+# Run all tests.
+
+# Increment pom.xml to next version. By default, increment the revision. However
+once the changes are made, it might be determined that a minor or major version
+needs to be created. This case, reset the revision number and increment the
+the appropropriate position to the next number.
+
+# Commit all files.
+
+# svn tag version=pom.xml version
+
+# build artifacts and site
+    mvn clean package site
+
+
+
+# Increment pom.xml to next version for the next development. By default,
+increment the revision. However once the changes are made, it might be
+determined that a minor or major version needs to be created. This case, reset
+the revision number and increment the the appropropriate position to the next
+number.
+

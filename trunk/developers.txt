@@ -1,5 +1,16 @@
-
-This plain text file provides notes for developers and development.
+   .-------------------------------------------------------------------------.
+  /  .-.    This plain text file provides notes for developers           .-.  \
+ |  /   \   and development.                                            /   \  |
+ | |\_.  |                                                             |    /| |
+ |\|  | /|                                                             |\  | |/|
+ | `---' |  Ascii art titles at http://www.network-science.de/ascii/   | `---' |
+ |       |  font:big                                                   |       |
+ |       |                                                             |       |
+ |       |                                                             |       |
+ |       |-------------------------------------------------------------|       |
+ \       |                                                             |       /
+  \     /                                                               \     /
+   `---'                                                                 `---'
 
  _____      _
 |  __ \    | |
@@ -21,8 +32,66 @@ the appropropriate position to the next number.
 # svn tag version=pom.xml version
 
 # build artifacts and site
+
     mvn clean package site
 
+# upload the artifacts to http://code.google.com/p/architecturerules/downloads/list
+
+    trunk/target/architecture-rules-2.0.2.jar
+    trunk/target/architecture-rules-2.0.2-sources.jar
+    trunk/target/architecture-rules-2.0.2-test-sources.jar
+
+    set all to _featured_
+    set all others to _deprecated_ and removed _featured_ from previous version
+
+# copy maven-generated site
+
+    copy trunk\target\site to docs\maven-generated-site
+
+# copy javadocs to site
+
+    copy trunk\target\site\apidocs
+    to docs\api\${pom.xml-version}
+    add docs\api\${pom.xml-version} to SVN
+    set svn:mime-type on all html to text/html
+    set svn:mime-type on all css to text/css
+    commit docs\api\${pom.xml-version}
+    update docs\api-javadocs.html
+
+# update downloads.html
+
+    add new release to TOC
+    add new release content
+    link to new javadocs in content
+    list and link to each issue in javadocs
+
+# update index.html
+
+    update downloads to new download
+    
+# notify mailing lists of release
+
+    to: architecture-rules-dev@googlegroups.com, architecture-rules-users@googlegroups.com,
+    subject: Release ${pom.xml-version}
+
+        ________________________________________________________________________
+        Release 2.0.1
+
+        ${release date} ${fix, enhancement} release
+
+        ${description}
+
+            * issue-${number} ${description} ${goals}
+
+        Downloads and release notes at http://architecturerules.googlecode.com/svn/docs/downloads.html#release-${pom.xml-version}
+
+        Architecture-Rules homepage http://architecturerules.googlecode.com/svn/docs/index.html
+
+        Assert your Architecture!
+        ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+# notify freshmeat.net
+
+    http://freshmeat.net/projects/architecturerules/
 
 
 # Increment pom.xml to next version for the next development. By default,
@@ -31,3 +100,4 @@ determined that a minor or major version needs to be created. This case, reset
 the revision number and increment the the appropropriate position to the next
 number.
 
+# commit pom.xml with new version

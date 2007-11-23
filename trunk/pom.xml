@@ -9,7 +9,7 @@
     <groupId>com.seventytwomiles</groupId>
     <artifactId>architecture-rules</artifactId>
     <packaging>jar</packaging>
-    <version>2.0.2</version>
+    <version>2.0.2-SNAPSHOT</version>
 
 
     <name>architecture-rules</name>
@@ -85,9 +85,9 @@
         <connection>scm:svn:http://architecturerules.googlecode.com/svn/trunk/
         </connection>
         <developerConnection>
-            scm:https://architecturerules.googlecode.com/svn/trunk/
+            scm:svn:https://architecturerules.googlecode.com/svn/trunk/
         </developerConnection>
-        <url>http://architecturerules.googlecode.com/svn/trunk/</url>
+        <url>scm:svn:http://architecturerules.googlecode.com/svn/trunk/</url>
     </scm>
 
 

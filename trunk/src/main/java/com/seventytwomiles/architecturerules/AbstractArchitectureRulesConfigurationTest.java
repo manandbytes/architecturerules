@@ -21,8 +21,8 @@ package com.seventytwomiles.architecturerules;
 
 
 import com.seventytwomiles.architecturerules.configuration.Configuration;
+import com.seventytwomiles.architecturerules.configuration.ConfigurationFactory;
 import com.seventytwomiles.architecturerules.configuration.UnmodifiableConfiguration;
-import com.seventytwomiles.architecturerules.configuration.xml.ConfigurationFactory;
 import com.seventytwomiles.architecturerules.configuration.xml.DigesterConfigurationFactory;
 import com.seventytwomiles.architecturerules.services.CyclicRedundencyService;
 import com.seventytwomiles.architecturerules.services.CyclicRedundencyServiceImpl;

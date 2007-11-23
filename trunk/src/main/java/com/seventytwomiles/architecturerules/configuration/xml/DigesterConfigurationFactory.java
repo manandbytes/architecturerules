@@ -20,6 +20,7 @@ package com.seventytwomiles.architecturerules.configuration.xml;
  */
 
 
+import com.seventytwomiles.architecturerules.configuration.AbstractConfigurationFactory;
 import com.seventytwomiles.architecturerules.domain.CyclicDependencyConfiguration;
 import com.seventytwomiles.architecturerules.domain.Rule;
 import com.seventytwomiles.architecturerules.domain.SourceDirectory;
@@ -257,7 +258,7 @@ public class DigesterConfigurationFactory extends AbstractConfigurationFactory {
      * @param configurationXml String xml content to validate
      * @see "architecture-rules.dtd"
      */
-    void validateConfigruation(final String configurationXml) {
+    protected void validateConfigruation(final String configurationXml) {
 
 
         final Digester digester = new Digester();

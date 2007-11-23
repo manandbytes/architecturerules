@@ -1,4 +1,4 @@
-package com.seventytwomiles.architecturerules.configuration.xml;
+package com.seventytwomiles.architecturerules.configuration;
 
 /*
  * Copyright 2007 the original author or authors.
@@ -47,14 +47,14 @@ public abstract class AbstractConfigurationFactory implements ConfigurationFacto
      *
      * @parameter rules Set
      */
-    final Collection rules = new HashSet();
+    protected final Collection rules = new HashSet();
 
     /**
      * <p>Set of  <code>Source</code> read from configuration file</p>
      *
      * @parameter sources Set
      */
-    final Collection sources = new HashSet();
+    protected final Collection sources = new HashSet();
 
     /**
      * <p>Weather or not to throw exception when no packages are found for a
@@ -62,14 +62,14 @@ public abstract class AbstractConfigurationFactory implements ConfigurationFacto
      *
      * @parameter throwExceptionWhenNoPackages boolean
      */
-    boolean throwExceptionWhenNoPackages = false;
+    protected boolean throwExceptionWhenNoPackages = false;
 
     /**
      * <p>Weather or not to check for cyclic dependencies.</p>
      *
      * @parameter doCyclicDependencyTest boolean
      */
-    boolean doCyclicDependencyTest = true;
+    protected boolean doCyclicDependencyTest = true;
 
 
     /**
@@ -78,7 +78,7 @@ public abstract class AbstractConfigurationFactory implements ConfigurationFacto
      * @param configuration String xml content to validate
      * @see "architecture-rules.dtd"
      */
-    abstract void validateConfigruation(final String configuration);
+    protected abstract void validateConfigruation(final String configuration);
 
 
     /**
@@ -88,7 +88,7 @@ public abstract class AbstractConfigurationFactory implements ConfigurationFacto
      * to load and read
      * @return String returns the contentsofo the configurationFile
      */
-    String getConfigurationAsXml(final String configurationFileName) {
+    protected String getConfigurationAsXml(final String configurationFileName) {
 
         /**
          * This code kinda sucks. First, an exeption is thrown if the resources

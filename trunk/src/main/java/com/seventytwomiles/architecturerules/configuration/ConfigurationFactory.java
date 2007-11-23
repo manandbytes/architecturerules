@@ -1,4 +1,4 @@
-package com.seventytwomiles.architecturerules.configuration.xml;
+package com.seventytwomiles.architecturerules.configuration;
 
 /*
  * Copyright 2007 the original author or authors.

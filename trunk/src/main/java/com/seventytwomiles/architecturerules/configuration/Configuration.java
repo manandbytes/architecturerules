@@ -20,7 +20,6 @@ package com.seventytwomiles.architecturerules.configuration;
  */
 
 
-import com.seventytwomiles.architecturerules.configuration.xml.ConfigurationFactory;
 import com.seventytwomiles.architecturerules.domain.Rule;
 import com.seventytwomiles.architecturerules.domain.SourceDirectory;
 import junit.framework.Assert;

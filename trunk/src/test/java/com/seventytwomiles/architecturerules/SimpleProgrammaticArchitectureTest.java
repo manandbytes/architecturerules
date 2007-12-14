@@ -1,10 +1,5 @@
 package com.seventytwomiles.architecturerules;
 
-
-import com.seventytwomiles.architecturerules.configuration.Configuration;
-import com.seventytwomiles.architecturerules.domain.Rule;
-import com.seventytwomiles.architecturerules.domain.SourceDirectory;
-
 /*
 * Copyright 2007 the original author or authors.
 *
@@ -20,9 +15,15 @@ import com.seventytwomiles.architecturerules.domain.SourceDirectory;
 * See the License for the specific language governing permissions and
 * limitations under the License.
 *
-* For more infomration visit
+* For more information visit
 * http://architecturerules.googlecode.com/svn/docs/index.html
 */
+
+
+import com.seventytwomiles.architecturerules.configuration.Configuration;
+import com.seventytwomiles.architecturerules.domain.Rule;
+import com.seventytwomiles.architecturerules.domain.SourceDirectory;
+
 
 
 /**
@@ -31,7 +32,7 @@ import com.seventytwomiles.architecturerules.domain.SourceDirectory;
  * @author mikenereson
  * @see AbstractArchitectureRulesConfigurationTest
  */
-public class SimpleProgramaticArchitectureTest extends AbstractArchitectureRulesConfigurationTest {
+public class SimpleProgrammaticArchitectureTest extends AbstractArchitectureRulesConfigurationTest {
 
 
     /**
@@ -39,10 +40,9 @@ public class SimpleProgramaticArchitectureTest extends AbstractArchitectureRules
      * is called before a test is executed.
      */
     protected void setUp() throws Exception {
-
         super.setUp();
 
-        /* get the configuraiton reference */
+        /* get the configuration reference */
         final Configuration configuration = getConfiguration();
 
         /* add sources */
@@ -66,10 +66,9 @@ public class SimpleProgramaticArchitectureTest extends AbstractArchitectureRules
      * @see AbstractArchitectureRulesConfigurationTest#testArchitecture()
      */
     public void testArchitecture() {
-
         /**
          * Run the test via doTest(). If any rules are broken, or if
-         * the configuraiton can not be loaded properly, then the appropriate
+         * the configuration can not be loaded properly, then the appropriate
          * Exception will be thrown.
          */
         assertTrue(doTests());

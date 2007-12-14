@@ -15,7 +15,7 @@ package com.seventytwomiles.architecturerules;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * For more infomration visit
+ * For more information visit
  * http://architecturerules.googlecode.com/svn/docs/index.html
  */
 
@@ -24,13 +24,14 @@ import com.seventytwomiles.architecturerules.configuration.Configuration;
 import com.seventytwomiles.architecturerules.configuration.ConfigurationFactory;
 import com.seventytwomiles.architecturerules.configuration.UnmodifiableConfiguration;
 import com.seventytwomiles.architecturerules.configuration.xml.DigesterConfigurationFactory;
-import com.seventytwomiles.architecturerules.services.CyclicRedundencyService;
-import com.seventytwomiles.architecturerules.services.CyclicRedundencyServiceImpl;
+import com.seventytwomiles.architecturerules.services.CyclicRedundancyService;
+import com.seventytwomiles.architecturerules.services.CyclicRedundancyServiceImpl;
 import com.seventytwomiles.architecturerules.services.RulesService;
 import com.seventytwomiles.architecturerules.services.RulesServiceImpl;
 import junit.framework.TestCase;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+
 
 
 /**
@@ -55,8 +56,6 @@ public abstract class AbstractArchitectureRulesConfigurationTest extends TestCas
 
     private static final Log log = LogFactory.getLog(AbstractArchitectureRulesConfigurationTest.class);
 
-    /* -------------------------------------------------- fields and mutators */
-
     /**
      * <p></p>
      *
@@ -65,21 +64,7 @@ public abstract class AbstractArchitectureRulesConfigurationTest extends TestCas
     final private Configuration configuration = new Configuration();
 
 
-    /**
-     * Getter for property {@link #configuration}.
-     *
-     * @return Value for property <tt>configuration</tt>.
-     */
-    protected Configuration getConfiguration() {
-
-        return configuration;
-    }
-
-    /* --------------------------------------------------------- constructors */
-
-
     protected AbstractArchitectureRulesConfigurationTest() {
-
         /* 1. load configuration if a configuration file name was provided */
 
         final String configurationFileName = getConfigurationFileName();
@@ -87,7 +72,6 @@ public abstract class AbstractArchitectureRulesConfigurationTest extends TestCas
         final ConfigurationFactory configurationFactory;
 
         if (configurationFileName != null && configurationFileName.length() > 0) {
-
             configurationFactory = new DigesterConfigurationFactory(configurationFileName);
 
             configuration.getRules().addAll(configurationFactory.getRules());
@@ -96,25 +80,7 @@ public abstract class AbstractArchitectureRulesConfigurationTest extends TestCas
     }
 
 
-    protected final boolean doTests() {
-
-        final RulesService rulesService;
-        rulesService = new RulesServiceImpl(new UnmodifiableConfiguration(configuration));
-
-        final boolean rulesResults = rulesService.performRulesTest();
-
-        if (configuration.shouldDoCyclicDependencyTest()) {
-
-            final CyclicRedundencyService redundencyService = new CyclicRedundencyServiceImpl(new UnmodifiableConfiguration(configuration));
-            redundencyService.performCyclicRedundencyCheck();
-        }
-
-        return rulesResults;
-    }
-
     /* ----------------------------------------------------- abstract methods */
-
-
     /**
      * <p>Get the name of the xml configuration file that is located in the
      * classpath.</p>
@@ -129,8 +95,32 @@ public abstract class AbstractArchitectureRulesConfigurationTest extends TestCas
 
 
     /**
+     * Getter for property {@link #configuration}.
+     *
+     * @return Value for property <tt>configuration</tt>.
+     */
+    protected Configuration getConfiguration() {
+        return configuration;
+    }
+
+
+    protected final boolean doTests() {
+        final RulesService rulesService;
+        rulesService = new RulesServiceImpl(new UnmodifiableConfiguration(configuration));
+
+        final boolean rulesResults = rulesService.performRulesTest();
+
+        if (configuration.shouldDoCyclicDependencyTest()) {
+            final CyclicRedundancyService redundancyService = new CyclicRedundancyServiceImpl(new UnmodifiableConfiguration(configuration));
+            redundancyService.performCyclicRedundancyCheck();
+        }
+
+        return rulesResults;
+    }
+
+
+    /**
      * <p>Implement this method and call {@link #doTests}</p>
      */
     protected abstract void testArchitecture();
-
 }

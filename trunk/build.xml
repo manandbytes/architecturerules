@@ -1,26 +1,24 @@
 <project basedir=".">
 
-    <path id="class.path">
+    <property name="maven.repo" value="C:\dev\m2repo\"/>
 
+    <path id="class.path">
         <pathelement id="test classes" path=".\target\test-classes"/>
         <pathelement id="main classes" path=".\target\classes"/>
-
-        <pathelement id="test"
-                     path="C:\dev\svnlocal\72miles\architecturerules\trunk\target\test-classes"/>
-
         <!-- updated list of dependencies available at http://code.google.com/p/architecturerules/wiki/ProjectDependencies -->
         <pathelement id="commons-digester"
-                     path="C:\dev\m2repo\commons-digester\commons-digester\1.8\commons-digester-1.8.jar"/>
+                     path="${maven.repo}\commons-digester\commons-digester\1.8\commons-digester-1.8.jar"/>
         <pathelement id="jdepend"
-                     path="C:\dev\m2repo\jdepend\jdepend\2.9.1\jdepend-2.9.1.jar"/>
+                     path="${maven.repo}\jdepend\jdepend\2.9.1\jdepend-2.9.1.jar"/>
         <pathelement id="junit"
-                     path="c:\dev\m2repo\junit\junit\3.8.1\junit-3.8.1.jar"/>
+                     path="${maven.repo}\junit\junit\3.8.1\junit-3.8.1.jar"/>
         <pathelement id="commons-beanutils"
-                     path="c:\dev\m2repo\commons-beanutils\commons-beanutils\1.7.0\commons-beanutils-1.7.0.jar"/>
+                     path="${maven.repo}\commons-beanutils\commons-beanutils\1.7.0\commons-beanutils-1.7.0.jar"/>
         <pathelement id="commons-logging"
-                     path="c:\dev\m2repo\commons-logging\commons-logging\1.1\commons-logging-1.1.jar"/>
+                     path="${maven.repo}\commons-logging\commons-logging\1.1\commons-logging-1.1.jar"/>
     </path>
 
+    <!-- you must define your own compile -->
     <target name="compile"/>
 
     <taskdef name="assertArchitecture"
@@ -39,13 +37,13 @@
     </target>
 
 
-    <!--<target name="test-architecture" depends="compile">
+    <target name="test-architecture" depends="compile">
         <junit haltonerror="true">
             <classpath refid="class.path"/>
             <formatter type="brief" usefile="false"/>
             <test name="com.seventytwomiles.architecturerules.ArchitectureTest"
                   haltonfailure="true"/>
         </junit>
-    </target>-->
+    </target>
 
 </project>

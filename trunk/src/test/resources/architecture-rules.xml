@@ -74,7 +74,7 @@
         <rule id="model">
 
             <comment>
-                Model should remain competely isolated
+                Model should remain completely isolated
             </comment>
 
             <packages>

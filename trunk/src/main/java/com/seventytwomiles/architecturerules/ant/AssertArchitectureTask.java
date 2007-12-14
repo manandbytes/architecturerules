@@ -15,7 +15,7 @@ package com.seventytwomiles.architecturerules.ant;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * For more infomration visit
+ * For more information visit
  * http://architecturerules.googlecode.com/svn/docs/index.html
  */
 
@@ -24,12 +24,13 @@ import com.seventytwomiles.architecturerules.configuration.Configuration;
 import com.seventytwomiles.architecturerules.configuration.ConfigurationFactory;
 import com.seventytwomiles.architecturerules.configuration.UnmodifiableConfiguration;
 import com.seventytwomiles.architecturerules.configuration.xml.DigesterConfigurationFactory;
-import com.seventytwomiles.architecturerules.services.CyclicRedundencyService;
-import com.seventytwomiles.architecturerules.services.CyclicRedundencyServiceImpl;
+import com.seventytwomiles.architecturerules.services.CyclicRedundancyService;
+import com.seventytwomiles.architecturerules.services.CyclicRedundancyServiceImpl;
 import com.seventytwomiles.architecturerules.services.RulesService;
 import com.seventytwomiles.architecturerules.services.RulesServiceImpl;
 import org.apache.tools.ant.BuildException;
 import org.apache.tools.ant.Task;
+
 
 
 /**
@@ -54,22 +55,32 @@ public class AssertArchitectureTask extends Task {
 
 
     /**
-     * <p>The name of the configuraiton file that is in the classpath that holds
-     * the xml configuraiton. Recommend architecture-rules.xml</p>
+     * <p>The name of the configuration file that is in the classpath that holds
+     * the xml configuration. Recommend architecture-rules.xml</p>
      *
      * @parameter configurationFileName String
      */
     private String configurationFileName;
 
-
     /**
-     * <p>Reference the configuraiton that is built by the ConfiguraitonFactory
+     * <p>Reference the configuration that is built by the ConfiguraitonFactory
      * that reads the configurationFile. This configuration may be
      * modified.</p>
      *
      * @parameter configuration Configuration
      */
     final private Configuration configuration = new Configuration();
+
+
+    /**
+     * Setter for property 'configurationFileName'.
+     *
+     * @param configurationFileName Value to set for property
+     * 'configurationFileName'.
+     */
+    public void setConfigurationFileName(final String configurationFileName) {
+        this.configurationFileName = configurationFileName;
+    }
 
 
     /**
@@ -103,20 +114,8 @@ public class AssertArchitectureTask extends Task {
          * 3. check for cyclic dependency, if requested
          */
         if (configuration.shouldDoCyclicDependencyTest()) {
-
-            final CyclicRedundencyService redundencyService = new CyclicRedundencyServiceImpl(new UnmodifiableConfiguration(configuration));
-            redundencyService.performCyclicRedundencyCheck();
+            final CyclicRedundancyService redundancyService = new CyclicRedundancyServiceImpl(new UnmodifiableConfiguration(configuration));
+            redundancyService.performCyclicRedundancyCheck();
         }
-    }
-
-
-    /**
-     * Setter for property 'configurationFileName'.
-     *
-     * @param configurationFileName Value to set for property
-     * 'configurationFileName'.
-     */
-    public void setConfigurationFileName(final String configurationFileName) {
-        this.configurationFileName = configurationFileName;
     }
 }

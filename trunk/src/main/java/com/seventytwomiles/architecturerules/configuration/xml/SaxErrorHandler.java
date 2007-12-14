@@ -15,7 +15,7 @@ package com.seventytwomiles.architecturerules.configuration.xml;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * For more infomration visit
+ * For more information visit
  * http://architecturerules.googlecode.com/svn/docs/index.html
  */
 
@@ -25,6 +25,7 @@ import org.apache.commons.logging.LogFactory;
 import org.xml.sax.ErrorHandler;
 import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
+
 
 
 /**
@@ -39,13 +40,7 @@ class SaxErrorHandler implements ErrorHandler {
 
     private static final Log log = LogFactory.getLog(SaxErrorHandler.class);
 
-
-    /**
-     * @see ErrorHandler#warning(SAXParseException)
-     */
-    public void warning(final SAXParseException exception) throws SAXException {
-        log.warn(exception);
-    }
+    // --------------------- Interface ErrorHandler ---------------------
 
 
     /**
@@ -60,7 +55,14 @@ class SaxErrorHandler implements ErrorHandler {
      * @see ErrorHandler#fatalError(SAXParseException)
      */
     public void fatalError(final SAXParseException exception) throws SAXException {
-
         log.error("fatal error", exception);
+    }
+
+
+    /**
+     * @see ErrorHandler#warning(SAXParseException)
+     */
+    public void warning(final SAXParseException exception) throws SAXException {
+        log.warn(exception);
     }
 }

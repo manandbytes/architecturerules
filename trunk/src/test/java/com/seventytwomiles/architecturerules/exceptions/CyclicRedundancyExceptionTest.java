@@ -20,86 +20,71 @@ package com.seventytwomiles.architecturerules.exceptions;
  */
 
 
-import com.seventytwomiles.architecturerules.domain.SourceDirectory;
 import junit.framework.TestCase;
-
-import java.util.Collection;
-import java.util.HashSet;
 
 
 
 /**
- * <code>SourceNotFoundException Tester.</code>
+ * <code>CyclicRedundancyException Tester.</code>
  *
  * @author mikenereson
  */
-public class SourceNotFoundExceptionTest extends TestCase {
+public class CyclicRedundancyExceptionTest extends TestCase {
 
 
-    public SourceNotFoundExceptionTest(String name) {
+    public CyclicRedundancyExceptionTest(String name) {
         super(name);
     }
 
 
     public void testInterestingConstructors() {
-        SourceNotFoundException exception;
+        CyclicRedundancyException exception;
         String message;
         Throwable cause;
 
-        final Collection sourceDirectories = new HashSet();
-        sourceDirectories.add(new SourceDirectory("core/target/classes"));
-        sourceDirectories.add(new SourceDirectory("util/target/classes"));
-        sourceDirectories.add(new SourceDirectory("parent-pom/target/classes"));
-        sourceDirectories.add(new SourceDirectory("web/target/classes"));
 
-        exception = new SourceNotFoundException(sourceDirectories);
+        exception = new CyclicRedundancyException("com.seventytwomiles.dao", "com.seventytwomiles.dao.hibernate");
         message = exception.getMessage();
         cause = exception.getCause();
 
-        assertTrue(message.indexOf("core/target/classes") > -1);
-        assertTrue(message.indexOf("util/target/classes") > -1);
-        assertTrue(message.indexOf("parent-pom/target/classes") > -1);
-        assertTrue(message.indexOf("web/target/classes") > -1);
-
+        assertEquals("'com.seventytwomiles.dao' is involved in an cyclically redundant dependency with 'com.seventytwomiles.dao.hibernate'", message);
         assertEquals(null, cause);
     }
 
 
     public void testTypicalConstructors() {
-        SourceNotFoundException exception;
+        CyclicRedundancyException exception;
         String message;
         Throwable cause;
 
-
-        exception = new SourceNotFoundException();
+        exception = new CyclicRedundancyException();
         message = exception.getMessage();
         cause = exception.getCause();
 
-        assertTrue(message.equals("sources not found"));
+        assertEquals("cyclic redundancy", message);
+        assertEquals(null, cause);
+
+        exception = new CyclicRedundancyException("cyclic redundancy found");
+        message = exception.getMessage();
+        cause = exception.getCause();
+
+        assertEquals("cyclic redundancy found", message);
         assertEquals(null, cause);
 
 
-        exception = new SourceNotFoundException("no source classes found");
+        exception = new CyclicRedundancyException(new IllegalArgumentException());
         message = exception.getMessage();
         cause = exception.getCause();
 
-        assertTrue(message.equals("no source classes found"));
-        assertEquals(null, cause);
-
-
-        exception = new SourceNotFoundException(new IllegalArgumentException());
-        message = exception.getMessage();
-        cause = exception.getCause();
-
-        assertTrue(message.equals("sources not found"));
+        assertEquals("cyclic redundancy", message);
         assertTrue(cause instanceof IllegalArgumentException);
 
 
-        exception = new SourceNotFoundException("no source classes found", new IllegalArgumentException());
+        exception = new CyclicRedundancyException("cyclic redundancy found", new IllegalArgumentException());
         message = exception.getMessage();
         cause = exception.getCause();
 
-        assertTrue(message.equals("no source classes found"));
+        assertEquals("cyclic redundancy found", message);
         assertTrue(cause instanceof IllegalArgumentException);
     }
 }

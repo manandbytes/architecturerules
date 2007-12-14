@@ -1,5 +1,6 @@
 package com.seventytwomiles.architecturerules;
 
+
 /*
 * Copyright 2007 the original author or authors.
 *
@@ -15,11 +16,9 @@ package com.seventytwomiles.architecturerules;
 * See the License for the specific language governing permissions and
 * limitations under the License.
 *
-* For more infomration visit
+* For more information visit
 * http://architecturerules.googlecode.com/svn/docs/index.html
 */
-
-
 /**
  * <p>Architecture test example.</p>
  *
@@ -33,9 +32,8 @@ public class SimpleArchitectureTest extends AbstractArchitectureRulesConfigurati
      * @see AbstractArchitectureRulesConfigurationTest
      */
     public String getConfigurationFileName() {
-
         /**
-         * Provide the name of the rules configuraiton file. File file is
+         * Provide the name of the rules configuration file. File file is
          * loaded from the classpath.
          */
         return "architecture-rules.xml";
@@ -46,10 +44,9 @@ public class SimpleArchitectureTest extends AbstractArchitectureRulesConfigurati
      * @see AbstractArchitectureRulesConfigurationTest#testArchitecture()
      */
     public void testArchitecture() {
-
         /**
          * Run the test via doTest(). If any rules are broken, or if
-         * the configuraiton can not be loaded properly, then the appropriate
+         * the configuration can not be loaded properly, then the appropriate
          * Exception will be thrown.
          */
         assertTrue(doTests());

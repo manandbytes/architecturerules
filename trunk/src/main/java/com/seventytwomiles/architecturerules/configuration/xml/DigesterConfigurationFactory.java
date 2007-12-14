@@ -15,7 +15,7 @@ package com.seventytwomiles.architecturerules.configuration.xml;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * For more infomration visit
+ * For more information visit
  * http://architecturerules.googlecode.com/svn/docs/index.html
  */
 
@@ -37,8 +37,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+
 /**
- * <p>Apache Commons Digester implementatino of the <code>ConfigurationFactory</code></p>
+ * <p>Apache Commons Digester implementation of the <code>ConfigurationFactory</code></p>
  *
  * @author mikenereson
  * @see AbstractConfigurationFactory
@@ -55,7 +56,7 @@ public class DigesterConfigurationFactory extends AbstractConfigurationFactory {
 
 
     /**
-     * <p>Instanciates a new <code>ConfigurationFactory</code> and processes the
+     * <p>Instantiates a new <code>ConfigurationFactory</code> and processes the
      * configuration found in the <code>File</code> with the given
      * <tt>configurationFileName</tt>.</p>
      *
@@ -63,13 +64,39 @@ public class DigesterConfigurationFactory extends AbstractConfigurationFactory {
      * classpath to load configuration from.
      */
     public DigesterConfigurationFactory(final String configurationFileName) {
-
         final String configurationXml;
 
         configurationXml = getConfigurationAsXml(configurationFileName);
 
-        validateConfigruation(configurationXml);
+        validateConfiguration(configurationXml);
         processConfiguration(configurationXml);
+    }
+
+
+    /**
+     * <p>Validate the configurationXml.</p>
+     *
+     * @param configurationXml String xml content to validate
+     * @see "architecture-rules.dtd"
+     */
+    protected void validateConfiguration(final String configurationXml) {
+
+        final Digester digester = new Digester();
+        digester.setValidating(false); // TODO: set to true to actually validate
+
+        /**
+         * TODO: apply DTD to configuration then try digester.parse
+         */
+
+        final StringReader configurationReader = new StringReader(configurationXml);
+
+        try {
+            digester.parse(configurationReader);
+        } catch (final IOException e) {
+            throw new InvalidConfigurationException("configuration xml file contains invalid configuration properties", e);
+        } catch (final SAXException e) {
+            throw new InvalidConfigurationException("configuration xml file contains invalid configuration properties", e);
+        }
     }
 
 
@@ -84,19 +111,14 @@ public class DigesterConfigurationFactory extends AbstractConfigurationFactory {
     void processConfiguration(final String configurationXml) {
 
         try {
-
             processSources(configurationXml);
             processRules(configurationXml);
             processCyclicDependencyConfiguration(configurationXml);
             processSourcesNotFoundConfiguration(configurationXml);
-
         } catch (final IOException e) {
-
             /* Can this be handled better? Should it be? */
             throw new RuntimeException(e);
-
         } catch (final SAXException e) {
-
             /* Can this be handled better? Should it be? */
             throw new RuntimeException(e);
         }
@@ -112,84 +134,23 @@ public class DigesterConfigurationFactory extends AbstractConfigurationFactory {
      * @throws IOException when an input/output error occurs
      * @throws SAXException when given xml can not be parsed
      */
-    void processSourcesNotFoundConfiguration(final String configurationXml) throws IOException, SAXException {
+    void processSources(final String configurationXml) throws IOException, SAXException {
 
         final Digester digester = getDigester();
 
-        final StringReader configurationReader = new StringReader(configurationXml);
+        digester.addObjectCreate(XmlConfiguration.sources, ArrayList.class);
 
-        digester.addObjectCreate(XmlConfiguration.sources, SourcesConfiguration.class);
-        digester.addSetProperties(XmlConfiguration.sources, "no-packages", "noPackages");
+        digester.addObjectCreate(XmlConfiguration.source, SourceDirectory.class);
+        digester.addCallMethod(XmlConfiguration.source, "setPath", 0);
+        digester.addSetProperties(XmlConfiguration.source, "not-found", "notFound");
 
-        SourcesConfiguration configuration = (SourcesConfiguration) digester.parse(configurationReader);
-
-        /**
-         * If no configuration was provided in the xml, then use the default
-         * vaule.
-         */
-        if (configuration == null)
-            configuration = new SourcesConfiguration();
-
-        final String value = configuration.getNoPackages();
-
-        if (value.equalsIgnoreCase("ignore") || value.equalsIgnoreCase("exception")) {
-
-            throwExceptionWhenNoPackages = value.equalsIgnoreCase("exception");
-
-        } else {
-
-            throw new InvalidConfigurationException("'" + value +
-                                                    "' is not a valid value for the " +
-                                                    "sources no-packages configuration. " +
-                                                    "Use <sources no-packages=\"ignore\">, " +
-                                                    "<sources no-packages=\"exception\"> or " +
-                                                    "leave the property unset.");
-        }
-    }
-
-
-    /**
-     * <p></p>
-     *
-     * <p>protected scope so that it could be individually tested</p>
-     *
-     * @param configurationXml String xml to parse
-     * @throws IOException when an input/output error occurs
-     * @throws SAXException when given xml can not be parsed
-     */
-    void processCyclicDependencyConfiguration(final String configurationXml) throws IOException, SAXException {
-
-        final Digester digester = getDigester();
+        digester.addSetNext(XmlConfiguration.source, "add");
 
         final StringReader configurationReader = new StringReader(configurationXml);
+        final List parsedSources = (ArrayList) digester.parse(configurationReader);
 
-        digester.addObjectCreate(XmlConfiguration.cyclicalDependency, CyclicDependencyConfiguration.class);
-        digester.addSetProperties(XmlConfiguration.cyclicalDependency, "test", "test");
-
-        CyclicDependencyConfiguration configuration = (CyclicDependencyConfiguration) digester.parse(configurationReader);
-
-        /**
-         * If no configuration was provided in the xml, then use the default
-         * vaules.
-         */
-        if (configuration == null)
-            configuration = new CyclicDependencyConfiguration();
-
-        final String test = configuration.getTest();
-
-        if (test.equalsIgnoreCase("true") || test.equalsIgnoreCase("false")) {
-
-            final Boolean doCyclicDependencyBoolean = Boolean.valueOf(test);
-            doCyclicDependencyTest = doCyclicDependencyBoolean.booleanValue();
-
-        } else {
-
-            throw new InvalidConfigurationException("'" + test +
-                                                    "' is not a valid value for " +
-                                                    "cyclicalDependency configuration. " +
-                                                    "Use <cyclicalDependency test=\"true\"/> " +
-                                                    "or <cyclicalDependency test=\"false\"/>");
-        }
+        sources.clear();
+        sources.addAll(parsedSources);
     }
 
 
@@ -232,57 +193,81 @@ public class DigesterConfigurationFactory extends AbstractConfigurationFactory {
      * @throws IOException when an input/output error occurs
      * @throws SAXException when given xml can not be parsed
      */
-    void processSources(final String configurationXml) throws IOException, SAXException {
+    void processCyclicDependencyConfiguration(final String configurationXml) throws IOException, SAXException {
 
         final Digester digester = getDigester();
 
-        digester.addObjectCreate(XmlConfiguration.sources, ArrayList.class);
-
-        digester.addObjectCreate(XmlConfiguration.source, SourceDirectory.class);
-        digester.addCallMethod(XmlConfiguration.source, "setPath", 0);
-        digester.addSetProperties(XmlConfiguration.source, "not-found", "notFound");
-
-        digester.addSetNext(XmlConfiguration.source, "add");
-
         final StringReader configurationReader = new StringReader(configurationXml);
-        final List parsedSources = (ArrayList) digester.parse(configurationReader);
 
-        sources.clear();
-        sources.addAll(parsedSources);
+        digester.addObjectCreate(XmlConfiguration.cyclicalDependency, CyclicDependencyConfiguration.class);
+        digester.addSetProperties(XmlConfiguration.cyclicalDependency, "test", "test");
+
+        CyclicDependencyConfiguration configuration = (CyclicDependencyConfiguration) digester.parse(configurationReader);
+
+        /**
+         * If no configuration was provided in the xml, then use the default
+         * values.
+         */
+        if (configuration == null)
+            configuration = new CyclicDependencyConfiguration();
+
+        final String test = configuration.getTest();
+
+        if (test.equalsIgnoreCase("true") || test.equalsIgnoreCase("false")) {
+
+            final Boolean doCyclicDependencyBoolean = Boolean.valueOf(test);
+            doCyclicDependencyTest = doCyclicDependencyBoolean.booleanValue();
+
+        } else {
+
+            throw new InvalidConfigurationException("'" + test +
+                    "' is not a valid value for " +
+                    "cyclicalDependency configuration. " +
+                    "Use <cyclicalDependency test=\"true\"/> " +
+                    "or <cyclicalDependency test=\"false\"/>");
+        }
     }
 
 
     /**
-     * <p>Validate the configurationXml.</p>
+     * <p></p>
      *
-     * @param configurationXml String xml content to validate
-     * @see "architecture-rules.dtd"
+     * <p>protected scope so that it could be individually tested</p>
+     *
+     * @param configurationXml String xml to parse
+     * @throws IOException when an input/output error occurs
+     * @throws SAXException when given xml can not be parsed
      */
-    protected void validateConfigruation(final String configurationXml) {
+    void processSourcesNotFoundConfiguration(final String configurationXml) throws IOException, SAXException {
 
-
-        final Digester digester = new Digester();
-        digester.setValidating(false); // TODO: set to true to actually validate
-
-        /**
-         * TODO: apply DTD to configuration then try digester.parse
-         */
+        final Digester digester = getDigester();
 
         final StringReader configurationReader = new StringReader(configurationXml);
 
-        try {
+        digester.addObjectCreate(XmlConfiguration.sources, SourcesConfiguration.class);
+        digester.addSetProperties(XmlConfiguration.sources, "no-packages", "noPackages");
 
-            digester.parse(configurationReader);
+        SourcesConfiguration configuration = (SourcesConfiguration) digester.parse(configurationReader);
 
-        } catch (final IOException e) {
+        /**
+         * If no configuration was provided in the xml, then use the default
+         * value.
+         */
+        if (configuration == null)
+            configuration = new SourcesConfiguration();
 
-            throw new InvalidConfigurationException("configuration xml file contains invalid configuration properties", e);
+        final String value = configuration.getNoPackages();
 
-        } catch (final SAXException e) {
-
-            throw new InvalidConfigurationException("configuration xml file contains invalid configuration properties", e);
+        if (value.equalsIgnoreCase("ignore") || value.equalsIgnoreCase("exception")) {
+            throwExceptionWhenNoPackages = value.equalsIgnoreCase("exception");
+        } else {
+            throw new InvalidConfigurationException("'" + value +
+                    "' is not a valid value for the " +
+                    "sources no-packages configuration. " +
+                    "Use <sources no-packages=\"ignore\">, " +
+                    "<sources no-packages=\"exception\"> or " +
+                    "leave the property unset.");
         }
-
     }
 
 

@@ -15,7 +15,7 @@ package com.seventytwomiles.architecturerules.services;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * For more infomration visit
+ * For more information visit
  * http://architecturerules.googlecode.com/svn/docs/index.html
  */
 
@@ -32,8 +32,9 @@ import java.util.Collection;
 import java.util.Iterator;
 
 
+
 /**
- * <p>Drives the tests by reading the configuraiton then asserting each defined
+ * <p>Drives the tests by reading the configuration then asserting each defined
  * <code>Rule</code>.</p>
  *
  * @author mikenereson
@@ -60,24 +61,24 @@ public class RulesServiceImpl extends AbstractArchitecturalRules implements Rule
      * configuration
      * @throws NoPackagesFoundException when none of the source directories
      * exist and <tt>no-packages</tt>="<tt>ignore</tt>" in the sources
-     * configuraiton
+     * configuration
      */
     public RulesServiceImpl(final Configuration configuration) throws SourceNotFoundException, NoPackagesFoundException {
-
         super(configuration);
 
-        log.info("instanciating new RulesService");
+        log.info("instantiating new RulesService");
     }
+
+    // --------------------- Interface RulesService ---------------------
 
 
     /**
-     * <p>Assert that no <code>Rule</code> in the given <code>Configuraiton</code>
+     * <p>Assert that no <code>Rule</code> in the given <code>Configuration</code>
      * has been violated.</p>
      *
      * @return boolean <tt>true</tt> when tests pass
      */
     public boolean performRulesTest() {
-
         log.info("perform rules test required");
 
         final Collection rules = configuration.getRules();
@@ -89,10 +90,8 @@ public class RulesServiceImpl extends AbstractArchitecturalRules implements Rule
          * validated.
          */
         if (log.isDebugEnabled()) {
-
             for (Iterator ruleIterator = rules.iterator();
                  ruleIterator.hasNext();) {
-
                 rule = (Rule) ruleIterator.next();
                 log.debug(rule.getDescriptionOfRule());
             }
@@ -100,25 +99,20 @@ public class RulesServiceImpl extends AbstractArchitecturalRules implements Rule
 
         for (Iterator ruleIterator = rules.iterator();
              ruleIterator.hasNext();) {
-
             rule = (Rule) ruleIterator.next();
 
             log.info("checking rule " + rule.getId());
-            log.debug("checking for dependency violations in " + rule.describePackges());
+            log.debug("checking for dependency violations in " + rule.describePackages());
 
             try {
-
                 final Collection packages = rule.getPackages();
 
                 for (Iterator packageIterator = packages.iterator();
                      packageIterator.hasNext();) {
-
                     final String packageName = (String) packageIterator.next();
                     testLayeringValid(packageName, rule.getViolations());
                 }
-
             } catch (final DependencyConstraintException e) {
-
                 /* just creates a more descriptive message which identifies the rule by its id */
                 throw new DependencyConstraintException("rule " + rule.getId() + " failed: " + e.getMessage());
             }

@@ -15,12 +15,13 @@ package com.seventytwomiles.architecturerules.exceptions;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * For more infomration visit
+ * For more information visit
  * http://architecturerules.googlecode.com/svn/docs/index.html
  */
 
 
 import java.util.Collection;
+
 
 
 /**
@@ -59,18 +60,23 @@ public class SourceNotFoundException extends RuntimeException {
 
 
     /**
-     * @see RuntimeException#RuntimeException(String,Throwable)
+     * <p>Instantiates a new SourceNotFoundException with a message containing
+     * all of the sources that were intteroagated.</p>
+     *
+     * @param sources
      */
-    public SourceNotFoundException(final String message, final Throwable cause) {
-        super(message, cause);
-    }
-
-
     public SourceNotFoundException(final Collection sources) {
-
         super("unable to find any source files in given source directories {0}"
                 .replaceAll("\\{0}", sources.toString()).
                 replaceAll("\\[", "")
                 .replaceAll("\\]", ""));
+    }
+
+
+    /**
+     * @see RuntimeException#RuntimeException(String,Throwable)
+     */
+    public SourceNotFoundException(final String message, final Throwable cause) {
+        super(message, cause);
     }
 }

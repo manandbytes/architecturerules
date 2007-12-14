@@ -15,7 +15,7 @@ package com.seventytwomiles.architecturerules.configuration;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * For more infomration visit
+ * For more information visit
  * http://architecturerules.googlecode.com/svn/docs/index.html
  */
 
@@ -27,9 +27,10 @@ import java.util.Collection;
 import java.util.Collections;
 
 
+
 /**
- * <p>An UnmodifiableConfiguration is a <code>Configuraiton</code> instance whos
- * setters and collections are unavailable or unmodifiable.</p>
+ * <p>An UnmodifiableConfiguration is a <code>Configuration</code> instance
+ * whose setters and collections are unavailable or unmodifiable.</p>
  *
  * @author mikenereson
  */
@@ -40,12 +41,11 @@ public final class UnmodifiableConfiguration extends Configuration {
 
 
     /**
-     * <p>Instanciates a new unmodifiable configuration class.</p>
+     * <p>Instantiates a new unmodifiable configuration class.</p>
      *
      * @param configuration Configuration to offer as unmodifiable
      */
     public UnmodifiableConfiguration(final Configuration configuration) {
-
         this.rules.addAll(configuration.getRules());
         this.sources.addAll(configuration.getSources());
         this.doCyclicDependencyTest = configuration.shouldDoCyclicDependencyTest();
@@ -74,17 +74,6 @@ public final class UnmodifiableConfiguration extends Configuration {
 
 
     /**
-     * <p>Setter for property {@link #throwExceptionWhenNoPackages}.</p>
-     *
-     * @param throwExceptionWhenNoPackages Value to set for property
-     * <tt>throwExceptionWhenNoPackages</tt>.
-     */
-    public void setThrowExceptionWhenNoPackages(final boolean throwExceptionWhenNoPackages) {
-        throw new UnsupportedOperationException("");
-    }
-
-
-    /**
      * <p>Setter for property {@link #doCyclicDependencyTest}.</p>
      *
      * @param doCyclicDependencyTest Value to set for property
@@ -92,6 +81,16 @@ public final class UnmodifiableConfiguration extends Configuration {
      */
     public void setDoCyclicDependencyTest(final boolean doCyclicDependencyTest) {
         throw new UnsupportedOperationException("");
+    }
 
+
+    /**
+     * <p>Setter for property {@link #throwExceptionWhenNoPackages}.</p>
+     *
+     * @param throwExceptionWhenNoPackages Value to set for property
+     * <tt>throwExceptionWhenNoPackages</tt>.
+     */
+    public void setThrowExceptionWhenNoPackages(final boolean throwExceptionWhenNoPackages) {
+        throw new UnsupportedOperationException("");
     }
 }

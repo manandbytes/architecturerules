@@ -15,7 +15,7 @@ package com.seventytwomiles.architecturerules.services;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * For more infomration visit
+ * For more information visit
  * http://architecturerules.googlecode.com/svn/docs/index.html
  */
 
@@ -23,21 +23,22 @@ package com.seventytwomiles.architecturerules.services;
 import com.seventytwomiles.architecturerules.exceptions.CyclicRedundancyException;
 
 
+
 /**
- * <p>Interface for the CyclicRedundencyService to provide a contract for
- * implementations to ahear to. This service provices the funcionality
- * neccessary to check for cyclic dependencies.</p>
+ * <p>Interface for the CyclicRedundancyService to provide a contract for
+ * implementations to adhere to. This service provides the functionality
+ * necessary to check for cyclic dependencies.</p>
  *
  * @author mikenereson
  */
-public interface CyclicRedundencyService {
+public interface CyclicRedundancyService {
 
 
     /**
      * <p>Check all the packages in all of the source directories and search for
-     * any cyclic redundenc/p>
+     * any cyclic redundancy</p>
      *
-     * @throws CyclicRedundancyException when cyclic redundency is found
+     * @throws CyclicRedundancyException when cyclic redundancy is found
      */
-    void performCyclicRedundencyCheck() throws CyclicRedundancyException;
+    void performCyclicRedundancyCheck() throws CyclicRedundancyException;
 }

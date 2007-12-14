@@ -1,23 +1,23 @@
 package com.seventytwomiles.architecturerules;
 
 /*
-* Copyright 2007 the original author or authors.
-*
-* Licensed under the Apache License, Version 2.0 (the "License");
-* you may not use this file except in compliance with the License.
-* You may obtain a copy of the License at
-*
-* http://www.apache.org/licenses/LICENSE-2.0
-*
-* Unless required by applicable law or agreed to in writing, software
-* distributed under the License is distributed on an "AS IS" BASIS,
-* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-* See the License for the specific language governing permissions and
-* limitations under the License.
-*
-* For more infomration visit
-* http://architecturerules.googlecode.com/svn/docs/index.html
-*/
+ * Copyright 2007 the original author or authors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ * For more information visit
+ * http://architecturerules.googlecode.com/svn/docs/index.html
+ */
 
 
 import com.seventytwomiles.architecturerules.configuration.Configuration;
@@ -26,13 +26,14 @@ import com.seventytwomiles.architecturerules.domain.SourceDirectory;
 import com.seventytwomiles.architecturerules.exceptions.DependencyConstraintException;
 
 
+
 /**
- * <p>Tests rules. Also tests programatic-only configuration.</p>
+ * <p>Tests rules. Also tests programmatic-only configuration.</p>
  *
  * @author mikenereson
  * @see AbstractArchitectureRulesConfigurationTest
  */
-public class ArchitectureTestProgramatic extends AbstractArchitectureRulesConfigurationTest {
+public class ArchitectureTestProgrammatic extends AbstractArchitectureRulesConfigurationTest {
 
 
     /**
@@ -40,33 +41,7 @@ public class ArchitectureTestProgramatic extends AbstractArchitectureRulesConfig
      * violated</p>
      */
     public void testArchitecture() {
-
         /* do nothing, this method is required */
-    }
-
-
-    /**
-     * <p>Expect this test to pass.</p>
-     */
-    public void testArchitecture_pass() {
-
-        final Configuration configuration = getConfiguration();
-
-        configuration.addSource(new SourceDirectory("target\\test-classes", true));
-
-        configuration.setDoCyclicDependencyTest(false);
-        configuration.setThrowExceptionWhenNoPackages(true);
-
-
-        final Rule daoRule = new Rule("dao");
-        daoRule.setComment("dao may not access presentation.");
-        daoRule.addPackage("test.com.seventytwomiles.dao.hibernate");
-        daoRule.addViolation("test.com.seventytwomiles.web.spring");
-
-        configuration.addRule(daoRule);
-
-
-        assertTrue(doTests());
     }
 
 
@@ -75,7 +50,6 @@ public class ArchitectureTestProgramatic extends AbstractArchitectureRulesConfig
      * violated</p>
      */
     public void testArchitecture_fail() {
-
         final Configuration configuration = getConfiguration();
 
         configuration.addSource(new SourceDirectory("target\\test-classes", true));
@@ -94,12 +68,9 @@ public class ArchitectureTestProgramatic extends AbstractArchitectureRulesConfig
 
 
         try {
-
             assertTrue(doTests());
             fail("expected DependencyConstraintException");
-
         } catch (Exception e) {
-
             assertTrue(e instanceof DependencyConstraintException);
         }
     }
@@ -111,7 +82,6 @@ public class ArchitectureTestProgramatic extends AbstractArchitectureRulesConfig
      * reported.</p>
      */
     public void testArchitecture_mixtureButFails() {
-
         final Configuration configuration = getConfiguration();
 
         configuration.addSource(new SourceDirectory("target\\test-classes", true));
@@ -136,17 +106,38 @@ public class ArchitectureTestProgramatic extends AbstractArchitectureRulesConfig
 
 
         try {
-
             assertTrue(doTests());
             fail("expected DependencyConstraintException");
-
         } catch (Exception e) {
-
             assertTrue(e instanceof DependencyConstraintException);
 
             final String message = e.getMessage();
             assertTrue(message.indexOf("test.com.seventytwomiles.web.spring") > -1);
             assertTrue(message.indexOf("test.com.seventytwomiles.dao.hibernate") > -1);
         }
+    }
+
+
+    /**
+     * <p>Expect this test to pass.</p>
+     */
+    public void testArchitecture_pass() {
+        final Configuration configuration = getConfiguration();
+
+        configuration.addSource(new SourceDirectory("target\\test-classes", true));
+
+        configuration.setDoCyclicDependencyTest(false);
+        configuration.setThrowExceptionWhenNoPackages(true);
+
+
+        final Rule daoRule = new Rule("dao");
+        daoRule.setComment("dao may not access presentation.");
+        daoRule.addPackage("test.com.seventytwomiles.dao.hibernate");
+        daoRule.addViolation("test.com.seventytwomiles.web.spring");
+
+        configuration.addRule(daoRule);
+
+
+        assertTrue(doTests());
     }
 }

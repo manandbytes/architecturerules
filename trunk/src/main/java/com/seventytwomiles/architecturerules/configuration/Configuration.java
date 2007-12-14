@@ -15,7 +15,7 @@ package com.seventytwomiles.architecturerules.configuration;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * For more infomration visit
+ * For more information visit
  * http://architecturerules.googlecode.com/svn/docs/index.html
  */
 
@@ -30,13 +30,14 @@ import java.util.Collection;
 import java.util.HashSet;
 
 
+
 /**
- * <p>An instance of <code>Configuration</code> allows the applicaiton to
+ * <p>An instance of <code>Configuration</code> allows the application to
  * specifiy where the source directories are, what rules to test against and
  * under what conditions should an <code>Exception</code> be thrown.</p>
  *
- * <p>This <code>Configuraiton</code> may be loaded by configraiton from an XML
- * file in the classpath, through programatic configuraiton, or both.</p>
+ * <p>This <code>Configuration</code> may be loaded by configuration from an XML
+ * file in the classpath, through programmaticconfigurationn, or both.</p>
  *
  * @author mikenereson
  * @see ConfigurationFactory
@@ -46,7 +47,6 @@ public class Configuration {
 
 
     private static final Log log = LogFactory.getLog(Configuration.class);
-
     /**
      * <p><code>Rules</code> that are read from the configuration file or added
      * programatically.</p>
@@ -54,7 +54,6 @@ public class Configuration {
      * @parameter rules Set
      */
     final Collection rules = new HashSet();
-
     /**
      * <p>List of <code>SourceDirectory</code> that are read from the
      * configuration file and or added programatically.</p>
@@ -62,7 +61,6 @@ public class Configuration {
      * @parameter sources List
      */
     final Collection sources = new HashSet();
-
     /**
      * <p>sets to true when <samp>&lt;sources no-packages="exception"&gt;</samp>,
      * false when <samp>&lt;sources no-packages="ignore"&gt;</samp></p>
@@ -70,7 +68,6 @@ public class Configuration {
      * @parameter throwExceptionWhenNoPackages boolean
      */
     boolean throwExceptionWhenNoPackages;
-
     /**
      * <p>sets to true when <samp>&lt;cyclicalDependency test="true"/> </samp>,
      * false when <samp>&lt;cyclicalDependency test="false"/> </samp></p>
@@ -91,30 +88,6 @@ public class Configuration {
 
 
     /**
-     * <p>Add a new <code>Rule</code> to {@link #rules}</p>
-     *
-     * @param rule Rule to add
-     * @return boolean <tt>true</tt> if this set did not already contain the
-     *         specified element.
-     */
-    public boolean addRule(final Rule rule) {
-
-        /* validate input */
-        Assert.assertNotNull("rule can not be null", rule);
-
-        Assert.assertNotNull("rule id can not be null", rule.getId());
-        Assert.assertFalse("rule id must not be empty", rule.getId().equals(""));
-
-        Assert.assertNotNull("rule packages can not be null", rule.getPackages());
-        Assert.assertFalse("rule packages must not be empty", rule.getPackages().isEmpty());
-
-        Assert.assertFalse("rule violations must not be empty", rule.getViolations().isEmpty());
-
-        return rules.add(rule);
-    }
-
-
-    /**
      * <p>Getter for property {@link #sources}.</p>
      *
      * @return Value for property <tt>sources</tt>.
@@ -124,37 +97,14 @@ public class Configuration {
     }
 
 
-    public boolean addSource(final SourceDirectory sourceDirectory) {
-
-        if (sourceDirectory == null)
-            throw new IllegalArgumentException("sourceDirectory can not be null");
-
-        final String path = sourceDirectory.getPath();
-
-        if (path == null || path.equals(""))
-            throw new IllegalArgumentException("sourceDirectory.path can not be empty or null");
-
-        return sources.add(sourceDirectory);
-    }
-
-
     /**
-     * <p> Getter for property {@link #throwExceptionWhenNoPackages}.</p>
+     * <p>Setter for property {@link #doCyclicDependencyTest}.</p>
      *
-     * @return Value for property <tt>throwExceptionWhenNoPackages</tt>.
+     * @param doCyclicDependencyTest Value to set for property
+     * <tt>doCyclicDependencyTest</tt>.
      */
-    public boolean shouldThrowExceptionWhenNoPackages() {
-        return throwExceptionWhenNoPackages;
-    }
-
-
-    /**
-     * <p>Getter for property {@link #doCyclicDependencyTest}.</p>
-     *
-     * @return Value for property <tt>doCyclicDependencyTest</tt>.
-     */
-    public boolean shouldDoCyclicDependencyTest() {
-        return doCyclicDependencyTest;
+    public void setDoCyclicDependencyTest(final boolean doCyclicDependencyTest) {
+        this.doCyclicDependencyTest = doCyclicDependencyTest;
     }
 
 
@@ -170,12 +120,57 @@ public class Configuration {
 
 
     /**
-     * <p>Setter for property {@link #doCyclicDependencyTest}.</p>
+     * <p>Add a new <code>Rule</code> to {@link #rules}</p>
      *
-     * @param doCyclicDependencyTest Value to set for property
-     * <tt>doCyclicDependencyTest</tt>.
+     * @param rule Rule to add
+     * @return boolean <tt>true</tt> if this set did not already contain the
+     *         specified element.
      */
-    public void setDoCyclicDependencyTest(final boolean doCyclicDependencyTest) {
-        this.doCyclicDependencyTest = doCyclicDependencyTest;
+    public boolean addRule(final Rule rule) {
+        /* validate input */
+        Assert.assertNotNull("rule can not be null", rule);
+
+        Assert.assertNotNull("rule id can not be null", rule.getId());
+        Assert.assertFalse("rule id must not be empty", rule.getId().equals(""));
+
+        Assert.assertNotNull("rule packages can not be null", rule.getPackages());
+        Assert.assertFalse("rule packages must not be empty", rule.getPackages().isEmpty());
+
+        Assert.assertFalse("rule violations must not be empty", rule.getViolations().isEmpty());
+
+        return rules.add(rule);
+    }
+
+
+    public boolean addSource(final SourceDirectory sourceDirectory) {
+        if (sourceDirectory == null)
+            throw new IllegalArgumentException("sourceDirectory can not be null");
+
+        final String path = sourceDirectory.getPath();
+
+        if (path == null || path.equals(""))
+            throw new IllegalArgumentException("sourceDirectory.path can not be empty or null");
+
+        return sources.add(sourceDirectory);
+    }
+
+
+    /**
+     * <p>Getter for property {@link #doCyclicDependencyTest}.</p>
+     *
+     * @return Value for property <tt>doCyclicDependencyTest</tt>.
+     */
+    public boolean shouldDoCyclicDependencyTest() {
+        return doCyclicDependencyTest;
+    }
+
+
+    /**
+     * <p> Getter for property {@link #throwExceptionWhenNoPackages}.</p>
+     *
+     * @return Value for property <tt>throwExceptionWhenNoPackages</tt>.
+     */
+    public boolean shouldThrowExceptionWhenNoPackages() {
+        return throwExceptionWhenNoPackages;
     }
 }

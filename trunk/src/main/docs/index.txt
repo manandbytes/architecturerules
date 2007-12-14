@@ -3,11 +3,11 @@
  |  /   \   and development.                                            /   \  |
  | |\_.  |                                                             |    /| |
  |\|  | /|                                                             |\  | |/|
- | `---' |  Ascii art titles at http://www.network-science.de/ascii/   | `---' |
+ | `---' |  ASCII art titles at http://www.network-science.de/ascii/   | `---' |
  |       |  font:big                                                   |       |
  |       |                                                             |       |
  |       |  If using Intellij, install the MiniWiki plugin and this    |       |
- |       |  table of conents becomes middle-clickable to get to that   |       |
+ |       |  table of contents becomes middle-clickable to get to that   |       |
  |       |  file.                                                      |       |
  |       |                                                             |       |
  |       |-------------------------------------------------------------|       |
@@ -29,7 +29,7 @@
 # Increment pom.xml to next version. By default, increment the revision. However
 once the changes are made, it might be determined that a minor or major version
 needs to be created. This case, reset the revision number and increment the
-the appropropriate position to the next number.
+the appropriate position to the next number.
 
 # Commit all files.
 
@@ -83,6 +83,8 @@ the appropropriate position to the next number.
 
 # update docs\api-javadocs.html
 
+# update docs\dependencies.html
+
 # update docs\downloads.html
 
     add new release to TOC
@@ -97,10 +99,11 @@ the appropropriate position to the next number.
 # verify changes
 
     verify links to new downloads
-    verifiy new api docs uploaded (check version at top of page)
+    verify new api docs uploaded (check version at top of page)
     verify new downloads listed on index.html
     verify new downloads described at downloads.html
-    verity new maven-generated site by checking date of index
+    verify new dependency list on dependencies.html
+    verify new maven-generated site by checking date of index
 
 # commit /docs
 
@@ -132,7 +135,7 @@ the appropropriate position to the next number.
 # Increment pom.xml to next version for the next development. By default,
 increment the revision. However once the changes are made, it might be
 determined that a minor or major version needs to be created. This case, reset
-the revision number and increment the the appropropriate position to the next
+the revision number and increment the the appropriate position to the next
 number.
 
 # commit pom.xml with new version

@@ -15,13 +15,14 @@ package com.seventytwomiles.architecturerules.domain;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * For more infomration visit
+ * For more information visit
  * http://architecturerules.googlecode.com/svn/docs/index.html
  */
 
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+
 
 
 /**
@@ -54,7 +55,6 @@ public class CyclicDependencyConfiguration {
      * @param test Value to set for property 'test'.
      */
     public void setTest(final String test) {
-
         if (test != null && !test.equalsIgnoreCase("null"))
             this.test = test;
     }

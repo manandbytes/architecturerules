@@ -15,12 +15,13 @@ package com.seventytwomiles.architecturerules.configuration;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * For more infomration visit
+ * For more information visit
  * http://architecturerules.googlecode.com/svn/docs/index.html
  */
 
 
 import java.util.Collection;
+
 
 
 /**
@@ -33,11 +34,10 @@ public interface ConfigurationFactory {
 
 
     /**
-     * <p>Getter for property {@link //sources}.</p>
-     *
-     * @return Value for property <tt>sources</tt>.
+     * @return boolean <tt>true</tt> when <samp>&lt;cyclicalDependency
+     *         test="true"/> </samp>
      */
-    Collection getSources();
+    boolean doCyclicDependencyTest();
 
 
     /**
@@ -49,15 +49,16 @@ public interface ConfigurationFactory {
 
 
     /**
+     * <p>Getter for property {@link //sources}.</p>
+     *
+     * @return Value for property <tt>sources</tt>.
+     */
+    Collection getSources();
+
+
+    /**
      * @return boolean <tt>true</tt> when <samp>&lt;sources
      *         no-packages="exception"> </samp>
      */
     boolean throwExceptionWhenNoPackages();
-
-
-    /**
-     * @return boolean <tt>true</tt> when <samp>&lt;cyclicalDependency
-     *         test="true"/> </samp>
-     */
-    boolean doCyclicDependencyTest();
 }

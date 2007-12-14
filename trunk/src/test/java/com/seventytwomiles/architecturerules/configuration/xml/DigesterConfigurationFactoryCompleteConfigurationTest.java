@@ -1,23 +1,23 @@
 package com.seventytwomiles.architecturerules.configuration.xml;
 
 /*
-* Copyright 2007 the original author or authors.
-*
-* Licensed under the Apache License, Version 2.0 (the "License");
-* you may not use this file except in compliance with the License.
-* You may obtain a copy of the License at
-*
-* http://www.apache.org/licenses/LICENSE-2.0
-*
-* Unless required by applicable law or agreed to in writing, software
-* distributed under the License is distributed on an "AS IS" BASIS,
-* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-* See the License for the specific language governing permissions and
-* limitations under the License.
-*
-* For more infomration visit
-* http://architecturerules.googlecode.com/svn/docs/index.html
-*/
+ * Copyright 2007 the original author or authors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ * For more information visit
+ * http://architecturerules.googlecode.com/svn/docs/index.html
+ */
 
 
 import com.seventytwomiles.architecturerules.domain.Rule;
@@ -28,6 +28,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+
 /**
  * DigesterConfigurationFactory Tester.
  *
@@ -36,133 +37,131 @@ import java.util.List;
 public class DigesterConfigurationFactoryCompleteConfigurationTest extends TestCase {
 
 
+    private final String completeConfiguration =
+            "<?xml version=\"1.0\"?>\n" +
+                    "\n" +
+                    "<!--<!DOCTYPE architecture SYSTEM\n" +
+                    "        \"http://architecturerules.googlecode.com/svn/trunk/src/main/resources/architecture-rules.dtd\">-->\n" +
+                    "\n" +
+                    "<architecture>\n" +
+                    "\n" +
+                    "    <configuration>\n" +
+                    "\n" +
+                    "        <sources no-packages=\"exception\">\n" +
+                    "            <source not-found=\"ignore\">core\\target\\classes</source>\n" +
+                    "            <source not-found=\"exception\">util\\target\\classes</source>\n" +
+                    "            <source not-found=\"ignore\">parent-pom\\target\\classes</source>\n" +
+                    "            <source not-found=\"ignore\">web\\target\\classes</source>\n" +
+                    "        </sources>\n" +
+                    "\n" +
+                    "        <cyclicalDependency test=\"false\"/>\n" +
+                    "\n" +
+                    "    </configuration>\n" +
+                    "\n" +
+                    "\n" +
+                    "    <rules>\n" +
+                    "\n" +
+                    "        <rule id=\"dao\">\n" +
+                    "\n" +
+                    "            <comment>\n" +
+                    "                The dao interface package should rely on nothing.\n" +
+                    "            </comment>\n" +
+                    "\n" +
+                    "            <packages>\n" +
+                    "                <package>\n" +
+                    "                    com.seventytwomiles.pagerank.core.dao\n" +
+                    "                </package>\n" +
+                    "                <package>\n" +
+                    "                    com.seventytwomiles.pagerank.core.dao.hibernate\n" +
+                    "                </package>\n" +
+                    "            </packages>\n" +
+                    "\n" +
+                    "            <violations>\n" +
+                    "                <violation>\n" +
+                    "                    com.seventytwomiles.pagerank.core.services\n" +
+                    "                </violation>\n" +
+                    "                <violation>\n" +
+                    "                    com.seventytwomiles.pagerank.core.builder\n" +
+                    "                </violation>\n" +
+                    "                <violation>\n" +
+                    "                    com.seventytwomiles.pagerank.util\n" +
+                    "                </violation>\n" +
+                    "            </violations>\n" +
+                    "        </rule>\n" +
+                    "\n" +
+                    "        <rule id=\"strategy\">\n" +
+                    "\n" +
+                    "            <comment>\n" +
+                    "                Strategies should be as pluggable as possible\n" +
+                    "            </comment>\n" +
+                    "\n" +
+                    "            <packages>\n" +
+                    "                <package>\n" +
+                    "                    com.seventytwomiles.pagerank.serviceproviders.startegies\n" +
+                    "                </package>\n" +
+                    "            </packages>\n" +
+                    "\n" +
+                    "\n" +
+                    "            <violations>\n" +
+                    "                <violation>\n" +
+                    "                    com.seventytwomiles.pagerank.core.services\n" +
+                    "                </violation>\n" +
+                    "                <violation>\n" +
+                    "                    com.seventytwomiles.pagerank.core.dao.hibernate\n" +
+                    "                </violation>\n" +
+                    "            </violations>\n" +
+                    "        </rule>\n" +
+                    "\n" +
+                    "        <rule id=\"model\">\n" +
+                    "\n" +
+                    "            <comment>\n" +
+                    "                Model should remain completely isolated\n" +
+                    "            </comment>\n" +
+                    "\n" +
+                    "            <packages>\n" +
+                    "                <package>\n" +
+                    "                    com.seventytwomiles.pagerank.core.model\n" +
+                    "                </package>\n" +
+                    "            </packages>\n" +
+                    "\n" +
+                    "            <violations>\n" +
+                    "                <violation>\n" +
+                    "                    com.seventytwomiles.pagerank.core.dao\n" +
+                    "                </violation>\n" +
+                    "                <violation>\n" +
+                    "                    com.seventytwomiles.pagerank.core.dao.hibernate\n" +
+                    "                </violation>\n" +
+                    "                <violation>\n" +
+                    "                    com.seventytwomiles.pagerank.core.services\n" +
+                    "                </violation>\n" +
+                    "                <violation>\n" +
+                    "                    com.seventytwomiles.pagerank.core.strategy\n" +
+                    "                </violation>\n" +
+                    "                <violation>\n" +
+                    "                    com.seventytwomiles.pagerank.core.builder\n" +
+                    "                </violation>\n" +
+                    "                <violation>\n" +
+                    "                    com.seventytwomiles.pagerank.util\n" +
+                    "                </violation>\n" +
+                    "            </violations>\n" +
+                    "        </rule>\n" +
+                    "\n" +
+                    "    </rules>\n" +
+                    "\n" +
+                    "</architecture>\n" +
+                    "\n" +
+                    "";
+
+
     public DigesterConfigurationFactoryCompleteConfigurationTest(String name) {
         super(name);
     }
 
 
-    private final String completeConfiguraiton =
-            "<?xml version=\"1.0\"?>\n" +
-            "\n" +
-            "<!--<!DOCTYPE architecture SYSTEM\n" +
-            "        \"http://architecturerules.googlecode.com/svn/trunk/src/main/resources/architecture-rules.dtd\">-->\n" +
-            "\n" +
-            "<architecture>\n" +
-            "\n" +
-            "    <configuration>\n" +
-            "\n" +
-            "        <sources no-packages=\"exception\">\n" +
-            "            <source not-found=\"ignore\">core\\target\\classes</source>\n" +
-            "            <source not-found=\"exception\">util\\target\\classes</source>\n" +
-            "            <source not-found=\"ignore\">parent-pom\\target\\classes</source>\n" +
-            "            <source not-found=\"ignore\">web\\target\\classes</source>\n" +
-            "        </sources>\n" +
-            "\n" +
-            "        <cyclicalDependency test=\"false\"/>\n" +
-            "\n" +
-            "    </configuration>\n" +
-            "\n" +
-            "\n" +
-            "    <rules>\n" +
-            "\n" +
-            "        <rule id=\"dao\">\n" +
-            "\n" +
-            "            <comment>\n" +
-            "                The dao interface package should rely on nothing.\n" +
-            "            </comment>\n" +
-            "\n" +
-            "            <packages>\n" +
-            "                <package>\n" +
-            "                    com.seventytwomiles.pagerank.core.dao\n" +
-            "                </package>\n" +
-            "                <package>\n" +
-            "                    com.seventytwomiles.pagerank.core.dao.hibernate\n" +
-            "                </package>\n" +
-            "            </packages>\n" +
-            "\n" +
-            "            <violations>\n" +
-            "                <violation>\n" +
-            "                    com.seventytwomiles.pagerank.core.services\n" +
-            "                </violation>\n" +
-            "                <violation>\n" +
-            "                    com.seventytwomiles.pagerank.core.builder\n" +
-            "                </violation>\n" +
-            "                <violation>\n" +
-            "                    com.seventytwomiles.pagerank.util\n" +
-            "                </violation>\n" +
-            "            </violations>\n" +
-            "        </rule>\n" +
-            "\n" +
-            "        <rule id=\"strategy\">\n" +
-            "\n" +
-            "            <comment>\n" +
-            "                Strategies should be as pluggable as possible\n" +
-            "            </comment>\n" +
-            "\n" +
-            "            <packages>\n" +
-            "                <package>\n" +
-            "                    com.seventytwomiles.pagerank.serviceproviders.startegies\n" +
-            "                </package>\n" +
-            "            </packages>\n" +
-            "\n" +
-            "\n" +
-            "            <violations>\n" +
-            "                <violation>\n" +
-            "                    com.seventytwomiles.pagerank.core.services\n" +
-            "                </violation>\n" +
-            "                <violation>\n" +
-            "                    com.seventytwomiles.pagerank.core.dao.hibernate\n" +
-            "                </violation>\n" +
-            "            </violations>\n" +
-            "        </rule>\n" +
-            "\n" +
-            "        <rule id=\"model\">\n" +
-            "\n" +
-            "            <comment>\n" +
-            "                Model should remain competely isolated\n" +
-            "            </comment>\n" +
-            "\n" +
-            "            <packages>\n" +
-            "                <package>\n" +
-            "                    com.seventytwomiles.pagerank.core.model\n" +
-            "                </package>\n" +
-            "            </packages>\n" +
-            "\n" +
-            "            <violations>\n" +
-            "                <violation>\n" +
-            "                    com.seventytwomiles.pagerank.core.dao\n" +
-            "                </violation>\n" +
-            "                <violation>\n" +
-            "                    com.seventytwomiles.pagerank.core.dao.hibernate\n" +
-            "                </violation>\n" +
-            "                <violation>\n" +
-            "                    com.seventytwomiles.pagerank.core.services\n" +
-            "                </violation>\n" +
-            "                <violation>\n" +
-            "                    com.seventytwomiles.pagerank.core.strategy\n" +
-            "                </violation>\n" +
-            "                <violation>\n" +
-            "                    com.seventytwomiles.pagerank.core.builder\n" +
-            "                </violation>\n" +
-            "                <violation>\n" +
-            "                    com.seventytwomiles.pagerank.util\n" +
-            "                </violation>\n" +
-            "            </violations>\n" +
-            "        </rule>\n" +
-            "\n" +
-            "    </rules>\n" +
-            "\n" +
-            "</architecture>\n" +
-            "\n" +
-            "";
-
-
     public void testProcessConfiguration() throws Exception {
-
-
         DigesterConfigurationFactory factory = new DigesterConfigurationFactory();
 
-        factory.processConfiguration(completeConfiguraiton);
+        factory.processConfiguration(completeConfiguration);
 
 
         List sources = new ArrayList();
@@ -201,7 +200,7 @@ public class DigesterConfigurationFactoryCompleteConfigurationTest extends TestC
         assertEquals("model", rule0.getId());
 
         /* comment */
-        assertEquals("Model should remain competely isolated", rule0.getComment());
+        assertEquals("Model should remain completely isolated", rule0.getComment());
 
         /* packages */
         assertEquals(1, rule0.getPackages().size());
@@ -252,7 +251,7 @@ public class DigesterConfigurationFactoryCompleteConfigurationTest extends TestC
 
         /**
          * Test no-packages
-         * The default is false, so the configuraiton should make it true.
+         * The default is false, so the configuration should make it true.
          */
         assertTrue(factory.throwExceptionWhenNoPackages());
     }

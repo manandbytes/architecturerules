@@ -1,26 +1,27 @@
 package com.seventytwomiles.architecturerules.domain;
 
 /*
-* Copyright 2007 the original author or authors.
-*
-* Licensed under the Apache License, Version 2.0 (the "License");
-* you may not use this file except in compliance with the License.
-* You may obtain a copy of the License at
-*
-* http://www.apache.org/licenses/LICENSE-2.0
-*
-* Unless required by applicable law or agreed to in writing, software
-* distributed under the License is distributed on an "AS IS" BASIS,
-* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-* See the License for the specific language governing permissions and
-* limitations under the License.
-*
-* For more infomration visit
-* http://architecturerules.googlecode.com/svn/docs/index.html
-*/
+ * Copyright 2007 the original author or authors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ * For more information visit
+ * http://architecturerules.googlecode.com/svn/docs/index.html
+ */
 
 
 import junit.framework.TestCase;
+
 
 
 /**
@@ -46,7 +47,6 @@ public class SourceDirectoryTest extends TestCase {
      * @see TestCase#setName(String)
      */
     public void setUp() throws Exception {
-
         super.setUp();
 
         sourceDirectory = new SourceDirectory();
@@ -57,10 +57,29 @@ public class SourceDirectoryTest extends TestCase {
      * @see TestCase#tearDown()
      */
     public void tearDown() throws Exception {
-
         sourceDirectory = null;
 
         super.tearDown();
+    }
+
+
+    /**
+     * <p>Test for {@link SourceDirectory#equals(Object)} </p>
+     *
+     * @throws Exception when <code>SourceDirectory</code> throws and unexpected
+     * <code>Exception</code>
+     */
+    public void testEquals() throws Exception {
+        SourceDirectory that;
+
+        sourceDirectory.setPath("core/target/classes");
+        that = new SourceDirectory("core/target/classes");
+        assertTrue(sourceDirectory.equals(that));
+        assertTrue(sourceDirectory.hashCode() == that.hashCode());
+
+        that = new SourceDirectory("web/target/classes");
+        assertFalse(sourceDirectory.equals(that));
+        assertFalse(sourceDirectory.hashCode() == that.hashCode());
     }
 
 
@@ -72,7 +91,6 @@ public class SourceDirectoryTest extends TestCase {
      * <code>Exception</code>
      */
     public void testInterestingConstructors() throws Exception {
-
         /**
          * Test SourceDirectory#SourceDirectory(String)
          */
@@ -111,96 +129,56 @@ public class SourceDirectoryTest extends TestCase {
      * <code>Exception</code>
      */
     public void testInterestingConstructors_illegalArguments() throws Exception {
-
-
         try {
-
             sourceDirectory = new SourceDirectory("");
             fail("expected IllegalArgumentException");
-
         } catch (final Exception e) {
-
             assertTrue(e instanceof IllegalArgumentException);
         }
 
         try {
-
             sourceDirectory = new SourceDirectory(null);
             fail("expected IllegalArgumentException");
-
         } catch (final Exception e) {
-
             assertTrue(e instanceof IllegalArgumentException);
         }
 
 
         try {
-
             sourceDirectory = new SourceDirectory("", true);
             fail("expected IllegalArgumentException");
-
         } catch (final Exception e) {
-
             assertTrue(e instanceof IllegalArgumentException);
         }
 
         try {
-
             sourceDirectory = new SourceDirectory(null, true);
             fail("expected IllegalArgumentException");
-
         } catch (final Exception e) {
-
             assertTrue(e instanceof IllegalArgumentException);
         }
 
         try {
-
             sourceDirectory = new SourceDirectory("core/target/classes", "monkey");
             fail("expected IllegalArgumentException");
-
         } catch (final Exception e) {
-
             assertTrue(e instanceof IllegalArgumentException);
         }
 
 
         try {
-
             sourceDirectory = new SourceDirectory("core/target/classes", "");
             fail("expected IllegalArgumentException");
-
         } catch (final Exception e) {
-
             assertTrue(e instanceof IllegalArgumentException);
         }
 
         try {
-
             sourceDirectory = new SourceDirectory("core/target/classes", null);
             fail("expected IllegalArgumentException");
-
         } catch (final Exception e) {
-
             assertTrue(e instanceof IllegalArgumentException);
         }
-    }
-
-
-    /**
-     * <p>Test for {@link SourceDirectory#setShouldThrowExceptionWhenNotFound(boolean)}
-     * </p>
-     *
-     * @throws Exception when <code>SourceDirectory</code> throws and unexpected
-     * <code>Exception</code>
-     */
-    public void testSetShouldThrowExceptionWhenNotFound() throws Exception {
-
-        sourceDirectory.setShouldThrowExceptionWhenNotFound(true);
-        assertTrue(sourceDirectory.shouldThrowExceptionWhenNotFound());
-
-        sourceDirectory.setShouldThrowExceptionWhenNotFound(false);
-        assertFalse(sourceDirectory.shouldThrowExceptionWhenNotFound());
     }
 
 
@@ -212,7 +190,6 @@ public class SourceDirectoryTest extends TestCase {
      * <code>Exception</code>
      */
     public void testSetGetPath() throws Exception {
-
         sourceDirectory.setPath("core/target/classes");
         assertEquals("core/target/classes", sourceDirectory.getPath());
     }
@@ -226,7 +203,6 @@ public class SourceDirectoryTest extends TestCase {
      * <code>Exception</code>
      */
     public void testSetGetPath_illegalArguments() throws Exception {
-
         sourceDirectory.setPath("core/target/classes");
         assertEquals("core/target/classes", sourceDirectory.getPath());
     }
@@ -239,7 +215,6 @@ public class SourceDirectoryTest extends TestCase {
      * <code>Exception</code>
      */
     public void testSetNotFound() throws Exception {
-
         /* check the initial state*/
         assertFalse(sourceDirectory.shouldThrowExceptionWhenNotFound());
 
@@ -268,60 +243,41 @@ public class SourceDirectoryTest extends TestCase {
      * <code>Exception</code>
      */
     public void testSetNotFound_illegalArguments() throws Exception {
-
         try {
-
             sourceDirectory.setNotFound("");
             fail("expected IllegalArgumentException");
-
         } catch (Exception e) {
-
             assertTrue(e instanceof IllegalArgumentException);
         }
 
         try {
-
             sourceDirectory.setNotFound(null);
             fail("expected IllegalArgumentException");
-
         } catch (Exception e) {
-
             assertTrue(e instanceof IllegalArgumentException);
         }
 
         try {
-
             sourceDirectory.setNotFound("http://www.72miles.com");
             fail("expected IllegalArgumentException");
-
         } catch (Exception e) {
-
             assertTrue(e instanceof IllegalArgumentException);
         }
     }
 
 
     /**
-     * <p>Test for {@link SourceDirectory#equals(Object)} </p>
+     * <p>Test for {@link SourceDirectory#setShouldThrowExceptionWhenNotFound(boolean)}
+     * </p>
      *
      * @throws Exception when <code>SourceDirectory</code> throws and unexpected
      * <code>Exception</code>
      */
-    public void testEquals() throws Exception {
+    public void testSetShouldThrowExceptionWhenNotFound() throws Exception {
+        sourceDirectory.setShouldThrowExceptionWhenNotFound(true);
+        assertTrue(sourceDirectory.shouldThrowExceptionWhenNotFound());
 
-        SourceDirectory that;
-
-        sourceDirectory.setPath("core/target/classes");
-        that = new SourceDirectory("core/target/classes");
-        assertTrue(sourceDirectory.equals(that));
-        assertTrue(sourceDirectory.hashCode() == that.hashCode());
-
-        that = new SourceDirectory("web/target/classes");
-        assertFalse(sourceDirectory.equals(that));
-        assertFalse(sourceDirectory.hashCode() == that.hashCode());
+        sourceDirectory.setShouldThrowExceptionWhenNotFound(false);
+        assertFalse(sourceDirectory.shouldThrowExceptionWhenNotFound());
     }
 }
-
-
-
-

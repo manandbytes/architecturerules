@@ -1,29 +1,30 @@
 package com.seventytwomiles.architecturerules;
 
 /*
-* Copyright 2007 the original author or authors.
-*
-* Licensed under the Apache License, Version 2.0 (the "License");
-* you may not use this file except in compliance with the License.
-* You may obtain a copy of the License at
-*
-* http://www.apache.org/licenses/LICENSE-2.0
-*
-* Unless required by applicable law or agreed to in writing, software
-* distributed under the License is distributed on an "AS IS" BASIS,
-* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-* See the License for the specific language governing permissions and
-* limitations under the License.
-*
-* For more infomration visit
-* http://architecturerules.googlecode.com/svn/docs/index.html
-*/
+ * Copyright 2007 the original author or authors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ * For more information visit
+ * http://architecturerules.googlecode.com/svn/docs/index.html
+ */
 
 
 import com.seventytwomiles.architecturerules.configuration.Configuration;
 import com.seventytwomiles.architecturerules.domain.Rule;
 import com.seventytwomiles.architecturerules.domain.SourceDirectory;
 import com.seventytwomiles.architecturerules.exceptions.CyclicRedundancyException;
+
 
 
 /**
@@ -36,7 +37,6 @@ public class ArchitectureTest extends AbstractArchitectureRulesConfigurationTest
 
 
     public void ArchitectureTest() {
-
         final Configuration configuration = getConfiguration();
 
         /**
@@ -66,9 +66,8 @@ public class ArchitectureTest extends AbstractArchitectureRulesConfigurationTest
      * @see AbstractArchitectureRulesConfigurationTest
      */
     public String getConfigurationFileName() {
-
         /**
-         * Provide the name of the rules configuraiton file. File file is
+         * Provide the name of the rules configuration file. File file is
          * loaded from the classpath.
          */
         return "architecture-rules.xml";
@@ -79,10 +78,9 @@ public class ArchitectureTest extends AbstractArchitectureRulesConfigurationTest
      * @see AbstractArchitectureRulesConfigurationTest#testArchitecture()
      */
     public void testArchitecture() {
-
         /**
          * Finally, run the test via doTest(). If any rules are broken, or if
-         * the configuraiton can not be loaded properly, then the appropriate
+         * the configuration can not be loaded properly, then the appropriate
          * Exception will be thrown.
          */
         assertTrue(doTests());
@@ -101,11 +99,8 @@ public class ArchitectureTest extends AbstractArchitectureRulesConfigurationTest
         configuration.getSources().add(new SourceDirectory("target\\test-classes", true));
 
         try {
-
             assertTrue(doTests());
-
         } catch (final CyclicRedundancyException e) {
-
             e.printStackTrace();
 
             final String message = e.getMessage();

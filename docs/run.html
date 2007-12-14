@@ -137,32 +137,36 @@
             For an up-to-date list of dependencies, see the <a
                 href="dependencies.html">dependencies list</a>.
         </p>
-<pre name="code" class="xml:nocontrols:nogutter">
 
-    &lt;property name="maven.repo" value="C:\dev\m2repo\"/>
+        <div id="antTaskConfiguration">
 
-    &lt;path id="class.path"&gt;
-        &lt;pathelement id="test classes" path=".\target\test-classes"/&gt;
-        &lt;pathelement id="main classes" path=".\target\classes"/&gt;
+            <pre name="code" class="xml:nocontrols:nogutter">
+                
+                &lt;property name="maven.repo" value="C:\dev\m2repo\"/>
 
-        &lt;!-- updated list of dependencies available at http://architecturerules.googlecode.com/svn/docs/dependencies.html --&gt;
+                &lt;path id="class.path"&gt;
+                    &lt;pathelement id="test classes" path=".\target\test-classes"/&gt;
+                    &lt;pathelement id="main classes" path=".\target\classes"/&gt;
 
-        &lt;pathelement id="commons-digester" path="${maven.repo}\commons-digester\commons-digester\1.8\commons-digester-1.8.jar"/&gt;
-        &lt;pathelement id="jdepend" path="${maven.repo}\jdepend\jdepend\2.9.1\jdepend-2.9.1.jar"/&gt;
-        &lt;pathelement id="junit" path="${maven.repo}\junit\junit\3.8.1\junit-3.8.1.jar"/&gt;
-        &lt;pathelement id="commons-beanutils" path="${maven.repo}\commons-beanutils\commons-beanutils\1.7.0\commons-beanutils-1.7.0.jar"/&gt;
-        &lt;pathelement id="commons-logging" path="${maven.repo}\commons-logging\commons-logging\1.1\commons-logging-1.1.jar"/&gt;
-    &lt;/path&gt;
+                    &lt;!-- updated list of dependencies available at http://architecturerules.googlecode.com/svn/docs/dependencies.html --&gt;
 
-    &lt;!-- you must define your own compile --&gt;
-    &lt;target name="compile"/&gt;
+                    &lt;pathelement id="commons-digester" path="${maven.repo}\commons-digester\commons-digester\1.8\commons-digester-1.8.jar"/&gt;
+                    &lt;pathelement id="jdepend" path="${maven.repo}\jdepend\jdepend\2.9.1\jdepend-2.9.1.jar"/&gt;
+                    &lt;pathelement id="junit" path="${maven.repo}\junit\junit\3.8.1\junit-3.8.1.jar"/&gt;
+                    &lt;pathelement id="commons-beanutils" path="${maven.repo}\commons-beanutils\commons-beanutils\1.7.0\commons-beanutils-1.7.0.jar"/&gt;
+                    &lt;pathelement id="commons-logging" path="${maven.repo}\commons-logging\commons-logging\1.1\commons-logging-1.1.jar"/&gt;
+                &lt;/path&gt;
 
-    &lt;taskdef name="assertArchitecture"
-             classname="com.seventytwomiles.architecturerules.ant.AssertArchitectureTask"&gt;
-        &lt;classpath refid="class.path"/&gt;
-    &lt;/taskdef&gt;
-       
-</pre>
+                &lt;!-- you must define your own compile --&gt;
+                &lt;target name="compile"/&gt;
+
+                &lt;taskdef name="assertArchitecture"
+                         classname="com.seventytwomiles.architecturerules.ant.AssertArchitectureTask"&gt;
+                    &lt;classpath refid="class.path"/&gt;
+                &lt;/taskdef&gt;
+
+            </pre>
+        </div>
     </div>
     <!-- entry -->
 </div>
@@ -191,16 +195,9 @@
                 href="dependencies.html">dependencies list</a>.
         </p>
 
-        <style>
-            div#primary {
-                overflow: visible;
-            }
-        </style>
-
-        <div style="padding-bottom: 15px; background-image:url('images/pointer.png'); background-repeat:no-repeat; background-position:bottom left;"
-             onmouseover="this.style.width = '770px;'; this.style.styleFloat='left'; this.style.border='solid silver 1px';"
-             onmouseout="this.style.width='520px';this.style.border='none';">
-            <pre name="code" class="xml:nocontrols:nogutter" style="width: 100%;">
+        <div id="antUnitTestSample">
+            
+            <pre name="code" class="xml:nocontrols:nogutter">
 
                 &lt;property name="maven.repo" value="C:\dev\m2repo\"/>
 

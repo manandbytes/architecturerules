@@ -191,8 +191,14 @@
                 href="dependencies.html">dependencies list</a>.
         </p>
 
-        <div style="padding:0; margin:0;"
-             onmouseover="this.style.width = '1000px;'; this.style.styleFloat='left'; this.style.border='solid black 1px';"
+        <style>
+            div#primary {
+                overflow: visible;
+            }
+        </style>
+
+        <div style="padding-bottom: 15px; background-image:url('images/pointer.png'); background-repeat:no-repeat; background-position:bottom left;"
+             onmouseover="this.style.width = '770px;'; this.style.styleFloat='left'; this.style.border='solid silver 1px';"
              onmouseout="this.style.width='520px';this.style.border='none';">
             <pre name="code" class="xml:nocontrols:nogutter" style="width: 100%;">
 
@@ -204,11 +210,11 @@
 
                     &lt;!-- updated list of dependencies available at http://architecturerules.googlecode.com/svn/docs/dependencies.html --&gt;
 
-                    &lt;pathelement id="commons-digester" path="${maven.repo}\commons-digester\commons-digester\1.8\commons-digester-1.8.jar"/&gt;
-                    &lt;pathelement id="jdepend" path="${maven.repo}\jdepend\jdepend\2.9.1\jdepend-2.9.1.jar"/&gt;
-                    &lt;pathelement id="junit" path="${maven.repo}\junit\junit\3.8.1\junit-3.8.1.jar"/&gt;
-                    &lt;pathelement id="commons-beanutils" path="${maven.repo}\commons-beanutils\commons-beanutils\1.7.0\commons-beanutils-1.7.0.jar"/&gt;
-                    &lt;pathelement id="commons-logging" path="${maven.repo}\commons-logging\commons-logging\1.1\commons-logging-1.1.jar"/&gt;
+                    &lt;pathelement id="commons-digester" path="${maven.repo}\commons-digester\1.8\commons-digester-1.8.jar"/&gt;
+                    &lt;pathelement id="jdepend" path="${maven.repo}\jdepend\2.9.1\jdepend-2.9.1.jar"/&gt;
+                    &lt;pathelement id="junit" path="${maven.repo}\junit\3.8.1\junit-3.8.1.jar"/&gt;
+                    &lt;pathelement id="commons-beanutils" path="${maven.repo}\commons-beanutils\1.7.0\commons-beanutils-1.7.0.jar"/&gt;
+                    &lt;pathelement id="commons-logging" path="${maven.repo}\commons-logging\1.1\commons-logging-1.1.jar"/&gt;
                 &lt;/path&gt;
 
                 &lt;!-- you must define your own compile --&gt;

@@ -1,14 +1,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
-  <head profile="http://gmpg.org/xfn/11">
+<head profile="http://gmpg.org/xfn/11">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="description"
-    content="Assert Your Architecture - with this open source java library. Leverages XML and optional programatic configuration to assert your code's architecture via unit tests or ant tasks. Able to check for layer independence and cyclic dependencies." />
+          content="Assert Your Architecture - with this open source java library. Leverages XML and optional programatic configuration to assert your code's architecture via unit tests or ant tasks. Able to check for layer independence and cyclic dependencies." />
     <meta name="keywords"
-    content="open source java xml jdepend architecture rules unit test junit" />
+          content="open source java xml jdepend architecture rules unit test junit" />
     <meta name="Expires" content="0" />
     <meta name="ROBOTS" content="INDEX, FOLLOW" />
     <title>
-      architecture rules
+        architecture rules
     </title>
     <link rel="stylesheet" type="text/css" href="css/style.css" />
     <link rel="stylesheet" type="text/css" href="css/nifty.css" />
@@ -23,80 +23,87 @@
 
     <script type="text/javascript" src="js/prototype-1.5.1.1.js">
     </script>
-  </head>
-  <body>
-    <div id="page">
-      <div id="blogtitle" class="primary">
-        <a
-        href="http://architecturerules.googlecode.com/svn/docs/index.html">architecture</a><span>
+</head>
+<body>
+<div id="page">
+<div id="blogtitle" class="primary">
+    <a
+            href="http://architecturerules.googlecode.com/svn/docs/index.html">architecture</a><span>
         rules</span>
-      </div>
-      <div id="backtogoogle">
-        <a href="http://code.google.com/p/architecturerules/">google code
+</div>
+<div id="backtogoogle">
+    <a href="http://code.google.com/p/architecturerules/">google code
         landing page</a>
-      </div>
-      <div id="about">
-        <p class="description">
-          <strong>Assert Your Architecture!</strong> with this <em>open
-          source</em> <strong>java</strong> library. Architecture Rules
-          leverages an <a href="sample-configuration.html">xml configuration
-          file</a> and optional programmatic configuration to assert your
-          code's architecture via <a
-          href="getting-started.html#write-unit-test">unit tests</a> or <a
-          href="run.html#ant-task">ant tasks</a>. This test is able to assert
-          that specific packages do not depend on others and is able to check
-          for and report on cyclic dependencies among your project's packages
-          and classes. This project wraps a industry accepted <a
-          href="http://clarkware.com/software/JDepend.html"
-          target="_jdepend">JDepend</a> to simplify the process of maintaining
-          a solid software architecture.
-        </p>
-        <ul id="mainmenu">
-          <li id="home" class="page_item current_page_item">
+</div>
+<div id="about">
+    <p class="description">
+        <strong>Assert Your Architecture!</strong> with this <em>open
+        source</em> <strong>java</strong> library. Architecture Rules
+        leverages an <a href="sample-configuration.html">xml configuration
+        file</a> and optional programmatic configuration to assert your
+        code's architecture via <a
+            href="getting-started.html#write-unit-test">unit tests</a> or <a
+            href="run.html#ant-task">ant tasks</a>. This test is able to assert
+        that specific packages do not depend on others and is able to check
+        for and report on cyclic dependencies among your project's packages
+        and classes. This project wraps a industry accepted <a
+            href="http://clarkware.com/software/JDepend.html"
+            target="_jdepend">JDepend</a> to simplify the process of maintaining
+        a solid software architecture.
+    </p>
+    <ul id="mainmenu">
+        <li id="home" class="page_item current_page_item">
             <a title="home" href="index.html">Home</a>
-          </li>
-          <li id="source" class="page_item">
+        </li>
+        <li id="source" class="page_item">
             <a href="source.html">Source</a>
-          </li>
-          <li id="downloads" class="page_item">
+        </li>
+        <li id="downloads" class="page_item">
             <a href="downloads.html">Downloads</a>
-          </li>
-          <li id="mailing-lists" class="page_item">
+        </li>
+        <li id="mailing-lists" class="page_item">
             <a href="mailing-lists.html">Mailing Lists</a>
-          </li>
-        </ul>
-      </div>
-      <!-- /about -->
-      <div id="primary" class="single hfeed">
-        <div class="hentry post programming" id="">
-          <h1 class="posttitle entry-title">
-            Sample Configuration
-          </h1>
-          <p class="postmetadata">
-            XML
-          </p>
-          <div class="entry entry-content">
-            <p>
-              The simplest and most effective way to setup your rules, is to
-              create <tt>architecture-rules.xml</tt> in a directory such as
-              <tt>/src/main/resources</tt>, or any other directory that will
-              end up in the project's classpath. Once the file is created, add
-              your configuration and rules such as in this example below.
-            </p>
-            <h4>
-              architecture-rules.xml
-            </h4>
+        </li>
+    </ul>
+</div>
+<!-- /about -->
+<div id="primary" class="single hfeed">
+<div class="hentry post programming">
+    <h1 class="posttitle entry-title">
+        Sample Configuration
+    </h1>
+
+    <p class="postmetadata">
+        XML
+    </p>
+
+    <div class="entry entry-content">
+        <p>
+            The simplest and most effective way to setup your rules, is to
+            create <tt>architecture-rules.xml</tt> in a directory such as
+            <tt>/src/main/resources</tt>, or any other directory that will
+            end up in the project's classpath. Once the file is created, add
+            your configuration and rules such as in this example below.
+        </p>
+        <h4>
+            architecture-rules.xml
+        </h4>
+
+        <div id="configrationXml">
+            <img src="images/magnifier_zoom_in.png" style="border:none;" id="magnify_configuration">
+            <img src="images/magnifier_zoom_out.png" style="border:none;" id="demagnify_configuration">
+
 <pre name="code" class="xml:nocontrols:nogutter">
         <?xml version="1.0"?>
 
 
-        &lt;architecture&gt;
+    &lt;architecture&gt;
 
             &lt;configuration&gt;
-                &lt;sources  no-packages=&quot;exception&quot;&gt;
+                &lt;sources no-packages=&quot;exception&quot;&gt;
                     &lt;source not-found=&quot;ignore&quot;&gt;core\target\classes&lt;/source&gt;
                     &lt;source not-found=&quot;ignore&quot;&gt;web\target\classes&lt;/source&gt;
-                    &lt;source not-found=&quot;exception&quot;&gt;web-ws\target\classes&lt;/source&gt;
+                    &lt;source not-found=&quot;exception&quot;&gt;ws\target\classes&lt;/source&gt;
                 &lt;/sources&gt;
                 &lt;cyclicaldependency test=&quot;true&quot;&gt;&lt;/cyclicaldependency&gt;
             &lt;/configuration&gt;
@@ -107,185 +114,194 @@
                     <comment>dao layer depends on no other layers</comment>
                     &lt;packages&gt;
                         &lt;package&gt;com.company.app.core.dao&lt;/package&gt;
-                        &lt;package&gt;com.company.app.core.dao.hibernate&lt;/package&gt;
+                        &lt;package&gt;com.company.app.core.dao.jdbc&lt;/package&gt;
                     &lt;/packages&gt;
                     &lt;violations&gt;
-                        &lt;violation&gt;com.company.app.core.services&lt;/violation&gt;
-                        &lt;violation&gt;com.company.app.web&lt;/violation&gt;
-                        &lt;violation&gt;com.company.app.web.spring&lt;/violation&gt;
+                        &lt;violation&gt;com.co.app.core.services&lt;/violation&gt;
+                        &lt;violation&gt;com.co.app.web&lt;/violation&gt;
+                        &lt;violation&gt;com.co.app.web.spring&lt;/violation&gt;
                     &lt;/violations&gt;
                 &lt;/rule&gt;
 
                 &lt;rule id=&quot;web&quot;&gt;
-                    <comment>presentation layer may not use dao directly</comment>
+                    &lt;comment&gt;presentation layer may not use dao directly&lt;/comment&gt;
                     &lt;packages&gt;
-                        &lt;package&gt;com.company.app.web&lt;/package&gt;
-                        &lt;package&gt;com.company.app.web.spring&lt;/package&gt;
-                        &lt;package&gt;com.company.app.web.decorators&lt;/package&gt;
+                        &lt;package&gt;com.co.app.web&lt;/package&gt;
+                        &lt;package&gt;com.co.app.web.spring&lt;/package&gt;
+                        &lt;package&gt;com.co.app.web.decorators&lt;/package&gt;
                     &lt;/packages&gt;
                     &lt;violations&gt;
-                        &lt;violation&gt;com.company.app.core.dao&lt;/violation&gt;
-                        &lt;violation&gt;com.company.app.core.dao.hibernate&lt;/violation&gt;
-                        &lt;violation&gt;com.company.app.core.dao.jdap&lt;/violation&gt;
-                        &lt;violation&gt;com.company.app.core.dao.jdbc&lt;/violation&gt;
+                        &lt;violation&gt;com.co.app.core.dao&lt;/violation&gt;
+                        &lt;violation&gt;com.co.app.core.dao.jdbc&lt;/violation&gt;
+                        &lt;violation&gt;com.co.app.core.dao.ldap&lt;/violation&gt;
                     &lt;/violations&gt;
                 &lt;/rule&gt;
 
             &lt;/rules&gt;
 
         &lt;/architecture&gt;
-
 </pre>
-          </div>
-          <!-- entry -->
         </div>
-        <!-- post -->
-        <div class="hentry post programming" id="">
-          <h1 class="posttitle entry-title">
-            Sample Configuration Breakdown
-          </h1>
-          <p class="postmetadata">
-            XML
-          </p>
-          <div class="entry entry-content">
-            <p>
-              Here is an explanation of the various xml nodes.
-            </p>
-            <h3>
-              Sources
-            </h3>
+    </div>
+    <!-- entry -->
+</div>
+<!-- post -->
+<div class="hentry post programming" id="">
+<h1 class="posttitle entry-title">
+    Sample Configuration Breakdown
+</h1>
+
+<p class="postmetadata">
+    XML
+</p>
+
+<div class="entry entry-content">
+<p>
+    Here is an explanation of the various xml nodes.
+</p>
+
+<h3>
+    Sources
+</h3>
 <pre name="code" class="xml:nocontrols:nogutter">
                 &lt;sources  no-packages=&quot;exception&quot;&gt;
                     &lt;source not-found=&quot;ignore&quot;&gt;core\target\classes&lt;/source&gt;
                     &lt;source not-found=&quot;ignore&quot;&gt;web\target\classes&lt;/source&gt;
-                    &lt;source not-found=&quot;exception&quot;&gt;web-ws\target\classes&lt;/source&gt;
+                    &lt;source not-found=&quot;exception&quot;&gt;ws\target\classes&lt;/source&gt;
                 &lt;/sources&gt;
 
 </pre>
-            <p>
-              Sources are the directories that JDepend will analyze. The
-              Jdepend docs call these sources, but in reality you want to point
-              to your complied classes.
-            </p>
+<p>
+    Sources are the directories that JDepend will analyze. The
+    Jdepend docs call these sources, but in reality you want to point
+    to your complied classes.
+</p>
 <pre name="code" class="xml:nocontrols:nogutter">
 &lt;sources no-packages="ignore"&gt;
 </pre>
-            <p>
-              Valid no-packages values are ignore and exception.
-            </p>
-            <ul>
-              <li>
-                <tt>ignore</tt> will continue on when the source directory does
-                not exist
-              </li>
-              <li>
-                <tt>exception</tt> will throw a <a
-                href="exceptions.html#SourceNotFoundException">SourceNotFoundException</a>
-                when the directory does not exit
-              </li>
-            </ul>
+<p>
+    Valid no-packages values are ignore and exception.
+</p>
+<ul>
+    <li>
+        <tt>ignore</tt> will continue on when the source directory does
+        not exist
+    </li>
+    <li>
+        <tt>exception</tt> will throw a <a
+            href="exceptions.html#SourceNotFoundException">SourceNotFoundException</a>
+        when the directory does not exit
+    </li>
+</ul>
 <pre name="code" class="xml:nocontrols:nogutter">
 &lt;source not-found="ignore"&gt;core/target/classes&lt;/source&gt;
 </pre>
-            <p>
-              Sources can be a relative path or an absolute path. Valid
-              not-found values are ignore and exception.
-            </p>
-            <ul>
-              <li>
-                <tt>ignore</tt> will continue when no packages exist, but
-                nothing will be tested. Not recommended.
-              </li>
-              <li>
-                <tt>exception</tt> will throw a <a
-                href="exceptions.html#NoPackagesFoundException">NoPackagesFoundException</a>:
-                No packages found when no packages are found in any of the
-                given sources.
-              </li>
-            </ul>
-            <h3>
-              Cyclic Dependency Test
-            </h3>
+<p>
+    Sources can be a relative path or an absolute path. Valid
+    not-found values are ignore and exception.
+</p>
+<ul>
+    <li>
+        <tt>ignore</tt> will continue when no packages exist, but
+        nothing will be tested. Not recommended.
+    </li>
+    <li>
+        <tt>exception</tt> will throw a <a
+            href="exceptions.html#NoPackagesFoundException">NoPackagesFoundException</a>:
+        No packages found when no packages are found in any of the
+        given sources.
+    </li>
+</ul>
+<h3>
+    Cyclic Dependency Test
+</h3>
 <pre name="code" class="xml:nocontrols:nogutter">
 &lt;cyclicaldependency test=&quot;true&quot;&gt;&lt;/cyclicaldependency&gt;
 </pre>
-            <p>
-              Easy as true or false to indicate weather you want this test to
-              run or not. When this test runs and fails, a <a
-              href="exceptions.html#CyclicRedundencyException">CyclicRedundencyException</a>
-              is thrown.
-            </p>
-            <h3>
-              Rules
-            </h3>
-            <p>
-              Rules define a package, and then go on to list each package that
-              would be considered a violation to depend on. An id is used to
-              refer to the rule when something goes wrong, and a comment may be
-              entered in order to document the rule for future developers (or
-              even for yourself for that matter.)
-            </p>
+<p>
+    Easy as true or false to indicate weather you want this test to
+    run or not. When this test runs and fails, a <a
+        href="exceptions.html#CyclicRedundencyException">CyclicRedundencyException</a>
+    is thrown.
+</p>
+
+<h3>
+    Rules
+</h3>
+
+<p>
+    Rules define a package, and then go on to list each package that
+    would be considered a violation to depend on. An id is used to
+    refer to the rule when something goes wrong, and a comment may be
+    entered in order to document the rule for future developers (or
+    even for yourself for that matter.)
+</p>
 <pre name="code" class="xml:nocontrols:nogutter">
 &lt;rule id=&quot;dao&quot;&gt;
 	<comment>dao layer depends on no other layers</comment>
 	&lt;packages&gt;
-		&lt;package&gt;com.company.app.core.dao&lt;/package&gt;
-		&lt;package&gt;com.company.app.core.dao.hibernate&lt;/package&gt;
+		&lt;package&gt;com.co.app.core.dao&lt;/package&gt;
+		&lt;package&gt;com.co.app.core.dao.jdbc&lt;/package&gt;
 	&lt;/packages&gt;
 	&lt;violations&gt;
-		&lt;violation&gt;com.company.app.core.services&lt;/violation&gt;
-		&lt;violation&gt;com.company.app.web&lt;/violation&gt;
-		&lt;violation&gt;com.company.app.web.spring&lt;/violation&gt;
+		&lt;violation&gt;com.co.app.core.services&lt;/violation&gt;
+		&lt;violation&gt;com.co.app.web&lt;/violation&gt;
+		&lt;violation&gt;com.co.app.web.spring&lt;/violation&gt;
 	&lt;/violations&gt;
 &lt;/rule&gt;
 
 </pre>
-            <p>
-              ids can not be duplicated, but packages can. If you want to break
-              up violations for the same package you can do that.
-            </p>
-            <p>
-              You can add more than one package to a rule. For example
-              <tt>..dao</tt> and <tt>..dao.hibernate</tt> packages are probably
-              going to be the same, so you can define them in a single rule.
-              This is a change from the version 1 releases
-            </p>
-            <p>
-              You can not add a violation that is identical to the package.
-              This is because, in reality, if you have a class that uses a
-              class in the same package, no imports are defined, and therefore
-              this situation can not be tested. If you try this, you will get
-              an <a
-              href="exceptions.html#IllegalRuleException">IllegalRuleException</a>
-            </p>
-          </div>
-        </div>
-        <div class="hentry post programming" id="">
-          <h1 class="posttitle entry-title">
-            Sample Configuration
-          </h1>
-          <p class="postmetadata">
-            Programmatic
-          </p>
-          <div class="entry entry-content">
-            <p>
-              You also have the option of programmatic configuration when
-              running architecture-rules as a unit test - you don't have this
-              option when running via the <a
-              href="run.html#ant-task">ant-task</a>. Assuming you followed the
-              <a href="getting-started.html">getting started</a> tutorial, you
-              now have a unit test that extends
-              <tt>AbstractArchitectureRulesConfigurationTest</tt>. From here,
-              you can simply call <tt>getConfiguration()</tt> which will return
-              the Configuration entity that has been populated with the
-              settings from <tt>architecture-rules.xml</tt>. With this
-              Configuration reference, you may not create new <tt>Rule</tt> and
-              <tt>SourceDirectory</tt> entities and add them to the
-              configuration.
-            </p>
-            <h3>
-              Example
-            </h3>
+<p>
+    ids can not be duplicated, but packages can. If you want to break
+    up violations for the same package you can do that.
+</p>
+
+<p>
+    You can add more than one package to a rule. For example
+    <tt>..dao</tt> and <tt>..dao.hibernate</tt> packages are probably
+    going to be the same, so you can define them in a single rule.
+    This is a change from the version 1 releases
+</p>
+
+<p>
+    You can not add a violation that is identical to the package.
+    This is because, in reality, if you have a class that uses a
+    class in the same package, no imports are defined, and therefore
+    this situation can not be tested. If you try this, you will get
+    an <a
+        href="exceptions.html#IllegalRuleException">IllegalRuleException</a>
+</p>
+</div>
+</div>
+<div class="hentry post programming">
+    <h1 class="posttitle entry-title">
+        Sample Configuration
+    </h1>
+
+    <p class="postmetadata">
+        Programmatic
+    </p>
+
+    <div class="entry entry-content">
+        <p>
+            You also have the option of programmatic configuration when
+            running architecture-rules as a unit test - you don't have this
+            option when running via the <a
+                href="run.html#ant-task">ant-task</a>. Assuming you followed the
+            <a href="getting-started.html">getting started</a> tutorial, you
+            now have a unit test that extends
+            <tt>AbstractArchitectureRulesConfigurationTest</tt>. From here,
+            you can simply call <tt>getConfiguration()</tt> which will return
+            the Configuration entity that has been populated with the
+            settings from <tt>architecture-rules.xml</tt>. With this
+            Configuration reference, you may not create new <tt>Rule</tt> and
+            <tt>SourceDirectory</tt> entities and add them to the
+            configuration.
+        </p>
+
+        <h3>
+            Example
+        </h3>
 <pre name="code" class="java:nocontrols:nogutter">
 /**
  * Get the configuration that already has the architecture-rules.xml
@@ -295,10 +311,10 @@ final Configuration configuration = getConfiguration();
 
 final Rule rule = new Rule("services");
 rule.setComment("services may not depend on web layer.");
-rule.addPackage("com.company.app.core.services");
-rule.addViolation("com.company.app.web");
-rule.addViolation("com.company.app.web.spring");
-rule.addViolation("com.company.app.web.decorators");
+rule.addPackage("com.co.app.core.services");
+rule.addViolation("com.co.app.web");
+rule.addViolation("com.co.app.web.spring");
+rule.addViolation("com.co.app.web.decorators");
 
 configuration.addRule(rule);
 
@@ -311,72 +327,106 @@ configuration.addRule(rule);
 configuration.setDoCyclicDependencyTest(false);
 
 </pre>
-            <p>
-              In this example, the configuration is pre-populated with the
-              configuration found in the XML file with the name returned by the
-              method <tt>String getConfigurationFileName()</tt> in your unit
-              test. If you do not implement this method, or of you return
-              <tt>""</tt> then the configuration will be empty.
-            </p>
-          </div>
-        </div>
-      </div>
-      <div id="secondary">
-      </div>
-      <!-- /secondary -->
+        <p>
+            In this example, the configuration is pre-populated with the
+            configuration found in the XML file with the name returned by the
+            method <tt>String getConfigurationFileName()</tt> in your unit
+            test. If you do not implement this method, or of you return
+            <tt>""</tt> then the configuration will be empty.
+        </p>
     </div>
-    <!-- /page -->
-    <!-- footer -->
-    <div id="footer">
-    </div>
-    <!-- /footer -->
-    <script type="text/javascript">
+</div>
+</div>
+<div id="secondary">
+</div>
+<!-- /secondary -->
+</div>
+<!-- /page -->
+<!-- footer -->
+<div id="footer">
+</div>
+<!-- /footer -->
+<script type="text/javascript">
     //<![CDATA[
-        new Ajax.Updater('secondary', 'component_rightnav.html', {method: 'get', asynchronous: true, insertion: Insertion.Bottom });
-        new Ajax.Updater('footer', 'component_footer.html', {method: 'get', asynchronous: true, insertion: Insertion.Bottom });
-      //]]>
-    </script><!-- syntaxhighlighter -->
-    <script type="text/javascript"
-    src="http://syntaxhighlighter.googlecode.com/svn/tags/1.5.1/Scripts/shCore.js"
-     language="JavaScript">
-    </script><script type="text/javascript"
-    src="http://syntaxhighlighter.googlecode.com/svn/tags/1.5.1/Scripts/shBrushXml.js"
-     language="JavaScript">
+    new Ajax.Updater('secondary', 'component_rightnav.html', {method: 'get', asynchronous: true, insertion: Insertion.Bottom });
+    new Ajax.Updater('footer', 'component_footer.html', {method: 'get', asynchronous: true, insertion: Insertion.Bottom });
+    //]]>
+</script>
+<!-- syntaxhighlighter -->
+<script type="text/javascript"
+        src="http://syntaxhighlighter.googlecode.com/svn/tags/1.5.1/Scripts/shCore.js"
+        language="JavaScript">
+</script>
+<script type="text/javascript"
+        src="http://syntaxhighlighter.googlecode.com/svn/tags/1.5.1/Scripts/shBrushXml.js"
+        language="JavaScript">
     //<![CDATA[
 
     //]]>
-    </script><script type="text/javascript"
-    src="http://syntaxhighlighter.googlecode.com/svn/tags/1.5.1/Scripts/shBrushJava.js"
-     language="JavaScript">
-    </script><!-- nifty - rounded corners -->
-    <script type="text/javascript" src="js/nifty.js" language="JavaScript">
-    </script><script type="text/javascript">
-      //<![CDATA[
-          window.onload=function(){
+</script>
+<script type="text/javascript"
+        src="http://syntaxhighlighter.googlecode.com/svn/tags/1.5.1/Scripts/shBrushJava.js"
+        language="JavaScript">
+</script>
+<!-- nifty - rounded corners -->
+<script type="text/javascript" src="js/nifty.js" language="JavaScript">
+</script>
+<script type="text/javascript">
+    //<![CDATA[
+    window.onload = function() {
 
-          if(NiftyCheck()) {
+        if (NiftyCheck()) {
 
-              Rounded("div#about","#fff","#E7EFFF");
-              RoundedTop("div.footbar","#fff","#e8fecd");
-              Rounded("div.downloadnow","#fff","#e8fecd");
-          }
+            Rounded("div#about", "#fff", "#E7EFFF");
+            RoundedTop("div.footbar", "#fff", "#e8fecd");
+            Rounded("div.downloadnow", "#fff", "#e8fecd");
+        }
 
-          dp.SyntaxHighlighter.ClipboardSwf = 'http://syntaxhighlighter.googlecode.com/svn/tags/1.5.1/Scripts/clipboard.swf';
+        dp.SyntaxHighlighter.ClipboardSwf = 'http://syntaxhighlighter.googlecode.com/svn/tags/1.5.1/Scripts/clipboard.swf';
         dp.SyntaxHighlighter.HighlightAll('code');
-          }
-      //]]>
-          </script><!-- google analytics -->
-    <script src="http://www.google-analytics.com/urchin.js"
-    type="text/javascript">
+
+
+        Element.addMethods({
+            expandOnClick: function(element, tagName) {
+                element = $(element);
+                $(element).onclick = function() {
+                    $('primary').style.overflow = 'visible';
+                    $(tagName).style.width = '770px';
+                    return Element.extend(tagName);
+                }
+            }
+        });
+
+        $('magnify_configuration').expandOnClick('configrationXml');
+
+        Element.addMethods({
+            collapseOnClick: function(element, tagName) {
+                element = $(element);
+                $(element).onclick = function() {
+                    $('primary').style.overflow = 'visible';
+                    $(tagName).style.width = '520px';
+                    return Element.extend(tagName);
+                }
+            }
+        });
+
+        $('demagnify_configuration').collapseOnClick('configrationXml');
+    }
+        //]]>
+</script>
+<!-- google analytics -->
+<script src="http://www.google-analytics.com/urchin.js"
+        type="text/javascript">
     //<![CDATA[
 
     //]]>
-    </script><script type="text/javascript">
+</script>
+<script type="text/javascript">
     //<![CDATA[
-      _uacct = "UA-616623-3";
-      urchinTracker();
-      //]]>
-    </script>
-  </body>
+    _uacct = "UA-616623-3";
+    urchinTracker();
+    //]]>
+</script>
+</body>
 </html>
 

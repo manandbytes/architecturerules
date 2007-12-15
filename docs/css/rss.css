@@ -1,30 +1,79 @@
+.recent-activity-header {
+    margin-left: 10px;
+    padding-left: 20px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-position: 1px 50%;
+    background-image: url( '../images/rss-black-white.png' );
+}
 
-.recent-activity-header		{ margin-left: 10px; padding-left: 20px; background-position: center; background-repeat: no-repeat; background-position: 1px 50%; background-image: url('../images/rss-black-white.png'); }
-.recent-activity		{ border: solid #eee 3px; padding: 0; }
+.recent-activity {
+    border: solid #eee 3px;
+    padding: 0;
+}
 
-a.rss				{ display: none; }
+a.rss {
+    display: none;
+}
 
 /*
  * This is used to remove the "powered by: blah blah blah" advertisement at the end of the feed.
  * It works by hiding all paragraphs, then showing the .news and .newsAlt paragraphs. The advertisement
  * is the only paragraph that is not .news or .nextAlt
  */
-.feed p 			{ display: none; } 
+.feed p {
+    display: none;
+}
 
-p.decription			{ display: block; }
-p.subtitle			{ display: block; }
+p.decription {
+    display: block;
+}
 
-p.links  			{ display: block; }
-p.links a 			{ color: #d08; }
-p.links a.rss 			{ }
+p.subtitle {
+    display: block;
+}
 
+p.links {
+    display: block;
+}
 
-a.newsLink, a.newsLinkAlt	{ font-size: 10px; color: silver; color: #36c; margin: 0; }
-a.newsLink 		  	{ }
-a.newsLinkAlt 			{ }
+p.links a {
+    color: #d08;
+}
 
-p.news, p.newsAlt 		{ padding: 5px 2px; font-size: 10px !important; color: gray; display: block; margin: 1px;}
-p.news 				{ background-color: #F8F8F8;}
-p.newsAlt 			{ background-color: #fff;}
+p.links a.rss {
+}
 
-div#activity-content		{ height: 300px; overflow: auto; }
+a.newsLink, a.newsLinkAlt {
+    font-size: 10px;
+    color: silver;
+    color: #36c;
+    margin: 0;
+}
+
+a.newsLink {
+}
+
+a.newsLinkAlt {
+}
+
+p.news, p.newsAlt {
+    padding: 5px 2px;
+    font-size: 10px !important;
+    color: gray;
+    display: block;
+    margin: 1px;
+}
+
+p.news {
+    background-color: #F8F8F8;
+}
+
+p.newsAlt {
+    background-color: #fff;
+}
+
+div#activity-content {
+    height: 300px;
+    overflow: auto;
+}

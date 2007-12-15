@@ -140,6 +140,9 @@
 
         <div id="antTaskConfiguration">
 
+            <img src="images/magnifier_zoom_in.png" style="border:none;" id="magnify_ant_task">
+            <img src="images/magnifier_zoom_out.png" style="border:none;" id="demagnify_ant_task">
+
             <pre name="code" class="xml:nocontrols:nogutter">
                 
                 &lt;property name="maven.repo" value="C:\dev\m2repo\"/>
@@ -195,8 +198,9 @@
                 href="dependencies.html">dependencies list</a>.
         </p>
 
-        <div id="antUnitTestSample">
-            
+        <div id="antUnitTestConfiguration">
+            <img src="images/magnifier_zoom_in.png" style="border:none;" id="magnify_ant_unit_test">
+            <img src="images/magnifier_zoom_out.png" style="border:none;" id="demagnify_ant_unit_test">
             <pre name="code" class="xml:nocontrols:nogutter">
 
                 &lt;property name="maven.repo" value="C:\dev\m2repo\"/>
@@ -327,9 +331,38 @@
 
         dp.SyntaxHighlighter.ClipboardSwf = 'http://syntaxhighlighter.googlecode.com/svn/tags/1.5.1/Scripts/clipboard.swf';
         dp.SyntaxHighlighter.HighlightAll('code');
+
+        Element.addMethods({
+            expandOnClick: function(element, tagName) {
+                element = $(element);
+                $(element).onclick = function() {
+                    $('primary').style.overflow = 'visible';
+                    $(tagName).style.width = '770px';
+                    return Element.extend(tagName);
+                }
+            }
+        });
+
+        $('magnify_ant_task').expandOnClick('antTaskConfiguration');
+        $('magnify_ant_unit_test').expandOnClick('antUnitTestConfiguration');
+
+        Element.addMethods({
+            collapseOnClick: function(element, tagName) {
+                element = $(element);
+                $(element).onclick = function() {
+                    $('primary').style.overflow = 'visible';
+                    $(tagName).style.width = '520px';
+                    return Element.extend(tagName);
+                }
+            }
+        });
+
+        $('demagnify_ant_task').collapseOnClick('antTaskConfiguration');
+        $('demagnify_ant_unit_test').collapseOnClick('antUnitTestConfiguration');
     }
         //]]>
 </script>
+
 <!-- google analytics -->
 <script src="http://www.google-analytics.com/urchin.js"
         type="text/javascript">

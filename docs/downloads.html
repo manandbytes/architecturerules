@@ -1,16 +1,16 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-  <head profile="http://gmpg.org/xfn/11">
+<head profile="http://gmpg.org/xfn/11">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="description"
-    content="Assert Your Architecture - with this open source java library. Leverages XML and optional programatic configuration to assert your code's architecture via unit tests or ant tasks. Able to check for layer independence and cyclic dependencies." />
+          content="Assert Your Architecture - with this open source java library. Leverages XML and optional programatic configuration to assert your code's architecture via unit tests or ant tasks. Able to check for layer independence and cyclic dependencies." />
     <meta name="keywords"
-    content="open source java xml jdepend architecture rules unit test junit" />
+          content="open source java xml jdepend architecture rules unit test junit" />
     <meta name="Expires" content="0" />
     <meta name="ROBOTS" content="INDEX, FOLLOW" />
     <title>
-      architecture rules
+        architecture rules
     </title>
     <link rel="stylesheet" type="text/css" href="css/style.css" />
     <link rel="stylesheet" type="text/css" href="css/nifty.css" />
@@ -24,574 +24,612 @@
         <![endif]-->
 
     <script type="text/javascript" src="js/prototype-1.5.1.1.js">
-    //<![CDATA[
+        //<![CDATA[
 
-    //]]>
+        //]]>
     </script>
-  </head>
-  <body>
-    <div id="page">
-      <div id="blogtitle" class="primary">
-        <a
-        href="http://architecturerules.googlecode.com/svn/docs/index.html">architecture</a>
-        <span>rules</span>
-      </div>
-      <div id="backtogoogle">
-        <a href="http://code.google.com/p/architecturerules/">google code
+</head>
+<body>
+<div id="page">
+<div id="blogtitle" class="primary">
+    <a
+            href="http://architecturerules.googlecode.com/svn/docs/index.html">architecture</a>
+    <span>rules</span>
+</div>
+<div id="backtogoogle">
+    <a href="http://code.google.com/p/architecturerules/">google code
         landing page</a>
-      </div>
-      <div id="about">
-        <p class="description">
-          <strong>Assert Your Architecture!</strong> with this <em>open
-          source</em> <strong>java</strong> library. Architecture Rules
-          leverages an <a href="sample-configuration.html">xml configuration
-          file</a> and optional programmatic configuration to assert your
-          code's architecture via <a
-          href="getting-started.html#write-unit-test">unit tests</a> or <a
-          href="run.html#ant-task">ant tasks</a>. This test is able to assert
-          that specific packages do not depend on others and is able to check
-          for and report on cyclic dependencies among your project's packages
-          and classes. This project wraps a industry accepted <a
-          href="http://clarkware.com/software/JDepend.html"
-          target="_jdepend">JDepend</a> to simplify the process of maintaining
-          a solid software architecture.
-        </p>
-        <ul id="mainmenu">
-          <li id="home" class="page_item">
+</div>
+<div id="about">
+    <p class="description">
+        <strong>Assert Your Architecture!</strong> with this <em>open
+        source</em> <strong>java</strong> library. Architecture Rules
+        leverages an <a href="sample-configuration.html">xml configuration
+        file</a> and optional programmatic configuration to assert your
+        code's architecture via <a
+            href="getting-started.html#write-unit-test">unit tests</a> or <a
+            href="run.html#ant-task">ant tasks</a>. This test is able to assert
+        that specific packages do not depend on others and is able to check
+        for and report on cyclic dependencies among your project's packages
+        and classes. This project wraps a industry accepted <a
+            href="http://clarkware.com/software/JDepend.html"
+            target="_jdepend">JDepend</a> to simplify the process of maintaining
+        a solid software architecture.
+    </p>
+    <ul id="mainmenu">
+        <li id="home" class="page_item">
             <a title="home" href="index.html">Home</a>
-          </li>
-          <li id="source" class="page_item">
+        </li>
+        <li id="source" class="page_item">
             <a href="source.html">Source</a>
-          </li>
-          <li id="downloads" class="page_item current_page_item">
+        </li>
+        <li id="downloads" class="page_item current_page_item">
             <a href="downloads.html">Downloads</a>
-          </li>
-          <li id="mailing-lists" class="page_item">
+        </li>
+        <li id="mailing-lists" class="page_item">
             <a href="mailing-lists.html">Mailing Lists</a>
-          </li>
-        </ul>
-      </div>
-      <!-- /about -->
-      <div id="primary" class="single hfeed">
-        <!-- post entry -->
-        <div class="hentry post" id="releases">
-          <h1 class="posttitle entry-title">
-            Releases
-          </h1>
-          <div class="entry entry-content">
-            <ol id="releases" class="toc">
-              <li class="current">
-			    <a href="#release-2.0.2">2.0.2</a>
-              </li>
-              <li class="older">
+        </li>
+    </ul>
+</div>
+<!-- /about -->
+<div id="primary" class="single hfeed">
+<!-- post entry -->
+<div class="hentry post" id="releases">
+    <h1 class="posttitle entry-title">
+        Releases
+    </h1>
+
+    <div class="entry entry-content">
+        <ol id="releases" class="toc">
+            <li class="current">
+                <a href="#release-2.0.2">2.0.2</a>
+            </li>
+            <li class="older">
                 <a href="#release-2.0.1">2.0.1</a>
-              </li>
-              <li class="older">
+            </li>
+            <li class="older">
                 <a href="#release-2.0rc2">2.0-rc2</a>
-              </li>
-              <li class="older">
+            </li>
+            <li class="older">
                 <a href="#release-2.0rc1">2.0-rc1</a>
-              </li>
-              <li class="older">
+            </li>
+            <li class="older">
                 <a href="#release-1.1">1.1</a>
-              </li>
-              <li class="oldest">
+            </li>
+            <li class="oldest">
                 <a href="#release-1.0">1.0</a>
-              </li>
-            </ol>
-          </div>
-          <!-- /entry -->
-        </div>
-        <!-- /post -->
-        <!-- post entry -->
-        <div class="hentry post release" id="release-2.0.2">
-          <abbr class="released date"
+            </li>
+        </ol>
+    </div>
+    <!-- /entry -->
+</div>
+<!-- /post -->
+<!-- post entry -->
+<div class="hentry post release" id="release-2.0.2">
+    <abbr class="released date"
           title="2007-11-23T10:38">nov-23-2007</abbr>
-          <h1 class="posttitle entry-title">
-            Release 2.0.2
-          </h1>
-          <p class="postmetadata">
-            fix release
-          </p>
-          <div class="entry entry-content">
-            <p>
-              Resolved major issue regarding scope of getConfiguration which
-              allows for programmatic configuration.
-            </p>
-            <div class="downloadnow">
-              <ol>
+
+    <h1 class="posttitle entry-title">
+        Release 2.0.2
+    </h1>
+
+    <p class="postmetadata">
+        fix release
+    </p>
+
+    <div class="entry entry-content">
+        <p>
+            Resolved major issue regarding scope of getConfiguration which
+            allows for programmatic configuration.
+        </p>
+
+        <div class="downloadnow">
+            <ol>
                 <li>
-                  <a
-                  href="http://architecturerules.googlecode.com/files/architecture-rules-2.0.2.jar">
-                  architecture-rules-2.0.2.jar</a>
+                    <a
+                            href="http://architecturerules.googlecode.com/files/architecture-rules-2.0.2.jar">
+                        architecture-rules-2.0.2.jar</a>
                 </li>
                 <li>
-                  <a
-                  href="http://architecturerules.googlecode.com/files/architecture-rules-2.0.2-sources.jar">
-                  architecture-rules-2.0.2-sources.jar</a>
+                    <a
+                            href="http://architecturerules.googlecode.com/files/architecture-rules-2.0.2-sources.jar">
+                        architecture-rules-2.0.2-sources.jar</a>
                 </li>
                 <li>
-                  <a
-                  href="http://architecturerules.googlecode.com/files/architecture-rules-2.0.2-test-sources.jar">
-                  architecture-rules-2.0.2-test-sources.jar</a>
+                    <a
+                            href="http://architecturerules.googlecode.com/files/architecture-rules-2.0.2-test-sources.jar">
+                        architecture-rules-2.0.2-test-sources.jar</a>
                 </li>
-              </ol>
-            </div>
-            <h2>
-              javadocs
-            </h2>
-            <p>
-              This version's (2.0.2) api documentation (javadocs) are available
-              <a href="api/2.0.2/index.html">here</a>.
-            </p>
-            <!-- /download  -->
-            <h2>
-              changes
-            </h2>
-            <ul class="changes">
-              <li id="issue-9">
-                <a
-                href="http://code.google.com/p/architecturerules/issues/detail?id=9">
-                issue-9</a> add package.html and overview.html
-                <span>maintainability</span>
-              </li>
-              <li id="issue-21">
-                <a
-                href="http://code.google.com/p/architecturerules/issues/detail?id=21">
-                issue-21</a> getConfiguration() scope too weak
-                <span>usability</span>
-              </li>
-            </ul>
-            <!-- /changes  -->
-          </div>
-          <!-- /entry -->
+            </ol>
         </div>
-        <!-- /post -->
-        <!-- post entry -->
-        <div class="hentry post release" id="release-2.0.1">
-          <abbr class="released date"
-          title="2007-11-16T15:30">nov-16-2007</abbr>
-          <h1 class="posttitle entry-title">
-            Release 2.0.1
-          </h1>
-          <p class="postmetadata">
-            fix release
-          </p>
-          <div class="entry entry-content">
-            <p>
-              Reduces JRE dependency from version 5.0 to version 1.4, which was
-              the intended version all along. Fixed scope of abstract methods
-              in the abstract test.
-            </p>
-            <div class="downloadnow">
-              <ol>
-                <li>
-                  <a
-                  href="http://architecturerules.googlecode.com/files/architecture-rules-2.0.1.jar">
-                  architecture-rules-2.0.1.jar</a>
-                </li>
-                <li>
-                  <a
-                  href="http://architecturerules.googlecode.com/files/architecture-rules-2.0.1-sources.jar">
-                  architecture-rules-2.0.1-sources.jar</a>
-                </li>
-                <li>
-                  <a
-                  href="http://architecturerules.googlecode.com/files/architecture-rules-2.0.1-test-sources.jar">
-                  architecture-rules-2.0.1-test-sources.jar</a>
-                </li>
-              </ol>
-            </div>
-            <h2>
-              javadocs
-            </h2>
-            <p>
-              This version's (2.0.1) api documentation (javadocs) are available
-              <a href="api/2.0.1/index.html">here</a>.
-            </p>
-            <!-- /download  -->
-            <h2>
-              changes
-            </h2>
-            <ul class="changes">
-              <li id="issue-18">
+        <h2>
+            javadocs
+        </h2>
+
+        <p>
+            This version's (2.0.2) api documentation (javadocs) are available
+            <a href="api/2.0.2/index.html">here</a>.
+        </p>
+        <!-- /download  -->
+        <h2>
+            changes
+        </h2>
+        <ul class="changes">
+            <li id="issue-9">
                 <a
-                href="http://code.google.com/p/architecturerules/issues/detail?id=18">
-                issue-18</a> Cannot extend
+                        href="http://code.google.com/p/architecturerules/issues/detail?id=9">
+                    issue-9</a> add package.html and overview.html
+                <span>maintainability</span>
+            </li>
+            <li id="issue-21">
+                <a
+                        href="http://code.google.com/p/architecturerules/issues/detail?id=21">
+                    issue-21</a> getConfiguration() scope too weak
+                <span>usability</span>
+            </li>
+        </ul>
+        <!-- /changes  -->
+    </div>
+    <!-- /entry -->
+</div>
+<!-- /post -->
+<!-- post entry -->
+<div class="hentry post release" id="release-2.0.1">
+    <abbr class="released date"
+          title="2007-11-16T15:30">nov-16-2007</abbr>
+
+    <h1 class="posttitle entry-title">
+        Release 2.0.1
+    </h1>
+
+    <p class="postmetadata">
+        fix release
+    </p>
+
+    <div class="entry entry-content">
+        <p>
+            Reduces JRE dependency from version 5.0 to version 1.4, which was
+            the intended version all along. Fixed scope of abstract methods
+            in the abstract test.
+        </p>
+
+        <div class="downloadnow">
+            <ol>
+                <li>
+                    <a
+                            href="http://architecturerules.googlecode.com/files/architecture-rules-2.0.1.jar">
+                        architecture-rules-2.0.1.jar</a>
+                </li>
+                <li>
+                    <a
+                            href="http://architecturerules.googlecode.com/files/architecture-rules-2.0.1-sources.jar">
+                        architecture-rules-2.0.1-sources.jar</a>
+                </li>
+                <li>
+                    <a
+                            href="http://architecturerules.googlecode.com/files/architecture-rules-2.0.1-test-sources.jar">
+                        architecture-rules-2.0.1-test-sources.jar</a>
+                </li>
+            </ol>
+        </div>
+        <h2>
+            javadocs
+        </h2>
+
+        <p>
+            This version's (2.0.1) api documentation (javadocs) are available
+            <a href="api/2.0.1/index.html">here</a>.
+        </p>
+        <!-- /download  -->
+        <h2>
+            changes
+        </h2>
+        <ul class="changes">
+            <li id="issue-18">
+                <a
+                        href="http://code.google.com/p/architecturerules/issues/detail?id=18">
+                    issue-18</a> Cannot extend
                 AbstractArchitectureRulesConfigurationTest
                 <span>usability</span>
-              </li>
-              <li id="issue-20">
+            </li>
+            <li id="issue-20">
                 <a
-                href="http://code.google.com/p/architecturerules/issues/detail?id=20">
-                issue-20</a> should only require java 1.4
+                        href="http://code.google.com/p/architecturerules/issues/detail?id=20">
+                    issue-20</a> should only require java 1.4
                 <span>usability</span>
-              </li>
-            </ul>
-            <!-- /changes  -->
-          </div>
-          <!-- /entry -->
-        </div>
-        <!-- /post -->
-        <!-- post entry -->
-        <div class="hentry post release" id="release-2.0rc2">
-          <abbr class="released date"
+            </li>
+        </ul>
+        <!-- /changes  -->
+    </div>
+    <!-- /entry -->
+</div>
+<!-- /post -->
+<!-- post entry -->
+<div class="hentry post release" id="release-2.0rc2">
+    <abbr class="released date"
           title="2007-11-13T17:00">nov-13-2007</abbr>
-          <h1 class="posttitle entry-title">
-            Release 2.0-rc2
-          </h1>
-          <p class="postmetadata">
-            enhancement release
-          </p>
-          <div class="entry entry-content">
-            <p>
-              Improvements release. Rewrite of the <a
-              href="http://architecturerules.googlecode.com/svn/docs/maven-generated-site/xref/com/seventytwomiles/architecturerules/services/CyclicRedundencyServiceImpl.html">
-              CyclicRedundencyService</a> to utilize features in the JDepend
-              JavaPackage to discover cyclic dependencies.
-            </p>
-            <div class="downloadnow">
-              <ol>
-                <li>
-                  <a
-                  href="http://architecturerules.googlecode.com/files/architecture-rules-2.0-rc2.jar">
-                  architecture-rules-2.0-rc2.jar</a>
-                </li>
-                <li>
-                  <a
-                  href="http://architecturerules.googlecode.com/files/architecture-rules-2.0-rc2-sources.jar">
-                  architecture-rules-2.0-rc2-sources.jar</a>
-                </li>
-                <li>
-                  <a
-                  href="http://architecturerules.googlecode.com/files/architecture-rules-2.0-rc2-test-sources.jar">
-                  architecture-rules-2.0-rc2-test-sources.jar</a>
-                </li>
-              </ol>
-            </div>
-            <!-- /download  -->
-            <h2>
-              changes
-            </h2>
-            <ul class="changes">
-              <li id="issue-10">
-                <a
-                href="http://code.google.com/p/architecturerules/issues/detail?id=10">
-                issue-10</a> run test with Ant and other tools
-                <span>usability</span>
-              </li>
-              <li id="issue-11">
-                <a
-                href="http://code.google.com/p/architecturerules/issues/detail?id=11">
-                issue-11</a> remove log4j.xml from package
-              </li>
-              <li id="issue-13">
-                <a
-                href="http://code.google.com/p/architecturerules/issues/detail?id=13">
-                issue-13</a> Use JavaPackage logic to locate cycles
-                <span>performance maintainability</span>
-              </li>
-              <li id="issue-14">
-                <a
-                href="http://code.google.com/p/architecturerules/issues/detail?id=14">
-                issue-14</a> allow programmatic-only configuration
-                <span>usability</span>
-              </li>
-              <li id="issue-15">
-                <a
-                href="http://code.google.com/p/architecturerules/issues/detail?id=15">
-                issue-15</a> add appropriate copy write to sources
-                <span>usability maintainability</span>
-              </li>
-              <li id="issue-16">
-                <a
-                href="http://code.google.com/p/architecturerules/issues/detail?id=16">
-                issue-16</a> provide test-sources jar <span>usability</span>
-              </li>
-            </ul>
-            <!-- /changes  -->
-            <h2>
-              migration
-            </h2>
-            <p>
-              See <a href="migration.html#migration-1.x-2.0">1.x to 2.0
-              migration</a>
-            </p>
-          </div>
-          <!-- /entry -->
-        </div>
-        <!-- /post -->
-        <!-- post entry -->
-        <div class="hentry post release" id="release-2.0rc1">
-          <abbr class="released date"
-          title="2007-11-02T11:59">nov-02-2007</abbr>
-          <h1 class="posttitle entry-title">
-            Release 2.0-rc1
-          </h1>
-          <p class="postmetadata">
-            enhancement release
-          </p>
-          <div class="entry entry-content">
-            <p>
-              First real release. This probably should have been the 1.0
-              series. This release finished the issues and tasks that should
-              have been completed before attempting to release the tool. It
-              added a real xml parsing strategy to the <a
-              href="http://architecturerules.googlecode.com/svn/docs/maven-generated-site/xref/com/seventytwomiles/architecturerules/configuration/xml/ConfigurationFactory.html">
-              ConfigurationFactory</a> - <a
-              href="http://commons.apache.org/digester/">commons digester</a>.
-              Also, test coverage is now at 88%, beating the goal of 80%. And
-              finally, rather than just reporting that a cyclic dependency
-              exists, the exact packages with the cyclic dependency are
-              exposed. Soon, even the classes will be identified.
-            </p>
-            <div class="downloadnow">
-              <ol>
-                <li>
-                  <a
-                  href="http://architecturerules.googlecode.com/files/architecture-rules-2.0-rc1.jar">
-                  architecture-rules-2.0-rc1.jar</a>
-                </li>
-                <li>
-                  <a
-                  href="http://architecturerules.googlecode.com/files/architecture-rules-2.0-rc1-sources.jar">
-                  architecture-rules-2.0-rc1-sources.jar</a>
-                </li>
-              </ol>
-            </div>
-            <!-- /download  -->
-            <h2>
-              changes
-            </h2>
-            <ul class="changes">
-              <li id="issue-1">
-                <a
-                href="http://code.google.com/p/architecturerules/issues/detail?id=1">
-                issue-1</a> more complete test coverage
-              </li>
-              <li id="issue-4">
-                <a
-                href="http://code.google.com/p/architecturerules/issues/detail?id=4">
-                issue-4</a> allow programmatic configuration
-                <span>usability</span>
-              </li>
-              <li id="issue-5">
-                <a
-                href="http://code.google.com/p/architecturerules/issues/detail?id=5">
-                issue-5</a> rewrite configurationhandler with new xml parser
-                <span>maintainability performance</span>
-              </li>
-              <li id="issue-6">
-                <a
-                href="http://code.google.com/p/architecturerules/issues/detail?id=6">
-                issue-6</a> report which packages were cyclic in dependency
-                <span>usability</span>
-              </li>
-              <li id="issue-7">
-                <a
-                href="http://code.google.com/p/architecturerules/issues/detail?id=7">
-                issue-7</a> exceptions should be unchecked
-                <span>usability</span>
-              </li>
-              <li id="issue-8">
-                <a
-                href="http://code.google.com/p/architecturerules/issues/detail?id=8">
-                issue-8</a> change rule configuration of id to name value pair
-                <span>usability</span>
-              </li>
-            </ul>
-            <!-- /changes  -->
-            <h2>
-              migration
-            </h2>
-            <p>
-              See <a href="migration.html#migration-1.x-2.0">1.x to 2.0
-              migration</a>
-            </p>
-          </div>
-          <!-- /entry -->
-        </div>
-        <!-- /post -->
-        <!-- post entry -->
-        <div class="hentry post release" id="release-1.1">
-          <abbr class="released date"
-          title="2007-07-26T01:01">jul-26-2007</abbr>
-          <h1 class="posttitle entry-title">
-            Release 1.1
-          </h1>
-          <p class="postmetadata">
-            enhancement release
-          </p>
-          <div class="entry entry-content">
-            <p>
-              Removed dependencies that only used a single class but brought
-              along a large package.
-            </p>
-            <div class="downloadnow">
-              <ol>
-                <li>
-                  <a
-                  href="http://architecturerules.googlecode.com/files/architecture-rules-1.1.jar">
-                  architecture-rules-1.1.jar</a>
-                </li>
-                <li>
-                  <a
-                  href="http://architecturerules.googlecode.com/files/architecture-rules-1.1-sources.jar">
-                  architecture-rules-1.1-sources.jar</a>
-                </li>
-              </ol>
-            </div>
-            <!-- /download  -->
-            <h2>
-              changes
-            </h2>
-            <ul class="changes">
-              <li id="issue-2">
-                <a
-                href="http://code.google.com/p/architecturerules/issues/detail?id=2">
-                issue-2</a> remove unnecessary dependencies
-                <span>maintainability</span>
-              </li>
-              <li id="issue-3">
-                <a
-                href="http://code.google.com/p/architecturerules/issues/detail?id=3">
-                issue-3</a> complete javadocs <span>maintainability</span>
-              </li>
-            </ul>
-            <!-- /changes  -->
-          </div>
-          <!-- /entry -->
-        </div>
-        <!-- /post -->
-        <!-- post entry -->
-        <div class="hentry post release" id="release-1.0">
-          <abbr class="released date"
-          title="2007-07-17T01:01">jul-17-2007</abbr>
-          <h1 class="posttitle entry-title">
-            Release 1.0
-          </h1>
-          <p class="postmetadata">
-            release
-          </p>
-          <div class="entry entry-content">
-            <p>
-              First release. It works and is usable. The only known issues are
-              enhancements.
-            </p>
-            <div class="downloadnow">
-              <ol>
-                <li>
-                  <a
-                  href="http://architecturerules.googlecode.com/files/architecture-rules-1.0.jar">
-                  architecture-rules-1.0.jar</a>
-                </li>
-                <li>
-                  <a
-                  href="http://architecturerules.googlecode.com/files/architecture-rules-1.0-sources.jar">
-                  architecture-rules-1.0-sources.jar</a>
-                </li>
-              </ol>
-            </div>
-            <!-- /download  -->
-          </div>
-          <!-- /entry -->
-        </div>
-        <!-- /post -->
-        <!-- post entry -->
-        <div class="hentry post release" id="google-downloads">
-          <h1 class="posttitle entry-title">
-            Hosted by Google Code
-          </h1>
-          <div class="entry entry-content">
-            <p>
-              Downloads are hosted by Google Code. See:
-            </p>
-            <ul>
-              <li>
-                all <strong>packages</strong> <a
-                href="http://code.google.com/p/architecturerules/downloads/list?can=1&amp;q=type%3Apackage&amp;sort=-version&amp;colspec=Version+Type+Filename+Summary+Size+DownloadCount">
-                here</a>
-              </li>
-              <li>
-                all <strong>downloads</strong> <a
-                href="http://code.google.com/p/architecturerules/downloads/list?can=1&amp;sort=-version&amp;colspec=Version+Type+Filename+Summary+Size+DownloadCount">
-                here</a>
-              </li>
-            </ul>
-            <br />
-            <br />
-          </div>
-          <!-- /entry -->
-        </div>
-        <!-- /post -->
-      </div>
-      <!-- primary -->
-      <div id="secondary">
-      </div>
 
-      <!-- /secondary -->
+    <h1 class="posttitle entry-title">
+        Release 2.0-rc2
+    </h1>
+
+    <p class="postmetadata">
+        enhancement release
+    </p>
+
+    <div class="entry entry-content">
+        <p>
+            Improvements release. Rewrite of the <a
+                href="http://architecturerules.googlecode.com/svn/docs/maven-generated-site/xref/com/seventytwomiles/architecturerules/services/CyclicRedundencyServiceImpl.html">
+            CyclicRedundencyService</a> to utilize features in the JDepend
+            JavaPackage to discover cyclic dependencies.
+        </p>
+
+        <div class="downloadnow">
+            <ol>
+                <li>
+                    <a
+                            href="http://architecturerules.googlecode.com/files/architecture-rules-2.0-rc2.jar">
+                        architecture-rules-2.0-rc2.jar</a>
+                </li>
+                <li>
+                    <a
+                            href="http://architecturerules.googlecode.com/files/architecture-rules-2.0-rc2-sources.jar">
+                        architecture-rules-2.0-rc2-sources.jar</a>
+                </li>
+                <li>
+                    <a
+                            href="http://architecturerules.googlecode.com/files/architecture-rules-2.0-rc2-test-sources.jar">
+                        architecture-rules-2.0-rc2-test-sources.jar</a>
+                </li>
+            </ol>
+        </div>
+        <!-- /download  -->
+        <h2>
+            changes
+        </h2>
+        <ul class="changes">
+            <li id="issue-10">
+                <a
+                        href="http://code.google.com/p/architecturerules/issues/detail?id=10">
+                    issue-10</a> run test with Ant and other tools
+                <span>usability</span>
+            </li>
+            <li id="issue-11">
+                <a
+                        href="http://code.google.com/p/architecturerules/issues/detail?id=11">
+                    issue-11</a> remove log4j.xml from package
+            </li>
+            <li id="issue-13">
+                <a
+                        href="http://code.google.com/p/architecturerules/issues/detail?id=13">
+                    issue-13</a> Use JavaPackage logic to locate cycles
+                <span>performance maintainability</span>
+            </li>
+            <li id="issue-14">
+                <a
+                        href="http://code.google.com/p/architecturerules/issues/detail?id=14">
+                    issue-14</a> allow programmatic-only configuration
+                <span>usability</span>
+            </li>
+            <li id="issue-15">
+                <a
+                        href="http://code.google.com/p/architecturerules/issues/detail?id=15">
+                    issue-15</a> add appropriate copy write to sources
+                <span>usability maintainability</span>
+            </li>
+            <li id="issue-16">
+                <a
+                        href="http://code.google.com/p/architecturerules/issues/detail?id=16">
+                    issue-16</a> provide test-sources jar <span>usability</span>
+            </li>
+        </ul>
+        <!-- /changes  -->
+        <h2>
+            migration
+        </h2>
+
+        <p>
+            See <a href="migration.html#migration-1.x-2.0">1.x to 2.0
+            migration</a>
+        </p>
     </div>
-    <!-- /page -->
-    <!-- footer -->
-    <div id="footer">
+    <!-- /entry -->
+</div>
+<!-- /post -->
+<!-- post entry -->
+<div class="hentry post release" id="release-2.0rc1">
+    <abbr class="released date"
+          title="2007-11-02T11:59">nov-02-2007</abbr>
+
+    <h1 class="posttitle entry-title">
+        Release 2.0-rc1
+    </h1>
+
+    <p class="postmetadata">
+        enhancement release
+    </p>
+
+    <div class="entry entry-content">
+        <p>
+            First real release. This probably should have been the 1.0
+            series. This release finished the issues and tasks that should
+            have been completed before attempting to release the tool. It
+            added a real xml parsing strategy to the <a
+                href="http://architecturerules.googlecode.com/svn/docs/maven-generated-site/xref/com/seventytwomiles/architecturerules/configuration/xml/ConfigurationFactory.html">
+            ConfigurationFactory</a> - <a
+                href="http://commons.apache.org/digester/">commons digester</a>.
+            Also, test coverage is now at 88%, beating the goal of 80%. And
+            finally, rather than just reporting that a cyclic dependency
+            exists, the exact packages with the cyclic dependency are
+            exposed. Soon, even the classes will be identified.
+        </p>
+
+        <div class="downloadnow">
+            <ol>
+                <li>
+                    <a
+                            href="http://architecturerules.googlecode.com/files/architecture-rules-2.0-rc1.jar">
+                        architecture-rules-2.0-rc1.jar</a>
+                </li>
+                <li>
+                    <a
+                            href="http://architecturerules.googlecode.com/files/architecture-rules-2.0-rc1-sources.jar">
+                        architecture-rules-2.0-rc1-sources.jar</a>
+                </li>
+            </ol>
+        </div>
+        <!-- /download  -->
+        <h2>
+            changes
+        </h2>
+        <ul class="changes">
+            <li id="issue-1">
+                <a
+                        href="http://code.google.com/p/architecturerules/issues/detail?id=1">
+                    issue-1</a> more complete test coverage
+            </li>
+            <li id="issue-4">
+                <a
+                        href="http://code.google.com/p/architecturerules/issues/detail?id=4">
+                    issue-4</a> allow programmatic configuration
+                <span>usability</span>
+            </li>
+            <li id="issue-5">
+                <a
+                        href="http://code.google.com/p/architecturerules/issues/detail?id=5">
+                    issue-5</a> rewrite configurationhandler with new xml parser
+                <span>maintainability performance</span>
+            </li>
+            <li id="issue-6">
+                <a
+                        href="http://code.google.com/p/architecturerules/issues/detail?id=6">
+                    issue-6</a> report which packages were cyclic in dependency
+                <span>usability</span>
+            </li>
+            <li id="issue-7">
+                <a
+                        href="http://code.google.com/p/architecturerules/issues/detail?id=7">
+                    issue-7</a> exceptions should be unchecked
+                <span>usability</span>
+            </li>
+            <li id="issue-8">
+                <a
+                        href="http://code.google.com/p/architecturerules/issues/detail?id=8">
+                    issue-8</a> change rule configuration of id to name value
+                pair
+                <span>usability</span>
+            </li>
+        </ul>
+        <!-- /changes  -->
+        <h2>
+            migration
+        </h2>
+
+        <p>
+            See <a href="migration.html#migration-1.x-2.0">1.x to 2.0
+            migration</a>
+        </p>
     </div>
-    <!-- /footer -->
-    <script type="text/javascript">
+    <!-- /entry -->
+</div>
+<!-- /post -->
+<!-- post entry -->
+<div class="hentry post release" id="release-1.1">
+    <abbr class="released date"
+          title="2007-07-26T01:01">jul-26-2007</abbr>
+
+    <h1 class="posttitle entry-title">
+        Release 1.1
+    </h1>
+
+    <p class="postmetadata">
+        enhancement release
+    </p>
+
+    <div class="entry entry-content">
+        <p>
+            Removed dependencies that only used a single class but brought
+            along a large package.
+        </p>
+
+        <div class="downloadnow">
+            <ol>
+                <li>
+                    <a
+                            href="http://architecturerules.googlecode.com/files/architecture-rules-1.1.jar">
+                        architecture-rules-1.1.jar</a>
+                </li>
+                <li>
+                    <a
+                            href="http://architecturerules.googlecode.com/files/architecture-rules-1.1-sources.jar">
+                        architecture-rules-1.1-sources.jar</a>
+                </li>
+            </ol>
+        </div>
+        <!-- /download  -->
+        <h2>
+            changes
+        </h2>
+        <ul class="changes">
+            <li id="issue-2">
+                <a
+                        href="http://code.google.com/p/architecturerules/issues/detail?id=2">
+                    issue-2</a> remove unnecessary dependencies
+                <span>maintainability</span>
+            </li>
+            <li id="issue-3">
+                <a
+                        href="http://code.google.com/p/architecturerules/issues/detail?id=3">
+                    issue-3</a> complete javadocs <span>maintainability</span>
+            </li>
+        </ul>
+        <!-- /changes  -->
+    </div>
+    <!-- /entry -->
+</div>
+<!-- /post -->
+<!-- post entry -->
+<div class="hentry post release" id="release-1.0">
+    <abbr class="released date"
+          title="2007-07-17T01:01">jul-17-2007</abbr>
+
+    <h1 class="posttitle entry-title">
+        Release 1.0
+    </h1>
+
+    <p class="postmetadata">
+        release
+    </p>
+
+    <div class="entry entry-content">
+        <p>
+            First release. It works and is usable. The only known issues are
+            enhancements.
+        </p>
+
+        <div class="downloadnow">
+            <ol>
+                <li>
+                    <a
+                            href="http://architecturerules.googlecode.com/files/architecture-rules-1.0.jar">
+                        architecture-rules-1.0.jar</a>
+                </li>
+                <li>
+                    <a
+                            href="http://architecturerules.googlecode.com/files/architecture-rules-1.0-sources.jar">
+                        architecture-rules-1.0-sources.jar</a>
+                </li>
+            </ol>
+        </div>
+        <!-- /download  -->
+    </div>
+    <!-- /entry -->
+</div>
+<!-- /post -->
+<!-- post entry -->
+<div class="hentry post release" id="google-downloads">
+    <h1 class="posttitle entry-title">
+        Hosted by Google Code
+    </h1>
+
+    <div class="entry entry-content">
+        <p>
+            Downloads are hosted by Google Code. See:
+        </p>
+        <ul>
+            <li>
+                all <strong>packages</strong> <a
+                    href="http://code.google.com/p/architecturerules/downloads/list?can=1&amp;q=type%3Apackage&amp;sort=-version&amp;colspec=Version+Type+Filename+Summary+Size+DownloadCount">
+                here</a>
+            </li>
+            <li>
+                all <strong>downloads</strong> <a
+                    href="http://code.google.com/p/architecturerules/downloads/list?can=1&amp;sort=-version&amp;colspec=Version+Type+Filename+Summary+Size+DownloadCount">
+                here</a>
+            </li>
+        </ul>
+        <br />
+        <br />
+    </div>
+    <!-- /entry -->
+</div>
+<!-- /post -->
+</div>
+<!-- primary -->
+<div id="secondary">
+</div>
+
+<!-- /secondary -->
+</div>
+<!-- /page -->
+<!-- footer -->
+<div id="footer">
+</div>
+<!-- /footer -->
+<script type="text/javascript">
     //<![CDATA[
     new Ajax.Updater('secondary', 'component_rightnav.html', { method: 'get', asynchronous: true, insertion: Insertion.Bottom });
     new Ajax.Updater('footer', 'component_footer.html', {method: 'get', asynchronous: true, insertion: Insertion.Bottom });
     //]]>
-        </script><!-- syntaxhighlighter -->
-    <script type="text/javascript"
-    src="http://syntaxhighlighter.googlecode.com/svn/tags/1.5.1/Scripts/shCore.js"
-     language="JavaScript">
+</script>
+<!-- syntaxhighlighter -->
+<script type="text/javascript"
+        src="http://syntaxhighlighter.googlecode.com/svn/tags/1.5.1/Scripts/shCore.js"
+        language="JavaScript">
     //<![CDATA[
 
     //]]>
-    </script><script type="text/javascript"
-    src="http://syntaxhighlighter.googlecode.com/svn/tags/1.5.1/Scripts/shBrushXml.js"
-     language="JavaScript">
+</script>
+<script type="text/javascript"
+        src="http://syntaxhighlighter.googlecode.com/svn/tags/1.5.1/Scripts/shBrushXml.js"
+        language="JavaScript">
     //<![CDATA[
 
     //]]>
-        </script><script type="text/javascript"
-    src="http://syntaxhighlighter.googlecode.com/svn/tags/1.5.1/Scripts/shBrushJava.js"
-     language="JavaScript">
+</script>
+<script type="text/javascript"
+        src="http://syntaxhighlighter.googlecode.com/svn/tags/1.5.1/Scripts/shBrushJava.js"
+        language="JavaScript">
     //<![CDATA[
 
     //]]>
-    </script><!-- nifty - rounded corners -->
-    <script type="text/javascript" src="js/nifty.js" language="JavaScript">
+</script>
+<!-- nifty - rounded corners -->
+<script type="text/javascript" src="js/nifty.js" language="JavaScript">
     //<![CDATA[
 
     //]]>
-    </script><script type="text/javascript">
-  //<![CDATA[
-      window.onload=function(){
+</script>
+<script type="text/javascript">
+    //<![CDATA[
+    window.onload = function() {
 
-          if(NiftyCheck()) {
+        if (NiftyCheck()) {
 
-              Rounded("div#about","#fff","#E7EFFF");
-              RoundedTop("div.footbar","#fff","#e8fecd");
-              Rounded("div.downloadnow","#fff","#e8fecd");
-          }
+            Rounded("div#about", "#fff", "#E7EFFF");
+            RoundedTop("div.footbar", "#fff", "#e8fecd");
+            Rounded("div.downloadnow", "#fff", "#e8fecd");
+        }
 
-          dp.SyntaxHighlighter.ClipboardSwf = 'http://syntaxhighlighter.googlecode.com/svn/tags/1.5.1/Scripts/clipboard.swf';
-          dp.SyntaxHighlighter.HighlightAll('code');
-      }
-  //]]>
-          </script><!-- google analytics -->
-    <script src="http://www.google-analytics.com/urchin.js"
-    type="text/javascript">
+        dp.SyntaxHighlighter.ClipboardSwf = 'http://syntaxhighlighter.googlecode.com/svn/tags/1.5.1/Scripts/clipboard.swf';
+        dp.SyntaxHighlighter.HighlightAll('code');
+    }
+        //]]>
+</script>
+<!-- google analytics -->
+<script src="http://www.google-analytics.com/urchin.js"
+        type="text/javascript">
     //<![CDATA[
 
     //]]>
-        </script><script type="text/javascript">
+</script>
+<script type="text/javascript">
     //<![CDATA[
-  _uacct = "UA-616623-3";
-  urchinTracker();
+    _uacct = "UA-616623-3";
+    urchinTracker();
     //]]>
-        </script>
-  </body>
+</script>
+</body>
 </html>
 

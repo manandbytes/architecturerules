@@ -1,16 +1,16 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-  <head profile="http://gmpg.org/xfn/11">
+<head profile="http://gmpg.org/xfn/11">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="description"
-    content="Assert Your Architecture - with this open source java library. Leverages XML and optional programatic configuration to assert your code's architecture via unit tests or ant tasks. Able to check for layer independence and cyclic dependencies." />
+          content="Assert Your Architecture - with this open source java library. Leverages XML and optional programatic configuration to assert your code's architecture via unit tests or ant tasks. Able to check for layer independence and cyclic dependencies." />
     <meta name="keywords"
-    content="open source java xml jdepend architecture rules unit test junit" />
+          content="open source java xml jdepend architecture rules unit test junit" />
     <meta name="Expires" content="0" />
     <meta name="ROBOTS" content="INDEX, FOLLOW" />
     <title>
-      architecture rules
+        architecture rules
     </title>
     <link rel="stylesheet" type="text/css" href="css/style.css" />
     <link rel="stylesheet" type="text/css" href="css/nifty.css" />
@@ -25,198 +25,250 @@
 
     <script type="text/javascript" src="js/prototype-1.5.1.1.js">
     </script>
-  </head>
-  <body>
-    <div id="page">
-      <div id="blogtitle" class="primary">
-        <a
-        href="http://architecturerules.googlecode.com/svn/docs/index.html">architecture</a><span>
+</head>
+<body>
+<div id="page">
+<div id="blogtitle" class="primary">
+    <a
+            href="http://architecturerules.googlecode.com/svn/docs/index.html">architecture</a><span>
         rules</span>
-      </div>
-      <div id="backtogoogle">
-        <a href="http://code.google.com/p/architecturerules/">google code
-        landing page</a>
-      </div>
-      <div id="about">
-        <p class="description">
-          <strong>Assert Your Architecture!</strong> with this <em>open
-          source</em> <strong>java</strong> library. Architecture Rules
-          leverages an <a href="sample-configuration.html">xml configuration
-          file</a> and optional programmatic configuration to assert your
-          code's architecture via <a
-          href="getting-started.html#write-unit-test">unit tests</a> or <a
-          href="run.html#ant-task">ant tasks</a>. This test is able to assert
-          that specific packages do not depend on others and is able to check
-          for and report on cyclic dependencies among your project's packages
-          and classes. This project wraps a industry accepted <a
-          href="http://clarkware.com/software/JDepend.html"
-          target="_jdepend">JDepend</a> to simplify the process of maintaining
-          a solid software architecture.
-        </p>
-        <ul id="mainmenu">
-          <li id="home" class="page_item current_page_item">
+</div>
+<div id="backtogoogle">
+    <a href="http://code.google.com/p/architecturerules/">
+        google code landing page
+    </a>
+</div>
+<div id="about">
+    <p class="description">
+        <strong>Assert Your Architecture!</strong> with this <em>open
+        source</em> <strong>java</strong> library. Architecture Rules
+        leverages an <a href="sample-configuration.html">xml configuration
+        file</a> and optional programmatic configuration to assert your
+        code's architecture via <a
+            href="getting-started.html#write-unit-test">unit tests</a> or <a
+            href="run.html#ant-task">ant tasks</a>. This test is able to assert
+        that specific packages do not depend on others and is able to check
+        for and report on cyclic dependencies among your project's packages
+        and classes. This project wraps a industry accepted <a
+            href="http://clarkware.com/software/JDepend.html"
+            target="_jdepend">JDepend</a> to simplify the process of maintaining
+        a solid software architecture.
+    </p>
+    <ul id="mainmenu">
+        <li id="home" class="page_item current_page_item">
             <a title="home" href="index.html">Home</a>
-          </li>
-          <li id="source" class="page_item">
+        </li>
+        <li id="source" class="page_item">
             <a href="source.html">Source</a>
-          </li>
-          <li id="downloads" class="page_item">
+        </li>
+        <li id="downloads" class="page_item">
             <a href="downloads.html">Downloads</a>
-          </li>
-          <li id="mailing-lists" class="page_item">
+        </li>
+        <li id="mailing-lists" class="page_item">
             <a href="mailing-lists.html">Mailing Lists</a>
-          </li>
-        </ul>
-      </div>
-      <!-- /about -->
-      <div id="primary" class="single hfeed">
-        <div class="hentry post programming" id="alternatives">
-          <h1 class="posttitle entry-title">
-            Alternatives
-          </h1>
-          <div class="entry entry-content">
-            <p>
-              This is the known list of java architecture-monitoring
-              alternatives. Most or all of these are open source projects.
-            </p>
-            <p>
-              If you know of any others, please mail the name of the project to
-              the mailing list <a
-              href="http://groups.google.com/group/architecture-rules-users/topics?gvc=2">
-              here</a>.
-            </p>
-          </div>
-          <!-- entry -->
-        </div>
-        <!-- post -->
-        <div class="hentry post programming" id="macker">
-          <h1 class="posttitle entry-title">
-            Macker
-          </h1>
-          <div class="entry entry-content">
-            <blockquote>
-              Macker is a build-time architectural rule checking utility for
-              Java developers. It's meant to model the architectural ideals
-              programmers always dream up for their projects, and then break --
-              it helps keep code clean and consistent. You can tailor a rules
-              file to suit a specific project's structure, or write some
-              general "good practice" rules for your code. Macker doesn't try
-              to shove anybody else's rules down your throat; it's flexible,
-              and writing a rules file is part of the development process for
-              each unique project.
-            </blockquote>
-            <p class="alignright">
-              <a href="http://innig.net/macker/">http://innig.net/macker/</a>
-            </p>
-          </div>
-          <!-- entry -->
-        </div>
-        <!-- post -->
-        <div class="hentry post programming" id="japan">
-          <h1 class="posttitle entry-title">
-            Japan - Java Package Analyzer
-          </h1>
-          <div class="entry entry-content">
-            <blockquote>
-              Japan is an Ant task and IntelliJ plugin for checking you haven't
-              broken any of the package dependency rules within your Java
-              project. For example, you might want to allow the 'client' and
-              'server' packages to see 'remote', but not allow 'remote' to see
-              'client' or 'server'. Japan works on Java source files and the
-              dependency rules are defined in an XML configuration file.
-            </blockquote>
-            <p class="alignright">
-              <a
-              href="http://japan.sourceforge.net/">http://japan.sourceforge.net/</a>
-            </p>
-          </div>
-          <!-- entry -->
-        </div>
-        <!-- post -->
-        <div class="hentry post programming" id="jdepend">
-          <h1 class="posttitle entry-title">
-            JDepend
-          </h1>
-          <div class="entry entry-content">
-            <p>
-              JDepend is not really an alternative, because Architecture Rules
-              wraps JDepend, to make it easier to use and to make your rules
-              easier to maintain and read. However, if you want to tackle
-              JDepend on your own, or want to extend JDepend, then it could be
-              considered an alternative.
-            </p>
-            <blockquote>
-              JDepend traverses Java class file directories and generates
-              design quality metrics for each Java package. JDepend allows you
-              to automatically measure the quality of a design in terms of its
-              extensibility, reusability, and maintainability to manage package
-              dependencies effectively.
-            </blockquote>
-            <p class="alignright">
-              <a
-              href="http://clarkware.com/software/JDepend.html">http://clarkware.com/software/JDepend.html</a>
-            </p>
-          </div>
-          <!-- entry -->
-        </div>
-        <!-- post -->
-      </div>
-      <div id="secondary">
-      </div>
-      <!-- /secondary -->
+        </li>
+    </ul>
+</div>
+<!-- /about -->
+<div id="primary" class="single hfeed">
+<div class="hentry post programming" id="alternatives">
+    <h1 class="posttitle entry-title">
+        Alternatives
+    </h1>
+
+    <div class="entry entry-content">
+        <p>
+            This is the known list of java architecture-monitoring
+            alternatives. Most or all of these are open source projects.
+        </p>
+
+        <p>
+            If you know of any others, please mail the name of the project
+            to the mailing list
+            <a href="http://groups.google.com/group/architecture-rules-users/topics?gvc=2">
+                here</a>.
+        </p>
     </div>
-    <!-- /page -->
-    <!-- footer -->
-    <div id="footer">
+</div>
+
+<style>
+    .posttitle sup {
+        font-size: 10px;
+        text-transform: uppercase;
+    }
+</style>
+<!-- post -->
+<div class="hentry post programming" id="sonarj">
+    <h1 class="posttitle entry-title">
+        SonarJ <sup>hello2morrow</sup>
+    </h1>
+
+    <div class="entry entry-content">
+        <p>
+            <a href="http://www.hello2morrow.com/en/sonarj/sonarj.php">SonarJ</a>
+            is free for open-source and private use, and more complete
+            architecture monitoring solution than ArchitectureRules is.
+        </p>
+        <blockquote>
+            SonarJ is an innovative solution, that helps you to manage and
+            monitor the logical architecture and the technical quality of your
+            Java projects. The approach of SonarJ is absolutely unique on the
+            market. It is light-weight and easy to use. It enables you to
+            effectively avoid the well known effect of structural erosion.
+            Without any extra overhead you can now make sure, that your logical
+            architecture is implemented as planned. Moreover you can define
+            thresholds for some key metrics affecting technical quality, that
+            will allow you to maintain a high level of technical quality.
+        </blockquote>
+        <p class="alignright">
+            <a href="http://www.hello2morrow.com/en/sonarj/sonarj.php">http://www.hello2morrow.com/en/sonarj/sonarj.php</a>
+        </p>
     </div>
-    <!-- /footer -->
-    <script type="text/javascript">
+</div>
+
+<!-- post -->
+<div class="hentry post programming" id="macker">
+    <h1 class="posttitle entry-title">
+        Macker <sup>Sourceforge</sup>
+    </h1>
+
+    <div class="entry entry-content">
+        <blockquote>
+            Macker is a build-time architectural rule checking utility for
+            Java developers. It's meant to model the architectural ideals
+            programmers always dream up for their projects, and then break
+            --
+            it helps keep code clean and consistent. You can tailor a rules
+            file to suit a specific project's structure, or write some
+            general "good practice" rules for your code. Macker doesn't try
+            to shove anybody else's rules down your throat; it's flexible,
+            and writing a rules file is part of the development process for
+            each unique project.
+        </blockquote>
+        <p class="alignright">
+            <a href="http://innig.net/macker/">http://innig.net/macker/</a>
+        </p>
+    </div>
+</div>
+
+<!-- post -->
+<div class="hentry post programming" id="japan">
+    <h1 class="posttitle entry-title">
+        Japan - Java Package Analyzer <sup>Sourceforge</sup>
+    </h1>
+
+    <div class="entry entry-content">
+        <blockquote>
+            Japan is an Ant task and IntelliJ plugin for checking you
+            haven't broken any of the package dependency rules within your Java
+            project. For example, you might want to allow the 'client' and
+            'server' packages to see 'remote', but not allow 'remote' to see
+            'client' or 'server'. Japan works on Java source files and the
+            dependency rules are defined in an XML configuration file.
+        </blockquote>
+        <p class="alignright">
+            <a
+                    href="http://japan.sourceforge.net/">http://japan.sourceforge.net/</a>
+        </p>
+    </div>
+</div>
+
+<!-- post -->
+<div class="hentry post programming" id="jdepend">
+    <h1 class="posttitle entry-title">
+        JDepend <sup>Clarkware</sup>
+    </h1>
+
+    <div class="entry entry-content">
+        <p>
+            JDepend is not really an alternative, because Architecture Rules
+            wraps JDepend, to make it easier to use and to make your rules
+            easier to maintain and read. However, if you want to tackle
+            JDepend on your own, or want to extend JDepend, then it could be
+            considered an alternative.
+        </p>
+        <blockquote>
+            JDepend traverses Java class file directories and generates
+            design quality metrics for each Java package. JDepend allows you
+            to automatically measure the quality of a design in terms of its
+            extensibility, reusability, and maintainability to manage
+            package dependencies effectively.
+        </blockquote>
+        <p class="alignright">
+            <a
+                    href="http://clarkware.com/software/JDepend.html">http://clarkware.com/software/JDepend.html</a>
+        </p>
+    </div>
+</div>
+
+
+</div>
+<!-- /primary -->
+
+<div id="secondary">
+</div>
+<!-- /secondary -->
+</div>
+<!-- /page -->
+
+<!-- footer -->
+<div id="footer">
+</div>
+<!-- /footer -->
+<script type="text/javascript">
     //<![CDATA[
     new Ajax.Updater('secondary', 'component_rightnav.html', {method: 'get', asynchronous: true, insertion: Insertion.Bottom });
     new Ajax.Updater('footer', 'component_footer.html', {method: 'get', asynchronous: true, insertion: Insertion.Bottom });
     //]]>
-    </script><!-- syntaxhighlighter -->
-    <script type="text/javascript"
-    src="http://syntaxhighlighter.googlecode.com/svn/tags/1.5.1/Scripts/shCore.js"
-     language="JavaScript">
-    </script><script type="text/javascript"
-    src="http://syntaxhighlighter.googlecode.com/svn/tags/1.5.1/Scripts/shBrushXml.js"
-     language="JavaScript">
+</script>
+<!-- syntaxhighlighter -->
+<script type="text/javascript"
+        src="http://syntaxhighlighter.googlecode.com/svn/tags/1.5.1/Scripts/shCore.js"
+        language="JavaScript">
+</script>
+<script type="text/javascript"
+        src="http://syntaxhighlighter.googlecode.com/svn/tags/1.5.1/Scripts/shBrushXml.js"
+        language="JavaScript">
     //<![CDATA[
 
     //]]>
-    </script><script type="text/javascript"
-    src="http://syntaxhighlighter.googlecode.com/svn/tags/1.5.1/Scripts/shBrushJava.js"
-     language="JavaScript">
-    </script><!-- nifty - rounded corners -->
-    <script type="text/javascript" src="js/nifty.js" language="JavaScript">
-    </script><script type="text/javascript">
-  //<![CDATA[
-      window.onload=function(){
+</script>
+<script type="text/javascript"
+        src="http://syntaxhighlighter.googlecode.com/svn/tags/1.5.1/Scripts/shBrushJava.js"
+        language="JavaScript">
+</script>
+<!-- nifty - rounded corners -->
+<script type="text/javascript" src="js/nifty.js" language="JavaScript">
+</script>
+<script type="text/javascript">
+    //<![CDATA[
+    window.onload = function() {
 
-          if(NiftyCheck()) {
+        if (NiftyCheck()) {
 
-              Rounded("div#about","#fff","#E7EFFF");
-              RoundedTop("div.footbar","#fff","#e8fecd");
-              Rounded("div.downloadnow","#fff","#e8fecd");
-          }
+            Rounded("div#about", "#fff", "#E7EFFF");
+            RoundedTop("div.footbar", "#fff", "#e8fecd");
+            Rounded("div.downloadnow", "#fff", "#e8fecd");
+        }
 
-          dp.SyntaxHighlighter.ClipboardSwf = 'http://syntaxhighlighter.googlecode.com/svn/tags/1.5.1/Scripts/clipboard.swf';
+        dp.SyntaxHighlighter.ClipboardSwf = 'http://syntaxhighlighter.googlecode.com/svn/tags/1.5.1/Scripts/clipboard.swf';
         dp.SyntaxHighlighter.HighlightAll('code');
-      }
-  //]]>
-      </script><!-- google analytics -->
-    <script src="http://www.google-analytics.com/urchin.js"
-    type="text/javascript">
+    }
+        //]]>
+</script>
+<!-- google analytics -->
+<script src="http://www.google-analytics.com/urchin.js"
+        type="text/javascript">
     //<![CDATA[
-      
+
     //]]>
-    </script><script type="text/javascript">
+</script>
+<script type="text/javascript">
     //<![CDATA[
-  _uacct = "UA-616623-3";
-  urchinTracker();
+    _uacct = "UA-616623-3";
+    urchinTracker();
     //]]>
-    </script>
-  </body>
+</script>
+</body>
 </html>
 

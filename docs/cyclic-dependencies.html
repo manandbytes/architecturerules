@@ -1,16 +1,16 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-  <head profile="http://gmpg.org/xfn/11">
+<head profile="http://gmpg.org/xfn/11">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="description"
-    content="Assert Your Architecture - with this open source java library. Leverages XML and optional programatic configuration to assert your code's architecture via unit tests or ant tasks. Able to check for layer independence and cyclic dependencies." />
+          content="Assert Your Architecture - with this open source java library. Leverages XML and optional programatic configuration to assert your code's architecture via unit tests or ant tasks. Able to check for layer independence and cyclic dependencies." />
     <meta name="keywords"
-    content="open source java xml jdepend architecture rules unit test junit" />
+          content="open source java xml jdepend architecture rules unit test junit" />
     <meta name="Expires" content="0" />
     <meta name="ROBOTS" content="INDEX, FOLLOW" />
     <title>
-      architecture rules
+        architecture rules
     </title>
     <link rel="stylesheet" type="text/css" href="css/style.css" />
     <link rel="stylesheet" type="text/css" href="css/nifty.css" />
@@ -25,267 +25,300 @@
 
     <script type="text/javascript" src="js/prototype-1.5.1.1.js">
     </script>
-  </head>
-  <body>
-    <div id="page">
-      <div id="blogtitle" class="primary">
-        <a
-        href="http://architecturerules.googlecode.com/svn/docs/index.html">architecture</a><span>
+</head>
+<body>
+<div id="page">
+<div id="blogtitle" class="primary">
+    <a
+            href="http://architecturerules.googlecode.com/svn/docs/index.html">architecture</a><span>
         rules</span>
-      </div>
-      <div id="backtogoogle">
-        <a href="http://code.google.com/p/architecturerules/">google code
+</div>
+<div id="backtogoogle">
+    <a href="http://code.google.com/p/architecturerules/">google code
         landing page</a>
-      </div>
-      <div id="about">
-        <p class="description">
-          <strong>Assert Your Architecture!</strong> with this <em>open
-          source</em> <strong>java</strong> library. Architecture Rules
-          leverages an <a href="sample-configuration.html">xml configuration
-          file</a> and optional programmatic configuration to assert your
-          code's architecture via <a
-          href="getting-started.html#write-unit-test">unit tests</a> or <a
-          href="run.html#ant-task">ant tasks</a>. This test is able to assert
-          that specific packages do not depend on others and is able to check
-          for and report on cyclic dependencies among your project's packages
-          and classes. This project wraps a industry accepted <a
-          href="http://clarkware.com/software/JDepend.html"
-          target="_jdepend">JDepend</a> to simplify the process of maintaining
-          a solid software architecture.
-        </p>
-        <ul id="mainmenu">
-          <li id="home" class="page_item current_page_item">
+</div>
+<div id="about">
+    <p class="description">
+        <strong>Assert Your Architecture!</strong> with this <em>open
+        source</em> <strong>java</strong> library. Architecture Rules
+        leverages an <a href="sample-configuration.html">xml configuration
+        file</a> and optional programmatic configuration to assert your
+        code's architecture via <a
+            href="getting-started.html#write-unit-test">unit tests</a> or <a
+            href="run.html#ant-task">ant tasks</a>. This test is able to assert
+        that specific packages do not depend on others and is able to check
+        for and report on cyclic dependencies among your project's packages
+        and classes. This project wraps a industry accepted <a
+            href="http://clarkware.com/software/JDepend.html"
+            target="_jdepend">JDepend</a> to simplify the process of maintaining
+        a solid software architecture.
+    </p>
+    <ul id="mainmenu">
+        <li id="home" class="page_item current_page_item">
             <a title="home" href="index.html">Home</a>
-          </li>
-          <li id="source" class="page_item">
+        </li>
+        <li id="source" class="page_item">
             <a href="source.html">Source</a>
-          </li>
-          <li id="downloads" class="page_item">
+        </li>
+        <li id="downloads" class="page_item">
             <a href="downloads.html">Downloads</a>
-          </li>
-          <li id="mailing-lists" class="page_item">
+        </li>
+        <li id="mailing-lists" class="page_item">
             <a href="mailing-lists.html">Mailing Lists</a>
-          </li>
-        </ul>
-      </div>
-      <!-- /about -->
-      <div id="primary" class="single hfeed">
-        <div class="hentry post programming" id="cyclic-dependencies">
-          <h1 class="posttitle entry-title">
-            Cyclic Dependencies
-          </h1>
-          <div class="entry entry-content">
-            <h3>
-              Introdution
-            </h3>
-            <p>
-              Two packages are said to be involved in a cyclic dependency when
-              package A depends on package B and package B depends on package
-              A. This is called a direct cyclic dependency. Cyclic dependencies
-              are created in various ways at different layers within a software
-              system. It's also possible for a cyclic relationship in one layer
-              to cause cycles in another.
-            </p>
-            <p>
-              Cyclic dependencies hurt a software system's
-              <a href="http://www.softed.com/Resources/WhitePapers/SoftQual_Realities.aspx">goals</a>:
-              <ul class="alignleft">
-                <li>
-                  <a class="tooltip" href="#">
-                    Understandability
+        </li>
+    </ul>
+</div>
+<!-- /about -->
+<div id="primary" class="single hfeed">
+<div class="hentry post programming" id="cyclic-dependencies">
+<h1 class="posttitle entry-title">
+    Cyclic Dependencies
+</h1>
+
+<div class="entry entry-content">
+<h3>
+    Introduction
+</h3>
+
+<p>
+    Two packages are said to be involved in a cyclic dependency when
+    package A depends on package B and package B depends on package
+    A. This is called a direct cyclic dependency. Cyclic dependencies
+    are created in various ways at different layers within a software
+    system. It's also possible for a cyclic relationship in one layer
+    to cause cycles in another.
+</p>
+
+<p>
+    Cyclic dependencies hurt a software system's
+    <a href="http://www.softed.com/Resources/WhitePapers/SoftQual_Realities.aspx">goals</a>:
+<ul class="alignleft">
+    <li>
+        <a class="tooltip" href="#">
+            Understandability
 			        <span>
-			          <b></b>
+			          <b />
 			          <strong>Understandability</strong>
 			          <p>
-			             Modifiability is controlled change to the system in which some parts
-			             are altered without increasing the complexity or obscuring the logic
-			             of the original structure.
-			          </p>
+                          Modifiability is controlled change to the system in
+                          which some parts
+                          are altered without increasing the complexity or
+                          obscuring the logic
+                          of the original structure.
+                      </p>
 		 	        </span>
-                  </a>
-			    <li>Flexibility</li>
-                <li>
-                  <a class="tooltip" href="#">
-                    Modularity
+        </a>
+    <li>Flexibility</li>
+    <li>
+        <a class="tooltip" href="#">
+            Modularity
 			        <span>
-			          <b></b>
+			          <b />
 			          <strong>Modularity</strong>
 			          <p>
-			            An approach to developing software that breaks projects into smaller units
-			            designed so that they can work with other sections of the program. Modifying
-			            the way that modules work will have no adverse affects on the other components
-			            of a program.
-			          </p>
+                          An approach to developing software that breaks
+                          projects into smaller units
+                          designed so that they can work with other sections of
+                          the program. Modifying
+                          the way that modules work will have no adverse affects
+                          on the other components
+                          of a program.
+                      </p>
 		 	        </span>
-                  </a>
-                </li>
-              </ul>
-              <ul class="alignleft">
-                <li>
-                  <a class="tooltip" href="#">
-                    Modifiability
+        </a>
+    </li>
+</ul>
+<ul class="alignleft">
+    <li>
+        <a class="tooltip" href="#">
+            Modifiability
 			        <span>
-			          <b></b>
+			          <b />
 			          <strong>Modifiability</strong>
 			          <p>
-			            Understandable software is critical in managing complex systems.
-			            Software that is easily understood acts like a bridge between the
-			            problem and its solution.
-			          </p>
+                          Understandable software is critical in managing
+                          complex systems.
+                          Software that is easily understood acts like a bridge
+                          between the
+                          problem and its solution.
+                      </p>
 		 	        </span>
-                  </a>
-                </li>
-                <li>
-                  <a class="tooltip" href="#">
-                    Reliability
+        </a>
+    </li>
+    <li>
+        <a class="tooltip" href="#">
+            Reliability
 			        <span>
-			          <b></b>
+			          <b />
 			          <strong>Reliability</strong>
 			          <p>
-			            Reliability is the extent to which a software yields consistent, stable,
-			            and uniform without any human intervention and is crucial for any
-			            software system that must operate for long periods.
-			          </p>
+                          Reliability is the extent to which a software yields
+                          consistent, stable,
+                          and uniform without any human intervention and is
+                          crucial for any
+                          software system that must operate for long periods.
+                      </p>
 		 	        </span>
-                  </a>
-                </li>
-                <li>
-                  <a class="tooltip" href="#">
-                    Maintainability
+        </a>
+    </li>
+    <li>
+        <a class="tooltip" href="#">
+            Maintainability
 			        <span>
-			          <b></b>
+			          <b />
 			          <strong>Maintainability</strong>
 			          <p>
-			            The ease with which a software system can be modified to change or add
-			            capabilities, improve performance, or correct defects.
-			          </p>
+                          The ease with which a software system can be modified
+                          to change or add
+                          capabilities, improve performance, or correct defects.
+                      </p>
 		 	        </span>
-                  </a>
-                </li>
-              </ul>
-              <ul class="alignleft">
-                <li>
-                  <a class="tooltip" href="#">
-                    Testability
+        </a>
+    </li>
+</ul>
+<ul class="alignleft">
+    <li>
+        <a class="tooltip" href="#">
+            Testability
 			        <span>
-			          <b></b>
+			          <b />
 			          <strong>Testability</strong>
 			          <p>
-			            The degree to which a system or component facilitates the establishment of
-			            test criteria and the performance of tests to determine whether those
-			            criteria have been met.
-			          </p>
+                          The degree to which a system or component facilitates
+                          the establishment of
+                          test criteria and the performance of tests to
+                          determine whether those
+                          criteria have been met.
+                      </p>
 		 	        </span>
-                  </a>
-                </li>
-			    <li>Resuability</li>
-			    <li>Clarity</li>
-			  </ul>
-            </p>
-           <p class="clear" style="padding-top: 10px;">
-              By using Architecture Rules to Assert your Architecture, you are taking
-              the first step in developing a strong architecture by <strong>actively
-              managing package relationships</strong>.
-            </p>
-            <p>
-              Aside from the adverse affects on the software development goals, cyclic
-              dependencies create these negative consequences for the system:
-            </p>
-            <ul id="consequences">
-              <li>
-                Diminish the ability to determine a package's purpose.
-              </li>
-              <li>
-                Changes impact seemingly unrelated components of the
-                architecture.
-              </li>
-              <li>
-                Separation of layers.
-              </li>
-              <li>
-                Packages cooperating in a cycle must be released as an atomic
-                unit.
-              </li>
-            </ul>
+        </a>
+    </li>
+    <li>Reusability</li>
+    <li>Clarity</li>
+</ul>
 
-            <h3>
-              Determine a Package's Purpose
-            </h3>
-            <p>
-              When future developers come along to maintain the software the presence
-              of cycles can diminish the ability for that developer to determine a
-              package's purpose. This hurts the software's clarity and understandability.
-              The end result will be the introduction of bugs, or an increase in the
-              amount of time required to modify the software.
-            </p>
+<p class="clear" style="padding-top: 10px;">
+    By using Architecture Rules to Assert your Architecture, you are taking
+    the first step in developing a strong architecture by <strong>actively
+    managing package relationships</strong>.
+</p>
 
-            <h3>
-              Changes Impact Unrelated Components
-            </h3>
-            <p>
-              When a class involved in a cycle is modified, it could change the bahavior
-              of the other class involved in the cycle. This makes it difficult to
-              accurately assess and manage the impact of changes to the system. This
-              directly hinders the modifiability of your software. Reliability is
-              also attacked since changing the behavior of an unreleated class could
-              introduce a bug.
-            </p>
-            <p>
-              Affecting other components also introduces a maintenance and testing issue,
-              since you can't do anything to either class without possibly affecting the
-              other. A situation exists where class A needs to compile against class B,
-              but class B needs to compile against class A.
-            </p>
+<p>
+    Aside from the adverse affects on the software development goals, cyclic
+    dependencies create these negative consequences for the system:
+</p>
+<ul id="consequences">
+    <li>
+        Diminish the ability to determine a package's purpose.
+    </li>
+    <li>
+        Changes impact seemingly unrelated components of the
+        architecture.
+    </li>
+    <li>
+        Separation of layers.
+    </li>
+    <li>
+        Packages cooperating in a cycle must be released as an atomic
+        unit.
+    </li>
+</ul>
 
-            <h3>
-              Separation of Layers
-            </h3>
-            <p>
-              Most architectural approaches recognize the advantages of layered
-              architectures. For example, if you develop a presentation layer, a
-              business or logic layer, and a database access layer, you are able
-              to swap out one implementation of a layer for another. Such as
-              replacing a JDBC data access layer with one that utilizes Hibernate,
-              or a JSP presentation layer for a Flash or PHP presentation layer.
-            </p>
-            <p>
-              Cyclic dependencies across layers couple the layers, defeating the purpose
-              of layering. If a cycle exists between the service layer and the data
-              access layer, then those two layers are no longer interchangable. Thus,
-              modifiability of the software is lowered. The layers are no longer
-              encapsulated.
-            </p>
+<h3>
+    Determine a Package's Purpose
+</h3>
 
-            <h3>
-              Packages Must be Released as an Atomic Unit
-            </h3>
-            <p>
-              The <a href="http://www.springframework.org/">Spring Framework</a> is inspring
-              when it comes to its modular design. The Spring Framework can be considered as
-              a collection of smaller frameworks. Most of these frameworks are designed to work
-              independently of each other yet provide better functionalities when used together.
-            </p>
-			<p>
-			  This modularity by design, allows the Spring Framework to released as a full
-			  framework (spring.jar) or modularly, so that the users can use the features that they
-			  are interested, and nothing more (spring-core, spring-ldap, spring-orm, spring-aop,
-			  spring-beans, spring-mock, and on and on...). See all of the modules
-			  <a href="http://www.mvnrepository.com/artifact/org.springframework">here</a>.
-			</p>
-			<p>
-			  When cyclic dependencies exist, your ability to make and release independent modules
-			  is removed. Packages that may not be releated must be released as a single jar,
-			  or module.
-			</p>
-			<p>
-			  ArchitectureRules wraps <a
-			  href="http://clarkware.com/software/JDepend.html">JDepend</a>, a
-			  java library which is able to identify these cyclic dependencies.
-			  Upon detecting a cyclic dependency, a <a
-			  href="exceptions.html#CyclicRedundencyException">CyclicDependencyException</a>
-			  is thrown, a RuntimeException whose message notifies you of which
-			  packages are involved in a clyclic dependency:
-			</p>
+<p>
+    When future developers come along to maintain the software the presence
+    of cycles can diminish the ability for that developer to determine a
+    package's purpose. This hurts the software's clarity and understandability.
+    The end result will be the introduction of bugs, or an increase in the
+    amount of time required to modify the software.
+</p>
+
+<h3>
+    Changes Impact Unrelated Components
+</h3>
+
+<p>
+    When a class involved in a cycle is modified, it could change the bahavior
+    of the other class involved in the cycle. This makes it difficult to
+    accurately assess and manage the impact of changes to the system. This
+    directly hinders the modifiability of your software. Reliability is
+    also attacked since changing the bahavior of an unrelated class could
+    introduce a bug.
+</p>
+
+<p>
+    Affecting other components also introduces a maintenance and testing issue,
+    since you can't do anything to either class without possibly affecting the
+    other. A situation exists where class A needs to compile against class B,
+    but class B needs to compile against class A.
+</p>
+
+<h3>
+    Separation of Layers
+</h3>
+
+<p>
+    Most architectural approaches recognize the advantages of layered
+    architectures. For example, if you develop a presentation layer, a
+    business or logic layer, and a database access layer, you are able
+    to swap out one implementation of a layer for another. Such as
+    replacing a JDBC data access layer with one that utilizes Hibernate,
+    or a JSP presentation layer for a Flash or PHP presentation layer.
+</p>
+
+<p>
+    Cyclic dependencies across layers couple the layers, defeating the purpose
+    of layering. If a cycle exists between the service layer and the data
+    access layer, then those two layers are no longer interchangeable. Thus,
+    modifiability of the software is lowered. The layers are no longer
+    encapsulated.
+</p>
+
+<h3>
+    Packages Must be Released as an Atomic Unit
+</h3>
+
+<p>
+    The <a href="http://www.springframework.org/">Spring Framework</a> is
+    inspiring
+    when it comes to its modular design. The Spring Framework can be considered
+    as
+    a collection of smaller frameworks. Most of these frameworks are designed to
+    work
+    independently of each other yet provide better functionalities when used
+    together.
+</p>
+
+<p>
+    This modularity by design, allows the Spring Framework to released as a full
+    framework (spring.jar) or modularly, so that the users can use the features
+    that they
+    are interested, and nothing more (spring-core, spring-ldap, spring-orm,
+    spring-aop,
+    spring-beans, spring-mock, and on and on...). See all of the modules
+    <a href="http://www.mvnrepository.com/artifact/org.springframework">here</a>.
+</p>
+
+<p>
+    When cyclic dependencies exist, your ability to make and release independent
+    modules
+    is removed. Packages that may not be related must be released as a single
+    jar,
+    or module.
+</p>
+
+<p>
+    ArchitectureRules wraps <a
+        href="http://clarkware.com/software/JDepend.html">JDepend</a>, a
+    java library which is able to identify these cyclic dependencies.
+    Upon detecting a cyclic dependency, a <a
+        href="exceptions.html#CyclicRedundencyException">CyclicDependencyException</a>
+    is thrown, a RuntimeException whose message notifies you of which
+    packages are involved in a cyclic dependency:
+</p>
 <pre name="code" class="xml:nogutter:nocontrols">
 ...architecturerules.exceptions.CyclicRedundancyException:
 cyclic dependencies found:
@@ -299,87 +332,96 @@ cyclic dependencies found:
    |-- test.com.seventytwomiles.services
 
 </pre>
-          </div>
-          <!-- /entry -->
-        </div>
-        <!-- /post -->
+</div>
+<!-- /entry -->
+</div>
+<!-- /post -->
 
-        <div class="hentry post programming" id="acceptable-cyclic-dependencies">
-          <h1 class="posttitle entry-title">
-            When are Cycles Acceptable
-          </h1>
-          <div class="entry entry-content">
-            <p>
-		      Generally speaking, cycles are most always accepted when in the same
-		      package. For example two domain objects in the same package, such as
-		      User and Account. A User has Accounts, and an Account has a User. Since
-		      these two classes are in the same package, the package remains
-		      encapsulated.
-            </p>
-          </div>
-          <!-- /entry -->
-        </div>
-        <!-- /post -->
+<div class="hentry post programming" id="acceptable-cyclic-dependencies">
+    <h1 class="posttitle entry-title">
+        When are Cycles Acceptable
+    </h1>
 
-      </div>
-      <!-- /primary -->
-
-      <div id="secondary">
-      </div>
-      <!-- /secondary -->
+    <div class="entry entry-content">
+        <p>
+            Generally speaking, cycles are most always accepted when in the same
+            package. For example two domain objects in the same package, such as
+            User and Account. A User has Accounts, and an Account has a User.
+            Since
+            these two classes are in the same package, the package remains
+            encapsulated.
+        </p>
     </div>
-    <!-- /page -->
-    <!-- footer -->
-    <div id="footer">
-    </div>
-    <!-- /footer -->
-    <script type="text/javascript">
+    <!-- /entry -->
+</div>
+<!-- /post -->
+
+</div>
+<!-- /primary -->
+
+<div id="secondary">
+</div>
+<!-- /secondary -->
+</div>
+<!-- /page -->
+<!-- footer -->
+<div id="footer">
+</div>
+<!-- /footer -->
+<script type="text/javascript">
     //<![CDATA[
     new Ajax.Updater('secondary', 'component_rightnav.html', {method: 'get', asynchronous: true, insertion: Insertion.Bottom });
     new Ajax.Updater('footer', 'component_footer.html', {method: 'get', asynchronous: true, insertion: Insertion.Bottom });
     //]]>
-    </script><!-- syntaxhighlighter -->
-    <script type="text/javascript"
-    src="http://syntaxhighlighter.googlecode.com/svn/tags/1.5.1/Scripts/shCore.js"
-     language="JavaScript">
-    </script><script type="text/javascript"
-    src="http://syntaxhighlighter.googlecode.com/svn/tags/1.5.1/Scripts/shBrushXml.js"
-     language="JavaScript">
+</script>
+<!-- syntaxhighlighter -->
+<script type="text/javascript"
+        src="http://syntaxhighlighter.googlecode.com/svn/tags/1.5.1/Scripts/shCore.js"
+        language="JavaScript">
+</script>
+<script type="text/javascript"
+        src="http://syntaxhighlighter.googlecode.com/svn/tags/1.5.1/Scripts/shBrushXml.js"
+        language="JavaScript">
     //<![CDATA[
 
     //]]>
-    </script><script type="text/javascript"
-    src="http://syntaxhighlighter.googlecode.com/svn/tags/1.5.1/Scripts/shBrushJava.js"
-     language="JavaScript">
-    </script><!-- nifty - rounded corners -->
-    <script type="text/javascript" src="js/nifty.js" language="JavaScript">
-    </script><script type="text/javascript">
-  //<![CDATA[
-      window.onload=function(){
+</script>
+<script type="text/javascript"
+        src="http://syntaxhighlighter.googlecode.com/svn/tags/1.5.1/Scripts/shBrushJava.js"
+        language="JavaScript">
+</script>
+<!-- nifty - rounded corners -->
+<script type="text/javascript" src="js/nifty.js" language="JavaScript">
+</script>
+<script type="text/javascript">
+    //<![CDATA[
+    window.onload = function() {
 
-          if(NiftyCheck()) {
+        if (NiftyCheck()) {
 
-              Rounded("div#about","#fff","#E7EFFF");
-              RoundedTop("div.footbar","#fff","#e8fecd");
-              Rounded("div.downloadnow","#fff","#e8fecd");
-          }
+            Rounded("div#about", "#fff", "#E7EFFF");
+            RoundedTop("div.footbar", "#fff", "#e8fecd");
+            Rounded("div.downloadnow", "#fff", "#e8fecd");
+        }
 
-          dp.SyntaxHighlighter.ClipboardSwf = 'http://syntaxhighlighter.googlecode.com/svn/tags/1.5.1/Scripts/clipboard.swf';
+        dp.SyntaxHighlighter.ClipboardSwf = 'http://syntaxhighlighter.googlecode.com/svn/tags/1.5.1/Scripts/clipboard.swf';
         dp.SyntaxHighlighter.HighlightAll('code');
-      }
-  //]]>
-      </script><!-- google analytics -->
-    <script src="http://www.google-analytics.com/urchin.js"
-    type="text/javascript">
+    }
+        //]]>
+</script>
+<!-- google analytics -->
+<script src="http://www.google-analytics.com/urchin.js"
+        type="text/javascript">
     //<![CDATA[
 
     //]]>
-    </script><script type="text/javascript">
+</script>
+<script type="text/javascript">
     //<![CDATA[
-  _uacct = "UA-616623-3";
-  urchinTracker();
+    _uacct = "UA-616623-3";
+    urchinTracker();
     //]]>
-    </script>
-  </body>
+</script>
+</body>
 </html>
 

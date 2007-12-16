@@ -780,7 +780,7 @@ caption {
 a.tooltip {
     color: #d08 !important;
     text-decoration: none;
-    border-bottom: dashed #d08 1px;
+    border: 1px dotted #eee;
 }
 
 a.tooltip:hover {
@@ -798,12 +798,12 @@ a.tooltip:hover span {
     position: absolute;
     z-index: 10;
     top: 35px;
-    left: 0px;
-    width: 152px;
+    left: -20px;
+    width: 155px;
     display: block;
     padding: 10px;
-    background-color: #FFFFCC;
-    border: 2px solid #C0C097;
+    background-color: #f5f6f9;
+    border: 1px dotted #ccc;
 }
 
 .tooltip b {
@@ -825,8 +825,8 @@ a.tooltip:hover span {
 
 .tooltip p {
     font: 11px verdana;
-    line-height: 18px;
-    color: #592C16;
+    line-height: 16px;
+    color: #36c;
     text-align: left;
     text-decoration: none;
     padding: 1px;

@@ -41,6 +41,7 @@ public class SourceDirectory {
 
 
     private static final Log log = LogFactory.getLog(SourceDirectory.class);
+
     /**
      * <p>The value, which is set inside of the xml configuration file, which
      * indicates that when a source directory is not found, the source directory
@@ -48,7 +49,8 @@ public class SourceDirectory {
      *
      * @parameter NOT_FOUND_IGNORE String
      */
-    private final String NOT_FOUND_IGNORE = "ignore";
+    private static final String NOT_FOUND_IGNORE = "ignore";
+
     /**
      * <p>The value, which is set inside of the xml configuration file, which
      * indicates that when a source directory is not found, that an exception
@@ -59,7 +61,8 @@ public class SourceDirectory {
      *
      * @parameter NOT_FOUND_EXCEPTION String
      */
-    private final String NOT_FOUND_EXCEPTION = "exception";
+    private static final String NOT_FOUND_EXCEPTION = "exception";
+
     /**
      * <p>When true, if this source {@link #path} is not found a
      * <code>SourceNotFoundException</code> will be thrown.</p>
@@ -67,12 +70,14 @@ public class SourceDirectory {
      * @parameter shouldThrowExceptionWhenNotFound boolean
      */
     private boolean shouldThrowExceptionWhenNotFound = false;
+
     /**
      * <p>Relative url to the path to search in for .class files.</p>
      *
      * @parameter path String
      */
     private String path;
+
     /**
      * <p>Holds the value in the xml configuration for the not-found
      * property.</p>
@@ -174,8 +179,13 @@ public class SourceDirectory {
          * Update shouldThrowExceptionWhenNotFound property so that the
          * String value and boolean values coincide
          */
-        final boolean shouldThrowException = notFound.equalsIgnoreCase(NOT_FOUND_EXCEPTION);
+        final boolean shouldThrowException = getNotFound().equalsIgnoreCase(NOT_FOUND_EXCEPTION);
         this.setShouldThrowExceptionWhenNotFound(shouldThrowException);
+    }
+
+
+    private String getNotFound() {
+        return notFound;
     }
 
 

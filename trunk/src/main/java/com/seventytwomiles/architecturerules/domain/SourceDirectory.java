@@ -245,6 +245,7 @@ public class SourceDirectory {
      * @see Object#equals(Object)
      */
     public boolean equals(final Object object) {
+
         if (this == object)
             return true;
 

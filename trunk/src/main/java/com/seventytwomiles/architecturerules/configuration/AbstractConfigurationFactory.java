@@ -26,8 +26,10 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.core.io.ClassPathResource;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.List;
 
 
 
@@ -53,7 +55,7 @@ public abstract class AbstractConfigurationFactory implements ConfigurationFacto
      *
      * @parameter sources Set
      */
-    protected final Collection sources = new HashSet();
+    protected final List sources = new ArrayList();
     /**
      * <p>Weather or not to throw exception when no packages are found for a
      * given path.</p>
@@ -84,7 +86,7 @@ public abstract class AbstractConfigurationFactory implements ConfigurationFacto
      *
      * @return Value for property <tt>sources</tt>.
      */
-    public Collection getSources() {
+    public List getSources() {
         return sources;
     }
 

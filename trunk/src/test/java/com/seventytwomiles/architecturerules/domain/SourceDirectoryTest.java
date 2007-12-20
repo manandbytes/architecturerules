@@ -321,6 +321,7 @@ public class SourceDirectoryTest extends TestCase {
     public void testFixSlashForOS_windows() throws Exception {
 
         if (File.separator.equals("\\")) {
+
             assertEquals("src\\main\\resources", sourceDirectory.replaceBackslashForOS("src\\main\\resources"));
             assertEquals("src\\main\\resources", sourceDirectory.replaceBackslashForOS("src/main/resources"));
         }
@@ -336,6 +337,7 @@ public class SourceDirectoryTest extends TestCase {
     public void testFixSlashForOS_unix() throws Exception {
 
         if (File.separator.equals("/")) {
+
             assertEquals("src/main/resources", sourceDirectory.replaceBackslashForOS("src\\main\\resources"));
             assertEquals("src/main/resources", sourceDirectory.replaceBackslashForOS("src/main/resources"));
         }

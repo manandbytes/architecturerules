@@ -34,6 +34,7 @@ import org.xml.sax.SAXException;
 import java.io.IOException;
 import java.io.StringReader;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 
@@ -150,7 +151,14 @@ public class DigesterConfigurationFactory extends AbstractConfigurationFactory {
         final List parsedSources = (ArrayList) digester.parse(configurationReader);
 
         sources.clear();
-        sources.addAll(parsedSources);
+
+        for (Iterator iterator = parsedSources.iterator(); iterator.hasNext();)
+        {
+            SourceDirectory sourceDirectory = (SourceDirectory) iterator.next();
+
+            if (!sources.contains(sourceDirectory))
+                sources.add(sourceDirectory);
+        }
     }
 
 

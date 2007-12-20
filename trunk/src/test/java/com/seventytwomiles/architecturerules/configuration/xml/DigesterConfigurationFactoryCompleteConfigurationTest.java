@@ -24,6 +24,7 @@ import com.seventytwomiles.architecturerules.domain.Rule;
 import com.seventytwomiles.architecturerules.domain.SourceDirectory;
 import junit.framework.TestCase;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -48,10 +49,10 @@ public class DigesterConfigurationFactoryCompleteConfigurationTest extends TestC
                     "    <configuration>\n" +
                     "\n" +
                     "        <sources no-packages=\"exception\">\n" +
-                    "            <source not-found=\"ignore\">core\\target\\classes</source>\n" +
-                    "            <source not-found=\"exception\">util\\target\\classes</source>\n" +
                     "            <source not-found=\"ignore\">parent-pom\\target\\classes</source>\n" +
+                    "            <source not-found=\"exception\">util\\target\\classes</source>\n" +
                     "            <source not-found=\"ignore\">web\\target\\classes</source>\n" +
+                    "            <source not-found=\"ignore\">core\\target\\classes</source>\n" +
                     "        </sources>\n" +
                     "\n" +
                     "        <cyclicalDependency test=\"false\"/>\n" +
@@ -159,6 +160,7 @@ public class DigesterConfigurationFactoryCompleteConfigurationTest extends TestC
 
 
     public void testProcessConfiguration() throws Exception {
+
         DigesterConfigurationFactory factory = new DigesterConfigurationFactory();
 
         factory.processConfiguration(completeConfiguration);
@@ -170,19 +172,19 @@ public class DigesterConfigurationFactoryCompleteConfigurationTest extends TestC
         assertEquals(4, sources.size());
 
         final SourceDirectory source0 = (SourceDirectory) sources.get(0);
-        assertEquals("parent-pom\\target\\classes", source0.getPath());
+        assertEquals("parent-pom" + File.separator + "target" + File.separator + "classes", source0.getPath());
         assertFalse(source0.shouldThrowExceptionWhenNotFound());
 
         final SourceDirectory source1 = (SourceDirectory) sources.get(1);
-        assertEquals("util\\target\\classes", source1.getPath());
+        assertEquals("util" + File.separator + "target" + File.separator + "classes", source1.getPath());
         assertTrue(source1.shouldThrowExceptionWhenNotFound());
 
         final SourceDirectory source2 = (SourceDirectory) sources.get(2);
-        assertEquals("web\\target\\classes", source2.getPath());
+        assertEquals("web" + File.separator + "target" + File.separator + "classes", source2.getPath());
         assertFalse(source2.shouldThrowExceptionWhenNotFound());
 
         final SourceDirectory source3 = (SourceDirectory) sources.get(3);
-        assertEquals("core\\target\\classes", source3.getPath());
+        assertEquals("core" + File.separator + "target" + File.separator + "classes", source3.getPath());
         assertFalse(source3.shouldThrowExceptionWhenNotFound());
 
 

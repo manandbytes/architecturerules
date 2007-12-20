@@ -21,6 +21,7 @@ package com.seventytwomiles.architecturerules.configuration;
 
 
 import java.util.Collection;
+import java.util.List;
 
 
 
@@ -53,7 +54,7 @@ public interface ConfigurationFactory {
      *
      * @return Value for property <tt>sources</tt>.
      */
-    Collection getSources();
+    List getSources();
 
 
     /**

@@ -70,7 +70,7 @@ public class NoPackagesFoundException extends RuntimeException {
      */
     public NoPackagesFoundException(final String path) {
         super("source directory '{0}' does not exist or can not be found"
-                .replaceAll("\\{0}", path));
+                .replaceAll("\\{0}", path.replaceAll("\\\\", "/")));
     }
 
 

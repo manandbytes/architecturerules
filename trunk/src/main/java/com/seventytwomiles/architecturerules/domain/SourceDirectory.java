@@ -25,6 +25,10 @@ import junit.framework.Assert;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
+import java.io.File;
+import java.text.CharacterIterator;
+import java.text.StringCharacterIterator;
+
 
 
 /**
@@ -191,14 +195,49 @@ public class SourceDirectory {
      * @param path Value to set for property <tt>path</tt>.
      */
     public void setPath(final String path) {
+
         try {
+
             Assert.assertNotNull(path);
             Assert.assertFalse("".equals(path));
+
         } catch (final Throwable e) {
+
             throw new IllegalArgumentException(e.getMessage());
         }
 
-        this.path = path;
+        this.path = replaceBackslashForOS(path);
+    }
+
+
+    /**
+     * Replaces inappropriate backslash with the appropriate slash based on the
+     * operating system's requirements
+     *
+     * For example, on a Windows system, <tt>src/main/resources</tt> becomes
+     * <tt>src\\main\\resource</tt>
+     *
+     * TODO: this may be able to be replaced with String.replaceAll, but I
+     * couldn't get the regex just right
+     *
+     * @param path String the path to fix
+     * @return String the fixed path
+     */
+    protected String replaceBackslashForOS(String path) {
+
+        final StringBuffer result = new StringBuffer();
+        final StringCharacterIterator iterator = new StringCharacterIterator(path);
+        char character = iterator.current();
+
+        final char goal = File.separator.toCharArray()[0];
+        final char target = (goal == '\\' ? '/' : '\\');
+
+        while (character != CharacterIterator.DONE) {
+            result.append(character == target ? goal : character);
+            character = iterator.next();
+        }
+
+        return result.toString();
     }
 
 

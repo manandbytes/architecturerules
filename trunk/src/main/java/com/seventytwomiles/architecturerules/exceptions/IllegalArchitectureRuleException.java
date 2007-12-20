@@ -102,7 +102,7 @@ public class IllegalArchitectureRuleException extends RuntimeException {
      * @param cause
      */
     public IllegalArchitectureRuleException(final String ruleId, final String rulePackages, final Throwable cause) {
-        super("rule '{id}' contains an invalid violation that referes to itself; remove violation '{violation}' or change package"
+        super("rule '{id}' contains an invalid violation that refers to itself; remove violation '{violation}' or change package"
                 .replaceAll("\\{id}", ruleId)
                 .replaceAll("\\{violation}", rulePackages.trim())
                 .replaceAll("\\[", "")

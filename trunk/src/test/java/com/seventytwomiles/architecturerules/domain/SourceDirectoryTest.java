@@ -22,6 +22,8 @@ package com.seventytwomiles.architecturerules.domain;
 
 import junit.framework.TestCase;
 
+import java.io.File;
+
 
 
 /**
@@ -95,28 +97,29 @@ public class SourceDirectoryTest extends TestCase {
          * Test SourceDirectory#SourceDirectory(String)
          */
         sourceDirectory = new SourceDirectory("core/target/classes");
-        assertEquals("core/target/classes", sourceDirectory.getPath());
+        assertEquals("core" + File.separator + "target" + File.separator + "classes"
+                , sourceDirectory.getPath());
 
         /**
          * Test SourceDirectory#SourceDirectory(String, boolean)
          */
         sourceDirectory = new SourceDirectory("core/target/classes", true);
-        assertEquals("core/target/classes", sourceDirectory.getPath());
+        assertEquals("core" + File.separator + "target" + File.separator + "classes", sourceDirectory.getPath());
         assertTrue(sourceDirectory.shouldThrowExceptionWhenNotFound());
 
         sourceDirectory = new SourceDirectory("core/target/classes", false);
-        assertEquals("core/target/classes", sourceDirectory.getPath());
+        assertEquals("core" + File.separator + "target" + File.separator + "classes", sourceDirectory.getPath());
         assertFalse(sourceDirectory.shouldThrowExceptionWhenNotFound());
 
         /**
          * Test SourceDirectory#SourceDirectory(String, String)
          */
         sourceDirectory = new SourceDirectory("core/target/classes", "ignore");
-        assertEquals("core/target/classes", sourceDirectory.getPath());
+        assertEquals("core" + File.separator + "target" + File.separator + "classes", sourceDirectory.getPath());
         assertFalse(sourceDirectory.shouldThrowExceptionWhenNotFound());
 
         sourceDirectory = new SourceDirectory("core/target/classes", "exception");
-        assertEquals("core/target/classes", sourceDirectory.getPath());
+        assertEquals("core" + File.separator + "target" + File.separator + "classes", sourceDirectory.getPath());
         assertTrue(sourceDirectory.shouldThrowExceptionWhenNotFound());
     }
 
@@ -189,9 +192,36 @@ public class SourceDirectoryTest extends TestCase {
      * @throws Exception when <code>SourceDirectory</code> throws and unexpected
      * <code>Exception</code>
      */
-    public void testSetGetPath() throws Exception {
-        sourceDirectory.setPath("core/target/classes");
-        assertEquals("core/target/classes", sourceDirectory.getPath());
+    public void testSetGetPath_windows() throws Exception {
+
+        if (File.separator.equals("\\")) {
+
+            sourceDirectory.setPath("core/target/classes");
+            assertEquals("core\\target\\classes", sourceDirectory.getPath());
+
+            sourceDirectory.setPath("core\\target\\classes");
+            assertEquals("core\\target\\classes", sourceDirectory.getPath());
+        }
+    }
+
+
+    /**
+     * <p>Test for {@link SourceDirectory#setPath(String)} and {@link
+     * SourceDirectory#getPath()} </p>
+     *
+     * @throws Exception when <code>SourceDirectory</code> throws and unexpected
+     * <code>Exception</code>
+     */
+    public void testSetGetPath_unix() throws Exception {
+
+        if (File.separator.equals("/")) {
+
+            sourceDirectory.setPath("core/target/classes");
+            assertEquals("core/target/classes", sourceDirectory.getPath());
+
+            sourceDirectory.setPath("core\\target\\classes");
+            assertEquals("core/target/classes", sourceDirectory.getPath());
+        }
     }
 
 
@@ -204,7 +234,7 @@ public class SourceDirectoryTest extends TestCase {
      */
     public void testSetGetPath_illegalArguments() throws Exception {
         sourceDirectory.setPath("core/target/classes");
-        assertEquals("core/target/classes", sourceDirectory.getPath());
+        assertEquals("core" + File.separator + "target" + File.separator + "classes", sourceDirectory.getPath());
     }
 
 
@@ -280,4 +310,35 @@ public class SourceDirectoryTest extends TestCase {
         sourceDirectory.setShouldThrowExceptionWhenNotFound(false);
         assertFalse(sourceDirectory.shouldThrowExceptionWhenNotFound());
     }
+
+
+    /**
+     * <p>Test for {@link SourceDirectory#replaceBackslashForOS(String)} </p>
+     *
+     * @throws Exception when <code>SourceDirectory</code> throws and unexpected
+     * <code>Exception</code>
+     */
+    public void testFixSlashForOS_windows() throws Exception {
+
+        if (File.separator.equals("\\")) {
+            assertEquals("src\\main\\resources", sourceDirectory.replaceBackslashForOS("src\\main\\resources"));
+            assertEquals("src\\main\\resources", sourceDirectory.replaceBackslashForOS("src/main/resources"));
+        }
+    }
+
+
+    /**
+     * <p>Test for {@link SourceDirectory#replaceBackslashForOS(String)} </p>
+     *
+     * @throws Exception when <code>SourceDirectory</code> throws and unexpected
+     * <code>Exception</code>
+     */
+    public void testFixSlashForOS_unix() throws Exception {
+
+        if (File.separator.equals("/")) {
+            assertEquals("src/main/resources", sourceDirectory.replaceBackslashForOS("src\\main\\resources"));
+            assertEquals("src/main/resources", sourceDirectory.replaceBackslashForOS("src/main/resources"));
+        }
+    }
+
 }

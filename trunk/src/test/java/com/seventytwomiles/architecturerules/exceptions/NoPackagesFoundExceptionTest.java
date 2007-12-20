@@ -50,7 +50,7 @@ public class NoPackagesFoundExceptionTest extends TestCase {
         message = exception.getMessage();
         cause = exception.getCause();
 
-        assertTrue(message.equals("source directory 'core/target/classes' does not exist or can not be found"));
+        assertEquals("source directory 'core/target/classes' does not exist or can not be found", message);
         assertEquals(null, cause);
     }
 
@@ -73,7 +73,7 @@ public class NoPackagesFoundExceptionTest extends TestCase {
         message = exception.getMessage();
         cause = exception.getCause();
 
-        assertTrue(message.equals("source directory '/core/target/classes' does not exist or can not be found"));
+        assertEquals("source directory '/core/target/classes' does not exist or can not be found", message);
         assertEquals(null, cause);
 
 

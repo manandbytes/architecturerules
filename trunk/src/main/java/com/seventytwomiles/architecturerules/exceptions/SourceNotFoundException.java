@@ -67,8 +67,8 @@ public class SourceNotFoundException extends RuntimeException {
      */
     public SourceNotFoundException(final Collection sources) {
         super("unable to find any source files in given source directories {0}"
-                .replaceAll("\\{0}", sources.toString()).
-                replaceAll("\\[", "")
+                .replaceAll("\\{0}", sources.toString().replaceAll("\\\\", "/")) // remove \\ from path because regex replace all removes them
+                .replaceAll("\\[", "") // remove the [ and ] at the ends of Collection.toString
                 .replaceAll("\\]", ""));
     }
 

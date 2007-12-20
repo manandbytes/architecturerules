@@ -145,11 +145,11 @@
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>jxr-maven-plugin</artifactId>
             </plugin>
-            <plugin>
+            <!--<plugin>
                 <groupId>net.sf</groupId>
                 <artifactId>stat-scm</artifactId>
                 <version>1.0.0</version>
-            </plugin>
+            </plugin>-->
         </plugins>
     </reporting>
 

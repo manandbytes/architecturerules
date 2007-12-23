@@ -27,7 +27,6 @@ import java.util.Collection;
 import java.util.Collections;
 
 
-
 /**
  * <p>An UnmodifiableConfiguration is a <code>Configuration</code> instance
  * whose setters and collections are unavailable or unmodifiable.</p>
@@ -46,6 +45,7 @@ public final class UnmodifiableConfiguration extends Configuration {
      * @param configuration Configuration to offer as unmodifiable
      */
     public UnmodifiableConfiguration(final Configuration configuration) {
+
         this.rules.addAll(configuration.getRules());
         this.sources.addAll(configuration.getSources());
         this.doCyclicDependencyTest = configuration.shouldDoCyclicDependencyTest();
@@ -76,8 +76,7 @@ public final class UnmodifiableConfiguration extends Configuration {
     /**
      * <p>Setter for property {@link #doCyclicDependencyTest}.</p>
      *
-     * @param doCyclicDependencyTest Value to set for property
-     * <tt>doCyclicDependencyTest</tt>.
+     * @param doCyclicDependencyTest Value to set for property <tt>doCyclicDependencyTest</tt>.
      */
     public void setDoCyclicDependencyTest(final boolean doCyclicDependencyTest) {
         throw new UnsupportedOperationException("");
@@ -88,7 +87,7 @@ public final class UnmodifiableConfiguration extends Configuration {
      * <p>Setter for property {@link #throwExceptionWhenNoPackages}.</p>
      *
      * @param throwExceptionWhenNoPackages Value to set for property
-     * <tt>throwExceptionWhenNoPackages</tt>.
+     *                                     <tt>throwExceptionWhenNoPackages</tt>.
      */
     public void setThrowExceptionWhenNoPackages(final boolean throwExceptionWhenNoPackages) {
         throw new UnsupportedOperationException("");

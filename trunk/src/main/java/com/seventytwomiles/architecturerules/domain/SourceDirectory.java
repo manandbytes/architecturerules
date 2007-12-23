@@ -20,6 +20,7 @@ package com.seventytwomiles.architecturerules.domain;
  */
 
 
+import com.seventytwomiles.architecturerules.configuration.ConfigurationFactory;
 import com.seventytwomiles.architecturerules.exceptions.SourceNotFoundException;
 import junit.framework.Assert;
 import org.apache.commons.logging.Log;
@@ -28,7 +29,6 @@ import org.apache.commons.logging.LogFactory;
 import java.io.File;
 import java.text.CharacterIterator;
 import java.text.StringCharacterIterator;
-
 
 
 /**
@@ -49,7 +49,8 @@ public class SourceDirectory {
      *
      * @parameter NOT_FOUND_IGNORE String
      */
-    private static final String NOT_FOUND_IGNORE = "ignore";
+    public static final String NOT_FOUND_IGNORE = "ignore";
+
 
     /**
      * <p>The value, which is set inside of the xml configuration file, which
@@ -61,15 +62,19 @@ public class SourceDirectory {
      *
      * @parameter NOT_FOUND_EXCEPTION String
      */
-    private static final String NOT_FOUND_EXCEPTION = "exception";
+    public static final String NOT_FOUND_EXCEPTION = "exception";
 
     /**
      * <p>When true, if this source {@link #path} is not found a
      * <code>SourceNotFoundException</code> will be thrown.</p>
      *
+     * * <p>If the value is not provided in the configuration, the default value
+     * is used. {@link com.seventytwomiles.architecturerules.configuration.ConfigurationFactory#DEFAULT_CYCLICAL_DEPENDENCY_CONFIGURATION_VALUE}</p>
+     *
      * @parameter shouldThrowExceptionWhenNotFound boolean
      */
-    private boolean shouldThrowExceptionWhenNotFound = false;
+    private boolean shouldThrowExceptionWhenNotFound
+            = ConfigurationFactory.DEFAULT_NO_PACKAGES_CONFIGURATION_BOOLEAN_VALUE;
 
     /**
      * <p>Relative url to the path to search in for .class files.</p>
@@ -89,15 +94,14 @@ public class SourceDirectory {
 
 
     /**
-     * <p></p>
+     * <p>Instansiates a new SourceDirectory entity.</p>
      */
     public SourceDirectory() {
-        /* do nothing */
     }
 
 
     /**
-     * <p></p>
+     * <p>Instansiates a new SourceDirectory with the given <tt>path</tt></p>
      *
      * @param path String {@link #path}
      */
@@ -107,11 +111,12 @@ public class SourceDirectory {
 
 
     /**
-     * <p></p>
+     * <p>Instansiates a new SourceDirectory with the given <tt>path</tt> and
+     * <tt>shouldThrowExceptionWhenNotFound</tt> values</p>
      *
      * @param path String {@link #path}
-     * @param shouldThrowExceptionWhenNotFound boolean {@link
-     * #shouldThrowExceptionWhenNotFound}
+     * @param shouldThrowExceptionWhenNotFound
+     *             boolean {@link #shouldThrowExceptionWhenNotFound}
      */
     public SourceDirectory(final String path, final boolean shouldThrowExceptionWhenNotFound) {
         setShouldThrowExceptionWhenNotFound(shouldThrowExceptionWhenNotFound);
@@ -122,24 +127,32 @@ public class SourceDirectory {
     /**
      * Setter for property {@link #shouldThrowExceptionWhenNotFound}.
      *
-     * @param shouldThrowExceptionWhenNotFound Value to set for property
-     * <tt>shouldThrowExceptionWhenNotFound</tt>.
+     * @param shouldThrowExceptionWhenNotFound
+     *         Value to set for property <tt>shouldThrowExceptionWhenNotFound</tt>.
      */
     public void setShouldThrowExceptionWhenNotFound(final boolean shouldThrowExceptionWhenNotFound) {
         /**
          * Update notFound property so that the String value and boolean
          * values coincide
          */
-        notFound = shouldThrowExceptionWhenNotFound ? NOT_FOUND_EXCEPTION : NOT_FOUND_IGNORE;
+        if (shouldThrowExceptionWhenNotFound) {
+
+            notFound = NOT_FOUND_EXCEPTION;
+
+        } else {
+
+            notFound = NOT_FOUND_IGNORE;
+        }
 
         this.shouldThrowExceptionWhenNotFound = shouldThrowExceptionWhenNotFound;
     }
 
 
     /**
-     * <p></p>
+     * <p>Instansiates a new SourceDirectory with the given <tt>path</tt> and
+     * <tt>notFound</tt> values.</p>
      *
-     * @param path String {@link #path}
+     * @param path     String {@link #path}
      * @param notFound boolean {@link @notFound}
      */
     public SourceDirectory(final String path, final String notFound) {
@@ -154,6 +167,7 @@ public class SourceDirectory {
      * @param notFound Value to set for property 'notFound'.
      */
     public void setNotFound(String notFound) {
+
         /**
          * When null, set to "null" so that the exception message that is about
          * to be thrown is meaningful.
@@ -167,6 +181,7 @@ public class SourceDirectory {
          */
         if (!(notFound.equalsIgnoreCase(NOT_FOUND_IGNORE) ||
                 notFound.equalsIgnoreCase(NOT_FOUND_EXCEPTION))) {
+
             throw new IllegalArgumentException("'not-found' property of '" + notFound +
                     "' is invalid. valid values are " +
                     NOT_FOUND_IGNORE + " and "
@@ -179,7 +194,9 @@ public class SourceDirectory {
          * Update shouldThrowExceptionWhenNotFound property so that the
          * String value and boolean values coincide
          */
-        final boolean shouldThrowException = getNotFound().equalsIgnoreCase(NOT_FOUND_EXCEPTION);
+        final boolean shouldThrowException
+                = getNotFound().equalsIgnoreCase(NOT_FOUND_EXCEPTION);
+
         this.setShouldThrowExceptionWhenNotFound(shouldThrowException);
     }
 
@@ -243,6 +260,7 @@ public class SourceDirectory {
         final char target = (goal == '\\' ? '/' : '\\');
 
         while (character != CharacterIterator.DONE) {
+
             result.append(character == target ? goal : character);
             character = iterator.next();
         }

@@ -20,9 +20,9 @@ package com.seventytwomiles.architecturerules.domain;
  */
 
 
+import com.seventytwomiles.architecturerules.configuration.ConfigurationFactory;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-
 
 
 /**
@@ -33,10 +33,17 @@ import org.apache.commons.logging.LogFactory;
  */
 public class CyclicDependencyConfiguration {
 
-
     private static final Log log = LogFactory.getLog(CyclicDependencyConfiguration.class);
 
-    private String test = "true";
+    /**
+     * <p>Holds the value for the XML entry <tt>&lt;cyclicalDependency
+     * test="true"/&gt;</tt>.</p>
+     *
+     * <p>If the value is not provided in the configuration, the default value
+     * is used. {@link com.seventytwomiles.architecturerules.configuration.ConfigurationFactory#DEFAULT_CYCLICAL_DEPENDENCY_CONFIGURATION_VALUE}</p>
+     */
+    private String test =
+            ConfigurationFactory.DEFAULT_CYCLICAL_DEPENDENCY_CONFIGURATION_VALUE;
 
 
     /**
@@ -55,6 +62,7 @@ public class CyclicDependencyConfiguration {
      * @param test Value to set for property 'test'.
      */
     public void setTest(final String test) {
+
         if (test != null && !test.equalsIgnoreCase("null"))
             this.test = test;
     }

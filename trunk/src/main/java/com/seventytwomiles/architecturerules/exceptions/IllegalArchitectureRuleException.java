@@ -40,10 +40,22 @@ package com.seventytwomiles.architecturerules.exceptions;
 */
 /**
  * <p>Exception to be thrown when a Rule is illegal constructed. That is, an
- * illegal violation is created.</p>
+ * illegal violation is created. One example of an illegal violation is when a
+ * violation is added to a rule that matches one of the packages that the rule
+ * constrins.</p>
+ *
+ * <pre>
+ * &lt;rule id="dao"&gt;
+ *   &lt;packages&gt;
+ *     &lt;package&gt;com.seventytwomiles.pagerank.core.dao&lt;/package&gt;
+ *   &lt;/packages&gt;
+ *   &lt;violations&gt;
+ *     &lt;violation&gt;com.seventytwomiles.pagerank.core.dao&lt;/violation&gt;
+ *   &lt;/violations&gt;>
+ * &lt;/rule&gt;
+ * </pre>
  *
  * @author mikenereson
- * @noinspection JavaDoc
  * @see RuntimeException
  */
 public class IllegalArchitectureRuleException extends RuntimeException {
@@ -102,6 +114,7 @@ public class IllegalArchitectureRuleException extends RuntimeException {
      * @param cause
      */
     public IllegalArchitectureRuleException(final String ruleId, final String rulePackages, final Throwable cause) {
+
         super("rule '{id}' contains an invalid violation that refers to itself; remove violation '{violation}' or change package"
                 .replaceAll("\\{id}", ruleId)
                 .replaceAll("\\{violation}", rulePackages.trim())

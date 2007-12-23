@@ -24,7 +24,6 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 
-
 /**
  * <p>Represents the configuration information read from the XML configuration
  * file.</p>
@@ -36,8 +35,30 @@ public class SourcesConfiguration {
 
     private static final Log log = LogFactory.getLog(SourcesConfiguration.class);
 
+    /**
+     * <p></p>
+     *
+     * @parameter noPackages String
+     * @see com.seventytwomiles.architecturerules.configuration.ConfigurationFactory#DEFAULT_NO_PACKAGES_CONFIGURATION_BOOLEAN_VALUE
+     */
     private String noPackages = "ignore";
 
+
+    /**
+     * <p>Instansiate a new SourcesConfiguration</p>
+     */
+    public SourcesConfiguration() {
+    }
+
+    /**
+     * <p>Instansiates a new SourcesConfiguration with the given
+     * <tt>noPackages</tt> value.</p>
+     *
+     * @param noPackages String
+     */
+    public SourcesConfiguration(final String noPackages) {
+        this.noPackages = noPackages;
+    }
 
     /**
      * Getter for property 'noPackages'.

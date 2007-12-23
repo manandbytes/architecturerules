@@ -43,7 +43,6 @@ package com.seventytwomiles.architecturerules.exceptions;
  * if <samp>&lt;sources no-packages="exception"> </samp></p>
  *
  * @author mikenereson
- * @noinspection JavaDoc
  * @see RuntimeException
  */
 public class NoPackagesFoundException extends RuntimeException {

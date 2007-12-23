@@ -33,20 +33,16 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 
-
 /**
  * <p>Abstract class that the users of this library will extend in order to
- * create a unit test that asserts architecture. </p>
- *
- * <p>Once extended, implement <tt>testArchitecture</tt> and call
- * <tt>doTest()</tt>. Also override <tt>getConfigurationFileName()</tt> if you
- * want to load an XML configuration file.</p>
- *
- * <p>If you want to define the configuration programatically in addition to the
- * xml configuration, or want to solely use programatic configuraiton, you may
- * call <tt>getConfiguration</tt> which will return <code>Configuration</code>
- * that you may then add new <code>Rule</code>, or <code>SourceDirectory</code>
- * to. </p>
+ * create a unit test that asserts architecture. </p> <p/> <p>Once extended,
+ * implement <tt>testArchitecture</tt> and call <tt>doTest()</tt>. Also override
+ * <tt>getConfigurationFileName()</tt> if you want to load an XML configuration
+ * file.</p> <p/> <p>If you want to define the configuration programatically in
+ * addition to the xml configuration, or want to solely use programatic
+ * configuraiton, you may call <tt>getConfiguration</tt> which will return
+ * <code>Configuration</code> that you may then add new <code>Rule</code>, or
+ * <code>SourceDirectory</code> to. </p>
  *
  * @author mikenereson
  * @noinspection PointlessBooleanExpression
@@ -57,14 +53,21 @@ public abstract class AbstractArchitectureRulesConfigurationTest extends TestCas
     private static final Log log = LogFactory.getLog(AbstractArchitectureRulesConfigurationTest.class);
 
     /**
-     * <p></p>
+     * <p>The <code>Configuration</code> containing the <code>SourceDirectory</code>
+     * and <code>Rules</code> to assert.</p>
      *
      * @parameter configuration Configuration
      */
     final private Configuration configuration = new Configuration();
 
-
+    /**
+     * Upon instansiation, instances a new Configuration by reading the XML
+     * configuration file named architecture-rules.xml (by default) or by
+     * reading the XMl file name by the <code>getConfigurationFileName</code>
+     * method.
+     */
     protected AbstractArchitectureRulesConfigurationTest() {
+
         /* 1. load configuration if a configuration file name was provided */
 
         final String configurationFileName = getConfigurationFileName();
@@ -83,14 +86,14 @@ public abstract class AbstractArchitectureRulesConfigurationTest extends TestCas
     /* ----------------------------------------------------- abstract methods */
     /**
      * <p>Get the name of the xml configuration file that is located in the
-     * classpath.</p>
+     * classpath.</p> <p/> <p>Recommend value, and the default value, is
+     * <samp>architecture-rules.xml</samp></p>
      *
-     * <p>Recommend <samp>architecture-rules.xml</samp></p>
-     *
-     * @return String name of the xml file including <samp>.xml</smmp>
+     * @return String name of the xml file including <samp>.xml</samp>
+     * @see ConfigurationFactory#DEFAULT_CONFIGURATION_FILE_NAME
      */
     protected String getConfigurationFileName() {
-        return "";
+        return ConfigurationFactory.DEFAULT_CONFIGURATION_FILE_NAME;
     }
 
 
@@ -104,14 +107,24 @@ public abstract class AbstractArchitectureRulesConfigurationTest extends TestCas
     }
 
 
+    /**
+     * <p>Runs tests that are configured either programatically, or by the XML
+     * configuration file that is loaded.</p>
+     *
+     * @return boolean <tt>true</tt> when the tests all pass.
+     */
     protected final boolean doTests() {
-        final RulesService rulesService;
-        rulesService = new RulesServiceImpl(new UnmodifiableConfiguration(configuration));
+
+        final RulesService rulesService
+                = new RulesServiceImpl(new UnmodifiableConfiguration(configuration));
 
         final boolean rulesResults = rulesService.performRulesTest();
 
         if (configuration.shouldDoCyclicDependencyTest()) {
-            final CyclicRedundancyService redundancyService = new CyclicRedundancyServiceImpl(new UnmodifiableConfiguration(configuration));
+
+            final CyclicRedundancyService redundancyService
+                    = new CyclicRedundancyServiceImpl(new UnmodifiableConfiguration(configuration));
+
             redundancyService.performCyclicRedundancyCheck();
         }
 

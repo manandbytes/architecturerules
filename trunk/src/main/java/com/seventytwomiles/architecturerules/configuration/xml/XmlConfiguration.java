@@ -50,6 +50,7 @@ class XmlConfiguration {
      * Cyclic dependency
      */
     public static final String cyclicalDependency = "architecture/configuration/cyclicalDependency";
+
     /**
      * Sources
      * <pre>
@@ -61,6 +62,7 @@ class XmlConfiguration {
     public static final String configuration = "architecture/configuration";
     public static final String sources = "architecture/configuration/sources";
     public static final String source = "architecture/configuration/sources/source";
+
     /**
      * Rules
      * <pre>

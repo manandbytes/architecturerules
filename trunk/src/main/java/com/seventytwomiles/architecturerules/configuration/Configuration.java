@@ -30,7 +30,6 @@ import java.util.Collection;
 import java.util.HashSet;
 
 
-
 /**
  * <p>An instance of <code>Configuration</code> allows the application to
  * specifiy where the source directories are, what rules to test against and
@@ -47,6 +46,7 @@ public class Configuration {
 
 
     private static final Log log = LogFactory.getLog(Configuration.class);
+
     /**
      * <p><code>Rules</code> that are read from the configuration file or added
      * programatically.</p>
@@ -54,6 +54,7 @@ public class Configuration {
      * @parameter rules Set
      */
     final Collection rules = new HashSet();
+
     /**
      * <p>List of <code>SourceDirectory</code> that are read from the
      * configuration file and or added programatically.</p>
@@ -61,6 +62,7 @@ public class Configuration {
      * @parameter sources List
      */
     final Collection sources = new HashSet();
+
     /**
      * <p>sets to true when <samp>&lt;sources no-packages="exception"&gt;</samp>,
      * false when <samp>&lt;sources no-packages="ignore"&gt;</samp></p>
@@ -68,6 +70,7 @@ public class Configuration {
      * @parameter throwExceptionWhenNoPackages boolean
      */
     boolean throwExceptionWhenNoPackages;
+
     /**
      * <p>sets to true when <samp>&lt;cyclicalDependency test="true"/> </samp>,
      * false when <samp>&lt;cyclicalDependency test="false"/> </samp></p>
@@ -75,7 +78,6 @@ public class Configuration {
      * @parameter doCyclicDependencyTest boolean
      */
     boolean doCyclicDependencyTest;
-
 
     /**
      * <p>Getter for property {@link #rules}.</p>
@@ -100,8 +102,7 @@ public class Configuration {
     /**
      * <p>Setter for property {@link #doCyclicDependencyTest}.</p>
      *
-     * @param doCyclicDependencyTest Value to set for property
-     * <tt>doCyclicDependencyTest</tt>.
+     * @param doCyclicDependencyTest Value to set for property <tt>doCyclicDependencyTest</tt>.
      */
     public void setDoCyclicDependencyTest(final boolean doCyclicDependencyTest) {
         this.doCyclicDependencyTest = doCyclicDependencyTest;
@@ -112,7 +113,7 @@ public class Configuration {
      * <p>Setter for property {@link #throwExceptionWhenNoPackages}.</p>
      *
      * @param throwExceptionWhenNoPackages Value to set for property
-     * <tt>throwExceptionWhenNoPackages</tt>.
+     *                                     <tt>throwExceptionWhenNoPackages</tt>.
      */
     public void setThrowExceptionWhenNoPackages(final boolean throwExceptionWhenNoPackages) {
         this.throwExceptionWhenNoPackages = throwExceptionWhenNoPackages;
@@ -127,6 +128,7 @@ public class Configuration {
      *         specified element.
      */
     public boolean addRule(final Rule rule) {
+
         /* validate input */
         Assert.assertNotNull("rule can not be null", rule);
 
@@ -143,6 +145,7 @@ public class Configuration {
 
 
     public boolean addSource(final SourceDirectory sourceDirectory) {
+
         if (sourceDirectory == null)
             throw new IllegalArgumentException("sourceDirectory can not be null");
 

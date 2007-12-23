@@ -32,7 +32,6 @@ import org.apache.tools.ant.BuildException;
 import org.apache.tools.ant.Task;
 
 
-
 /**
  * <p>Ant task to assert architecture.</p>
  *
@@ -56,16 +55,16 @@ public class AssertArchitectureTask extends Task {
 
     /**
      * <p>The name of the configuration file that is in the classpath that holds
-     * the xml configuration. Recommend architecture-rules.xml</p>
+     * the xml configuration. Recommend <samp>architecture-rules.xml</samp></p>
      *
      * @parameter configurationFileName String
      */
     private String configurationFileName;
 
     /**
-     * <p>Reference the configuration that is built by the ConfiguraitonFactory
-     * that reads the configurationFile. This configuration may be
-     * modified.</p>
+     * <p>Reference the configuration that is built by the
+     * <code>ConfiguraitonFactory</code> that reads the configurationFile. This
+     * configuration may be modified.</p>
      *
      * @parameter configuration Configuration
      */
@@ -75,8 +74,7 @@ public class AssertArchitectureTask extends Task {
     /**
      * Setter for property 'configurationFileName'.
      *
-     * @param configurationFileName Value to set for property
-     * 'configurationFileName'.
+     * @param configurationFileName Value to set for property 'configurationFileName'.
      */
     public void setConfigurationFileName(final String configurationFileName) {
         this.configurationFileName = configurationFileName;
@@ -88,6 +86,7 @@ public class AssertArchitectureTask extends Task {
      * @see Task#execute()
      */
     public void execute() throws BuildException {
+
         super.execute();
 
         if (null == configurationFileName || "".equals(configurationFileName))
@@ -96,7 +95,8 @@ public class AssertArchitectureTask extends Task {
         /**
          * 1. load configuration
          */
-        final ConfigurationFactory configurationFactory = new DigesterConfigurationFactory(configurationFileName);
+        final ConfigurationFactory configurationFactory
+                = new DigesterConfigurationFactory(configurationFileName);
 
         configuration.getRules().addAll(configurationFactory.getRules());
         configuration.getSources().addAll(configurationFactory.getSources());
@@ -114,6 +114,7 @@ public class AssertArchitectureTask extends Task {
          * 3. check for cyclic dependency, if requested
          */
         if (configuration.shouldDoCyclicDependencyTest()) {
+
             final CyclicRedundancyService redundancyService = new CyclicRedundancyServiceImpl(new UnmodifiableConfiguration(configuration));
             redundancyService.performCyclicRedundancyCheck();
         }

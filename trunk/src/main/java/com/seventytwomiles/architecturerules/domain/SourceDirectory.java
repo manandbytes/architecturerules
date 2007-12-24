@@ -197,7 +197,7 @@ public class SourceDirectory {
         final boolean shouldThrowException
                 = getNotFound().equalsIgnoreCase(NOT_FOUND_EXCEPTION);
 
-        this.setShouldThrowExceptionWhenNotFound(shouldThrowException);
+        setShouldThrowExceptionWhenNotFound(shouldThrowException);
     }
 
 

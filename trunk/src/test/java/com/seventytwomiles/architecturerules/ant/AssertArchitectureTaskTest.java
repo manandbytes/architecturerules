@@ -20,6 +20,8 @@ package com.seventytwomiles.architecturerules.ant;
  */
 
 
+import com.seventytwomiles.architecturerules.exceptions.*;
+
 import junit.framework.TestCase;
 
 
@@ -51,8 +53,12 @@ public class AssertArchitectureTaskTest extends TestCase {
 
 
     public void testExecute() throws Exception {
-        task.setConfigurationFileName("architecture-rules.xml");
-        task.execute();
+        try {
+            task.setConfigurationFileName("architecture-rules.xml");
+            task.execute();
+        } catch(Exception e) {
+            assertTrue(e instanceof CyclicRedundancyException);
+        }
     }
 
 

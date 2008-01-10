@@ -36,7 +36,7 @@ import com.seventytwomiles.architecturerules.exceptions.CyclicRedundancyExceptio
 public class ArchitectureTest extends AbstractArchitectureRulesConfigurationTest {
 
 
-    public void ArchitectureTest() {
+    public ArchitectureTest() {
         final Configuration configuration = getConfiguration();
 
         /**
@@ -58,7 +58,7 @@ public class ArchitectureTest extends AbstractArchitectureRulesConfigurationTest
         rule.addViolation("com.company.app.web.decorators");
 
         configuration.addRule(rule);
-        configuration.setDoCyclicDependencyTest(false);
+//        configuration.setDoCyclicDependencyTest(false);
     }
 
 
@@ -83,11 +83,22 @@ public class ArchitectureTest extends AbstractArchitectureRulesConfigurationTest
          * the configuration can not be loaded properly, then the appropriate
          * Exception will be thrown.
          */
-        assertTrue(doTests());
+        try {
+            assertTrue(doTests());
+            fail("Cycles have not been detected");
+        } catch (final CyclicRedundancyException e) {
+            e.printStackTrace();
+
+            final String message = e.getMessage();
+
+            assertTrue(message.indexOf("test.com.seventytwomiles.services") > -1);
+            assertTrue(message.indexOf("test.com.seventytwomiles.model") > -1);
+            assertTrue(message.indexOf("test.com.seventytwomiles.dao.hibernate") > -1);
+        }
 
 
         final Configuration configuration = getConfiguration();
-        configuration.setDoCyclicDependencyTest(true);
+        configuration.setDoCyclicDependencyTest(false);
         assertTrue(doTests());
 
         configuration.getSources().clear();

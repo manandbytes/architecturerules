@@ -79,6 +79,7 @@ public abstract class AbstractArchitectureRulesConfigurationTest extends TestCas
 
             configuration.getRules().addAll(configurationFactory.getRules());
             configuration.getSources().addAll(configurationFactory.getSources());
+            configuration.setDoCyclicDependencyTest(configurationFactory.doCyclicDependencyTest());
         }
     }
 

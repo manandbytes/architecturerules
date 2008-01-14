@@ -24,6 +24,7 @@ import java.util.Collection;
 import java.util.List;
 
 
+
 /**
  * <p>Interface for <code>ConfigurationFactory</code> implementations to adhere
  * to.</p>
@@ -32,6 +33,7 @@ import java.util.List;
  */
 public interface ConfigurationFactory {
 
+
     /**
      * <p>Holds the default value that should be used when no configuration is
      * entered into the XML configuration file for the cyclic dependency
@@ -39,7 +41,8 @@ public interface ConfigurationFactory {
      *
      * @parameter DEFAULT_CYCLICAL_DEPENDENCY_CONFIGURATION_VALUE String
      */
-    public static final String DEFAULT_CYCLICAL_DEPENDENCY_CONFIGURATION_VALUE = "true";
+    public static final String DEFAULT_CYCLICAL_DEPENDENCY_CONFIGURATION_VALUE
+            = "true";
 
     /**
      * <p>Holds the default value that should be used when no configuration is
@@ -48,14 +51,16 @@ public interface ConfigurationFactory {
      *
      * @parameter DEFAULT_NO_PACKAGES_CONFIGURATION_BOOLEAN_VALUE boolean
      */
-    public static final boolean DEFAULT_NO_PACKAGES_CONFIGURATION_BOOLEAN_VALUE = false;
+    public static final boolean DEFAULT_NO_PACKAGES_CONFIGURATION_BOOLEAN_VALUE
+            = false;
 
     /**
      * <p>The default name of the file containing the XML configuration.</p>
      *
      * @parameter DEFAULT_CONFIGURATION_FILE_NAME String
      */
-    public static final String DEFAULT_CONFIGURATION_FILE_NAME = "architecture-rules.xml";
+    public static final String DEFAULT_CONFIGURATION_FILE_NAME
+            = "architecture-rules.xml";
 
 
     /**

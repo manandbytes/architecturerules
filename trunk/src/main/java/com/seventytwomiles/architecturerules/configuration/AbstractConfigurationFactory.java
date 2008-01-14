@@ -32,6 +32,7 @@ import java.util.HashSet;
 import java.util.List;
 
 
+
 /**
  * <p>Abstract Factory that provides common functionality for
  * <code>ConfigurationFactory</code> implementations.</p>
@@ -39,10 +40,12 @@ import java.util.List;
  * @author mikenereson
  * @see ConfigurationFactory
  */
-public abstract class AbstractConfigurationFactory implements ConfigurationFactory {
+public abstract class AbstractConfigurationFactory
+        implements ConfigurationFactory {
 
 
-    private static final Log log = LogFactory.getLog(AbstractConfigurationFactory.class);
+    private static final Log log
+            = LogFactory.getLog(AbstractConfigurationFactory.class);
 
     /**
      * <p>Set of Rules read from the configuration file</p>
@@ -73,6 +76,7 @@ public abstract class AbstractConfigurationFactory implements ConfigurationFacto
      */
     protected boolean doCyclicDependencyTest = true;
 
+
     /**
      * <p>Getter for property {@link #rules}.</p>
      *
@@ -81,6 +85,7 @@ public abstract class AbstractConfigurationFactory implements ConfigurationFacto
     public Collection getRules() {
         return rules;
     }
+
 
     /**
      * <p>Getter for property {@link #sources}.</p>
@@ -118,7 +123,7 @@ public abstract class AbstractConfigurationFactory implements ConfigurationFacto
      * <p>Read Xml configuration file to String.</p>
      *
      * @param configurationFileName String name of the XML file in the classpath
-     *                              to load and read
+     * to load and read
      * @return String returns the contents of the configurationFile
      */
     protected String getConfigurationAsXml(final String configurationFileName) {
@@ -129,7 +134,8 @@ public abstract class AbstractConfigurationFactory implements ConfigurationFacto
          * could not be read.
          */
         final ClassLoader classLoader = getClass().getClassLoader();
-        final ClassPathResource resource = new ClassPathResource(configurationFileName, classLoader);
+        final ClassPathResource resource
+                = new ClassPathResource(configurationFileName, classLoader);
 
         if (!resource.exists())
             throw new IllegalArgumentException("could not load resource "

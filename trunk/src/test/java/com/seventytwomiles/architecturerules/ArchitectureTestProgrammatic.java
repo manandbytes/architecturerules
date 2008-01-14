@@ -33,7 +33,8 @@ import com.seventytwomiles.architecturerules.exceptions.DependencyConstraintExce
  * @author mikenereson
  * @see AbstractArchitectureRulesConfigurationTest
  */
-public class ArchitectureTestProgrammatic extends AbstractArchitectureRulesConfigurationTest {
+public class ArchitectureTestProgrammatic
+        extends AbstractArchitectureRulesConfigurationTest {
 
 
     /**
@@ -50,16 +51,19 @@ public class ArchitectureTestProgrammatic extends AbstractArchitectureRulesConfi
      * violated</p>
      */
     public void testArchitecture_fail() {
+
         final Configuration configuration = getConfiguration();
 
-        configuration.addSource(new SourceDirectory("target\\test-classes", true));
+        configuration.addSource(
+                new SourceDirectory("target\\test-classes", true));
 
         configuration.setDoCyclicDependencyTest(false);
         configuration.setThrowExceptionWhenNoPackages(true);
 
 
         final Rule presentationRule = new Rule("presentation");
-        presentationRule.setComment("presentation may not access dao directly.");
+        presentationRule.setComment(
+                "presentation may not access dao directly.");
         presentationRule.addPackage("test.com.seventytwomiles.web.spring");
         presentationRule.addViolation("test.com.seventytwomiles.dao");
         presentationRule.addViolation("test.com.seventytwomiles.dao.hibernate");
@@ -82,25 +86,31 @@ public class ArchitectureTestProgrammatic extends AbstractArchitectureRulesConfi
      * reported.</p>
      */
     public void testArchitecture_mixtureButFails() {
+
         final Configuration configuration = getConfiguration();
 
-        configuration.addSource(new SourceDirectory("target\\test-classes", true));
+        configuration.addSource(
+                new SourceDirectory("target\\test-classes", true));
 
         configuration.setDoCyclicDependencyTest(false);
         configuration.setThrowExceptionWhenNoPackages(true);
 
         final Rule daoRule_notViolated = new Rule("dao");
         daoRule_notViolated.setComment("dao may not access presentation.");
-        daoRule_notViolated.addPackage("test.com.seventytwomiles.dao.hibernate");
+        daoRule_notViolated.addPackage(
+                "test.com.seventytwomiles.dao.hibernate");
         daoRule_notViolated.addViolation("test.com.seventytwomiles.web.spring");
 
         configuration.addRule(daoRule_notViolated);
 
         final Rule presentationRule_violated = new Rule("presentation");
-        presentationRule_violated.setComment("presentation may not access dao directly.");
-        presentationRule_violated.addPackage("test.com.seventytwomiles.web.spring");
+        presentationRule_violated.setComment(
+                "presentation may not access dao directly.");
+        presentationRule_violated.addPackage(
+                "test.com.seventytwomiles.web.spring");
         presentationRule_violated.addViolation("test.com.seventytwomiles.dao");
-        presentationRule_violated.addViolation("test.com.seventytwomiles.dao.hibernate");
+        presentationRule_violated.addViolation(
+                "test.com.seventytwomiles.dao.hibernate");
 
         configuration.addRule(presentationRule_violated);
 
@@ -112,8 +122,10 @@ public class ArchitectureTestProgrammatic extends AbstractArchitectureRulesConfi
             assertTrue(e instanceof DependencyConstraintException);
 
             final String message = e.getMessage();
-            assertTrue(message.indexOf("test.com.seventytwomiles.web.spring") > -1);
-            assertTrue(message.indexOf("test.com.seventytwomiles.dao.hibernate") > -1);
+            assertTrue(message.indexOf(
+                    "test.com.seventytwomiles.web.spring") > -1);
+            assertTrue(message.indexOf(
+                    "test.com.seventytwomiles.dao.hibernate") > -1);
         }
     }
 
@@ -122,9 +134,11 @@ public class ArchitectureTestProgrammatic extends AbstractArchitectureRulesConfi
      * <p>Expect this test to pass.</p>
      */
     public void testArchitecture_pass() {
+
         final Configuration configuration = getConfiguration();
 
-        configuration.addSource(new SourceDirectory("target\\test-classes", true));
+        configuration.addSource(
+                new SourceDirectory("target\\test-classes", true));
 
         configuration.setDoCyclicDependencyTest(false);
         configuration.setThrowExceptionWhenNoPackages(true);

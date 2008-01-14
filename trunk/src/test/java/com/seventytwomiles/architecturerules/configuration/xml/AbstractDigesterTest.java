@@ -52,6 +52,7 @@ public class AbstractDigesterTest extends TestCase {
                     "    </configuration>\n" +
                     "    \n" +
                     "</architecture>";
+
     final String skipCyclicDependencyTestConfiguration =
             "<architecture>\n" +
                     "\n" +
@@ -69,6 +70,7 @@ public class AbstractDigesterTest extends TestCase {
                     "    </configuration>\n" +
                     "    \n" +
                     "</architecture>";
+
     final String blankCyclicDependencyTestConfiguration =
             "<architecture>\n" +
                     "\n" +
@@ -84,6 +86,7 @@ public class AbstractDigesterTest extends TestCase {
                     "    </configuration>\n" +
                     "    \n" +
                     "</architecture>";
+
     final String illegalCyclicDependencyTestConfiguration =
             "<architecture>\n" +
                     "\n" +
@@ -101,6 +104,7 @@ public class AbstractDigesterTest extends TestCase {
                     "    </configuration>\n" +
                     "    \n" +
                     "</architecture>";
+
     final String noPackagesIgnoreConfiguration =
             "<architecture>\n" +
                     "\n" +
@@ -116,6 +120,7 @@ public class AbstractDigesterTest extends TestCase {
                     "    </configuration>\n" +
                     "\n" +
                     "</architecture>";
+
     final String noPackagesExceptionConfiguration =
             "<architecture>\n" +
                     "\n" +
@@ -131,6 +136,7 @@ public class AbstractDigesterTest extends TestCase {
                     "    </configuration>\n" +
                     "\n" +
                     "</architecture>";
+
     final String noPackagesBlankConfiguration =
             "<architecture>\n" +
                     "\n" +
@@ -146,6 +152,7 @@ public class AbstractDigesterTest extends TestCase {
                     "    </configuration>\n" +
                     "\n" +
                     "</architecture>";
+
     final String noPackagesInvalidConfiguration =
             "<architecture>\n" +
                     "\n" +
@@ -161,6 +168,7 @@ public class AbstractDigesterTest extends TestCase {
                     "    </configuration>\n" +
                     "\n" +
                     "</architecture>";
+
     final String sourcesXmlConfiguration =
             "<architecture>\n" +
                     "\n" +
@@ -176,6 +184,7 @@ public class AbstractDigesterTest extends TestCase {
                     "    </configuration>\n" +
                     "\n" +
                     "</architecture>";
+
     final String rulesXmlConfiguration =
             "<architecture>\n" +
                     "\n" +
@@ -253,7 +262,7 @@ public class AbstractDigesterTest extends TestCase {
      *
      * @param name name of test
      */
-    public AbstractDigesterTest(String name) {
+    public AbstractDigesterTest(final String name) {
         super(name);
     }
 

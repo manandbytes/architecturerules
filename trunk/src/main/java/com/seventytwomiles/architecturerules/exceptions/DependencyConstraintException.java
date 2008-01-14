@@ -59,7 +59,7 @@ public class DependencyConstraintException extends RuntimeException {
     /**
      * @see RuntimeException#RuntimeException(String)
      */
-    public DependencyConstraintException(String message) {
+    public DependencyConstraintException(final String message) {
         super(message);
     }
 
@@ -67,7 +67,7 @@ public class DependencyConstraintException extends RuntimeException {
     /**
      * @see RuntimeException#RuntimeException(Throwable)
      */
-    public DependencyConstraintException(Throwable cause) {
+    public DependencyConstraintException(final Throwable cause) {
         super("dependency constraint", cause);
     }
 
@@ -75,7 +75,8 @@ public class DependencyConstraintException extends RuntimeException {
     /**
      * @see RuntimeException#RuntimeException(String,Throwable)
      */
-    public DependencyConstraintException(String message, Throwable cause) {
+    public DependencyConstraintException(final String message,
+                                         final Throwable cause) {
         super(message, cause);
     }
 
@@ -84,12 +85,14 @@ public class DependencyConstraintException extends RuntimeException {
      * <p>Reports which <code>Rule</code> was broken, by its <tt>id</tt>, and
      * what packages that <code>Rule</code> governs.</p>
      *
-     * @param ruleId   String id of the <code>Rule</code> that was violated.
+     * @param ruleId String id of the <code>Rule</code> that was violated.
      * @param packages String listing each package constrained by the violated
-     *                 <code>Rule</code>
-     * @param cause    Throwable any exception that was thrown
+     * <code>Rule</code>
+     * @param cause Throwable any exception that was thrown
      */
-    public DependencyConstraintException(final String ruleId, final String packages, final Throwable cause) {
+    public DependencyConstraintException(final String ruleId,
+                                         final String packages,
+                                         final Throwable cause) {
 
         this("dependency constraint failed in '{id}' rule which constrains packages '{efferent}'"
                 .replaceAll("\\{id}", ruleId)

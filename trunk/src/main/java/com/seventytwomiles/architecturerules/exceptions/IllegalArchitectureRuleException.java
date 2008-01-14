@@ -72,7 +72,7 @@ public class IllegalArchitectureRuleException extends RuntimeException {
     /**
      * @see RuntimeException#RuntimeException(String)
      */
-    public IllegalArchitectureRuleException(String message) {
+    public IllegalArchitectureRuleException(final String message) {
         super(message);
     }
 
@@ -80,7 +80,7 @@ public class IllegalArchitectureRuleException extends RuntimeException {
     /**
      * @see RuntimeException#RuntimeException(Throwable)
      */
-    public IllegalArchitectureRuleException(Throwable cause) {
+    public IllegalArchitectureRuleException(final Throwable cause) {
         super("illegal architecture rule", cause);
     }
 
@@ -88,7 +88,8 @@ public class IllegalArchitectureRuleException extends RuntimeException {
     /**
      * @see RuntimeException#RuntimeException(String,Throwable)
      */
-    public IllegalArchitectureRuleException(String message, Throwable cause) {
+    public IllegalArchitectureRuleException(final String message,
+                                            final Throwable cause) {
         super(message, cause);
     }
 
@@ -100,7 +101,8 @@ public class IllegalArchitectureRuleException extends RuntimeException {
      * @param ruleId
      * @param rulePackages
      */
-    public IllegalArchitectureRuleException(final String ruleId, final String rulePackages) {
+    public IllegalArchitectureRuleException(final String ruleId,
+                                            final String rulePackages) {
         this(ruleId, rulePackages, null);
     }
 
@@ -113,7 +115,9 @@ public class IllegalArchitectureRuleException extends RuntimeException {
      * @param rulePackages
      * @param cause
      */
-    public IllegalArchitectureRuleException(final String ruleId, final String rulePackages, final Throwable cause) {
+    public IllegalArchitectureRuleException(final String ruleId,
+                                            final String rulePackages,
+                                            final Throwable cause) {
 
         super("rule '{id}' contains an invalid violation that refers to itself; remove violation '{violation}' or change package"
                 .replaceAll("\\{id}", ruleId)

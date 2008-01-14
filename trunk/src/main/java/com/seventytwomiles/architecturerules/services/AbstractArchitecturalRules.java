@@ -37,6 +37,7 @@ import java.util.Collection;
 import java.util.Iterator;
 
 
+
 /**
  * <p>Provides support for any type of rule that can be asserted using the
  * jdepend library</p>
@@ -53,7 +54,8 @@ abstract class AbstractArchitecturalRules {
      *
      * @parameter log Log
      */
-    private static final Log log = LogFactory.getLog(AbstractArchitecturalRules.class);
+    private static final Log log
+            = LogFactory.getLog(AbstractArchitecturalRules.class);
 
     /**
      * <p>The <code>Configuration</code> to test against.</p>
@@ -76,19 +78,21 @@ abstract class AbstractArchitecturalRules {
      */
     private Collection packages;
 
+
     /**
      * <p>Constructor that loads up the configuration and loads all the packages
      * in the source paths</p>
      *
      * @param configuration Configuration
-     * @throws SourceNotFoundException  when an required source directory does
-     *                                  not exist and when <tt>exception</tt>=<tt>"true"</tt>
-     *                                  in the source configuration
+     * @throws SourceNotFoundException when an required source directory does
+     * not exist and when <tt>exception</tt>=<tt>"true"</tt> in the source
+     * configuration
      * @throws NoPackagesFoundException when none of the source directories
-     *                                  exist and <tt>no-packages</tt>="<tt>ignore</tt>"
-     *                                  in the sources configuration
+     * exist and <tt>no-packages</tt>="<tt>ignore</tt>" in the sources
+     * configuration
      */
-    protected AbstractArchitecturalRules(final Configuration configuration) throws SourceNotFoundException, NoPackagesFoundException {
+    protected AbstractArchitecturalRules(final Configuration configuration)
+            throws SourceNotFoundException, NoPackagesFoundException {
 
         log.info("instantiating new AbstractArchitecturalRules");
 
@@ -125,17 +129,20 @@ abstract class AbstractArchitecturalRules {
     private void addSourceToJdepend(final SourceDirectory sourceDirectory) {
 
         final String sourcePath = sourceDirectory.getPath();
-
         final StringBuffer message = new StringBuffer();
+
+        final boolean throwExceptionWhenNotFound
+                = sourceDirectory.shouldThrowExceptionWhenNotFound();
 
         try {
 
             jdepend.addDirectory(sourcePath);
 
+
             if (log.isDebugEnabled()) {
 
                 message.append("loaded ");
-                message.append(sourceDirectory.shouldThrowExceptionWhenNotFound() ? "required " : "");
+                message.append(throwExceptionWhenNotFound ? "required " : "");
                 message.append("sourceDirectory ");
                 message.append(new File("").getAbsolutePath());
                 message.append("\\");
@@ -149,7 +156,7 @@ abstract class AbstractArchitecturalRules {
             /* sourceDirectory not found */
             if (log.isWarnEnabled()) {
 
-                message.append(sourceDirectory.shouldThrowExceptionWhenNotFound() ? "required " : "");
+                message.append(throwExceptionWhenNotFound ? "required " : "");
                 message.append("sourceDirectory ");
                 message.append(new File("").getAbsolutePath());
                 message.append("\\");
@@ -162,7 +169,9 @@ abstract class AbstractArchitecturalRules {
             if (sourceDirectory.shouldThrowExceptionWhenNotFound()) {
 
                 log.error(sourcePath + " was not found", e);
-                throw new SourceNotFoundException(sourcePath + " was not found", e);
+
+                throw new SourceNotFoundException(
+                        sourcePath + " was not found", e);
             }
         }
     }
@@ -185,20 +194,29 @@ abstract class AbstractArchitecturalRules {
 
         if (packages.isEmpty()) {
 
-            log.warn("no packages were found with the given configuration. check your <sources /> configuration");
+            log.warn("no packages were found with the given configuration. " +
+                    "check your <sources /> configuration");
 
-            final boolean isConfiguredToThrowExceptionWhenNoPackagesFound = configuration.shouldThrowExceptionWhenNoPackages();
-            log.debug("throw excpetion when no packages? " + isConfiguredToThrowExceptionWhenNoPackagesFound);
+            final boolean isConfiguredToThrowExceptionWhenNoPackagesFound
+                    = configuration.shouldThrowExceptionWhenNoPackages();
+
+            log.debug("throw exception when no packages? "
+                    + isConfiguredToThrowExceptionWhenNoPackagesFound);
 
             if (isConfiguredToThrowExceptionWhenNoPackagesFound) {
 
-                log.debug("throwing RuntimeException because no packages were found");
-                throw new NoPackagesFoundException("no packages were found with the given configuraiton. check your <sources /> configuration");
+                log.debug("throwing RuntimeException because no packages " +
+                        "were found");
+
+                throw new NoPackagesFoundException("no packages were found " +
+                        "with the given configuration. check your <sources /> " +
+                        "configuration");
             }
 
         } else {
 
-            log.debug("jdepend found " + packages.size() + " to analyze for cyclic redundencies");
+            log.debug("jdepend found " + packages.size()
+                    + " to analyze for cyclic redundancies");
         }
     }
 
@@ -220,32 +238,41 @@ abstract class AbstractArchitecturalRules {
      *
      * @param layer String the package to test
      * @param rules Collection of rules defining which packages the layer may
-     *              not use
+     * not use
      * @throws DependencyConstraintException when a rule is broken
-     * @throws CyclicRedundancyException     when cyclic redundancy is found
+     * @throws CyclicRedundancyException when cyclic redundancy is found
      */
     void testLayeringValid(final String layer,
-                           final Collection rules) throws DependencyConstraintException, CyclicRedundancyException {
+                           final Collection rules)
+            throws DependencyConstraintException, CyclicRedundancyException {
+
         final Collection packages = jdepend.analyze();
 
         log.debug("checking how many packages were found by JDepend");
 
         if (packages.isEmpty()) {
 
-            log.warn("no packages were found with the given configuraiton. check your <sources />");
+            log.warn("no packages were found with the given configuration. " +
+                    "check your <sources />");
 
-            final boolean isConfiguredToThrowExceptionWhenNoPackagesFound = this.configuration.shouldThrowExceptionWhenNoPackages();
-            log.debug("throw excpetion when no packages? " + isConfiguredToThrowExceptionWhenNoPackagesFound);
+            final boolean isConfiguredToThrowExceptionWhenNoPackagesFound
+                    = this.configuration.shouldThrowExceptionWhenNoPackages();
+
+            log.debug("throw exception when no packages? "
+                    + isConfiguredToThrowExceptionWhenNoPackagesFound);
 
             if (isConfiguredToThrowExceptionWhenNoPackagesFound) {
 
                 log.debug("throwing CyclicRedundancyException");
-                throw new CyclicRedundancyException("cyclic redundency does exist");
+
+                final String message = "cyclic redundancy does exist";
+                throw new CyclicRedundancyException(message);
             }
 
         } else {
 
-            log.debug("jdepend found " + packages.size() + " to analyze for dependency architecture");
+            log.debug("jdepend found " + packages.size()
+                    + " to analyze for dependency architecture");
         }
 
         JavaPackage javaPackage;
@@ -255,8 +282,11 @@ abstract class AbstractArchitecturalRules {
 
             javaPackage = (JavaPackage) packageIterator.next();
 
-            log.debug("checking dependencies on package " + javaPackage.getName());
-            testEfferentsValid(layer, rules, javaPackage, javaPackage.getName());
+            log.debug("checking dependencies on package "
+                    + javaPackage.getName());
+
+            final String packageName = javaPackage.getName();
+            testEfferentsValid(layer, rules, javaPackage, packageName);
         }
     }
 
@@ -265,15 +295,17 @@ abstract class AbstractArchitecturalRules {
      * <p>Test a given layer (java package) against a Collection of
      * <code>Rules</code></p>
      *
-     * @param layer               String name of the package to test
-     * @param rules               Collection of rules defining which packages
-     *                            the given package may not depend upon
-     * @param jPackage            JavaPackage
+     * @param layer String name of the package to test
+     * @param rules Collection of rules defining which packages the given
+     * package may not depend upon
+     * @param jPackage JavaPackage
      * @param analyzedPackageName String full name
      * @throws DependencyConstraintException when a rule is broken
      */
     private void testEfferentsValid(final String layer, final Collection rules,
-                                    final JavaPackage jPackage, final String analyzedPackageName) throws DependencyConstraintException {
+                                    final JavaPackage jPackage,
+                                    final String analyzedPackageName)
+            throws DependencyConstraintException {
 
         final Collection efferents = jPackage.getEfferents();
 

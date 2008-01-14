@@ -32,7 +32,8 @@ import com.seventytwomiles.architecturerules.domain.SourceDirectory;
  * @author mikenereson
  * @see AbstractArchitectureRulesConfigurationTest
  */
-public class SimpleProgrammaticArchitectureTest extends AbstractArchitectureRulesConfigurationTest {
+public class SimpleProgrammaticArchitectureTest
+        extends AbstractArchitectureRulesConfigurationTest {
 
 
     /**
@@ -40,13 +41,15 @@ public class SimpleProgrammaticArchitectureTest extends AbstractArchitectureRule
      * is called before a test is executed.
      */
     protected void setUp() throws Exception {
+
         super.setUp();
 
         /* get the configuration reference */
         final Configuration configuration = getConfiguration();
 
         /* add sources */
-        configuration.addSource(new SourceDirectory("target\\test-classes", true));
+        configuration.addSource(
+                new SourceDirectory("target\\test-classes", true));
 
         /* set options */
         configuration.setDoCyclicDependencyTest(false);
@@ -66,6 +69,7 @@ public class SimpleProgrammaticArchitectureTest extends AbstractArchitectureRule
      * @see AbstractArchitectureRulesConfigurationTest#testArchitecture()
      */
     public void testArchitecture() {
+
         /**
          * Run the test via doTest(). If any rules are broken, or if
          * the configuration can not be loaded properly, then the appropriate

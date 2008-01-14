@@ -44,7 +44,7 @@ public class UnmodifiableConfigurationTest extends TestCase {
     }
 
 
-    public UnmodifiableConfigurationTest(String name) {
+    public UnmodifiableConfigurationTest(final String name) {
         super(name);
     }
 
@@ -76,8 +76,9 @@ public class UnmodifiableConfigurationTest extends TestCase {
 
 
     public void testUnmodifiability() {
-        Configuration unmodifiableConfiguration = new UnmodifiableConfiguration(configuration);
 
+        final Configuration unmodifiableConfiguration
+                = new UnmodifiableConfiguration(configuration);
 
         try {
             unmodifiableConfiguration.getRules().add(new Rule("test"));

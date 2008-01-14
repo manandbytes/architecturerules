@@ -33,7 +33,7 @@ import junit.framework.TestCase;
 public class IllegalArchitectureRuleExceptionTest extends TestCase {
 
 
-    public IllegalArchitectureRuleExceptionTest(String name) {
+    public IllegalArchitectureRuleExceptionTest(final String name) {
         super(name);
     }
 
@@ -49,24 +49,31 @@ public class IllegalArchitectureRuleExceptionTest extends TestCase {
         assertTrue(rule.addPackage("com.seventytwomiles.dao"));
 
 
-        exception = new IllegalArchitectureRuleException(rule.getId(), rule.describePackages());
+        exception = new IllegalArchitectureRuleException(rule.getId(),
+                rule.describePackages());
         message = exception.getMessage();
         cause = exception.getCause();
 
-        assertEquals("rule 'dao' contains an invalid violation that refers to itself; remove violation 'com.seventytwomiles.dao' or change package", message);
+        assertEquals(
+                "rule 'dao' contains an invalid violation that refers to itself; remove violation 'com.seventytwomiles.dao' or change package",
+                message);
         assertEquals(null, cause);
 
 
-        exception = new IllegalArchitectureRuleException(rule.getId(), rule.describePackages(), new IllegalArgumentException());
+        exception = new IllegalArchitectureRuleException(rule.getId(),
+                rule.describePackages(), new IllegalArgumentException());
         message = exception.getMessage();
         cause = exception.getCause();
 
-        assertEquals("rule 'dao' contains an invalid violation that refers to itself; remove violation 'com.seventytwomiles.dao' or change package", message);
+        assertEquals(
+                "rule 'dao' contains an invalid violation that refers to itself; remove violation 'com.seventytwomiles.dao' or change package",
+                message);
         assertTrue(cause instanceof IllegalArgumentException);
     }
 
 
     public void testTypicalConstructors() {
+
         IllegalArchitectureRuleException exception;
         String message;
         Throwable cause;
@@ -80,7 +87,8 @@ public class IllegalArchitectureRuleExceptionTest extends TestCase {
         assertEquals(null, cause);
 
 
-        exception = new IllegalArchitectureRuleException("oops, you broke an architecture rule");
+        exception = new IllegalArchitectureRuleException(
+                "oops, you broke an architecture rule");
         message = exception.getMessage();
         cause = exception.getCause();
 
@@ -88,7 +96,8 @@ public class IllegalArchitectureRuleExceptionTest extends TestCase {
         assertEquals(null, cause);
 
 
-        exception = new IllegalArchitectureRuleException(new IllegalArgumentException());
+        exception = new IllegalArchitectureRuleException(
+                new IllegalArgumentException());
         message = exception.getMessage();
         cause = exception.getCause();
 
@@ -96,7 +105,9 @@ public class IllegalArchitectureRuleExceptionTest extends TestCase {
         assertTrue(cause instanceof IllegalArgumentException);
 
 
-        exception = new IllegalArchitectureRuleException("oops, you broke an architecture rule", new IllegalArgumentException());
+        exception = new IllegalArchitectureRuleException(
+                "oops, you broke an architecture rule",
+                new IllegalArgumentException());
         message = exception.getMessage();
         cause = exception.getCause();
 

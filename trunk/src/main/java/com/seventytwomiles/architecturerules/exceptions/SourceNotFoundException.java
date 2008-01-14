@@ -23,6 +23,7 @@ package com.seventytwomiles.architecturerules.exceptions;
 import java.util.Collection;
 
 
+
 /**
  * <p>Exception to be thrown when a configured source is not found and
  * <samp>&lt;source not-found="exception"></samp></p>
@@ -66,9 +67,12 @@ public class SourceNotFoundException extends RuntimeException {
      */
     public SourceNotFoundException(final Collection sources) {
 
+        // remove \\ from path because regex replace all removes them
+        // remove the [ and ] at the ends of Collection.toString
+
         super("unable to find any source files in given source directories {0}"
-                .replaceAll("\\{0}", sources.toString().replaceAll("\\\\", "/")) // remove \\ from path because regex replace all removes them
-                .replaceAll("\\[", "") // remove the [ and ] at the ends of Collection.toString
+                .replaceAll("\\{0}", sources.toString().replaceAll("\\\\", "/"))
+                .replaceAll("\\[", "")
                 .replaceAll("\\]", ""));
     }
 
@@ -76,7 +80,8 @@ public class SourceNotFoundException extends RuntimeException {
     /**
      * @see RuntimeException#RuntimeException(String,Throwable)
      */
-    public SourceNotFoundException(final String message, final Throwable cause) {
+    public SourceNotFoundException(final String message,
+                                   final Throwable cause) {
         super(message, cause);
     }
 }

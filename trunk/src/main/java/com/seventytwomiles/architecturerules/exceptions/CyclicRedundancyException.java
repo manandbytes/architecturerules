@@ -58,7 +58,7 @@ public class CyclicRedundancyException extends RuntimeException {
     /**
      * @see RuntimeException#RuntimeException(String)
      */
-    public CyclicRedundancyException(String message) {
+    public CyclicRedundancyException(final String message) {
         super(message);
     }
 
@@ -66,7 +66,7 @@ public class CyclicRedundancyException extends RuntimeException {
     /**
      * @see RuntimeException#RuntimeException(Throwable)
      */
-    public CyclicRedundancyException(Throwable cause) {
+    public CyclicRedundancyException(final Throwable cause) {
         super("cyclic redundancy", cause);
     }
 
@@ -74,7 +74,8 @@ public class CyclicRedundancyException extends RuntimeException {
     /**
      * @see RuntimeException#RuntimeException(String,Throwable)
      */
-    public CyclicRedundancyException(String message, Throwable cause) {
+    public CyclicRedundancyException(final String message,
+                                     final Throwable cause) {
         super(message, cause);
     }
 
@@ -83,12 +84,13 @@ public class CyclicRedundancyException extends RuntimeException {
      * <p>Constructs a new CyclicRedundancyException with a generated message
      * containing the given <tt>packageName</tt> and <tt>efferentPackage</tt>.</p>
      *
-     * @param packageName     String the name of the package containing the
-     *                        cyclic dependnecy
+     * @param packageName String the name of the package containing the cyclic
+     * dependency
      * @param efferentPackage String the name of the package the package is
-     *                        cyclicly involved with.
+     * cyclicly involved with.
      */
-    public CyclicRedundancyException(final String packageName, final String efferentPackage) {
+    public CyclicRedundancyException(final String packageName,
+                                     final String efferentPackage) {
 
         super("'{0}' is involved in an cyclically redundant dependency with '{1}'"
                 .replaceAll("\\{0}", packageName)

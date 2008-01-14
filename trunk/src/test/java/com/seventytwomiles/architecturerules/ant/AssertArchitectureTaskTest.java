@@ -20,8 +20,7 @@ package com.seventytwomiles.architecturerules.ant;
  */
 
 
-import com.seventytwomiles.architecturerules.exceptions.*;
-
+import com.seventytwomiles.architecturerules.exceptions.CyclicRedundancyException;
 import junit.framework.TestCase;
 
 
@@ -37,7 +36,7 @@ public class AssertArchitectureTaskTest extends TestCase {
     private AssertArchitectureTask task;
 
 
-    public AssertArchitectureTaskTest(String name) {
+    public AssertArchitectureTaskTest(final String name) {
         super(name);
     }
 
@@ -53,38 +52,52 @@ public class AssertArchitectureTaskTest extends TestCase {
 
 
     public void testExecute() throws Exception {
+
         try {
+
             task.setConfigurationFileName("architecture-rules.xml");
             task.execute();
-        } catch(Exception e) {
+
+        } catch (Exception e) {
+
             assertTrue(e instanceof CyclicRedundancyException);
         }
     }
 
 
     public void testExecute_invalidArguments() throws Exception {
+
         try {
+
             task.execute();
             fail("expected IllegalStateException");
+
         } catch (Exception e) {
+
             assertTrue(e instanceof IllegalStateException);
         }
 
 
         try {
+
             task.setConfigurationFileName(null);
             task.execute();
             fail("expected IllegalStateException");
+
         } catch (Exception e) {
+
             assertTrue(e instanceof IllegalStateException);
         }
 
 
         try {
+
             task.setConfigurationFileName("");
             task.execute();
             fail("expected IllegalStateException");
+
         } catch (Exception e) {
+
             assertTrue(e instanceof IllegalStateException);
         }
     }

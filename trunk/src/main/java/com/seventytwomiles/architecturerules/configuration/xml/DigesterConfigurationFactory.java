@@ -38,6 +38,7 @@ import java.util.Iterator;
 import java.util.List;
 
 
+
 /**
  * <p>Apache Commons Digester implementation of the <code>ConfigurationFactory</code></p>
  *
@@ -47,7 +48,8 @@ import java.util.List;
 public class DigesterConfigurationFactory extends AbstractConfigurationFactory {
 
 
-    private static final Log log = LogFactory.getLog(DigesterConfigurationFactory.class);
+    private static final Log log = LogFactory.getLog(
+            DigesterConfigurationFactory.class);
 
 
     public DigesterConfigurationFactory() {
@@ -61,7 +63,7 @@ public class DigesterConfigurationFactory extends AbstractConfigurationFactory {
      * <tt>configurationFileName</tt>.</p>
      *
      * @param configurationFileName name of the <code>File</code> in the
-     *                              classpath to load configuration from.
+     * classpath to load configuration from.
      */
     public DigesterConfigurationFactory(final String configurationFileName) {
 
@@ -89,7 +91,8 @@ public class DigesterConfigurationFactory extends AbstractConfigurationFactory {
          * TODO: apply DTD to configuration then try digester.parse
          */
 
-        final StringReader configurationReader = new StringReader(configurationXml);
+        final StringReader configurationReader
+                = new StringReader(configurationXml);
 
         try {
 
@@ -97,11 +100,15 @@ public class DigesterConfigurationFactory extends AbstractConfigurationFactory {
 
         } catch (final IOException e) {
 
-            throw new InvalidConfigurationException("configuration xml file contains invalid configuration properties", e);
+            throw new InvalidConfigurationException(
+                    "configuration xml file contains invalid configuration properties",
+                    e);
 
         } catch (final SAXException e) {
 
-            throw new InvalidConfigurationException("configuration xml file contains invalid configuration properties", e);
+            throw new InvalidConfigurationException(
+                    "configuration xml file contains invalid configuration properties",
+                    e);
         }
     }
 
@@ -143,23 +150,31 @@ public class DigesterConfigurationFactory extends AbstractConfigurationFactory {
      * <p>package scope so that it could be individually tested</p>
      *
      * @param configurationXml String xml to parse
-     * @throws IOException  when an input/output error occurs
+     * @throws IOException when an input/output error occurs
      * @throws SAXException when given xml can not be parsed
      */
-    void processSources(final String configurationXml) throws IOException, SAXException {
+    void processSources(final String configurationXml)
+            throws IOException, SAXException {
 
         final Digester digester = getDigester();
 
         digester.addObjectCreate(XmlConfiguration.sources, ArrayList.class);
 
-        digester.addObjectCreate(XmlConfiguration.source, SourceDirectory.class);
+        digester.addObjectCreate(
+                XmlConfiguration.source, SourceDirectory.class);
+
         digester.addCallMethod(XmlConfiguration.source, "setPath", 0);
-        digester.addSetProperties(XmlConfiguration.source, "not-found", "notFound");
+
+        digester.addSetProperties(
+                XmlConfiguration.source, "not-found", "notFound");
 
         digester.addSetNext(XmlConfiguration.source, "add");
 
-        final StringReader configurationReader = new StringReader(configurationXml);
-        final List parsedSources = (ArrayList) digester.parse(configurationReader);
+        final StringReader configurationReader
+                = new StringReader(configurationXml);
+
+        final List parsedSources
+                = (ArrayList) digester.parse(configurationReader);
 
         sources.clear();
 
@@ -183,10 +198,11 @@ public class DigesterConfigurationFactory extends AbstractConfigurationFactory {
      * <p>package scope so that it could be individually tested</p>
      *
      * @param configurationXml String xml to parse
-     * @throws IOException  when an input/output error occurs
+     * @throws IOException when an input/output error occurs
      * @throws SAXException when given xml can not be parsed
      */
-    void processRules(final String configurationXml) throws IOException, SAXException {
+    void processRules(final String configurationXml)
+            throws IOException, SAXException {
 
         final Digester digester = getDigester();
 
@@ -195,12 +211,16 @@ public class DigesterConfigurationFactory extends AbstractConfigurationFactory {
         digester.addSetProperties(XmlConfiguration.rule, "id", "id");
         digester.addCallMethod(XmlConfiguration.ruleComment, "setComment", 0);
         digester.addCallMethod(XmlConfiguration.rulePackage, "addPackage", 0);
-        digester.addCallMethod(XmlConfiguration.ruleViolation, "addViolation", 0);
+        digester.addCallMethod(XmlConfiguration.ruleViolation, "addViolation",
+                0);
 
         digester.addSetNext(XmlConfiguration.rule, "add");
 
-        final StringReader configurationReader = new StringReader(configurationXml);
-        List parsedRules = (ArrayList) digester.parse(configurationReader);
+        final StringReader configurationReader
+                = new StringReader(configurationXml);
+
+        final List parsedRules
+                = (ArrayList) digester.parse(configurationReader);
 
         rules.clear();
         rules.addAll(parsedRules);
@@ -214,20 +234,28 @@ public class DigesterConfigurationFactory extends AbstractConfigurationFactory {
      * <p>protected scope so that it could be individually tested</p>
      *
      * @param configurationXml String xml to parse
-     * @throws IOException  when an input/output error occurs
+     * @throws IOException when an input/output error occurs
      * @throws SAXException when given xml can not be parsed
      */
-    void processCyclicDependencyConfiguration(final String configurationXml) throws IOException, SAXException {
+    void processCyclicDependencyConfiguration(final String configurationXml)
+            throws IOException, SAXException {
 
         final Digester digester = getDigester();
 
-        final StringReader configurationReader = new StringReader(configurationXml);
+        final StringReader configurationReader
+                = new StringReader(configurationXml);
 
-        digester.addObjectCreate(XmlConfiguration.cyclicalDependency, CyclicDependencyConfiguration.class);
-        digester.addSetProperties(XmlConfiguration.cyclicalDependency, "test", "test");
+        digester.addObjectCreate(
+                XmlConfiguration.cyclicalDependency,
+                CyclicDependencyConfiguration.class);
 
-        CyclicDependencyConfiguration configuration
-                = (CyclicDependencyConfiguration) digester.parse(configurationReader);
+        digester.addSetProperties(
+                XmlConfiguration.cyclicalDependency,
+                "test", "test");
+
+        CyclicDependencyConfiguration configuration;
+        configuration = (CyclicDependencyConfiguration) digester.parse(
+                configurationReader);
 
         /**
          * If no configuration was provided in the xml, then use the default
@@ -261,17 +289,22 @@ public class DigesterConfigurationFactory extends AbstractConfigurationFactory {
      * <p>package scope so that it could be individually tested</p>
      *
      * @param configurationXml String xml to parse
-     * @throws IOException  when an input/output error occurs
+     * @throws IOException when an input/output error occurs
      * @throws SAXException when given xml can not be parsed
      */
-    void processSourcesNotFoundConfiguration(final String configurationXml) throws IOException, SAXException {
+    void processSourcesNotFoundConfiguration(final String configurationXml)
+            throws IOException, SAXException {
 
         final Digester digester = getDigester();
 
-        final StringReader configurationReader = new StringReader(configurationXml);
+        final StringReader configurationReader
+                = new StringReader(configurationXml);
 
-        digester.addObjectCreate(XmlConfiguration.sources, SourcesConfiguration.class);
-        digester.addSetProperties(XmlConfiguration.sources, "no-packages", "noPackages");
+        digester.addObjectCreate(
+                XmlConfiguration.sources, SourcesConfiguration.class);
+
+        digester.addSetProperties(
+                XmlConfiguration.sources, "no-packages", "noPackages");
 
         SourcesConfiguration configuration
                 = (SourcesConfiguration) digester.parse(configurationReader);
@@ -285,9 +318,15 @@ public class DigesterConfigurationFactory extends AbstractConfigurationFactory {
 
         final String value = configuration.getNoPackages();
 
-        if (value.equalsIgnoreCase("ignore") || value.equalsIgnoreCase("exception")) {
+        final boolean isIgnore = value.equalsIgnoreCase("ignore");
+        final boolean isException = value.equalsIgnoreCase("exception");
+
+        if (isIgnore || isException) {
+
             throwExceptionWhenNoPackages = value.equalsIgnoreCase("exception");
+
         } else {
+
             throw new InvalidConfigurationException("'" + value +
                     "' is not a valid value for the " +
                     "sources no-packages configuration. " +

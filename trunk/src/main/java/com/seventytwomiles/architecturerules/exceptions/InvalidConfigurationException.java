@@ -61,7 +61,7 @@ public class InvalidConfigurationException extends RuntimeException {
     /**
      * @see RuntimeException#RuntimeException(String)
      */
-    public InvalidConfigurationException(String message) {
+    public InvalidConfigurationException(final String message) {
         super(message);
     }
 
@@ -69,7 +69,7 @@ public class InvalidConfigurationException extends RuntimeException {
     /**
      * @see RuntimeException#RuntimeException(Throwable)
      */
-    public InvalidConfigurationException(Throwable cause) {
+    public InvalidConfigurationException(final Throwable cause) {
         super(cause);
     }
 
@@ -77,7 +77,8 @@ public class InvalidConfigurationException extends RuntimeException {
     /**
      * @see RuntimeException#RuntimeException(String,Throwable)
      */
-    public InvalidConfigurationException(String message, Throwable cause) {
+    public InvalidConfigurationException(final String message,
+                                         final Throwable cause) {
         super(message, cause);
     }
 }

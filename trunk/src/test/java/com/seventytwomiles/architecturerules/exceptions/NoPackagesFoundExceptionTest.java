@@ -33,15 +33,16 @@ import junit.framework.TestCase;
 public class NoPackagesFoundExceptionTest extends TestCase {
 
 
-    public NoPackagesFoundExceptionTest(String name) {
+    public NoPackagesFoundExceptionTest(final String name) {
         super(name);
     }
 
 
     public void testInterestingConstructors() {
-        NoPackagesFoundException exception;
-        String message;
-        Throwable cause;
+
+        final NoPackagesFoundException exception;
+        final String message;
+        final Throwable cause;
 
         final SourceDirectory sourceDirectory = new SourceDirectory();
         sourceDirectory.setPath("core/target/classes");
@@ -50,12 +51,15 @@ public class NoPackagesFoundExceptionTest extends TestCase {
         message = exception.getMessage();
         cause = exception.getCause();
 
-        assertEquals("source directory 'core/target/classes' does not exist or can not be found", message);
+        assertEquals(
+                "source directory 'core/target/classes' does not exist or can not be found",
+                message);
         assertEquals(null, cause);
     }
 
 
     public void testTypicalConstructors() {
+
         NoPackagesFoundException exception;
         String message;
         Throwable cause;
@@ -73,11 +77,14 @@ public class NoPackagesFoundExceptionTest extends TestCase {
         message = exception.getMessage();
         cause = exception.getCause();
 
-        assertEquals("source directory '/core/target/classes' does not exist or can not be found", message);
+        assertEquals(
+                "source directory '/core/target/classes' does not exist or can not be found",
+                message);
         assertEquals(null, cause);
 
 
-        exception = new NoPackagesFoundException(new IllegalArgumentException());
+        exception = new NoPackagesFoundException(
+                new IllegalArgumentException());
         message = exception.getMessage();
         cause = exception.getCause();
 
@@ -85,7 +92,9 @@ public class NoPackagesFoundExceptionTest extends TestCase {
         assertTrue(cause instanceof IllegalArgumentException);
 
 
-        exception = new NoPackagesFoundException("/core/target/classes directory not found", new IllegalArgumentException());
+        exception = new NoPackagesFoundException(
+                "/core/target/classes directory not found",
+                new IllegalArgumentException());
         message = exception.getMessage();
         cause = exception.getCause();
 

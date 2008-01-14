@@ -38,20 +38,23 @@ public class ArchitecturalRulesServiceTest extends TestCase {
 
     private RulesService rulesService;
     private Configuration configuration = new Configuration();
-    private final SourceDirectory testClassesSourceDirectory = new SourceDirectory("target\\test-classes", true);
+    private final SourceDirectory testClassesSourceDirectory
+            = new SourceDirectory("target\\test-classes", true);
     private Rule goodModelRule;
     private Rule badControllerRule;
 
 
-    public ArchitecturalRulesServiceTest(String name) {
+    public ArchitecturalRulesServiceTest(final String name) {
         super(name);
     }
 
 
     public void setUp() throws Exception {
+
         configuration.addSource(testClassesSourceDirectory);
 
-        badControllerRule = new Rule("controller", "test.com.seventytwomiles.web.spring");
+        badControllerRule = new Rule("controller",
+                "test.com.seventytwomiles.web.spring");
         badControllerRule.addViolation("test.com.seventytwomiles.dao");
 
         goodModelRule = new Rule("model", "test.com.seventytwomiles.model");
@@ -63,6 +66,7 @@ public class ArchitecturalRulesServiceTest extends TestCase {
 
 
     public void tearDown() throws Exception {
+
         rulesService = null;
         configuration = null;
 
@@ -71,6 +75,7 @@ public class ArchitecturalRulesServiceTest extends TestCase {
 
 
     public void testPerformRulesTest() {
+
         /* setup good configuration */
         configuration.addRule(goodModelRule);
 
@@ -81,6 +86,7 @@ public class ArchitecturalRulesServiceTest extends TestCase {
 
 
     public void testPerformRulesTest_violations() {
+
         /* setup bad configuration */
         configuration.addRule(badControllerRule);
 
@@ -90,7 +96,8 @@ public class ArchitecturalRulesServiceTest extends TestCase {
             assertTrue(rulesService.performRulesTest());
         } catch (final Exception e) {
             assertTrue(e instanceof DependencyConstraintException);
-            assertEquals("rule controller failed: test.com.seventytwomiles.web.spring is not allowed to depend upon test.com.seventytwomiles.dao",
+            assertEquals(
+                    "rule controller failed: test.com.seventytwomiles.web.spring is not allowed to depend upon test.com.seventytwomiles.dao",
                     e.getMessage());
         }
     }

@@ -57,13 +57,15 @@ public abstract class ResourceUtils {
      * @throws FileNotFoundException if the URL cannot be resolved to a file in
      * the file system
      */
-    public static File getFile(final URL resourceUrl, final String description) throws FileNotFoundException {
+    public static File getFile(final URL resourceUrl, final String description)
+            throws FileNotFoundException {
 
         if (null == resourceUrl || "".equals(resourceUrl))
             throw new IllegalArgumentException("resourceUrl must not be null");
 
         if (!URL_PROTOCOL_FILE.equals(resourceUrl.getProtocol()))
-            throw new FileNotFoundException(description + " cannot be resolved to absolute file path  because it does not reside in the file system: " + resourceUrl);
+            throw new FileNotFoundException(
+                    description + " cannot be resolved to absolute file path  because it does not reside in the file system: " + resourceUrl);
 
         //noinspection deprecation
         return new File(URLDecoder.decode(resourceUrl.getFile()));

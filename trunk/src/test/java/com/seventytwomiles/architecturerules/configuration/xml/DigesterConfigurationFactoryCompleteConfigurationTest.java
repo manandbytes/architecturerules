@@ -35,7 +35,8 @@ import java.util.List;
  *
  * @author mikenereson
  */
-public class DigesterConfigurationFactoryCompleteConfigurationTest extends TestCase {
+public class DigesterConfigurationFactoryCompleteConfigurationTest
+        extends TestCase {
 
 
     private final String completeConfiguration =
@@ -154,41 +155,51 @@ public class DigesterConfigurationFactoryCompleteConfigurationTest extends TestC
                     "";
 
 
-    public DigesterConfigurationFactoryCompleteConfigurationTest(String name) {
+    public DigesterConfigurationFactoryCompleteConfigurationTest(
+            final String name) {
         super(name);
     }
 
 
     public void testProcessConfiguration() throws Exception {
 
-        DigesterConfigurationFactory factory = new DigesterConfigurationFactory();
+        final DigesterConfigurationFactory factory
+                = new DigesterConfigurationFactory();
 
         factory.processConfiguration(completeConfiguration);
 
 
-        List sources = new ArrayList();
+        final List sources = new ArrayList();
         sources.addAll(factory.getSources());
 
         assertEquals(4, sources.size());
 
         final SourceDirectory source0 = (SourceDirectory) sources.get(0);
-        assertEquals("parent-pom" + File.separator + "target" + File.separator + "classes", source0.getPath());
+        assertEquals(
+                "parent-pom" + File.separator + "target" + File.separator + "classes",
+                source0.getPath());
         assertFalse(source0.shouldThrowExceptionWhenNotFound());
 
         final SourceDirectory source1 = (SourceDirectory) sources.get(1);
-        assertEquals("util" + File.separator + "target" + File.separator + "classes", source1.getPath());
+        assertEquals(
+                "util" + File.separator + "target" + File.separator + "classes",
+                source1.getPath());
         assertTrue(source1.shouldThrowExceptionWhenNotFound());
 
         final SourceDirectory source2 = (SourceDirectory) sources.get(2);
-        assertEquals("web" + File.separator + "target" + File.separator + "classes", source2.getPath());
+        assertEquals(
+                "web" + File.separator + "target" + File.separator + "classes",
+                source2.getPath());
         assertFalse(source2.shouldThrowExceptionWhenNotFound());
 
         final SourceDirectory source3 = (SourceDirectory) sources.get(3);
-        assertEquals("core" + File.separator + "target" + File.separator + "classes", source3.getPath());
+        assertEquals(
+                "core" + File.separator + "target" + File.separator + "classes",
+                source3.getPath());
         assertFalse(source3.shouldThrowExceptionWhenNotFound());
 
 
-        List rules = new ArrayList();
+        final List rules = new ArrayList();
         rules.addAll(factory.getRules());
 
         assertEquals(3, rules.size());
@@ -202,20 +213,28 @@ public class DigesterConfigurationFactoryCompleteConfigurationTest extends TestC
         assertEquals("model", rule0.getId());
 
         /* comment */
-        assertEquals("Model should remain completely isolated", rule0.getComment());
+        assertEquals("Model should remain completely isolated",
+                rule0.getComment());
 
         /* packages */
         assertEquals(1, rule0.getPackages().size());
-        assertEquals("com.seventytwomiles.pagerank.core.model", rule0.getPackages().toArray()[0].toString());
+        assertEquals("com.seventytwomiles.pagerank.core.model",
+                rule0.getPackages().toArray()[0].toString());
 
         /* violations */
         assertEquals(6, rule0.getViolations().size());
-        assertEquals("com.seventytwomiles.pagerank.core.services", rule0.getViolations().toArray()[0].toString());
-        assertEquals("com.seventytwomiles.pagerank.core.builder", rule0.getViolations().toArray()[1].toString());
-        assertEquals("com.seventytwomiles.pagerank.core.dao", rule0.getViolations().toArray()[2].toString());
-        assertEquals("com.seventytwomiles.pagerank.core.strategy", rule0.getViolations().toArray()[3].toString());
-        assertEquals("com.seventytwomiles.pagerank.core.dao.hibernate", rule0.getViolations().toArray()[4].toString());
-        assertEquals("com.seventytwomiles.pagerank.util", rule0.getViolations().toArray()[5].toString());
+        assertEquals("com.seventytwomiles.pagerank.core.services",
+                rule0.getViolations().toArray()[0].toString());
+        assertEquals("com.seventytwomiles.pagerank.core.builder",
+                rule0.getViolations().toArray()[1].toString());
+        assertEquals("com.seventytwomiles.pagerank.core.dao",
+                rule0.getViolations().toArray()[2].toString());
+        assertEquals("com.seventytwomiles.pagerank.core.strategy",
+                rule0.getViolations().toArray()[3].toString());
+        assertEquals("com.seventytwomiles.pagerank.core.dao.hibernate",
+                rule0.getViolations().toArray()[4].toString());
+        assertEquals("com.seventytwomiles.pagerank.util",
+                rule0.getViolations().toArray()[5].toString());
 
         /**
          * Nothing special about rule1, it is not tested.
@@ -232,18 +251,24 @@ public class DigesterConfigurationFactoryCompleteConfigurationTest extends TestC
         assertEquals("dao", rule2.getId());
 
         /* comment */
-        assertEquals("The dao interface package should rely on nothing.", rule2.getComment());
+        assertEquals("The dao interface package should rely on nothing.",
+                rule2.getComment());
 
         /* packages */
         assertEquals(2, rule2.getPackages().size());
-        assertEquals("com.seventytwomiles.pagerank.core.dao", rule2.getPackages().toArray()[0].toString());
-        assertEquals("com.seventytwomiles.pagerank.core.dao.hibernate", rule2.getPackages().toArray()[1].toString());
+        assertEquals("com.seventytwomiles.pagerank.core.dao",
+                rule2.getPackages().toArray()[0].toString());
+        assertEquals("com.seventytwomiles.pagerank.core.dao.hibernate",
+                rule2.getPackages().toArray()[1].toString());
 
         /* violations */
         assertEquals(3, rule2.getViolations().size());
-        assertEquals("com.seventytwomiles.pagerank.core.services", rule2.getViolations().toArray()[0].toString());
-        assertEquals("com.seventytwomiles.pagerank.core.builder", rule2.getViolations().toArray()[1].toString());
-        assertEquals("com.seventytwomiles.pagerank.util", rule2.getViolations().toArray()[2].toString());
+        assertEquals("com.seventytwomiles.pagerank.core.services",
+                rule2.getViolations().toArray()[0].toString());
+        assertEquals("com.seventytwomiles.pagerank.core.builder",
+                rule2.getViolations().toArray()[1].toString());
+        assertEquals("com.seventytwomiles.pagerank.util",
+                rule2.getViolations().toArray()[2].toString());
 
         /**
          * Test should perform cyclicalDependency

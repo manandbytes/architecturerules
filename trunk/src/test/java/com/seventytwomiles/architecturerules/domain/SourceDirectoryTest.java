@@ -93,33 +93,44 @@ public class SourceDirectoryTest extends TestCase {
      * <code>Exception</code>
      */
     public void testInterestingConstructors() throws Exception {
+
         /**
          * Test SourceDirectory#SourceDirectory(String)
          */
         sourceDirectory = new SourceDirectory("core/target/classes");
-        assertEquals("core" + File.separator + "target" + File.separator + "classes"
+        assertEquals(
+                "core" + File.separator + "target" + File.separator + "classes"
                 , sourceDirectory.getPath());
 
         /**
          * Test SourceDirectory#SourceDirectory(String, boolean)
          */
         sourceDirectory = new SourceDirectory("core/target/classes", true);
-        assertEquals("core" + File.separator + "target" + File.separator + "classes", sourceDirectory.getPath());
+        assertEquals(
+                "core" + File.separator + "target" + File.separator + "classes",
+                sourceDirectory.getPath());
         assertTrue(sourceDirectory.shouldThrowExceptionWhenNotFound());
 
         sourceDirectory = new SourceDirectory("core/target/classes", false);
-        assertEquals("core" + File.separator + "target" + File.separator + "classes", sourceDirectory.getPath());
+        assertEquals(
+                "core" + File.separator + "target" + File.separator + "classes",
+                sourceDirectory.getPath());
         assertFalse(sourceDirectory.shouldThrowExceptionWhenNotFound());
 
         /**
          * Test SourceDirectory#SourceDirectory(String, String)
          */
         sourceDirectory = new SourceDirectory("core/target/classes", "ignore");
-        assertEquals("core" + File.separator + "target" + File.separator + "classes", sourceDirectory.getPath());
+        assertEquals(
+                "core" + File.separator + "target" + File.separator + "classes",
+                sourceDirectory.getPath());
         assertFalse(sourceDirectory.shouldThrowExceptionWhenNotFound());
 
-        sourceDirectory = new SourceDirectory("core/target/classes", "exception");
-        assertEquals("core" + File.separator + "target" + File.separator + "classes", sourceDirectory.getPath());
+        sourceDirectory = new SourceDirectory("core/target/classes",
+                "exception");
+        assertEquals(
+                "core" + File.separator + "target" + File.separator + "classes",
+                sourceDirectory.getPath());
         assertTrue(sourceDirectory.shouldThrowExceptionWhenNotFound());
     }
 
@@ -131,7 +142,9 @@ public class SourceDirectoryTest extends TestCase {
      * @throws Exception when <code>SourceDirectory</code> throws and unexpected
      * <code>Exception</code>
      */
-    public void testInterestingConstructors_illegalArguments() throws Exception {
+    public void testInterestingConstructors_illegalArguments()
+            throws Exception {
+
         try {
             sourceDirectory = new SourceDirectory("");
             fail("expected IllegalArgumentException");
@@ -162,7 +175,8 @@ public class SourceDirectoryTest extends TestCase {
         }
 
         try {
-            sourceDirectory = new SourceDirectory("core/target/classes", "monkey");
+            sourceDirectory = new SourceDirectory("core/target/classes",
+                    "monkey");
             fail("expected IllegalArgumentException");
         } catch (final Exception e) {
             assertTrue(e instanceof IllegalArgumentException);
@@ -233,8 +247,11 @@ public class SourceDirectoryTest extends TestCase {
      * <code>Exception</code>
      */
     public void testSetGetPath_illegalArguments() throws Exception {
+
         sourceDirectory.setPath("core/target/classes");
-        assertEquals("core" + File.separator + "target" + File.separator + "classes", sourceDirectory.getPath());
+        assertEquals(
+                "core" + File.separator + "target" + File.separator + "classes",
+                sourceDirectory.getPath());
     }
 
 
@@ -245,6 +262,7 @@ public class SourceDirectoryTest extends TestCase {
      * <code>Exception</code>
      */
     public void testSetNotFound() throws Exception {
+
         /* check the initial state*/
         assertFalse(sourceDirectory.shouldThrowExceptionWhenNotFound());
 
@@ -273,6 +291,7 @@ public class SourceDirectoryTest extends TestCase {
      * <code>Exception</code>
      */
     public void testSetNotFound_illegalArguments() throws Exception {
+
         try {
             sourceDirectory.setNotFound("");
             fail("expected IllegalArgumentException");
@@ -304,6 +323,7 @@ public class SourceDirectoryTest extends TestCase {
      * <code>Exception</code>
      */
     public void testSetShouldThrowExceptionWhenNotFound() throws Exception {
+
         sourceDirectory.setShouldThrowExceptionWhenNotFound(true);
         assertTrue(sourceDirectory.shouldThrowExceptionWhenNotFound());
 
@@ -322,8 +342,12 @@ public class SourceDirectoryTest extends TestCase {
 
         if (File.separator.equals("\\")) {
 
-            assertEquals("src\\main\\resources", sourceDirectory.replaceBackslashForOS("src\\main\\resources"));
-            assertEquals("src\\main\\resources", sourceDirectory.replaceBackslashForOS("src/main/resources"));
+            assertEquals("src\\main\\resources",
+                    sourceDirectory.replaceBackslashForOS(
+                            "src\\main\\resources"));
+            assertEquals("src\\main\\resources",
+                    sourceDirectory.replaceBackslashForOS(
+                            "src/main/resources"));
         }
     }
 
@@ -338,8 +362,12 @@ public class SourceDirectoryTest extends TestCase {
 
         if (File.separator.equals("/")) {
 
-            assertEquals("src/main/resources", sourceDirectory.replaceBackslashForOS("src\\main\\resources"));
-            assertEquals("src/main/resources", sourceDirectory.replaceBackslashForOS("src/main/resources"));
+            assertEquals("src/main/resources",
+                    sourceDirectory.replaceBackslashForOS(
+                            "src\\main\\resources"));
+            assertEquals("src/main/resources",
+                    sourceDirectory.replaceBackslashForOS(
+                            "src/main/resources"));
         }
     }
 

@@ -32,27 +32,32 @@ import junit.framework.TestCase;
 public class CyclicRedundancyExceptionTest extends TestCase {
 
 
-    public CyclicRedundancyExceptionTest(String name) {
+    public CyclicRedundancyExceptionTest(final String name) {
         super(name);
     }
 
 
     public void testInterestingConstructors() {
-        CyclicRedundancyException exception;
-        String message;
-        Throwable cause;
+
+        final CyclicRedundancyException exception;
+        final String message;
+        final Throwable cause;
 
 
-        exception = new CyclicRedundancyException("com.seventytwomiles.dao", "com.seventytwomiles.dao.hibernate");
+        exception = new CyclicRedundancyException("com.seventytwomiles.dao",
+                "com.seventytwomiles.dao.hibernate");
         message = exception.getMessage();
         cause = exception.getCause();
 
-        assertEquals("'com.seventytwomiles.dao' is involved in an cyclically redundant dependency with 'com.seventytwomiles.dao.hibernate'", message);
+        assertEquals(
+                "'com.seventytwomiles.dao' is involved in an cyclically redundant dependency with 'com.seventytwomiles.dao.hibernate'",
+                message);
         assertEquals(null, cause);
     }
 
 
     public void testTypicalConstructors() {
+
         CyclicRedundancyException exception;
         String message;
         Throwable cause;
@@ -72,7 +77,8 @@ public class CyclicRedundancyExceptionTest extends TestCase {
         assertEquals(null, cause);
 
 
-        exception = new CyclicRedundancyException(new IllegalArgumentException());
+        exception = new CyclicRedundancyException(
+                new IllegalArgumentException());
         message = exception.getMessage();
         cause = exception.getCause();
 
@@ -80,7 +86,8 @@ public class CyclicRedundancyExceptionTest extends TestCase {
         assertTrue(cause instanceof IllegalArgumentException);
 
 
-        exception = new CyclicRedundancyException("cyclic redundancy found", new IllegalArgumentException());
+        exception = new CyclicRedundancyException("cyclic redundancy found",
+                new IllegalArgumentException());
         message = exception.getMessage();
         cause = exception.getCause();
 

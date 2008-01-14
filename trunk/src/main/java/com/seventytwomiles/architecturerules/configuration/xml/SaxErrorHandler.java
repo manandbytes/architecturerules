@@ -54,7 +54,8 @@ class SaxErrorHandler implements ErrorHandler {
     /**
      * @see ErrorHandler#fatalError(SAXParseException)
      */
-    public void fatalError(final SAXParseException exception) throws SAXException {
+    public void fatalError(final SAXParseException exception)
+            throws SAXException {
         log.error("fatal error", exception);
     }
 

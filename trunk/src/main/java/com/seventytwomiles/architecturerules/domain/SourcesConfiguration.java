@@ -20,8 +20,10 @@ package com.seventytwomiles.architecturerules.domain;
  */
 
 
+import com.seventytwomiles.architecturerules.configuration.ConfigurationFactory;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+
 
 
 /**
@@ -33,25 +35,27 @@ import org.apache.commons.logging.LogFactory;
 public class SourcesConfiguration {
 
 
-    private static final Log log = LogFactory.getLog(SourcesConfiguration.class);
+    private static final Log log
+            = LogFactory.getLog(SourcesConfiguration.class);
 
     /**
      * <p></p>
      *
      * @parameter noPackages String
-     * @see com.seventytwomiles.architecturerules.configuration.ConfigurationFactory#DEFAULT_NO_PACKAGES_CONFIGURATION_BOOLEAN_VALUE
+     * @see ConfigurationFactory#DEFAULT_NO_PACKAGES_CONFIGURATION_BOOLEAN_VALUE
      */
     private String noPackages = "ignore";
 
 
     /**
-     * <p>Instansiate a new SourcesConfiguration</p>
+     * <p>Instantiate a new SourcesConfiguration</p>
      */
     public SourcesConfiguration() {
     }
 
+
     /**
-     * <p>Instansiates a new SourcesConfiguration with the given
+     * <p>Instantiates a new SourcesConfiguration with the given
      * <tt>noPackages</tt> value.</p>
      *
      * @param noPackages String
@@ -59,6 +63,7 @@ public class SourcesConfiguration {
     public SourcesConfiguration(final String noPackages) {
         this.noPackages = noPackages;
     }
+
 
     /**
      * Getter for property 'noPackages'.

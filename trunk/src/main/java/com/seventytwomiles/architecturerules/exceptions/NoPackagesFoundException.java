@@ -76,7 +76,8 @@ public class NoPackagesFoundException extends RuntimeException {
     /**
      * @see RuntimeException#RuntimeException(String,Throwable)
      */
-    public NoPackagesFoundException(final String message, final Throwable cause) {
+    public NoPackagesFoundException(final String message,
+                                    final Throwable cause) {
         super(message, cause);
     }
 }

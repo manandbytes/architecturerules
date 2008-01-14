@@ -32,6 +32,7 @@ import java.util.Collection;
 import java.util.Iterator;
 
 
+
 /**
  * <p>Drives the tests by reading the configuration then asserting each defined
  * <code>Rule</code>.</p>
@@ -39,7 +40,8 @@ import java.util.Iterator;
  * @author mikenereson
  * @see AbstractArchitecturalRules
  */
-public class RulesServiceImpl extends AbstractArchitecturalRules implements RulesService {
+public class RulesServiceImpl extends AbstractArchitecturalRules
+        implements RulesService {
 
 
     /**
@@ -55,14 +57,15 @@ public class RulesServiceImpl extends AbstractArchitecturalRules implements Rule
      * all the configured sources</p>
      *
      * @param configuration Configuration
-     * @throws SourceNotFoundException  when an required source directory does
-     *                                  not exist and when <tt>exception</tt>=<tt>"true"</tt>
-     *                                  in the source configuration
+     * @throws SourceNotFoundException when an required source directory does
+     * not exist and when <tt>exception</tt>=<tt>"true"</tt> in the source
+     * configuration
      * @throws NoPackagesFoundException when none of the source directories
-     *                                  exist and <tt>no-packages</tt>="<tt>ignore</tt>"
-     *                                  in the sources configuration
+     * exist and <tt>no-packages</tt>="<tt>ignore</tt>" in the sources
+     * configuration
      */
-    public RulesServiceImpl(final Configuration configuration) throws SourceNotFoundException, NoPackagesFoundException {
+    public RulesServiceImpl(final Configuration configuration)
+            throws SourceNotFoundException, NoPackagesFoundException {
 
         super(configuration);
 
@@ -106,7 +109,8 @@ public class RulesServiceImpl extends AbstractArchitecturalRules implements Rule
             rule = (Rule) ruleIterator.next();
 
             log.info("checking rule " + rule.getId());
-            log.debug("checking for dependency violations in " + rule.describePackages());
+            log.debug(
+                    "checking for dependency violations in " + rule.describePackages());
 
             try {
 
@@ -122,7 +126,8 @@ public class RulesServiceImpl extends AbstractArchitecturalRules implements Rule
             } catch (final DependencyConstraintException e) {
 
                 /* just creates a more descriptive message which identifies the rule by its id */
-                throw new DependencyConstraintException("rule " + rule.getId() + " failed: " + e.getMessage());
+                throw new DependencyConstraintException(
+                        "rule " + rule.getId() + " failed: " + e.getMessage());
             }
 
             log.debug("no dependency violations in " + rule.getPackages());

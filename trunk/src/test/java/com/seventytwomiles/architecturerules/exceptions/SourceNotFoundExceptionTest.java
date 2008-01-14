@@ -36,15 +36,16 @@ import java.util.HashSet;
 public class SourceNotFoundExceptionTest extends TestCase {
 
 
-    public SourceNotFoundExceptionTest(String name) {
+    public SourceNotFoundExceptionTest(final String name) {
         super(name);
     }
 
 
     public void testInterestingConstructors() {
-        SourceNotFoundException exception;
-        String message;
-        Throwable cause;
+
+        final SourceNotFoundException exception;
+        final String message;
+        final Throwable cause;
 
         final Collection sourceDirectories = new HashSet();
         sourceDirectories.add(new SourceDirectory("core/target/classes"));
@@ -95,7 +96,8 @@ public class SourceNotFoundExceptionTest extends TestCase {
         assertTrue(cause instanceof IllegalArgumentException);
 
 
-        exception = new SourceNotFoundException("no source classes found", new IllegalArgumentException());
+        exception = new SourceNotFoundException("no source classes found",
+                new IllegalArgumentException());
         message = exception.getMessage();
         cause = exception.getCause();
 

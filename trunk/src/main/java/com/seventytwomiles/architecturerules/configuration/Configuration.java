@@ -30,13 +30,14 @@ import java.util.Collection;
 import java.util.HashSet;
 
 
+
 /**
  * <p>An instance of <code>Configuration</code> allows the application to
  * specifiy where the source directories are, what rules to test against and
  * under what conditions should an <code>Exception</code> be thrown.</p>
  *
  * <p>This <code>Configuration</code> may be loaded by configuration from an XML
- * file in the classpath, through programmaticconfigurationn, or both.</p>
+ * file in the classpath, through programmatic configurationn, or both.</p>
  *
  * @author mikenereson
  * @see ConfigurationFactory
@@ -79,6 +80,7 @@ public class Configuration {
      */
     boolean doCyclicDependencyTest;
 
+
     /**
      * <p>Getter for property {@link #rules}.</p>
      *
@@ -102,9 +104,12 @@ public class Configuration {
     /**
      * <p>Setter for property {@link #doCyclicDependencyTest}.</p>
      *
-     * @param doCyclicDependencyTest Value to set for property <tt>doCyclicDependencyTest</tt>.
+     * @param doCyclicDependencyTest Value to set for property
+     * <tt>doCyclicDependencyTest</tt>.
      */
-    public void setDoCyclicDependencyTest(final boolean doCyclicDependencyTest) {
+    public void setDoCyclicDependencyTest(
+            final boolean doCyclicDependencyTest) {
+
         this.doCyclicDependencyTest = doCyclicDependencyTest;
     }
 
@@ -113,9 +118,11 @@ public class Configuration {
      * <p>Setter for property {@link #throwExceptionWhenNoPackages}.</p>
      *
      * @param throwExceptionWhenNoPackages Value to set for property
-     *                                     <tt>throwExceptionWhenNoPackages</tt>.
+     * <tt>throwExceptionWhenNoPackages</tt>.
      */
-    public void setThrowExceptionWhenNoPackages(final boolean throwExceptionWhenNoPackages) {
+    public void setThrowExceptionWhenNoPackages(
+            final boolean throwExceptionWhenNoPackages) {
+
         this.throwExceptionWhenNoPackages = throwExceptionWhenNoPackages;
     }
 
@@ -133,12 +140,18 @@ public class Configuration {
         Assert.assertNotNull("rule can not be null", rule);
 
         Assert.assertNotNull("rule id can not be null", rule.getId());
-        Assert.assertFalse("rule id must not be empty", rule.getId().equals(""));
 
-        Assert.assertNotNull("rule packages can not be null", rule.getPackages());
-        Assert.assertFalse("rule packages must not be empty", rule.getPackages().isEmpty());
+        final String id = rule.getId();
+        Assert.assertFalse("rule id must not be empty", id.equals(""));
 
-        Assert.assertFalse("rule violations must not be empty", rule.getViolations().isEmpty());
+        final Collection packages = rule.getPackages();
+        Assert.assertNotNull("rule packages can not be null", packages);
+
+        Assert.assertFalse("rule packages must not be empty",
+                rule.getPackages().isEmpty());
+
+        Assert.assertFalse("rule violations must not be empty",
+                rule.getViolations().isEmpty());
 
         return rules.add(rule);
     }
@@ -147,12 +160,14 @@ public class Configuration {
     public boolean addSource(final SourceDirectory sourceDirectory) {
 
         if (sourceDirectory == null)
-            throw new IllegalArgumentException("sourceDirectory can not be null");
+            throw new IllegalArgumentException(
+                    "sourceDirectory can not be null");
 
         final String path = sourceDirectory.getPath();
 
         if (path == null || path.equals(""))
-            throw new IllegalArgumentException("sourceDirectory.path can not be empty or null");
+            throw new IllegalArgumentException(
+                    "sourceDirectory.path can not be empty or null");
 
         return sources.add(sourceDirectory);
     }

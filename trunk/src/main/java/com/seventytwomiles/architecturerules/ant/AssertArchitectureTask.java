@@ -32,6 +32,7 @@ import org.apache.tools.ant.BuildException;
 import org.apache.tools.ant.Task;
 
 
+
 /**
  * <p>Ant task to assert architecture.</p>
  *
@@ -74,7 +75,8 @@ public class AssertArchitectureTask extends Task {
     /**
      * Setter for property 'configurationFileName'.
      *
-     * @param configurationFileName Value to set for property 'configurationFileName'.
+     * @param configurationFileName Value to set for property
+     * 'configurationFileName'.
      */
     public void setConfigurationFileName(final String configurationFileName) {
         this.configurationFileName = configurationFileName;
@@ -90,7 +92,8 @@ public class AssertArchitectureTask extends Task {
         super.execute();
 
         if (null == configurationFileName || "".equals(configurationFileName))
-            throw new IllegalStateException("set configurationFileName property");
+            throw new IllegalStateException(
+                    "set configurationFileName property");
 
         /**
          * 1. load configuration
@@ -99,15 +102,23 @@ public class AssertArchitectureTask extends Task {
                 = new DigesterConfigurationFactory(configurationFileName);
 
         configuration.getRules().addAll(configurationFactory.getRules());
+
         configuration.getSources().addAll(configurationFactory.getSources());
-        configuration.setDoCyclicDependencyTest(configurationFactory.doCyclicDependencyTest());
-        configuration.setThrowExceptionWhenNoPackages(configurationFactory.throwExceptionWhenNoPackages());
+
+        configuration.setDoCyclicDependencyTest(
+                configurationFactory.doCyclicDependencyTest());
+
+        configuration.setThrowExceptionWhenNoPackages(
+                configurationFactory.throwExceptionWhenNoPackages());
 
         /**
          * 2. assert configuration rules
          */
+        UnmodifiableConfiguration unmodifiableConfiguration
+                = new UnmodifiableConfiguration(configuration);
+
         final RulesService rulesService;
-        rulesService = new RulesServiceImpl(new UnmodifiableConfiguration(configuration));
+        rulesService = new RulesServiceImpl(unmodifiableConfiguration);
         rulesService.performRulesTest();
 
         /**
@@ -115,7 +126,15 @@ public class AssertArchitectureTask extends Task {
          */
         if (configuration.shouldDoCyclicDependencyTest()) {
 
-            final CyclicRedundancyService redundancyService = new CyclicRedundancyServiceImpl(new UnmodifiableConfiguration(configuration));
+            unmodifiableConfiguration
+                    = new UnmodifiableConfiguration(configuration);
+
+            final CyclicRedundancyService redundancyService;
+
+            redundancyService
+                    = new CyclicRedundancyServiceImpl(
+                    unmodifiableConfiguration);
+
             redundancyService.performCyclicRedundancyCheck();
         }
     }

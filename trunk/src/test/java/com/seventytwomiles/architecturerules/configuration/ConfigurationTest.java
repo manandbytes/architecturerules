@@ -48,13 +48,14 @@ public class ConfigurationTest extends TestCase {
      *
      * @param name String name to give test
      */
-    public ConfigurationTest(String name) {
+    public ConfigurationTest(final String name) {
         super(name);
     }
 
 
     public void addSource() {
-        assertTrue(configuration.addSource(new SourceDirectory("core/target/classes")));
+        assertTrue(configuration.addSource(
+                new SourceDirectory("core/target/classes")));
         assertEquals(1, configuration.getSources().size());
     }
 
@@ -106,7 +107,7 @@ public class ConfigurationTest extends TestCase {
         /* is empty by default */
         assertTrue(configuration.getRules().isEmpty());
 
-        Rule rule;
+        final Rule rule;
 
         rule = new Rule("dao", "com.seventytwomiles.dao");
         rule.addViolation("com.seventytwomiles.web.controllers");
@@ -159,7 +160,8 @@ public class ConfigurationTest extends TestCase {
             configuration.addRule(rule);
             fail("expected AssertionFailedError");
         } catch (AssertionFailedError e) {
-            assertTrue(e.getMessage().indexOf("rule packages must not be empty") > -1);
+            assertTrue(e.getMessage()
+                    .indexOf("rule packages must not be empty") > -1);
         }
 
         try {
@@ -168,7 +170,8 @@ public class ConfigurationTest extends TestCase {
             fail("expected AssertionFailedError");
         } catch (AssertionFailedError e) {
             final String message = e.getMessage();
-            assertTrue(message.indexOf("rule violations must not be empty") > -1);
+            assertTrue(
+                    message.indexOf("rule violations must not be empty") > -1);
         }
     }
 
@@ -184,7 +187,7 @@ public class ConfigurationTest extends TestCase {
         assertTrue(configuration.getRules().isEmpty());
 
         /* construct a new Rule and add to configuration */
-        Rule rule = new Rule("dao", "com.seventytwomiles.dao");
+        final Rule rule = new Rule("dao", "com.seventytwomiles.dao");
         rule.addViolation("com.seventytwomiles.web.controllers");
 
         assertTrue(configuration.addRule(rule));

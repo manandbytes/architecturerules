@@ -38,19 +38,24 @@ import java.util.List;
 public class DigesterConfigurationFactoryTest extends AbstractDigesterTest {
 
 
-    public DigesterConfigurationFactoryTest(String name) {
+    public DigesterConfigurationFactoryTest(final String name) {
         super(name);
     }
 
 
     public void testConstructor_invalidFilePath() throws Exception {
+
         try {
+
             new DigesterConfigurationFactory("this_file_does_not_exist.xml");
             fail("expected IllegalArgumentException");
+
         } catch (final Exception e) {
+
             assertTrue(e instanceof IllegalArgumentException);
-            assertEquals("could not load resource this_file_does_not_exist.xml " +
-                    "from classpath. File not found.", e.getMessage());
+            assertEquals(
+                    "could not load resource this_file_does_not_exist.xml " +
+                            "from classpath. File not found.", e.getMessage());
         }
     }
 
@@ -58,43 +63,56 @@ public class DigesterConfigurationFactoryTest extends AbstractDigesterTest {
     public void testProcessCyclicDependencyConfiguration() throws Exception {
 
         /* assert starting state */
-        DigesterConfigurationFactory factory = new DigesterConfigurationFactory();
+        DigesterConfigurationFactory factory
+                = new DigesterConfigurationFactory();
         assertTrue(factory.doCyclicDependencyTest());
 
         factory = new DigesterConfigurationFactory();
-        factory.processCyclicDependencyConfiguration(skipCyclicDependencyTestConfiguration);
+        factory.processCyclicDependencyConfiguration(
+                skipCyclicDependencyTestConfiguration);
         assertFalse(factory.doCyclicDependencyTest());
 
-        factory.processCyclicDependencyConfiguration(doCyclicDependencyTestConfiguration);
+        factory.processCyclicDependencyConfiguration(
+                doCyclicDependencyTestConfiguration);
         assertTrue(factory.doCyclicDependencyTest());
 
         factory = new DigesterConfigurationFactory();
-        factory.processCyclicDependencyConfiguration(blankCyclicDependencyTestConfiguration);
+        factory.processCyclicDependencyConfiguration(
+                blankCyclicDependencyTestConfiguration);
         assertTrue(factory.doCyclicDependencyTest());
     }
 
 
-    public void testProcessCyclicDependencyConfiguration_invalid() throws Exception {
-        DigesterConfigurationFactory factory = new DigesterConfigurationFactory();
+    public void testProcessCyclicDependencyConfiguration_invalid()
+            throws Exception {
+        final DigesterConfigurationFactory factory
+                = new DigesterConfigurationFactory();
 
         try {
-            factory.processCyclicDependencyConfiguration(illegalCyclicDependencyTestConfiguration);
+
+            factory.processCyclicDependencyConfiguration(
+                    illegalCyclicDependencyTestConfiguration);
             fail("expected InvalidConfigurationException");
+
         } catch (final Exception e) {
+
             assertTrue(e instanceof InvalidConfigurationException);
-            assertEquals("'INVALID' is not a valid value for cyclicalDependency " +
-                    "configuration. Use <cyclicalDependency test=\"true\"/> " +
-                    "or <cyclicalDependency test=\"false\"/>", e.getMessage());
+            assertEquals(
+                    "'INVALID' is not a valid value for cyclicalDependency " +
+                            "configuration. Use <cyclicalDependency test=\"true\"/> " +
+                            "or <cyclicalDependency test=\"false\"/>",
+                    e.getMessage());
         }
     }
 
 
     public void testProcessRules() throws Exception {
-        DigesterConfigurationFactory factory = new DigesterConfigurationFactory();
+        final DigesterConfigurationFactory factory
+                = new DigesterConfigurationFactory();
 
         factory.processRules(rulesXmlConfiguration);
 
-        List rules = new ArrayList();
+        final List rules = new ArrayList();
         rules.addAll(factory.getRules());
 
         assertEquals(2, rules.size());
@@ -108,20 +126,28 @@ public class DigesterConfigurationFactoryTest extends AbstractDigesterTest {
         assertEquals("model", rule0.getId());
 
         /* comment */
-        assertEquals("Model should remain completely isolated", rule0.getComment());
+        assertEquals("Model should remain completely isolated",
+                rule0.getComment());
 
         /* packages */
         assertEquals(1, rule0.getPackages().size());
-        assertEquals("com.seventytwomiles.pagerank.core.model", rule0.getPackages().toArray()[0].toString());
+        assertEquals("com.seventytwomiles.pagerank.core.model",
+                rule0.getPackages().toArray()[0].toString());
 
         /* violations */
         assertEquals(6, rule0.getViolations().size());
-        assertEquals("com.seventytwomiles.pagerank.core.services", rule0.getViolations().toArray()[0].toString());
-        assertEquals("com.seventytwomiles.pagerank.core.builder", rule0.getViolations().toArray()[1].toString());
-        assertEquals("com.seventytwomiles.pagerank.core.dao", rule0.getViolations().toArray()[2].toString());
-        assertEquals("com.seventytwomiles.pagerank.core.strategy", rule0.getViolations().toArray()[3].toString());
-        assertEquals("com.seventytwomiles.pagerank.core.dao.hibernate", rule0.getViolations().toArray()[4].toString());
-        assertEquals("com.seventytwomiles.pagerank.util", rule0.getViolations().toArray()[5].toString());
+        assertEquals("com.seventytwomiles.pagerank.core.services",
+                rule0.getViolations().toArray()[0].toString());
+        assertEquals("com.seventytwomiles.pagerank.core.builder",
+                rule0.getViolations().toArray()[1].toString());
+        assertEquals("com.seventytwomiles.pagerank.core.dao",
+                rule0.getViolations().toArray()[2].toString());
+        assertEquals("com.seventytwomiles.pagerank.core.strategy",
+                rule0.getViolations().toArray()[3].toString());
+        assertEquals("com.seventytwomiles.pagerank.core.dao.hibernate",
+                rule0.getViolations().toArray()[4].toString());
+        assertEquals("com.seventytwomiles.pagerank.util",
+                rule0.getViolations().toArray()[5].toString());
 
         /**
          * Validate values of the second Rule
@@ -132,18 +158,24 @@ public class DigesterConfigurationFactoryTest extends AbstractDigesterTest {
         assertEquals("dao", rule1.getId());
 
         /* comment */
-        assertEquals("The dao interface package should rely on nothing.", rule1.getComment());
+        assertEquals("The dao interface package should rely on nothing.",
+                rule1.getComment());
 
         /* packages */
         assertEquals(2, rule1.getPackages().size());
-        assertEquals("com.seventytwomiles.pagerank.core.dao", rule1.getPackages().toArray()[0].toString());
-        assertEquals("com.seventytwomiles.pagerank.core.dao.hibernate", rule1.getPackages().toArray()[1].toString());
+        assertEquals("com.seventytwomiles.pagerank.core.dao",
+                rule1.getPackages().toArray()[0].toString());
+        assertEquals("com.seventytwomiles.pagerank.core.dao.hibernate",
+                rule1.getPackages().toArray()[1].toString());
 
         /* violations */
         assertEquals(3, rule1.getViolations().size());
-        assertEquals("com.seventytwomiles.pagerank.core.services", rule1.getViolations().toArray()[0].toString());
-        assertEquals("com.seventytwomiles.pagerank.core.builder", rule1.getViolations().toArray()[1].toString());
-        assertEquals("com.seventytwomiles.pagerank.util", rule1.getViolations().toArray()[2].toString());
+        assertEquals("com.seventytwomiles.pagerank.core.services",
+                rule1.getViolations().toArray()[0].toString());
+        assertEquals("com.seventytwomiles.pagerank.core.builder",
+                rule1.getViolations().toArray()[1].toString());
+        assertEquals("com.seventytwomiles.pagerank.util",
+                rule1.getViolations().toArray()[2].toString());
     }
 
 
@@ -154,59 +186,78 @@ public class DigesterConfigurationFactoryTest extends AbstractDigesterTest {
      */
     public void testProcessSources() throws Exception {
 
-        DigesterConfigurationFactory factory = new DigesterConfigurationFactory();
+        final DigesterConfigurationFactory factory
+                = new DigesterConfigurationFactory();
 
         factory.processSources(sourcesXmlConfiguration);
 
-        List sources = new ArrayList();
+        final List sources = new ArrayList();
         sources.addAll(factory.getSources());
 
         assertEquals(4, sources.size());
 
         final SourceDirectory source0 = (SourceDirectory) sources.get(0);
-        assertEquals("core" + File.separator + "target" + File.separator + "classes", source0.getPath());
+        assertEquals(
+                "core" + File.separator + "target" + File.separator + "classes",
+                source0.getPath());
         assertFalse(source0.shouldThrowExceptionWhenNotFound());
 
         final SourceDirectory source1 = (SourceDirectory) sources.get(1);
-        assertEquals("util" + File.separator + "target" + File.separator + "classes", source1.getPath());
+        assertEquals(
+                "util" + File.separator + "target" + File.separator + "classes",
+                source1.getPath());
         assertTrue(source1.shouldThrowExceptionWhenNotFound());
 
         final SourceDirectory source2 = (SourceDirectory) sources.get(2);
-        assertEquals("parent-pom" + File.separator + "target" + File.separator + "classes", source2.getPath());
+        assertEquals(
+                "parent-pom" + File.separator + "target" + File.separator + "classes",
+                source2.getPath());
         assertFalse(source2.shouldThrowExceptionWhenNotFound());
 
         final SourceDirectory source3 = (SourceDirectory) sources.get(3);
-        assertEquals("web" + File.separator + "target" + File.separator + "classes", source3.getPath());
+        assertEquals(
+                "web" + File.separator + "target" + File.separator + "classes",
+                source3.getPath());
         assertFalse(source3.shouldThrowExceptionWhenNotFound());
     }
 
 
     public void testProcessSourcesNotFoundConfiguration() throws Exception {
         /* assert starting state */
-        DigesterConfigurationFactory factory = new DigesterConfigurationFactory();
+        DigesterConfigurationFactory factory
+                = new DigesterConfigurationFactory();
         assertFalse(factory.throwExceptionWhenNoPackages());
 
         factory = new DigesterConfigurationFactory();
-        factory.processSourcesNotFoundConfiguration(noPackagesIgnoreConfiguration);
+        factory.processSourcesNotFoundConfiguration(
+                noPackagesIgnoreConfiguration);
         assertFalse(factory.throwExceptionWhenNoPackages());
 
         factory = new DigesterConfigurationFactory();
-        factory.processSourcesNotFoundConfiguration(noPackagesExceptionConfiguration);
+        factory.processSourcesNotFoundConfiguration(
+                noPackagesExceptionConfiguration);
         assertTrue(factory.throwExceptionWhenNoPackages());
 
         factory = new DigesterConfigurationFactory();
-        factory.processSourcesNotFoundConfiguration(noPackagesBlankConfiguration);
+        factory.processSourcesNotFoundConfiguration(
+                noPackagesBlankConfiguration);
         assertFalse(factory.throwExceptionWhenNoPackages());
     }
 
 
-    public void testProcessSourcesNotFoundConfiguration_invalid() throws Exception {
-        DigesterConfigurationFactory factory = new DigesterConfigurationFactory();
+    public void testProcessSourcesNotFoundConfiguration_invalid()
+            throws Exception {
+        final DigesterConfigurationFactory factory
+                = new DigesterConfigurationFactory();
 
         try {
-            factory.processSourcesNotFoundConfiguration(noPackagesInvalidConfiguration);
+
+            factory.processSourcesNotFoundConfiguration(
+                    noPackagesInvalidConfiguration);
             fail("expected InvalidConfigurationException");
+
         } catch (final Exception e) {
+
             assertTrue(e instanceof InvalidConfigurationException);
             assertEquals("'INVLALID' is not a valid value for the sources " +
                     "no-packages configuration. Use <sources no-packages=\"ignore\">, " +

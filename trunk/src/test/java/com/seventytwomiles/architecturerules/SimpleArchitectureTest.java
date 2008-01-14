@@ -25,13 +25,15 @@ package com.seventytwomiles.architecturerules;
  * @author mikenereson
  * @see AbstractArchitectureRulesConfigurationTest
  */
-public class SimpleArchitectureTest extends AbstractArchitectureRulesConfigurationTest {
+public class SimpleArchitectureTest
+        extends AbstractArchitectureRulesConfigurationTest {
 
 
     /**
      * @see AbstractArchitectureRulesConfigurationTest
      */
     public String getConfigurationFileName() {
+
         /**
          * Provide the name of the rules configuration file. File file is
          * loaded from the classpath.
@@ -44,6 +46,7 @@ public class SimpleArchitectureTest extends AbstractArchitectureRulesConfigurati
      * @see AbstractArchitectureRulesConfigurationTest#testArchitecture()
      */
     public void testArchitecture() {
+
         /**
          * Run the test via doTest(). If any rules are broken, or if
          * the configuration can not be loaded properly, then the appropriate

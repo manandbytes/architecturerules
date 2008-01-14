@@ -33,12 +33,13 @@ import junit.framework.TestCase;
 public class DependencyConstraintExceptionTest extends TestCase {
 
 
-    public DependencyConstraintExceptionTest(String name) {
+    public DependencyConstraintExceptionTest(final String name) {
         super(name);
     }
 
 
     public void testInterestingConstructors() {
+
         DependencyConstraintException exception;
         String message;
         Throwable cause;
@@ -49,19 +50,25 @@ public class DependencyConstraintExceptionTest extends TestCase {
         assertTrue(rule.addPackage("com.seventytwomiles.dao"));
         rule.addViolation("com.seventytwomiles.web.controllers");
 
-        exception = new DependencyConstraintException(rule.getId(), rule.describePackages(), null);
+        exception = new DependencyConstraintException(rule.getId(),
+                rule.describePackages(), null);
         message = exception.getMessage();
         cause = exception.getCause();
 
-        assertEquals("dependency constraint failed in 'dao' rule which constrains packages 'com.seventytwomiles.dao'", message);
+        assertEquals(
+                "dependency constraint failed in 'dao' rule which constrains packages 'com.seventytwomiles.dao'",
+                message);
         assertEquals(null, cause);
 
 
-        exception = new DependencyConstraintException(rule.getId(), rule.describePackages(), new IllegalArgumentException());
+        exception = new DependencyConstraintException(rule.getId(),
+                rule.describePackages(), new IllegalArgumentException());
         message = exception.getMessage();
         cause = exception.getCause();
 
-        assertEquals("dependency constraint failed in 'dao' rule which constrains packages 'com.seventytwomiles.dao'", message);
+        assertEquals(
+                "dependency constraint failed in 'dao' rule which constrains packages 'com.seventytwomiles.dao'",
+                message);
         assertTrue(cause instanceof IllegalArgumentException);
     }
 
@@ -84,7 +91,8 @@ public class DependencyConstraintExceptionTest extends TestCase {
         assertEquals("dependency constraint", message);
         assertEquals(null, cause);
 
-        exception = new DependencyConstraintException("dependency constraint violated");
+        exception = new DependencyConstraintException(
+                "dependency constraint violated");
         message = exception.getMessage();
         cause = exception.getCause();
 
@@ -92,7 +100,8 @@ public class DependencyConstraintExceptionTest extends TestCase {
         assertEquals(null, cause);
 
 
-        exception = new DependencyConstraintException(new IllegalArgumentException());
+        exception = new DependencyConstraintException(
+                new IllegalArgumentException());
         message = exception.getMessage();
         cause = exception.getCause();
 
@@ -100,7 +109,9 @@ public class DependencyConstraintExceptionTest extends TestCase {
         assertTrue(cause instanceof IllegalArgumentException);
 
 
-        exception = new DependencyConstraintException("dependency constraint violated", new IllegalArgumentException());
+        exception = new DependencyConstraintException(
+                "dependency constraint violated",
+                new IllegalArgumentException());
         message = exception.getMessage();
         cause = exception.getCause();
 

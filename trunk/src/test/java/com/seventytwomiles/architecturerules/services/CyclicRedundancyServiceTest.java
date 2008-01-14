@@ -38,17 +38,19 @@ public class CyclicRedundancyServiceTest extends TestCase {
 
     private CyclicRedundancyService cyclicRedundancyService;
     private Configuration configuration = new Configuration();
-    private final SourceDirectory testClassesSourceDirectory = new SourceDirectory("target\\test-classes", true);
+    private final SourceDirectory testClassesSourceDirectory
+            = new SourceDirectory("target\\test-classes", true);
     private final Rule controllerRule = new Rule();
     private final Rule modelRule = new Rule();
 
 
-    public CyclicRedundancyServiceTest(String name) {
+    public CyclicRedundancyServiceTest(final String name) {
         super(name);
     }
 
 
     public void setUp() throws Exception {
+
         super.setUp();
 
         configuration.addSource(testClassesSourceDirectory);
@@ -72,11 +74,13 @@ public class CyclicRedundancyServiceTest extends TestCase {
 
         configuration.setThrowExceptionWhenNoPackages(true);
 
-        cyclicRedundancyService = new CyclicRedundancyServiceImpl(configuration);
+        cyclicRedundancyService = new CyclicRedundancyServiceImpl(
+                configuration);
     }
 
 
     public void tearDown() throws Exception {
+
         cyclicRedundancyService = null;
         configuration = null;
 
@@ -85,6 +89,7 @@ public class CyclicRedundancyServiceTest extends TestCase {
 
 
     public void testPerformCyclicRedundancyCheck() throws Exception {
+
         final String expected =
                 "cyclic dependencies found:\n" +
                         "\n" +
@@ -117,9 +122,12 @@ public class CyclicRedundancyServiceTest extends TestCase {
                         "\t";
 
         try {
+
             cyclicRedundancyService.performCyclicRedundancyCheck();
             fail("expected CyclicRedundancyException");
+
         } catch (final CyclicRedundancyException e) {
+
             final String message = e.getMessage().replaceAll("\r", "");
 
             // assertTrue(expected.equals(message));
@@ -127,9 +135,15 @@ public class CyclicRedundancyServiceTest extends TestCase {
             /**
              * ..services depends on ..model and ..dao.hibernate.
              */
-            assertTrue("expected violation at test.com.seventytwomiles.services", message.indexOf("test.com.seventytwomiles.services") > -1);
-            assertTrue("expected violation at test.com.seventytwomiles.model", message.indexOf("test.com.seventytwomiles.model") > -1);
-            assertTrue("expected violation at test.com.seventytwomiles.dao.hibernate", message.indexOf("test.com.seventytwomiles.dao.hibernate") > -1);
+            assertTrue(
+                    "expected violation at test.com.seventytwomiles.services",
+                    message.indexOf("test.com.seventytwomiles.services") > -1);
+            assertTrue("expected violation at test.com.seventytwomiles.model",
+                    message.indexOf("test.com.seventytwomiles.model") > -1);
+            assertTrue(
+                    "expected violation at test.com.seventytwomiles.dao.hibernate",
+                    message.indexOf(
+                            "test.com.seventytwomiles.dao.hibernate") > -1);
         }
     }
 }

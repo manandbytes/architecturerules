@@ -31,6 +31,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 
 
+
 /**
  * <p>Represents a <code>Rule</code> that may not be violoated.</p>
  *
@@ -74,6 +75,7 @@ public class Rule {
      */
     private final Collection violations = new HashSet();
 
+
     /**
      * <p>Constructs a new Rule.</p>
      */
@@ -98,10 +100,10 @@ public class Rule {
      * <p>This constructor is to provide some sense of backwards compatibility
      * with the releases in series 1 (1.0 and 1.1)</p>
      *
-     * @param id          sets the {@link #id}
+     * @param id sets the {@link #id}
      * @param packageName a {@link @packages} to assert on.
      */
-    public Rule(final String id, String packageName) {
+    public Rule(final String id, final String packageName) {
 
         setId(id);
         addPackage(packageName);
@@ -109,7 +111,7 @@ public class Rule {
 
 
     /**
-     * <p>Adds a package to the Packges collection.</p>
+     * <p>Adds a package to the Packages collection.</p>
      *
      * @param packageName String
      * @return boolean <tt>true</tt> when the package is actually added to the
@@ -119,7 +121,8 @@ public class Rule {
     public boolean addPackage(final String packageName) {
 
         Assert.assertNotNull("null packageName can not be added", packageName);
-        Assert.assertFalse("empty packageName can not be added", packageName.equals(""));
+        Assert.assertFalse("empty packageName can not be added",
+                packageName.equals(""));
 
         if (violations.contains(packageName))
             throw new IllegalArchitectureRuleException(
@@ -221,18 +224,20 @@ public class Rule {
      * <p>Add a new violation to this <code>Rule</code>.</p>
      *
      * @param violation String a package this this Rule's package may NOT depend
-     *                  upon
+     * upon
      * @return boolean <tt>true</tt> if the violation is added to the List of
      *         violations. <tt>false</tt> would be returned if the violation
      *         could not be added to the List.
-     * @throws IllegalArchitectureRuleException
-     *          a RuntimeException when the violation could not be added because
-     *          the violation is one of the packages being checked.
+     * @throws IllegalArchitectureRuleException a RuntimeException when the
+     * violation could not be added because the violation is one of the packages
+     * being checked.
      */
     public boolean addViolation(final String violation) {
 
         Assert.assertNotNull("null violation can not be added", violation);
-        Assert.assertFalse("empty violation can not be added", violation.equals(""));
+
+        Assert.assertFalse("empty violation can not be added",
+                violation.equals(""));
 
         if (packages.contains(violation))
             throw new IllegalArchitectureRuleException(
@@ -259,7 +264,7 @@ public class Rule {
      * <p>Describes the properties of this rule in an xml-like format.</p>
      *
      * @param outputToConsole boolean <tt>true</tt> to output the description to
-     *                        the console
+     * the console
      * @return String of xml that describes this <code>Rule</code>.
      */
     private String describe(final boolean outputToConsole) {
@@ -267,9 +272,24 @@ public class Rule {
         final StringBuffer stringBuilder = new StringBuffer();
 
         stringBuilder.append("<rule>").append("\r\n");
-        stringBuilder.append("\t").append("<id>").append(id).append("</id>").append("\r\n");
-        stringBuilder.append("\t").append("<packages>").append(packages).append("</packages>").append("\r\n");
-        stringBuilder.append("\t").append("<comment>").append(comment).append("</comment>").append("\r\n");
+        stringBuilder.append("\t")
+                .append("<id>")
+                .append(id)
+                .append("</id>")
+                .append("\r\n");
+
+        stringBuilder.append("\t")
+                .append("<packages>")
+                .append(packages)
+                .append("</packages>")
+                .append("\r\n");
+
+        stringBuilder.append("\t")
+                .append("<comment>")
+                .append(comment)
+                .append("</comment>")
+                .append("\r\n");
+
         stringBuilder.append("\t").append("<violations>").append("\r\n");
 
         for (Iterator violationIterator = violations.iterator();
@@ -311,7 +331,8 @@ public class Rule {
 
         for (int i = 0; i < totalPackages; i++) {
 
-            String packageName = (String) packagesArray[i];
+            final String packageName = (String) packagesArray[i];
+
             packagesDescription
                     .append(packageName.trim())
                     .append(" ");
@@ -336,9 +357,8 @@ public class Rule {
      *
      * @return Collection unmodifiable
      * @throws UnsupportedOperationException when <code>getViolations.add(Object)</code>
-     *                                       or <code>getViolations.remove(Object)</code>
-     *                                       is called. Use {@link #addViolation}
-     *                                       and {@link #removeViolation}.
+     * or <code>getViolations.remove(Object)</code> is called. Use {@link
+     * #addViolation} and {@link #removeViolation}.
      */
     public Collection getViolations() {
         return Collections.unmodifiableCollection(violations);
@@ -349,14 +369,16 @@ public class Rule {
      * <p>Remove a violation from this Rule.</p>
      *
      * @param violation String a package this this Rule's package should not
-     *                  test on
+     * test on
      * @return boolean <tt>true</tt> if the violation is removed from the List
      *         of violations
      */
     public boolean removeViolation(final String violation) {
 
         Assert.assertNotNull("null violation can not be removed", violation);
-        Assert.assertFalse("empty violation can not be removed", violation.equals(""));
+
+        Assert.assertFalse("empty violation can not be removed",
+                violation.equals(""));
 
         return violations.remove(violation);
     }

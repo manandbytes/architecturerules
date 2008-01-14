@@ -80,8 +80,8 @@ public class RuleTest extends TestCase {
      * <code>Exception</code>
      */
     public void testAddGetViolations() throws Exception {
-        assertEquals(0, rule.getViolations().size());
 
+        assertEquals(0, rule.getViolations().size());
 
         assertTrue(rule.addViolation("com.seventytwomiles.dao"));
         assertEquals(1, rule.getViolations().size());
@@ -97,7 +97,8 @@ public class RuleTest extends TestCase {
         assertEquals(1, rule.getViolations().size());
 
 
-        assertFalse(rule.removeViolation("com.seventytwomiles.package.does.not.exist"));
+        assertFalse(rule.removeViolation(
+                "com.seventytwomiles.package.does.not.exist"));
         assertEquals(1, rule.getViolations().size());
     }
 
@@ -110,6 +111,7 @@ public class RuleTest extends TestCase {
      * <code>Exception</code>
      */
     public void testAddGetViolations_illegalArguments() throws Exception {
+
         try {
             rule.addViolation("");
             fail("expected AssertionFailedError because violation can not be null");
@@ -180,7 +182,7 @@ public class RuleTest extends TestCase {
         rule = new Rule("web", "com.seventytwomiles.web");
         rule.addViolation("com.seventytwomiles.dao");
 
-        String description = rule.describe();
+        final String description = rule.describe();
 
         assertTrue(description.indexOf("web") > -1);
         assertTrue(description.indexOf("com.seventytwomiles.web") > -1);
@@ -221,7 +223,8 @@ public class RuleTest extends TestCase {
     }
 
 
-    public void testInterestingConstructors_illegalArguments() throws Exception {
+    public void testInterestingConstructors_illegalArguments()
+            throws Exception {
         try {
             rule = new Rule(null);
             fail("expected AssertionFailedError because id can not be null");

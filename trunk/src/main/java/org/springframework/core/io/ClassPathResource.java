@@ -125,7 +125,8 @@ public class ClassPathResource {
             path = path.substring(1);
 
         this.path = cleanPath(path);
-        this.classLoader = (classLoader != null ? classLoader : ClassUtils.getDefaultClassLoader());
+        this.classLoader
+                = (classLoader != null ? classLoader : ClassUtils.getDefaultClassLoader());
     }
 
 
@@ -156,7 +157,9 @@ public class ClassPathResource {
      * @param classLoader the class loader to load the resource with, if any
      * @param clazz the class to load resources with, if any
      */
-    protected ClassPathResource(final String path, final ClassLoader classLoader, final Class clazz) {
+    protected ClassPathResource(final String path,
+                                final ClassLoader classLoader,
+                                final Class clazz) {
         this.path = path;
         this.classLoader = classLoader;
         this.clazz = clazz;
@@ -198,10 +201,12 @@ public class ClassPathResource {
      */
     private URL getURL() throws FileNotFoundException {
 
-        URL url = clazz != null ? clazz.getResource(path) : classLoader.getResource(path);
+        URL url = clazz != null ? clazz.getResource(
+                path) : classLoader.getResource(path);
 
         if (url == null)
-            throw new FileNotFoundException(getDescription() + " cannot be resolved to URL because it does not exist");
+            throw new FileNotFoundException(
+                    getDescription() + " cannot be resolved to URL because it does not exist");
 
         return url;
     }
@@ -323,10 +328,13 @@ public class ClassPathResource {
     private InputStream getInputStream() throws FileNotFoundException {
 
 
-        final InputStream inputStream = clazz != null ? clazz.getResourceAsStream(path) : classLoader.getResourceAsStream(path);
+        final InputStream inputStream
+                = clazz != null ? clazz.getResourceAsStream(
+                path) : classLoader.getResourceAsStream(path);
 
         if (inputStream == null)
-            throw new FileNotFoundException(getDescription() + " cannot be opened because it does not exist");
+            throw new FileNotFoundException(
+                    getDescription() + " cannot be opened because it does not exist");
 
         return inputStream;
     }
@@ -343,7 +351,8 @@ public class ClassPathResource {
      */
     private String cleanPath(final String path) {
 
-        String pathToUse = replace(path, WINDOWS_FOLDER_SEPARATOR, FOLDER_SEPARATOR);
+        String pathToUse = replace(path, WINDOWS_FOLDER_SEPARATOR,
+                FOLDER_SEPARATOR);
 
         // Strip prefix from path to analyze, to not treat it as part of the
         // first path element. This is necessary to correctly parse paths like
@@ -358,7 +367,8 @@ public class ClassPathResource {
             pathToUse = pathToUse.substring(prefixIndex + 1);
         }
 
-        String[] pathArray = delimitedListToStringArray(pathToUse, FOLDER_SEPARATOR);
+        String[] pathArray = delimitedListToStringArray(pathToUse,
+                FOLDER_SEPARATOR);
 
         final List pathElements = new LinkedList();
         int tops = 0;
@@ -393,7 +403,8 @@ public class ClassPathResource {
         for (int i = 0; i < tops; i++)
             pathElements.add(0, TOP_PATH);
 
-        return prefix + collectionToDelimitedString(pathElements, FOLDER_SEPARATOR);
+        return prefix + collectionToDelimitedString(pathElements,
+                FOLDER_SEPARATOR);
     }
 
 
@@ -406,7 +417,9 @@ public class ClassPathResource {
      * @param newPattern String to insert
      * @return a String with the replacements
      */
-    private static String replace(final String inString, final String oldPattern, final String newPattern) {
+    private static String replace(final String inString,
+                                  final String oldPattern,
+                                  final String newPattern) {
 
         if (inString == null)
             return null;
@@ -448,7 +461,9 @@ public class ClassPathResource {
      * @param suffix the String to end each element with
      * @return String
      */
-    private static String collectionToDelimitedString(final Collection collection, final String deliminator, final String prefix, final String suffix) {
+    private static String collectionToDelimitedString(
+            final Collection collection, final String deliminator,
+            final String prefix, final String suffix) {
 
         if (collection.isEmpty())
             return "";
@@ -475,7 +490,8 @@ public class ClassPathResource {
      * @param delminator the delimiter to use (probably a ",")
      * @return String
      */
-    private String collectionToDelimitedString(final Collection collection, final String delminator) {
+    private String collectionToDelimitedString(final Collection collection,
+                                               final String delminator) {
         return collectionToDelimitedString(collection, delminator, "", "");
     }
 
@@ -491,7 +507,8 @@ public class ClassPathResource {
      * delimiter, rather than a bunch individual delimiter characters)
      * @return an array of the tokens in the list
      */
-    private static String[] delimitedListToStringArray(final String string, final String delimiter) {
+    private static String[] delimitedListToStringArray(final String string,
+                                                       final String delimiter) {
 
         if (string == null)
             return new String[0];
@@ -511,7 +528,8 @@ public class ClassPathResource {
             int position = 0;
             int deletePosition;
 
-            while ((deletePosition = string.indexOf(delimiter, position)) != -1) {
+            while ((deletePosition = string.indexOf(delimiter,
+                    position)) != -1) {
 
                 result.add(string.substring(position, deletePosition));
                 position = deletePosition + delimiter.length();

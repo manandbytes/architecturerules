@@ -31,6 +31,7 @@ import java.text.CharacterIterator;
 import java.text.StringCharacterIterator;
 
 
+
 /**
  * <p>Representation of a source directory to search for packages and .class
  * files in.</p>
@@ -69,7 +70,7 @@ public class SourceDirectory {
      * <code>SourceNotFoundException</code> will be thrown.</p>
      *
      * * <p>If the value is not provided in the configuration, the default value
-     * is used. {@link com.seventytwomiles.architecturerules.configuration.ConfigurationFactory#DEFAULT_CYCLICAL_DEPENDENCY_CONFIGURATION_VALUE}</p>
+     * is used. {@link ConfigurationFactory#DEFAULT_CYCLICAL_DEPENDENCY_CONFIGURATION_VALUE}</p>
      *
      * @parameter shouldThrowExceptionWhenNotFound boolean
      */
@@ -94,14 +95,14 @@ public class SourceDirectory {
 
 
     /**
-     * <p>Instansiates a new SourceDirectory entity.</p>
+     * <p>Instantiates a new SourceDirectory entity.</p>
      */
     public SourceDirectory() {
     }
 
 
     /**
-     * <p>Instansiates a new SourceDirectory with the given <tt>path</tt></p>
+     * <p>Instantiates a new SourceDirectory with the given <tt>path</tt></p>
      *
      * @param path String {@link #path}
      */
@@ -111,14 +112,16 @@ public class SourceDirectory {
 
 
     /**
-     * <p>Instansiates a new SourceDirectory with the given <tt>path</tt> and
+     * <p>Instantiates a new SourceDirectory with the given <tt>path</tt> and
      * <tt>shouldThrowExceptionWhenNotFound</tt> values</p>
      *
      * @param path String {@link #path}
-     * @param shouldThrowExceptionWhenNotFound
-     *             boolean {@link #shouldThrowExceptionWhenNotFound}
+     * @param shouldThrowExceptionWhenNotFound boolean {@link
+     * #shouldThrowExceptionWhenNotFound}
      */
-    public SourceDirectory(final String path, final boolean shouldThrowExceptionWhenNotFound) {
+    public SourceDirectory(final String path,
+                           final boolean shouldThrowExceptionWhenNotFound) {
+
         setShouldThrowExceptionWhenNotFound(shouldThrowExceptionWhenNotFound);
         setPath(path);
     }
@@ -127,10 +130,12 @@ public class SourceDirectory {
     /**
      * Setter for property {@link #shouldThrowExceptionWhenNotFound}.
      *
-     * @param shouldThrowExceptionWhenNotFound
-     *         Value to set for property <tt>shouldThrowExceptionWhenNotFound</tt>.
+     * @param shouldThrowExceptionWhenNotFound Value to set for property
+     * <tt>shouldThrowExceptionWhenNotFound</tt>.
      */
-    public void setShouldThrowExceptionWhenNotFound(final boolean shouldThrowExceptionWhenNotFound) {
+    public void setShouldThrowExceptionWhenNotFound(
+            final boolean shouldThrowExceptionWhenNotFound) {
+
         /**
          * Update notFound property so that the String value and boolean
          * values coincide
@@ -144,15 +149,16 @@ public class SourceDirectory {
             notFound = NOT_FOUND_IGNORE;
         }
 
-        this.shouldThrowExceptionWhenNotFound = shouldThrowExceptionWhenNotFound;
+        this.shouldThrowExceptionWhenNotFound
+                = shouldThrowExceptionWhenNotFound;
     }
 
 
     /**
-     * <p>Instansiates a new SourceDirectory with the given <tt>path</tt> and
+     * <p>Instantiates a new SourceDirectory with the given <tt>path</tt> and
      * <tt>notFound</tt> values.</p>
      *
-     * @param path     String {@link #path}
+     * @param path String {@link #path}
      * @param notFound boolean {@link @notFound}
      */
     public SourceDirectory(final String path, final String notFound) {
@@ -182,10 +188,11 @@ public class SourceDirectory {
         if (!(notFound.equalsIgnoreCase(NOT_FOUND_IGNORE) ||
                 notFound.equalsIgnoreCase(NOT_FOUND_EXCEPTION))) {
 
-            throw new IllegalArgumentException("'not-found' property of '" + notFound +
-                    "' is invalid. valid values are " +
-                    NOT_FOUND_IGNORE + " and "
-                    + NOT_FOUND_EXCEPTION);
+            throw new IllegalArgumentException(
+                    "'not-found' property of '" + notFound +
+                            "' is invalid. valid values are " +
+                            NOT_FOUND_IGNORE + " and "
+                            + NOT_FOUND_EXCEPTION);
         }
 
         this.notFound = notFound;
@@ -250,10 +257,11 @@ public class SourceDirectory {
      * @param path String the path to fix
      * @return String the fixed path
      */
-    protected String replaceBackslashForOS(String path) {
+    protected String replaceBackslashForOS(final String path) {
 
         final StringBuffer result = new StringBuffer();
-        final StringCharacterIterator iterator = new StringCharacterIterator(path);
+        final StringCharacterIterator iterator = new StringCharacterIterator(
+                path);
         char character = iterator.current();
 
         final char goal = File.separator.toCharArray()[0];
@@ -285,8 +293,11 @@ public class SourceDirectory {
 
         final SourceDirectory that = (SourceDirectory) object;
 
-        if (path != null ? !path.equals(that.getPath()) : that.getPath() != null)
+        if (path != null ? !path.equals(
+                that.getPath()) : that.getPath() != null) {
+
             return false;
+        }
 
         return true;
     }

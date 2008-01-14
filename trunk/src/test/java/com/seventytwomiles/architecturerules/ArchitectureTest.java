@@ -25,6 +25,8 @@ import com.seventytwomiles.architecturerules.domain.Rule;
 import com.seventytwomiles.architecturerules.domain.SourceDirectory;
 import com.seventytwomiles.architecturerules.exceptions.CyclicRedundancyException;
 
+import java.io.File;
+
 
 
 /**
@@ -33,10 +35,12 @@ import com.seventytwomiles.architecturerules.exceptions.CyclicRedundancyExceptio
  * @author mikenereson
  * @see AbstractArchitectureRulesConfigurationTest
  */
-public class ArchitectureTest extends AbstractArchitectureRulesConfigurationTest {
+public class ArchitectureTest
+        extends AbstractArchitectureRulesConfigurationTest {
 
 
     public ArchitectureTest() {
+
         final Configuration configuration = getConfiguration();
 
         /**
@@ -58,7 +62,6 @@ public class ArchitectureTest extends AbstractArchitectureRulesConfigurationTest
         rule.addViolation("com.company.app.web.decorators");
 
         configuration.addRule(rule);
-//        configuration.setDoCyclicDependencyTest(false);
     }
 
 
@@ -66,11 +69,12 @@ public class ArchitectureTest extends AbstractArchitectureRulesConfigurationTest
      * @see AbstractArchitectureRulesConfigurationTest
      */
     public String getConfigurationFileName() {
+
         /**
          * Provide the name of the rules configuration file. File file is
          * loaded from the classpath.
          */
-        return "architecture-rules.xml";
+        return "architecture-rules-fail-cyclic.xml";
     }
 
 
@@ -78,22 +82,32 @@ public class ArchitectureTest extends AbstractArchitectureRulesConfigurationTest
      * @see AbstractArchitectureRulesConfigurationTest#testArchitecture()
      */
     public void testArchitecture() {
+
         /**
          * Finally, run the test via doTest(). If any rules are broken, or if
          * the configuration can not be loaded properly, then the appropriate
          * Exception will be thrown.
          */
+
         try {
+
             assertTrue(doTests());
             fail("Cycles have not been detected");
+
         } catch (final CyclicRedundancyException e) {
+
             e.printStackTrace();
 
             final String message = e.getMessage();
 
-            assertTrue(message.indexOf("test.com.seventytwomiles.services") > -1);
-            assertTrue(message.indexOf("test.com.seventytwomiles.model") > -1);
-            assertTrue(message.indexOf("test.com.seventytwomiles.dao.hibernate") > -1);
+            assertTrue(
+                    message.indexOf("test.com.seventytwomiles.services") > -1);
+
+            assertTrue(
+                    message.indexOf("test.com.seventytwomiles.model") > -1);
+
+            assertTrue(message.indexOf(
+                    "test.com.seventytwomiles.dao.hibernate") > -1);
         }
 
 
@@ -102,23 +116,37 @@ public class ArchitectureTest extends AbstractArchitectureRulesConfigurationTest
         assertTrue(doTests());
 
         configuration.getSources().clear();
-        configuration.getSources().add(new SourceDirectory("target\\classes", true));
+
+        final String classes = "target" + File.separator + "classes";
+        configuration.getSources().add(new SourceDirectory(classes, true));
 
         assertTrue(doTests());
 
         configuration.getSources().clear();
-        configuration.getSources().add(new SourceDirectory("target\\test-classes", true));
+
+        final String tests = "target" + File.separator + "test-classes";
+        final SourceDirectory directory = new SourceDirectory(tests, true);
+        configuration.getSources().add(directory);
 
         try {
+
             assertTrue(doTests());
+
         } catch (final CyclicRedundancyException e) {
+
             e.printStackTrace();
 
             final String message = e.getMessage();
 
-            assertTrue(message.indexOf("test.com.seventytwomiles.services") > -1);
-            assertTrue(message.indexOf("test.com.seventytwomiles.model") > -1);
-            assertTrue(message.indexOf("test.com.seventytwomiles.dao.hibernate") > -1);
+            assertTrue(
+                    message.indexOf("test.com.seventytwomiles.services") > -1);
+
+            assertTrue(
+                    message.indexOf("test.com.seventytwomiles.model") > -1);
+
+            assertTrue(
+                    message.indexOf(
+                            "test.com.seventytwomiles.dao.hibernate") > -1);
         }
     }
 }

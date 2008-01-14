@@ -69,7 +69,9 @@ public class FileUtils {
      * @throws UnsupportedEncodingException if the encoding is not supported by
      * the VM
      */
-    public static String readFileToString(final File file, final String encoding) throws IOException {
+    public static String readFileToString(final File file,
+                                          final String encoding)
+            throws IOException {
 
         final InputStream inputStream = new FileInputStream(file);
 
@@ -97,7 +99,8 @@ public class FileUtils {
      * @throws NullPointerException if the input is null
      * @throws IOException if an I/O error occurs
      */
-    public static String toString(final InputStream input, final String encoding) throws IOException {
+    public static String toString(final InputStream input,
+                                  final String encoding) throws IOException {
 
         final StringWriter stringWriter = new StringWriter();
 
@@ -120,9 +123,11 @@ public class FileUtils {
      * @throws IOException if an I/O error occurs
      * @since Commons IO 1.1
      */
-    public static void copy(final InputStream input, final Writer output) throws IOException {
+    public static void copy(final InputStream input, final Writer output)
+            throws IOException {
 
-        final InputStreamReader inputStreamReader = new InputStreamReader(input);
+        final InputStreamReader inputStreamReader = new InputStreamReader(
+                input);
         copy(inputStreamReader, output);
     }
 
@@ -142,7 +147,9 @@ public class FileUtils {
      * @throws IOException if an I/O error occurs
      * @since Commons IO 1.1
      */
-    public static void copy(final InputStream inputStream, final Writer outputStream, final String encoding) throws IOException {
+    public static void copy(final InputStream inputStream,
+                            final Writer outputStream, final String encoding)
+            throws IOException {
 
         if (encoding == null) {
 
@@ -150,7 +157,8 @@ public class FileUtils {
 
         } else {
 
-            final InputStreamReader inputStreamReader = new InputStreamReader(inputStream, encoding);
+            final InputStreamReader inputStreamReader = new InputStreamReader(
+                    inputStream, encoding);
             copy(inputStreamReader, outputStream);
         }
     }
@@ -199,7 +207,8 @@ public class FileUtils {
      * @throws IOException if an I/O error occurs
      * @since Commons IO 1.1
      */
-    public static void copy(final Reader input, final OutputStream output) throws IOException {
+    public static void copy(final Reader input, final OutputStream output)
+            throws IOException {
 
         final OutputStreamWriter out = new OutputStreamWriter(output);
 

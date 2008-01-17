@@ -98,8 +98,9 @@ public class IllegalArchitectureRuleException extends RuntimeException {
      * <p>Instantiates a new IllegalArchitectureRuleException with the given
      * ruleId and rulePackages.</p>
      *
-     * @param ruleId
-     * @param rulePackages
+     * @param ruleId String id of the Rule
+     * @param rulePackages String some description of the package rules, such as
+     * a delimited list
      */
     public IllegalArchitectureRuleException(final String ruleId,
                                             final String rulePackages) {
@@ -111,9 +112,10 @@ public class IllegalArchitectureRuleException extends RuntimeException {
      * <p>Instantiates a new IllegalArchitectureRuleException with the given
      * ruleId and rulePackages, and passes on the cause.</p>
      *
-     * @param ruleId
-     * @param rulePackages
-     * @param cause
+     * @param ruleId String id of the Rule
+     * @param rulePackages String some description of the package rules, such as
+     * a delimited list
+     * @param cause Throwable root cause
      */
     public IllegalArchitectureRuleException(final String ruleId,
                                             final String rulePackages,

@@ -176,7 +176,8 @@ public class FileUtils {
      * @throws IOException if an I/O error occurs
      * @since Commons IO 1.1
      */
-    public static int copy(Reader input, Writer output) throws IOException {
+    public static int copy(final Reader input, final Writer output)
+            throws IOException {
 
         final char[] buffer = new char[DEFAULT_BUFFER_SIZE];
 

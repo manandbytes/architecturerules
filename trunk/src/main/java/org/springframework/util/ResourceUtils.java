@@ -15,7 +15,7 @@ package org.springframework.util;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * For more infomration visit
+ * For more information visit
  * http://architecturerules.googlecode.com/svn/docs/index.html
  */
 
@@ -31,7 +31,7 @@ import java.net.URLDecoder;
  * <p>Utility methods for resolving resource locations to files in the file
  * system. Mainly for internal use within the framework. <a
  * href="http://code.google.com/p/architecturerules/issues/detail?id=2&can=1">
- * issue 2 (remove unneccessary dependencies)</a></p>
+ * issue 2 (remove unnecessary dependencies)</a></p>
  *
  * @author Juergen Hoeller
  */
@@ -67,7 +67,6 @@ public abstract class ResourceUtils {
             throw new FileNotFoundException(
                     description + " cannot be resolved to absolute file path  because it does not reside in the file system: " + resourceUrl);
 
-        //noinspection deprecation
         return new File(URLDecoder.decode(resourceUrl.getFile()));
     }
 

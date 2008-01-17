@@ -48,14 +48,14 @@ public final class UnmodifiableConfiguration extends Configuration {
      */
     public UnmodifiableConfiguration(final Configuration configuration) {
 
-        this.rules.addAll(configuration.getRules());
-        this.sources.addAll(configuration.getSources());
+        super.getRules().addAll(configuration.getRules());
+        super.getSources().addAll(configuration.getSources());
 
-        this.doCyclicDependencyTest
-                = configuration.shouldDoCyclicDependencyTest();
+        super.setDoCyclicDependencyTest(
+                configuration.shouldDoCyclicDependencyTest());
 
-        this.throwExceptionWhenNoPackages
-                = configuration.shouldThrowExceptionWhenNoPackages();
+        super.setThrowExceptionWhenNoPackages(
+                configuration.shouldThrowExceptionWhenNoPackages());
     }
 
 
@@ -65,7 +65,7 @@ public final class UnmodifiableConfiguration extends Configuration {
      * @return Value for property <tt>rules</tt>.
      */
     public Collection getRules() {
-        return Collections.unmodifiableCollection(rules);
+        return Collections.unmodifiableCollection(super.getRules());
     }
 
 
@@ -75,7 +75,7 @@ public final class UnmodifiableConfiguration extends Configuration {
      * @return Value for property <tt>sources</tt>.
      */
     public Collection getSources() {
-        return Collections.unmodifiableCollection(sources);
+        return Collections.unmodifiableCollection(super.getSources());
     }
 
 

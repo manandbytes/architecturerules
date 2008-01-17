@@ -201,7 +201,7 @@ public class ClassPathResource {
      */
     private URL getURL() throws FileNotFoundException {
 
-        URL url = clazz != null ? clazz.getResource(
+        final URL url = clazz != null ? clazz.getResource(
                 path) : classLoader.getResource(path);
 
         if (url == null)
@@ -223,7 +223,7 @@ public class ClassPathResource {
         if (!(object instanceof ClassPathResource))
             return false;
 
-        ClassPathResource that = (ClassPathResource) object;
+        final ClassPathResource that = (ClassPathResource) object;
 
         return (this.path.equals(that.path) &&
                 nullSafeEquals(this.classLoader, that.classLoader) &&
@@ -358,7 +358,7 @@ public class ClassPathResource {
         // first path element. This is necessary to correctly parse paths like
         // "file:core/../core/io/Resource.class", where the ".." should just
         // strip the first "core" directory while keeping the "file:" prefix.
-        int prefixIndex = pathToUse.indexOf(":");
+        final int prefixIndex = pathToUse.indexOf(":");
         String prefix = "";
 
         if (prefixIndex != -1) {
@@ -367,7 +367,7 @@ public class ClassPathResource {
             pathToUse = pathToUse.substring(prefixIndex + 1);
         }
 
-        String[] pathArray = delimitedListToStringArray(pathToUse,
+        final String[] pathArray = delimitedListToStringArray(pathToUse,
                 FOLDER_SEPARATOR);
 
         final List pathElements = new LinkedList();
@@ -430,21 +430,21 @@ public class ClassPathResource {
         final StringBuffer stringBuffer = new StringBuffer();
 
         // output StringBuffer we'll build up
-        int pos = 0; // our position in the old string
+        int position = 0; // our position in the old string
         int index = inString.indexOf(oldPattern);
 
         // the index of an occurrence we've found, or -1
-        final int patLen = oldPattern.length();
+        final int patternLength = oldPattern.length();
 
         while (index >= 0) {
 
-            stringBuffer.append(inString.substring(pos, index));
+            stringBuffer.append(inString.substring(position, index));
             stringBuffer.append(newPattern);
-            pos = index + patLen;
-            index = inString.indexOf(oldPattern, pos);
+            position = index + patternLength;
+            index = inString.indexOf(oldPattern, position);
         }
 
-        stringBuffer.append(inString.substring(pos));
+        stringBuffer.append(inString.substring(position));
 
         // remember to append any characters to the right of a match
         return stringBuffer.toString();

@@ -64,6 +64,7 @@ public class ArchitectureTestProgrammatic
         final Rule presentationRule = new Rule("presentation");
         presentationRule.setComment(
                 "presentation may not access dao directly.");
+
         presentationRule.addPackage("test.com.seventytwomiles.web.spring");
         presentationRule.addViolation("test.com.seventytwomiles.dao");
         presentationRule.addViolation("test.com.seventytwomiles.dao.hibernate");

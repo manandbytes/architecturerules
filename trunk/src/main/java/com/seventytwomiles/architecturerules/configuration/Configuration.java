@@ -37,7 +37,7 @@ import java.util.HashSet;
  * under what conditions should an <code>Exception</code> be thrown.</p>
  *
  * <p>This <code>Configuration</code> may be loaded by configuration from an XML
- * file in the classpath, through programmatic configurationn, or both.</p>
+ * file in the classpath, through programmatic configuration, or both.</p>
  *
  * @author mikenereson
  * @see ConfigurationFactory
@@ -54,7 +54,7 @@ public class Configuration {
      *
      * @parameter rules Set
      */
-    final Collection rules = new HashSet();
+    private final Collection rules = new HashSet();
 
     /**
      * <p>List of <code>SourceDirectory</code> that are read from the
@@ -62,7 +62,7 @@ public class Configuration {
      *
      * @parameter sources List
      */
-    final Collection sources = new HashSet();
+    private final Collection sources = new HashSet();
 
     /**
      * <p>sets to true when <samp>&lt;sources no-packages="exception"&gt;</samp>,
@@ -70,7 +70,7 @@ public class Configuration {
      *
      * @parameter throwExceptionWhenNoPackages boolean
      */
-    boolean throwExceptionWhenNoPackages;
+    private boolean throwExceptionWhenNoPackages;
 
     /**
      * <p>sets to true when <samp>&lt;cyclicalDependency test="true"/> </samp>,
@@ -78,7 +78,7 @@ public class Configuration {
      *
      * @parameter doCyclicDependencyTest boolean
      */
-    boolean doCyclicDependencyTest;
+    private boolean doCyclicDependencyTest;
 
 
     /**

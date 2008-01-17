@@ -91,7 +91,7 @@ abstract class AbstractArchitecturalRules {
      * exist and <tt>no-packages</tt>="<tt>ignore</tt>" in the sources
      * configuration
      */
-    protected AbstractArchitecturalRules(final Configuration configuration)
+    AbstractArchitecturalRules(final Configuration configuration)
             throws SourceNotFoundException, NoPackagesFoundException {
 
         log.info("instantiating new AbstractArchitecturalRules");

@@ -50,7 +50,7 @@ public class SourceDirectory {
      *
      * @parameter NOT_FOUND_IGNORE String
      */
-    public static final String NOT_FOUND_IGNORE = "ignore";
+    private static final String NOT_FOUND_IGNORE = "ignore";
 
 
     /**
@@ -63,7 +63,7 @@ public class SourceDirectory {
      *
      * @parameter NOT_FOUND_EXCEPTION String
      */
-    public static final String NOT_FOUND_EXCEPTION = "exception";
+    private static final String NOT_FOUND_EXCEPTION = "exception";
 
     /**
      * <p>When true, if this source {@link #path} is not found a
@@ -260,8 +260,10 @@ public class SourceDirectory {
     protected String replaceBackslashForOS(final String path) {
 
         final StringBuffer result = new StringBuffer();
-        final StringCharacterIterator iterator = new StringCharacterIterator(
-                path);
+
+        final StringCharacterIterator iterator
+                = new StringCharacterIterator(path);
+
         char character = iterator.current();
 
         final char goal = File.separator.toCharArray()[0];

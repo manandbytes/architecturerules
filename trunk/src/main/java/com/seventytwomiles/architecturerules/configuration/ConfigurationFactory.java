@@ -92,7 +92,7 @@ public interface ConfigurationFactory {
     /**
      * <p>Holds the value parsed from the XML configuration that indicates
      * weather or not a <code>NoPackagesFoundException</code> should be thrown
-     * when no packages are found in any of the given soure paths.</p>
+     * when no packages are found in any of the given source paths.</p>
      *
      * @return boolean <tt>true</tt> when <samp>&lt;sources
      *         no-packages="exception"> </samp>

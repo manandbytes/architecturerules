@@ -269,46 +269,47 @@ public class Rule {
      */
     private String describe(final boolean outputToConsole) {
 
-        final StringBuffer stringBuilder = new StringBuffer();
+        final StringBuffer builder = new StringBuffer();
 
-        stringBuilder.append("<rule>").append("\r\n");
-        stringBuilder.append("\t")
+        builder.append("<rule>").append("\r\n");
+
+        builder.append("\t")
                 .append("<id>")
                 .append(id)
                 .append("</id>")
                 .append("\r\n");
 
-        stringBuilder.append("\t")
+        builder.append("\t")
                 .append("<packages>")
                 .append(packages)
                 .append("</packages>")
                 .append("\r\n");
 
-        stringBuilder.append("\t")
+        builder.append("\t")
                 .append("<comment>")
                 .append(comment)
                 .append("</comment>")
                 .append("\r\n");
 
-        stringBuilder.append("\t").append("<violations>").append("\r\n");
+        builder.append("\t").append("<violations>").append("\r\n");
 
         for (Iterator violationIterator = violations.iterator();
              violationIterator.hasNext();) {
 
             final String violation = (String) violationIterator.next();
-            stringBuilder.append("\t\t").append("<violation>");
-            stringBuilder.append(violation);
-            stringBuilder.append("</violation>");
-            stringBuilder.append("\r\n");
+            builder.append("\t\t").append("<violation>");
+            builder.append(violation);
+            builder.append("</violation>");
+            builder.append("\r\n");
         }
 
-        stringBuilder.append("\t").append("</violations>").append("\r\n");
-        stringBuilder.append("</rule>").append("\r\n");
+        builder.append("\t").append("</violations>").append("\r\n");
+        builder.append("</rule>").append("\r\n");
 
         if (outputToConsole)
-            System.out.println(stringBuilder.toString());
+            System.out.println(builder.toString());
 
-        return stringBuilder.toString();
+        return builder.toString();
     }
 
 

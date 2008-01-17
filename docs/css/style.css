@@ -38,7 +38,6 @@ html, body {
 
 #footer {
     margin: 0;
-    padding: 0;
     clear: both;
     padding: 5px;
 }
@@ -606,10 +605,7 @@ ol#toc ol {
 }
 
 ol#releases li {
-    display: block;
     line-height: 20px;
-    clear: right;
-!important;
     clear: both;
     display: block !important;
     margin: 3px !important;
@@ -702,7 +698,7 @@ div#backtogoogle a {
     color: gray;
     text-decoration: none;
     font-size: 10px;
-    padding-right: 10px 20px;
+    padding: 10px 20px;
 }
 
 .svn, .lists {
@@ -714,7 +710,6 @@ div#backtogoogle a {
 }
 
 .alert, .info {
-    background-position: center;
     background-repeat: no-repeat;
     background-position: 15px 50%;
     text-align: left;
@@ -833,6 +828,6 @@ a.tooltip:hover span {
     margin: 0;
 }
 
-p.height60 {     
-    height: 60px !important; 
+p.height60 {
+    height: 60px !important;
 }

@@ -40,7 +40,7 @@ package com.seventytwomiles.architecturerules.exceptions;
 */
 /**
  * <p>RuntimeException that is thrown when a configuration is invalid. A
- * configuraiton could be invalid for a number of reasons but happens most
+ * configuration could be invalid for a number of reasons but happens most
  * regularly in the creation of <code>Rules</code>.</p>
  *
  * @author mikenereson

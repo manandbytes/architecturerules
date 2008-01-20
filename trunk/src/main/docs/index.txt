@@ -76,6 +76,8 @@
     set svn:mime-type on all html to text/html
     set svn:mime-type on all css to text/css
 
+    replace all 2.0.x-SNAPSHOT with 2.0.(x-1)
+    
 # update docs\api-javadocs.html
 
 # update docs\dependencies.html

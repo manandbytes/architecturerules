@@ -82,24 +82,108 @@
     <div class="entry entry-content">
         <ol id="releases" class="toc">
             <li class="current">
+                <a href="#release-2.0.3">2.0.3</a>
+            </li>
+            <li class="older">
                 <a href="#release-2.0.2">2.0.2</a>
             </li>
             <li class="older">
                 <a href="#release-2.0.1">2.0.1</a>
             </li>
-            <li class="older">
+            <li class="oldest">
                 <a href="#release-2.0rc2">2.0-rc2</a>
             </li>
-            <li class="older">
+            <li class="oldest">
                 <a href="#release-2.0rc1">2.0-rc1</a>
             </li>
-            <li class="older">
+            <li class="oldest">
                 <a href="#release-1.1">1.1</a>
             </li>
             <li class="oldest">
                 <a href="#release-1.0">1.0</a>
             </li>
         </ol>
+    </div>
+    <!-- /entry -->
+</div>
+<!-- /post -->
+<!-- post entry -->
+<div class="hentry post release" id="release-2.0.3">
+    <abbr class="released date"
+          title="2008-01-19T10:38">jan-19-2008</abbr>
+
+    <h1 class="posttitle entry-title">
+        Release 2.0.3
+    </h1>
+
+    <p class="postmetadata">
+        fix release
+    </p>
+
+    <div class="entry entry-content">
+        <p>
+            Resolve reported issues with XML configuration and path separator /
+            on non-windows platforms. Also documenting which dependencies are
+            not required, but are optional. For example the ant dependency
+            is only needed by those developers who want to execute the test
+            via the ant task.
+        </p>
+
+        <div class="downloadnow">
+            <ol>
+                <li>
+                    <a href="http://architecturerules.googlecode.com/files/architecture-rules-2.0.3.jar">
+                        architecture-rules-2.0.3.jar
+                    </a>
+                </li>
+                <li>
+                    <a href="http://architecturerules.googlecode.com/files/architecture-rules-2.0.3-sources.jar">
+                        architecture-rules-2.0.3-sources.jar
+                    </a>
+                </li>
+                <li>
+                    <a href="http://architecturerules.googlecode.com/files/architecture-rules-2.0.3-test-sources.jar">
+                        architecture-rules-2.0.3-test-sources.jar
+                    </a>
+                </li>
+            </ol>
+        </div>
+        <h2>
+            javadocs
+        </h2>
+
+        <p>
+            This version's (2.0.3) api documentation (javadocs) are available
+            <a href="api/2.0.3/index.html">here</a>.
+        </p>
+        <!-- /download  -->
+        <h2>
+            changes
+        </h2>
+        <ul class="changes">
+            <li id="issue-23">
+                <a href="http://code.google.com/p/architecturerules/issues/detail?id=23">
+                    issue-23
+                </a>
+                determine which dependencies are optional
+                <span>usability</span>
+            </li>
+            <li id="issue-24">
+                <a href="http://code.google.com/p/architecturerules/issues/detail?id=24">
+                    issue-24
+                </a>
+                slashes in unix and windows are different, paths can not be read
+                <span>usability</span>
+            </li>
+            <li id="issue-25">
+                <a href="http://code.google.com/p/architecturerules/issues/detail?id=25">
+                    issue-25
+                </a>
+                cycles test not run with XML configuration
+                <span>usability</span>
+            </li>
+        </ul>
+        <!-- /changes  -->
     </div>
     <!-- /entry -->
 </div>
@@ -612,7 +696,8 @@
             Rounded("div.downloadnow", "#fff", "#e8fecd");
         }
 
-        dp.SyntaxHighlighter.ClipboardSwf = 'http://syntaxhighlighter.googlecode.com/svn/tags/1.5.1/Scripts/clipboard.swf';
+        dp.SyntaxHighlighter.ClipboardSwf
+                = 'http://syntaxhighlighter.googlecode.com/svn/tags/1.5.1/Scripts/clipboard.swf';
         dp.SyntaxHighlighter.HighlightAll('code');
     }
         //]]>

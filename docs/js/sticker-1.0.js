@@ -34,6 +34,8 @@ sticker = {
 
         sticker.kill = false;
 
+        sticker.preloadImages();
+
         if (!sticker.timeout)
         {
             sticker.timeout = 5000;

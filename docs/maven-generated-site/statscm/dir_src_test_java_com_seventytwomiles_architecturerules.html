@@ -40,7 +40,7 @@
   
   
             <div class="xleft">
-        Last Published: 11/23/2007
+        Last Published: 01/27/2008
                       </div>
             <div class="xright">      <a href="../">architecture-rules</a>
           
@@ -110,6 +110,8 @@
       
             
       
+            
+      
               
         <li class="collapsed">
               <a href="../project-reports.html">Project Reports</a>
@@ -143,30 +145,30 @@
     <dt>Total Files:</dt>
     <dd>4</dd>
     <dt>Deleted Files:</dt>
-    <dd>4</dd>
+    <dd>6</dd>
     <dt>Lines of Code:</dt>
-    <dd>404</dd>
+    <dd>447</dd>
 </dl>
 <p>
 <a href="dir.html">[root]</a>/<a href="dir_src.html">src</a>/<a href="dir_src_test.html">test</a>/<a href="dir_src_test_java.html">java</a>/<a href="dir_src_test_java_com.html">com</a>/<a href="dir_src_test_java_com_seventytwomiles.html">seventytwomiles</a>/<strong>architecturerules</strong><br></br>
                             <img src="folder.png" width="15" height="13" alt="directory in repo" title="directory in repo"></img> 
 <a href="dir_src_test_java_com_seventytwomiles_architecturerules_ant.html">ant</a> 
-(1 files, 95 lines)<br></br>
+(1 files, 104 lines)<br></br>
                             <img src="folder.png" width="15" height="13" alt="directory in repo" title="directory in repo"></img> 
 <a href="dir_src_test_java_com_seventytwomiles_architecturerules_configuration.html">configuration</a> 
-(2 files, 385 lines)<br></br>
+(2 files, 346 lines)<br></br>
                                 <img src="folder.png" width="15" height="13" alt="directory in repo" title="directory in repo"></img> 
 <a href="dir_src_test_java_com_seventytwomiles_architecturerules_configuration_xml.html">xml</a> 
-(3 files, 767 lines)<br></br>
+(3 files, 830 lines)<br></br>
                             <img src="folder.png" width="15" height="13" alt="directory in repo" title="directory in repo"></img> 
 <a href="dir_src_test_java_com_seventytwomiles_architecturerules_domain.html">domain</a> 
-(2 files, 673 lines)<br></br>
+(2 files, 678 lines)<br></br>
                             <img src="folder.png" width="15" height="13" alt="directory in repo" title="directory in repo"></img> 
 <a href="dir_src_test_java_com_seventytwomiles_architecturerules_exceptions.html">exceptions</a> 
-(5 files, 514 lines)<br></br>
+(5 files, 546 lines)<br></br>
                             <img src="folder.png" width="15" height="13" alt="directory in repo" title="directory in repo"></img> 
 <a href="dir_src_test_java_com_seventytwomiles_architecturerules_services.html">services</a> 
-(2 files, 245 lines)<br></br>
+(2 files, 253 lines)<br></br>
 </p>
 
 <div class="section">
@@ -187,12 +189,26 @@
         <th>Lines per Change</th>
       </tr>
     </thead>
-    <tbody>
+    <tfoot>
       <tr class="b">
+        <th>Totals</th>
+        <td>42 (100.0%)</td>
+        <td>604 (100.0%)</td>
+        <td>14.3</td>
+      </tr>
+    </tfoot>
+    <tbody>
+      <tr class="a">
         <th><a href="user_mikenereson.html">mikenereson</a></th>
-        <td>27 (100.0%)</td>
-        <td>471 (100.0%)</td>
-        <td>17.4</td>
+        <td>41 (97.6%)</td>
+        <td>589 (97.5%)</td>
+        <td>14.3</td>
+      </tr>
+      <tr class="b">
+        <th><a href="user_axel@aboettcher.de.html">axel@aboettcher.de</a></th>
+        <td>1 (2.4%)</td>
+        <td>15 (2.5%)</td>
+        <td>15.0</td>
       </tr>
     </tbody>
   </table>
@@ -201,14 +217,109 @@
 <div class="section">
 <a name="Most Recent Commits"></a><div class="section"><h3>Most Recent Commits</h3>
 <dl class="commitlist">
+  <dt><a name="20"></a>
+    <a href="user_mikenereson.html">mikenereson</a>
+    <span class="date">2008-01-17 08:11</span>
+  </dt>
+  <dd>
+    <p>
+'inspected' code, resolved. ready for release...
+    </p>
+    <p><strong>1</strong> lines of code changed in:</p>
+    <ul>
+      <li>
+        <strong>src/test/java/com/seventytwomiles/architecturerules</strong>:
+        ArchitectureTestProgrammatic.java <span class="change">(+1)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="19"></a>
+    <a href="user_mikenereson.html">mikenereson</a>
+    <span class="date">2008-01-14 11:17</span>
+  </dt>
+  <dd>
+    
+fixed comment spelling issues. wrapped all code at 80 lines. added Final modifier. prepping for release.
+    
+    <p><strong>74</strong> lines of code changed in:</p>
+    <ul>
+      <li>
+        <strong>src/test/java/com/seventytwomiles/architecturerules</strong>:
+        ArchitectureTest.java <span class="change">(+39 -11)</span>,
+        ArchitectureTestProgrammatic.java <span class="change">(+25 -11)</span>,
+        SimpleArchitectureTest.java <span class="change">(+4 -1)</span>,
+        SimpleProgrammaticArchitectureTest.java <span class="change">(+6 -2)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="18"></a>
+    <a href="user_axel@aboettcher.de.html">axel@aboettcher.de</a>
+    <span class="date">2008-01-10 10:27</span>
+  </dt>
+  <dd>
+    
+Fixed the problem that configuration via xml-file does not respect the &gt;cyclicaldependency ...&gt;
+    
+    <p><strong>15</strong> lines of code changed in:</p>
+    <ul>
+      <li>
+        <strong>src/test/java/com/seventytwomiles/architecturerules</strong>:
+        ArchitectureTest.java <span class="change">(+15 -4)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="17"></a>
+    <a href="user_mikenereson.html">mikenereson</a>
+    <span class="date">2007-12-14 17:25</span>
+  </dt>
+  <dd>
+    
+spell checked all comments and code. it was pretty bad : \
+    
+    <p><strong>243</strong> lines of code changed in:</p>
+    <ul>
+      <li>
+        <strong>src/test/java/com/seventytwomiles/architecturerules</strong>:
+        ArchitectureTest.java <span class="change">(+20 -25)</span>,
+        ArchitectureTestProgramatic.java <span class="del">(del)</span>,
+        ArchitectureTestProgrammatic.java <span class="new">(new 143)</span>,
+        SimpleArchitectureTest.java <span class="change">(+4 -7)</span>,
+        SimpleProgramaticArchitectureTest.java <span class="del">(del)</span>,
+        SimpleProgrammaticArchitectureTest.java <span class="new">(new 76)</span>
+      </li>
+    </ul>
+  </dd>
+
   <dt><a name="16"></a>
+    <a href="user_mikenereson.html">mikenereson</a>
+    <span class="date">2007-11-16 14:18</span>
+  </dt>
+  <dd>
+    
+added simple test examples
+    
+    <p><strong>9</strong> lines of code changed in:</p>
+    <ul>
+      <li>
+        <strong>src/test/java/com/seventytwomiles/architecturerules</strong>:
+        ArchitectureTest.java <span class="change">(+4 -4)</span>,
+        ArchitectureTestProgramatic.java <span class="change">(+4 -2)</span>,
+        SimpleArchitectureTest.java <span class="change">(+1 -1)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="15"></a>
     <a href="user_mikenereson.html">mikenereson</a>
     <span class="date">2007-11-14 00:09</span>
   </dt>
   <dd>
-    <p>
+    
 added simple test examples
-    </p>
+    
     <p><strong>0</strong> lines of code changed in:</p>
     <ul>
       <li>
@@ -218,7 +329,7 @@ added simple test examples
     </ul>
   </dd>
 
-  <dt><a name="15"></a>
+  <dt><a name="14"></a>
     <a href="user_mikenereson.html">mikenereson</a>
     <span class="date">2007-11-14 00:08</span>
   </dt>
@@ -226,17 +337,17 @@ added simple test examples
     
 
     
-    <p><strong>147</strong> lines of code changed in:</p>
+    <p><strong>70</strong> lines of code changed in:</p>
     <ul>
       <li>
         <strong>src/test/java/com/seventytwomiles/architecturerules</strong>:
         SimpleArchitectureTest.java <span class="new">(new 57)</span>,
-        SimpleProgramaticArchitectureTest.java <span class="new">(new 90)</span>
+        SimpleProgramaticArchitectureTest.java <span class="new">(new 13)</span>
       </li>
     </ul>
   </dd>
 
-  <dt><a name="14"></a>
+  <dt><a name="13"></a>
     <a href="user_mikenereson.html">mikenereson</a>
     <span class="date">2007-11-13 16:02</span>
   </dt>
@@ -254,7 +365,7 @@ resolved issue 13 http://code.google.com/p/architecturerules/issues/detail?id=13
     </ul>
   </dd>
 
-  <dt><a name="13"></a>
+  <dt><a name="12"></a>
     <a href="user_mikenereson.html">mikenereson</a>
     <span class="date">2007-11-13 14:09</span>
   </dt>
@@ -272,7 +383,7 @@ changed @author to match svn commits and wiki name of mikenereson
     </ul>
   </dd>
 
-  <dt><a name="12"></a>
+  <dt><a name="11"></a>
     <a href="user_mikenereson.html">mikenereson</a>
     <span class="date">2007-11-13 14:04</span>
   </dt>
@@ -280,17 +391,17 @@ changed @author to match svn commits and wiki name of mikenereson
     
 added programatic configuration, tests
     
-    <p><strong>144</strong> lines of code changed in:</p>
+    <p><strong>12</strong> lines of code changed in:</p>
     <ul>
       <li>
         <strong>src/test/java/com/seventytwomiles/architecturerules</strong>:
         ArchitectureTest.java <span class="change">(+11 -3)</span>,
-        ArchitectureTestProgramatic.java <span class="new">(new 133)</span>
+        ArchitectureTestProgramatic.java <span class="new">(new 1)</span>
       </li>
     </ul>
   </dd>
 
-  <dt><a name="11"></a>
+  <dt><a name="10"></a>
     <a href="user_mikenereson.html">mikenereson</a>
     <span class="date">2007-11-03 23:02</span>
   </dt>
@@ -307,7 +418,7 @@ removed throws for runtime exceptions
     </ul>
   </dd>
 
-  <dt><a name="10"></a>
+  <dt><a name="9"></a>
     <a href="user_mikenereson.html">mikenereson</a>
     <span class="date">2007-11-02 01:02</span>
   </dt>
@@ -324,7 +435,7 @@ no changes
     </ul>
   </dd>
 
-  <dt><a name="9"></a>
+  <dt><a name="8"></a>
     <a href="user_mikenereson.html">mikenereson</a>
     <span class="date">2007-11-01 23:34</span>
   </dt>
@@ -341,7 +452,7 @@ added test data, and added tests
     </ul>
   </dd>
 
-  <dt><a name="8"></a>
+  <dt><a name="7"></a>
     <a href="user_mikenereson.html">mikenereson</a>
     <span class="date">2007-11-01 19:19</span>
   </dt>
@@ -358,7 +469,7 @@ added tests, changed configuration 'source' to take SourceDirectory rather than 
     </ul>
   </dd>
 
-  <dt><a name="7"></a>
+  <dt><a name="6"></a>
     <a href="user_mikenereson.html">mikenereson</a>
     <span class="date">2007-11-01 17:37</span>
   </dt>
@@ -375,7 +486,7 @@ finished digester implementation of configuration factory
     </ul>
   </dd>
 
-  <dt><a name="6"></a>
+  <dt><a name="5"></a>
     <a href="user_mikenereson.html">mikenereson</a>
     <span class="date">2007-11-01 11:12</span>
   </dt>
@@ -393,7 +504,7 @@ splitup some test methods, added new ConfiguraitonFactory heirarchy
     </ul>
   </dd>
 
-  <dt><a name="5"></a>
+  <dt><a name="4"></a>
     <a href="user_mikenereson.html">mikenereson</a>
     <span class="date">2007-10-06 20:39</span>
   </dt>
@@ -411,7 +522,7 @@ I dont want this test to run. the code base isn't ready for it, and it messes up
     </ul>
   </dd>
 
-  <dt><a name="4"></a>
+  <dt><a name="3"></a>
     <a href="user_mikenereson.html">mikenereson</a>
     <span class="date">2007-10-06 17:50</span>
   </dt>
@@ -428,7 +539,7 @@ I dont want this test to run. the code base isn't ready for it, and it messes up
     </ul>
   </dd>
 
-  <dt><a name="3"></a>
+  <dt><a name="2"></a>
     <a href="user_mikenereson.html">mikenereson</a>
     <span class="date">2007-10-06 00:24</span>
   </dt>
@@ -447,7 +558,7 @@ I dont want this test to run. the code base isn't ready for it, and it messes up
     </ul>
   </dd>
 
-  <dt><a name="2"></a>
+  <dt><a name="1"></a>
     <a href="user_mikenereson.html">mikenereson</a>
     <span class="date">2007-10-06 00:17</span>
   </dt>
@@ -464,26 +575,9 @@ I dont want this test to run. the code base isn't ready for it, and it messes up
     </ul>
   </dd>
 
-  <dt><a name="1"></a>
-    <a href="user_mikenereson.html">mikenereson</a>
-    <span class="date">2007-10-04 20:12</span>
-  </dt>
-  <dd>
-    
-moved out of nereson and into seventytwomiles
-    
-    <p><strong>0</strong> lines of code changed in:</p>
-    <ul>
-      <li>
-        <strong>src/test/java/com/seventytwomiles/architecturerules</strong>:
-        ArchitectureRulesServiceTest.java <span class="change">(changed)</span>,
-        ConfigurationFactoryTest.java <span class="new">(new)</span>
-      </li>
-    </ul>
-  </dd>
-
 </dl>
 
+(1 more)
 </div></div></div><div id="generatedby">Generated by <a href="http://www.statsvn.org">StatSVN</a> @VERSION@</div>
 
 
@@ -494,7 +588,7 @@ moved out of nereson and into seventytwomiles
     </div>
     <div id="footer">
       <div class="xright">&#169;  
-          2007
+          2008
     
           
   

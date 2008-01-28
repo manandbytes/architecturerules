@@ -23,8 +23,7 @@
     </style>
     <![endif]-->
 
-    <script type="text/javascript" src="js/prototype-1.5.1.1.js">
-    </script>
+    <script type="text/javascript" src="js/application.js"></script>
 </head>
 <body>
 <div id="page">
@@ -102,60 +101,6 @@
 <div id="footer">
 </div>
 <!-- /footer -->
-<script type="text/javascript">
-    //<![CDATA[
-    new Ajax.Updater('secondary', 'component_rightnav.html', {method: 'get', asynchronous: true, insertion: Insertion.Bottom });
-    new Ajax.Updater('footer', 'component_footer.html', {method: 'get', asynchronous: true, insertion: Insertion.Bottom });
-    //]]>
-</script>
-<!-- syntaxhighlighter -->
-<script type="text/javascript"
-        src="http://syntaxhighlighter.googlecode.com/svn/tags/1.5.1/Scripts/shCore.js"
-        language="JavaScript">
-</script>
-<script type="text/javascript"
-        src="http://syntaxhighlighter.googlecode.com/svn/tags/1.5.1/Scripts/shBrushXml.js"
-        language="JavaScript">
-    //<![CDATA[
-
-    //]]>
-</script>
-<script type="text/javascript"
-        src="http://syntaxhighlighter.googlecode.com/svn/tags/1.5.1/Scripts/shBrushJava.js"
-        language="JavaScript">
-</script>
-<!-- nifty - rounded corners -->
-<script type="text/javascript" src="js/nifty.js" language="JavaScript">
-</script>
-<script type="text/javascript">
-    //<![CDATA[
-    window.onload = function() {
-
-        if (NiftyCheck()) {
-
-            Rounded("div#about", "#fff", "#E7EFFF");
-            RoundedTop("div.footbar", "#fff", "#e8fecd");
-            Rounded("div.downloadnow", "#fff", "#e8fecd");
-        }
-
-        dp.SyntaxHighlighter.ClipboardSwf = 'http://syntaxhighlighter.googlecode.com/svn/tags/1.5.1/Scripts/clipboard.swf';
-        dp.SyntaxHighlighter.HighlightAll('code');
-    }
-        //]]>
-</script>
-<!-- google analytics -->
-<script src="http://www.google-analytics.com/urchin.js"
-        type="text/javascript">
-    //<![CDATA[
-
-    //]]>
-</script>
-<script type="text/javascript">
-    //<![CDATA[
-    _uacct = "UA-616623-3";
-    urchinTracker();
-    //]]>
-</script>
 </body>
 </html>
 

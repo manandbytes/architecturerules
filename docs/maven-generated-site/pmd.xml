@@ -1,57 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pmd version="3.9" timestamp="2007-11-23T10:42:45.358" elapsedTime="0s">
+<pmd version="3.9" timestamp="2008-01-19T19:12:06.431" elapsedTime="0s">
 <file name="c:\dev\svnlocal\72miles\architecturerules\trunk\src\main\java\com\seventytwomiles\architecturerules\AbstractArchitectureRulesConfigurationTest.java">
-<violation line="56" rule="UnusedPrivateField" ruleset="Unused Code Rules" package="com.seventytwomiles.architecturerules" class="AbstractArchitectureRulesConfigurationTest" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateField" priority="3">
+<violation line="55" rule="UnusedPrivateField" ruleset="Unused Code Rules" package="com.seventytwomiles.architecturerules" class="AbstractArchitectureRulesConfigurationTest" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateField" priority="3">
 Avoid unused private fields such as 'log'.
 </violation>
 </file>
 <file name="c:\dev\svnlocal\72miles\architecturerules\trunk\src\main\java\com\seventytwomiles\architecturerules\configuration\AbstractConfigurationFactory.java">
-<violation line="43" rule="UnusedPrivateField" ruleset="Unused Code Rules" package="com.seventytwomiles.architecturerules.configuration" class="AbstractConfigurationFactory" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateField" priority="3">
+<violation line="47" rule="UnusedPrivateField" ruleset="Unused Code Rules" package="com.seventytwomiles.architecturerules.configuration" class="AbstractConfigurationFactory" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateField" priority="3">
 Avoid unused private fields such as 'log'.
 </violation>
 </file>
 <file name="c:\dev\svnlocal\72miles\architecturerules\trunk\src\main\java\com\seventytwomiles\architecturerules\configuration\Configuration.java">
-<violation line="48" rule="UnusedPrivateField" ruleset="Unused Code Rules" package="com.seventytwomiles.architecturerules.configuration" class="Configuration" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateField" priority="3">
+<violation line="49" rule="UnusedPrivateField" ruleset="Unused Code Rules" package="com.seventytwomiles.architecturerules.configuration" class="Configuration" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateField" priority="3">
 Avoid unused private fields such as 'log'.
 </violation>
 </file>
 <file name="c:\dev\svnlocal\72miles\architecturerules\trunk\src\main\java\com\seventytwomiles\architecturerules\configuration\UnmodifiableConfiguration.java">
-<violation line="39" rule="UnusedPrivateField" ruleset="Unused Code Rules" package="com.seventytwomiles.architecturerules.configuration" class="UnmodifiableConfiguration" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateField" priority="3">
+<violation line="40" rule="UnusedPrivateField" ruleset="Unused Code Rules" package="com.seventytwomiles.architecturerules.configuration" class="UnmodifiableConfiguration" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateField" priority="3">
 Avoid unused private fields such as 'log'.
 </violation>
 </file>
 <file name="c:\dev\svnlocal\72miles\architecturerules\trunk\src\main\java\com\seventytwomiles\architecturerules\configuration\xml\DigesterConfigurationFactory.java">
-<violation line="49" rule="UnusedPrivateField" ruleset="Unused Code Rules" package="com.seventytwomiles.architecturerules.configuration.xml" class="DigesterConfigurationFactory" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateField" priority="3">
+<violation line="51" rule="UnusedPrivateField" ruleset="Unused Code Rules" package="com.seventytwomiles.architecturerules.configuration.xml" class="DigesterConfigurationFactory" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateField" priority="3">
 Avoid unused private fields such as 'log'.
 </violation>
 </file>
 <file name="c:\dev\svnlocal\72miles\architecturerules\trunk\src\main\java\com\seventytwomiles\architecturerules\domain\CyclicDependencyConfiguration.java">
-<violation line="36" rule="UnusedPrivateField" ruleset="Unused Code Rules" package="com.seventytwomiles.architecturerules.domain" class="CyclicDependencyConfiguration" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateField" priority="3">
+<violation line="38" rule="UnusedPrivateField" ruleset="Unused Code Rules" package="com.seventytwomiles.architecturerules.domain" class="CyclicDependencyConfiguration" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateField" priority="3">
 Avoid unused private fields such as 'log'.
 </violation>
 </file>
 <file name="c:\dev\svnlocal\72miles\architecturerules\trunk\src\main\java\com\seventytwomiles\architecturerules\domain\Rule.java">
-<violation line="42" rule="UnusedPrivateField" ruleset="Unused Code Rules" package="com.seventytwomiles.architecturerules.domain" class="Rule" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateField" priority="3">
+<violation line="43" rule="UnusedPrivateField" ruleset="Unused Code Rules" package="com.seventytwomiles.architecturerules.domain" class="Rule" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateField" priority="3">
 Avoid unused private fields such as 'log'.
 </violation>
 </file>
 <file name="c:\dev\svnlocal\72miles\architecturerules\trunk\src\main\java\com\seventytwomiles\architecturerules\domain\SourceDirectory.java">
-<violation line="23" rule="UnusedImports" ruleset="Import Statement Rules" package="com.seventytwomiles.architecturerules.domain" externalInfoUrl="http://pmd.sourceforge.net/rules/imports.html#UnusedImports" priority="4">
+<violation line="24" rule="UnusedImports" ruleset="Import Statement Rules" package="com.seventytwomiles.architecturerules.domain" externalInfoUrl="http://pmd.sourceforge.net/rules/imports.html#UnusedImports" priority="4">
 Avoid unused imports such as 'com.seventytwomiles.architecturerules.exceptions.SourceNotFoundException'
 </violation>
-<violation line="38" rule="UnusedPrivateField" ruleset="Unused Code Rules" package="com.seventytwomiles.architecturerules.domain" class="SourceDirectory" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateField" priority="3">
+<violation line="44" rule="UnusedPrivateField" ruleset="Unused Code Rules" package="com.seventytwomiles.architecturerules.domain" class="SourceDirectory" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateField" priority="3">
 Avoid unused private fields such as 'log'.
-</violation>
-<violation line="85" rule="UnusedPrivateField" ruleset="Unused Code Rules" package="com.seventytwomiles.architecturerules.domain" class="SourceDirectory" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateField" priority="3">
-Avoid unused private fields such as 'notFound'.
 </violation>
 </file>
 <file name="c:\dev\svnlocal\72miles\architecturerules\trunk\src\main\java\com\seventytwomiles\architecturerules\domain\SourcesConfiguration.java">
-<violation line="36" rule="UnusedPrivateField" ruleset="Unused Code Rules" package="com.seventytwomiles.architecturerules.domain" class="SourcesConfiguration" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateField" priority="3">
+<violation line="23" rule="UnusedImports" ruleset="Import Statement Rules" package="com.seventytwomiles.architecturerules.domain" externalInfoUrl="http://pmd.sourceforge.net/rules/imports.html#UnusedImports" priority="4">
+Avoid unused imports such as 'com.seventytwomiles.architecturerules.configuration.ConfigurationFactory'
+</violation>
+<violation line="38" rule="UnusedPrivateField" ruleset="Unused Code Rules" package="com.seventytwomiles.architecturerules.domain" class="SourcesConfiguration" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateField" priority="3">
 Avoid unused private fields such as 'log'.
 </violation>
 </file>
-<file name="c:\dev\svnlocal\72miles\architecturerules\trunk\src\main\java\com\seventytwomiles\architecturerules\services\CyclicRedundencyServiceImpl.java">
+<file name="c:\dev\svnlocal\72miles\architecturerules\trunk\src\main\java\com\seventytwomiles\architecturerules\services\CyclicRedundancyServiceImpl.java">
 <violation line="25" rule="UnusedImports" ruleset="Import Statement Rules" package="com.seventytwomiles.architecturerules.services" externalInfoUrl="http://pmd.sourceforge.net/rules/imports.html#UnusedImports" priority="4">
 Avoid unused imports such as 'com.seventytwomiles.architecturerules.exceptions.NoPackagesFoundException'
 </violation>
@@ -60,15 +60,15 @@ Avoid unused imports such as 'com.seventytwomiles.architecturerules.exceptions.S
 </violation>
 </file>
 <file name="c:\dev\svnlocal\72miles\architecturerules\trunk\src\main\java\org\apache\commons\io\FileUtils.java">
-<violation line="224" rule="EmptyCatchBlock" ruleset="Basic Rules" package="org.apache.commons.io" class="FileUtils" method="closeQuietly" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#EmptyCatchBlock" priority="3">
+<violation line="235" rule="EmptyCatchBlock" ruleset="Basic Rules" package="org.apache.commons.io" class="FileUtils" method="closeQuietly" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#EmptyCatchBlock" priority="3">
 Avoid empty catch blocks
 </violation>
 </file>
 <file name="c:\dev\svnlocal\72miles\architecturerules\trunk\src\main\java\org\springframework\core\io\ClassPathResource.java">
-<violation line="212" rule="OverrideBothEqualsAndHashcode" ruleset="Basic Rules" package="org.springframework.core.io" class="ClassPathResource" method="equals" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#OverrideBothEqualsAndHashcode" priority="3">
+<violation line="218" rule="OverrideBothEqualsAndHashcode" ruleset="Basic Rules" package="org.springframework.core.io" class="ClassPathResource" method="equals" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#OverrideBothEqualsAndHashcode" priority="3">
 Ensure you override both equals() and hashCode()
 </violation>
-<violation line="367" rule="EmptyIfStmt" ruleset="Basic Rules" package="org.springframework.core.io" class="ClassPathResource" method="cleanPath" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#EmptyIfStmt" priority="3">
+<violation line="378" rule="EmptyIfStmt" ruleset="Basic Rules" package="org.springframework.core.io" class="ClassPathResource" method="cleanPath" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#EmptyIfStmt" priority="3">
 Avoid empty if statements
 </violation>
 </file>

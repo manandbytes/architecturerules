@@ -1,0 +1,72 @@
+#wrap {
+    width: 482px;
+    height: 337px;
+    background: #fff url( '../images/tour/ajax-loader.gif' ) no-repeat center center;
+    border: 1px dotted #ccc;
+}
+
+#wrap #realtext {
+    background-color: #000;
+    background: url( '../images/tour/bg.png' );
+    width: 100%;
+}
+
+#wrap #text p {
+    color: #eee;
+    padding: 0 5px 8px 5px;
+    margin: 0;
+    font-weight: normal;
+    font-family: Verdana, sans-serif;
+    font-size: 0.7em;
+}
+
+#wrap #text h3 {
+    color: #eee;
+    padding: 5px;
+    margin: 0;
+    font-weight: normal;
+    font-family: Verdana, sans-serif;
+    font-size: 1.6em;
+    border: 0;
+}
+
+#wrap #text h3 a {
+    text-decoration: none;
+    color: #fff;
+}
+
+#guided-tour-button {
+    margin: 10px auto 0px auto;
+    text-align: center;
+}
+
+#guided-tour-button span {
+    cursor: pointer;
+    border: 1px dotted #ccc;
+    background-color: #F8F8F8;
+    padding: 3px 14px;
+    font-size: 160%
+}
+
+#guided-tour {
+    margin: 10px 1px 0 18px;
+    height: 350px;
+
+}
+
+#guided-tour-controls {
+    text-align: right;
+    margin-bottom: 0;
+}
+
+#guided-tour-controls span {
+    text-align: right;
+    padding: 20px;
+    cursor: pointer;
+    text-decoration: underline; 
+}
+
+#guided-tour-controls a {
+    margin-right: 330px;
+    color: #E300B1;
+}

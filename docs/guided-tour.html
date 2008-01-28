@@ -1,0 +1,138 @@
+<html>
+<head>
+    <title>Architecture Rules Tour</title>
+    <link rel="stylesheet" href="css/tour.css" type="text/css" media="screen" />
+    <script type="text/javascript" src="js/prototype-1.5.1.1.js"></script>
+    <script type="text/javascript" src="js/scriptaculous.js?load=effects"></script>
+    <script type="text/javascript" src="js/sticker-1.0.js"></script>
+</head>
+<body>
+
+<div id="wrap">
+    <div id="text" style="display: none;">
+        <div id="realtext">
+            <h3 id="featuredHead">&nbsp;</h3>
+
+            <p id="featuredText">&nbsp;</p>
+        </div>
+    </div>
+</div>
+
+
+<ul id="featured" style="display: none;">
+
+<li id="story_1">
+    <h3 id="title_1">
+        <a href="separation-of-concern.html">
+            Define your Rules
+        </a>
+    </h3>
+
+    <p id="text_1">
+        Such as, the presentation layer can not access the integration
+        layer...
+    </p>
+
+    <div id="bg_1">
+        images/tour/tour-1.png
+    </div>
+</li>
+
+<li id="story_2">
+    <h3 id="title_2">
+        <a href="separation-of-concern.html">
+            Define your Rules
+        </a>
+    </h3>
+
+    <p id="text_2">
+        or Package C may not depend on Package A.
+    </p>
+
+    <div id="bg_2">
+        images/tour/tour-2.png
+    </div>
+</li>
+
+<li id="story_3">
+    <h3 id="title_3">
+        <a href="sample-configuration.html">
+            architecture-rules.xml
+        </a>
+    </h3>
+
+    <p id="text_3">
+        Document the rules in easy-to-read XML. Optionally, document the rules
+        programmatically.
+    </p>
+
+    <div id="bg_3">
+        images/tour/tour-3.png
+    </div>
+</li>
+
+<li id="story_4">
+    <h3 id="title_4">
+        <a href="getting-started.html#write-unit-test">
+            Unit Test
+        </a>
+    </h3>
+
+    <p id="text_4">
+        Write a unit test. Just extend
+        AbstractArchitectureRulesConfigurationTest and call doTests();
+    </p>
+
+    <div id="bg_4">
+        images/tour/tour-4.png
+    </div>
+</li>
+
+<li id="story_5">
+    <h3 id="title_5">
+        <a href="getting-started.html#execute-unit-test">
+            Run Tests
+        </a>
+    </h3>
+
+    <p id="text_5">
+        Run you tests with your IDE, Ant, Maven, and of course -
+        your continuous integration server.
+    </p>
+
+    <div id="bg_5">
+        images/tour/tour-5.png
+    </div>
+</li>
+
+<li id="story_6">
+    <h3 id="title_6">
+        <a href="downloads.html">
+            Architecturally Sound
+        </a>
+    </h3>
+
+    <p id="text_6">
+        Write better code by continuously monitoring and managing the
+        underlying architecture.
+    </p>
+
+    <div id="bg_6">
+        images/tour/tour-6.png
+    </div>
+</li>
+
+</ul>
+
+<!--
+this causes the show to run when you view guided-tour.html alone
+it has no affect on the ajax include into index.html
+-->
+<script type="text/javascript">
+    sticker.timeout = 8;
+    sticker.totalscreens = 6;
+    sticker.loader();
+</script>
+
+</body>
+</html>

@@ -23,11 +23,8 @@
         </style>
         <![endif]-->
 
-    <script type="text/javascript" src="js/prototype-1.5.1.1.js">
-        //<![CDATA[
+    <script type="text/javascript" src="js/application.js"></script>
 
-        //]]>
-    </script>
 </head>
 <body>
 <div id="page">
@@ -74,13 +71,13 @@
 <!-- /about -->
 <div id="primary" class="single hfeed">
 <!-- post entry -->
-<div class="hentry post" id="releases">
+<div class="hentry post" id="releases-list">
     <h1 class="posttitle entry-title">
         Releases
     </h1>
 
     <div class="entry entry-content">
-        <ol id="releases" class="toc">
+        <ol class="releases toc alignleft">
             <li class="current">
                 <a href="#release-2.0.3">2.0.3</a>
             </li>
@@ -90,6 +87,10 @@
             <li class="older">
                 <a href="#release-2.0.1">2.0.1</a>
             </li>
+            
+        </ol>
+
+        <ol class="releases toc alignleft">
             <li class="oldest">
                 <a href="#release-2.0rc2">2.0-rc2</a>
             </li>
@@ -99,10 +100,14 @@
             <li class="oldest">
                 <a href="#release-1.1">1.1</a>
             </li>
+        </ol>
+
+        <ol class="releases toc alignleft">
             <li class="oldest">
                 <a href="#release-1.0">1.0</a>
             </li>
         </ol>
+        
     </div>
     <!-- /entry -->
 </div>
@@ -651,70 +656,7 @@
 <div id="footer">
 </div>
 <!-- /footer -->
-<script type="text/javascript">
-    //<![CDATA[
-    new Ajax.Updater('secondary', 'component_rightnav.html', { method: 'get', asynchronous: true, insertion: Insertion.Bottom });
-    new Ajax.Updater('footer', 'component_footer.html', {method: 'get', asynchronous: true, insertion: Insertion.Bottom });
-    //]]>
-</script>
-<!-- syntaxhighlighter -->
-<script type="text/javascript"
-        src="http://syntaxhighlighter.googlecode.com/svn/tags/1.5.1/Scripts/shCore.js"
-        language="JavaScript">
-    //<![CDATA[
 
-    //]]>
-</script>
-<script type="text/javascript"
-        src="http://syntaxhighlighter.googlecode.com/svn/tags/1.5.1/Scripts/shBrushXml.js"
-        language="JavaScript">
-    //<![CDATA[
-
-    //]]>
-</script>
-<script type="text/javascript"
-        src="http://syntaxhighlighter.googlecode.com/svn/tags/1.5.1/Scripts/shBrushJava.js"
-        language="JavaScript">
-    //<![CDATA[
-
-    //]]>
-</script>
-<!-- nifty - rounded corners -->
-<script type="text/javascript" src="js/nifty.js" language="JavaScript">
-    //<![CDATA[
-
-    //]]>
-</script>
-<script type="text/javascript">
-    //<![CDATA[
-    window.onload = function() {
-
-        if (NiftyCheck()) {
-
-            Rounded("div#about", "#fff", "#E7EFFF");
-            RoundedTop("div.footbar", "#fff", "#e8fecd");
-            Rounded("div.downloadnow", "#fff", "#e8fecd");
-        }
-
-        dp.SyntaxHighlighter.ClipboardSwf
-                = 'http://syntaxhighlighter.googlecode.com/svn/tags/1.5.1/Scripts/clipboard.swf';
-        dp.SyntaxHighlighter.HighlightAll('code');
-    }
-        //]]>
-</script>
-<!-- google analytics -->
-<script src="http://www.google-analytics.com/urchin.js"
-        type="text/javascript">
-    //<![CDATA[
-
-    //]]>
-</script>
-<script type="text/javascript">
-    //<![CDATA[
-    _uacct = "UA-616623-3";
-    urchinTracker();
-    //]]>
-</script>
 </body>
 </html>
 

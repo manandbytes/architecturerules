@@ -9,6 +9,7 @@
 .recent-activity {
     border: solid #eee 3px;
     padding: 0;
+    display: none;
 }
 
 a.rss {

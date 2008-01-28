@@ -27,6 +27,7 @@
  * slides back down.
  */
 sticker = new Object;
+
 sticker = {
 
     loader: function() {
@@ -47,6 +48,11 @@ sticker = {
             sticker.totalscreens = 9999;
         }
 
+        setTimeout('sticker.isLoaded()', 1000);
+    },
+
+    preloadImages: function() {
+
         backgroundImg = new Image();
         backgroundImg.src = 'images/bg.png';
 
@@ -58,8 +64,6 @@ sticker = {
             sticker.img[i] = new Image();
             sticker.img[i].src = sticker.preload[i].innerHTML;
         }
-
-        setTimeout('sticker.isLoaded()', 1000);
     },
 
     isLoaded: function () {

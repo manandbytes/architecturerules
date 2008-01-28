@@ -13,7 +13,7 @@
             <source not-found="exception">target\classes</source>
         </sources>
 
-        <cyclicalDependency test="true"/>
+        <cyclicalDependency test="true" />
 
     </configuration>
 
@@ -21,11 +21,9 @@
     <rules>
 
         <rule id="dao">
-
             <comment>
                 The dao interface package should rely on nothing.
             </comment>
-
             <packages>
                 <package>
                     com.seventytwomiles.pagerank.core.dao
@@ -34,7 +32,6 @@
                     com.seventytwomiles.pagerank.core.dao.hibernate
                 </package>
             </packages>
-
             <violations>
                 <violation>
                     com.seventytwomiles.pagerank.core.services

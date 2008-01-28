@@ -134,7 +134,7 @@ var Tour = {
         new Ajax.Updater('guided-tour', 'guided-tour.html', {method: 'get', asynchronous: true, insertion: Insertion.Top});
 
         sticker.totalscreens = 6;
-        sticker.timeout = 3;
+        sticker.timeout = 10;
 
         setTimeout('sticker.loader();', 1000);
     },

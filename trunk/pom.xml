@@ -156,11 +156,6 @@
                 <artifactId>jxr-maven-plugin</artifactId>
             </plugin>
             <plugin>
-                <groupId>net.sf</groupId>
-                <artifactId>stat-scm</artifactId>
-                <version>1.0.0</version>
-            </plugin>
-            <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>findbugs-maven-plugin</artifactId>
                 <version>1.1.1</version>
@@ -359,5 +354,23 @@
             <url>http://stat-scm.sourceforge.net/maven2</url>
         </pluginRepository>
     </pluginRepositories>
-
+ <profiles>
+       <profile>
+           <activation>
+               <activeByDefault>false</activeByDefault>
+               <os>
+                   <family>Windows</family>
+               </os>
+           </activation>
+           <reporting>
+               <plugins>
+                   <plugin>
+                       <groupId>net.sf</groupId>
+                       <artifactId>stat-scm</artifactId>
+                       <version>1.0.0</version>
+                   </plugin>
+               </plugins>
+           </reporting>
+       </profile>
+   </profiles>
 </project>

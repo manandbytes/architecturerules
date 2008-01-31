@@ -150,5 +150,5 @@ public abstract class AbstractArchitectureRulesConfigurationTest
     /**
      * <p>Implement this method and call {@link #doTests}</p>
      */
-    protected abstract void testArchitecture();
+    public abstract void testArchitecture();
 }

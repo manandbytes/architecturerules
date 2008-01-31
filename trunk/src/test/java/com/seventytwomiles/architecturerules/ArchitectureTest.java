@@ -96,18 +96,11 @@ public class ArchitectureTest
 
         } catch (final CyclicRedundancyException e) {
 
-            e.printStackTrace();
+            final Stringer message = new Stringer(e.getMessage());
 
-            final String message = e.getMessage();
-
-            assertTrue(
-                    message.indexOf("test.com.seventytwomiles.services") > -1);
-
-            assertTrue(
-                    message.indexOf("test.com.seventytwomiles.model") > -1);
-
-            assertTrue(message.indexOf(
-                    "test.com.seventytwomiles.dao.hibernate") > -1);
+            assertTrue(message.has("test.com.seventytwomiles.services"));
+            assertTrue(message.has("test.com.seventytwomiles.model"));
+            assertTrue(message.has("test.com.seventytwomiles.dao.hibernate"));
         }
 
 
@@ -134,19 +127,34 @@ public class ArchitectureTest
 
         } catch (final CyclicRedundancyException e) {
 
-            e.printStackTrace();
+            final Stringer message = new Stringer(e.getMessage());
 
-            final String message = e.getMessage();
-
-            assertTrue(
-                    message.indexOf("test.com.seventytwomiles.services") > -1);
-
-            assertTrue(
-                    message.indexOf("test.com.seventytwomiles.model") > -1);
-
-            assertTrue(
-                    message.indexOf(
-                            "test.com.seventytwomiles.dao.hibernate") > -1);
+            assertTrue(message.has("test.com.seventytwomiles.services"));
+            assertTrue(message.has("test.com.seventytwomiles.model"));
+            assertTrue(message.has("test.com.seventytwomiles.dao.hibernate"));
         }
     }
 }
+
+
+/**
+ * Silly little class that allows me to call .contains on a String. It was
+ * created simply to prevent assertTrue(message.has("test.com.seventytwomiles.dao.hibernate"));
+ * from wrapping to a new line.
+ */
+class Stringer {
+
+
+    private final String string;
+
+
+    Stringer(final String string) {
+        this.string = string;
+    }
+
+
+    public boolean has(String contains) {
+        return this.string.indexOf(contains) > -1;
+    }
+}
+

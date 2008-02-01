@@ -356,12 +356,40 @@
     </pluginRepositories>
 
     <profiles>
+
         <profile>
             <activation>
                 <activeByDefault>false</activeByDefault>
                 <os>
-                    <family>windows</family>
+                    <family>Linux</family>
                     <arch>x86</arch>
+                </os>
+            </activation>
+        </profile>
+
+        <profile>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+                <os>
+                    <family>Windows Vista</family>
+                </os>
+            </activation>
+            <reporting>
+                <plugins>
+                    <plugin>
+                        <groupId>net.sf</groupId>
+                        <artifactId>stat-scm</artifactId>
+                        <version>1.0.0</version>
+                    </plugin>
+                </plugins>
+            </reporting>
+        </profile>
+
+        <profile>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+                <os>
+                    <family>Windows</family>
                 </os>
             </activation>
             <reporting>

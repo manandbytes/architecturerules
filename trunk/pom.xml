@@ -54,6 +54,14 @@
         </mailingList>
     </mailingLists>
 
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>manual</distribution>
+        </license>
+    </licenses>
+
     <dependencies>
         <dependency>
             <groupId>commons-digester</groupId>
@@ -132,6 +140,12 @@
             <name>luminary</name>
             <roles>
                 <role>contributor</role>
+            </roles>
+        </contributor>
+        <contributor>
+            <name>mykola.nickishov</name>
+            <roles>
+                <role>patches</role>
             </roles>
         </contributor>
     </contributors>

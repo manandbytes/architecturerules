@@ -32,10 +32,14 @@ function includeJavaScript(jsFile)
 }
 
 window.onload = function() {
+
     TempalteHandler.loadRightNav();
     TempalteHandler.loadFooter();
+
     NiftyHandler.round();
     CodeHandler.highlight();
+
+    AnalyticsHandler.trackDownloads();
     AnalyticsHandler.load();
 
     setTimeout('NiftyHandler.roundFooter()', 500);
@@ -57,6 +61,24 @@ var AnalyticsHandler = {
     load: function() {
         _uacct = "UA-616623-3";
         urchinTracker();
+    },
+
+    /**
+     * @link http://refactormycode.com/codes/58-tracking-file-downloads-automatically-in-google-analytics-with-prototype
+     */
+    trackDownloads: function() {
+
+        $w('jar').each(function(ext) {
+            $$('a[href$=.' + ext + ']').each(function(a) {
+
+                var pageview = '/downloads' + a.href.substr(a.href.lastIndexOf('/'), a.href.length);
+
+                /* /downloads/wtf.mp3 */
+                a.observe('click', function() {
+                    urchinTracker(pageview);
+                });
+            });
+        });
     }
 }
 

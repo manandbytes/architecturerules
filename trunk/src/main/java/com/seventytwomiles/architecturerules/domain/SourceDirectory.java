@@ -245,14 +245,17 @@ public class SourceDirectory {
 
 
     /**
-     * Replaces inappropriate backslash with the appropriate slash based on the
-     * operating system's requirements
+     * <p>Replaces inappropriate backslash with the appropriate slash based on
+     * the operating system's requirements</p>
      *
-     * For example, on a Windows system, <tt>src/main/resources</tt> becomes
-     * <tt>src\\main\\resource</tt>
+     * <p>For example, on a Windows system, <tt>src/main/resources</tt> becomes
+     * <tt>src\\main\\resource</tt></p>
      *
-     * TODO: this may be able to be replaced with String.replaceAll, but I
-     * couldn't get the regex just right
+     * <p>TODO: this may be able to be replaced with String.replaceAll, but I
+     * couldn't get the regex just right</p>
+     *
+     * <p>This todo/issue is open at <a href="http://code.google.com/p/architecturerules/issues/detail?id=29">issue
+     * 29</a></p>
      *
      * @param path String the path to fix
      * @return String the fixed path

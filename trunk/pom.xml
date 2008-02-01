@@ -19,6 +19,41 @@
 
     <url>http://architecturerules.googlecode.com/svn/docs/index.html</url>
 
+    <issueManagement>
+        <system>Google Code</system>
+        <url>http://code.google.com/p/architecturerules/issues</url>
+    </issueManagement>
+
+    <mailingLists>
+        <mailingList>
+            <name>User List</name>
+            <post>architecture-rules-users@googlegroups.com</post>
+            <archive>http://groups.google.com/group/architecture-rules-users
+            </archive>
+            <subscribe>
+                http://groups.google.com/group/architecture-rules-users/subscribe
+            </subscribe>
+        </mailingList>
+        <mailingList>
+            <name>Dev List</name>
+            <post>architecture-rules-dev@googlegroups.com</post>
+            <archive>http://groups.google.com/group/architecture-rules-dev
+            </archive>
+            <subscribe>
+                http://groups.google.com/group/architecture-rules-dev/subscribe
+            </subscribe>
+        </mailingList>
+        <mailingList>
+            <name>Activity List</name>
+            <post>architecture-rules-activity@googlegroups.com</post>
+            <archive>http://groups.google.com/group/architecture-rules-activity
+            </archive>
+            <subscribe>
+                http://groups.google.com/group/architecture-rules-activity/subscribe
+            </subscribe>
+        </mailingList>
+    </mailingLists>
+
     <dependencies>
         <dependency>
             <groupId>commons-digester</groupId>
@@ -108,7 +143,7 @@
         <developerConnection>
             scm:svn:https://architecturerules.googlecode.com/svn/trunk/
         </developerConnection>
-        <url>scm:svn:http://architecturerules.googlecode.com/svn/trunk/</url>
+        <url>http://architecturerules.googlecode.com/svn/trunk/</url>
     </scm>
 
 
@@ -356,7 +391,6 @@
     </pluginRepositories>
 
     <profiles>
-
         <profile>
             <activation>
                 <activeByDefault>false</activeByDefault>
@@ -366,7 +400,6 @@
                 </os>
             </activation>
         </profile>
-
         <profile>
             <activation>
                 <activeByDefault>false</activeByDefault>
@@ -384,7 +417,6 @@
                 </plugins>
             </reporting>
         </profile>
-
         <profile>
             <activation>
                 <activeByDefault>false</activeByDefault>
@@ -403,5 +435,4 @@
             </reporting>
         </profile>
     </profiles>
-
 </project>

@@ -38,10 +38,11 @@ public class CyclicRedundancyServiceTest extends TestCase {
 
     private CyclicRedundancyService cyclicRedundancyService;
     private Configuration configuration = new Configuration();
-    private final SourceDirectory testClassesSourceDirectory
-            = new SourceDirectory("target\\test-classes", true);
     private final Rule controllerRule = new Rule();
     private final Rule modelRule = new Rule();
+
+    private final SourceDirectory testClassesSourceDirectory
+            = new SourceDirectory("target\\test-classes", true);
 
 
     public CyclicRedundancyServiceTest(final String name) {
@@ -74,8 +75,8 @@ public class CyclicRedundancyServiceTest extends TestCase {
 
         configuration.setThrowExceptionWhenNoPackages(true);
 
-        cyclicRedundancyService = new CyclicRedundancyServiceImpl(
-                configuration);
+        cyclicRedundancyService
+                = new CyclicRedundancyServiceImpl(configuration);
     }
 
 
@@ -138,12 +139,16 @@ public class CyclicRedundancyServiceTest extends TestCase {
             assertTrue(
                     "expected violation at test.com.seventytwomiles.services",
                     message.indexOf("test.com.seventytwomiles.services") > -1);
+
             assertTrue("expected violation at test.com.seventytwomiles.model",
                     message.indexOf("test.com.seventytwomiles.model") > -1);
+
             assertTrue(
                     "expected violation at test.com.seventytwomiles.dao.hibernate",
                     message.indexOf(
                             "test.com.seventytwomiles.dao.hibernate") > -1);
+
+            e.printStackTrace();
         }
     }
 }

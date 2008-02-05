@@ -246,11 +246,11 @@ abstract class AbstractArchitecturalRules {
                            final Collection rules)
             throws DependencyConstraintException, CyclicRedundancyException {
 
-        final Collection packages = jdepend.analyze();
+        final Collection analyzedPackages = jdepend.analyze();
 
         log.debug("checking how many packages were found by JDepend");
 
-        if (packages.isEmpty()) {
+        if (analyzedPackages.isEmpty()) {
 
             log.warn("no packages were found with the given configuration. " +
                     "check your <sources />");
@@ -271,13 +271,13 @@ abstract class AbstractArchitecturalRules {
 
         } else {
 
-            log.debug("jdepend found " + packages.size()
+            log.debug("jdepend found " + analyzedPackages.size()
                     + " to analyze for dependency architecture");
         }
 
         JavaPackage javaPackage;
 
-        for (Iterator packageIterator = packages.iterator();
+        for (Iterator packageIterator = analyzedPackages.iterator();
              packageIterator.hasNext();) {
 
             javaPackage = (JavaPackage) packageIterator.next();

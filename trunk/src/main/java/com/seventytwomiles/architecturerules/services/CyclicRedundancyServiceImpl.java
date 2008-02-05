@@ -24,6 +24,7 @@ import com.seventytwomiles.architecturerules.configuration.Configuration;
 import com.seventytwomiles.architecturerules.exceptions.CyclicRedundancyException;
 import com.seventytwomiles.architecturerules.exceptions.NoPackagesFoundException;
 import com.seventytwomiles.architecturerules.exceptions.SourceNotFoundException;
+import jdepend.framework.JavaClass;
 import jdepend.framework.JavaPackage;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -189,7 +190,8 @@ public class CyclicRedundancyServiceImpl extends AbstractArchitecturalRules
     private String buildCyclicRedundancyMessage(final Map cycles) {
 
         final StringBuffer message = new StringBuffer();
-        message.append("cyclic dependencies found:")
+        message.append(cycles.size())
+                .append(" cyclic dependencies found:")
                 .append("\r\n")
                 .append("\r\n\t");
 
@@ -206,25 +208,50 @@ public class CyclicRedundancyServiceImpl extends AbstractArchitecturalRules
                     .append(javaPackage.getName())
                     .append("\r\n\t");
 
+            message.append("|  |")
+                    .append(" (depends on one or more of)")
+                    .append("\r\n\t");
+
             for (Iterator dependencyIterator = cyclicDependencies.iterator();
                  dependencyIterator.hasNext();) {
 
                 final JavaPackage dependency
                         = (JavaPackage) dependencyIterator.next();
 
-                message.append("¦  ¦").append("\r\n\t");
-                message.append("¦  ¦-- ")
-                        .append(dependency.getName())
-                        .append("\r\n\t");
+                final String listOfClasses = buildListOfClasses(javaPackage,
+                        dependency);
+
+                message.append("|  |");
+                message.append("\r\n\t");
+                message.append("|  |-- ");
+                message.append(dependency.getName());
+                message.append("\n" + listOfClasses);
+                message.append("\r\n\t");
 
                 if (!dependencyIterator.hasNext())
-                    message.append("¦").append("\r\n\t");
+                    message.append("|").append("\r\n\t");
             }
-
-            if (entryIterator.hasNext())
-                message.append("¦").append("\r\n\t");
         }
 
         return message.toString();
+    }
+
+
+    private String buildListOfClasses(
+            final JavaPackage javaPackage, final JavaPackage dependency) {
+
+        final StringBuffer listOfClasses = new StringBuffer();
+
+        for (Iterator classesIterator = dependency.getClasses().iterator();
+             classesIterator.hasNext();) {
+
+            final JavaClass javaClass = (JavaClass) classesIterator.next();
+            final Collection importedPackages = javaClass.getImportedPackages();
+
+            if (importedPackages.contains(javaPackage))
+                listOfClasses.append("\t|\t" + javaClass.getName() + "\n");
+        }
+
+        return listOfClasses.toString();
     }
 }

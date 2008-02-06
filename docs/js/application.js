@@ -276,6 +276,6 @@ var Donate = {
 
     afterPageLoad: function() {
 
-        setTimeout("$('donate_graphic').setAttribute('src', 'images/donate_green.png')", 100);
+        setTimeout("$('donate_graphic').setAttribute('src', 'images/donate_green.png')", 500);
     }
 }

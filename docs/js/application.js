@@ -33,8 +33,8 @@ function includeJavaScript(jsFile)
 
 window.onload = function() {
 
-    TempalteHandler.loadRightNav();
-    TempalteHandler.loadFooter();
+    TemplateHandler.loadRightNav();
+    TemplateHandler.loadFooter();
 
     NiftyHandler.round();
     CodeHandler.highlight();
@@ -45,7 +45,7 @@ window.onload = function() {
     setTimeout('NiftyHandler.roundFooter()', 500);
 }
 
-var TempalteHandler = {
+var TemplateHandler = {
 
     loadRightNav: function() {
         new Ajax.Updater('secondary', 'component_rightnav.html', {method: 'get', asynchronous: true, insertion: Insertion.Bottom });
@@ -269,5 +269,13 @@ var MailingListHandler = {
 
     getActivityMailinglistContent: function() {
         return "<p class=newsAlt><a class=newsLinkAlt  target=_mailinglist  href='http://groups.google.com/group/architecture-rules-activity/browse_thread/thread/18643d24a95e933a'>[architecturerules commit] r213 - docs trunk</a><br>2007-11-17, 7:40:05</p><p class=news><a class=newsLink  target=_mailinglist  href='http://groups.google.com/group/architecture-rules-activity/browse_thread/thread/8d135c67971de6f1'>[architecturerules commit] r212 - docs</a><br>2007-11-16, 11:59:41</p><p class=newsAlt><a class=newsLinkAlt  target=_mailinglist  href='http://groups.google.com/group/architecture-rules-activity/browse_thread/thread/56348fb5bdc86d42'>[architecturerules commit] r211 - in docs: . css</a><br>2007-11-16, 11:54:40</p><p class=news><a class=newsLink  target=_mailinglist  href='http://groups.google.com/group/architecture-rules-activity/browse_thread/thread/d76b478107ea379c'>[architecturerules commit] r210 - docs</a><br>2007-11-16, 11:50:28</p><p class=newsAlt><a class=newsLinkAlt  target=_mailinglist  href='http://groups.google.com/group/architecture-rules-activity/browse_thread/thread/ecf28c8af3d2e8a1'>[architecturerules commit] r209 - docs</a><br>2007-11-16, 11:46:27</p></span><p><span style='font-family: arial; align: left; font-size: 11px;'>Powered by: <a title='RSS-to-JavaScript.com: Free RSS to JavaScript Converter' href=http://www.rss-to-javascript.com target=_powered alt='Free Content for Virtually Any Web-site! RSS-to-Javascript.com'>RSS-to-JavaScript.com</a></span></p>"
+    }
+}
+
+var Donate = {
+
+    afterPageLoad: function() {
+
+        setTimeout("$('donate_graphic').setAttribute('src', 'images/donate_green.png')", 100);
     }
 }

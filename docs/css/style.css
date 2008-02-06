@@ -840,3 +840,14 @@ a.tooltip:hover span {
 p.height60 {
     height: 60px !important;
 }
+
+.donateInformation {
+    text-align: center;
+    padding-top: 15px !important;
+}
+
+.donateInformation:hover {
+    background-color: white !important;
+    border-top: dotted 1px #ddd !important;
+    border-bottom: dotted 1px #fff !important;
+}

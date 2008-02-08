@@ -279,3 +279,10 @@ var Donate = {
         setTimeout("$('donate_graphic').setAttribute('src', 'images/donate_green.png')", 500);
     }
 }
+
+var NavigationHandler = {
+
+    openShop: function() {
+        window.location.href = 'http://www.cafepress.com/arules#houseware';
+    }
+}

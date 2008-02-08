@@ -851,3 +851,8 @@ p.height60 {
     border-top: dotted 1px #ddd !important;
     border-bottom: dotted 1px #fff !important;
 }
+
+p.shwag {
+    cursor: pointer;
+    cursor: hand;
+}

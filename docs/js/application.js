@@ -283,6 +283,7 @@ var Donate = {
 var NavigationHandler = {
 
     openShop: function() {
-        window.location.href = 'http://www.cafepress.com/arules#houseware';
+        window.location.href
+                = 'http://architecturerules.googlecode.com/svn/docs/schwag.html';
     }
 }

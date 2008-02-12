@@ -145,7 +145,8 @@
         <contributor>
             <name>mykola.nickishov</name>
             <roles>
-                <role>patches</role>
+                <role>contributor</role>
+                <role>commiter</role>
             </roles>
         </contributor>
     </contributors>

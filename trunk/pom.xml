@@ -114,6 +114,11 @@
             <artifactId>springmodules-validation</artifactId>
             <version>0.4</version>
         </dependency>
+        <dependency>
+            <groupId>jboss</groupId>
+            <artifactId>javassist</artifactId>
+            <version>3.0</version>
+        </dependency>
     </dependencies>
 
 

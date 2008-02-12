@@ -20,16 +20,26 @@ package com.seventytwomiles.architecturerules.services;
  */
 
 
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.Map;
+import java.util.Set;
+
+import javassist.ClassPool;
+import javassist.NotFoundException;
+import jdepend.framework.JavaClass;
+import jdepend.framework.JavaPackage;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
 import com.seventytwomiles.architecturerules.configuration.Configuration;
 import com.seventytwomiles.architecturerules.exceptions.CyclicRedundancyException;
 import com.seventytwomiles.architecturerules.exceptions.NoPackagesFoundException;
 import com.seventytwomiles.architecturerules.exceptions.SourceNotFoundException;
-import jdepend.framework.JavaClass;
-import jdepend.framework.JavaPackage;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-
-import java.util.*;
 
 
 
@@ -247,11 +257,45 @@ public class CyclicRedundancyServiceImpl extends AbstractArchitecturalRules
 
             final JavaClass javaClass = (JavaClass) classesIterator.next();
             final Collection importedPackages = javaClass.getImportedPackages();
-
-            if (importedPackages.contains(javaPackage))
-                listOfClasses.append("\t|\t" + javaClass.getName() + "\n");
+            Collection referencedClassNames = buildListOfImports(javaPackage,
+                    javaClass);
+            if (importedPackages.contains(javaPackage)) {
+                String referencesToPrint = (referencedClassNames.isEmpty() ? "referenced classes not found"
+                        : referencedClassNames.toString());
+                listOfClasses.append("\t|\t" + javaClass.getName() + ": "
+                        + referencesToPrint + "\n");
+            }
         }
 
         return listOfClasses.toString();
+    }
+
+    /**
+     * @param packageInCycle
+     * @param classWithImports
+     * @return collection of class names which this class imports from the
+     *         package involved in the cycle
+     */
+    private Collection buildListOfImports(final JavaPackage packageInCycle,
+            final JavaClass classWithImports) {
+        Collection referencedClassNames = new LinkedList();
+        try {
+            ClassPool classPool = ClassPool.getDefault();
+            Collection refClasses = classPool.get(classWithImports.getName())
+                    .getRefClasses();
+            for (Iterator iterator = refClasses.iterator(); iterator.hasNext();) {
+                String nameOfImportedClass = (String) iterator.next();
+                boolean notSelfClass = !classWithImports.getName().equals(
+                        nameOfImportedClass);
+                boolean importFromCycle = classPool.get(nameOfImportedClass)
+                        .getPackageName().equals(packageInCycle.getName());
+                if (notSelfClass && importFromCycle)
+                    referencedClassNames.add(nameOfImportedClass);
+            }
+        } catch (NotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return referencedClassNames;
     }
 }

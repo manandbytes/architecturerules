@@ -31,6 +31,52 @@
     exist.
 </p>
 
+<p>
+    Cyclic Redundancy exception message resembles
+</p>
+
+<pre>
+    5 cyclic dependencies found:
+
+	-- com.seventytwomiles.architecturerules.domain
+	|  | (depends on one or more of)
+	|  |
+	|  |-- com.seventytwomiles.architecturerules.exceptions
+	|	com.seventytwomiles.architecturerules.exceptions.NoPackagesFoundExceptionTest: [com.seventytwomiles.architecturerules.domain.SourceDirectory]
+	|	com.seventytwomiles.architecturerules.exceptions.SourceNotFoundExceptionTest: [com.seventytwomiles.architecturerules.domain.SourceDirectory]
+	|	com.seventytwomiles.architecturerules.exceptions.DependencyConstraintExceptionTest: [com.seventytwomiles.architecturerules.domain.Rule]
+	|	com.seventytwomiles.architecturerules.exceptions.IllegalArchitectureRuleExceptionTest: [com.seventytwomiles.architecturerules.domain.Rule]
+	|
+	-- test.com.seventytwomiles.services
+	|  | (depends on one or more of)
+	|  |
+	|  |-- test.com.seventytwomiles.model
+	|	test.com.seventytwomiles.model.Person: [test.com.seventytwomiles.services.PersonServiceImpl]
+	|  |
+	|  |-- test.com.seventytwomiles.dao.hibernate
+	|	test.com.seventytwomiles.dao.hibernate.PersonDaoImpl: [test.com.seventytwomiles.services.PersonService, test.com.seventytwomiles.services.PersonServiceImpl]
+	|
+	-- test.com.seventytwomiles.model
+	|  | (depends on one or more of)
+	|  |
+	|  |-- test.com.seventytwomiles.services
+	|	test.com.seventytwomiles.services.PersonService: [test.com.seventytwomiles.model.Person]
+	|	test.com.seventytwomiles.services.PersonServiceImpl: [test.com.seventytwomiles.model.Person]
+	|
+	-- com.seventytwomiles.architecturerules.exceptions
+	|  | (depends on one or more of)
+	|  |
+	|  |-- com.seventytwomiles.architecturerules.domain
+	|	com.seventytwomiles.architecturerules.domain.RuleTest: [com.seventytwomiles.architecturerules.exceptions.IllegalArchitectureRuleException]
+	|	com.seventytwomiles.architecturerules.domain.Rule: [com.seventytwomiles.architecturerules.exceptions.IllegalArchitectureRuleException]
+	|
+	-- test.com.seventytwomiles.dao.hibernate
+	|  | (depends on one or more of)
+	|  |
+	|  |-- test.com.seventytwomiles.services
+	|	test.com.seventytwomiles.services.PersonServiceImpl: [test.com.seventytwomiles.dao.hibernate.PersonDaoImpl]
+	|
+</pre>
 <style>
 
 

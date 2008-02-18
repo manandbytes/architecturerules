@@ -642,7 +642,8 @@ ol.releases li.oldest {
 #footer {
     margin: 0 auto;
     width: 776px;
-    height: 220px;
+    height: 500px;
+
 }
 
 .footbar {
@@ -657,12 +658,11 @@ ol.releases li.oldest {
 .footbar .col {
     float: left;
     width: 252px;
-    border-right: inset gray 1px;
     height: 110px;
 }
 
-.footbar .last {
-    border-right: none;
+.long {
+    width: 502px !important;
 }
 
 .footbar h4 {

@@ -55,6 +55,11 @@
     set all to _featured_
     set all others to _deprecated_ and removed _featured_ from previous version
 
+# copy artifacts to maven2 repository
+
+    run mvn install to get the meta data created
+    copy $M2_REPO\com\seventymiles\architecture-rules\${version} to maven2 folder
+
 # update issues release-next to release-${version}
 
     for each issue where Release = next

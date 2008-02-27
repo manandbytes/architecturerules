@@ -1,0 +1,8 @@
+<architecture>
+    <configuration>
+        <sources no-packages="exception">
+            <source not-found="exception">target/classes</source>
+        </sources>
+    </configuration>
+    <rules></rules>
+</architecture>

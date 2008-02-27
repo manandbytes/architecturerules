@@ -1,0 +1,136 @@
+   .-------------------------------------------------------------------------.
+  /  .-.    This plain text file provides notes for developers           .-.  \
+ |  /   \   and development.                                            /   \  |
+ | |\_.  |                                                             |    /| |
+ |\|  | /|                                                             |\  | |/|
+ | `---' |  ASCII art titles at http://www.network-science.de/ascii/   | `---' |
+ |       |  font:big                                                   |       |
+ |       |                                                             |       |
+ |       |  If using Intellij, install the MiniWiki plugin and this    |       |
+ |       |  table of contents becomes middle-clickable to get to that   |       |
+ |       |  file.                                                      |       |
+ |       |                                                             |       |
+ |       |-------------------------------------------------------------|       |
+ \       |                                                             |       /
+  \     /                                                               \     /
+   `---'                                                                 `---'
+
+            
+ _____      _
+|  __ \    | |
+| |__) |___| | ___  __ _ ___  ___  ___
+|  _  // _ \ |/ _ \/ _` / __|/ _ \/ __|
+| | \ \  __/ |  __/ (_| \__ \  __/\__ \
+|_|  \_\___|_|\___|\__,_|___/\___||___/
+
+
+# Run all tests.
+
+# Commit all files.
+
+# Create release with Maven
+
+    from /trunk/
+    mvn clean release:prepare
+    use defaults for the three questions that are asked
+
+    ******** Can I do mvn clean release:prepare site ??             ********
+    ******** because otherwise, the javadocs version is -SNAPSHOT   ********
+
+    this command will
+        create the subversion tag
+        update pom.xml for the next
+        create artifacts in /trunk/target
+
+# build site
+
+    mvn site
+
+# upload the artifacts to http://code.google.com/p/architecturerules/downloads/list
+
+    trunk/target/architecture-rules-${version}.jar
+    trunk/target/architecture-rules-${version}-sources.jar
+    trunk/target/architecture-rules-${version}-test-sources.jar
+
+    set all to _featured_
+    set all others to _deprecated_ and removed _featured_ from previous version
+
+# copy artifacts to maven2 repository
+
+    run mvn install to get the meta data created
+    copy $M2_REPO\com\seventymiles\architecture-rules\${version} to maven2 folder
+
+# update issues release-next to release-${version}
+
+    for each issue where Release = next
+        update Release-${version}
+
+# copy maven-generated site
+
+    copy trunk\target\site to docs\maven-generated-site
+    svn add new files
+    set *.html svn:mime-type = text/html
+    set *.css svn:mime-type = text/css
+    set *.gif svn:mime-type = image/gif
+
+# copy javadocs to site
+
+    copy trunk\target\site\apidocs
+    to docs\api\${pom.xml-version}
+    add docs\api\${pom.xml-version} to SVN
+    set svn:mime-type on all html to text/html
+    set svn:mime-type on all css to text/css
+
+    replace all 2.0.x-SNAPSHOT with 2.0.(x-1)
+    
+# update docs\api-javadocs.html
+
+# update docs\dependencies.html
+
+# update docs\downloads.html
+
+    add new release to TOC
+    add new release content
+    link to new javadocs in content
+    list and link to each issue in javadocs
+
+# update index.html
+
+    update downloads to new download
+
+# verify changes
+
+    verify links to new downloads
+    verify new api docs uploaded (check version at top of page)
+    verify new downloads listed on index.html
+    verify new downloads described at downloads.html
+    verify new dependency list on dependencies.html
+    verify new maven-generated site by checking date of index
+
+# commit /docs
+
+# notify mailing lists of release
+
+    to: architecture-rules-dev@googlegroups.com, architecture-rules-users@googlegroups.com
+    subject: Release ${pom.xml-version}
+
+        ________________________________________________________________________
+        Release ${version}
+
+        ${release date} ${fix, enhancement} release
+
+        ${description}
+
+            * issue-${number} ${description} ${goals}
+
+        Downloads and release notes at http://architecturerules.googlecode.com/svn/docs/downloads.html#release-${pom.xml-version}
+
+        Architecture-Rules homepage http://architecturerules.googlecode.com/svn/docs/index.html
+
+        Assert your Architecture!
+        ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+# notify freshmeat.net
+
+    http://freshmeat.net/projects/architecturerules/
+
+# commit pom.xml with new version

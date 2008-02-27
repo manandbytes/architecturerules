@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<architecture>
+
+    <configuration>
+
+        <sources no-packages="exception">
+            <source not-found="ignore">core\target\classes</source>
+            <source not-found="ignore">util\target\classes</source>
+            <source not-found="ignore">parent-pom\target\classes</source>
+            <source not-found="ignore">web\target\classes</source>
+            <source not-found="ignore">web\target\classes</source>
+            <source not-found="exception">target\classes</source>
+        </sources>
+
+        <cyclicalDependency test="true"/>
+
+    </configuration>
+
+
+    <rules>
+
+        <rule id="dao">
+
+            <comment>
+                The dao interface package should rely on nothing.
+            </comment>
+
+            <packages>
+                <package>
+                    com.seventytwomiles.pagerank.core.dao
+                </package>
+                <package>
+                    com.seventytwomiles.pagerank.core.dao.hibernate
+                </package>
+            </packages>
+
+            <violations>
+                <violation>
+                    com.seventytwomiles.pagerank.core.services
+                </violation>
+                <violation>
+                    com.seventytwomiles.pagerank.core.builder
+                </violation>
+                <violation>
+                    com.seventytwomiles.pagerank.util
+                </violation>
+            </violations>
+        </rule>
+
+        <rule id="strategy">
+
+            <comment>
+                Strategies should be as pluggable as possible
+            </comment>
+
+            <packages>
+                <package>
+                    com.seventytwomiles.pagerank.serviceproviders.startegies
+                </package>
+            </packages>
+
+
+            <violations>
+                <violation>
+                    com.seventytwomiles.pagerank.core.services
+                </violation>
+                <violation>
+                    com.seventytwomiles.pagerank.core.dao.hibernate
+                </violation>
+            </violations>
+        </rule>
+
+        <rule id="model">
+
+            <comment>
+                Model should remain completely isolated
+            </comment>
+
+            <packages>
+                <package>
+                    com.seventytwomiles.pagerank.core.model
+                </package>
+            </packages>
+
+            <violations>
+                <violation>
+                    com.seventytwomiles.pagerank.core.dao
+                </violation>
+                <violation>
+                    com.seventytwomiles.pagerank.core.dao.hibernate
+                </violation>
+                <violation>
+                    com.seventytwomiles.pagerank.core.services
+                </violation>
+                <violation>
+                    com.seventytwomiles.pagerank.core.strategy
+                </violation>
+                <violation>
+                    com.seventytwomiles.pagerank.core.builder
+                </violation>
+                <violation>
+                    com.seventytwomiles.pagerank.util
+                </violation>
+            </violations>
+        </rule>
+
+    </rules>
+
+</architecture>
+
+

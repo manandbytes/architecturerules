@@ -1,3 +1,15 @@
+import java.io.File;
+import java.util.Collection;
+import java.util.LinkedList;
+import java.util.List;
+
+import javax.management.ServiceNotFoundException;
+
+import junit.framework.TestCase;
+
+import org.apache.maven.plugin.logging.Log;
+import org.apache.maven.project.MavenProject;
+
 import com.seventytwomiles.architecturerules.configuration.Configuration;
 import com.seventytwomiles.architecturerules.configuration.ConfigurationFactory;
 import com.seventytwomiles.architecturerules.configuration.xml.DigesterConfigurationFactory;
@@ -6,13 +18,6 @@ import com.seventytwomiles.architecturerules.services.CyclicRedundancyService;
 import com.seventytwomiles.architecturerules.services.CyclicRedundancyServiceImpl;
 import com.seventytwomiles.architecturerules.services.RulesService;
 import com.seventytwomiles.architecturerules.services.RulesServiceImpl;
-import junit.framework.TestCase;
-import org.apache.maven.plugin.logging.Log;
-import org.apache.maven.project.MavenProject;
-
-import java.io.File;
-import java.util.Collection;
-import java.util.List;
 
 
 
@@ -65,7 +70,8 @@ public class PluginArchitectureRulesConfigurationTest extends TestCase {
                 = mavenProject.getCompileSourceRoots();
 
         final Collection<SourceDirectory> currentSources
-                = configuration.getSources();
+                = new LinkedList<SourceDirectory>();
+        appendBaseDir(mavenProject.getBasedir());
 
         for (final String sourceRoot : compileSourceRoots) {
 
@@ -83,6 +89,30 @@ public class PluginArchitectureRulesConfigurationTest extends TestCase {
                     log.debug(message);
                 }
             }
+        }
+    }
+
+
+    /**
+     * <p>
+     * Add the current project's base directory to all paths from the
+     * configuration file
+     * </p>
+     * 
+     * <p>
+     * Configuration file uses relative paths from the root of the project.
+     * Invoking build not from the project's root directory (i.e.
+     * <code>mvn -f /some/pom.xml</code>) causes
+     * {@link ServiceNotFoundException}}
+     * </p>
+     * 
+     * @param baseDir
+     */
+    private void appendBaseDir(final File baseDir) {
+        Collection<SourceDirectory> sourcesFromConfig = configuration
+                .getSources();
+        for (SourceDirectory sd : sourcesFromConfig) {
+            sd.setPath(baseDir + File.separator + sd.getPath());
         }
     }
 

@@ -116,7 +116,7 @@ public class ArchitectureRulesMojo extends AbstractMojo {
 
 
     /**
-     * <p></p>
+     * <p>todo: javadocs</p>
      *
      * @param testResources
      */

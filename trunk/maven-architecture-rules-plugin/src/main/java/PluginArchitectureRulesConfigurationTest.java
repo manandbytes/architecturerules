@@ -19,6 +19,7 @@ import java.util.List;
 /**
  * <p>todo: javadocs</p>
  *
+ * @author mykola.nickishov
  * @author mnereson
  * @see TestCase
  */
@@ -34,7 +35,7 @@ public class PluginArchitectureRulesConfigurationTest extends TestCase {
 
 
     /**
-     * <p></p>
+     * <p>todo: javadocs</p>
      *
      * @param file
      */
@@ -51,6 +52,12 @@ public class PluginArchitectureRulesConfigurationTest extends TestCase {
     }
 
 
+    /**
+     * <p>todo: javadocs</p>
+     *
+     * @param mavenProject
+     * @param log
+     */
     public void addSourcesFromThisProject(final MavenProject mavenProject,
                                           final Log log) {
 
@@ -80,6 +87,9 @@ public class PluginArchitectureRulesConfigurationTest extends TestCase {
     }
 
 
+    /**
+     * <p>todo: javadocs</p>
+     */
     public void testArchitecture() {
 
         final RulesService rulesService

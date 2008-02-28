@@ -1,12 +1,33 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
     <modelVersion>4.0.0</modelVersion>
+
+
     <groupId>info.manandbytes</groupId>
     <artifactId>maven-architecture-rules-plugin</artifactId>
     <packaging>maven-plugin</packaging>
     <version>0.0-SNAPSHOT</version>
+
     <name>ArchitectureRules Maven Plugin</name>
+    <inceptionYear>2007</inceptionYear>
+
+    <description>
+        Maven2 Plugin to ease the execution of architecture rules tests.
+        Architecture rules leverages an XML configuration file to test your
+        code's architecture via unit tests. Able to assert that specific
+        packages do not depend on each other and able to check for cyclic
+        redundancies among your packages.
+    </description>
+
+    <url>http://architecturerules.googlecode.com/svn/docs/index.html</url>
+
+    <issueManagement>
+        <system>Google Code</system>
+        <url>http://code.google.com/p/architecturerules/issues</url>
+    </issueManagement>
+
     <dependencies>
         <dependency>
             <groupId>org.apache.maven</groupId>
@@ -24,6 +45,7 @@
             <version>2.0.4-SNAPSHOT</version>
         </dependency>
     </dependencies>
+
     <build>
         <plugins>
             <plugin>
@@ -60,4 +82,19 @@
             </plugin>
         </plugins>
     </build>
+
+    <repositories>
+        <repository>
+            <id>architect-rules-repo</id>
+            <name>architecture-rules repository hosted by code.google.com</name>
+            <url>http://architecturerules.googlecode.com/svn/maven2/</url>
+            <releases>
+                <checksumPolicy>ignore</checksumPolicy>
+            </releases>
+            <snapshots>
+                <checksumPolicy>ignore</checksumPolicy>
+            </snapshots>
+        </repository>
+    </repositories>
+
 </project>

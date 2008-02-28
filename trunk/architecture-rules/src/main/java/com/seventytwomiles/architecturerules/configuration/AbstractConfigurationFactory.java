@@ -20,6 +20,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.core.io.ClassPathResource;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -118,36 +119,54 @@ public abstract class AbstractConfigurationFactory
      * <p>Read Xml configuration file to String.</p>
      *
      * @param configurationFileName String name of the XML file in the classpath
-     * to load and read
+     * to load and read OR the complete path to the file.
      * @return String returns the contents of the configurationFile
      */
     protected String getConfigurationAsXml(final String configurationFileName) {
 
-        /**
-         * This code kinda sucks. First, an exception is thrown if the resource
-         * does not exist, then an exception could be thrown if the resource
-         * could not be read.
-         */
-        final ClassLoader classLoader = getClass().getClassLoader();
-        final ClassPathResource resource
-                = new ClassPathResource(configurationFileName, classLoader);
+        File file = new File(configurationFileName);
 
-        if (!resource.exists())
-            throw new IllegalArgumentException("could not load resource "
-                    + configurationFileName
-                    + " from classpath. File not found.");
+        if (!file.exists()) {
+
+            /**
+             * This code kinda sucks. First, an exception is thrown if the resource
+             * does not exist, then an exception could be thrown if the resource
+             * could not be read.
+             */
+            final ClassLoader classLoader = getClass().getClassLoader();
+
+            final ClassPathResource resource
+                    = new ClassPathResource(configurationFileName, classLoader);
+
+            if (!resource.exists())
+                throw new IllegalArgumentException("could not load resource "
+                        + configurationFileName
+                        + " from classpath. File not found.");
+
+            try {
+
+                file = resource.getFile();
+
+            } catch (IOException e) {
+
+                throw new IllegalArgumentException("could not locate resource "
+                        + configurationFileName
+                        + " from classpath. File not found.");
+            }
+        }
+
 
         final String xml;
 
         try {
 
-            xml = FileUtils.readFileToString(resource.getFile(), null);
+            xml = FileUtils.readFileToString(file, null);
 
         } catch (final IOException e) {
 
-            throw new IllegalArgumentException("could not load resource "
-                    + configurationFileName
-                    + " from classpath. File not found.");
+            throw new IllegalArgumentException(
+                    "could not load configuration from "
+                            + file.getAbsolutePath());
         }
 
         return xml;

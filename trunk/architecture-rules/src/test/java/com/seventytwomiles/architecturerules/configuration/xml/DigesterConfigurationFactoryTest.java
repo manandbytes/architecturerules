@@ -80,6 +80,7 @@ public class DigesterConfigurationFactoryTest extends AbstractDigesterTest {
 
     public void testProcessCyclicDependencyConfiguration_invalid()
             throws Exception {
+
         final DigesterConfigurationFactory factory
                 = new DigesterConfigurationFactory();
 
@@ -87,11 +88,13 @@ public class DigesterConfigurationFactoryTest extends AbstractDigesterTest {
 
             factory.processCyclicDependencyConfiguration(
                     illegalCyclicDependencyTestConfiguration);
+
             fail("expected InvalidConfigurationException");
 
         } catch (final Exception e) {
 
             assertTrue(e instanceof InvalidConfigurationException);
+
             assertEquals(
                     "'INVALID' is not a valid value for cyclicalDependency " +
                             "configuration. Use <cyclicalDependency test=\"true\"/> " +
@@ -102,6 +105,7 @@ public class DigesterConfigurationFactoryTest extends AbstractDigesterTest {
 
 
     public void testProcessRules() throws Exception {
+
         final DigesterConfigurationFactory factory
                 = new DigesterConfigurationFactory();
 
@@ -126,19 +130,25 @@ public class DigesterConfigurationFactoryTest extends AbstractDigesterTest {
 
         /* packages */
         assertEquals(1, rule0.getPackages().size());
+
         assertEquals("com.seventytwomiles.pagerank.core.model",
                 rule0.getPackages().toArray()[0].toString());
 
         /* violations */
         assertEquals(6, rule0.getViolations().size());
+
         assertEquals("com.seventytwomiles.pagerank.core.services",
                 rule0.getViolations().toArray()[0].toString());
+
         assertEquals("com.seventytwomiles.pagerank.core.builder",
                 rule0.getViolations().toArray()[1].toString());
+
         assertEquals("com.seventytwomiles.pagerank.core.dao",
                 rule0.getViolations().toArray()[2].toString());
+
         assertEquals("com.seventytwomiles.pagerank.core.strategy",
                 rule0.getViolations().toArray()[3].toString());
+
         assertEquals("com.seventytwomiles.pagerank.core.dao.hibernate",
                 rule0.getViolations().toArray()[4].toString());
         assertEquals("com.seventytwomiles.pagerank.util",
@@ -158,17 +168,22 @@ public class DigesterConfigurationFactoryTest extends AbstractDigesterTest {
 
         /* packages */
         assertEquals(2, rule1.getPackages().size());
+
         assertEquals("com.seventytwomiles.pagerank.core.dao",
                 rule1.getPackages().toArray()[0].toString());
+
         assertEquals("com.seventytwomiles.pagerank.core.dao.hibernate",
                 rule1.getPackages().toArray()[1].toString());
 
         /* violations */
         assertEquals(3, rule1.getViolations().size());
+
         assertEquals("com.seventytwomiles.pagerank.core.services",
                 rule1.getViolations().toArray()[0].toString());
+
         assertEquals("com.seventytwomiles.pagerank.core.builder",
                 rule1.getViolations().toArray()[1].toString());
+
         assertEquals("com.seventytwomiles.pagerank.util",
                 rule1.getViolations().toArray()[2].toString());
     }
@@ -192,56 +207,73 @@ public class DigesterConfigurationFactoryTest extends AbstractDigesterTest {
         assertEquals(4, sources.size());
 
         final SourceDirectory source0 = (SourceDirectory) sources.get(0);
+
         assertEquals(
                 "core" + File.separator + "target" + File.separator + "classes",
                 source0.getPath());
+
         assertFalse(source0.shouldThrowExceptionWhenNotFound());
 
         final SourceDirectory source1 = (SourceDirectory) sources.get(1);
+
         assertEquals(
                 "util" + File.separator + "target" + File.separator + "classes",
                 source1.getPath());
+
         assertTrue(source1.shouldThrowExceptionWhenNotFound());
 
         final SourceDirectory source2 = (SourceDirectory) sources.get(2);
+
         assertEquals(
                 "parent-pom" + File.separator + "target" + File.separator + "classes",
                 source2.getPath());
+
         assertFalse(source2.shouldThrowExceptionWhenNotFound());
 
         final SourceDirectory source3 = (SourceDirectory) sources.get(3);
+
         assertEquals(
                 "web" + File.separator + "target" + File.separator + "classes",
                 source3.getPath());
+
         assertFalse(source3.shouldThrowExceptionWhenNotFound());
     }
 
 
     public void testProcessSourcesNotFoundConfiguration() throws Exception {
+
         /* assert starting state */
         DigesterConfigurationFactory factory
                 = new DigesterConfigurationFactory();
+
         assertFalse(factory.throwExceptionWhenNoPackages());
 
         factory = new DigesterConfigurationFactory();
+
         factory.processSourcesNotFoundConfiguration(
                 noPackagesIgnoreConfiguration);
+
         assertFalse(factory.throwExceptionWhenNoPackages());
 
         factory = new DigesterConfigurationFactory();
+
         factory.processSourcesNotFoundConfiguration(
                 noPackagesExceptionConfiguration);
+
         assertTrue(factory.throwExceptionWhenNoPackages());
 
         factory = new DigesterConfigurationFactory();
+
         factory.processSourcesNotFoundConfiguration(
                 noPackagesBlankConfiguration);
+
         assertFalse(factory.throwExceptionWhenNoPackages());
     }
 
 
     public void testProcessSourcesNotFoundConfiguration_invalid()
             throws Exception {
+
         final DigesterConfigurationFactory factory
                 = new DigesterConfigurationFactory();
 

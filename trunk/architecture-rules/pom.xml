@@ -10,6 +10,7 @@
     <version>2.0.4-SNAPSHOT</version>
 
     <name>architecture-rules</name>
+    <inceptionYear>2007</inceptionYear>
 
     <description>
         Leverages an XML configuration file to test your code's architecture via
@@ -188,7 +189,6 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-install-plugin</artifactId>
-                <!--<version>2.2</version>-->
                 <configuration>
                     <createChecksum>true</createChecksum>
                 </configuration>
@@ -245,8 +245,8 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <source>1.4</source>
-                    <target>1.4</target>
+                    <source>1.5</source>
+                    <target>1.5</target>
                 </configuration>
             </plugin>
             <plugin>
@@ -267,7 +267,7 @@
                                 </requireMavenVersion>
                                 <requireJavaVersion>
                                     <!-- java 5 or higher -->
-                                    <version>[1.4,)</version>
+                                    <version>[1.5,)</version>
                                 </requireJavaVersion>
                             </rules>
                         </configuration>
@@ -278,15 +278,39 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
             </plugin>
+            <plugin>
+                <groupId>com.mathieucarbou.mojo</groupId>
+                <artifactId>maven-license-plugin</artifactId>
+                <version>1.0.4</version>
+                <configuration>
+                    <header>src/main/resources/file-header.txt</header>
+                    <quiet>false</quiet>
+                    <excludes>
+                        <exclude>**/*.uml</exclude>
+                        <exclude>**/*.jpg</exclude>
+                        <exclude>**/index.txt</exclude>
+                    </excludes>
+                    <properties>
+                        <year>${project.inceptionYear}</year>
+                        <url>${project.url}</url>
+                    </properties>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>format</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
-
 
     <repositories>
         <repository>
             <id>architect-rules-repo</id>
             <name>architecture-rules repository hosted by code.google.com</name>
-            <layout>default</layout>
             <url>http://architecturerules.googlecode.com/svn/maven2/</url>
             <releases>
                 <checksumPolicy>ignore</checksumPolicy>
@@ -296,34 +320,18 @@
             </snapshots>
         </repository>
         <repository>
-            <id>ibiblio</id>
-            <url>http://www.ibiblio.org/maven2</url>
-        </repository>
-        <repository>
-            <id>ibiblio2</id>
-            <url>http://mirrors.ibiblio.org/pub/mirrors/maven2/</url>
-        </repository>
-        <repository>
             <id>spring</id>
             <url>
                 https://svn.sourceforge.net/svnroot/springframework/repos/repo
             </url>
-        </repository>
-        <repository>
-            <id>opensymphony</id>
-            <layout>legacy</layout>
-            <url>http://maven.opensymphony.com</url>
-        </repository>
-        <repository>
-            <id>apache</id>
-            <url>http://people.apache.org/repo/m2-snapshot-repository</url>
-        </repository>
-        <repository>
-            <id>maven1</id>
-            <url>http://repo1.maven.org/maven2/</url>
+            <releases>
+                <checksumPolicy>ignore</checksumPolicy>
+            </releases>
+            <snapshots>
+                <checksumPolicy>ignore</checksumPolicy>
+            </snapshots>
         </repository>
     </repositories>
-
 
     <pluginRepositories>
         <pluginRepository>
@@ -341,55 +349,6 @@
         <pluginRepository>
             <id>codehaus repository</id>
             <url>http://maven.codehaus.org/maven2</url>
-            <snapshots>
-                <enabled>true</enabled>
-                <updatePolicy>always</updatePolicy>
-                <checksumPolicy>ignore</checksumPolicy>
-            </snapshots>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-        </pluginRepository>
-        <pluginRepository>
-            <id>mortbay</id>
-            <url>http://www.mortbay.org/maven2/snapshot</url>
-            <snapshots>
-                <enabled>true</enabled>
-                <updatePolicy>always</updatePolicy>
-                <checksumPolicy>ignore</checksumPolicy>
-            </snapshots>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-        </pluginRepository>
-        <pluginRepository>
-            <!-- build number plugin -->
-            <id>tlc</id>
-            <url>http://commons.ucalgary.ca/pub/m2</url>
-            <snapshots>
-                <enabled>true</enabled>
-                <updatePolicy>always</updatePolicy>
-                <checksumPolicy>ignore</checksumPolicy>
-            </snapshots>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-        </pluginRepository>
-        <pluginRepository>
-            <id>ibiblio-org</id>
-            <url>http://ibiblio.org/maven2</url>
-            <snapshots>
-                <enabled>true</enabled>
-                <updatePolicy>always</updatePolicy>
-                <checksumPolicy>ignore</checksumPolicy>
-            </snapshots>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-        </pluginRepository>
-        <pluginRepository>
-            <id>maven-org</id>
-            <url>http://repo1.maven.org/maven2</url>
             <snapshots>
                 <enabled>true</enabled>
                 <updatePolicy>always</updatePolicy>
@@ -427,6 +386,17 @@
             <id>stat-scm-sourceforge</id>
             <name>stat-scm Sourceforge Maven 2 repository</name>
             <url>http://stat-scm.sourceforge.net/maven2</url>
+        </pluginRepository>
+        <pluginRepository>
+            <id>mc-release</id>
+            <name>Local Maven repository of releases</name>
+            <url>http://mc-repo.googlecode.com/svn/maven2/releases</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
         </pluginRepository>
     </pluginRepositories>
 

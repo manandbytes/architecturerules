@@ -6,9 +6,6 @@
  | `---' |  ASCII art titles at http://www.network-science.de/ascii/   | `---' |
  |       |  font:big                                                   |       |
  |       |                                                             |       |
- |       |  If using Intellij, install the MiniWiki plugin and this    |       |
- |       |  table of contents becomes middle-clickable to get to that   |       |
- |       |  file.                                                      |       |
  |       |                                                             |       |
  |       |-------------------------------------------------------------|       |
  \       |                                                             |       /
@@ -48,9 +45,9 @@
 
 # upload the artifacts to http://code.google.com/p/architecturerules/downloads/list
 
-    trunk/target/architecture-rules-${version}.jar
-    trunk/target/architecture-rules-${version}-sources.jar
-    trunk/target/architecture-rules-${version}-test-sources.jar
+    trunk/architecture-rules/target/architecture-rules-${version}.jar
+    trunk/architecture-rules/target/architecture-rules-${version}-sources.jar
+    trunk/architecture-rules/target/architecture-rules-${version}-test-sources.jar
 
     set all to _featured_
     set all others to _deprecated_ and removed _featured_ from previous version
@@ -67,7 +64,7 @@
 
 # copy maven-generated site
 
-    copy trunk\target\site to docs\maven-generated-site
+    copy trunk\architecture-rules\target\site to docs\maven-generated-site
     svn add new files
     set *.html svn:mime-type = text/html
     set *.css svn:mime-type = text/css
@@ -75,7 +72,7 @@
 
 # copy javadocs to site
 
-    copy trunk\target\site\apidocs
+    copy trunk\architecture-rules\target\site\apidocs
     to docs\api\${pom.xml-version}
     add docs\api\${pom.xml-version} to SVN
     set svn:mime-type on all html to text/html

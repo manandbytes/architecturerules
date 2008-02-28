@@ -1,48 +1,64 @@
+<!--
+
+    Copyright 2007 the original author or authors.
+    
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+    
+            http://www.apache.org/licenses/LICENSE-2.0
+    
+    For more information visit
+            http://72miles.com and
+            http://architecturerules.googlecode.com/svn/docs/index.html
+
+-->
+
 <project basedir=".">
 
-    <property name="maven.repo" value="C:\dev\m2repo\"/>
+    <property name="maven.repo" value="C:\dev\m2repo\" />
 
     <path id="class.path">
-        <pathelement id="test classes" path=".\target\test-classes"/>
-        <pathelement id="main classes" path=".\target\classes"/>
+        <pathelement id="test classes" path=".\target\test-classes" />
+        <pathelement id="main classes" path=".\target\classes" />
         <!-- updated list of dependencies available at http://code.google.com/p/architecturerules/wiki/ProjectDependencies -->
         <pathelement id="commons-digester"
-                     path="${maven.repo}\commons-digester\commons-digester\1.8\commons-digester-1.8.jar"/>
+                     path="${maven.repo}\commons-digester\commons-digester\1.8\commons-digester-1.8.jar" />
         <pathelement id="jdepend"
-                     path="${maven.repo}\jdepend\jdepend\2.9.1\jdepend-2.9.1.jar"/>
+                     path="${maven.repo}\jdepend\jdepend\2.9.1\jdepend-2.9.1.jar" />
         <pathelement id="junit"
-                     path="${maven.repo}\junit\junit\3.8.1\junit-3.8.1.jar"/>
+                     path="${maven.repo}\junit\junit\3.8.1\junit-3.8.1.jar" />
         <pathelement id="commons-beanutils"
-                     path="${maven.repo}\commons-beanutils\commons-beanutils\1.7.0\commons-beanutils-1.7.0.jar"/>
+                     path="${maven.repo}\commons-beanutils\commons-beanutils\1.7.0\commons-beanutils-1.7.0.jar" />
         <pathelement id="commons-logging"
-                     path="${maven.repo}\commons-logging\commons-logging\1.1\commons-logging-1.1.jar"/>
+                     path="${maven.repo}\commons-logging\commons-logging\1.1\commons-logging-1.1.jar" />
     </path>
 
     <!-- you must define your own compile -->
-    <target name="compile"/>
+    <target name="compile" />
 
     <taskdef name="assertArchitecture"
              classname="com.seventytwomiles.architecturerules.ant.AssertArchitectureTask">
-        <classpath refid="class.path"/>
+        <classpath refid="class.path" />
     </taskdef>
 
     <target name="assert-architecture-pass" depends="compile">
         <assertArchitecture
-                configurationFileName="architecture-rules-pass.xml"/>
+                configurationFileName="architecture-rules-pass.xml" />
     </target>
 
     <target name="assert-architecture-fail" depends="compile">
         <assertArchitecture
-                configurationFileName="architecture-rules-fail-cyclic.xml"/>
+                configurationFileName="architecture-rules-fail-cyclic.xml" />
     </target>
 
 
     <target name="test-architecture" depends="compile">
         <junit haltonerror="true">
-            <classpath refid="class.path"/>
-            <formatter type="brief" usefile="false"/>
+            <classpath refid="class.path" />
+            <formatter type="brief" usefile="false" />
             <test name="com.seventytwomiles.architecturerules.ArchitectureTest"
-                  haltonfailure="true"/>
+                  haltonfailure="true" />
         </junit>
     </target>
 

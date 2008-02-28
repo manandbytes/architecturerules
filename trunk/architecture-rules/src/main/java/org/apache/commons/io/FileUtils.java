@@ -1,23 +1,18 @@
-package org.apache.commons.io;
-
-/*
+/**
  * Copyright 2007 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ *         http://www.apache.org/licenses/LICENSE-2.0
  *
  * For more information visit
- * http://architecturerules.googlecode.com/svn/docs/index.html
+ *         http://72miles.com and
+ *         http://architecturerules.googlecode.com/svn/docs/index.html
  */
+
+package org.apache.commons.io;
 
 
 import java.io.*;
@@ -28,7 +23,7 @@ import java.io.*;
  * <p>FileUtils utility class extracted from the Spring Framework in order to
  * remove the dependency on Spring for this one class.  <a
  * href="http://code.google.com/p/architecturerules/issues/detail?id=2&can=1">
- * issue 2 (remove unneccessary dependencies)</a></p>
+ * issue 2 (remove unnecessary dependencies)</a></p>
  *
  * @author <a href="mailto:burton@relativity.yi.org">Kevin A. Burton</A>
  * @author <a href="mailto:sanders@apache.org">Scott Sanders</a>

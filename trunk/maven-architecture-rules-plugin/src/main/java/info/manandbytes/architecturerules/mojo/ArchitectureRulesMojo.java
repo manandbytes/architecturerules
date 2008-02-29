@@ -14,10 +14,11 @@ import java.util.List;
 
 
 /**
- * <p></p>
+ * <p>Assert your architecture</p>
  *
  * @author mykola.nickishov
- * @goal rules
+ * @goal assert
+ * @phase test
  */
 public class ArchitectureRulesMojo extends AbstractMojo {
 

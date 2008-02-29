@@ -16,7 +16,6 @@
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
-
 <html>
 <head>
     <title></title>
@@ -25,11 +24,27 @@
 <body>
 
 <p>
-    Exceptions that the Architecture Rules library may through throughout the
-    course of building the configuration, and executing the rules and cyclic
-    dependency testing. All of these exceptions are RuntimeExceptions unless
-    otherwise stated. <a
-        href="http://architecturerules.googlecode.com/svn/docs/exceptions.html">http://architecturerules.googlecode.com/svn/docs/exceptions.html</a>
+    Maven Architecture Rules Plugin.
+</p>
+
+<p>
+    <strong>Assert Your Architecture!</strong> with this <em>open
+    source</em> <strong>java</strong> library. Architecture Rules
+    leverages an <a
+        href="http://architecturerules.googlecode.com/svn/docs/sample-configuration.html">xml
+    configuration
+    file</a> and optional programmatic configuration to assert your
+    code's architecture via <a
+        href="http://architecturerules.googlecode.com/svn/docs/getting-started.html#write-unit-test">unit
+    tests</a> or <a
+        href="http://architecturerules.googlecode.com/svn/docs/run.html#ant-task">ant
+    tasks</a>. This test is able to assert
+    that specific packages do not depend on others and is able to check
+    for and report on cyclic dependencies among your project's packages
+    and classes. This project wraps a industry accepted <a
+        href="http://clarkware.com/software/JDepend.html"
+        target="_jdepend">JDepend</a> to simplify the process of maintaining
+    a solid software architecture.
 </p>
 
 <style>
@@ -46,34 +61,6 @@
         margin-top: 20px;
     }
 </style>
-
-<dl>
-    <dt>CyclicRedundencyException</dt>
-    <dd>
-        http://architecturerules.googlecode.com/svn/docs/exceptions.html#CyclicRedundencyException
-    </dd>
-
-    <dt>DependencyConstraintException</dt>
-    <dd>
-        http://architecturerules.googlecode.com/svn/docs/exceptions.html#DependencyConstraintException
-    </dd>
-
-    <dt>IllegalArchitectureRuleException</dt>
-    <dd>
-        http://architecturerules.googlecode.com/svn/docs/exceptions.html#IllegalArchitectureRuleException
-    </dd>
-
-    <dt>SourceNotFoundException</dt>
-    <dd>
-        http://architecturerules.googlecode.com/svn/docs/exceptions.html#SourceNotFoundException
-    </dd>
-
-    <dt>NoPackagesFoundException</dt>
-    <dd>
-        http://architecturerules.googlecode.com/svn/docs/exceptions.html#NoPackagesFoundException
-    </dd>
-</dl>
-
 
 <h3>More Information</h3>
 <dl>

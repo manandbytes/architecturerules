@@ -1,5 +1,8 @@
 package info.manandbytes.architecturerules.mojo;
 
+import java.io.File;
+import java.util.Collection;
+import java.util.List;
 
 import org.apache.maven.model.Resource;
 import org.apache.maven.plugin.AbstractMojo;
@@ -7,9 +10,6 @@ import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.plugin.logging.Log;
 import org.apache.maven.project.MavenProject;
-
-import java.io.File;
-import java.util.List;
 
 
 
@@ -19,6 +19,7 @@ import java.util.List;
  * @author mykola.nickishov
  * @goal assert
  * @phase test
+ * @aggregator
  */
 public class ArchitectureRulesMojo extends AbstractMojo {
 
@@ -33,11 +34,11 @@ public class ArchitectureRulesMojo extends AbstractMojo {
 
 
     /**
-     * <p>Reference to the maven project that is being tested.</p>
+     * <p>Reference to the maven's reactor that is being tested.</p>
      *
-     * @parameter expression="${project}"
+     * @parameter expression="${reactorProjects}"
      */
-    private MavenProject mavenProject;
+    private Collection<MavenProject> reactorProjects;
 
 
     /**
@@ -51,20 +52,22 @@ public class ArchitectureRulesMojo extends AbstractMojo {
     public void execute()
             throws MojoExecutionException, MojoFailureException {
 
-        final List<Resource> testResources
-                = mavenProject.getTestResources();
+        for (MavenProject mavenProject : reactorProjects) {
+            final List<Resource> testResources = mavenProject
+                    .getTestResources();
 
-        final Log log = getLog();
+            final Log log = getLog();
 
-        includeConfigurationFile(testResources);
+            includeConfigurationFile(testResources);
 
-        final File configFile = findConfigurationFile(testResources, log);
+            final File configFile = findConfigurationFile(testResources, log);
 
         final MojoArchitectureRulesConfigurationTest architectureTest
                 = new MojoArchitectureRulesConfigurationTest(configFile);
 
-        architectureTest.addSourcesFromThisProject(mavenProject, log);
-        architectureTest.testArchitecture();
+            architectureTest.addSourcesFromThisProject(mavenProject, log);
+            architectureTest.testArchitecture();
+        }
     }
 
 

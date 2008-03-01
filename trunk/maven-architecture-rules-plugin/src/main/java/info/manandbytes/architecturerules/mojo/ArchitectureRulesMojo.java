@@ -1,10 +1,7 @@
 package info.manandbytes.architecturerules.mojo;
 
-import java.io.File;
-import java.util.Collection;
-import java.util.LinkedList;
-import java.util.List;
 
+import com.seventytwomiles.architecturerules.exceptions.CyclicRedundancyException;
 import org.apache.maven.model.Resource;
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
@@ -12,7 +9,10 @@ import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.plugin.logging.Log;
 import org.apache.maven.project.MavenProject;
 
-import com.seventytwomiles.architecturerules.exceptions.CyclicRedundancyException;
+import java.io.File;
+import java.util.Collection;
+import java.util.LinkedList;
+import java.util.List;
 
 
 
@@ -37,7 +37,7 @@ public class ArchitectureRulesMojo extends AbstractMojo {
 
 
     /**
-     * <p>Reference to the maven's reactor that is being tested.</p>
+     * <p>Reference to the Maven's reactor that is being tested.</p>
      *
      * @parameter expression="${reactorProjects}"
      */
@@ -55,27 +55,35 @@ public class ArchitectureRulesMojo extends AbstractMojo {
     public void execute()
             throws MojoExecutionException, MojoFailureException {
 
-        Collection<CyclicRedundancyException> rulesExceptions = new LinkedList<CyclicRedundancyException>();
-        for (MavenProject currentProject : reactorProjects) {
-            final List<Resource> testResources = currentProject
-                    .getTestResources();
+        final Collection<CyclicRedundancyException> rulesExceptions
+                = new LinkedList<CyclicRedundancyException>();
 
-            final Log log = getLog();
+        final Log log = getLog();
 
+        List<Resource> testResources;
+        File configFile;
+        MojoArchitectureRulesConfigurationTest test;
+
+        for (final MavenProject currentProject : reactorProjects) {
+
+            testResources = currentProject.getTestResources();
             includeConfigurationFile(testResources);
 
-            final File configFile = findConfigurationFile(testResources, log);
+            configFile = findConfigurationFile(testResources, log);
 
-        final MojoArchitectureRulesConfigurationTest architectureTest
-                = new MojoArchitectureRulesConfigurationTest(configFile);
+            test = new MojoArchitectureRulesConfigurationTest(configFile);
+            test.addSourcesFromThisProject(currentProject, log);
 
-            architectureTest.addSourcesFromThisProject(currentProject, log);
             try {
-                architectureTest.testArchitecture();
+
+                test.testArchitecture();
+
             } catch (CyclicRedundancyException e) {
+
                 rulesExceptions.add(e);
             }
         }
+
         if (!rulesExceptions.isEmpty())
             throw new MojoExecutionException(rulesExceptions, "", "");
     }

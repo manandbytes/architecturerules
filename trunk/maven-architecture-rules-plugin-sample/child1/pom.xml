@@ -7,20 +7,16 @@
 
 
     <groupId>info.manandbytes.architecture-rules</groupId>
-    <artifactId>maven-architecture-rules-plugin-sample</artifactId>
-    <packaging>pom</packaging>
+    <artifactId>maven-architecture-rules-plugin-sample-child1</artifactId>
+    <packaging>jar</packaging>
     <version>0.0-SNAPSHOT</version>
 
-    <name>How to use maven-architecture-rules-plugin sample project</name>
+    <name>Child #1</name>
     <inceptionYear>2007</inceptionYear>
 
     <properties>
         <maven.test.skip>false</maven.test.skip>
     </properties>
-    <modules>
-        <module>child1</module>
-        <module>child2</module>
-    </modules>
 
     <dependencies>
         <dependency>

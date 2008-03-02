@@ -51,4 +51,13 @@
         </plugins>
     </build>
 
+    <reporting>
+        <plugins>
+            <plugin>
+                <groupId>info.manandbytes</groupId>
+                <artifactId>maven-architecture-rules-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </reporting>
+
 </project>

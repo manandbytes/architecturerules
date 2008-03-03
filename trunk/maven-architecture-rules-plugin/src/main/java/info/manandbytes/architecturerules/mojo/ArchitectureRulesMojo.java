@@ -47,6 +47,7 @@ public class ArchitectureRulesMojo extends AbstractMojo {
      * </p>
      * 
      * @parameter expression="${project}"
+     * @readonly
      */
     private MavenProject mavenProject;
     
@@ -56,6 +57,7 @@ public class ArchitectureRulesMojo extends AbstractMojo {
      * </p>
      * 
      * @parameter expression="${reactorProjects}"
+     * @readonly
      */
     private Collection<MavenProject> reactorProjects;
 

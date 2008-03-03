@@ -2,8 +2,8 @@
 
 <architecture>
     <configuration>
-        <sources no-packages="ignore">
-            <source not-found="ignore">target/classes</source>
+        <sources no-packages="exception">
+            <source not-found="exception">target/classes</source>
         </sources>
     </configuration>
     <rules></rules>

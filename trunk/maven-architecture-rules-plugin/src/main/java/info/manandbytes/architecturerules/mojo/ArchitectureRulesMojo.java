@@ -35,10 +35,26 @@ public class ArchitectureRulesMojo extends AbstractMojo {
      */
     private String configurationFileName = "architecture-rules.xml";
 
+    /**
+     * @parameter default-value="true"
+     *            expression="${architecture-rules.skipRoot}"
+     */
+    private boolean skipRoot;
 
     /**
-     * <p>Reference to the Maven's reactor that is being tested.</p>
-     *
+     * <p>
+     * Reference to the Maven project that is being tested.
+     * </p>
+     * 
+     * @parameter expression="${project}"
+     */
+    private MavenProject mavenProject;
+    
+    /**
+     * <p>
+     * Reference to the Maven's reactor that is being tested.
+     * </p>
+     * 
      * @parameter expression="${reactorProjects}"
      */
     private Collection<MavenProject> reactorProjects;
@@ -65,7 +81,8 @@ public class ArchitectureRulesMojo extends AbstractMojo {
         MojoArchitectureRulesConfigurationTest test;
 
         for (final MavenProject currentProject : reactorProjects) {
-
+            if (skipRoot && currentProject.equals(mavenProject))
+                continue;
             testResources = currentProject.getTestResources();
             includeConfigurationFile(testResources);
 

@@ -1,7 +1,11 @@
 package info.manandbytes.architecturerules.mojo;
 
 
-import com.seventytwomiles.architecturerules.exceptions.CyclicRedundancyException;
+import java.io.File;
+import java.util.Collection;
+import java.util.LinkedList;
+import java.util.List;
+
 import org.apache.maven.model.Resource;
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
@@ -9,10 +13,7 @@ import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.plugin.logging.Log;
 import org.apache.maven.project.MavenProject;
 
-import java.io.File;
-import java.util.Collection;
-import java.util.LinkedList;
-import java.util.List;
+import com.seventytwomiles.architecturerules.exceptions.CyclicRedundancyException;
 
 
 
@@ -28,12 +29,13 @@ public class ArchitectureRulesMojo extends AbstractMojo {
 
 
     /**
-     * <p>Defaults to the recommended <samp>architecture-rules.xml</samp></p>
+     * <p>Name of the configuration file used by Architecture Rules.</p>
      *
-     * @parameter alias="config"
+     * @todo explain how search for configuration file works
+     * @parameter alias="config" default-value="architecture-rules.xml"
      * @required
      */
-    private String configurationFileName = "architecture-rules.xml";
+    private String configurationFileName;
 
     /**
      * @todo i'll write unit test for this parameter today ;-)

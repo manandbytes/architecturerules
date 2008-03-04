@@ -38,6 +38,11 @@ public class ArchitectureRulesMojo extends AbstractMojo {
     private String configurationFileName;
 
     /**
+     * For <a href="http://maven.apache.org/pom.html#Aggregation">Aggregation
+     * (or Multi-Module) project</a> we don't run Architecture Rules
+     * assertions by default. To change this behavior use
+     * <code>-Darchitecture-rules.skipRoot=false</code>
+     * 
      * @todo i'll write unit test for this parameter today ;-)
      * @parameter default-value="true"
      *            expression="${architecture-rules.skipRoot}"

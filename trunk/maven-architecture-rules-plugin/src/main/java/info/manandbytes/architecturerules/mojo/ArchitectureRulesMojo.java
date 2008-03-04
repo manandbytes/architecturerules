@@ -36,9 +36,9 @@ public class ArchitectureRulesMojo extends AbstractMojo {
     private String configurationFileName = "architecture-rules.xml";
 
     /**
-     * expression="${architecture-rules.skipRoot}"
-     *
+     * @todo i'll write unit test for this parameter today ;-)
      * @parameter default-value="true"
+     *            expression="${architecture-rules.skipRoot}"
      */
     private boolean skipRoot;
 

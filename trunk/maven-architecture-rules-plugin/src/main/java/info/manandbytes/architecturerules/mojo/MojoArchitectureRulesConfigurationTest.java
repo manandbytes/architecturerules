@@ -110,7 +110,7 @@ public class MojoArchitectureRulesConfigurationTest extends TestCase {
                 sourcesFromConfig = configuration.getSources();
 
         /**
-         * TODO: this loop setPath on baseDir +, what is it calling on
+         * TODO: this loop setPath on baseDir +. What is it calling on
          * baseDir? toString? lets be explicit in whatever it is...
          */
         for (SourceDirectory directory : sourcesFromConfig) {

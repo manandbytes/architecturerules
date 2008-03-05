@@ -1,14 +1,14 @@
 package info.manandbytes.architecturerules.report;
 
 
-import org.apache.maven.doxia.sink.Sink;
-import org.apache.maven.doxia.siterenderer.DefaultSiteRenderer;
+import java.util.Locale;
+import java.util.ResourceBundle;
+
 import org.apache.maven.project.MavenProject;
 import org.apache.maven.reporting.AbstractMavenReport;
 import org.apache.maven.reporting.MavenReportException;
-
-import java.util.Locale;
-import java.util.ResourceBundle;
+import org.codehaus.doxia.sink.Sink;
+import org.codehaus.doxia.site.renderer.SiteRenderer;
 
 
 
@@ -85,14 +85,14 @@ public class ArchitectureRulesReport extends AbstractMavenReport {
     /**
      * @component
      */
-    private DefaultSiteRenderer siteRenderer;
+    private SiteRenderer siteRenderer;
 
 
     /**
      * @see AbstractMavenReport#getSiteRenderer()
      */
     @Override
-    protected DefaultSiteRenderer getSiteRenderer() {
+    protected SiteRenderer getSiteRenderer() {
         return siteRenderer;
     }
 

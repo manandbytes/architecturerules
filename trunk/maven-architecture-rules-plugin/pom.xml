@@ -92,10 +92,25 @@
                 </configuration>
             </plugin>
             <plugin>
-                <artifactId>maven-compiler-plugin</artifactId>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-invoker-plugin</artifactId>
+                <version>1.1</version>
                 <configuration>
                     <debug>true</debug>
+                    <projectsDirectory>src/test/resources/</projectsDirectory>
+                    <pomIncludes>
+                        <pomInclude>**/pom.xml</pomInclude>
+                    </pomIncludes>
+                    <postBuildHookScript>verify.bsh</postBuildHookScript>
                 </configuration>
+                <executions>
+                    <execution>
+                        <phase>integration-test</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>

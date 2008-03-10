@@ -13,6 +13,7 @@ import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.plugin.logging.Log;
 import org.apache.maven.project.MavenProject;
 
+import com.seventytwomiles.architecturerules.configuration.ConfigurationFactory;
 import com.seventytwomiles.architecturerules.exceptions.CyclicRedundancyException;
 
 
@@ -35,7 +36,7 @@ public class ArchitectureRulesMojo extends AbstractMojo {
      * @parameter alias="config" default-value="architecture-rules.xml"
      * @required
      */
-    private String configurationFileName;
+    private String configurationFileName = ConfigurationFactory.DEFAULT_CONFIGURATION_FILE_NAME;
 
     /**
      * For <a href="http://maven.apache.org/pom.html#Aggregation">Aggregation
@@ -185,5 +186,9 @@ public class ArchitectureRulesMojo extends AbstractMojo {
             if (rawResource.getDirectory() != null)
                 rawResource.addInclude(configurationFileName);
         }
+    }
+
+    String getConfigurationFileName() {
+        return configurationFileName;
     }
 }

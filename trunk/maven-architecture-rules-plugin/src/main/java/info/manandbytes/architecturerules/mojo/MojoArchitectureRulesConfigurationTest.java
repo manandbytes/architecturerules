@@ -13,11 +13,13 @@ import junit.framework.TestCase;
 import org.apache.maven.plugin.logging.Log;
 import org.apache.maven.project.MavenProject;
 
+import javassist.ClassPool;
+import javassist.NotFoundException;
+
 import javax.management.ServiceNotFoundException;
 import java.io.File;
 import java.util.Collection;
 import java.util.LinkedList;
-import java.util.List;
 
 
 
@@ -66,30 +68,22 @@ public class MojoArchitectureRulesConfigurationTest extends TestCase {
     public void addSourcesFromThisProject(final MavenProject mavenProject,
                                           final Log log) {
 
-        final List<String> compileSourceRoots
-                = mavenProject.getCompileSourceRoots();
-
         final Collection<SourceDirectory> currentSources
                 = new LinkedList<SourceDirectory>();
 
         appendBaseDir(mavenProject.getBasedir());
 
-        for (final String sourceRoot : compileSourceRoots) {
-
-            final SourceDirectory sourceDirectory
-                    = new SourceDirectory(sourceRoot);
-
-            if (!currentSources.contains(sourceDirectory)) {
-
-                currentSources.add(sourceDirectory);
-
-                if (log.isDebugEnabled()) {
-
-                    final String path = sourceDirectory.getPath();
-                    final String message = path + " added";
-                    log.debug(message);
-                }
+        SourceDirectory outputDirectory = new SourceDirectory(mavenProject
+                .getBuild().getOutputDirectory());
+        try {
+            currentSources.add(outputDirectory);
+            ClassPool.getDefault().appendPathList(outputDirectory.getPath());
+            if (log.isDebugEnabled()) {
+                String message = outputDirectory.getPath() + " added";
+                log.debug(message);
             }
+        } catch (NotFoundException e) {
+            e.printStackTrace();
         }
     }
 

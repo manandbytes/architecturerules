@@ -15,18 +15,27 @@
 package com.seventytwomiles.architecturerules.services;
 
 
-import com.seventytwomiles.architecturerules.configuration.Configuration;
-import com.seventytwomiles.architecturerules.exceptions.CyclicRedundancyException;
-import com.seventytwomiles.architecturerules.exceptions.NoPackagesFoundException;
-import com.seventytwomiles.architecturerules.exceptions.SourceNotFoundException;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
 import javassist.ClassPool;
 import javassist.NotFoundException;
 import jdepend.framework.JavaClass;
 import jdepend.framework.JavaPackage;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import java.util.*;
+import com.seventytwomiles.architecturerules.configuration.Configuration;
+import com.seventytwomiles.architecturerules.exceptions.CyclicRedundancyException;
+import com.seventytwomiles.architecturerules.exceptions.NoPackagesFoundException;
+import com.seventytwomiles.architecturerules.exceptions.SourceNotFoundException;
 
 
 
@@ -310,14 +319,18 @@ public class CyclicRedundancyServiceImpl extends AbstractArchitecturalRules
 
                 final boolean notSelfClass = !name.equals(nameOfImportedClass);
 
-                final String packageName =
-                        classPool.get(nameOfImportedClass).getPackageName();
+                try {
+                    final String packageName = classPool.get(
+                            nameOfImportedClass).getPackageName();
 
-                final boolean importFromCycle
-                        = packageName.equals(packageInCycle.getName());
+                    final boolean importFromCycle = packageName
+                            .equals(packageInCycle.getName());
 
-                if (notSelfClass && importFromCycle)
-                    referencedClassNames.add(nameOfImportedClass);
+                    if (notSelfClass && importFromCycle)
+                        referencedClassNames.add(nameOfImportedClass);
+                } catch (NotFoundException e) {
+                    // TODO: handle exception
+                }
             }
 
         } catch (NotFoundException e) {

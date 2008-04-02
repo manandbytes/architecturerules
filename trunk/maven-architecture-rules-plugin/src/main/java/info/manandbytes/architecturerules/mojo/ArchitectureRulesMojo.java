@@ -87,16 +87,13 @@ public class ArchitectureRulesMojo extends AbstractMojo {
         File configFile;
         MojoArchitectureRulesConfigurationTest test;
 
-        boolean isMultipleProjectsInReactor = reactorProjects.size() > 1;
         for (final MavenProject project : reactorProjects) {
 
             /**
              * Skip the project resources, if the project is the parent
              * project and the parent project should be skipped.
              **/
-            // TODO write test
-            if (project.equals(mavenProject) && skipRoot
-                    && isMultipleProjectsInReactor)
+            if (project.equals(mavenProject) && skipRoot)
                 continue;
 
             testResources = project.getTestResources();

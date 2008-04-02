@@ -120,6 +120,10 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-install-plugin</artifactId>
+		<!--
+			use version 2.2 for which http://jira.codehaus.org/browse/MINSTALL-12 is resolved
+		-->
+		<version>2.2</version>
                 <executions>
                     <execution>
                         <id>it-test</id>

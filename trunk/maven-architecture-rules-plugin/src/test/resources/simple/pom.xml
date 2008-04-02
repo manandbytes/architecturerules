@@ -13,6 +13,7 @@
             <plugin>
                 <groupId>info.manandbytes</groupId>
                 <artifactId>maven-architecture-rules-plugin</artifactId>
+		<version>0.0-it-SNAPSHOT</version>
                 <configuration />
                 <executions>
                     <execution>

@@ -117,6 +117,27 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-install-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>it-test</id>
+                        <phase>pre-integration-test</phase>
+                        <goals>
+                            <goal>install-file</goal>
+                        </goals>
+                        <configuration>
+                            <groupId>${project.groupId}</groupId>
+                            <artifactId>${project.artifactId}</artifactId>
+                            <version>0.0-it-SNAPSHOT</version><!-- IT SNAPSHOT -->
+                            <packaging>maven-plugin</packaging>
+                            <pomFile>${basedir}/pom.xml</pomFile>
+                            <file>${basedir}/target/${project.artifactId}-${project.version}.jar</file>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 

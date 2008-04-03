@@ -88,13 +88,18 @@ public class ArchitectureRulesMojo extends AbstractMojo {
         MojoArchitectureRulesConfigurationTest test;
 
         for (final MavenProject project : reactorProjects) {
+            if (log.isDebugEnabled())
+                log.debug("process " + project);
 
             /**
              * Skip the project resources, if the project is the parent
              * project and the parent project should be skipped.
              **/
-            if (project.equals(mavenProject) && skipRoot)
+            if (project.equals(mavenProject) && skipRoot) {
+                if (log.isDebugEnabled())
+                    log.debug("skip " + project);
                 continue;
+            }
 
             testResources = project.getTestResources();
             includeConfigurationFile(testResources);
@@ -135,6 +140,9 @@ public class ArchitectureRulesMojo extends AbstractMojo {
         for (final Resource resource : testResources) {
 
             final String directory = resource.getDirectory();
+            
+            if (log.isDebugEnabled())
+                log.debug("try to find configuration in " + directory);
 
             if (resource.getIncludes().contains(configurationFileName)
                     && directory != null) {

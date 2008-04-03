@@ -107,10 +107,6 @@
                         <pomInclude>**/pom.xml</pomInclude>
                     </pomIncludes>
                     <postBuildHookScript>verify.bsh</postBuildHookScript>
-                    <goals>
-                        <goal>architecture-rules:assert</goal>
-                        <goal>architecture-rules:report</goal>
-                    </goals>
                 </configuration>
                 <executions>
                     <execution>

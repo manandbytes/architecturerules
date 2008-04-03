@@ -102,6 +102,7 @@
                 <version>1.1</version>
                 <configuration>
                     <debug>true</debug>
+                    <showErrors>true</showErrors>
                     <projectsDirectory>src/test/resources/</projectsDirectory>
                     <pomIncludes>
                         <pomInclude>**/pom.xml</pomInclude>

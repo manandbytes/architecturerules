@@ -35,7 +35,6 @@ public class ArchitectureRulesMojo extends AbstractMojo {
      *
      * @todo explain how search for configuration file works
      * @parameter alias="config" default-value="architecture-rules.xml"
-     * @required
      */
     private String configurationFileName = ConfigurationFactory.DEFAULT_CONFIGURATION_FILE_NAME;
 

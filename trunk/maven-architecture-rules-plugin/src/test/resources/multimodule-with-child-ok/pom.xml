@@ -16,7 +16,9 @@
     <properties>
         <maven.test.skip>false</maven.test.skip>
     </properties>
-    <modules></modules>
+    <modules>
+        <module>firstChild</module>
+    </modules>
 
     <dependencies>
         <dependency>

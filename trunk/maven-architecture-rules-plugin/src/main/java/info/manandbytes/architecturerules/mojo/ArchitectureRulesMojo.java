@@ -25,6 +25,7 @@ import com.seventytwomiles.architecturerules.exceptions.CyclicRedundancyExceptio
  * @goal assert
  * @phase test
  * @aggregator
+ * @requiresDependencyResolution compile
  */
 public class ArchitectureRulesMojo extends AbstractMojo {
 
@@ -95,7 +96,8 @@ public class ArchitectureRulesMojo extends AbstractMojo {
              * Skip the project resources, if the project is the parent
              * project and the parent project should be skipped.
              **/
-            if (project.equals(mavenProject) && skipRoot) {
+            boolean isAggregated = !project.getModules().isEmpty();
+            if (isAggregated && skipRoot || "pom".equals(project.getPackaging())) {
                 if (log.isDebugEnabled())
                     log.debug("skip " + project);
                 continue;

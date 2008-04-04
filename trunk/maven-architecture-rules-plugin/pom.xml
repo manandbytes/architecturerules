@@ -54,17 +54,16 @@
             <artifactId>maven-plugin-testing-harness</artifactId>
             <version>1.0-beta-1</version>
             <scope>test</scope>
-        </dependency>
+        </dependency>       
     </dependencies>
 
     <build>
         <plugins>        
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.4.2</version>
-                <inherited>true</inherited>
-            </plugin>
+	    	<groupId>org.apache.maven.plugins</groupId>
+	    	<artifactId>maven-surefire-plugin</artifactId>
+	        <version>2.4.2</version>
+	    </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-eclipse-plugin</artifactId>
@@ -101,13 +100,6 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-invoker-plugin</artifactId>
                 <version>1.1</version>
-		<dependencies>
-		    <dependency>
-		        <groupId>org.apache.maven.plugins</groupId>
-			<artifactId>maven-surefire-plugin</artifactId>
-			<version>2.4.2</version>
-		    </dependency>
-		</dependencies>
                 <configuration>
                     <debug>true</debug>
                     <showErrors>true</showErrors>
@@ -116,10 +108,6 @@
                         <pomInclude>**/pom.xml</pomInclude>
                     </pomIncludes>
                     <postBuildHookScript>verify.bsh</postBuildHookScript>
-                    <goals>
-                        <goal>architecture-rules:assert</goal>
-                        <goal>architecture-rules:report</goal>
-                    </goals>
                 </configuration>
                 <executions>
                     <execution>

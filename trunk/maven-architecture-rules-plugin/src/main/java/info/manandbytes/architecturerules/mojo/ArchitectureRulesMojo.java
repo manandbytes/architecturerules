@@ -44,11 +44,20 @@ public class ArchitectureRulesMojo extends AbstractMojo {
      * assertions by default. To change this behavior use
      * <code>-Darchitecture-rules.skipRoot=false</code>
      * 
-     * @todo i'll write unit test for this parameter today ;-)
      * @parameter default-value="true"
      *            expression="${architecture-rules.skipRoot}"
      */
     private boolean skipRoot;
+
+    /**
+     * Skip current project (i.e. in <a
+     * href="http://maven.apache.org/pom.html#Aggregation">Aggregation (or
+     * Multi-Module) project</a>) and don't run Architecture Rules assertions
+     * against it.
+     * 
+     * @parameter default-value="false" expression="${architecture-rules.skip}"
+     */
+    private boolean skip;
 
     /**
      * <p> Reference to the Maven project that is being tested. </p>
@@ -95,10 +104,12 @@ public class ArchitectureRulesMojo extends AbstractMojo {
              * Skip the project resources, if the project is the parent
              * project and the parent project should be skipped.
              **/
-            boolean isAggregated = !project.getModules().isEmpty();
-            if (isAggregated && skipRoot || "pom".equals(project.getPackaging())) {
+            boolean isAggregated = !project.getModules().isEmpty()
+                    || "pom".equals(project.getPackaging());
+            if ((isAggregated && skipRoot) || (!isAggregated && skip)) {
                 if (log.isDebugEnabled())
-                    log.debug("skip " + project);
+                    log.debug("aggregated = " + isAggregated + "; skip "
+                            + project);
                 continue;
             }
 

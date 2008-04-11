@@ -25,6 +25,7 @@ import com.seventytwomiles.architecturerules.exceptions.CyclicRedundancyExceptio
  * @goal assert
  * @phase test
  * @aggregator
+ * @execute phase = "compile"
  * @requiresDependencyResolution compile
  */
 public class ArchitectureRulesMojo extends AbstractMojo {

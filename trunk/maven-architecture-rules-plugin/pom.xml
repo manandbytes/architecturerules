@@ -27,7 +27,10 @@
         <system>Google Code</system>
         <url>http://code.google.com/p/architecturerules/issues</url>
     </issueManagement>
-
+    <ciManagement>
+        <system>hudson</system>
+        <url>http://72miles.com:8080/hudson/job/maven-architecture-rules-plugin/</url>
+    </ciManagement>
     <dependencies>
         <dependency>
             <groupId>org.apache.maven</groupId>

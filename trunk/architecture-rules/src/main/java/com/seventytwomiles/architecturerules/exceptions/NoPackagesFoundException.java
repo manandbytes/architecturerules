@@ -22,6 +22,7 @@ package com.seventytwomiles.architecturerules.exceptions;
  * @author mikenereson
  * @see RuntimeException
  */
+@SuppressWarnings({"JavaDoc"})
 public class NoPackagesFoundException extends RuntimeException {
 
 

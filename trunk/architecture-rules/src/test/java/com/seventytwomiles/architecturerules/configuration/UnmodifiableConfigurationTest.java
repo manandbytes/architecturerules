@@ -22,7 +22,6 @@ import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
 
-
 /**
  * <p>UnmodifiableConfiguration Tester.</p>
  *
@@ -45,6 +44,7 @@ public class UnmodifiableConfigurationTest extends TestCase {
 
 
     public void setUp() throws Exception {
+
         configuration.addSource(new SourceDirectory("core/target/classes"));
         configuration.addSource(new SourceDirectory("dao/target/classes"));
 
@@ -64,6 +64,7 @@ public class UnmodifiableConfigurationTest extends TestCase {
 
 
     public void tearDown() throws Exception {
+
         configuration = null;
 
         super.tearDown();
@@ -76,31 +77,43 @@ public class UnmodifiableConfigurationTest extends TestCase {
                 = new UnmodifiableConfiguration(configuration);
 
         try {
+
             unmodifiableConfiguration.getRules().add(new Rule("test"));
             fail("expected UnsupportedOperationException");
+
         } catch (Exception e) {
+
             assertTrue(e instanceof UnsupportedOperationException);
         }
 
         try {
-            unmodifiableConfiguration.getSources().add("web/target/classes");
+
+            unmodifiableConfiguration.getSources().add(new SourceDirectory("web/target/classes"));
             fail("expected UnsupportedOperationException");
+
         } catch (Exception e) {
+
             assertTrue(e instanceof UnsupportedOperationException);
         }
 
         try {
+
             unmodifiableConfiguration.setDoCyclicDependencyTest(false);
             fail("expected UnsupportedOperationException");
+
         } catch (Exception e) {
+
             assertTrue(e instanceof UnsupportedOperationException);
         }
 
 
         try {
+
             unmodifiableConfiguration.setThrowExceptionWhenNoPackages(false);
             fail("expected UnsupportedOperationException");
+
         } catch (Exception e) {
+
             assertTrue(e instanceof UnsupportedOperationException);
         }
     }

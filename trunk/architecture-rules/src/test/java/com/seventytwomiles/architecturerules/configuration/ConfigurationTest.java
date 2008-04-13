@@ -21,7 +21,6 @@ import junit.framework.AssertionFailedError;
 import junit.framework.TestCase;
 
 
-
 /**
  * <p>Configuration Tester</p>
  *
@@ -49,24 +48,34 @@ public class ConfigurationTest extends TestCase {
 
 
     public void addSource() {
-        assertTrue(configuration.addSource(
-                new SourceDirectory("core/target/classes")));
+        SourceDirectory sourceDirectory = new SourceDirectory("core/target/classes");
+
+        assertNotNull(configuration.addSource(sourceDirectory));
+
+        assertTrue(configuration.getSources().contains(sourceDirectory));
         assertEquals(1, configuration.getSources().size());
     }
 
 
     public void addSource_illegalArguments() {
+
         try {
+
             configuration.addSource(null);
             fail("expected IllegalArgumentException");
+
         } catch (Exception e) {
+
             assertTrue(e instanceof IllegalArgumentException);
         }
 
         try {
+
             configuration.addSource(new SourceDirectory(""));
             fail("expected AssertionFailedError");
+
         } catch (Exception e) {
+
             assertTrue(e instanceof IllegalArgumentException);
         }
     }
@@ -76,6 +85,7 @@ public class ConfigurationTest extends TestCase {
      * @see TestCase#setUp()
      */
     public void setUp() throws Exception {
+
         super.setUp();
 
         configuration = new Configuration();
@@ -86,6 +96,7 @@ public class ConfigurationTest extends TestCase {
      * @see TestCase#tearDown()
      */
     public void tearDown() throws Exception {
+
         configuration = null;
 
         super.tearDown();
@@ -96,9 +107,10 @@ public class ConfigurationTest extends TestCase {
      * <p>Test for {@link Configuration#addRule(Rule)} </p>
      *
      * @throws Exception when <code>Configuration</code> throws unexpected
-     * <code>Exception</code>
+     *                   <code>Exception</code>
      */
     public void testAddRule() throws Exception {
+
         /* is empty by default */
         assertTrue(configuration.getRules().isEmpty());
 
@@ -119,54 +131,69 @@ public class ConfigurationTest extends TestCase {
      * invalid</p>
      *
      * @throws Exception when <code>Configuration</code> throws unexpected
-     * <code>Exception</code>
+     *                   <code>Exception</code>
      */
     public void testAddRule_illegalArguments() throws Exception {
+
         Rule rule = null;
 
         try {
+
             configuration.addRule(rule);
             fail("expected AssertionFailedError");
+
         } catch (AssertionFailedError e) {
+
             final String message = e.getMessage();
             assertTrue(message.indexOf("rule can not be null") > -1);
         }
 
         try {
+
             rule = new Rule();
             configuration.addRule(rule);
             fail("expected AssertionFailedError");
+
         } catch (AssertionFailedError e) {
+
             final String message = e.getMessage();
             assertTrue(message.indexOf("rule id can not be null") > -1);
         }
 
         try {
+
             rule.setId("");
             configuration.addRule(rule);
             fail("expected AssertionFailedError");
+
         } catch (AssertionFailedError e) {
+
             final String message = e.getMessage();
             assertTrue(message.indexOf("id can not be empty") > -1);
         }
 
         try {
+
             rule.setId("validId");
             configuration.addRule(rule);
             fail("expected AssertionFailedError");
+
         } catch (AssertionFailedError e) {
-            assertTrue(e.getMessage()
-                    .indexOf("rule packages must not be empty") > -1);
+
+            final String message = e.getMessage();
+            assertTrue(message.indexOf("rule packages must not be empty") > -1);
         }
 
         try {
+
             rule.addPackage("com.seventytwomiles.dao");
             configuration.addRule(rule);
             fail("expected AssertionFailedError");
+
         } catch (AssertionFailedError e) {
+
             final String message = e.getMessage();
-            assertTrue(
-                    message.indexOf("rule violations must not be empty") > -1);
+            assertTrue(message.indexOf("rule violations must not be empty") > -1);
         }
     }
 
@@ -175,9 +202,10 @@ public class ConfigurationTest extends TestCase {
      * <p>Test for {@link Configuration#getRules()} </p>
      *
      * @throws Exception when <code>Configuration</code> throws unexpected
-     * <code>Exception</code>
+     *                   <code>Exception</code>
      */
     public void testGetRules() throws Exception {
+
         /* is empty by default */
         assertTrue(configuration.getRules().isEmpty());
 
@@ -185,7 +213,8 @@ public class ConfigurationTest extends TestCase {
         final Rule rule = new Rule("dao", "com.seventytwomiles.dao");
         rule.addViolation("com.seventytwomiles.web.controllers");
 
-        assertTrue(configuration.addRule(rule));
+        assertNotNull(configuration.addRule(rule));
+        assertTrue(configuration.getRules().contains(rule));
 
         /* assert increase in size and that it contains the Rule */
         assertEquals(1, configuration.getRules().size());
@@ -197,7 +226,7 @@ public class ConfigurationTest extends TestCase {
      * <p>Test for {@link Configuration#getSources()}</p>
      *
      * @throws Exception when <code>Configuration</code> throws unexpected
-     * <code>Exception</code>
+     *                   <code>Exception</code>
      */
     public void testGetSources() throws Exception {
         //TOO: Test goes here...
@@ -209,7 +238,7 @@ public class ConfigurationTest extends TestCase {
      * </p>
      *
      * @throws Exception when <code>Configuration</code> throws unexpected
-     * <code>Exception</code>
+     *                   <code>Exception</code>
      */
     public void testSetDoCyclicDependencyTest() throws Exception {
         //TOO: Test goes here...
@@ -221,7 +250,7 @@ public class ConfigurationTest extends TestCase {
      * </p>
      *
      * @throws Exception when <code>Configuration</code> throws unexpected
-     * <code>Exception</code>
+     *                   <code>Exception</code>
      */
     public void testSetThrowExceptionWhenNoPackages() throws Exception {
         //TOO: Test goes here...

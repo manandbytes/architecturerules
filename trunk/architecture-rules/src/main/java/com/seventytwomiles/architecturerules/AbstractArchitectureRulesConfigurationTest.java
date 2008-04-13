@@ -28,7 +28,6 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 
-
 /**
  * <p>Abstract class that the users of this library will extend in order to
  * create a unit test that asserts architecture. </p> <p/> <p>Once extended,

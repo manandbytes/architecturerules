@@ -35,8 +35,6 @@ class SaxErrorHandler implements ErrorHandler {
 
     private static final Log log = LogFactory.getLog(SaxErrorHandler.class);
 
-    // --------------------- Interface ErrorHandler ---------------------
-
 
     /**
      * @see ErrorHandler#error(SAXParseException)

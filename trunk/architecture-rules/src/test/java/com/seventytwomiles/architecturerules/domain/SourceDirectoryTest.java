@@ -54,6 +54,7 @@ public class SourceDirectoryTest extends TestCase {
      * @see TestCase#tearDown()
      */
     public void tearDown() throws Exception {
+
         source = null;
 
         super.tearDown();
@@ -67,6 +68,7 @@ public class SourceDirectoryTest extends TestCase {
      * <code>Exception</code>
      */
     public void testEquals() throws Exception {
+
         SourceDirectory that;
 
         source.setPath("core/target/classes");

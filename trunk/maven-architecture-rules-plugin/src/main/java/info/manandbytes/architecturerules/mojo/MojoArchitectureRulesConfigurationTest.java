@@ -9,18 +9,16 @@ import com.seventytwomiles.architecturerules.services.CyclicRedundancyService;
 import com.seventytwomiles.architecturerules.services.CyclicRedundancyServiceImpl;
 import com.seventytwomiles.architecturerules.services.RulesService;
 import com.seventytwomiles.architecturerules.services.RulesServiceImpl;
+import javassist.ClassPool;
+import javassist.NotFoundException;
 import junit.framework.TestCase;
 import org.apache.maven.plugin.logging.Log;
 import org.apache.maven.project.MavenProject;
-
-import javassist.ClassPool;
-import javassist.NotFoundException;
 
 import javax.management.ServiceNotFoundException;
 import java.io.File;
 import java.util.Collection;
 import java.util.LinkedList;
-
 
 
 /**
@@ -73,17 +71,23 @@ public class MojoArchitectureRulesConfigurationTest extends TestCase {
 
         appendBaseDir(mavenProject.getBasedir());
 
-        SourceDirectory outputDirectory = new SourceDirectory(mavenProject
-                .getBuild().getOutputDirectory());
+        String path = mavenProject.getBuild().getOutputDirectory();
+        SourceDirectory outputDirectory = new SourceDirectory(path);
+
         try {
+
             currentSources.add(outputDirectory);
             ClassPool.getDefault().appendPathList(outputDirectory.getPath());
+
             if (log.isDebugEnabled()) {
                 String message = outputDirectory.getPath() + " added";
                 log.debug(message);
             }
+
         } catch (NotFoundException e) {
-            e.printStackTrace();
+
+            log.error(e);
+            // e.printStackTrace();
         }
     }
 
@@ -107,9 +111,9 @@ public class MojoArchitectureRulesConfigurationTest extends TestCase {
          * TODO: this loop setPath on baseDir +. What is it calling on
          * baseDir? toString? lets be explicit in whatever it is...
          */
-        for (SourceDirectory directory : sourcesFromConfig) {
+        for (SourceDirectory directory : sourcesFromConfig)
             directory.setPath(baseDir + File.separator + directory.getPath());
-        }
+
     }
 
 

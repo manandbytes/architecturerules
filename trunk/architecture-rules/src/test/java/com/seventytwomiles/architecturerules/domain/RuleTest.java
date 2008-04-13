@@ -20,7 +20,6 @@ import junit.framework.AssertionFailedError;
 import junit.framework.TestCase;
 
 
-
 /**
  * <p><code>Rule</code> Tester.</p>
  *
@@ -72,28 +71,34 @@ public class RuleTest extends TestCase {
      * Rule#addViolation(String)} and {@link Rule#removeViolation(String)}</p>
      *
      * @throws Exception when <code>Rule</code> throws an unexpected
-     * <code>Exception</code>
+     *                   <code>Exception</code>
      */
     public void testAddGetViolations() throws Exception {
 
+        final String violation1 = "com.seventytwomiles.dao";
+        final String violation2 = "com.seventytwomiles.dao.hibernate";
+        final String violation3 = "com.seventytwomiles.package.does.not.exist";
+
         assertEquals(0, rule.getViolations().size());
 
-        assertTrue(rule.addViolation("com.seventytwomiles.dao"));
+        assertNotNull(rule.addViolation(violation1));
+        assertTrue(rule.getViolations().contains(violation1));
         assertEquals(1, rule.getViolations().size());
 
-        assertTrue(rule.addViolation("com.seventytwomiles.dao.hibernate"));
+        assertNotNull(rule.addViolation(violation2));
+        assertTrue(rule.getViolations().contains(violation2));
         assertEquals(2, rule.getViolations().size());
 
-        assertFalse(rule.addViolation("com.seventytwomiles.dao"));
+        assertNotNull(rule.addViolation(violation1));
+        assertTrue(rule.getViolations().contains(violation1));
         assertEquals(2, rule.getViolations().size());
 
-
-        assertTrue(rule.removeViolation("com.seventytwomiles.dao"));
+        assertNotNull(rule.removeViolation(violation1));
+        assertFalse(rule.getViolations().contains(violation1));
         assertEquals(1, rule.getViolations().size());
 
-
-        assertFalse(rule.removeViolation(
-                "com.seventytwomiles.package.does.not.exist"));
+        assertNotNull(rule.removeViolation(violation3));
+        assertFalse(rule.getViolations().contains(violation3));
         assertEquals(1, rule.getViolations().size());
     }
 
@@ -103,7 +108,7 @@ public class RuleTest extends TestCase {
      * Rule#addViolation(String)} and {@link Rule#removeViolation(String)}</p>
      *
      * @throws Exception when <code>Rule</code> throws an unexpected
-     * <code>Exception</code>
+     *                   <code>Exception</code>
      */
     public void testAddGetViolations_illegalArguments() throws Exception {
 
@@ -188,9 +193,10 @@ public class RuleTest extends TestCase {
      * <p>Tests for {@link Rule#equals(Object)}  </p>
      *
      * @throws Exception when <code>Rule</code> throws an unexpected
-     * <code>Exception</code>
+     *                   <code>Exception</code>
      */
     public void testEquals() throws Exception {
+
         Rule that = new Rule("web");
         assertTrue(that.addPackage("com.seventytwomiles.web"));
 
@@ -210,9 +216,10 @@ public class RuleTest extends TestCase {
      * <p>Tests for {@link Rule#Rule(String)}</p>
      *
      * @throws Exception when <code>Rule</code> throws an unexpected
-     * <code>Exception</code>
+     *                   <code>Exception</code>
      */
     public void testInterestingConstructors() throws Exception {
+
         rule = new Rule("dao");
         assertTrue(rule.getId().equals("dao"));
     }
@@ -220,19 +227,26 @@ public class RuleTest extends TestCase {
 
     public void testInterestingConstructors_illegalArguments()
             throws Exception {
+
         try {
+
             rule = new Rule(null);
             fail("expected AssertionFailedError because id can not be null");
+
         } catch (final AssertionFailedError e) {
+
             final String message = e.getMessage();
             assertTrue(message.indexOf("id") > -1);
         }
 
 
         try {
+
             rule = new Rule("");
             fail("expected AssertionFailedError because id can not be empty");
+
         } catch (final AssertionFailedError e) {
+
             final String message = e.getMessage();
             assertTrue(message.indexOf("id") > -1);
         }
@@ -244,9 +258,10 @@ public class RuleTest extends TestCase {
      * Rule#getComment()} </p>
      *
      * @throws Exception when <code>Rule</code> throws an unexpected
-     * <code>Exception</code>
+     *                   <code>Exception</code>
      */
     public void testSetGetComment() throws Exception {
+
         rule.setComment("controllers are cool");
         assertTrue(rule.getComment().equals("controllers are cool"));
 
@@ -256,10 +271,14 @@ public class RuleTest extends TestCase {
 
 
     public void testSetGetComment_illegalArguments() throws Exception {
+
         try {
+
             rule.setComment(null);
             fail("expected AssertionFailedError because comment can not be null");
+
         } catch (final AssertionFailedError e) {
+
             final String message = e.getMessage();
             assertTrue(message.indexOf("comment") > -1);
         }
@@ -270,28 +289,36 @@ public class RuleTest extends TestCase {
      * <p>Tests for {@link Rule#setId(String)} and {@link Rule#getId()}</p>
      *
      * @throws Exception when <code>Rule</code> throws an unexpected
-     * <code>Exception</code>
+     *                   <code>Exception</code>
      */
     public void testSetGetId() throws Exception {
+
         rule.setId("controllers");
         assertTrue(rule.getId().equals("controllers"));
     }
 
 
     public void testSetGetId_illegalArguments() throws Exception {
+
         try {
+
             rule.setId("");
             fail("expected AssertionFailedError because id can not be empty");
+
         } catch (final AssertionFailedError e) {
+
             final String message = e.getMessage();
             assertTrue(message.indexOf("id") > -1);
         }
 
 
         try {
+
             rule.setId(null);
             fail("expected AssertionFailedError because id can not be null");
+
         } catch (final AssertionFailedError e) {
+
             final String message = e.getMessage();
             assertTrue(message.indexOf("id") > -1);
         }

@@ -33,6 +33,7 @@ public class IllegalArchitectureRuleExceptionTest extends TestCase {
     }
 
 
+    @SuppressWarnings({"ThrowableInstanceNeverThrown", "ThrowableInstanceNeverThrown", "ThrowableInstanceNeverThrown"})
     public void testInterestingConstructors() {
         IllegalArchitectureRuleException exception;
         String message;
@@ -67,6 +68,7 @@ public class IllegalArchitectureRuleExceptionTest extends TestCase {
     }
 
 
+    @SuppressWarnings({"ThrowableInstanceNeverThrown", "ThrowableInstanceNeverThrown", "ThrowableInstanceNeverThrown", "ThrowableInstanceNeverThrown", "ThrowableInstanceNeverThrown", "ThrowableInstanceNeverThrown"})
     public void testTypicalConstructors() {
 
         IllegalArchitectureRuleException exception;

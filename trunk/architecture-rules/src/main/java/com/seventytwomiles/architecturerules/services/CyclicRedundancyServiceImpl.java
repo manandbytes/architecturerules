@@ -15,28 +15,18 @@
 package com.seventytwomiles.architecturerules.services;
 
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
-import javassist.ClassPool;
-import javassist.NotFoundException;
-import jdepend.framework.JavaClass;
-import jdepend.framework.JavaPackage;
-
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-
 import com.seventytwomiles.architecturerules.configuration.Configuration;
 import com.seventytwomiles.architecturerules.exceptions.CyclicRedundancyException;
 import com.seventytwomiles.architecturerules.exceptions.NoPackagesFoundException;
 import com.seventytwomiles.architecturerules.exceptions.SourceNotFoundException;
+import javassist.ClassPool;
+import javassist.NotFoundException;
+import jdepend.framework.JavaClass;
+import jdepend.framework.JavaPackage;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
+import java.util.*;
 
 
 /**
@@ -63,13 +53,13 @@ public class CyclicRedundancyServiceImpl extends AbstractArchitecturalRules
      * <p>Constructor instantiates a new <code>CyclicRedundancyService</code></p>
      *
      * @param configuration Configuration which contains the source directories
-     * to inspect
-     * @throws SourceNotFoundException when an required source directory does
-     * not exist and when <tt>exception</tt>=<tt>"true"</tt> in the source
-     * configuration
+     *                      to inspect
+     * @throws SourceNotFoundException  when an required source directory does
+     *                                  not exist and when <tt>exception</tt>=<tt>"true"</tt>
+     *                                  in the source configuration
      * @throws NoPackagesFoundException when none of the source directories
-     * exist and <tt>no-packages</tt>="<tt>ignore</tt>" in the sources
-     * configuration
+     *                                  exist and <tt>no-packages</tt>="<tt>ignore</tt>"
+     *                                  in the sources configuration
      */
     public CyclicRedundancyServiceImpl(final Configuration configuration) {
 
@@ -77,8 +67,6 @@ public class CyclicRedundancyServiceImpl extends AbstractArchitecturalRules
 
         log.info("instantiating new CyclicRedundancyService");
     }
-
-    // --------------------- Interface CyclicRedundancyService ---------------------
 
 
     /**
@@ -89,7 +77,7 @@ public class CyclicRedundancyServiceImpl extends AbstractArchitecturalRules
 
         log.info("cyclic redundancy check requested");
 
-        final Collection packages = getPackages();
+        final Collection<JavaPackage> packages = getPackages();
 
         /**
          *  TODO: report classes involved
@@ -104,17 +92,12 @@ public class CyclicRedundancyServiceImpl extends AbstractArchitecturalRules
          * and the Set contains JavaPackge of packages that are in a cycle with
          * the named package.
          */
-        final Map cycles = new HashMap();
+        final Map<JavaPackage, Set<JavaPackage>> cycles = new HashMap<JavaPackage, Set<JavaPackage>>();
 
-        JavaPackage javaPackage; /* place holder to iterate over */
+        for (JavaPackage javaPackage : packages) {
 
-        for (final Iterator packageIterator = packages.iterator();
-             packageIterator.hasNext();) {
-
-            javaPackage = (JavaPackage) packageIterator.next();
-
-            final Collection afferents = javaPackage.getAfferents();
-            final Collection efferents = javaPackage.getEfferents();
+            final Collection<JavaPackage> afferents = javaPackage.getAfferents();
+            final Collection<JavaPackage> efferents = javaPackage.getEfferents();
 
             /**
              * afferents Collection is no longer a reference to the afferents,
@@ -153,10 +136,10 @@ public class CyclicRedundancyServiceImpl extends AbstractArchitecturalRules
      * <p>Updates a Map, or puts a new record into a Map of a JavaPackage and
      * its cyclic dependency packages.</p>
      *
-     * @param cycles Map of cycles already discovered.
-     * @param javaPackage JavaPackage involved in a cyclic dependency
+     * @param cycles       Map of cycles already discovered.
+     * @param javaPackage  JavaPackage involved in a cyclic dependency
      * @param dependencies Collection of JavaPackages involved in a cyclic
-     * dependency with the given javaPackage argument.
+     *                     dependency with the given javaPackage argument.
      */
     private void addCycle(final Map cycles, final JavaPackage javaPackage,
                           final Collection dependencies) {
@@ -193,7 +176,7 @@ public class CyclicRedundancyServiceImpl extends AbstractArchitecturalRules
      * @return String a complete message detailing all of the cyclic
      *         dependencies found.
      */
-    private String buildCyclicRedundancyMessage(final Map cycles) {
+    private String buildCyclicRedundancyMessage(final Map<JavaPackage, Set<JavaPackage>> cycles) {
 
         final StringBuffer message = new StringBuffer();
 
@@ -202,14 +185,10 @@ public class CyclicRedundancyServiceImpl extends AbstractArchitecturalRules
                 .append("\r\n")
                 .append("\r\n\t");
 
-        final Iterator entryIterator = cycles.entrySet().iterator();
+        for (Map.Entry<JavaPackage, Set<JavaPackage>> entry : cycles.entrySet()) {
 
-        while (entryIterator.hasNext()) {
-
-            final Map.Entry entry = (Map.Entry) entryIterator.next();
-
-            final JavaPackage javaPackage = (JavaPackage) entry.getKey();
-            final Set cyclicDependencies = (HashSet) entry.getValue();
+            final JavaPackage javaPackage = entry.getKey();
+            final Set<JavaPackage> cyclicDependencies = entry.getValue();
 
             message.append("-- ")
                     .append(javaPackage.getName())
@@ -225,8 +204,8 @@ public class CyclicRedundancyServiceImpl extends AbstractArchitecturalRules
                 final JavaPackage dependency
                         = (JavaPackage) dependencyIterator.next();
 
-                final String listOfClasses = buildListOfClasses(javaPackage,
-                        dependency);
+                final String listOfClasses
+                        = buildListOfClasses(javaPackage, dependency);
 
                 message.append("|  |");
                 message.append("\r\n\t");
@@ -248,8 +227,8 @@ public class CyclicRedundancyServiceImpl extends AbstractArchitecturalRules
      * <p></p>
      *
      * @param javaPackage <code>JavaPackage</code> package to describe
-     * @param dependency <code>JavaPackage</code> that the javaPackage argument
-     * depends on
+     * @param dependency  <code>JavaPackage</code> that the javaPackage argument
+     *                    depends on
      * @return String that can be output to the console that describes the given
      *         javaPackages's dependency.
      */
@@ -257,14 +236,14 @@ public class CyclicRedundancyServiceImpl extends AbstractArchitecturalRules
                                       final JavaPackage dependency) {
 
         final StringBuffer listOfClasses = new StringBuffer();
-        final Collection classes = dependency.getClasses();
+        final Collection<JavaClass> classes = dependency.getClasses();
 
-        for (Iterator iterator = classes.iterator(); iterator.hasNext();) {
+        for (JavaClass javaClass : classes) {
 
-            final JavaClass javaClass = (JavaClass) iterator.next();
-            final Collection importedPackages = javaClass.getImportedPackages();
+            final Collection<JavaPackage> importedPackages
+                    = javaClass.getImportedPackages();
 
-            final Collection referencedClassNames
+            final Collection<JavaClass> referencedClassNames
                     = buildListOfImports(javaPackage, javaClass);
 
             if (importedPackages.contains(javaPackage)) {
@@ -296,38 +275,38 @@ public class CyclicRedundancyServiceImpl extends AbstractArchitecturalRules
      * <p>Builds a List of class names that the given classWithImports argument
      * are involved with cycle with</p>
      *
-     * @param packageInCycle JavaPackage involved in cyclic dependency
+     * @param packageInCycle   JavaPackage involved in cyclic dependency
      * @param classWithImports JavaClass that is involved in the cyclic
-     * dependency
+     *                         dependency
      * @return List of class names which this class imports from the package
      *         involved in the cycle
      */
     private List buildListOfImports(final JavaPackage packageInCycle,
                                     final JavaClass classWithImports) {
 
-        final List referencedClassNames = new LinkedList();
+        final List<String> referencedClassNames = new LinkedList<String>();
 
         try {
 
             final ClassPool classPool = ClassPool.getDefault();
             final String name = classWithImports.getName();
-            final Collection refClasses = classPool.get(name).getRefClasses();
+            final Collection<String> refClasses = classPool.get(name).getRefClasses();
 
-            for (Iterator iterator = refClasses.iterator(); iterator.hasNext();)
-            {
-                final String nameOfImportedClass = (String) iterator.next();
+            for (String importedClass : refClasses) {
 
-                final boolean notSelfClass = !name.equals(nameOfImportedClass);
+                final boolean notSelfClass = !name.equals(importedClass);
 
                 try {
-                    final String packageName = classPool.get(
-                            nameOfImportedClass).getPackageName();
 
-                    final boolean importFromCycle = packageName
-                            .equals(packageInCycle.getName());
+                    final String packageName
+                            = classPool.get(importedClass).getPackageName();
+
+                    final boolean importFromCycle
+                            = packageName.equals(packageInCycle.getName());
 
                     if (notSelfClass && importFromCycle)
-                        referencedClassNames.add(nameOfImportedClass);
+                        referencedClassNames.add(importedClass);
+
                 } catch (NotFoundException e) {
                     // TODO: handle exception
                 }

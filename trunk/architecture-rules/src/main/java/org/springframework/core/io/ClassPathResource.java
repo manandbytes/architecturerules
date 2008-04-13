@@ -287,6 +287,7 @@ public class ClassPathResource {
      *
      * @return boolean
      */
+    @SuppressWarnings({"BooleanMethodIsAlwaysInverted"})
     public boolean exists() {
 
         // Try file existence: can we find the file in the file system?

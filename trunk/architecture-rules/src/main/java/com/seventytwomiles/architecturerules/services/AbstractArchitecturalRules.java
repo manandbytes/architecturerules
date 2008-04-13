@@ -48,8 +48,6 @@ import org.apache.commons.logging.LogFactory;
 import java.io.File;
 import java.io.IOException;
 import java.util.Collection;
-import java.util.Iterator;
-
 
 
 /**
@@ -90,7 +88,7 @@ abstract class AbstractArchitecturalRules {
      *
      * @parameter packages Collection
      */
-    private Collection packages;
+    private Collection<JavaPackage> packages;
 
 
     /**
@@ -98,12 +96,12 @@ abstract class AbstractArchitecturalRules {
      * in the source paths</p>
      *
      * @param configuration Configuration
-     * @throws SourceNotFoundException when an required source directory does
-     * not exist and when <tt>exception</tt>=<tt>"true"</tt> in the source
-     * configuration
+     * @throws SourceNotFoundException  when an required source directory does
+     *                                  not exist and when <tt>exception</tt>=<tt>"true"</tt>
+     *                                  in the source configuration
      * @throws NoPackagesFoundException when none of the source directories
-     * exist and <tt>no-packages</tt>="<tt>ignore</tt>" in the sources
-     * configuration
+     *                                  exist and <tt>no-packages</tt>="<tt>ignore</tt>"
+     *                                  in the sources configuration
      */
     AbstractArchitecturalRules(final Configuration configuration)
             throws SourceNotFoundException, NoPackagesFoundException {
@@ -116,18 +114,11 @@ abstract class AbstractArchitecturalRules {
         jdepend = new JDepend();
 
         /* read source paths from configuration file */
-        final Collection sources = this.configuration.getSources();
-
-        SourceDirectory source;
+        final Collection<SourceDirectory> sources = this.configuration.getSources();
 
         /* add each source to jdepend */
-        for (Iterator sourceIterator = sources.iterator();
-             sourceIterator.hasNext();) {
-
-            /* read the next source directory */
-            source = (SourceDirectory) sourceIterator.next();
+        for (SourceDirectory source : sources)
             addSourceToJdepend(source);
-        }
 
         analyze();
     }
@@ -151,7 +142,6 @@ abstract class AbstractArchitecturalRules {
         try {
 
             jdepend.addDirectory(sourcePath);
-
 
             if (log.isDebugEnabled()) {
 
@@ -241,7 +231,7 @@ abstract class AbstractArchitecturalRules {
      *
      * @return Collection
      */
-    Collection getPackages() {
+    Collection<JavaPackage> getPackages() {
         return this.packages;
     }
 
@@ -252,15 +242,15 @@ abstract class AbstractArchitecturalRules {
      *
      * @param layer String the package to test
      * @param rules Collection of rules defining which packages the layer may
-     * not use
+     *              not use
      * @throws DependencyConstraintException when a rule is broken
-     * @throws CyclicRedundancyException when cyclic redundancy is found
+     * @throws CyclicRedundancyException     when cyclic redundancy is found
      */
     void testLayeringValid(final String layer,
                            final Collection rules)
             throws DependencyConstraintException, CyclicRedundancyException {
 
-        final Collection analyzedPackages = jdepend.analyze();
+        final Collection<JavaPackage> analyzedPackages = jdepend.analyze();
 
         log.debug("checking how many packages were found by JDepend");
 
@@ -289,12 +279,7 @@ abstract class AbstractArchitecturalRules {
                     + " to analyze for dependency architecture");
         }
 
-        JavaPackage javaPackage;
-
-        for (Iterator packageIterator = analyzedPackages.iterator();
-             packageIterator.hasNext();) {
-
-            javaPackage = (JavaPackage) packageIterator.next();
+        for (JavaPackage javaPackage : analyzedPackages) {
 
             log.debug("checking dependencies on package "
                     + javaPackage.getName());
@@ -309,10 +294,10 @@ abstract class AbstractArchitecturalRules {
      * <p>Test a given layer (java package) against a Collection of
      * <code>Rules</code></p>
      *
-     * @param layer String name of the package to test
-     * @param rules Collection of rules defining which packages the given
-     * package may not depend upon
-     * @param jPackage JavaPackage
+     * @param layer               String name of the package to test
+     * @param rules               Collection of rules defining which packages
+     *                            the given package may not depend upon
+     * @param jPackage            JavaPackage
      * @param analyzedPackageName String full name
      * @throws DependencyConstraintException when a rule is broken
      */
@@ -321,21 +306,16 @@ abstract class AbstractArchitecturalRules {
                                     final String analyzedPackageName)
             throws DependencyConstraintException {
 
-        final Collection efferents = jPackage.getEfferents();
+        final Collection<JavaPackage> efferents = jPackage.getEfferents();
 
-        JavaPackage efferentPackage;
+        for (JavaPackage efferent : efferents) {
 
-        for (Iterator packageIterator = efferents.iterator();
-             packageIterator.hasNext();) {
-
-            efferentPackage = (JavaPackage) packageIterator.next();
-
-            if (rules.contains(efferentPackage.getName())
+            if (rules.contains(efferent.getName())
                     && analyzedPackageName.equals(layer)) {
 
                 final String message = analyzedPackageName
                         + " is not allowed to depend upon "
-                        + efferentPackage.getName();
+                        + efferent.getName();
 
                 log.error(message);
 

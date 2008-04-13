@@ -33,6 +33,7 @@ public class DependencyConstraintExceptionTest extends TestCase {
     }
 
 
+    @SuppressWarnings({"ThrowableInstanceNeverThrown", "ThrowableInstanceNeverThrown", "ThrowableInstanceNeverThrown"})
     public void testInterestingConstructors() {
 
         DependencyConstraintException exception;
@@ -68,6 +69,7 @@ public class DependencyConstraintExceptionTest extends TestCase {
     }
 
 
+    @SuppressWarnings({"ThrowableInstanceNeverThrown", "ThrowableInstanceNeverThrown", "ThrowableInstanceNeverThrown", "ThrowableInstanceNeverThrown", "ThrowableInstanceNeverThrown", "ThrowableInstanceNeverThrown"})
     public void testTypicalConstructors() {
         DependencyConstraintException exception;
         String message;

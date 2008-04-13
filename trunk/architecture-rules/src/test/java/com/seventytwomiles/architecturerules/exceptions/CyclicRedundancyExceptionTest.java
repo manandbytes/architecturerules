@@ -18,12 +18,12 @@ package com.seventytwomiles.architecturerules.exceptions;
 import junit.framework.TestCase;
 
 
-
 /**
  * <code>CyclicRedundancyException Tester.</code>
  *
  * @author mikenereson
  */
+@SuppressWarnings({"ThrowableInstanceNeverThrown"})
 public class CyclicRedundancyExceptionTest extends TestCase {
 
 
@@ -41,12 +41,15 @@ public class CyclicRedundancyExceptionTest extends TestCase {
 
         exception = new CyclicRedundancyException("com.seventytwomiles.dao",
                 "com.seventytwomiles.dao.hibernate");
+
         message = exception.getMessage();
         cause = exception.getCause();
 
         assertEquals(
-                "'com.seventytwomiles.dao' is involved in an cyclically redundant dependency with 'com.seventytwomiles.dao.hibernate'",
+                "'com.seventytwomiles.dao' is involved in an cyclically redundant " +
+                        "dependency with 'com.seventytwomiles.dao.hibernate'",
                 message);
+
         assertEquals(null, cause);
     }
 

@@ -36,6 +36,7 @@ public class SourceNotFoundExceptionTest extends TestCase {
     }
 
 
+    @SuppressWarnings({"ThrowableInstanceNeverThrown"})
     public void testInterestingConstructors() {
 
         final SourceNotFoundException exception;
@@ -61,6 +62,7 @@ public class SourceNotFoundExceptionTest extends TestCase {
     }
 
 
+    @SuppressWarnings({"ThrowableInstanceNeverThrown", "ThrowableInstanceNeverThrown", "ThrowableInstanceNeverThrown", "ThrowableInstanceNeverThrown", "ThrowableInstanceNeverThrown", "ThrowableInstanceNeverThrown"})
     public void testTypicalConstructors() {
         SourceNotFoundException exception;
         String message;

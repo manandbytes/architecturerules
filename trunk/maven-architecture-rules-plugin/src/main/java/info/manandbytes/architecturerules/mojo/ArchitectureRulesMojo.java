@@ -1,11 +1,8 @@
 package info.manandbytes.architecturerules.mojo;
 
 
-import java.io.File;
-import java.util.Collection;
-import java.util.LinkedList;
-import java.util.List;
-
+import com.seventytwomiles.architecturerules.configuration.ConfigurationFactory;
+import com.seventytwomiles.architecturerules.exceptions.CyclicRedundancyException;
 import org.apache.maven.model.Resource;
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
@@ -13,9 +10,10 @@ import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.plugin.logging.Log;
 import org.apache.maven.project.MavenProject;
 
-import com.seventytwomiles.architecturerules.configuration.ConfigurationFactory;
-import com.seventytwomiles.architecturerules.exceptions.CyclicRedundancyException;
-
+import java.io.File;
+import java.util.Collection;
+import java.util.LinkedList;
+import java.util.List;
 
 
 /**
@@ -41,21 +39,18 @@ public class ArchitectureRulesMojo extends AbstractMojo {
 
     /**
      * For <a href="http://maven.apache.org/pom.html#Aggregation">Aggregation
-     * (or Multi-Module) project</a> we don't run Architecture Rules
-     * assertions by default. To change this behavior use
-     * <code>-Darchitecture-rules.skipRoot=false</code>
-     * 
-     * @parameter default-value="true"
-     *            expression="${architecture-rules.skipRoot}"
+     * (or Multi-Module) project</a> we don't run Architecture Rules assertions
+     * by default. To change this behavior use <code>-Darchitecture-rules.skipRoot=false</code>
+     *
+     * @parameter default-value="true" expression="${architecture-rules.skipRoot}"
      */
     private boolean skipRoot;
 
     /**
-     * Skip current project (i.e. in <a
-     * href="http://maven.apache.org/pom.html#Aggregation">Aggregation (or
-     * Multi-Module) project</a>) and don't run Architecture Rules assertions
-     * against it.
-     * 
+     * Skip current project (i.e. in <a href="http://maven.apache.org/pom.html#Aggregation">Aggregation
+     * (or Multi-Module) project</a>) and don't run Architecture Rules
+     * assertions against it.
+     *
      * @parameter default-value="false" expression="${architecture-rules.skip}"
      */
     private boolean skip;
@@ -98,6 +93,7 @@ public class ArchitectureRulesMojo extends AbstractMojo {
         MojoArchitectureRulesConfigurationTest test;
 
         for (final MavenProject project : reactorProjects) {
+
             if (log.isDebugEnabled())
                 log.debug("process " + project);
 
@@ -107,10 +103,13 @@ public class ArchitectureRulesMojo extends AbstractMojo {
              **/
             boolean isAggregated = !project.getModules().isEmpty()
                     || "pom".equals(project.getPackaging());
+
             if ((isAggregated && skipRoot) || (!isAggregated && skip)) {
+
                 if (log.isDebugEnabled())
                     log.debug("aggregated = " + isAggregated + "; skip "
                             + project);
+
                 continue;
             }
 
@@ -142,7 +141,7 @@ public class ArchitectureRulesMojo extends AbstractMojo {
      * testResources.
      *
      * @param testResources List<Resource>
-     * @param log maven log to log with
+     * @param log           maven log to log with
      * @return File which may or may not exist
      */
     private File findConfigurationFile(final List<Resource> testResources,
@@ -153,7 +152,7 @@ public class ArchitectureRulesMojo extends AbstractMojo {
         for (final Resource resource : testResources) {
 
             final String directory = resource.getDirectory();
-            
+
             if (log.isDebugEnabled())
                 log.debug("try to find configuration in " + directory);
 

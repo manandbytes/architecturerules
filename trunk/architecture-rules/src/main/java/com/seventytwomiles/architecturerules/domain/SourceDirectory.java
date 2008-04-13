@@ -14,25 +14,6 @@
 
 package com.seventytwomiles.architecturerules.domain;
 
-/*
- * Copyright 2007 the original author or authors.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- *
- * For more information visit
- * http://architecturerules.googlecode.com/svn/docs/index.html
- */
-
 
 import com.seventytwomiles.architecturerules.configuration.ConfigurationFactory;
 import com.seventytwomiles.architecturerules.exceptions.SourceNotFoundException;
@@ -43,7 +24,6 @@ import org.apache.commons.logging.LogFactory;
 import java.io.File;
 import java.text.CharacterIterator;
 import java.text.StringCharacterIterator;
-
 
 
 /**
@@ -130,8 +110,8 @@ public class SourceDirectory {
      * <tt>shouldThrowExceptionWhenNotFound</tt> values</p>
      *
      * @param path String {@link #path}
-     * @param shouldThrowExceptionWhenNotFound boolean {@link
-     * #shouldThrowExceptionWhenNotFound}
+     * @param shouldThrowExceptionWhenNotFound
+     *             boolean {@link #shouldThrowExceptionWhenNotFound}
      */
     public SourceDirectory(final String path,
                            final boolean shouldThrowExceptionWhenNotFound) {
@@ -144,8 +124,8 @@ public class SourceDirectory {
     /**
      * Setter for property {@link #shouldThrowExceptionWhenNotFound}.
      *
-     * @param shouldThrowExceptionWhenNotFound Value to set for property
-     * <tt>shouldThrowExceptionWhenNotFound</tt>.
+     * @param shouldThrowExceptionWhenNotFound
+     *         Value to set for property <tt>shouldThrowExceptionWhenNotFound</tt>.
      */
     public void setShouldThrowExceptionWhenNotFound(
             final boolean shouldThrowExceptionWhenNotFound) {
@@ -172,7 +152,7 @@ public class SourceDirectory {
      * <p>Instantiates a new SourceDirectory with the given <tt>path</tt> and
      * <tt>notFound</tt> values.</p>
      *
-     * @param path String {@link #path}
+     * @param path     String {@link #path}
      * @param notFound boolean {@link @notFound}
      */
     public SourceDirectory(final String path, final String notFound) {
@@ -274,7 +254,7 @@ public class SourceDirectory {
      * @param path String the path to fix
      * @return String the fixed path
      */
-    protected String replaceBackslashForOS(final String path) {
+    String replaceBackslashForOS(final String path) {
 
         final StringBuffer result = new StringBuffer();
 
@@ -299,6 +279,7 @@ public class SourceDirectory {
     /**
      * @see Object#equals(Object)
      */
+    @SuppressWarnings({"RedundantIfStatement"})
     public boolean equals(final Object object) {
 
         if (this == object)

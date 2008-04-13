@@ -14,26 +14,6 @@
 
 package com.seventytwomiles.architecturerules.configuration;
 
-/*
- * Copyright 2007 the original author or authors.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- *
- * For more information visit
- * http://architecturerules.googlecode.com/svn/docs/index.html
- */
-
-
 import com.seventytwomiles.architecturerules.domain.Rule;
 import com.seventytwomiles.architecturerules.domain.SourceDirectory;
 import junit.framework.Assert;
@@ -42,7 +22,6 @@ import org.apache.commons.logging.LogFactory;
 
 import java.util.Collection;
 import java.util.HashSet;
-
 
 
 /**
@@ -68,7 +47,7 @@ public class Configuration {
      *
      * @parameter rules Set
      */
-    private final Collection rules = new HashSet();
+    private final Collection<Rule> rules = new HashSet<Rule>();
 
     /**
      * <p>List of <code>SourceDirectory</code> that are read from the
@@ -76,7 +55,8 @@ public class Configuration {
      *
      * @parameter sources List
      */
-    private final Collection sources = new HashSet();
+    private final Collection<SourceDirectory> sources
+            = new HashSet<SourceDirectory>();
 
     /**
      * <p>sets to true when <samp>&lt;sources no-packages="exception"&gt;</samp>,
@@ -100,7 +80,7 @@ public class Configuration {
      *
      * @return Value for property <tt>rules</tt>.
      */
-    public Collection getRules() {
+    public Collection<Rule> getRules() {
         return rules;
     }
 
@@ -110,7 +90,7 @@ public class Configuration {
      *
      * @return Value for property <tt>sources</tt>.
      */
-    public Collection getSources() {
+    public Collection<SourceDirectory> getSources() {
         return sources;
     }
 
@@ -118,13 +98,16 @@ public class Configuration {
     /**
      * <p>Setter for property {@link #doCyclicDependencyTest}.</p>
      *
-     * @param doCyclicDependencyTest Value to set for property
-     * <tt>doCyclicDependencyTest</tt>.
+     * @param doCyclicDependencyTest Value to set for property <tt>doCyclicDependencyTest</tt>.
+     * @return Configuration this <code>Configuration</code> which allows for
+     *         method chaining
      */
-    public void setDoCyclicDependencyTest(
+    public Configuration setDoCyclicDependencyTest(
             final boolean doCyclicDependencyTest) {
 
         this.doCyclicDependencyTest = doCyclicDependencyTest;
+
+        return this;
     }
 
 
@@ -132,12 +115,16 @@ public class Configuration {
      * <p>Setter for property {@link #throwExceptionWhenNoPackages}.</p>
      *
      * @param throwExceptionWhenNoPackages Value to set for property
-     * <tt>throwExceptionWhenNoPackages</tt>.
+     *                                     <tt>throwExceptionWhenNoPackages</tt>.
+     * @return Configuration this <code>Configuration</code> which allows for
+     *         method chaining
      */
-    public void setThrowExceptionWhenNoPackages(
+    public Configuration setThrowExceptionWhenNoPackages(
             final boolean throwExceptionWhenNoPackages) {
 
         this.throwExceptionWhenNoPackages = throwExceptionWhenNoPackages;
+
+        return this;
     }
 
 
@@ -145,10 +132,10 @@ public class Configuration {
      * <p>Add a new <code>Rule</code> to {@link #rules}</p>
      *
      * @param rule Rule to add
-     * @return boolean <tt>true</tt> if this set did not already contain the
-     *         specified element.
+     * @return Configuration this <code>Configuration</code> to allow for method
+     *         chaining.
      */
-    public boolean addRule(final Rule rule) {
+    public Configuration addRule(final Rule rule) {
 
         /* validate input */
         Assert.assertNotNull("rule can not be null", rule);
@@ -158,7 +145,7 @@ public class Configuration {
         final String id = rule.getId();
         Assert.assertFalse("rule id must not be empty", id.equals(""));
 
-        final Collection packages = rule.getPackages();
+        final Collection<String> packages = rule.getPackages();
         Assert.assertNotNull("rule packages can not be null", packages);
 
         Assert.assertFalse("rule packages must not be empty",
@@ -167,11 +154,29 @@ public class Configuration {
         Assert.assertFalse("rule violations must not be empty",
                 rule.getViolations().isEmpty());
 
-        return rules.add(rule);
+        boolean added = rules.add(rule);
+
+        if (added) {
+
+            log.debug(String.format("added Rule %s to Configuration", id));
+
+        } else {
+
+            log.debug(String.format("failed to add Rule %s to Configuration", id));
+        }
+
+        return this;
     }
 
 
-    public boolean addSource(final SourceDirectory sourceDirectory) {
+    /**
+     * <p>Add a new <code>SourceDirectory</code> to {@link #sources}</p>
+     *
+     * @param sourceDirectory SourceDirectory to add
+     * @return Configuration this <code>Configuration</code> to allow for method
+     *         chaining.
+     */
+    public Configuration addSource(final SourceDirectory sourceDirectory) {
 
         if (sourceDirectory == null)
             throw new IllegalArgumentException(
@@ -183,7 +188,18 @@ public class Configuration {
             throw new IllegalArgumentException(
                     "sourceDirectory.path can not be empty or null");
 
-        return sources.add(sourceDirectory);
+        boolean added = sources.add(sourceDirectory);
+
+        if (added) {
+
+            log.debug(String.format("added source %s to Configuration", path));
+
+        } else {
+
+            log.debug(String.format("failed to add source %s to Configuration", path));
+        }
+
+        return this;
     }
 
 

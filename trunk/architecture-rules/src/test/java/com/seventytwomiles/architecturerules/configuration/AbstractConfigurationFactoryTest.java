@@ -22,7 +22,6 @@ import java.io.File;
 import java.io.IOException;
 
 
-
 /**
  * AbstractConfigurationFactory Tester.
  *
@@ -84,6 +83,7 @@ public class AbstractConfigurationFactoryTest extends TestCase {
     public void testGetConfigurationAsXml_absolutePath() {
 
         final ClassLoader classLoader = getClass().getClassLoader();
+
         final ClassPathResource resource
                 = new ClassPathResource("architecture-rules.xml", classLoader);
 

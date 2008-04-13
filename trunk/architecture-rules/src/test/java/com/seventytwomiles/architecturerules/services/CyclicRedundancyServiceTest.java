@@ -22,7 +22,6 @@ import com.seventytwomiles.architecturerules.exceptions.CyclicRedundancyExceptio
 import junit.framework.TestCase;
 
 
-
 /**
  * <p><code>CyclicRedundancyService</code> Tester.</p>
  *
@@ -86,37 +85,6 @@ public class CyclicRedundancyServiceTest extends TestCase {
 
     public void testPerformCyclicRedundancyCheck() throws Exception {
 
-        final String expected =
-                "cyclic dependencies found:\n" +
-                        "\n" +
-                        "\t-- com.seventytwomiles.architecturerules.domain\n" +
-                        "\t¦  ¦\n" +
-                        "\t¦  ¦-- com.seventytwomiles.architecturerules.exceptions\n" +
-                        "\t¦\n" +
-                        "\t¦\n" +
-                        "\t-- test.com.seventytwomiles.services\n" +
-                        "\t¦  ¦\n" +
-                        "\t¦  ¦-- test.com.seventytwomiles.model\n" +
-                        "\t¦  ¦\n" +
-                        "\t¦  ¦-- test.com.seventytwomiles.dao.hibernate\n" +
-                        "\t¦\n" +
-                        "\t¦\n" +
-                        "\t-- test.com.seventytwomiles.model\n" +
-                        "\t¦  ¦\n" +
-                        "\t¦  ¦-- test.com.seventytwomiles.services\n" +
-                        "\t¦\n" +
-                        "\t¦\n" +
-                        "\t-- test.com.seventytwomiles.dao.hibernate\n" +
-                        "\t¦  ¦\n" +
-                        "\t¦  ¦-- test.com.seventytwomiles.services\n" +
-                        "\t¦\n" +
-                        "\t¦\n" +
-                        "\t-- com.seventytwomiles.architecturerules.exceptions\n" +
-                        "\t¦  ¦\n" +
-                        "\t¦  ¦-- com.seventytwomiles.architecturerules.domain\n" +
-                        "\t¦\n" +
-                        "\t";
-
         try {
 
             cyclicRedundancyService.performCyclicRedundancyCheck();
@@ -125,8 +93,6 @@ public class CyclicRedundancyServiceTest extends TestCase {
         } catch (final CyclicRedundancyException e) {
 
             final String message = e.getMessage().replaceAll("\r", "");
-
-            // assertTrue(expected.equals(message));
 
             /**
              * ..services depends on ..model and ..dao.hibernate.
@@ -142,8 +108,6 @@ public class CyclicRedundancyServiceTest extends TestCase {
                     "expected violation at test.com.seventytwomiles.dao.hibernate",
                     message.indexOf(
                             "test.com.seventytwomiles.dao.hibernate") > -1);
-
-            e.printStackTrace();
         }
     }
 }

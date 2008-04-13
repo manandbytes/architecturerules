@@ -1,4 +1,6 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
 
     <modelVersion>4.0.0</modelVersion>
@@ -7,7 +9,7 @@
     <groupId>com.seventytwomiles</groupId>
     <artifactId>architecture-rules</artifactId>
     <packaging>jar</packaging>
-    <version>2.0.4-SNAPSHOT</version>
+    <version>2.1.0-SNAPSHOT</version>
 
     <name>architecture-rules</name>
     <inceptionYear>2007</inceptionYear>
@@ -26,7 +28,7 @@
     </issueManagement>
     <ciManagement>
         <system>hudson</system>
-        <url>http://72miles.com:8080/hudson/job/architecture-rules/</url>
+        <url>http://72miles.com/hudson/job/architecture-rules/</url>
     </ciManagement>
     <mailingLists>
         <mailingList>
@@ -302,9 +304,9 @@
                 <artifactId>maven-dependency-plugin</artifactId>
             </plugin>
             <plugin>
-                <groupId>com.mathieucarbou.mojo</groupId>
+                <groupId>com.google.code.maven-license-plugin</groupId>
                 <artifactId>maven-license-plugin</artifactId>
-                <version>1.0.4</version>
+                <version>1.2.5</version>
                 <configuration>
                     <header>src/main/resources/file-header.txt</header>
                     <quiet>false</quiet>
@@ -332,7 +334,7 @@
 
     <repositories>
         <repository>
-            <id>architect-rules-repo</id>
+            <id>architecture-rules-repo</id>
             <name>architecture-rules repository hosted by code.google.com</name>
             <url>http://architecturerules.googlecode.com/svn/maven2/</url>
             <releases>
@@ -423,49 +425,4 @@
         </pluginRepository>
     </pluginRepositories>
 
-    <profiles>
-        <profile>
-            <activation>
-                <activeByDefault>false</activeByDefault>
-                <os>
-                    <family>Linux</family>
-                    <arch>x86</arch>
-                </os>
-            </activation>
-        </profile>
-        <profile>
-            <activation>
-                <activeByDefault>false</activeByDefault>
-                <os>
-                    <family>Windows Vista</family>
-                </os>
-            </activation>
-            <reporting>
-                <plugins>
-                    <plugin>
-                        <groupId>net.sf</groupId>
-                        <artifactId>stat-scm</artifactId>
-                        <version>1.0.0</version>
-                    </plugin>
-                </plugins>
-            </reporting>
-        </profile>
-        <profile>
-            <activation>
-                <activeByDefault>false</activeByDefault>
-                <os>
-                    <family>Windows</family>
-                </os>
-            </activation>
-            <reporting>
-                <plugins>
-                    <plugin>
-                        <groupId>net.sf</groupId>
-                        <artifactId>stat-scm</artifactId>
-                        <version>1.0.0</version>
-                    </plugin>
-                </plugins>
-            </reporting>
-        </profile>
-    </profiles>
 </project>

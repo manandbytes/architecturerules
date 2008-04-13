@@ -21,6 +21,8 @@ import org.apache.commons.logging.LogFactory;
 import java.util.Collection;
 import java.util.Collections;
 
+import com.seventytwomiles.architecturerules.domain.SourceDirectory;
+import com.seventytwomiles.architecturerules.domain.Rule;
 
 
 /**
@@ -59,7 +61,7 @@ public final class UnmodifiableConfiguration extends Configuration {
      *
      * @return Value for property <tt>rules</tt>.
      */
-    public Collection getRules() {
+    public Collection<Rule> getRules() {
         return Collections.unmodifiableCollection(super.getRules());
     }
 
@@ -69,7 +71,7 @@ public final class UnmodifiableConfiguration extends Configuration {
      *
      * @return Value for property <tt>sources</tt>.
      */
-    public Collection getSources() {
+    public Collection<SourceDirectory> getSources() {
         return Collections.unmodifiableCollection(super.getSources());
     }
 
@@ -77,11 +79,11 @@ public final class UnmodifiableConfiguration extends Configuration {
     /**
      * <p>Setter for property {@link #doCyclicDependencyTest}.</p>
      *
-     * @param doCyclicDependencyTest Value to set for property
-     * <tt>doCyclicDependencyTest</tt>.
+     * @param doCyclicDependencyTest Value to set for property <tt>doCyclicDependencyTest</tt>.
      */
-    public void setDoCyclicDependencyTest(
+    public UnmodifiableConfiguration setDoCyclicDependencyTest(
             final boolean doCyclicDependencyTest) {
+
         throw new UnsupportedOperationException("");
     }
 
@@ -90,10 +92,11 @@ public final class UnmodifiableConfiguration extends Configuration {
      * <p>Setter for property {@link #throwExceptionWhenNoPackages}.</p>
      *
      * @param throwExceptionWhenNoPackages Value to set for property
-     * <tt>throwExceptionWhenNoPackages</tt>.
+     *                                     <tt>throwExceptionWhenNoPackages</tt>.
      */
-    public void setThrowExceptionWhenNoPackages(
+    public UnmodifiableConfiguration setThrowExceptionWhenNoPackages(
             final boolean throwExceptionWhenNoPackages) {
+
         throw new UnsupportedOperationException("");
     }
 }

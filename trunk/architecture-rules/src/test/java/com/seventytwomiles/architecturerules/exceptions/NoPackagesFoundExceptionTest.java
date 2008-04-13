@@ -33,6 +33,7 @@ public class NoPackagesFoundExceptionTest extends TestCase {
     }
 
 
+    @SuppressWarnings({"ThrowableInstanceNeverThrown"})
     public void testInterestingConstructors() {
 
         final NoPackagesFoundException exception;
@@ -54,6 +55,7 @@ public class NoPackagesFoundExceptionTest extends TestCase {
     }
 
 
+    @SuppressWarnings({"ThrowableInstanceNeverThrown", "ThrowableInstanceNeverThrown", "ThrowableInstanceNeverThrown", "ThrowableInstanceNeverThrown", "ThrowableInstanceNeverThrown", "ThrowableInstanceNeverThrown"})
     public void testTypicalConstructors() {
 
         NoPackagesFoundException exception;

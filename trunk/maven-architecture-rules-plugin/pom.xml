@@ -10,7 +10,7 @@
     <packaging>maven-plugin</packaging>
     <version>0.0-SNAPSHOT</version>
 
-    <name>ArchitectureRules Maven Plugin</name>
+    <name>architecture-rules-maven-plugin</name>
     <inceptionYear>2007</inceptionYear>
 
     <description>
@@ -29,7 +29,8 @@
     </issueManagement>
     <ciManagement>
         <system>hudson</system>
-        <url>http://72miles.com:8080/hudson/job/maven-architecture-rules-plugin/</url>
+        <url>http://72miles.com/hudson/job/maven-architecture-rules-plugin/
+        </url>
     </ciManagement>
     <dependencies>
         <dependency>
@@ -50,23 +51,23 @@
         <dependency>
             <groupId>com.seventytwomiles</groupId>
             <artifactId>architecture-rules</artifactId>
-            <version>2.0.4-SNAPSHOT</version>
+            <version>2.1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.apache.maven.shared</groupId>
             <artifactId>maven-plugin-testing-harness</artifactId>
             <version>1.0-beta-1</version>
             <scope>test</scope>
-        </dependency>       
+        </dependency>
     </dependencies>
 
     <build>
-        <plugins>        
+        <plugins>
             <plugin>
-	    	<groupId>org.apache.maven.plugins</groupId>
-	    	<artifactId>maven-surefire-plugin</artifactId>
-	        <version>2.4.2</version>
-	    </plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.4.2</version>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-eclipse-plugin</artifactId>
@@ -124,10 +125,10 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-install-plugin</artifactId>
-		<!--
-			use version 2.2 for which http://jira.codehaus.org/browse/MINSTALL-12 is resolved
-		-->
-		<version>2.2</version>
+                <!--
+                use version 2.2 for which http://jira.codehaus.org/browse/MINSTALL-12 is resolved
+            -->
+                <version>2.2</version>
                 <executions>
                     <execution>
                         <id>it-test</id>
@@ -138,10 +139,13 @@
                         <configuration>
                             <groupId>${project.groupId}</groupId>
                             <artifactId>${project.artifactId}</artifactId>
-                            <version>0.0-it-SNAPSHOT</version><!-- IT SNAPSHOT -->
+                            <version>0.0-it-SNAPSHOT</version>
+                            <!-- IT SNAPSHOT -->
                             <packaging>maven-plugin</packaging>
                             <pomFile>${basedir}/pom.xml</pomFile>
-                            <file>${basedir}/target/${project.artifactId}-${project.version}.jar</file>
+                            <file>
+                                ${basedir}/target/${project.artifactId}-${project.version}.jar
+                            </file>
                         </configuration>
                     </execution>
                 </executions>

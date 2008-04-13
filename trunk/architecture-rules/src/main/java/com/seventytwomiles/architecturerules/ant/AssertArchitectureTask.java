@@ -27,7 +27,6 @@ import org.apache.tools.ant.BuildException;
 import org.apache.tools.ant.Task;
 
 
-
 /**
  * <p>Ant task to assert architecture.</p>
  *
@@ -42,6 +41,16 @@ import org.apache.tools.ant.Task;
  * &lt;target name="assert-architecture" depends="compile">
  *    &lt;assertArchitecture configurationFileName="architecture-rules-pass.xml"/>
  * &lt;/target>
+ * </pre>
+ *
+ * <p>Requires the optionsl dependency</p>
+ *
+ * <pre>
+ *  &lt;dependency>
+ *      &lt;groupId>org.apache.ant&lt;/groupId>
+ *      &lt;artifactId>ant&lt;/artifactId>
+ *      &lt;version>1.7.0&lt;/version>
+ *  &lt;/dependency>
  * </pre>
  *
  * @author mikenereson
@@ -70,8 +79,7 @@ public class AssertArchitectureTask extends Task {
     /**
      * Setter for property 'configurationFileName'.
      *
-     * @param configurationFileName Value to set for property
-     * 'configurationFileName'.
+     * @param configurationFileName Value to set for property 'configurationFileName'.
      */
     public void setConfigurationFileName(final String configurationFileName) {
         this.configurationFileName = configurationFileName;
@@ -87,8 +95,7 @@ public class AssertArchitectureTask extends Task {
         super.execute();
 
         if (null == configurationFileName || "".equals(configurationFileName))
-            throw new IllegalStateException(
-                    "set configurationFileName property");
+            throw new IllegalStateException("set configurationFileName property");
 
         /**
          * 1. load configuration

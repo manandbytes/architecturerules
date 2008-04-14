@@ -32,6 +32,38 @@
         <url>http://72miles.com/hudson/job/maven-architecture-rules-plugin/
         </url>
     </ciManagement>
+    <mailingLists>
+        <mailingList>
+            <name>User List</name>
+            <post>architecture-rules-users@googlegroups.com</post>
+            <archive>
+                http://groups.google.com/group/architecture-rules-users
+            </archive>
+            <subscribe>
+                http://groups.google.com/group/architecture-rules-users/subscribe
+            </subscribe>
+        </mailingList>
+        <mailingList>
+            <name>Dev List</name>
+            <post>architecture-rules-dev@googlegroups.com</post>
+            <archive>
+                http://groups.google.com/group/architecture-rules-dev
+            </archive>
+            <subscribe>
+                http://groups.google.com/group/architecture-rules-dev/subscribe
+            </subscribe>
+        </mailingList>
+        <mailingList>
+            <name>Activity List</name>
+            <post>architecture-rules-activity@googlegroups.com</post>
+            <archive>
+                http://groups.google.com/group/architecture-rules-activity
+            </archive>
+            <subscribe>
+                http://groups.google.com/group/architecture-rules-activity/subscribe
+            </subscribe>
+        </mailingList>
+    </mailingLists>
     <licenses>
         <license>
             <name>The Apache Software License, Version 2.0</name>

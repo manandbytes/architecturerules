@@ -39,6 +39,9 @@
             <distribution>manual</distribution>
         </license>
     </licenses>
+    <prerequisites>
+        <maven>2.0+</maven>
+    </prerequisites>
     <dependencies>
         <dependency>
             <groupId>org.apache.maven</groupId>

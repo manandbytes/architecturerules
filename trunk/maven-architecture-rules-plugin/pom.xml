@@ -32,6 +32,17 @@
         <url>http://72miles.com/hudson/job/maven-architecture-rules-plugin/
         </url>
     </ciManagement>
+    <scm>
+        <connection>
+            scm:svn:http://architecturerules.googlecode.com/svn/trunk/${artifactId}/
+        </connection>
+        <developerConnection>
+            scm:svn:https://architecturerules.googlecode.com/svn/trunk/${artifactId}
+        </developerConnection>
+        <url>
+            http://architecturerules.googlecode.com/svn/trunk/${artifactId}
+        </url>
+    </scm>
     <mailingLists>
         <mailingList>
             <name>User List</name>

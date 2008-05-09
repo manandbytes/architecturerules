@@ -17,6 +17,11 @@ package com.seventytwomiles.architecturerules.exceptions;
 
 import junit.framework.TestCase;
 
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+
 
 /**
  * <code>CyclicRedundancyException Tester.</code>
@@ -31,6 +36,9 @@ public class CyclicRedundancyExceptionTest extends TestCase {
         super(name);
     }
 
+    public void testInheritance() {
+        assertTrue(ArchitectureException.class.isAssignableFrom(CyclicRedundancyException.class));
+    }
 
     public void testInterestingConstructors() {
 
@@ -91,5 +99,29 @@ public class CyclicRedundancyExceptionTest extends TestCase {
 
         assertEquals("cyclic redundancy found", message);
         assertTrue(cause instanceof IllegalArgumentException);
+    }
+
+    public void testCyclesMap() {
+
+        Map<String, Set<String>> cycles = new HashMap<String, Set<String>>();
+        Set<String> packages = new HashSet<String>();
+        String springPackage = "test.com.seventytwomiles.web.spring";
+        String daoPackage = "test.com.seventytwomiles.dao";
+        String hibernatePackage = "test.com.seventytwomiles.dao.hibernate";
+
+        packages.add(hibernatePackage);
+        packages.add(daoPackage);
+        cycles.put(springPackage, packages);
+
+        CyclicRedundancyException exception = new CyclicRedundancyException();
+        exception.getCycles().putAll(cycles);
+
+        assertTrue(exception.getCycles().containsKey(springPackage));
+
+        Set<String> cylePackages = exception.getCycles().get(springPackage);
+
+        assertTrue(cylePackages.contains(daoPackage));
+        assertTrue(cylePackages.contains(hibernatePackage));
+
     }
 }

@@ -124,11 +124,53 @@ public class CyclicRedundancyServiceImpl extends AbstractArchitecturalRules
 
             log.warn("found " + cycles.size() + " cyclic redundancies");
 
-            throw new CyclicRedundancyException(
-                    buildCyclicRedundancyMessage(cycles));
+            CyclicRedundancyException cyclicRedundancyException
+                    = buildCyclicRedundancyException(cycles);
+
+            throw cyclicRedundancyException;
         }
 
         log.info("cyclic redundancy test completed");
+    }
+
+    private CyclicRedundancyException buildCyclicRedundancyException(
+            final Map<JavaPackage, Set<JavaPackage>> cycles) {
+
+        final String message = buildCyclicRedundancyMessage(cycles);
+
+        final CyclicRedundancyException exception
+                = new CyclicRedundancyException(message);
+
+        final Map<String, Set<String>> cycleStrings = exception.getCycles();
+
+        for (final Map.Entry<JavaPackage, Set<JavaPackage>> cycle : cycles.entrySet()) {
+
+            final String packageName = cycle.getKey().getName();
+            final Set<JavaPackage> packageCycles = cycle.getValue();
+
+            final Set<String> cyclicPackages;
+
+            if (cycleStrings.containsKey(packageName)) {
+
+                cyclicPackages = cycleStrings.get(packageName);
+
+            } else {
+
+                cyclicPackages = new HashSet<String>();
+            }
+
+            for (final JavaPackage packageCycle : packageCycles) {
+
+                final String cycleName = packageCycle.getName();
+                cyclicPackages.add(cycleName);
+            }
+
+            cycleStrings.put(packageName, cyclicPackages);
+        }
+
+        exception.getCycles().putAll(cycleStrings);
+
+        return exception;
     }
 
 

@@ -20,10 +20,10 @@ package com.seventytwomiles.architecturerules.exceptions;
  * if <samp>&lt;sources no-packages="exception"> </samp></p>
  *
  * @author mikenereson
- * @see RuntimeException
+ * @see ArchitectureException
  */
 @SuppressWarnings({"JavaDoc"})
-public class NoPackagesFoundException extends RuntimeException {
+public class NoPackagesFoundException extends ArchitectureException {
 
 
     /**

@@ -22,7 +22,6 @@ import java.util.Collection;
 import java.util.HashSet;
 
 
-
 /**
  * <code>SourceNotFoundException Tester.</code>
  *
@@ -35,6 +34,9 @@ public class SourceNotFoundExceptionTest extends TestCase {
         super(name);
     }
 
+    public void testInheritance() {
+        assertTrue(ArchitectureException.class.isAssignableFrom(SourceNotFoundException.class));
+    }
 
     @SuppressWarnings({"ThrowableInstanceNeverThrown"})
     public void testInterestingConstructors() {

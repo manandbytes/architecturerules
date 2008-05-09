@@ -19,7 +19,6 @@ import com.seventytwomiles.architecturerules.domain.Rule;
 import junit.framework.TestCase;
 
 
-
 /**
  * <code>DependencyConstraintException Tester.</code>
  *
@@ -32,6 +31,9 @@ public class DependencyConstraintExceptionTest extends TestCase {
         super(name);
     }
 
+    public void testInheritance() {
+        assertTrue(ArchitectureException.class.isAssignableFrom(DependencyConstraintException.class));
+    }
 
     @SuppressWarnings({"ThrowableInstanceNeverThrown", "ThrowableInstanceNeverThrown", "ThrowableInstanceNeverThrown"})
     public void testInterestingConstructors() {

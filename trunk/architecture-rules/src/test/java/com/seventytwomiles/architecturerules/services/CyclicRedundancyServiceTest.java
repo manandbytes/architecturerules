@@ -21,6 +21,9 @@ import com.seventytwomiles.architecturerules.domain.SourceDirectory;
 import com.seventytwomiles.architecturerules.exceptions.CyclicRedundancyException;
 import junit.framework.TestCase;
 
+import java.util.Map;
+import java.util.Set;
+
 
 /**
  * <p><code>CyclicRedundancyService</code> Tester.</p>
@@ -99,15 +102,30 @@ public class CyclicRedundancyServiceTest extends TestCase {
              */
             assertTrue(
                     "expected violation at test.com.seventytwomiles.services",
-                    message.indexOf("test.com.seventytwomiles.services") > -1);
+                    message.contains("test.com.seventytwomiles.services"));
 
             assertTrue("expected violation at test.com.seventytwomiles.model",
-                    message.indexOf("test.com.seventytwomiles.model") > -1);
+                    message.contains("test.com.seventytwomiles.model"));
 
             assertTrue(
                     "expected violation at test.com.seventytwomiles.dao.hibernate",
-                    message.indexOf(
-                            "test.com.seventytwomiles.dao.hibernate") > -1);
+                    message.contains("test.com.seventytwomiles.dao.hibernate"));
+
+            Map<String, Set<String>> cycles = e.getCycles();
+
+            assertEquals(5, cycles.size());
+
+            Set<String> servicesCycles = cycles.get("test.com.seventytwomiles.services");
+            Set<String> modelCycles = cycles.get("test.com.seventytwomiles.model");
+            Set<String> hibernateCycles = cycles.get("test.com.seventytwomiles.dao.hibernate");
+
+            assertNotNull(servicesCycles);
+            assertNotNull(modelCycles);
+            assertNotNull(hibernateCycles);
+
+            assertEquals(2, servicesCycles.size());
+            assertEquals(1, modelCycles.size());
+            assertEquals(1, hibernateCycles.size());
         }
     }
 }

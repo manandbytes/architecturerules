@@ -33,10 +33,10 @@ package com.seventytwomiles.architecturerules.exceptions;
  * </pre>
  *
  * @author mikenereson
- * @see RuntimeException
+ * @see ArchitectureException
  */
 @SuppressWarnings({"JavaDoc"})
-public class IllegalArchitectureRuleException extends RuntimeException {
+public class IllegalArchitectureRuleException extends ArchitectureException {
 
 
     /**
@@ -76,9 +76,9 @@ public class IllegalArchitectureRuleException extends RuntimeException {
      * <p>Instantiates a new IllegalArchitectureRuleException with the given
      * ruleId and rulePackages.</p>
      *
-     * @param ruleId String id of the Rule
+     * @param ruleId       String id of the Rule
      * @param rulePackages String some description of the package rules, such as
-     * a delimited list
+     *                     a delimited list
      */
     public IllegalArchitectureRuleException(final String ruleId,
                                             final String rulePackages) {
@@ -90,10 +90,10 @@ public class IllegalArchitectureRuleException extends RuntimeException {
      * <p>Instantiates a new IllegalArchitectureRuleException with the given
      * ruleId and rulePackages, and passes on the cause.</p>
      *
-     * @param ruleId String id of the Rule
+     * @param ruleId       String id of the Rule
      * @param rulePackages String some description of the package rules, such as
-     * a delimited list
-     * @param cause Throwable root cause
+     *                     a delimited list
+     * @param cause        Throwable root cause
      */
     public IllegalArchitectureRuleException(final String ruleId,
                                             final String rulePackages,

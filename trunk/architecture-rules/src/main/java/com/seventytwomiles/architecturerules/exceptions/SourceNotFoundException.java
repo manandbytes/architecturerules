@@ -18,16 +18,15 @@ package com.seventytwomiles.architecturerules.exceptions;
 import java.util.Collection;
 
 
-
 /**
  * <p>Exception to be thrown when a configured source is not found and
  * <samp>&lt;source not-found="exception"></samp></p>
  *
  * @author mikenereson
  * @noinspection JavaDoc
- * @see RuntimeException
+ * @see ArchitectureException
  */
-public class SourceNotFoundException extends RuntimeException {
+public class SourceNotFoundException extends ArchitectureException {
 
 
     /**

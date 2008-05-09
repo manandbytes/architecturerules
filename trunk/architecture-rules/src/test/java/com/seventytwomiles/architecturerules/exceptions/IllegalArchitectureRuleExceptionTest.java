@@ -19,7 +19,6 @@ import com.seventytwomiles.architecturerules.domain.Rule;
 import junit.framework.TestCase;
 
 
-
 /**
  * <code>IllegalArchitectureRuleException Tester.</code>
  *
@@ -32,6 +31,9 @@ public class IllegalArchitectureRuleExceptionTest extends TestCase {
         super(name);
     }
 
+    public void testInheritance() {
+        assertTrue(ArchitectureException.class.isAssignableFrom(IllegalArchitectureRuleException.class));
+    }
 
     @SuppressWarnings({"ThrowableInstanceNeverThrown", "ThrowableInstanceNeverThrown", "ThrowableInstanceNeverThrown"})
     public void testInterestingConstructors() {

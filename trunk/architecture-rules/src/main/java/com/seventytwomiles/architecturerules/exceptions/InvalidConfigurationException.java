@@ -21,9 +21,9 @@ package com.seventytwomiles.architecturerules.exceptions;
  *
  * @author mikenereson
  * @noinspection JavaDoc
- * @see Exception
+ * @see ArchitectureException
  */
-public class InvalidConfigurationException extends RuntimeException {
+public class InvalidConfigurationException extends ArchitectureException {
 
 
     /**

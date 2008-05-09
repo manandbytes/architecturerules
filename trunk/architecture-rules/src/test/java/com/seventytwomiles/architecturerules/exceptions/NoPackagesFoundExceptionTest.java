@@ -19,7 +19,6 @@ import com.seventytwomiles.architecturerules.domain.SourceDirectory;
 import junit.framework.TestCase;
 
 
-
 /**
  * <code>NoPackagesFoundException Tester.</code>
  *
@@ -32,6 +31,9 @@ public class NoPackagesFoundExceptionTest extends TestCase {
         super(name);
     }
 
+    public void testInheritance() {
+        assertTrue(ArchitectureException.class.isAssignableFrom(NoPackagesFoundException.class));
+    }
 
     @SuppressWarnings({"ThrowableInstanceNeverThrown"})
     public void testInterestingConstructors() {

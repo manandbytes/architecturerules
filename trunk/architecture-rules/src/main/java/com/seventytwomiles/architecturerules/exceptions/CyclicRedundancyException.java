@@ -14,15 +14,25 @@
 
 package com.seventytwomiles.architecturerules.exceptions;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+
 
 /**
  * <p>Thrown to indicate that a cyclic redundancy was found.</p>
  *
  * @author mikenereson
- * @see RuntimeException
+ * @see ArchitectureException
  */
 @SuppressWarnings({"JavaDoc"})
-public class CyclicRedundancyException extends RuntimeException {
+public class CyclicRedundancyException extends ArchitectureException {
+
+    /**
+     * <p>Holds the cycles by package name. The Map key is the full package and
+     * the key is a Set of packages that are involved in the cycle.</p>
+     */
+    protected Map<String, Set<String>> cycles = new HashMap<String, Set<String>>();
 
 
     /**
@@ -62,10 +72,10 @@ public class CyclicRedundancyException extends RuntimeException {
      * <p>Constructs a new CyclicRedundancyException with a generated message
      * containing the given <tt>packageName</tt> and <tt>efferentPackage</tt>.</p>
      *
-     * @param packageName String the name of the package containing the cyclic
-     * dependency
+     * @param packageName     String the name of the package containing the
+     *                        cyclic dependency
      * @param efferentPackage String the name of the package the package is
-     * cyclicly involved with.
+     *                        cyclicly involved with.
      */
     public CyclicRedundancyException(final String packageName,
                                      final String efferentPackage) {
@@ -73,5 +83,9 @@ public class CyclicRedundancyException extends RuntimeException {
         super("'{0}' is involved in an cyclically redundant dependency with '{1}'"
                 .replaceAll("\\{0}", packageName)
                 .replaceAll("\\{1}", efferentPackage));
+    }
+
+    public Map<String, Set<String>> getCycles() {
+        return this.cycles;
     }
 }

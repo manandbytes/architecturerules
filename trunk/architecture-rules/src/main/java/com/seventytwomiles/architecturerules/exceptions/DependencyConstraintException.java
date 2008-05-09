@@ -19,10 +19,10 @@ package com.seventytwomiles.architecturerules.exceptions;
  * the rule is violoated.</p>
  *
  * @author mikenereson
- * @see RuntimeException
+ * @see ArchitectureException
  */
 @SuppressWarnings({"JavaDoc"})
-public class DependencyConstraintException extends RuntimeException {
+public class DependencyConstraintException extends ArchitectureException {
 
 
     /**
@@ -62,10 +62,10 @@ public class DependencyConstraintException extends RuntimeException {
      * <p>Reports which <code>Rule</code> was broken, by its <tt>id</tt>, and
      * what packages that <code>Rule</code> governs.</p>
      *
-     * @param ruleId String id of the <code>Rule</code> that was violated.
+     * @param ruleId   String id of the <code>Rule</code> that was violated.
      * @param packages String listing each package constrained by the violated
-     * <code>Rule</code>
-     * @param cause Throwable any exception that was thrown
+     *                 <code>Rule</code>
+     * @param cause    Throwable any exception that was thrown
      */
     public DependencyConstraintException(final String ruleId,
                                          final String packages,

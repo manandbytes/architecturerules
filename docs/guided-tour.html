@@ -1,138 +1,164 @@
-<html>
-<head>
-    <title>Architecture Rules Tour</title>
-    <link rel="stylesheet" href="css/tour.css" type="text/css" media="screen" />
-    <script type="text/javascript" src="js/prototype-1.5.1.1.js"></script>
-    <script type="text/javascript" src="js/scriptaculous.js?load=effects"></script>
-    <script type="text/javascript" src="js/sticker-1.0.js"></script>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--
+  ~ Copyright (c) 2008, Your Corporation. All Rights Reserved.
+  -->
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head profile="http://gmpg.org/xfn/11">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="description"
+          content="Assert Your Architecture - with this open source java library. Leverages XML and optional programmatic configuration to assert your code's architecture via unit tests or ant tasks. Able to check for layer independence and cyclic dependencies." />
+    <meta name="keywords"
+          content="open source java xml jdepend architecture rules unit test junit" />
+    <META http-equiv="expires" content="Wed, 26 Feb 1997 08:21:57 GMT" />
+    <meta name="ROBOTS" content="INDEX, FOLLOW" />
+
+    <title>
+        architecture rules
+    </title>
+
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/nifty.css" />
+    <link rel="stylesheet" type="text/css" href="css/syntax.css" />
+    <link rel="stylesheet" type="text/css" href="css/tour.css" />
+
+    <!--[if lt IE 8]>
+    <style type="text/css">
+      #mainmenu li a, #recentposts li a, #personalfavorites li a, #textads li a, #recentcomments li, #contactme li {display:inline-block;}
+      #mainmenu li a, #recentposts li a, #personalfavorites li a, #textads li a, #recentcomments li, #contactme li {display:block;}
+      *html #page {width:expression(document.documentElement.clientWidth > 1010? "1010px" : auto")}
+    </style>
+    <![endif]-->
+
+    <script type="text/javascript" src="js/application.js"></script>
+
 </head>
 <body>
+<div id="page">
+<div id="blogtitle" class="primary">
+    <a href="http://architecturerules.googlecode.com/svn/docs/index.html">
+        architecture
+    </a>
+    <span>rules</span>
+</div>
+<div id="backtogoogle">
+    <a href="http://code.google.com/p/architecturerules/">
+        google code landing page
+    </a>
+</div>
+<div id="about">
+    <p class="description">
+        <strong>Assert Your Architecture!</strong> with this <em>open
+        source</em> <strong>java</strong> library. Architecture Rules
+        leverages an <a href="sample-configuration.html">xml configuration
+        file</a> and optional programmatic configuration to assert your
+        code's architecture via <a
+            href="getting-started.html#write-unit-test">unit tests</a> or <a
+            href="run.html#ant-task">ant tasks</a>. This test is able to
+        assert
+        that specific packages do not depend on others and is able to check
+        for and report on cyclic dependencies among your project's packages
+        and classes. This project wraps a industry accepted <a
+            href="http://clarkware.com/software/JDepend.html"
+            target="_jdepend">JDepend</a> to simplify the process of
+        maintaining
+        a solid software architecture.
+    </p>
+    <!--<ul id="mainmenu">
+        <li id="home" class="page_item current_page_item">
+            <a title="home" href="index.html">Home</a>
+        </li>
+        <li id="source" class="page_item">
+            <a href="source.html">Source</a>
+        </li>
+        <li id="downloads" class="page_item">
+            <a href="downloads.html">Downloads</a>
+        </li>
+        <li id="mailing-lists" class="page_item">
+            <a href="mailing-lists.html">Mailing Lists</a>
+        </li>
+    </ul>-->
+</div>
+<!-- /about -->
+<div id="primary" class="single hfeed" style="width: 100%;">
 
-<div id="wrap">
-    <div id="text" style="display: none;">
-        <div id="realtext">
-            <h3 id="featuredHead">&nbsp;</h3>
 
-            <p id="featuredText">&nbsp;</p>
+    <div class="hentry post programming" id="introduction">
+        <h1 class="posttitle entry-title">
+            Architecture Rules Moved
+        </h1>
+
+        <div class="entry entry-content">
+
+            <p>
+                Thanks for visiting the Architecture Rules site. We have
+                moved
+                this informative site to a new domain.
+            </p>
+
+            <h1 style="margin: 0 auto; text-align: center;">
+                <a href="http://72miles.com/architecturerules">
+                    Go there now
+                </a>
+            </h1>
+
+            <a href="http://72miles.com/architecturerules">
+                <img src="images/migrated.png">
+            </a>
+
+            <h2>Why did we move?</h2>
+
+            <p>
+                We want to keep things simple, and we aren't happy about
+                having to ask you to redirect to another site. However, this
+                current site is hosted out of the googlecode.com SVN
+                repository. This has been acceptable up until now, but does
+                not allow us to utilize programming languages, such as PHP,
+                to generate dynamic content.
+            </p>
+
+            <p>
+                The new site is backed by Wordpress which makes it easier
+                to provide new content. For example, we've already created
+                and
+                <a href="http://72miles.com/architecturerules/code-by-example">
+                    index of code samples</a> and page for the
+                <a href="http://72miles.com/architecturerules/maven-repository">maven
+                    repository</a>.
+                We've also wired up the pages to update other pages
+                automatically
+                when new releases are made. Additionally, we now have a ton of
+                RSS feeds so that you can keep track of the project without
+                having to visit the site.
+            </p>
+
+            <h2>Thanks</h2>
+
+            <p>
+                So again, we apologize for asking you to redirect, and asking
+                you to update your bookmarks, but with the new content and
+                the ability for us to add content more quickly we hope that you
+                find it worth it. Thanks.
+            </p>
+
         </div>
+        <!-- entry -->
     </div>
+    <!-- post -->
 </div>
 
+<div id="secondary">
 
-<ul id="featured" style="display: none;">
+</div>
+<!-- /secondary -->
+</div>
+<!-- /page -->
 
-<li id="story_1">
-    <h3 id="title_1">
-        <a href="separation-of-concern.html">
-            Define your Rules
-        </a>
-    </h3>
-
-    <p id="text_1">
-        Such as, the presentation layer can not access the integration
-        layer...
-    </p>
-
-    <div id="bg_1">
-        images/tour/tour-1.png
-    </div>
-</li>
-
-<li id="story_2">
-    <h3 id="title_2">
-        <a href="separation-of-concern.html">
-            Define your Rules
-        </a>
-    </h3>
-
-    <p id="text_2">
-        or Package C may not depend on Package A.
-    </p>
-
-    <div id="bg_2">
-        images/tour/tour-2.png
-    </div>
-</li>
-
-<li id="story_3">
-    <h3 id="title_3">
-        <a href="sample-configuration.html">
-            architecture-rules.xml
-        </a>
-    </h3>
-
-    <p id="text_3">
-        Document the rules in easy-to-read XML. Optionally, document the rules
-        programmatically.
-    </p>
-
-    <div id="bg_3">
-        images/tour/tour-3.png
-    </div>
-</li>
-
-<li id="story_4">
-    <h3 id="title_4">
-        <a href="getting-started.html#write-unit-test">
-            Unit Test
-        </a>
-    </h3>
-
-    <p id="text_4">
-        Write a unit test. Just extend
-        AbstractArchitectureRulesConfigurationTest and call doTests();
-    </p>
-
-    <div id="bg_4">
-        images/tour/tour-4.png
-    </div>
-</li>
-
-<li id="story_5">
-    <h3 id="title_5">
-        <a href="getting-started.html#execute-unit-test">
-            Run Tests
-        </a>
-    </h3>
-
-    <p id="text_5">
-        Run you tests with your IDE, Ant, Maven, and of course -
-        your continuous integration server.
-    </p>
-
-    <div id="bg_5">
-        images/tour/tour-5.png
-    </div>
-</li>
-
-<li id="story_6">
-    <h3 id="title_6">
-        <a href="downloads.html">
-            Architecturally Sound
-        </a>
-    </h3>
-
-    <p id="text_6">
-        Write better code by continuously monitoring and managing the
-        underlying architecture.
-    </p>
-
-    <div id="bg_6">
-        images/tour/tour-6.png
-    </div>
-</li>
-
-</ul>
-
-<!--
-this causes the show to run when you view guided-tour.html alone
-it has no affect on the ajax include into index.html
--->
-<script type="text/javascript">
-    sticker.timeout = 8;
-    sticker.totalscreens = 6;
-    sticker.loader();
-</script>
-
+<!-- footer -->
+<div id="footer">
+</div>
+<!-- /footer -->
 </body>
 </html>
+

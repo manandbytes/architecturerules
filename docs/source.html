@@ -1,40 +1,51 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--
+  ~ Copyright (c) 2008, Your Corporation. All Rights Reserved.
+  -->
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head profile="http://gmpg.org/xfn/11">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="description"
-          content="Assert Your Architecture - with this open source java library. Leverages XML and optional programatic configuration to assert your code's architecture via unit tests or ant tasks. Able to check for layer independence and cyclic dependencies." />
+          content="Assert Your Architecture - with this open source java library. Leverages XML and optional programmatic configuration to assert your code's architecture via unit tests or ant tasks. Able to check for layer independence and cyclic dependencies." />
     <meta name="keywords"
           content="open source java xml jdepend architecture rules unit test junit" />
     <META http-equiv="expires" content="Wed, 26 Feb 1997 08:21:57 GMT" />
     <meta name="ROBOTS" content="INDEX, FOLLOW" />
+
     <title>
         architecture rules
     </title>
+
     <link rel="stylesheet" type="text/css" href="css/style.css" />
     <link rel="stylesheet" type="text/css" href="css/nifty.css" />
     <link rel="stylesheet" type="text/css" href="css/syntax.css" />
+    <link rel="stylesheet" type="text/css" href="css/tour.css" />
+
     <!--[if lt IE 8]>
-        <style type="text/css">
-          #mainmenu li a, #recentposts li a, #personalfavorites li a, #textads li a, #recentcomments li, #contactme li {display:inline-block;}
-          #mainmenu li a, #recentposts li a, #personalfavorites li a, #textads li a, #recentcomments li, #contactme li {display:block;}
-          *html #page {width:expression(document.documentElement.clientWidth > 1010? "1010px" : auto")}
-        </style>
-        <![endif]-->
+    <style type="text/css">
+      #mainmenu li a, #recentposts li a, #personalfavorites li a, #textads li a, #recentcomments li, #contactme li {display:inline-block;}
+      #mainmenu li a, #recentposts li a, #personalfavorites li a, #textads li a, #recentcomments li, #contactme li {display:block;}
+      *html #page {width:expression(document.documentElement.clientWidth > 1010? "1010px" : auto")}
+    </style>
+    <![endif]-->
 
     <script type="text/javascript" src="js/application.js"></script>
+
 </head>
 <body>
 <div id="page">
 <div id="blogtitle" class="primary">
-    <a
-            href="http://architecturerules.googlecode.com/svn/docs/index.html">architecture</a>
+    <a href="http://architecturerules.googlecode.com/svn/docs/index.html">
+        architecture
+    </a>
     <span>rules</span>
 </div>
 <div id="backtogoogle">
-    <a href="http://code.google.com/p/architecturerules/">google code
-        landing page</a>
+    <a href="http://code.google.com/p/architecturerules/">
+        google code landing page
+    </a>
 </div>
 <div id="about">
     <p class="description">
@@ -44,19 +55,21 @@
         file</a> and optional programmatic configuration to assert your
         code's architecture via <a
             href="getting-started.html#write-unit-test">unit tests</a> or <a
-            href="run.html#ant-task">ant tasks</a>. This test is able to assert
+            href="run.html#ant-task">ant tasks</a>. This test is able to
+        assert
         that specific packages do not depend on others and is able to check
         for and report on cyclic dependencies among your project's packages
         and classes. This project wraps a industry accepted <a
             href="http://clarkware.com/software/JDepend.html"
-            target="_jdepend">JDepend</a> to simplify the process of maintaining
+            target="_jdepend">JDepend</a> to simplify the process of
+        maintaining
         a solid software architecture.
     </p>
-    <ul id="mainmenu">
-        <li id="home" class="page_item">
+    <!--<ul id="mainmenu">
+        <li id="home" class="page_item current_page_item">
             <a title="home" href="index.html">Home</a>
         </li>
-        <li id="source" class="page_item current_page_item">
+        <li id="source" class="page_item">
             <a href="source.html">Source</a>
         </li>
         <li id="downloads" class="page_item">
@@ -65,121 +78,83 @@
         <li id="mailing-lists" class="page_item">
             <a href="mailing-lists.html">Mailing Lists</a>
         </li>
-    </ul>
+    </ul>-->
 </div>
 <!-- /about -->
-<div id="primary" class="single hfeed">
-<div class="hentry post programming" id="source-repository">
-    <h1 class="posttitle entry-title">
-        Source Repository
-    </h1>
+<div id="primary" class="single hfeed" style="width: 100%;">
 
-    <p class="postmetadata">
-        Subversion
-    </p>
 
-    <div class="entry entry-content">
-        <p>
-            This project is wide open. Please, download the latest source,
-            run the test, maybe even contribute - I'm sure you can find a
-            <span>to do</span> in a comment somewhere.
-        </p>
+    <div class="hentry post programming" id="introduction">
+        <h1 class="posttitle entry-title">
+            Architecture Rules Moved
+        </h1>
 
-        <p>
-            Project members authenticate over HTTPS to allow committing
-            changes.
-        </p>
-            <span class="svn">svn checkout
-            https://architecturerules.googlecode.com/svn/trunk/
-            architecturerules --username yourname</span>
+        <div class="entry entry-content">
 
-        <p>
-            If you are a contributor, your password is available at
-            google.com <a
-                href="http://code.google.com/hosting/settings">accounts</a>
-        </p>
+            <p>
+                Thanks for visiting the Architecture Rules site. We have
+                moved
+                this informative site to a new domain.
+            </p>
 
-        <p>
-            Also, anyone may anonymously checkout the latest project source
-            code. This code, however, is read-only. For this use:
-        </p>
-            <span class="svn">svn checkout
-            http://architecturerules.googlecode.com/svn/trunk/
-            architecturerules</span>
+            <h1 style="margin: 0 auto; text-align: center;">
+                <a href="http://72miles.com/architecturerules">
+                    Go there now
+                </a>
+            </h1>
 
-        <p>
-            Alternatively, you may <a
-                href="http://code.google.com/p/architecturerules/source/browse">browse
-            the repository with your web browser</a>.
-        </p>
+            <a href="http://72miles.com/architecturerules">
+                <img src="images/migrated.png">
+            </a>
+
+            <h2>Why did we move?</h2>
+
+            <p>
+                We want to keep things simple, and we aren't happy about
+                having to ask you to redirect to another site. However, this
+                current site is hosted out of the googlecode.com SVN
+                repository. This has been acceptable up until now, but does
+                not allow us to utilize programming languages, such as PHP,
+                to generate dynamic content.
+            </p>
+
+            <p>
+                The new site is backed by Wordpress which makes it easier
+                to provide new content. For example, we've already created
+                and
+                <a href="http://72miles.com/architecturerules/code-by-example">
+                    index of code samples</a> and page for the
+                <a href="http://72miles.com/architecturerules/maven-repository">maven
+                    repository</a>.
+                We've also wired up the pages to update other pages
+                automatically
+                when new releases are made. Additionally, we now have a ton of
+                RSS feeds so that you can keep track of the project without
+                having to visit the site.
+            </p>
+
+            <h2>Thanks</h2>
+
+            <p>
+                So again, we apologize for asking you to redirect, and asking
+                you to update your bookmarks, but with the new content and
+                the ability for us to add content more quickly we hope that you
+                find it worth it. Thanks.
+            </p>
+
+        </div>
+        <!-- entry -->
     </div>
-    <!-- entry -->
+    <!-- post -->
 </div>
-<!-- post -->
-<div class="hentry post programming" id="maven-generated-content">
-    <h1 class="posttitle entry-title">
-        Maven Generated Content
-    </h1>
 
-    <div class="entry entry-content">
-        <h3>
-            Source xref
-        </h3>
-
-        <p>
-            The maven site plugin produces an HTML based, cross-reference
-            version of Java source code which is much easier to read than
-            the
-            plain text version provided by the link above.
-        </p>
-        <ul>
-            <li>
-                <a href="maven-generated-site/xref/index.html">source</a>
-            </li>
-            <li>
-                <a
-                        href="maven-generated-site/xref-test/index.html">test-source</a>
-            </li>
-        </ul>
-        <p>
-            These links are to the last release, not to the latest SVN repo.
-        </p>
-
-        <h3>
-            Javadocs
-        </h3>
-
-        <p>
-            JavaDoc API documentation.
-        </p>
-
-        <p>
-            <a href="maven-generated-site/apidocs/index.html">Architecture
-                Rules Javadocs</a>
-        </p>
-
-        <h3>
-            Subverstion Metrics
-        </h3>
-
-        <p>
-            Analysis of the project's repository
-        </p>
-
-        <p>
-            <a href="maven-generated-site/statscm/index.html">Stat SVN
-                report</a>
-        </p>
-    </div>
-    <!-- entry -->
-</div>
-<!-- post -->
-</div>
 <div id="secondary">
+
 </div>
 <!-- /secondary -->
 </div>
 <!-- /page -->
+
 <!-- footer -->
 <div id="footer">
 </div>

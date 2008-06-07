@@ -1,5 +1,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--
+  ~ Copyright (c) 2008, Your Corporation. All Rights Reserved.
+  -->
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head profile="http://gmpg.org/xfn/11">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -51,15 +55,17 @@
         file</a> and optional programmatic configuration to assert your
         code's architecture via <a
             href="getting-started.html#write-unit-test">unit tests</a> or <a
-            href="run.html#ant-task">ant tasks</a>. This test is able to assert
+            href="run.html#ant-task">ant tasks</a>. This test is able to
+        assert
         that specific packages do not depend on others and is able to check
         for and report on cyclic dependencies among your project's packages
         and classes. This project wraps a industry accepted <a
             href="http://clarkware.com/software/JDepend.html"
-            target="_jdepend">JDepend</a> to simplify the process of maintaining
+            target="_jdepend">JDepend</a> to simplify the process of
+        maintaining
         a solid software architecture.
     </p>
-    <ul id="mainmenu">
+    <!--<ul id="mainmenu">
         <li id="home" class="page_item current_page_item">
             <a title="home" href="index.html">Home</a>
         </li>
@@ -72,164 +78,76 @@
         <li id="mailing-lists" class="page_item">
             <a href="mailing-lists.html">Mailing Lists</a>
         </li>
-    </ul>
+    </ul>-->
 </div>
 <!-- /about -->
-<div id="primary" class="single hfeed">
-<div class="downloadnow" id="downloadnow">
-    <ol>
-        <li>
-            <a href="downloads.html#release-2.0.3">
-                architecture-rules-2.0.3.jar
-            </a>
-        </li>
-        <li>
-            <a href="downloads.html#release-2.0.3">
-                architecture-rules-2.0.3-sources.jar
-            </a>
-        </li>
-        <li>
-            <a href="downloads.html#release-2.0.3">
-                architecture-rules-2.0.3-test-sources.jar
-            </a>
-        </li>
-    </ol>
-</div>
+<div id="primary" class="single hfeed" style="width: 100%;">
 
-<div id="guided-tour-button">
-    <div>
-        <span onclick="Tour.start();">Take the tour!</span>
+
+    <div class="hentry post programming" id="introduction">
+        <h1 class="posttitle entry-title">
+            Architecture Rules Moved
+        </h1>
+
+        <div class="entry entry-content">
+
+            <p>
+                Thanks for visiting the Architecture Rules site. We have
+                moved
+                this informative site to a new domain.
+            </p>
+
+            <h1 style="margin: 0 auto; text-align: center;">
+                <a href="http://72miles.com/architecturerules">
+                    Go there now
+                </a>
+            </h1>
+
+            <a href="http://72miles.com/architecturerules">
+                <img src="images/migrated.png">
+            </a>
+
+            <h2>Why did we move?</h2>
+
+            <p>
+                We want to keep things simple, and we aren't happy about
+                having to ask you to redirect to another site. However, this
+                current site is hosted out of the googlecode.com SVN
+                repository. This has been acceptable up until now, but does
+                not allow us to utilize programming languages, such as PHP,
+                to generate dynamic content.
+            </p>
+
+            <p>
+                The new site is backed by Wordpress which makes it easier
+                to provide new content. For example, we've already created
+                and
+                <a href="http://72miles.com/architecturerules/code-by-example">
+                    index of code samples</a> and page for the
+                <a href="http://72miles.com/architecturerules/maven-repository">maven
+                    repository</a>.
+                We've also wired up the pages to update other pages
+                automatically
+                when new releases are made. Additionally, we now have a ton of
+                RSS feeds so that you can keep track of the project without
+                having to visit the site.
+            </p>
+
+            <h2>Thanks</h2>
+
+            <p>
+                So again, we apologize for asking you to redirect, and asking
+                you to update your bookmarks, but with the new content and
+                the ability for us to add content more quickly we hope that you
+                find it worth it. Thanks.
+            </p>
+
+        </div>
+        <!-- entry -->
     </div>
-</div>
-<div id="guided-tour" style="display: none;">
-
-</div>
-<div id="guided-tour-controls" style="display: none;">
-    <span onclick="Tour.close();">close</span>
+    <!-- post -->
 </div>
 
-
-<!-- /download  -->
-<div class="hentry post programming" id="introduction">
-<h1 class="posttitle entry-title">
-    Introduction
-</h1>
-
-<div class="entry entry-content">
-<p>
-    JDepend traverses Java class file directories and generates
-    design quality metrics for each Java package. JDepend allows you
-    to automatically measure the quality of a design in terms of its
-    extensibility, reusability, and maintainability to manage package
-    dependencies effectively.
-</p>
-
-<p>
-    However, experiences using JDepend have been in maintaining
-    difficult configuration and stumbling while trying to get a quick
-    overview of the established rules.
-</p>
-<blockquote>
-    Enter: <strong>Architecture-Rules</strong>
-</blockquote>
-<p>
-    Check out how to <a href="getting-started.html">get started</a>
-    and a <a href="sample-configuration.html">sample
-    configuration</a> now, or continue reading to learn the benefits
-    of Asserting your Architecture.
-</p>
-
-<h3>
-    Benefits
-</h3>
-<ul>
-    <li>
-        Assert your architecture through unit tests
-    </li>
-    <li>
-        Fail a build when architecture rules are broken
-    </li>
-    <li>
-        Allow any IDE with unit testing capabilities to enforce an
-        architecture
-    </li>
-    <li>
-        Allow continuous integration servers to enforce an architecture
-    </li>
-    <li>
-        Easy to read and maintain architecture rules and configuration
-    </li>
-    <li>
-        Allows for multiple architecture configuration. One for each
-        module.
-    </li>
-</ul>
-<h3>
-    Why assert your architecture?
-</h3>
-
-<p>
-    <a
-            href="http://clarkware.com/software/JDepend.html#uses">JDepend</a>
-    explains why you should design a good architecture and why you
-    should monitor it.
-</p>
-
-<p>
-    Here are some applicable experts:
-</p>
-<h4>
-    Identify Package Dependency Cycles
-</h4>
-<blockquote>
-    Packages participating in a package dependency cycle are in a
-    deadly embrace with respect to reusability and their release
-    cycle. Package dependency cycles can be easily identified by
-    reviewing the textual reports of dependency cycles. Once these
-    dependency cycles have been identified with JDepend, they can be
-    broken by employing various object-oriented techniques.
-</blockquote>
-<h4>
-    Package Release Modules
-</h4>
-<blockquote>
-    Packages that are cohesive and independent can be released as
-    autonomous modules with their own release schedules and version
-    numbers. Single packages, or groups of related packages
-    collaborating in a framework, that are candidates for independent
-    release can be harvested by evaluating their design quality
-    metrics using JDepend.
-</blockquote>
-<h4>
-    Isolate Third-Party Package Dependencies
-</h4>
-<blockquote>
-    Third-party package dependencies can be easily identified and
-    isolated by examining the afferent couplings to those packages.
-    Once the dependency on these third-party packages has been
-    measured with JDepend, the dependency can be managed by
-    effectively designing abstract and stable packages that
-    encapsulate the third-party package implementation details.
-</blockquote>
-<h4>
-    Invert Dependencies
-</h4>
-<blockquote>
-    The goal of using JDepend is to ultimately invert package
-    dependencies such that low-abstraction packages depend upon
-    high-abstraction packages. This inversion of dependencies allows
-    the high-abstraction packages to be reused independently while
-    being extensible to an open set of implementations. In general,
-    dependencies upon stable packages are desirable, while
-    dependencies upon unstable packages are undesirable. JDepend
-    allows dependencies to be interactively examined and refactored
-    as an integral part of software design and development.
-</blockquote>
-</div>
-<!-- entry -->
-</div>
-<!-- post -->
-</div>
 <div id="secondary">
 
 </div>

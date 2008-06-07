@@ -1,20 +1,28 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--
+  ~ Copyright (c) 2008, Your Corporation. All Rights Reserved.
+  -->
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head profile="http://gmpg.org/xfn/11">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="description"
-          content="Assert Your Architecture - with this open source java library. Leverages XML and optional programatic configuration to assert your code's architecture via unit tests or ant tasks. Able to check for layer independence and cyclic dependencies." />
+          content="Assert Your Architecture - with this open source java library. Leverages XML and optional programmatic configuration to assert your code's architecture via unit tests or ant tasks. Able to check for layer independence and cyclic dependencies." />
     <meta name="keywords"
           content="open source java xml jdepend architecture rules unit test junit" />
     <META http-equiv="expires" content="Wed, 26 Feb 1997 08:21:57 GMT" />
     <meta name="ROBOTS" content="INDEX, FOLLOW" />
+
     <title>
         architecture rules
     </title>
+
     <link rel="stylesheet" type="text/css" href="css/style.css" />
     <link rel="stylesheet" type="text/css" href="css/nifty.css" />
     <link rel="stylesheet" type="text/css" href="css/syntax.css" />
+    <link rel="stylesheet" type="text/css" href="css/tour.css" />
+
     <!--[if lt IE 8]>
     <style type="text/css">
       #mainmenu li a, #recentposts li a, #personalfavorites li a, #textads li a, #recentcomments li, #contactme li {display:inline-block;}
@@ -24,17 +32,20 @@
     <![endif]-->
 
     <script type="text/javascript" src="js/application.js"></script>
+
 </head>
 <body>
 <div id="page">
 <div id="blogtitle" class="primary">
-    <a
-            href="http://architecturerules.googlecode.com/svn/docs/index.html">architecture</a><span>
-        rules</span>
+    <a href="http://architecturerules.googlecode.com/svn/docs/index.html">
+        architecture
+    </a>
+    <span>rules</span>
 </div>
 <div id="backtogoogle">
-    <a href="http://code.google.com/p/architecturerules/">google code
-        landing page</a>
+    <a href="http://code.google.com/p/architecturerules/">
+        google code landing page
+    </a>
 </div>
 <div id="about">
     <p class="description">
@@ -44,15 +55,17 @@
         file</a> and optional programmatic configuration to assert your
         code's architecture via <a
             href="getting-started.html#write-unit-test">unit tests</a> or <a
-            href="run.html#ant-task">ant tasks</a>. This test is able to assert
+            href="run.html#ant-task">ant tasks</a>. This test is able to
+        assert
         that specific packages do not depend on others and is able to check
         for and report on cyclic dependencies among your project's packages
         and classes. This project wraps a industry accepted <a
             href="http://clarkware.com/software/JDepend.html"
-            target="_jdepend">JDepend</a> to simplify the process of maintaining
+            target="_jdepend">JDepend</a> to simplify the process of
+        maintaining
         a solid software architecture.
     </p>
-    <ul id="mainmenu">
+    <!--<ul id="mainmenu">
         <li id="home" class="page_item current_page_item">
             <a title="home" href="index.html">Home</a>
         </li>
@@ -65,1033 +78,87 @@
         <li id="mailing-lists" class="page_item">
             <a href="mailing-lists.html">Mailing Lists</a>
         </li>
-    </ul>
+    </ul>-->
 </div>
 <!-- /about -->
-<div id="primary" class="single hfeed">
-<!-- post entry -->
-<div class="hentry post" id="releases">
-    <h1 class="posttitle entry-title">
-        Releases
-    </h1>
+<div id="primary" class="single hfeed" style="width: 100%;">
 
-    <div class="entry entry-content">
-        <p>
-            All versions are targeted for the <strong>JRE 1.4</strong>.
-        </p>
-        <ol id="releases" class="toc">
-            <li class="current">
-                <a href="#release-2.0.2">2.0.3, 2.0.2, 2.0.1</a>
-            </li>
-            <li class="older">
-                <a href="#release-2.0rc2">2.0-rc2</a>
-            </li>
-            <li class="older">
-                <a href="#release-2.0rc1">2.0-rc1</a>
-            </li>
-            <li class="oldest">
-                <a href="#release-1.1">1.1</a>
-            </li>
-            <li class="oldest">
-                <a href="#release-1.0">1.0</a>
-            </li>
-        </ol>
+
+    <div class="hentry post programming" id="introduction">
+        <h1 class="posttitle entry-title">
+            Architecture Rules Moved
+        </h1>
+
+        <div class="entry entry-content">
+
+            <p>
+                Thanks for visiting the Architecture Rules site. We have
+                moved
+                this informative site to a new domain.
+            </p>
+
+            <h1 style="margin: 0 auto; text-align: center;">
+                <a href="http://72miles.com/architecturerules">
+                    Go there now
+                </a>
+            </h1>
+
+            <a href="http://72miles.com/architecturerules">
+                <img src="images/migrated.png">
+            </a>
+
+            <h2>Why did we move?</h2>
+
+            <p>
+                We want to keep things simple, and we aren't happy about
+                having to ask you to redirect to another site. However, this
+                current site is hosted out of the googlecode.com SVN
+                repository. This has been acceptable up until now, but does
+                not allow us to utilize programming languages, such as PHP,
+                to generate dynamic content.
+            </p>
+
+            <p>
+                The new site is backed by Wordpress which makes it easier
+                to provide new content. For example, we've already created
+                and
+                <a href="http://72miles.com/architecturerules/code-by-example">
+                    index of code samples</a> and page for the
+                <a href="http://72miles.com/architecturerules/maven-repository">maven
+                    repository</a>.
+                We've also wired up the pages to update other pages
+                automatically
+                when new releases are made. Additionally, we now have a ton of
+                RSS feeds so that you can keep track of the project without
+                having to visit the site.
+            </p>
+
+            <h2>Thanks</h2>
+
+            <p>
+                So again, we apologize for asking you to redirect, and asking
+                you to update your bookmarks, but with the new content and
+                the ability for us to add content more quickly we hope that you
+                find it worth it. Thanks.
+            </p>
+
+        </div>
+        <!-- entry -->
     </div>
-    <!-- /entry -->
+    <!-- post -->
 </div>
-<!-- /post -->
-<!-- post entry -->
-<div class="hentry post" id="release-2.0.2">
-<abbr class="released date"
-      title="2007-11-23T15:30">nov-23-2007</abbr>
 
-<h1 class="posttitle entry-title">
-    Releases 2.0.3, 2.0.2, 2.0.1
-</h1>
-
-<div class="entry entry-content">
-<table>
-    <caption>
-        library's dependencies
-    </caption>
-    <thead>
-        <tr>
-            <th>
-                GroupId
-            </th>
-            <th>
-                ArtifactId
-            </th>
-            <th>
-                Version
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr class="alt">
-            <td>
-                commons-digester
-            </td>
-            <td>
-                commons-digester
-            </td>
-            <th>
-                1.8
-            </th>
-        </tr>
-        <tr>
-            <td>
-                jdepend
-            </td>
-            <td>
-                jdepend
-            </td>
-            <th>
-                2.9.1
-            </th>
-        </tr>
-        <tr class="alt">
-            <td>
-                junit
-            </td>
-            <td>
-                junit
-            </td>
-            <th>
-                3.8.1
-            </th>
-        </tr>
-        <tr>
-            <td>
-                org.apache.ant
-            </td>
-            <td>
-                ant
-            </td>
-            <th>
-                1.7.0
-            </th>
-        </tr>
-        <tr class="alt">
-            <td>
-                xerces
-            </td>
-            <td>
-                xercesImpl
-            </td>
-            <th>
-                2.6.2
-            </th>
-        </tr>
-        <tr>
-            <td>
-                xml-apis
-            </td>
-            <td>
-                xml-apis
-            </td>
-            <th>
-                1.3.04
-            </th>
-        </tr>
-    </tbody>
-    <tfoot>
-        <tr>
-            <td colspan="3">
-            </td>
-        </tr>
-    </tfoot>
-</table>
-<table>
-<caption>
-    library's dependency's dependencies
-</caption>
-<thead>
-    <tr>
-        <th>
-            GroupId
-        </th>
-        <th>
-            ArtifactId
-        </th>
-        <th>
-            Version
-        </th>
-    </tr>
-</thead>
-<tbody>
-    <tr class="alt">
-        <td>
-            avalon-framework
-        </td>
-        <td>
-            avalon-framework
-        </td>
-        <th>
-            4.1.3
-        </th>
-    </tr>
-    <tr>
-        <td>
-            commons-beanutils
-        </td>
-        <td>
-            commons-beanutils
-        </td>
-        <th>
-            1.7.0
-        </th>
-    </tr>
-    <tr class="alt">
-        <td>
-            commons-logging
-        </td>
-        <td>
-            commons-logging
-        </td>
-        <th>
-            1.1
-        </th>
-    </tr>
-    <tr>
-        <td>
-            javax.servlet
-        </td>
-        <td>
-            servlet-api
-        </td>
-        <th>
-            2.3
-        </th>
-    </tr>
-    <tr class="alt">
-        <td>
-            log4j
-        </td>
-        <td>
-            log4j
-        </td>
-        <th>
-            1.2.12
-        </th>
-    </tr>
-    <tr>
-        <td>
-            logkit
-        </td>
-        <td>
-            logkit
-        </td>
-        <th>
-            1.0.1
-        </th>
-    </tr>
-    <tr class="alt">
-        <td>
-            org.apache.ant
-        </td>
-        <td>
-            ant-launcher
-        </td>
-        <th>
-            1.7.0
-        </th>
-    </tr>
-</tbody>
-<tfoot>
-    <tr>
-        <td colspan="3">
-        </td>
-    </tr>
-</tfoot>
-</table>
-</div>
-<!-- /entry -->
-</div>
-<!-- /post -->
-
-<!-- post entry -->
-<div class="hentry post" id="release-2.0rc2">
-<abbr class="released date"
-      title="2007-11-13T17:00">nov-13-2007</abbr>
-
-<h1 class="posttitle entry-title">
-    Release 2.0-rc2
-</h1>
-
-<div class="entry entry-content">
-<table>
-    <caption>
-        library's dependencies
-    </caption>
-    <thead>
-        <tr>
-            <th>
-                GroupId
-            </th>
-            <th>
-                ArtifactId
-            </th>
-            <th>
-                Version
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr class="alt">
-            <td>
-                commons-digester
-            </td>
-            <td>
-                commons-digester
-            </td>
-            <th>
-                1.8
-            </th>
-        </tr>
-        <tr>
-            <td>
-                jdepend
-            </td>
-            <td>
-                jdepend
-            </td>
-            <th>
-                2.9.1
-            </th>
-        </tr>
-        <tr class="alt">
-            <td>
-                junit
-            </td>
-            <td>
-                junit
-            </td>
-            <th>
-                3.8.1
-            </th>
-        </tr>
-        <tr>
-            <td>
-                org.apache.ant
-            </td>
-            <td>
-                ant
-            </td>
-            <th>
-                1.7.0
-            </th>
-        </tr>
-        <tr class="alt">
-            <td>
-                xerces
-            </td>
-            <td>
-                xercesImpl
-            </td>
-            <th>
-                2.6.2
-            </th>
-        </tr>
-        <tr>
-            <td>
-                xml-apis
-            </td>
-            <td>
-                xml-apis
-            </td>
-            <th>
-                1.3.04
-            </th>
-        </tr>
-    </tbody>
-    <tfoot>
-        <tr>
-            <td colspan="3">
-            </td>
-        </tr>
-    </tfoot>
-</table>
-<table>
-<caption>
-    library's dependency's dependencies
-</caption>
-<thead>
-    <tr>
-        <th>
-            GroupId
-        </th>
-        <th>
-            ArtifactId
-        </th>
-        <th>
-            Version
-        </th>
-    </tr>
-</thead>
-<tbody>
-    <tr class="alt">
-        <td>
-            avalon-framework
-        </td>
-        <td>
-            avalon-framework
-        </td>
-        <th>
-            4.1.3
-        </th>
-    </tr>
-    <tr>
-        <td>
-            commons-beanutils
-        </td>
-        <td>
-            commons-beanutils
-        </td>
-        <th>
-            1.7.0
-        </th>
-    </tr>
-    <tr class="alt">
-        <td>
-            commons-logging
-        </td>
-        <td>
-            commons-logging
-        </td>
-        <th>
-            1.1
-        </th>
-    </tr>
-    <tr>
-        <td>
-            javax.servlet
-        </td>
-        <td>
-            servlet-api
-        </td>
-        <th>
-            2.3
-        </th>
-    </tr>
-    <tr class="alt">
-        <td>
-            log4j
-        </td>
-        <td>
-            log4j
-        </td>
-        <th>
-            1.2.12
-        </th>
-    </tr>
-    <tr>
-        <td>
-            logkit
-        </td>
-        <td>
-            logkit
-        </td>
-        <th>
-            1.0.1
-        </th>
-    </tr>
-    <tr class="alt">
-        <td>
-            org.apache.ant
-        </td>
-        <td>
-            ant-launcher
-        </td>
-        <th>
-            1.7.0
-        </th>
-    </tr>
-</tbody>
-<tfoot>
-    <tr>
-        <td colspan="3">
-        </td>
-    </tr>
-</tfoot>
-</table>
-</div>
-<!-- /entry -->
-</div>
-<!-- /post -->
-<!-- post entry -->
-<div class="hentry post" id="release-2.0rc1">
-<abbr class="released date"
-      title="2007-11-02T17:00">nov-02-2007</abbr>
-
-<h1 class="posttitle entry-title">
-    Release 2.0-rc1
-</h1>
-
-<div class="entry entry-content">
-<table>
-    <caption>
-        library's dependencies
-    </caption>
-    <thead>
-        <tr>
-            <th>
-                GroupId
-            </th>
-            <th>
-                ArtifactId
-            </th>
-            <th>
-                Version
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr class="alt">
-            <td>
-                commons-digester
-            </td>
-            <td>
-                commons-digester
-            </td>
-            <th>
-                1.8
-            </th>
-        </tr>
-        <tr>
-            <td>
-                jdepend
-            </td>
-            <td>
-                jdepend
-            </td>
-            <th>
-                2.9.1
-            </th>
-        </tr>
-        <tr class="alt">
-            <td>
-                junit
-            </td>
-            <td>
-                junit
-            </td>
-            <th>
-                3.8.1
-            </th>
-        </tr>
-        <tr>
-            <td>
-                xerces
-            </td>
-            <td>
-                xercesImpl
-            </td>
-            <th>
-                2.6.2
-            </th>
-        </tr>
-        <tr class="alt">
-            <td>
-                xml-apis
-            </td>
-            <td>
-                xml-apis
-            </td>
-            <th>
-                1.3.04
-            </th>
-        </tr>
-    </tbody>
-    <tfoot>
-        <tr>
-            <td colspan="3">
-            </td>
-        </tr>
-    </tfoot>
-</table>
-<table>
-    <caption>
-        library's dependency's dependencies
-    </caption>
-    <thead>
-        <tr>
-            <th>
-                GroupId
-            </th>
-            <th>
-                ArtifactId
-            </th>
-            <th>
-                Version
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr class="alt">
-            <td>
-                avalon-framework
-            </td>
-            <td>
-                avalon-framework
-            </td>
-            <th>
-                4.1.3
-            </th>
-        </tr>
-        <tr>
-            <td>
-                commons-beanutils
-            </td>
-            <td>
-                commons-beanutils
-            </td>
-            <th>
-                1.7.0
-            </th>
-        </tr>
-        <tr class="alt">
-            <td>
-                commons-logging
-            </td>
-            <td>
-                commons-logging
-            </td>
-            <th>
-                1.1
-            </th>
-        </tr>
-        <tr>
-            <td>
-                javax.servlet
-            </td>
-            <td>
-                servlet-api
-            </td>
-            <th>
-                2.3
-            </th>
-        </tr>
-        <tr class="alt">
-            <td>
-                log4j
-            </td>
-            <td>
-                log4j
-            </td>
-            <th>
-                1.2.12
-            </th>
-        </tr>
-        <tr>
-            <td>
-                logkit
-            </td>
-            <td>
-                logkit
-            </td>
-            <th>
-                1.0.1
-            </th>
-        </tr>
-    </tbody>
-    <tfoot>
-        <tr>
-            <td colspan="3">
-            </td>
-        </tr>
-    </tfoot>
-</table>
-</div>
-<!-- /entry -->
-</div>
-<!-- /post -->
-<!-- post entry -->
-<div class="hentry post" id="release-1.1">
-<abbr class="released date"
-      title="2007-26-07T17:00">jul-26-2007</abbr>
-
-<h1 class="posttitle entry-title">
-    Release 1.1
-</h1>
-
-<div class="entry entry-content">
-<table>
-    <caption>
-        library's dependencies
-    </caption>
-    <thead>
-        <tr>
-            <th>
-                GroupId
-            </th>
-            <th>
-                ArtifactId
-            </th>
-            <th>
-                Version
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr class="alt">
-            <td>
-                commons-digester
-            </td>
-            <td>
-                commons-digester
-            </td>
-            <th>
-                1.8
-            </th>
-        </tr>
-        <tr>
-            <td>
-                jdepend
-            </td>
-            <td>
-                jdepend
-            </td>
-            <th>
-                2.9.1
-            </th>
-        </tr>
-        <tr class="alt">
-            <td>
-                junit
-            </td>
-            <td>
-                junit
-            </td>
-            <th>
-                3.8.1
-            </th>
-        </tr>
-        <tr>
-            <td>
-                xerces
-            </td>
-            <td>
-                xercesImpl
-            </td>
-            <th>
-                2.6.2
-            </th>
-        </tr>
-        <tr class="alt">
-            <td>
-                xml-apis
-            </td>
-            <td>
-                xml-apis
-            </td>
-            <th>
-                1.3.04
-            </th>
-        </tr>
-    </tbody>
-    <tfoot>
-        <tr>
-            <td colspan="3">
-            </td>
-        </tr>
-    </tfoot>
-</table>
-<table>
-    <caption>
-        library's dependency's dependencies
-    </caption>
-    <thead>
-        <tr>
-            <th>
-                GroupId
-            </th>
-            <th>
-                ArtifactId
-            </th>
-            <th>
-                Version
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr class="alt">
-            <td>
-                avalon-framework
-            </td>
-            <td>
-                avalon-framework
-            </td>
-            <th>
-                4.1.3
-            </th>
-        </tr>
-        <tr>
-            <td>
-                commons-beanutils
-            </td>
-            <td>
-                commons-beanutils
-            </td>
-            <th>
-                1.7.0
-            </th>
-        </tr>
-        <tr class="alt">
-            <td>
-                commons-logging
-            </td>
-            <td>
-                commons-logging
-            </td>
-            <th>
-                1.1
-            </th>
-        </tr>
-        <tr>
-            <td>
-                javax.servlet
-            </td>
-            <td>
-                servlet-api
-            </td>
-            <th>
-                2.3
-            </th>
-        </tr>
-        <tr class="alt">
-            <td>
-                log4j
-            </td>
-            <td>
-                log4j
-            </td>
-            <th>
-                1.2.12
-            </th>
-        </tr>
-        <tr>
-            <td>
-                logkit
-            </td>
-            <td>
-                logkit
-            </td>
-            <th>
-                1.0.1
-            </th>
-        </tr>
-    </tbody>
-    <tfoot>
-        <tr>
-            <td colspan="3">
-            </td>
-        </tr>
-    </tfoot>
-</table>
-</div>
-<!-- /entry -->
-</div>
-<!-- /post -->
-<!-- post entry -->
-<div class="hentry post" id="release-1.0">
-<abbr class="released date"
-      title="2007-17-07T17:00">jul-17-2007</abbr>
-
-<h1 class="posttitle entry-title">
-    Release 1.0
-</h1>
-
-<div class="entry entry-content">
-<table>
-    <caption>
-        library's dependencies
-    </caption>
-    <thead>
-        <tr>
-            <th>
-                GroupId
-            </th>
-            <th>
-                ArtifactId
-            </th>
-            <th>
-                Version
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr class="alt">
-            <td>
-                commons-io
-            </td>
-            <td>
-                commons-io
-            </td>
-            <th>
-                1.1
-            </th>
-        </tr>
-        <tr>
-            <td>
-                jdepend
-            </td>
-            <td>
-                jdepend
-            </td>
-            <th>
-                2.9.1
-            </th>
-        </tr>
-        <tr class="alt">
-            <td>
-                junit
-            </td>
-            <td>
-                junit
-            </td>
-            <th>
-                3.8.1
-            </th>
-        </tr>
-        <tr>
-            <td>
-                org.springframework
-            </td>
-            <td>
-                spring
-            </td>
-            <th>
-                2.0.5
-            </th>
-        </tr>
-        <tr class="alt">
-            <td>
-                xerces
-            </td>
-            <td>
-                xercesImpl
-            </td>
-            <th>
-                2.6.2
-            </th>
-        </tr>
-        <tr>
-            <td>
-                xml-apis
-            </td>
-            <td>
-                xml-apis
-            </td>
-            <th>
-                1.3.04
-            </th>
-        </tr>
-    </tbody>
-    <tfoot>
-        <tr>
-            <td colspan="3">
-            </td>
-        </tr>
-    </tfoot>
-</table>
-<table>
-    <caption>
-        library's dependency's dependencies
-    </caption>
-    <thead>
-        <tr>
-            <th>
-                GroupId
-            </th>
-            <th>
-                ArtifactId
-            </th>
-            <th>
-                Version
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr class="alt">
-            <td>
-                avalon-framework
-            </td>
-            <td>
-                avalon-framework
-            </td>
-            <th>
-                4.1.3
-            </th>
-        </tr>
-        <tr>
-            <td>
-                commons-logging
-            </td>
-            <td>
-                commons-logging
-            </td>
-            <th>
-                1.1
-            </th>
-        </tr>
-        <tr class="alt">
-            <td>
-                javax.servlet
-            </td>
-            <td>
-                servlet-api
-            </td>
-            <th>
-                2.3
-            </th>
-        </tr>
-        <tr>
-            <td>
-                log4j
-            </td>
-            <td>
-                log4j
-            </td>
-            <th>
-                1.2.12
-            </th>
-        </tr>
-        <tr class="alt">
-            <td>
-                logkit
-            </td>
-            <td>
-                logkit
-            </td>
-            <th>
-                1.0.1
-            </th>
-        </tr>
-    </tbody>
-    <tfoot>
-        <tr>
-            <td colspan="3">
-            </td>
-        </tr>
-    </tfoot>
-</table>
-</div>
-<!-- /entry -->
-</div>
-<!-- /post -->
-</div>
-<!-- /primary -->
 <div id="secondary">
+
 </div>
 <!-- /secondary -->
 </div>
 <!-- /page -->
+
 <!-- footer -->
 <div id="footer">
 </div>
 <!-- /footer -->
-
 </body>
 </html>
 

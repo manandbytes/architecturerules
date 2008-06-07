@@ -1,20 +1,28 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--
+  ~ Copyright (c) 2008, Your Corporation. All Rights Reserved.
+  -->
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head profile="http://gmpg.org/xfn/11">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="description"
-          content="Assert Your Architecture - with this open source java library. Leverages XML and optional programatic configuration to assert your code's architecture via unit tests or ant tasks. Able to check for layer independence and cyclic dependencies." />
+          content="Assert Your Architecture - with this open source java library. Leverages XML and optional programmatic configuration to assert your code's architecture via unit tests or ant tasks. Able to check for layer independence and cyclic dependencies." />
     <meta name="keywords"
           content="open source java xml jdepend architecture rules unit test junit" />
     <META http-equiv="expires" content="Wed, 26 Feb 1997 08:21:57 GMT" />
     <meta name="ROBOTS" content="INDEX, FOLLOW" />
+
     <title>
         architecture rules
     </title>
+
     <link rel="stylesheet" type="text/css" href="css/style.css" />
     <link rel="stylesheet" type="text/css" href="css/nifty.css" />
     <link rel="stylesheet" type="text/css" href="css/syntax.css" />
+    <link rel="stylesheet" type="text/css" href="css/tour.css" />
+
     <!--[if lt IE 8]>
     <style type="text/css">
       #mainmenu li a, #recentposts li a, #personalfavorites li a, #textads li a, #recentcomments li, #contactme li {display:inline-block;}
@@ -23,19 +31,21 @@
     </style>
     <![endif]-->
 
-    <script type="text/javascript" src="js/prototype-1.5.1.1.js">
-    </script>
+    <script type="text/javascript" src="js/application.js"></script>
+
 </head>
 <body>
 <div id="page">
 <div id="blogtitle" class="primary">
-    <a
-            href="http://architecturerules.googlecode.com/svn/docs/index.html">architecture</a><span>
-        rules</span>
+    <a href="http://architecturerules.googlecode.com/svn/docs/index.html">
+        architecture
+    </a>
+    <span>rules</span>
 </div>
 <div id="backtogoogle">
-    <a href="http://code.google.com/p/architecturerules/">google code
-        landing page</a>
+    <a href="http://code.google.com/p/architecturerules/">
+        google code landing page
+    </a>
 </div>
 <div id="about">
     <p class="description">
@@ -45,15 +55,17 @@
         file</a> and optional programmatic configuration to assert your
         code's architecture via <a
             href="getting-started.html#write-unit-test">unit tests</a> or <a
-            href="run.html#ant-task">ant tasks</a>. This test is able to assert
+            href="run.html#ant-task">ant tasks</a>. This test is able to
+        assert
         that specific packages do not depend on others and is able to check
         for and report on cyclic dependencies among your project's packages
         and classes. This project wraps a industry accepted <a
             href="http://clarkware.com/software/JDepend.html"
-            target="_jdepend">JDepend</a> to simplify the process of maintaining
+            target="_jdepend">JDepend</a> to simplify the process of
+        maintaining
         a solid software architecture.
     </p>
-    <ul id="mainmenu">
+    <!--<ul id="mainmenu">
         <li id="home" class="page_item current_page_item">
             <a title="home" href="index.html">Home</a>
         </li>
@@ -66,426 +78,87 @@
         <li id="mailing-lists" class="page_item">
             <a href="mailing-lists.html">Mailing Lists</a>
         </li>
-    </ul>
+    </ul>-->
 </div>
 <!-- /about -->
-<div id="primary" class="single hfeed">
-<div class="hentry post programming" id="getting-started">
-    <h1 class="posttitle entry-title">
-        Getting Started
-    </h1>
+<div id="primary" class="single hfeed" style="width: 100%;">
 
-    <div class="entry entry-content">
-        <p>
-            This tutorial will get you started and have you <strong>Asserting
-            Your Architecture!</strong> in a matter of minutes.
-        </p>
 
-        <p>
-            The steps that are covered include:
-        </p>
-        <ol id="toc">
-            <li>
-                <a href="#get">Get the Library and Dependencies</a>
-            </li>
-            <li>
-                <a href="#architecture-rules.xml">Write your architecture
-                    rules</a>
-            </li>
-            <li>
-                <a href="#write-unit-test">Write</a>
-                <ol id="toc">
-                    <li>
-                        <a href="#write-unit-test">Write your unit test</a>
-                    </li>
-                    <li>
-                        <a href="#write-ant-task">Write your Ant task</a>
-                    </li>
-                </ol>
-            </li>
-            <li>
-                <a href="#execute-unit-test">Execute</a>
-                <ol id="toc">
-                    <li>
-                        <a href="#execute-unit-test">Execute your unit test</a>
-                    </li>
-                    <li>
-                        <a href="#execute-ant-task">Execute your Ant task</a>
-                    </li>
-                </ol>
-            </li>
-        </ol>
+    <div class="hentry post programming" id="introduction">
+        <h1 class="posttitle entry-title">
+            Architecture Rules Moved
+        </h1>
+
+        <div class="entry entry-content">
+
+            <p>
+                Thanks for visiting the Architecture Rules site. We have
+                moved
+                this informative site to a new domain.
+            </p>
+
+            <h1 style="margin: 0 auto; text-align: center;">
+                <a href="http://72miles.com/architecturerules">
+                    Go there now
+                </a>
+            </h1>
+
+            <a href="http://72miles.com/architecturerules">
+                <img src="images/migrated.png">
+            </a>
+
+            <h2>Why did we move?</h2>
+
+            <p>
+                We want to keep things simple, and we aren't happy about
+                having to ask you to redirect to another site. However, this
+                current site is hosted out of the googlecode.com SVN
+                repository. This has been acceptable up until now, but does
+                not allow us to utilize programming languages, such as PHP,
+                to generate dynamic content.
+            </p>
+
+            <p>
+                The new site is backed by Wordpress which makes it easier
+                to provide new content. For example, we've already created
+                and
+                <a href="http://72miles.com/architecturerules/code-by-example">
+                    index of code samples</a> and page for the
+                <a href="http://72miles.com/architecturerules/maven-repository">maven
+                    repository</a>.
+                We've also wired up the pages to update other pages
+                automatically
+                when new releases are made. Additionally, we now have a ton of
+                RSS feeds so that you can keep track of the project without
+                having to visit the site.
+            </p>
+
+            <h2>Thanks</h2>
+
+            <p>
+                So again, we apologize for asking you to redirect, and asking
+                you to update your bookmarks, but with the new content and
+                the ability for us to add content more quickly we hope that you
+                find it worth it. Thanks.
+            </p>
+
+        </div>
+        <!-- entry -->
     </div>
-    <!-- entry -->
+    <!-- post -->
 </div>
-<!-- post -->
-<div class="hentry post programming" id="get">
-    <h1 class="posttitle entry-title">
-        Get the Library and Dependencies
-    </h1>
 
-    <div class="entry entry-content">
-        <p>
-            You can get the library from one of two locations.
-        </p>
-
-        <p>
-            First, the easiest and most common method is to download the
-            pre-compiled package from the <a
-                href="downloads.html">downloads</a> page.
-        </p>
-
-        <p>
-            Or, you can get the latest development commit from subversion.
-            Details on accessing subversion are available on the <a
-                href="source.html">source</a> page. Note however, that the code
-            in subversion is not always stable. Be sure to run the tests to
-            find out.
-        </p>
-
-        <p>
-            For a list of the dependencies that you will need to download,
-            see the <a href="dependencies.html">dependencies</a> list.
-        </p>
-    </div>
-    <!-- entry -->
-</div>
-<!-- post -->
-<div class="hentry post programming" id="architecture-rules.xml">
-    <h1 class="posttitle entry-title">
-        Write your architecture rules
-    </h1>
-
-    <div class="entry entry-content">
-        <p>
-            Next, you will create your architecture rules. This page will
-            only discuss the xml configuration option, but be aware that you
-            can also populate the configuration programmatically - or both
-            with a configuration file and programmatically.
-        </p>
-
-        <p>
-            First, create the xml configuration file. The standard naming
-            convention for this file is <tt>architecture-rules.xml</tt> but
-            you are able to name this file whatever you want. Place this file
-            in your classpath, such as <tt>src/test/resources</tt>.
-        </p>
-
-        <p>
-            Next, you'll actually write your rules. This requires some
-            though. Think about your layers and modules and strive for
-            separation of concern and loosely coupled modules. See the <a
-                href="sample-configuration.html">sample configuration</a>
-            example
-            to write your rules.
-        </p>
-    </div>
-    <!-- entry -->
-</div>
-<!-- post -->
-<div class="hentry post programming" id="write-unit-test">
-<h1 class="posttitle entry-title">
-    Write your unit test
-</h1>
-
-<div class="entry entry-content">
-<p>
-    First, note that if you are using the Ant task method of
-    executing your test you don't need to write the unit test. See
-    the next section on <a href="#write-ant-task">writing the Ant
-    task.</a>
-</p>
-
-<h3>
-    XML Configuration
-</h3>
-
-<p>
-    To write the unit test,
-</p>
-<ol>
-    <li>
-        extend
-        <tt>com.seventytwomiles.architecturerules.AbstractArchitectureRulesConfigurationTest</tt>
-    </li>
-    <li>
-        implement <tt>String getConfigurationFileName()</tt> to return
-        "architecture-rules.xml"
-    </li>
-    <li>
-        implement <tt>void testArchitecture()</tt> which should simple
-        call <tt>assertTrue(doTests());</tt>
-    </li>
-</ol>
-<br />
-<br />
-
-<p>
-    A complete, simple example looks like:
-</p>
-<pre name="code" class="java:nogutter:nocontrols">
-/**
- *<br />
-Architecture test example.
- *
- * @author mikenereson
- * @see AbstractArchitectureRulesConfigurationTest
- */
-public class SimpleArchitectureTest
-                 extends AbstractArchitectureRulesConfigurationTest {
-
-
-    /**
-     * @see AbstractArchitectureRulesConfigurationTest
-     */
-    public String getConfigurationFileName() {
-
-        /**
-         * Provide the name of the rules configuration file.
-         * File file is loaded from the classpath.
-         */
-        return "architecture-rules.xml";
-    }
-
-
-    /**
-     * @see AbstractArchitectureRulesConfigurationTest#testArchitecture
-     */
-    public void testArchitecture() {
-
-        /**
-         * Run the test via doTest(). If any rules are broken,
-         * or if the configuration can not be loaded properly,
-         * then the appropriate Exception will be thrown.
-         */
-        assertTrue(doTests());
-    }
-}
-       
-</pre>
-<h3>
-    Programmatic Configuration
-</h3>
-
-<p>
-    You may also opt to provide only programmatic configuration, and
-    provide no xml configuration. To do this, call
-    <tt>getConfiguration()</tt> which will return and instance of
-    <tt>com.seventytwomiles.architecturerules.configuration.Configuration</tt>
-    for you to setup. Once configured, again, implement
-    <tt>testArchitecture()</tt> to call
-    <tt>assertTrue(doTests());</tt>. A complete example looks like:
-</p>
-<pre name="code" class="java:nogutter:nocontrols">
-public class SimpleProgramaticArchitectureTest
-                  extends AbstractArchitectureRulesConfigurationTest {
-
-
-    /**
-     * Sets up the fixture, for example, open a network
-     * connection. This method is called before a test
-     * is executed.
-     */
-    protected void setUp() throws Exception {
-
-        super.setUp();
-
-        /* get the configuration reference */
-        final Configuration configuration = getConfiguration();
-
-        /* add sources */
-        configuration.addSource(
-                  new SourceDirectory("target\\test-classes", true));
-
-        /* set options */
-        configuration.setDoCyclicDependencyTest(false);
-        configuration.setThrowExceptionWhenNoPackages(true);
-
-        /* add Rules */
-        final Rule daoRule = new Rule("dao");
-        daoRule.setComment("dao may not access presentation.");
-        daoRule.addPackage("test.com.seventytwomiles.dao.hibernate");
-        daoRule.addViolation("test.com.seventytwomiles.web.spring");
-
-        configuration.addRule(daoRule);
-    }
-
-
-    /**
-     * @see AbstractArchitectureRulesConfigurationTest
-     */
-    public String getConfigurationFileName() {
-
-        /**
-         * Provide the name of the rules configuration file.
-         * File file is loaded from the classpath.
-         */
-        return "architecture-rules.xml";
-    }
-
-
-    /**
-     * @see AbstractArchitectureRulesConfigurationTest#testArchitecture
-     */
-    public void testArchitecture() {
-
-        /**
-         * Run the test via doTest(). If any rules are broken,
-         * or if the configuration can not be loaded properly,
-         * then the appropriate Exception will be thrown.
-         */
-        assertTrue(doTests());
-    }
-}
-       
-</pre>
-<h3>
-    Mixed Configuration
-</h3>
-
-<p>
-    Finally, you may mix programmatic and xml configuration. To do
-    this, implement <tt>String getConfigurationFileName()</tt> to
-    return "architecture-rules.xml" and continue to
-    <tt>getConfiguraiton()</tt> in <tt>onSetup();</tt>. This will
-    give you an instance of the configuration which is preloaded with
-    the configuration found in the xml file. You may not
-    programmatically add to or modify that configuration
-</p>
-</div>
-<!-- entry -->
-</div>
-<!-- post -->
-<div class="hentry post programming" id="write-ant-task">
-    <h1 class="posttitle entry-title">
-        Write your Ant task
-    </h1>
-
-    <div class="entry entry-content">
-        <p>
-            If you would prefer to utilize Ant rather than write a unit test
-            you may do so by defining a new <tt>taskdef</tt> for
-            <tt>com.seventytwomiles.architecturerules.ant.AssertArchitectureTask</tt>.
-        </p>
-
-        <p>
-            Complete details for this Task can be found <a
-                href="run.html#ant-task">here</a> and the list of required
-            dependencies is located <a href="dependencies">here</a>.
-        </p>
-
-        <p>
-            By choosing to use the ant Task, you give up the ability to
-            provide programmatic configuration All configuration will be read
-            from the xml configuration file. If you must provide programmatic
-            configuration, there is still an alternative Ant route, that
-            utilizes the <tt>junit</tt> task. Details are <a
-                href="run.html#ant-unit-test">here</a>.
-        </p>
-    </div>
-    <!-- entry -->
-</div>
-<!-- post -->
-<div class="hentry post programming" id="execute-unit-test">
-    <h1 class="posttitle entry-title">
-        Execute your unit test
-    </h1>
-
-    <div class="entry entry-content">
-        <p class="alert">
-            This section has not been written yet. If anyone would like to
-            provide this content, please mail the content to the dev mailing
-            list <a
-                href="http://groups.google.com/group/architecture-rules-dev/topics?gvc=2">
-            here</a>.
-        </p>
-    </div>
-    <!-- entry -->
-</div>
-<!-- post -->
-<div class="hentry post programming" id="execute-ant-task">
-    <h1 class="posttitle entry-title">
-        Execute your Ant task
-    </h1>
-
-    <div class="entry entry-content">
-        <p class="alert">
-            This section has not been written yet. If anyone would like to
-            provide this content, please mail the content to the dev mailing
-            list <a
-                href="http://groups.google.com/group/architecture-rules-dev/topics?gvc=2">
-            here</a>.
-        </p>
-    </div>
-    <!-- entry -->
-</div>
-<!-- post -->
-</div>
-<!-- primary -->
 <div id="secondary">
+
 </div>
 <!-- /secondary -->
 </div>
 <!-- /page -->
+
 <!-- footer -->
 <div id="footer">
 </div>
 <!-- /footer -->
-<script type="text/javascript">
-    //<![CDATA[
-    new Ajax.Updater('secondary', 'component_rightnav.html', {method: 'get', asynchronous: true, insertion: Insertion.Bottom });
-    new Ajax.Updater('footer', 'component_footer.html', {method: 'get', asynchronous: true, insertion: Insertion.Bottom });
-    //]]>
-</script>
-<!-- syntaxhighlighter -->
-<script type="text/javascript"
-        src="http://syntaxhighlighter.googlecode.com/svn/tags/1.5.1/Scripts/shCore.js"
-        language="JavaScript">
-</script>
-<script type="text/javascript"
-        src="http://syntaxhighlighter.googlecode.com/svn/tags/1.5.1/Scripts/shBrushXml.js"
-        language="JavaScript">
-    //<![CDATA[
-
-    //]]>
-</script>
-<script type="text/javascript"
-        src="http://syntaxhighlighter.googlecode.com/svn/tags/1.5.1/Scripts/shBrushJava.js"
-        language="JavaScript">
-</script>
-<!-- nifty - rounded corners -->
-<script type="text/javascript" src="js/nifty.js" language="JavaScript">
-</script>
-<script type="text/javascript">
-    //<![CDATA[
-    window.onload = function() {
-
-        if (NiftyCheck()) {
-
-            Rounded("div#about", "#fff", "#E7EFFF");
-            RoundedTop("div.footbar", "#fff", "#e8fecd");
-            Rounded("div.downloadnow", "#fff", "#e8fecd");
-        }
-
-        dp.SyntaxHighlighter.ClipboardSwf
-                = 'http://syntaxhighlighter.googlecode.com/svn/tags/1.5.1/Scripts/clipboard.swf';
-        dp.SyntaxHighlighter.HighlightAll('code');
-    }
-        //]]>
-</script>
-<!-- google analytics -->
-<script src="http://www.google-analytics.com/urchin.js"
-        type="text/javascript">
-    //<![CDATA[
-
-    //]]>
-</script>
-<script type="text/javascript">
-    //<![CDATA[
-    _uacct = "UA-616623-3";
-    urchinTracker();
-    //]]>
-</script>
 </body>
 </html>
 

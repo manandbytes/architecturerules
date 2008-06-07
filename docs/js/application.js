@@ -33,8 +33,8 @@ function includeJavaScript(jsFile)
 
 window.onload = function() {
 
-    TemplateHandler.loadRightNav();
-    TemplateHandler.loadFooter();
+    //TemplateHandler.loadRightNav();
+    //TemplateHandler.loadFooter();
 
     NiftyHandler.round();
     CodeHandler.highlight();

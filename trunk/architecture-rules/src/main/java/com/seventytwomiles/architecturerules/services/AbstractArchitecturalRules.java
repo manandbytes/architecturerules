@@ -247,7 +247,7 @@ abstract class AbstractArchitecturalRules {
      * @throws CyclicRedundancyException     when cyclic redundancy is found
      */
     void testLayeringValid(final String layer,
-                           final Collection rules)
+                           final Collection<String> rules)
             throws DependencyConstraintException, CyclicRedundancyException {
 
         final Collection<JavaPackage> analyzedPackages = jdepend.analyze();
@@ -301,7 +301,7 @@ abstract class AbstractArchitecturalRules {
      * @param analyzedPackageName String full name
      * @throws DependencyConstraintException when a rule is broken
      */
-    private void testEfferentsValid(final String layer, final Collection rules,
+    private void testEfferentsValid(final String layer, final Collection<String> rules,
                                     final JavaPackage jPackage,
                                     final String analyzedPackageName)
             throws DependencyConstraintException {

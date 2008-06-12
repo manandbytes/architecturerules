@@ -284,8 +284,7 @@ abstract class AbstractArchitecturalRules {
             log.debug("checking dependencies on package "
                     + javaPackage.getName());
 
-            final String packageName = javaPackage.getName();
-            testEfferentsValid(layer, rules, javaPackage, packageName);
+            testEfferentsValid(layer, rules, javaPackage);
         }
     }
 
@@ -298,18 +297,17 @@ abstract class AbstractArchitecturalRules {
      * @param rules               Collection of rules defining which packages
      *                            the given package may not depend upon
      * @param jPackage            JavaPackage
-     * @param analyzedPackageName String full name
      * @throws DependencyConstraintException when a rule is broken
      */
     private void testEfferentsValid(final String layer, final Collection<String> rules,
-                                    final JavaPackage jPackage,
-                                    final String analyzedPackageName)
+                                    final JavaPackage jPackage)
             throws DependencyConstraintException {
 
         final Collection<JavaPackage> efferents = jPackage.getEfferents();
 
         for (JavaPackage efferent : efferents) {
 
+            String analyzedPackageName = jPackage.getName();
             if (rules.contains(efferent.getName())
                     && analyzedPackageName.equals(layer)) {
 

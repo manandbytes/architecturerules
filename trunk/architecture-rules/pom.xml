@@ -11,7 +11,7 @@
     <packaging>jar</packaging>
     <version>2.1.0-SNAPSHOT</version>
 
-    <name>architecture-rules</name>
+    <name>Architecture Rules</name>
     <inceptionYear>2007</inceptionYear>
 
     <description>

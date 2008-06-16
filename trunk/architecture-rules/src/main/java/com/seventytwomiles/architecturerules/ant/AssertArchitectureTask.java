@@ -90,6 +90,7 @@ public class AssertArchitectureTask extends Task {
      * @throws BuildException
      * @see Task#execute()
      */
+    @Override
     public void execute() throws BuildException {
 
         super.execute();

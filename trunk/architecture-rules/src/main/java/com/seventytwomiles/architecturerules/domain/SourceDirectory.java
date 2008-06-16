@@ -279,6 +279,7 @@ public class SourceDirectory {
     /**
      * @see Object#equals(Object)
      */
+    @Override
     @SuppressWarnings({"RedundantIfStatement"})
     public boolean equals(final Object object) {
 
@@ -306,6 +307,7 @@ public class SourceDirectory {
     /**
      * @see Object#hashCode()
      */
+    @Override
     public int hashCode() {
         return (path != null ? path.hashCode() : 0);
     }
@@ -314,6 +316,7 @@ public class SourceDirectory {
     /**
      * @see Object#toString()
      */
+    @Override
     public String toString() {
         return path;
     }

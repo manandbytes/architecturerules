@@ -210,6 +210,7 @@ public class ClassPathResource {
     /**
      * <p>This implementation compares the underlying class path locations.</p>
      */
+    @Override
     public boolean equals(final Object object) {
 
         if (object == this)

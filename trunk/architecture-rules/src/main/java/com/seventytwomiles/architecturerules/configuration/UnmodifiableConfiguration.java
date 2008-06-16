@@ -61,6 +61,7 @@ public final class UnmodifiableConfiguration extends Configuration {
      *
      * @return Value for property <tt>rules</tt>.
      */
+    @Override
     public Collection<Rule> getRules() {
         return Collections.unmodifiableCollection(super.getRules());
     }
@@ -71,6 +72,7 @@ public final class UnmodifiableConfiguration extends Configuration {
      *
      * @return Value for property <tt>sources</tt>.
      */
+    @Override
     public Collection<SourceDirectory> getSources() {
         return Collections.unmodifiableCollection(super.getSources());
     }
@@ -81,6 +83,7 @@ public final class UnmodifiableConfiguration extends Configuration {
      *
      * @param doCyclicDependencyTest Value to set for property <tt>doCyclicDependencyTest</tt>.
      */
+    @Override
     public UnmodifiableConfiguration setDoCyclicDependencyTest(
             final boolean doCyclicDependencyTest) {
 
@@ -94,6 +97,7 @@ public final class UnmodifiableConfiguration extends Configuration {
      * @param throwExceptionWhenNoPackages Value to set for property
      *                                     <tt>throwExceptionWhenNoPackages</tt>.
      */
+    @Override
     public UnmodifiableConfiguration setThrowExceptionWhenNoPackages(
             final boolean throwExceptionWhenNoPackages) {
 

@@ -29,7 +29,6 @@ import org.xml.sax.SAXException;
 import java.io.IOException;
 import java.io.StringReader;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 
@@ -76,6 +75,7 @@ public class DigesterConfigurationFactory extends AbstractConfigurationFactory {
      * @param configurationXml String xml content to validate
      * @see "architecture-rules.dtd"
      */
+    @Override
     protected void validateConfiguration(final String configurationXml) {
 
         final Digester digester = new Digester();

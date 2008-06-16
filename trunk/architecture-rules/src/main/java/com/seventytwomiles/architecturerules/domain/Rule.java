@@ -209,6 +209,7 @@ public class Rule {
     /**
      * @see Object#equals(Object)
      */
+    @Override
     @SuppressWarnings({"RedundantIfStatement"})
     public boolean equals(final Object object) {
 
@@ -233,6 +234,7 @@ public class Rule {
     /**
      * @see Object#hashCode()
      */
+    @Override
     public int hashCode() {
         return (id != null ? id.hashCode() : 0);
     }

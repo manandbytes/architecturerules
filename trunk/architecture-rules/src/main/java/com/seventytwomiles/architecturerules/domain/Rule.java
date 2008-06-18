@@ -20,9 +20,11 @@ import junit.framework.Assert;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
+import static java.lang.String.format;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
+
 
 
 /**
@@ -34,7 +36,6 @@ public class Rule {
 
 
     private static final Log log = LogFactory.getLog(Rule.class);
-
     /**
      * <p>Unique id of this Rule as defined. Used to refer to this Rule in
      * messages.</p>
@@ -42,7 +43,6 @@ public class Rule {
      * @parameter id String
      */
     private String id;
-
     /**
      * <p>Collection of Strings. These Strings are package names. The names of
      * the packages that will be check against the {@link #violations}. These
@@ -50,8 +50,7 @@ public class Rule {
      *
      * @parameter violations Collection
      */
-    private final Collection<String> packages = new HashSet<String>();
-
+    private final Collection<JPackage> packages = new HashSet<JPackage>();
     /**
      * <p>Comment about this rule that could be used in messages or just to make
      * the configuration file more readable.</p>
@@ -59,14 +58,14 @@ public class Rule {
      * @parameter comment String
      */
     private String comment;
-
     /**
      * <p>Collection of Strings. These Strings are package names. The names of
      * the packages that the {@link #packages} may NOT depend upon</p>
      *
      * @parameter violations Collection
      */
-    private final Collection<String> violations = new HashSet<String>();
+    private final Collection<JPackage> violations
+            = new HashSet<JPackage>();
 
 
     /**
@@ -93,13 +92,28 @@ public class Rule {
      * <p>This constructor is to provide some sense of backwards compatibility
      * with the releases in series 1 (1.0 and 1.1)</p>
      *
-     * @param id          sets the {@link #id}
+     * @param id sets the {@link #id}
      * @param packageName a {@link @packages} to assert on.
      */
     public Rule(final String id, final String packageName) {
-
         setId(id);
         addPackage(packageName);
+    }
+
+
+    /**
+     * <p>Setter for property {@link #id}.</p>
+     *
+     * @param id Value to set for property <tt>id</tt>.
+     * @return Rule this <code>Rule</code> to allow for method chaining.
+     */
+    public Rule setId(final String id) {
+        Assert.assertNotNull("id can not be null", id);
+        Assert.assertFalse("id can not be empty", "".equals(id));
+
+        this.id = id;
+
+        return this;
     }
 
 
@@ -112,17 +126,19 @@ public class Rule {
      *         already in the Collection of packages.
      */
     public boolean addPackage(final String packageName) {
-
         Assert.assertNotNull("null packageName can not be added", packageName);
-        Assert.assertFalse("empty packageName can not be added", packageName.equals(""));
+        Assert.assertFalse("empty packageName can not be added",
+                packageName.equals(""));
 
-        if (violations.contains(packageName))
+        final JPackage jPackage = new JPackage(packageName);
+
+        if (violations.contains(jPackage))
             throw new IllegalArchitectureRuleException(
                     "Could not add " + packageName + " package because there " +
                             "is already a violation with the same package name " +
                             "for rule " + id);
 
-        return packages.add(packageName);
+        return packages.add(jPackage);
     }
 
 
@@ -137,21 +153,6 @@ public class Rule {
 
 
     /**
-     * <p>Setter for property {@link #comment}.</p>
-     *
-     * @param comment Value to set for property <tt>comment</tt>.
-     * @return Rule this <code>Rule</code> to allow for method chaining.
-     */
-    public Rule setComment(final String comment) {
-
-        Assert.assertNotNull("comment can not be null", comment);
-        this.comment = comment;
-
-        return this;
-    }
-
-
-    /**
      * <p>Getter for property {@link #id}.</p>
      *
      * @return Value for property <tt>id</tt>.
@@ -162,46 +163,11 @@ public class Rule {
 
 
     /**
-     * <p>Setter for property {@link #id}.</p>
-     *
-     * @param id Value to set for property <tt>id</tt>.
-     * @return Rule this <code>Rule</code> to allow for method chaining.
-     */
-    public Rule setId(final String id) {
-
-        Assert.assertNotNull("id can not be null", id);
-        Assert.assertFalse("id can not be empty", "".equals(id));
-
-        this.id = id;
-
-        return this;
-    }
-
-    /**
-     * <p>Same as {@link #setId(String)}. The <code>DigesterConfiguraitonFactory</code>
-     * that builds the <code>Configuration<code> class can invoke void setter.
-     * When we added method chaining at version 2.1.0, we made <tt>setId</tt>
-     * return <code>Rule</code>, and the configuration factory broke. So this
-     * method was created to allow for the ConfigurationFactory to work, and for
-     * method chaining to be supported.</p>
-     *
-     * @param id Value to set for property <tt>id</tt>.
-     */
-    public void setIdString(final String id) {
-
-        Assert.assertNotNull("id can not be null", id);
-        Assert.assertFalse("id can not be empty", "".equals(id));
-
-        this.id = id;
-    }
-
-
-    /**
      * <p>Getter for property {@link #packages}</p>
      *
      * @return Value for property <tt>packages</tt>.
      */
-    public Collection<String> getPackages() {
+    public Collection<JPackage> getPackages() {
         return this.packages;
     }
 
@@ -244,16 +210,15 @@ public class Rule {
      * <p>Add a new violation to this <code>Rule</code>.</p>
      *
      * @param violation String a package this this Rule's package may NOT depend
-     *                  upon
+     * upon
      * @return Rule this <code>Rule</code> to allow for method chaining.
-     * @throws IllegalArchitectureRuleException
-     *          a RuntimeException when the violation could not be added because
-     *          the violation is one of the packages being checked.
+     * @throws IllegalArchitectureRuleException a RuntimeException when the
+     * violation could not be added because the violation is one of the packages
+     * being checked.
      */
-    public Rule addViolation(final String violation) {
+    public Rule addViolation(final JPackage violation) {
 
         Assert.assertNotNull("null violation can not be added", violation);
-
         Assert.assertFalse("empty violation can not be added",
                 violation.equals(""));
 
@@ -264,21 +229,38 @@ public class Rule {
                             "<violation>" + violation + "</violation> " +
                             "from rule " + id);
 
-        boolean added = violations.add(violation);
+        final boolean added = violations.add(violation);
 
 
         if (added) {
-
-            log.debug(String.format("added violation %s to Rule %s",
+            log.debug(format("added violation %s to Rule %s",
                     violation, id));
-
         } else {
-
-            log.warn(String.format("failed to add violation %s to Rule %s",
+            log.warn(format("failed to add violation %s to Rule %s",
                     violation, id));
         }
 
         return this;
+    }
+
+
+    /**
+     * <p>Add a new violation to this <code>Rule</code>.</p>
+     *
+     * @param violation String a package this this Rule's package may NOT depend
+     * upon
+     * @return Rule this <code>Rule</code> to allow for method chaining.
+     * @throws IllegalArchitectureRuleException a RuntimeException when the
+     * violation could not be added because the violation is one of the packages
+     * being checked.
+     */
+    public Rule addViolation(final String violation) {
+        Assert.assertNotNull("null violation can not be added", violation);
+        Assert.assertFalse("empty violation can not be added",
+                violation.equals(""));
+
+        final JPackage violationPackage = new JPackage(violation);
+        return this.addViolation(violationPackage);
     }
 
 
@@ -296,11 +278,10 @@ public class Rule {
      * <p>Describes the properties of this rule in an xml-like format.</p>
      *
      * @param outputToConsole boolean <tt>true</tt> to output the description to
-     *                        the console
+     * the console
      * @return String of xml that describes this <code>Rule</code>.
      */
     private String describe(final boolean outputToConsole) {
-
         final StringBuffer builder = new StringBuffer();
 
         builder.append("<rule>").append("\r\n");
@@ -325,10 +306,9 @@ public class Rule {
 
         builder.append("\t").append("<violations>").append("\r\n");
 
-        for (String violation : violations) {
-
+        for (final JPackage violation : violations) {
             builder.append("\t\t").append("<violation>");
-            builder.append(violation);
+            builder.append(violation.getPath());
             builder.append("</violation>");
             builder.append("\r\n");
         }
@@ -351,7 +331,6 @@ public class Rule {
      *         <samp>['dao' for 'com.company.dao, com.company.dao.hibernate']</samp>
      */
     public String getDescriptionOfRule() {
-
         final String ruleDescription = "['{0}' for {1}] "
                 .replaceAll("\\{0}", getId())
                 .replaceAll("\\{1}", describePackages());
@@ -376,7 +355,8 @@ public class Rule {
 
         for (int i = 0; i < totalPackages; i++) {
 
-            final String packageName = (String) packagesArray[i];
+            final JPackage jPackage = (JPackage) packagesArray[i];
+            final String packageName = jPackage.getPath();
 
             packagesDescription
                     .append(packageName.trim())
@@ -402,12 +382,38 @@ public class Rule {
      *
      * @return Collection unmodifiable
      * @throws UnsupportedOperationException when <code>getViolations.add(Object)</code>
-     *                                       or <code>getViolations.remove(Object)</code>
-     *                                       is called. Use {@link #addViolation}
-     *                                       and {@link #removeViolation}.
+     * or <code>getViolations.remove(Object)</code> is called. Use {@link
+     * #addViolation} and {@link #removeViolation}.
      */
-    public Collection<String> getViolations() {
+    public Collection<JPackage> getViolations() {
         return Collections.unmodifiableCollection(violations);
+    }
+
+
+    /**
+     * <p>Remove a package from this Rule.</p>
+     *
+     * @param packageName String a package this this Rule's package should not
+     * test on
+     * @return Rule this <code>Rule</code> to allow for method chaining.
+     */
+    public Rule removePackage(final String packageName) {
+        Assert.assertNotNull("null packageName can not be removed",
+                packageName);
+        Assert.assertFalse("empty packageName can not be removed",
+                "".equals(packageName));
+
+        final boolean removed = packages.remove(packageName);
+
+        if (removed) {
+            log.debug(format("removed package %s from Rule %s",
+                    packageName, this.id));
+        } else {
+            log.warn(format("failed to remove package %s from Rule %s ",
+                    packageName, this.id));
+        }
+
+        return this;
     }
 
 
@@ -415,55 +421,68 @@ public class Rule {
      * <p>Remove a violation from this Rule.</p>
      *
      * @param violation String a package this this Rule's package should not
-     *                  test on
+     * test on
      * @return Rule this <code>Rule</code> to allow for method chaining.
      */
     public Rule removeViolation(final String violation) {
+        Assert.assertFalse("empty violation can not be removed",
+                "".equals(violation));
 
+        final JPackage jPackage = new JPackage(violation);
+        return removeViolation(jPackage);
+    }
+
+
+    public Rule removeViolation(final JPackage violation) {
         Assert.assertNotNull("null violation can not be removed", violation);
-        Assert.assertFalse("empty violation can not be removed", "".equals(violation));
 
-        boolean removed = violations.remove(violation);
+        final boolean removed = violations.remove(violation);
 
         if (removed) {
 
-            log.debug(String.format("removed violation %s from Rule %s",
-                    violation, this.id));
+            log.debug(format("removed violation %s from Rule %s", violation,
+                    this.id));
 
         } else {
 
-            log.warn(String.format("failed to remove violation %s from Rule %s ",
+            log.warn(format("failed to remove violation %s from Rule %s ",
                     violation, this.id));
         }
 
         return this;
     }
 
+
     /**
-     * <p>Remove a package from this Rule.</p>
+     * <p>Setter for property {@link #comment}.</p>
      *
-     * @param packageName String a package this this Rule's package should not
-     *                    test on
+     * @param comment Value to set for property <tt>comment</tt>.
      * @return Rule this <code>Rule</code> to allow for method chaining.
      */
-    public Rule removePackage(final String packageName) {
+    public Rule setComment(final String comment) {
 
-        Assert.assertNotNull("null packageName can not be removed", packageName);
-        Assert.assertFalse("empty packageName can not be removed", "".equals(packageName));
-
-        boolean removed = packages.remove(packageName);
-
-        if (removed) {
-
-            log.debug(String.format("removed package %s from Rule %s",
-                    packageName, this.id));
-
-        } else {
-
-            log.warn(String.format("failed to remove package %s from Rule %s ",
-                    packageName, this.id));
-        }
+        Assert.assertNotNull("comment can not be null", comment);
+        this.comment = comment;
 
         return this;
+    }
+
+
+    /**
+     * <p>Same as {@link #setId(String)}. The <code>DigesterConfiguraitonFactory</code>
+     * that builds the <code>Configuration<code> class can invoke void setter.
+     * When we added method chaining at version 2.1.0, we made <tt>setId</tt>
+     * return <code>Rule</code>, and the configuration factory broke. So this
+     * method was created to allow for the ConfigurationFactory to work, and for
+     * method chaining to be supported.</p>
+     *
+     * @param id Value to set for property <tt>id</tt>.
+     */
+    public void setIdString(final String id) {
+
+        Assert.assertNotNull("id can not be null", id);
+        Assert.assertFalse("id can not be empty", "".equals(id));
+
+        this.id = id;
     }
 }

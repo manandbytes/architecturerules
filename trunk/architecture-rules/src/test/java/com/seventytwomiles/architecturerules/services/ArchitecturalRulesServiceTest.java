@@ -48,13 +48,13 @@ public class ArchitecturalRulesServiceTest extends TestCase {
 
         configuration.addSource(testClassesSourceDirectory);
 
-        badControllerRule = new Rule("controller",
-                "test.com.seventytwomiles.web.spring");
-        badControllerRule.addViolation("test.com.seventytwomiles.dao");
+        badControllerRule
+                = new Rule("controller", "test.com.seventytwomiles.web.spring")
+                .addViolation("test.com.seventytwomiles.dao");
 
-        goodModelRule = new Rule("model", "test.com.seventytwomiles.model");
-        goodModelRule.addViolation("test.com.seventytwomiles.dao");
-        goodModelRule.addViolation("test.com.seventytwomiles.dao.hibernate");
+        goodModelRule = new Rule("model", "test.com.seventytwomiles.model")
+                .addViolation("test.com.seventytwomiles.dao")
+                .addViolation("test.com.seventytwomiles.dao.hibernate");
 
         super.setUp();
     }
@@ -89,10 +89,14 @@ public class ArchitecturalRulesServiceTest extends TestCase {
 
         try {
             assertTrue(rulesService.performRulesTest());
+
         } catch (final Exception e) {
+
             assertTrue(e instanceof DependencyConstraintException);
+
             assertEquals(
-                    "rule controller failed: test.com.seventytwomiles.web.spring is not allowed to depend upon test.com.seventytwomiles.dao",
+                    "rule controller failed: test.com.seventytwomiles.web.spring " +
+                            "is not allowed to depend upon test.com.seventytwomiles.dao",
                     e.getMessage());
         }
     }

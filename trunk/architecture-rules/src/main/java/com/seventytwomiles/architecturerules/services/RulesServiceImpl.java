@@ -15,8 +15,8 @@
 package com.seventytwomiles.architecturerules.services;
 
 
-
 import com.seventytwomiles.architecturerules.configuration.Configuration;
+import com.seventytwomiles.architecturerules.domain.JPackage;
 import com.seventytwomiles.architecturerules.domain.Rule;
 import com.seventytwomiles.architecturerules.exceptions.DependencyConstraintException;
 import com.seventytwomiles.architecturerules.exceptions.NoPackagesFoundException;
@@ -86,22 +86,22 @@ public class RulesServiceImpl extends AbstractArchitecturalRules
          */
         if (log.isDebugEnabled()) {
 
-            for (Rule rule : rules)
+            for (final Rule rule : rules)
                 log.debug(rule.getDescriptionOfRule());
         }
 
-        for (Rule rule : rules) {
+        for (final Rule rule : rules) {
 
             log.info("checking rule " + rule.getId());
 
-            String description = rule.describePackages();
+            final String description = rule.describePackages();
             log.debug("checking for dependency violations in " + description);
 
             try {
 
-                final Collection<String> packages = rule.getPackages();
+                final Collection<JPackage> packages = rule.getPackages();
 
-                for (String packageName : packages) 
+                for (final JPackage packageName : packages)
                     testLayeringValid(packageName, rule.getViolations());
 
             } catch (final DependencyConstraintException e) {

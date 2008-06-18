@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<architecture>
+
+    <configuration>
+
+        <sources no-packages="exception">
+            <source not-found="exception">target\test-classes</source>
+        </sources>
+
+        <cyclicalDependency test="false" />
+
+    </configuration>
+
+
+    <rules>
+
+        <rule id="dao">
+
+            <comment>
+                The dao interface package should rely on nothing.
+            </comment>
+
+            <packages>
+                <package>
+                    test.com.seventytwomiles.web.spring
+                </package>
+            </packages>
+
+            <violations>
+                <violation>
+                    test.com.seventytwomiles.dao..*
+                </violation>
+
+            </violations>
+        </rule>
+
+
+        <rule id="model">
+
+            <comment>
+                Model should remain completely isolated
+            </comment>
+
+            <packages>
+                <package>
+                    com.seventytwomiles.pagerank.core.model
+                </package>
+            </packages>
+
+            <violations>
+                <violation>
+                    com.seventytwomiles.pagerank.core..*
+                </violation>
+            </violations>
+        </rule>
+
+    </rules>
+
+</architecture>
+
+

@@ -111,7 +111,7 @@ public class DigesterConfigurationFactoryTest extends AbstractDigesterTest {
 
         factory.processRules(rulesXmlConfiguration);
 
-        final List rules = new ArrayList();
+        final List<Rule> rules = new ArrayList();
         rules.addAll(factory.getRules());
 
         assertEquals(2, rules.size());

@@ -14,6 +14,8 @@
 
 package com.seventytwomiles.architecturerules.configuration;
 
+
+import com.seventytwomiles.architecturerules.domain.JPackage;
 import com.seventytwomiles.architecturerules.domain.Rule;
 import com.seventytwomiles.architecturerules.domain.SourceDirectory;
 import junit.framework.Assert;
@@ -22,6 +24,7 @@ import org.apache.commons.logging.LogFactory;
 
 import java.util.Collection;
 import java.util.HashSet;
+
 
 
 /**
@@ -98,7 +101,8 @@ public class Configuration {
     /**
      * <p>Setter for property {@link #doCyclicDependencyTest}.</p>
      *
-     * @param doCyclicDependencyTest Value to set for property <tt>doCyclicDependencyTest</tt>.
+     * @param doCyclicDependencyTest Value to set for property
+     * <tt>doCyclicDependencyTest</tt>.
      * @return Configuration this <code>Configuration</code> which allows for
      *         method chaining
      */
@@ -115,7 +119,7 @@ public class Configuration {
      * <p>Setter for property {@link #throwExceptionWhenNoPackages}.</p>
      *
      * @param throwExceptionWhenNoPackages Value to set for property
-     *                                     <tt>throwExceptionWhenNoPackages</tt>.
+     * <tt>throwExceptionWhenNoPackages</tt>.
      * @return Configuration this <code>Configuration</code> which allows for
      *         method chaining
      */
@@ -145,7 +149,7 @@ public class Configuration {
         final String id = rule.getId();
         Assert.assertFalse("rule id must not be empty", id.equals(""));
 
-        final Collection<String> packages = rule.getPackages();
+        final Collection<JPackage> packages = rule.getPackages();
         Assert.assertNotNull("rule packages can not be null", packages);
 
         Assert.assertFalse("rule packages must not be empty",
@@ -162,7 +166,8 @@ public class Configuration {
 
         } else {
 
-            log.debug(String.format("failed to add Rule %s to Configuration", id));
+            log.debug(String.format("failed to add Rule %s to Configuration",
+                    id));
         }
 
         return this;
@@ -196,7 +201,8 @@ public class Configuration {
 
         } else {
 
-            log.debug(String.format("failed to add source %s to Configuration", path));
+            log.debug(String.format("failed to add source %s to Configuration",
+                    path));
         }
 
         return this;

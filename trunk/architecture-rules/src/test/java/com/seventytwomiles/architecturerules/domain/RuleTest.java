@@ -20,6 +20,7 @@ import junit.framework.AssertionFailedError;
 import junit.framework.TestCase;
 
 
+
 /**
  * <p><code>Rule</code> Tester.</p>
  *
@@ -71,13 +72,14 @@ public class RuleTest extends TestCase {
      * Rule#addViolation(String)} and {@link Rule#removeViolation(String)}</p>
      *
      * @throws Exception when <code>Rule</code> throws an unexpected
-     *                   <code>Exception</code>
+     * <code>Exception</code>
      */
     public void testAddGetViolations() throws Exception {
-
-        final String violation1 = "com.seventytwomiles.dao";
-        final String violation2 = "com.seventytwomiles.dao.hibernate";
-        final String violation3 = "com.seventytwomiles.package.does.not.exist";
+        final JPackage violation1 = new JPackage("com.seventytwomiles.dao");
+        final JPackage violation2 = new JPackage(
+                "com.seventytwomiles.dao.hibernate");
+        final JPackage violation3 = new JPackage(
+                "com.seventytwomiles.package.does.not.exist");
 
         assertEquals(0, rule.getViolations().size());
 
@@ -108,10 +110,9 @@ public class RuleTest extends TestCase {
      * Rule#addViolation(String)} and {@link Rule#removeViolation(String)}</p>
      *
      * @throws Exception when <code>Rule</code> throws an unexpected
-     *                   <code>Exception</code>
+     * <code>Exception</code>
      */
     public void testAddGetViolations_illegalArguments() throws Exception {
-
         try {
             rule.addViolation("");
             fail("expected AssertionFailedError because violation can not be null");
@@ -120,9 +121,8 @@ public class RuleTest extends TestCase {
             assertTrue(message.indexOf("violation") > -1);
         }
 
-
         try {
-            rule.addViolation(null);
+            rule.addViolation(new JPackage(""));
             fail("expected AssertionFailedError because violation can not be null");
         } catch (final AssertionFailedError e) {
             final String message = e.getMessage();
@@ -131,7 +131,31 @@ public class RuleTest extends TestCase {
 
 
         try {
+            rule.addViolation((JPackage) null);
+            fail("expected AssertionFailedError because violation can not be null");
+        } catch (final AssertionFailedError e) {
+            final String message = e.getMessage();
+            assertTrue(message.indexOf("violation") > -1);
+        }
+
+        try {
+            rule.addViolation((String) null);
+            fail("expected AssertionFailedError because violation can not be null");
+        } catch (final AssertionFailedError e) {
+            final String message = e.getMessage();
+            assertTrue(message.indexOf("violation") > -1);
+        }
+
+        try {
             rule.getViolations().remove("com.seventytwomiles.dao");
+            fail("expected UnsupportedOperationException");
+        } catch (final UnsupportedOperationException e) {
+            // success
+        }
+
+        try {
+            rule.getViolations()
+                    .remove(new JPackage("com.seventytwomiles.dao"));
             fail("expected UnsupportedOperationException");
         } catch (final UnsupportedOperationException e) {
             // success
@@ -159,7 +183,15 @@ public class RuleTest extends TestCase {
 
 
         try {
-            rule.removeViolation(null);
+            rule.removeViolation((JPackage) null);
+            fail("expected AssertionFailedError because violation can not be null");
+        } catch (final AssertionFailedError e) {
+            final String message = e.getMessage();
+            assertTrue(message.indexOf("violation") > -1);
+        }
+
+        try {
+            rule.removeViolation((String) null);
             fail("expected AssertionFailedError because violation can not be null");
         } catch (final AssertionFailedError e) {
             final String message = e.getMessage();
@@ -193,10 +225,9 @@ public class RuleTest extends TestCase {
      * <p>Tests for {@link Rule#equals(Object)}  </p>
      *
      * @throws Exception when <code>Rule</code> throws an unexpected
-     *                   <code>Exception</code>
+     * <code>Exception</code>
      */
     public void testEquals() throws Exception {
-
         Rule that = new Rule("web");
         assertTrue(that.addPackage("com.seventytwomiles.web"));
 
@@ -216,10 +247,9 @@ public class RuleTest extends TestCase {
      * <p>Tests for {@link Rule#Rule(String)}</p>
      *
      * @throws Exception when <code>Rule</code> throws an unexpected
-     *                   <code>Exception</code>
+     * <code>Exception</code>
      */
     public void testInterestingConstructors() throws Exception {
-
         rule = new Rule("dao");
         assertTrue(rule.getId().equals("dao"));
     }
@@ -227,26 +257,19 @@ public class RuleTest extends TestCase {
 
     public void testInterestingConstructors_illegalArguments()
             throws Exception {
-
         try {
-
             rule = new Rule(null);
             fail("expected AssertionFailedError because id can not be null");
-
         } catch (final AssertionFailedError e) {
-
             final String message = e.getMessage();
             assertTrue(message.indexOf("id") > -1);
         }
 
 
         try {
-
             rule = new Rule("");
             fail("expected AssertionFailedError because id can not be empty");
-
         } catch (final AssertionFailedError e) {
-
             final String message = e.getMessage();
             assertTrue(message.indexOf("id") > -1);
         }
@@ -258,10 +281,9 @@ public class RuleTest extends TestCase {
      * Rule#getComment()} </p>
      *
      * @throws Exception when <code>Rule</code> throws an unexpected
-     *                   <code>Exception</code>
+     * <code>Exception</code>
      */
     public void testSetGetComment() throws Exception {
-
         rule.setComment("controllers are cool");
         assertTrue(rule.getComment().equals("controllers are cool"));
 
@@ -271,14 +293,10 @@ public class RuleTest extends TestCase {
 
 
     public void testSetGetComment_illegalArguments() throws Exception {
-
         try {
-
             rule.setComment(null);
             fail("expected AssertionFailedError because comment can not be null");
-
         } catch (final AssertionFailedError e) {
-
             final String message = e.getMessage();
             assertTrue(message.indexOf("comment") > -1);
         }
@@ -289,36 +307,28 @@ public class RuleTest extends TestCase {
      * <p>Tests for {@link Rule#setId(String)} and {@link Rule#getId()}</p>
      *
      * @throws Exception when <code>Rule</code> throws an unexpected
-     *                   <code>Exception</code>
+     * <code>Exception</code>
      */
     public void testSetGetId() throws Exception {
-
         rule.setId("controllers");
         assertTrue(rule.getId().equals("controllers"));
     }
 
 
     public void testSetGetId_illegalArguments() throws Exception {
-
         try {
-
             rule.setId("");
             fail("expected AssertionFailedError because id can not be empty");
-
         } catch (final AssertionFailedError e) {
-
             final String message = e.getMessage();
             assertTrue(message.indexOf("id") > -1);
         }
 
 
         try {
-
             rule.setId(null);
             fail("expected AssertionFailedError because id can not be null");
-
         } catch (final AssertionFailedError e) {
-
             final String message = e.getMessage();
             assertTrue(message.indexOf("id") > -1);
         }

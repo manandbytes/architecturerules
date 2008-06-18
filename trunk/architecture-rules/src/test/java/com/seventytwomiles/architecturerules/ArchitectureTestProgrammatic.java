@@ -68,9 +68,12 @@ public class ArchitectureTestProgrammatic
 
 
         try {
+
             assertTrue(doTests());
             fail("expected DependencyConstraintException");
+
         } catch (Exception e) {
+
             assertTrue(e instanceof DependencyConstraintException);
         }
     }
@@ -91,24 +94,25 @@ public class ArchitectureTestProgrammatic
         configuration.setDoCyclicDependencyTest(false);
         configuration.setThrowExceptionWhenNoPackages(true);
 
-        final Rule daoRule_notViolated = new Rule("dao");
-        daoRule_notViolated.setComment("dao may not access presentation.");
-        daoRule_notViolated.addPackage(
+        final Rule daoRuleIsNotViolated = new Rule("dao");
+        daoRuleIsNotViolated.setComment("dao may not access presentation.");
+        daoRuleIsNotViolated.addPackage(
                 "test.com.seventytwomiles.dao.hibernate");
-        daoRule_notViolated.addViolation("test.com.seventytwomiles.web.spring");
-
-        configuration.addRule(daoRule_notViolated);
-
-        final Rule presentationRule_violated = new Rule("presentation");
-        presentationRule_violated.setComment(
-                "presentation may not access dao directly.");
-        presentationRule_violated.addPackage(
+        daoRuleIsNotViolated.addViolation(
                 "test.com.seventytwomiles.web.spring");
-        presentationRule_violated.addViolation("test.com.seventytwomiles.dao");
-        presentationRule_violated.addViolation(
+
+        configuration.addRule(daoRuleIsNotViolated);
+
+        final Rule presentationRuleIsViolated = new Rule("presentation");
+        presentationRuleIsViolated
+                .setComment("presentation may not access dao directly.");
+        presentationRuleIsViolated.addPackage(
+                "test.com.seventytwomiles.web.spring");
+        presentationRuleIsViolated.addViolation("test.com.seventytwomiles.dao");
+        presentationRuleIsViolated.addViolation(
                 "test.com.seventytwomiles.dao.hibernate");
 
-        configuration.addRule(presentationRule_violated);
+        configuration.addRule(presentationRuleIsViolated);
 
 
         try {

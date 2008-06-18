@@ -443,7 +443,7 @@ public class ClassPathResource {
 
         stringBuffer.append(inString.substring(position));
 
-        // remember to append any characters to the right of a match
+        // remember to append any characters to the right of a matches
         return stringBuffer.toString();
     }
 

@@ -1,6 +1,5 @@
 package info.manandbytes.architecturerules.mojo;
 
-
 import com.seventytwomiles.architecturerules.configuration.Configuration;
 import com.seventytwomiles.architecturerules.configuration.ConfigurationFactory;
 import com.seventytwomiles.architecturerules.configuration.xml.DigesterConfigurationFactory;
@@ -9,17 +8,20 @@ import com.seventytwomiles.architecturerules.services.CyclicRedundancyService;
 import com.seventytwomiles.architecturerules.services.CyclicRedundancyServiceImpl;
 import com.seventytwomiles.architecturerules.services.RulesService;
 import com.seventytwomiles.architecturerules.services.RulesServiceImpl;
-import javassist.ClassPool;
-import javassist.NotFoundException;
+
 import junit.framework.TestCase;
+
 import org.apache.maven.plugin.logging.Log;
 import org.apache.maven.project.MavenProject;
 
-import javax.management.ServiceNotFoundException;
 import java.io.File;
 import java.util.Collection;
 import java.util.LinkedList;
 
+import javassist.ClassPool;
+import javassist.NotFoundException;
+
+import javax.management.ServiceNotFoundException;
 
 /**
  * <p>todo: javadocs</p>
@@ -28,34 +30,31 @@ import java.util.LinkedList;
  * @author mnereson
  * @see TestCase
  */
-public class MojoArchitectureRulesConfigurationTest extends TestCase {
-
-
+public class MojoArchitectureRulesConfigurationTest
+    extends TestCase
+{
     /**
      * <p>Holds configuration settings</p>
      *
      * @paramater configuration Configuration
      */
-    final private Configuration configuration = new Configuration();
-
+    final private Configuration configuration = new Configuration(  );
 
     /**
      * <p>todo: javadocs</p>
      *
      * @param file
      */
-    public MojoArchitectureRulesConfigurationTest(final File file) {
+    public MojoArchitectureRulesConfigurationTest( final File file )
+    {
+        final ConfigurationFactory factory = new DigesterConfigurationFactory( file.getAbsolutePath(  ) );
 
-        final ConfigurationFactory factory
-                = new DigesterConfigurationFactory(file.getAbsolutePath());
+        final boolean doCyclesTest = factory.doCyclicDependencyTest(  );
 
-        final boolean doCyclesTest = factory.doCyclicDependencyTest();
-
-        configuration.getRules().addAll(factory.getRules());
-        configuration.getSources().addAll(factory.getSources());
-        configuration.setDoCyclicDependencyTest(doCyclesTest);
+        configuration.getRules(  ).addAll( factory.getRules(  ) );
+        configuration.getSources(  ).addAll( factory.getSources(  ) );
+        configuration.setDoCyclicDependencyTest( doCyclesTest );
     }
-
 
     /**
      * <p>todo: javadocs</p>
@@ -63,34 +62,32 @@ public class MojoArchitectureRulesConfigurationTest extends TestCase {
      * @param mavenProject
      * @param log
      */
-    public void addSourcesFromThisProject(final MavenProject mavenProject,
-                                          final Log log) {
+    public void addSourcesFromThisProject( final MavenProject mavenProject, final Log log )
+    {
+        final Collection<SourceDirectory> currentSources = new LinkedList<SourceDirectory>(  );
 
-        final Collection<SourceDirectory> currentSources
-                = new LinkedList<SourceDirectory>();
+        appendBaseDir( mavenProject.getBasedir(  ) );
 
-        appendBaseDir(mavenProject.getBasedir());
+        String path = mavenProject.getBuild(  ).getOutputDirectory(  );
+        SourceDirectory outputDirectory = new SourceDirectory( path );
 
-        String path = mavenProject.getBuild().getOutputDirectory();
-        SourceDirectory outputDirectory = new SourceDirectory(path);
+        try
+        {
+            currentSources.add( outputDirectory );
+            ClassPool.getDefault(  ).appendPathList( outputDirectory.getPath(  ) );
 
-        try {
-
-            currentSources.add(outputDirectory);
-            ClassPool.getDefault().appendPathList(outputDirectory.getPath());
-
-            if (log.isDebugEnabled()) {
-                String message = outputDirectory.getPath() + " added";
-                log.debug(message);
+            if ( log.isDebugEnabled(  ) )
+            {
+                String message = outputDirectory.getPath(  ) + " added";
+                log.debug( message );
             }
+        } catch ( NotFoundException e )
+        {
+            log.error( e );
 
-        } catch (NotFoundException e) {
-
-            log.error(e);
             // e.printStackTrace();
         }
     }
-
 
     /**
      * <p> Add the current project's base directory to all paths from the
@@ -102,37 +99,34 @@ public class MojoArchitectureRulesConfigurationTest extends TestCase {
      *
      * @param baseDir File
      */
-    private void appendBaseDir(final File baseDir) {
-
-        Collection<SourceDirectory>
-                sourcesFromConfig = configuration.getSources();
+    private void appendBaseDir( final File baseDir )
+    {
+        Collection<SourceDirectory> sourcesFromConfig = configuration.getSources(  );
 
         /**
          * TODO: this loop setPath on baseDir +. What is it calling on
          * baseDir? toString? lets be explicit in whatever it is...
          */
-        for (SourceDirectory directory : sourcesFromConfig)
-            directory.setPath(baseDir + File.separator + directory.getPath());
-
+        for ( SourceDirectory directory : sourcesFromConfig )
+        {
+            directory.setPath( baseDir + File.separator + directory.getPath(  ) );
+        }
     }
-
 
     /**
      * <p>todo: javadocs</p>
      */
-    public void testArchitecture() {
+    public void testArchitecture(  )
+    {
+        final RulesService rulesService = new RulesServiceImpl( configuration );
 
-        final RulesService rulesService
-                = new RulesServiceImpl(configuration);
+        rulesService.performRulesTest(  );
 
-        rulesService.performRulesTest();
+        if ( configuration.shouldDoCyclicDependencyTest(  ) )
+        {
+            final CyclicRedundancyService redundancyService = new CyclicRedundancyServiceImpl( configuration );
 
-        if (configuration.shouldDoCyclicDependencyTest()) {
-
-            final CyclicRedundancyService redundancyService
-                    = new CyclicRedundancyServiceImpl(configuration);
-
-            redundancyService.performCyclicRedundancyCheck();
+            redundancyService.performCyclicRedundancyCheck(  );
         }
     }
 }

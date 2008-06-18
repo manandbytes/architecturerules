@@ -1,8 +1,8 @@
 package info.manandbytes.architecturerules.mojo;
 
-
 import com.seventytwomiles.architecturerules.configuration.ConfigurationFactory;
 import com.seventytwomiles.architecturerules.exceptions.CyclicRedundancyException;
+
 import org.apache.maven.model.Resource;
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
@@ -15,7 +15,6 @@ import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 
-
 /**
  * <p>Assert your architecture</p>
  *
@@ -26,9 +25,9 @@ import java.util.List;
  * @execute phase = "compile"
  * @requiresDependencyResolution compile
  */
-public class ArchitectureRulesMojo extends AbstractMojo {
-
-
+public class ArchitectureRulesMojo
+    extends AbstractMojo
+{
     /**
      * <p>Name of the configuration file used by Architecture Rules.</p>
      *
@@ -71,7 +70,6 @@ public class ArchitectureRulesMojo extends AbstractMojo {
      */
     private Collection<MavenProject> reactorProjects;
 
-
     /**
      * <p>Entry point to this plugin. Finds the configuration files, constructs
      * the tests, and executes the tests.</p>
@@ -80,61 +78,62 @@ public class ArchitectureRulesMojo extends AbstractMojo {
      * @throws MojoFailureException
      * @see AbstractMojo#execute()
      */
-    public void execute()
-            throws MojoExecutionException, MojoFailureException {
+    public void execute(  )
+                 throws MojoExecutionException, MojoFailureException
+    {
+        final Collection<CyclicRedundancyException> rulesExceptions = new LinkedList<CyclicRedundancyException>(  );
 
-        final Collection<CyclicRedundancyException> rulesExceptions
-                = new LinkedList<CyclicRedundancyException>();
-
-        final Log log = getLog();
+        final Log log = getLog(  );
 
         List<Resource> testResources;
         File configFile;
         MojoArchitectureRulesConfigurationTest test;
 
-        for (final MavenProject project : reactorProjects) {
-
-            if (log.isDebugEnabled())
-                log.debug("process " + project);
+        for ( final MavenProject project : reactorProjects )
+        {
+            if ( log.isDebugEnabled(  ) )
+            {
+                log.debug( "process " + project );
+            }
 
             /**
              * Skip the project resources, if the project is the parent
              * project and the parent project should be skipped.
              **/
-            boolean isAggregated = !project.getModules().isEmpty()
-                    || "pom".equals(project.getPackaging());
+            boolean isAggregated = ! project.getModules(  ).isEmpty(  ) || "pom".equals( project.getPackaging(  ) );
 
-            if ((isAggregated && skipRoot) || (!isAggregated && skip)) {
-
-                if (log.isDebugEnabled())
-                    log.debug("aggregated = " + isAggregated + "; skip "
-                            + project);
+            if ( ( isAggregated && skipRoot ) || ( ! isAggregated && skip ) )
+            {
+                if ( log.isDebugEnabled(  ) )
+                {
+                    log.debug( "aggregated = " + isAggregated + "; skip " + project );
+                }
 
                 continue;
             }
 
-            testResources = project.getTestResources();
-            includeConfigurationFile(testResources);
+            testResources = project.getTestResources(  );
+            includeConfigurationFile( testResources );
 
-            configFile = findConfigurationFile(testResources, log);
+            configFile = findConfigurationFile( testResources, log );
 
-            test = new MojoArchitectureRulesConfigurationTest(configFile);
-            test.addSourcesFromThisProject(project, log);
+            test = new MojoArchitectureRulesConfigurationTest( configFile );
+            test.addSourcesFromThisProject( project, log );
 
-            try {
-
-                test.testArchitecture();
-
-            } catch (CyclicRedundancyException e) {
-
-                rulesExceptions.add(e);
+            try
+            {
+                test.testArchitecture(  );
+            } catch ( CyclicRedundancyException e )
+            {
+                rulesExceptions.add( e );
             }
         }
 
-        if (!rulesExceptions.isEmpty())
-            throw new MojoExecutionException(rulesExceptions, "", "");
+        if ( ! rulesExceptions.isEmpty(  ) )
+        {
+            throw new MojoExecutionException( rulesExceptions, "", "" );
+        }
     }
-
 
     /**
      * Find the file with given {@link #configurationFileName} in the
@@ -144,42 +143,40 @@ public class ArchitectureRulesMojo extends AbstractMojo {
      * @param log           maven log to log with
      * @return File which may or may not exist
      */
-    private File findConfigurationFile(final List<Resource> testResources,
-                                       final Log log) {
+    private File findConfigurationFile( final List<Resource> testResources, final Log log )
+    {
+        File configFile = new File( "" );
 
-        File configFile = new File("");
+        for ( final Resource resource : testResources )
+        {
+            final String directory = resource.getDirectory(  );
 
-        for (final Resource resource : testResources) {
+            if ( log.isDebugEnabled(  ) )
+            {
+                log.debug( "try to find configuration in " + directory );
+            }
 
-            final String directory = resource.getDirectory();
+            if ( resource.getIncludes(  ).contains( configurationFileName ) && ( directory != null ) )
+            {
+                final String fileName = directory + File.separator + configurationFileName;
 
-            if (log.isDebugEnabled())
-                log.debug("try to find configuration in " + directory);
+                configFile = new File( fileName );
 
-            if (resource.getIncludes().contains(configurationFileName)
-                    && directory != null) {
+                if ( log.isDebugEnabled(  ) )
+                {
+                    final StringBuffer message = new StringBuffer(  );
+                    message.append( configurationFileName ).append( " " );
 
-                final String fileName
-                        = directory + File.separator + configurationFileName;
-
-                configFile = new File(fileName);
-
-                if (log.isDebugEnabled()) {
-
-                    final StringBuffer message = new StringBuffer();
-                    message.append(configurationFileName).append(" ");
-
-                    if (configFile.canRead()) {
-
-                        message.append("found in the directory ");
-                        message.append(configFile.getParent());
-
-                    } else {
-
-                        message.append("not found");
+                    if ( configFile.canRead(  ) )
+                    {
+                        message.append( "found in the directory " );
+                        message.append( configFile.getParent(  ) );
+                    } else
+                    {
+                        message.append( "not found" );
                     }
 
-                    log.debug(message.toString());
+                    log.debug( message.toString(  ) );
                 }
 
                 return configFile;
@@ -189,23 +186,24 @@ public class ArchitectureRulesMojo extends AbstractMojo {
         return configFile;
     }
 
-
     /**
      * <p>todo: javadocs</p>
      *
      * @param testResources
      */
-    private void includeConfigurationFile(
-            final List<Resource> testResources) {
-
-        for (final Resource rawResource : testResources) {
-
-            if (rawResource.getDirectory() != null)
-                rawResource.addInclude(configurationFileName);
+    private void includeConfigurationFile( final List<Resource> testResources )
+    {
+        for ( final Resource rawResource : testResources )
+        {
+            if ( rawResource.getDirectory(  ) != null )
+            {
+                rawResource.addInclude( configurationFileName );
+            }
         }
     }
 
-    String getConfigurationFileName() {
+    String getConfigurationFileName(  )
+    {
         return configurationFileName;
     }
 }

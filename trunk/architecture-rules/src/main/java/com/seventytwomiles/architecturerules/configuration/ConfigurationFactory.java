@@ -18,6 +18,9 @@ package com.seventytwomiles.architecturerules.configuration;
 import java.util.Collection;
 import java.util.List;
 
+import com.seventytwomiles.architecturerules.domain.Rule;
+import com.seventytwomiles.architecturerules.domain.SourceDirectory;
+
 
 
 /**
@@ -73,7 +76,7 @@ public interface ConfigurationFactory {
      *
      * @return Value for property <tt>rules</tt>.
      */
-    Collection getRules();
+    Collection<Rule> getRules();
 
 
     /**
@@ -81,7 +84,7 @@ public interface ConfigurationFactory {
      *
      * @return Value for property <tt>sources</tt>.
      */
-    List getSources();
+    List<SourceDirectory> getSources();
 
 
     /**

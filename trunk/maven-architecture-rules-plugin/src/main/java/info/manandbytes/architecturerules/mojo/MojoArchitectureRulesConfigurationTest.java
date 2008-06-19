@@ -11,10 +11,14 @@ import com.seventytwomiles.architecturerules.services.RulesServiceImpl;
 
 import junit.framework.TestCase;
 
+import org.apache.commons.io.FileUtils;
+
 import org.apache.maven.plugin.logging.Log;
 import org.apache.maven.project.MavenProject;
 
 import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Collection;
 import java.util.LinkedList;
 
@@ -34,6 +38,44 @@ public class MojoArchitectureRulesConfigurationTest
     extends TestCase
 {
     /**
+     * @author mn
+     * @todo read configuration file from jars in classpath in {@link DigesterConfigurationFactory} and remove this workaround
+     */
+    private final class FallbackDigesterConfigurationFactory
+        extends DigesterConfigurationFactory
+    {
+        /**
+         * @param configurationFileName not used actually
+         */
+        public FallbackDigesterConfigurationFactory( final String configurationFileName )
+        {
+            super( configurationFileName );
+        }
+
+        @Override
+        protected String getConfigurationAsXml( final String configurationFileName )
+        {
+            InputStream configStream =
+                getClass(  ).getClassLoader(  ).getResourceAsStream( ConfigurationFactory.DEFAULT_CONFIGURATION_FILE_NAME );
+            String configAsString;
+
+            try
+            {
+                configAsString = FileUtils.toString( configStream, null );
+
+                return configAsString;
+            } catch ( IOException e )
+            {
+                /**
+                 * just die if something goes wrong with our default
+                 * configuration file
+                 */
+                throw new IllegalArgumentException( e );
+            }
+        }
+    }
+
+    /**
      * <p>Holds configuration settings</p>
      *
      * @paramater configuration Configuration
@@ -47,7 +89,15 @@ public class MojoArchitectureRulesConfigurationTest
      */
     public MojoArchitectureRulesConfigurationTest( final File file )
     {
-        final ConfigurationFactory factory = new DigesterConfigurationFactory( file.getAbsolutePath(  ) );
+        ConfigurationFactory factory;
+
+        try
+        {
+            factory = new DigesterConfigurationFactory( file.getAbsolutePath(  ) );
+        } catch ( IllegalArgumentException e )
+        {
+            factory = new FallbackDigesterConfigurationFactory( "" );
+        }
 
         final boolean doCyclesTest = factory.doCyclicDependencyTest(  );
 

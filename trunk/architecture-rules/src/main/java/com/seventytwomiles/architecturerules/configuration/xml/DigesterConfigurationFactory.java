@@ -45,6 +45,9 @@ public class DigesterConfigurationFactory extends AbstractConfigurationFactory {
             DigesterConfigurationFactory.class);
 
 
+    /**
+     * @todo remove this (it's useless)?
+     */
     public DigesterConfigurationFactory() {
 
     }

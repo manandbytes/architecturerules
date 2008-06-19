@@ -11,6 +11,7 @@ import org.apache.maven.plugin.logging.Log;
 import org.apache.maven.project.MavenProject;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
@@ -86,7 +87,6 @@ public class ArchitectureRulesMojo
         final Log log = getLog(  );
 
         List<Resource> testResources;
-        File configFile;
         MojoArchitectureRulesConfigurationTest test;
 
         for ( final MavenProject project : reactorProjects )
@@ -115,7 +115,17 @@ public class ArchitectureRulesMojo
             testResources = project.getTestResources(  );
             includeConfigurationFile( testResources );
 
-            configFile = findConfigurationFile( testResources, log );
+            File configFile = null;
+
+            try
+            {
+                configFile = findConfigurationFile( testResources, log );
+            } catch ( FileNotFoundException e1 )
+            {
+                log.warn( e1.getMessage(  ) );
+                log.warn( "fallback to use default config" );
+                configFile = new File( ConfigurationFactory.DEFAULT_CONFIGURATION_FILE_NAME );
+            }
 
             test = new MojoArchitectureRulesConfigurationTest( configFile );
             test.addSourcesFromThisProject( project, log );
@@ -141,49 +151,50 @@ public class ArchitectureRulesMojo
      *
      * @param testResources List<Resource>
      * @param log           maven log to log with
-     * @return File which may or may not exist
+     * @return File which may exist
+     * @throws FileNotFoundException
      */
     private File findConfigurationFile( final List<Resource> testResources, final Log log )
+                                throws FileNotFoundException
     {
-        File configFile = new File( "" );
-
         for ( final Resource resource : testResources )
         {
             final String directory = resource.getDirectory(  );
+            // @todo I'm not sure if a resource's directory may be null
+            assert( directory != null );
 
             if ( log.isDebugEnabled(  ) )
             {
                 log.debug( "try to find configuration in " + directory );
             }
 
-            if ( resource.getIncludes(  ).contains( configurationFileName ) && ( directory != null ) )
+            final boolean resourceContainsConfigFile = resource.getIncludes(  ).contains( configurationFileName );
+            final String fileName = directory + File.separator + configurationFileName;
+            File configFile = new File( fileName );
+
+            final StringBuffer message = new StringBuffer(  );
+            message.append( configurationFileName ).append( " " );
+
+            if ( resourceContainsConfigFile && configFile.exists(  ) && configFile.isFile(  ) &&
+                     configFile.canRead(  ) )
             {
-                final String fileName = directory + File.separator + configurationFileName;
-
-                configFile = new File( fileName );
-
                 if ( log.isDebugEnabled(  ) )
                 {
-                    final StringBuffer message = new StringBuffer(  );
-                    message.append( configurationFileName ).append( " " );
-
-                    if ( configFile.canRead(  ) )
-                    {
-                        message.append( "found in the directory " );
-                        message.append( configFile.getParent(  ) );
-                    } else
-                    {
-                        message.append( "not found" );
-                    }
+                    message.append( "found in the directory " );
+                    message.append( configFile.getParent(  ) );
 
                     log.debug( message.toString(  ) );
                 }
 
                 return configFile;
+            } else if ( log.isDebugEnabled(  ) )
+            {
+                message.append( "not found" );
+                log.debug( message.toString(  ) );
             }
         }
 
-        return configFile;
+        throw new FileNotFoundException( configurationFileName + " not found in " + testResources );
     }
 
     /**

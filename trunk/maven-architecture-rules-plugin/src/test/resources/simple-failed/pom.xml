@@ -3,7 +3,7 @@
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>info.manandbytes.architecture-rules</groupId>
-    <artifactId>simple</artifactId>
+    <artifactId>simple-failed</artifactId>
     <packaging>jar</packaging>
     <version>0.0-SNAPSHOT</version>
     <name>Simple</name>

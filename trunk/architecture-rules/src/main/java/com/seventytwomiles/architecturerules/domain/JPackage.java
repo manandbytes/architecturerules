@@ -64,7 +64,7 @@ public class JPackage {
      * @param path String to set for {@link #path}
      */
     public JPackage(final String path) {
-        this.path = path;
+        setPath(path);
     }
 
 
@@ -84,6 +84,7 @@ public class JPackage {
      * @param path Value to set for property <tt>path</tt>
      */
     public void setPath(final String path) {
+
         this.path = path;
     }
 
@@ -167,6 +168,15 @@ public class JPackage {
      * <p>Manipulates the <tt>path</tt> value to add Regular Expression support
      * then attempts to match the Reg Ex against the given <tt>Object</tt>.</p>
      *
+     * <p>This supports <dl> <dt>terminating package</dt> <dd>1.2.*</dd>
+     * <dt>terminating package or sub package description</dt> <dd>1.2..*</dd>
+     * <dt>internal package</dt> <dd>1.*.2</dd> <dt>internal package or sub
+     * package</dt> <dd>1.*..4</dd> <dt>internal and terminating</dt>
+     * <dd>1.*.3.*</dd> <dd>1.*.3..*</dd><dd>1..*.5.*</dd> </dl></p>
+     *
+     *
+     * <p>TODO: This does not support the single character <tt>*</tt> yet.</p>
+     *
      * @param that <code>Object</code> of type <code>String</code> or
      * <code>JPackage</code>
      * @return boolean <tt>true</tt> when the given <tt>Object</tt> is a
@@ -175,6 +185,10 @@ public class JPackage {
      */
     private boolean regExMatch(final Object that) {
 
+        /**
+         * TODO: code support for path = "*"
+         * TODO: then Update javadoc
+         */
         final String regex = this.path
                 // foo.bar exactly foo.bar
                 .replaceAll("\\.", "\\\\.")

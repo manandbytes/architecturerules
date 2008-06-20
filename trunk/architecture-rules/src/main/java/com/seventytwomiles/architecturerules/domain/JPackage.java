@@ -37,44 +37,92 @@ public class JPackage {
     private static final Log log
             = LogFactory.getLog(JPackage.class);
 
-    String path;
+    /**
+     * <p>All of the symbols or characters that represent a wildcard.</p>
+     */
+    private static final char[] WILDCHARS = new char[]{'*'};
+
+    /**
+     * <p>period separated path to package such as <samp>com.seventeytwomiles.architecturerules.domain</samp>.</p>
+     *
+     * @parameter path String
+     */
+    private String path;
 
 
+    /**
+     * <p>Constructs a new <code>JPackage</code></p>
+     */
     public JPackage() {
     }
 
 
+    /**
+     * <p>Constructs a new <code>JPackage</code> with the given
+     * <tt>path</tt></p>
+     *
+     * @param path String to set for {@link #path}
+     */
     public JPackage(final String path) {
         this.path = path;
     }
 
 
+    /**
+     * <p>Getter for property {@link #path}.</p>
+     *
+     * @return Value for property <tt>path</tt>.
+     */
     public String getPath() {
         return path;
     }
 
 
+    /**
+     * <p>Setter for property  {@link #path}</p>
+     *
+     * @param path Value to set for property <tt>path</tt>
+     */
     public void setPath(final String path) {
         this.path = path;
     }
 
 
+    /**
+     * @see Object#equals(Object)
+     */
     public boolean equals(final Object o) {
 
         return matches(o);
     }
 
 
+    /**
+     * @see Object#hashCode()
+     */
     public int hashCode() {
         return (path != null ? path.hashCode() : 0);
     }
 
 
+    /**
+     * @see Object#toString()
+     */
     public String toString() {
         return this.path;
     }
 
 
+    /**
+     * <p>Determines if a given <code>JPackage</code> or <code>String</code> is
+     * represented by this <code>JPackage</code>.</p>
+     *
+     * <p>If given Object is empty String then <tt>false<tt><</p>
+     *
+     * @param that a String or JPackage
+     * @return boolean <tt>true</tt> when a perfect match is found or when the
+     *         wildcards match.
+     */
     public boolean matches(final Object that) {
 
         if (!(that instanceof String)
@@ -83,32 +131,63 @@ public class JPackage {
             return false;
         }
 
-        if (this.path.contains("*")) {
+        if (that.equals(""))
+            return false;
+
+
+        if (hasWildcards()) {
 
             return regExMatch(that);
 
         } else {
 
             return prefectMatch(that);
-
         }
     }
 
 
+    /**
+     * <p>Determines if this <code>JPackage</code> uses wildcards to match more
+     * than one package.</p>
+     *
+     * @return boolean <tt>true</tt> when <tt>path</tt> contains any of the
+     *         {@link #WILDCHARS}.
+     */
+    private boolean hasWildcards() {
+
+        for (final char wildChar : WILDCHARS)
+            if (this.path.contains(String.valueOf(wildChar)))
+                return true;
+
+        return false;
+    }
+
+
+    /**
+     * <p>Manipulates the <tt>path</tt> value to add Regular Expression support
+     * then attempts to match the Reg Ex against the given <tt>Object</tt>.</p>
+     *
+     * @param that <code>Object</code> of type <code>String</code> or
+     * <code>JPackage</code>
+     * @return boolean <tt>true</tt> when the given <tt>Object</tt> is a
+     *         supported type, and then regular expression that is constructed
+     *         matches.
+     */
     private boolean regExMatch(final Object that) {
 
         final String regex = this.path
-                .replaceAll("\\.", "\\\\.")  // foo.bar exactly foo.bar
+                // foo.bar exactly foo.bar
+                .replaceAll("\\.", "\\\\.")
+                        // foo.bar.1 or foo.bar.1.2 and so on...
                 .replaceAll("\\\\.\\\\.\\\\*", "\\\\.\\[A-Za-z_0-9.]")
-                .replaceAll("\\.\\*", "\\.[A-Za-z_0-9]*"); // packages only
+                        // packages only
+                .replaceAll("\\.\\*", "\\.[A-Za-z_0-9]*");
 
         final Pattern pattern = Pattern.compile(regex);
         final Matcher matcher;
 
-        boolean matched;
-        /**
-         * Test Strings match
-         */
+        final boolean matched;
+
         if (that instanceof String) {
 
             final String thatPackage = (String) that;
@@ -129,16 +208,22 @@ public class JPackage {
         }
 
         if (matched)
-            System.out.println(format("matched %s to %s", this.path, that));
+            log.debug(format("matched %s to %s", this.path, that));
 
         return matched;
     }
 
 
+    /**
+     * <p>Matches by String equals against a String or JPackage</p>
+     *
+     * @param that <code>Object</code> of type <code>String</code> or
+     * <code>JPackage</code>
+     * @return <tt>true</tt> when the given <tt>Object</tt> is a supported type,
+     *         and an exact match to this <code>JPackage</code>.
+     */
     private boolean prefectMatch(final Object that) {
-        /**
-         * Test Strings match
-         */
+
         if (that instanceof String) {
 
             final String thatPackage = (String) that;

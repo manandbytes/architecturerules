@@ -36,6 +36,7 @@ public class Rule {
 
 
     private static final Log log = LogFactory.getLog(Rule.class);
+
     /**
      * <p>Unique id of this Rule as defined. Used to refer to this Rule in
      * messages.</p>
@@ -43,6 +44,7 @@ public class Rule {
      * @parameter id String
      */
     private String id;
+
     /**
      * <p>Collection of Strings. These Strings are package names. The names of
      * the packages that will be check against the {@link #violations}. These
@@ -51,6 +53,7 @@ public class Rule {
      * @parameter violations Collection
      */
     private final Collection<JPackage> packages = new HashSet<JPackage>();
+
     /**
      * <p>Comment about this rule that could be used in messages or just to make
      * the configuration file more readable.</p>
@@ -58,6 +61,7 @@ public class Rule {
      * @parameter comment String
      */
     private String comment;
+
     /**
      * <p>Collection of Strings. These Strings are package names. The names of
      * the packages that the {@link #packages} may NOT depend upon</p>

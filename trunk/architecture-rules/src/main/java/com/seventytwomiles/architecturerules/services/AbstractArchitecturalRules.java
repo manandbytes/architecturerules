@@ -112,8 +112,8 @@ abstract class AbstractArchitecturalRules {
         jdepend = new JDepend();
 
         /* read source paths from configuration file */
-        final Collection<SourceDirectory> sources = this.configuration
-                .getSources();
+        final Collection<SourceDirectory> sources
+                = this.configuration.getSources();
 
         /* add each source to jdepend */
         for (final SourceDirectory source : sources)
@@ -273,7 +273,7 @@ abstract class AbstractArchitecturalRules {
 
             log.debug("checking dependencies on package " + javaPackage);
 
-            if (javaPackage.equals(layer))
+            if (layer.equals(javaPackage))
                 testEfferentsValid(violations, analyzedPackage);
         }
     }

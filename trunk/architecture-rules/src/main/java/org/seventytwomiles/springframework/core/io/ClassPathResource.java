@@ -12,11 +12,11 @@
  *         http://architecturerules.googlecode.com/svn/docs/index.html
  */
 
-package org.springframework.core.io;
+package org.seventytwomiles.springframework.core.io;
 
 
-import org.springframework.util.ClassUtils;
-import org.springframework.util.ResourceUtils;
+import org.seventytwomiles.springframework.util.ClassUtils;
+import org.seventytwomiles.springframework.util.ResourceUtils;
 
 import java.io.File;
 import java.io.FileNotFoundException;

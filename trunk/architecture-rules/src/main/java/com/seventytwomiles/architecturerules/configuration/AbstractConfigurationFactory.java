@@ -15,10 +15,12 @@
 package com.seventytwomiles.architecturerules.configuration;
 
 
-import org.apache.commons.io.FileUtils;
+import com.seventytwomiles.architecturerules.domain.Rule;
+import com.seventytwomiles.architecturerules.domain.SourceDirectory;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.springframework.core.io.ClassPathResource;
+import org.seventytwomiles.springframework.core.io.ClassPathResource;
+import org.seventytwomiles.springframework.io.FileUtils;
 
 import java.io.File;
 import java.io.IOException;
@@ -27,8 +29,6 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 
-import com.seventytwomiles.architecturerules.domain.Rule;
-import com.seventytwomiles.architecturerules.domain.SourceDirectory;
 
 
 /**
@@ -57,7 +57,8 @@ public abstract class AbstractConfigurationFactory
      *
      * @parameter sources Set
      */
-    protected final List<SourceDirectory> sources = new ArrayList<SourceDirectory>();
+    protected final List<SourceDirectory> sources
+            = new ArrayList<SourceDirectory>();
 
     /**
      * <p>Weather or not to throw exception when no packages are found for a
@@ -119,8 +120,7 @@ public abstract class AbstractConfigurationFactory
      * <p>Read Xml configuration file to String.</p>
      *
      * @param configurationFileName String name of the XML file in the classpath
-     *                              to load and read OR the complete path to the
-     *                              file.
+     * to load and read OR the complete path to the file.
      * @return String returns the contents of the configurationFile
      */
     protected String getConfigurationAsXml(final String configurationFileName) {

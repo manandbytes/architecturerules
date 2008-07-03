@@ -12,7 +12,7 @@
  *         http://architecturerules.googlecode.com/svn/docs/index.html
  */
 
-package org.springframework.util;
+package org.seventytwomiles.springframework.util;
 
 
 import java.io.File;

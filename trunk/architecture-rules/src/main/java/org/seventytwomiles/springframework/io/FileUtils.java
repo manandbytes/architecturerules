@@ -12,10 +12,11 @@
  *         http://architecturerules.googlecode.com/svn/docs/index.html
  */
 
-package org.apache.commons.io;
+package org.seventytwomiles.springframework.io;
 
 
 import java.io.*;
+
 
 
 /**
@@ -56,12 +57,12 @@ public class FileUtils {
      * encoding can differ between platforms and therefore results in
      * inconsistent results. </p>
      *
-     * @param file     the file to read
+     * @param file the file to read
      * @param encoding the encoding to use, null means platform default
      * @return The file contents or null if read failed.
-     * @throws IOException                  in case of an I/O error
+     * @throws IOException in case of an I/O error
      * @throws UnsupportedEncodingException if the encoding is not supported by
-     *                                      the VM
+     * the VM
      */
     public static String readFileToString(final File file,
                                           final String encoding)
@@ -87,11 +88,11 @@ public class FileUtils {
      * This method buffers the input internally, so there is no need to use a
      * <code>BufferedInputStream</code>.</p>
      *
-     * @param input    the <code>InputStream</code> to read from
+     * @param input the <code>InputStream</code> to read from
      * @param encoding the encoding to use, null means platform default
      * @return the requested String
      * @throws NullPointerException if the input is null
-     * @throws IOException          if an I/O error occurs
+     * @throws IOException if an I/O error occurs
      */
     public static String toString(final InputStream input,
                                   final String encoding) throws IOException {
@@ -111,10 +112,10 @@ public class FileUtils {
      * a <code>BufferedInputStream</code>. <p> This method uses {@link
      * InputStreamReader}.</p>
      *
-     * @param input  the <code>InputStream</code> to read from
+     * @param input the <code>InputStream</code> to read from
      * @param output the <code>Writer</code> to write to
      * @throws NullPointerException if the input or output is null
-     * @throws IOException          if an I/O error occurs
+     * @throws IOException if an I/O error occurs
      * @since Commons IO 1.1
      */
     public static void copy(final InputStream input, final Writer output)
@@ -134,11 +135,11 @@ public class FileUtils {
      * found at <a href="http://www.iana.org/assignments/character-sets">IANA</a>.
      * <p> This method uses {@link InputStreamReader}.</p>
      *
-     * @param inputStream  the <code>InputStream</code> to read from
+     * @param inputStream the <code>InputStream</code> to read from
      * @param outputStream the <code>Writer</code> to write to
-     * @param encoding     the encoding to use, null means platform default
+     * @param encoding the encoding to use, null means platform default
      * @throws NullPointerException if the inputStream or outputStream is null
-     * @throws IOException          if an I/O error occurs
+     * @throws IOException if an I/O error occurs
      * @since Commons IO 1.1
      */
     public static void copy(final InputStream inputStream,
@@ -163,11 +164,11 @@ public class FileUtils {
      * This method buffers the input internally, so there is no need to use a
      * <code>BufferedReader</code>.</p>
      *
-     * @param input  the <code>Reader</code> to read from
+     * @param input the <code>Reader</code> to read from
      * @param output the <code>Writer</code> to write to
      * @return the number of characters copied
      * @throws NullPointerException if the input or output is null
-     * @throws IOException          if an I/O error occurs
+     * @throws IOException if an I/O error occurs
      * @since Commons IO 1.1
      */
     public static int copy(final Reader input, final Writer output)
@@ -196,10 +197,10 @@ public class FileUtils {
      * Due to the implementation of OutputStreamWriter, this method performs a
      * flush. <p> This method uses {@link OutputStreamWriter}.</code>
      *
-     * @param input  the <code>Reader</code> to read from
+     * @param input the <code>Reader</code> to read from
      * @param output the <code>OutputStream</code> to write to
      * @throws NullPointerException if the input or output is null
-     * @throws IOException          if an I/O error occurs
+     * @throws IOException if an I/O error occurs
      * @since Commons IO 1.1
      */
     public static void copy(final Reader input, final OutputStream output)

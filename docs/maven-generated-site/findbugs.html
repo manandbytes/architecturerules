@@ -9,9 +9,10 @@
 
 
 
-<html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <title>architecture-rules - FindBugs Bug Detector Report</title>
+    <title>Architecture Rules - FindBugs Bug Detector Report</title>
     <style type="text/css" media="all">
       @import url("./css/maven-base.css");
       @import url("./css/maven-theme.css");
@@ -24,7 +25,7 @@
     <div id="banner">
                     <span id="bannerLeft">
     
-            architecture-rules
+            Architecture Rules
     
             </span>
                     <div class="clear">
@@ -39,17 +40,19 @@
     
   
   
+    
             <div class="xleft">
-        Last Published: 01/19/2008
+        Last Published: 2008-07-04
                       </div>
-            <div class="xright">      <a href="">architecture-rules</a>
-          
+            <div class="xright">            <a href="">Architecture Rules</a>
+            
   
 
   
     
   
   
+    
   </div>
       <div class="clear">
         <hr/>
@@ -64,10 +67,9 @@
     
   
   
-                   <ul>
-          </ul>
-          <h5>Project Documentation</h5>
-        <ul>
+    
+                             <h5>Project Documentation</h5>
+            <ul>
               
                 
               
@@ -90,8 +92,8 @@
       
               
         <li class="collapsed">
-              <a href="project-info.html">Project Information</a>
-              </li>
+                    <a href="project-info.html">Project Information</a>
+                </li>
               
                 
               
@@ -110,46 +112,64 @@
       
             
       
+            
+      
+            
+      
+            
+      
               
             <li class="expanded">
-              <a href="project-reports.html">Project Reports</a>
-                <ul>
+                    <a href="project-reports.html">Project Reports</a>
+                  <ul>
                   
     <li class="none">
-              <a href="cobertura/index.html">Cobertura Test Coverage</a>
-        </li>
+                    <a href="cobertura/index.html">Cobertura Test Coverage</a>
+          </li>
                   
     <li class="none">
-              <a href="cpd.html">CPD Report</a>
-        </li>
+                    <a href="cpd.html">CPD Report</a>
+          </li>
                   
     <li class="none">
               <strong>FindBugs Report</strong>
         </li>
                   
     <li class="none">
-              <a href="apidocs/index.html">JavaDocs</a>
-        </li>
+                    <a href="apidocs/index.html">JavaDocs</a>
+          </li>
                   
     <li class="none">
-              <a href="surefire-report.html">Maven Surefire Report</a>
-        </li>
+                    <a href="javancss.html">JavaNCSS Report</a>
+          </li>
                   
     <li class="none">
-              <a href="pmd.html">PMD Report</a>
-        </li>
+                    <a href="jdepend-report.html">JDepend</a>
+          </li>
                   
     <li class="none">
-              <a href="jxr.html">Source Xref</a>
-        </li>
+                    <a href="pmd.html">PMD Report</a>
+          </li>
                   
     <li class="none">
-              <a href="testapidocs/index.html">Test JavaDocs</a>
-        </li>
+                    <a href="jxr.html">Source Xref</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="surefire-report.html">Surefire Report</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="taglist.html">Tag List</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="testapidocs/index.html">Test JavaDocs</a>
+          </li>
               </ul>
         </li>
           </ul>
-                                       <a href="http://maven.apache.org/" title="Built by Maven" id="poweredBy">
+                                           <a href="http://maven.apache.org/" title="Built by Maven" class="poweredBy">
             <img alt="Built by Maven" src="./images/logos/maven-feather.png"></img>
           </a>
                        
@@ -159,11 +179,130 @@
     
   
   
+    
         </div>
     </div>
     <div id="bodyColumn">
       <div id="contentBox">
-        <div class="section"><h2>FindBugs Bug Detector Report</h2><p>The following document contains the results of <a href="http://findbugs.sourceforge.net">FindBugs Report</a></p><p>FindBugs Version is <i>1.2.0</i></p><p>Threshold is <i>Low</i></p><p>Effort is <i>Default</i></p></div><h2>Summary</h2><table class="bodyTable"><tr class="a"><th>Classes</th><th>Bugs</th><th>Errors</th><th>Missing Classes</th></tr><tr class="b"><td>146</td><td>4</td><td>0</td><td>0</td></tr></table></p></div><h2>Files</h2><table class="bodyTable"><tr class="a"><th>Class</th><th>Bugs</th></tr><tr class="b"><td><a href="#com.seventytwomiles.architecturerules.services.AbstractArchitecturalRules">com.seventytwomiles.architecturerules.services.AbstractArchitecturalRules</a></td><td>1</td></tr><tr class="a"><td><a href="#org.springframework.core.io.ClassPathResource">org.springframework.core.io.ClassPathResource</a></td><td>2</td></tr><tr class="b"><td><a href="#org.springframework.util.ResourceUtils">org.springframework.util.ResourceUtils</a></td><td>1</td></tr></table><a name="com.seventytwomiles.architecturerules.services.AbstractArchitecturalRules"></a><div class="section"><h3>com.seventytwomiles.architecturerules.services.AbstractArchitecturalRules</h3><table class="bodyTable"><tr class="a"><th>Bug</th><th>Category</th><th>Details</th><th>Line</th></tr><tr class="b"><td>Dead store to message in com.seventytwomiles.architecturerules.services.AbstractArchitecturalRules.testLayeringValid(String, Collection)</td><td>STYLE</td><td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#DLS_DEAD_LOCAL_STORE">DLS_DEAD_LOCAL_STORE</a></td><td>268</td></tr></table></div><a name="org.springframework.core.io.ClassPathResource"></a><div class="section"><h3>org.springframework.core.io.ClassPathResource</h3><table class="bodyTable"><tr class="a"><th>Bug</th><th>Category</th><th>Details</th><th>Line</th></tr><tr class="b"><td>org.springframework.core.io.ClassPathResource defines equals and uses Object.hashCode()</td><td>BAD_PRACTICE</td><td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#HE_EQUALS_USE_HASHCODE">HE_EQUALS_USE_HASHCODE</a></td><td>220-228</td></tr><tr class="a"><td>Should org.springframework.core.io.ClassPathResource.toStringArray(Collection) return a zero length array rather than null?</td><td>STYLE</td><td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#PZLA_PREFER_ZERO_LENGTH_ARRAYS">PZLA_PREFER_ZERO_LENGTH_ARRAYS</a></td><td>558</td></tr></table></div><a name="org.springframework.util.ResourceUtils"></a><div class="section"><h3>org.springframework.util.ResourceUtils</h3><table class="bodyTable"><tr class="b"><th>Bug</th><th>Category</th><th>Details</th><th>Line</th></tr><tr class="a"><td>Call to equals() comparing different types in org.springframework.util.ResourceUtils.getFile(URL, String)</td><td>CORRECTNESS</td><td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#EC_UNRELATED_TYPES">EC_UNRELATED_TYPES</a></td><td>63</td></tr></table></div></div>
+        <div class="section"><h2>FindBugs Bug Detector Report</h2>
+<p>The following document contains the results of <a href="http://findbugs.sourceforge.net" class="externalLink">FindBugs Report</a>
+</p>
+<p>FindBugs Version is <i>1.2.0</i>
+</p>
+<p>Threshold is <i>Low</i>
+</p>
+<p>Effort is <i>Default</i>
+</p>
+</div>
+<h2>Summary</h2>
+<table class="bodyTable"><tr class="a"><th>Classes</th>
+<th>Bugs</th>
+<th>Errors</th>
+<th>Missing Classes</th>
+</tr>
+<tr class="b"><td>155</td>
+<td>6</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</table>
+</p>
+</div>
+<h2>Files</h2>
+<table class="bodyTable"><tr class="a"><th>Class</th>
+<th>Bugs</th>
+</tr>
+<tr class="b"><td><a href="#com.seventytwomiles.architecturerules.domain.Rule">com.seventytwomiles.architecturerules.domain.Rule</a>
+</td>
+<td>2</td>
+</tr>
+<tr class="a"><td><a href="#com.seventytwomiles.architecturerules.services.AbstractArchitecturalRules">com.seventytwomiles.architecturerules.services.AbstractArchitecturalRules</a>
+</td>
+<td>1</td>
+</tr>
+<tr class="b"><td><a href="#org.seventytwomiles.springframework.core.io.ClassPathResource">org.seventytwomiles.springframework.core.io.ClassPathResource</a>
+</td>
+<td>2</td>
+</tr>
+<tr class="a"><td><a href="#org.seventytwomiles.springframework.util.ResourceUtils">org.seventytwomiles.springframework.util.ResourceUtils</a>
+</td>
+<td>1</td>
+</tr>
+</table>
+<a name="com.seventytwomiles.architecturerules.domain.Rule"></a>
+<div class="section"><h3>com.seventytwomiles.architecturerules.domain.Rule</h3>
+<table class="bodyTable"><tr class="b"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+</tr>
+<tr class="a"><td>Call to equals() comparing different types in com.seventytwomiles.architecturerules.domain.Rule.addViolation(JPackage)</td>
+<td>CORRECTNESS</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#EC_UNRELATED_TYPES" class="externalLink">EC_UNRELATED_TYPES</a>
+</td>
+<td>226</td>
+</tr>
+<tr class="b"><td>java.lang.String is incompatible with expected argument type com.seventytwomiles.architecturerules.domain.JPackage in com.seventytwomiles.architecturerules.domain.Rule.removePackage(String)</td>
+<td>CORRECTNESS</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#GC_UNRELATED_TYPES" class="externalLink">GC_UNRELATED_TYPES</a>
+</td>
+<td>410</td>
+</tr>
+</table>
+</div>
+<a name="com.seventytwomiles.architecturerules.services.AbstractArchitecturalRules"></a>
+<div class="section"><h3>com.seventytwomiles.architecturerules.services.AbstractArchitecturalRules</h3>
+<table class="bodyTable"><tr class="a"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+</tr>
+<tr class="b"><td>Dead store to message in com.seventytwomiles.architecturerules.services.AbstractArchitecturalRules.testLayeringValid(JPackage, Collection)</td>
+<td>STYLE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#DLS_DEAD_LOCAL_STORE" class="externalLink">DLS_DEAD_LOCAL_STORE</a>
+</td>
+<td>259</td>
+</tr>
+</table>
+</div>
+<a name="org.seventytwomiles.springframework.core.io.ClassPathResource"></a>
+<div class="section"><h3>org.seventytwomiles.springframework.core.io.ClassPathResource</h3>
+<table class="bodyTable"><tr class="a"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+</tr>
+<tr class="b"><td>org.seventytwomiles.springframework.core.io.ClassPathResource defines equals and uses Object.hashCode()</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#HE_EQUALS_USE_HASHCODE" class="externalLink">HE_EQUALS_USE_HASHCODE</a>
+</td>
+<td>216-224</td>
+</tr>
+<tr class="a"><td>Should org.seventytwomiles.springframework.core.io.ClassPathResource.toStringArray(Collection) return a zero length array rather than null?</td>
+<td>STYLE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#PZLA_PREFER_ZERO_LENGTH_ARRAYS" class="externalLink">PZLA_PREFER_ZERO_LENGTH_ARRAYS</a>
+</td>
+<td>555</td>
+</tr>
+</table>
+</div>
+<a name="org.seventytwomiles.springframework.util.ResourceUtils"></a>
+<div class="section"><h3>org.seventytwomiles.springframework.util.ResourceUtils</h3>
+<table class="bodyTable"><tr class="b"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+</tr>
+<tr class="a"><td>Call to equals() comparing different types in org.seventytwomiles.springframework.util.ResourceUtils.getFile(URL, String)</td>
+<td>CORRECTNESS</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#EC_UNRELATED_TYPES" class="externalLink">EC_UNRELATED_TYPES</a>
+</td>
+<td>59</td>
+</tr>
+</table>
+</div>
+</div>
+
       </div>
     </div>
     <div class="clear">
@@ -171,7 +310,7 @@
     </div>
     <div id="footer">
       <div class="xright">&#169;  
-          2008
+          2007-2008
     
           
   
@@ -180,6 +319,7 @@
     
   
   
+    
   </div>
       <div class="clear">
         <hr/>

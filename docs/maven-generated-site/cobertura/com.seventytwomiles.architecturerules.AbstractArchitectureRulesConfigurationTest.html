@@ -19,42 +19,42 @@
 <tr>
   <td class="numLine">&nbsp;1</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="keyword">package</span> com.seventytwomiles.architecturerules;</pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">/**</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;2</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment"> * Copyright 2007 the original author or authors.</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;3</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">/*</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment"> *</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;4</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment"> * Copyright 2007 the original author or authors.</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment"> * Licensed under the Apache License, Version 2.0 (the "License");</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;5</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment"> *</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment"> * you may not use this file except in compliance with the License.</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;6</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment"> * Licensed under the Apache License, Version 2.0 (the "License");</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment"> * You may obtain a copy of the License at</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;7</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment"> * you may not use this file except in compliance with the License.</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment"> *</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;8</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment"> * You may obtain a copy of the License at</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment"> *         http://www.apache.org/licenses/LICENSE-2.0</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;9</td>
@@ -64,322 +64,322 @@
 <tr>
   <td class="numLine">&nbsp;10</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment"> * http://www.apache.org/licenses/LICENSE-2.0</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment"> * For more information visit</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;11</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment"> *</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment"> *         http://72miles.com and</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;12</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment"> * Unless required by applicable law or agreed to in writing, software</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment"> *         http://architecturerules.googlecode.com/svn/docs/index.html</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;13</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment"> * distributed under the License is distributed on an "AS IS" BASIS,</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment"> */</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;14</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment"> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;15</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment"> * See the License for the specific language governing permissions and</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="keyword">package</span> com.seventytwomiles.architecturerules;</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;16</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment"> * limitations under the License.</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;17</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment"> *</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;18</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment"> * For more information visit</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="keyword">import</span> com.seventytwomiles.architecturerules.configuration.Configuration;</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;19</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment"> * http://architecturerules.googlecode.com/svn/docs/index.html</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="keyword">import</span> com.seventytwomiles.architecturerules.configuration.ConfigurationFactory;</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;20</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment"> */</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="keyword">import</span> com.seventytwomiles.architecturerules.configuration.UnmodifiableConfiguration;</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;21</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="keyword">import</span> com.seventytwomiles.architecturerules.configuration.xml.DigesterConfigurationFactory;</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;22</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="keyword">import</span> com.seventytwomiles.architecturerules.services.CyclicRedundancyService;</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;23</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="keyword">import</span> com.seventytwomiles.architecturerules.configuration.Configuration;</pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="keyword">import</span> com.seventytwomiles.architecturerules.services.CyclicRedundancyServiceImpl;</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;24</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="keyword">import</span> com.seventytwomiles.architecturerules.configuration.ConfigurationFactory;</pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="keyword">import</span> com.seventytwomiles.architecturerules.services.RulesService;</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;25</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="keyword">import</span> com.seventytwomiles.architecturerules.configuration.UnmodifiableConfiguration;</pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="keyword">import</span> com.seventytwomiles.architecturerules.services.RulesServiceImpl;</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;26</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="keyword">import</span> com.seventytwomiles.architecturerules.configuration.xml.DigesterConfigurationFactory;</pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="keyword">import</span> junit.framework.TestCase;</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;27</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="keyword">import</span> com.seventytwomiles.architecturerules.services.CyclicRedundancyService;</pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="keyword">import</span> org.apache.commons.logging.Log;</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;28</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="keyword">import</span> com.seventytwomiles.architecturerules.services.CyclicRedundancyServiceImpl;</pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="keyword">import</span> org.apache.commons.logging.LogFactory;</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;29</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="keyword">import</span> com.seventytwomiles.architecturerules.services.RulesService;</pre></td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;30</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="keyword">import</span> com.seventytwomiles.architecturerules.services.RulesServiceImpl;</pre></td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;31</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="keyword">import</span> junit.framework.TestCase;</pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">/**</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;32</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="keyword">import</span> org.apache.commons.logging.Log;</pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment"> * &lt;p&gt;Abstract class that the users of this library will extend in order to</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;33</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="keyword">import</span> org.apache.commons.logging.LogFactory;</pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment"> * create a unit test that asserts architecture. &lt;/p&gt; &lt;p/&gt; &lt;p&gt;Once extended,</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;34</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment"> * implement &lt;tt&gt;testArchitecture&lt;/tt&gt; and call &lt;tt&gt;doTest()&lt;/tt&gt;. Also override</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;35</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment"> * &lt;tt&gt;getConfigurationFileName()&lt;/tt&gt; if you want to load an XML configuration</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;36</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment"> * file.&lt;/p&gt; &lt;p/&gt; &lt;p&gt;If you want to define the configuration programmatically in</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;37</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">/**</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment"> * addition to the xml configuration, or want to solely use programmatic</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;38</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment"> * &lt;p&gt;Abstract class that the users of this library will extend in order to</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment"> * configuration, you may call &lt;tt&gt;getConfiguration&lt;/tt&gt; which will return</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;39</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment"> * create a unit test that asserts architecture. &lt;/p&gt; &lt;p/&gt; &lt;p&gt;Once extended,</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment"> * &lt;code&gt;Configuration&lt;/code&gt; that you may then add new &lt;code&gt;Rule&lt;/code&gt;, or</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;40</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment"> * implement &lt;tt&gt;testArchitecture&lt;/tt&gt; and call &lt;tt&gt;doTest()&lt;/tt&gt;. Also override</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment"> * &lt;code&gt;SourceDirectory&lt;/code&gt; to. &lt;/p&gt;</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;41</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment"> * &lt;tt&gt;getConfigurationFileName()&lt;/tt&gt; if you want to load an XML configuration</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment"> *</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;42</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment"> * file.&lt;/p&gt; &lt;p/&gt; &lt;p&gt;If you want to define the configuration programmatically in</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment"> * @author mikenereson</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;43</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment"> * addition to the xml configuration, or want to solely use programmatic</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment"> * @noinspection PointlessBooleanExpression</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;44</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment"> * configuration, you may call &lt;tt&gt;getConfiguration&lt;/tt&gt; which will return</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment"> */</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;45</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment"> * &lt;code&gt;Configuration&lt;/code&gt; that you may then add new &lt;code&gt;Rule&lt;/code&gt;, or</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">class</span> AbstractArchitectureRulesConfigurationTest</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;46</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment"> * &lt;code&gt;SourceDirectory&lt;/code&gt; to. &lt;/p&gt;</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;        <span class="keyword">extends</span> TestCase {</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;47</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment"> *</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;48</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment"> * @author mikenereson</span></pre></td>
-</tr>
-<tr>
-  <td class="numLine">&nbsp;49</td>
-  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment"> * @noinspection PointlessBooleanExpression</span></pre></td>
-</tr>
-<tr>
-  <td class="numLine">&nbsp;50</td>
-  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment"> */</span></pre></td>
-</tr>
-<tr>
-  <td class="numLine">&nbsp;51</td>
-  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">class</span> AbstractArchitectureRulesConfigurationTest</pre></td>
-</tr>
-<tr>
-  <td class="numLine">&nbsp;52</td>
-  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;        <span class="keyword">extends</span> TestCase {</pre></td>
-</tr>
-<tr>
-  <td class="numLine">&nbsp;53</td>
-  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;54</td>
-  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
-</tr>
-<tr>
-  <td class="numLineCover">&nbsp;55</td>
+  <td class="numLineCover">&nbsp;49</td>
   <td class="nbHitsCovered">&nbsp;1</td>
   <td class="src"><pre class="src">&nbsp;    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Log log = LogFactory.getLog(</pre></td>
 </tr>
 <tr>
-  <td class="numLineCover">&nbsp;56</td>
-  <td class="nbHitsCovered">&nbsp;1</td>
+  <td class="numLine">&nbsp;50</td>
+  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;            AbstractArchitectureRulesConfigurationTest.<span class="keyword">class</span>);</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;57</td>
+  <td class="numLine">&nbsp;51</td>
   <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;58</td>
+  <td class="numLine">&nbsp;52</td>
   <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;    <span class="comment">/**</span></pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;59</td>
+  <td class="numLine">&nbsp;53</td>
   <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;<span class="comment">     * &lt;p&gt;The &lt;code&gt;Configuration&lt;/code&gt; containing the &lt;code&gt;SourceDirectory&lt;/code&gt;</span></pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;60</td>
+  <td class="numLine">&nbsp;54</td>
   <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;<span class="comment">     * and &lt;code&gt;Rules&lt;/code&gt; to assert.&lt;/p&gt;</span></pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;61</td>
-  <td class="nbHits">&nbsp;</td>
+  <td class="numLineCover">&nbsp;55</td>
+  <td class="nbHitsCovered">&nbsp;4</td>
   <td class="src"><pre class="src">&nbsp;<span class="comment">     *</span></pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;62</td>
-  <td class="nbHits">&nbsp;</td>
+  <td class="numLineCover">&nbsp;56</td>
+  <td class="nbHitsCovered">&nbsp;4</td>
   <td class="src"><pre class="src">&nbsp;<span class="comment">     * @parameter configuration Configuration</span></pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;63</td>
+  <td class="numLine">&nbsp;57</td>
   <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td>
 </tr>
 <tr>
-  <td class="numLineCover">&nbsp;64</td>
-  <td class="nbHitsCovered">&nbsp;8</td>
+  <td class="numLineCover">&nbsp;58</td>
+  <td class="nbHitsCovered">&nbsp;5</td>
   <td class="src"><pre class="src">&nbsp;    <span class="keyword">final</span> <span class="keyword">private</span> Configuration configuration = <span class="keyword">new</span> Configuration();</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;65</td>
+  <td class="numLine">&nbsp;59</td>
   <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;66</td>
+  <td class="numLine">&nbsp;60</td>
   <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;67</td>
+  <td class="numLine">&nbsp;61</td>
   <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;    <span class="comment">/**</span></pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;68</td>
+  <td class="numLine">&nbsp;62</td>
   <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;<span class="comment">     * Upon instantiation, instances a new Configuration by reading the XML</span></pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;69</td>
+  <td class="numLine">&nbsp;63</td>
   <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;<span class="comment">     * configuration file named architecture-rules.xml (by default) or by</span></pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;70</td>
-  <td class="nbHits">&nbsp;</td>
+  <td class="numLineCover">&nbsp;64</td>
+  <td class="nbHitsCovered">&nbsp;32</td>
   <td class="src"><pre class="src">&nbsp;<span class="comment">     * reading the XMl file name by the &lt;code&gt;getConfigurationFileName&lt;/code&gt;</span></pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;71</td>
+  <td class="numLine">&nbsp;65</td>
   <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;<span class="comment">     * method.</span></pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;72</td>
+  <td class="numLine">&nbsp;66</td>
   <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td>
 </tr>
 <tr>
-  <td class="numLineCover">&nbsp;73</td>
-  <td class="nbHitsCovered">&nbsp;8</td>
+  <td class="numLineCover">&nbsp;67</td>
+  <td class="nbHitsCovered">&nbsp;5</td>
   <td class="src"><pre class="src">&nbsp;    <span class="keyword">protected</span> AbstractArchitectureRulesConfigurationTest() {</pre></td>
+</tr>
+<tr>
+  <td class="numLine">&nbsp;68</td>
+  <td class="nbHits">&nbsp;</td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
+</tr>
+<tr>
+  <td class="numLine">&nbsp;69</td>
+  <td class="nbHits">&nbsp;</td>
+  <td class="src"><pre class="src">&nbsp;        <span class="comment">/* 1. load configuration if a configuration file name was provided */</span></pre></td>
+</tr>
+<tr>
+  <td class="numLine">&nbsp;70</td>
+  <td class="nbHits">&nbsp;</td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
+</tr>
+<tr>
+  <td class="numLineCover">&nbsp;71</td>
+  <td class="nbHitsCovered">&nbsp;5</td>
+  <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> String configurationFileName = getConfigurationFileName();</pre></td>
+</tr>
+<tr>
+  <td class="numLine">&nbsp;72</td>
+  <td class="nbHits">&nbsp;</td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
+</tr>
+<tr>
+  <td class="numLineCover">&nbsp;73</td>
+  <td class="nbHitsCovered">&nbsp;32</td>
+  <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> ConfigurationFactory configurationFactory;</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;74</td>
@@ -387,9 +387,9 @@
   <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;75</td>
-  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;        <span class="comment">/* 1. load configuration if a configuration file name was provided */</span></pre></td>
+  <td class="numLineCover">&nbsp;75</td>
+  <td class="nbHitsCovered">&nbsp;5</td>
+  <td class="src"><pre class="src">&nbsp;        <span class="keyword">if</span> (configurationFileName != <span class="keyword">null</span> &amp;&amp; configurationFileName.length() &gt; 0) {</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;76</td>
@@ -398,68 +398,68 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;77</td>
-  <td class="nbHitsCovered">&nbsp;8</td>
-  <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> String configurationFileName = getConfigurationFileName();</pre></td>
+  <td class="nbHitsCovered">&nbsp;37</td>
+  <td class="src"><pre class="src">&nbsp;            configurationFactory</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;78</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
+  <td class="src"><pre class="src">&nbsp;                    = <span class="keyword">new</span> DigesterConfigurationFactory(configurationFileName);</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;79</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> ConfigurationFactory configurationFactory;</pre></td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;80</td>
-  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
+  <td class="numLineCover">&nbsp;80</td>
+  <td class="nbHitsCovered">&nbsp;5</td>
+  <td class="src"><pre class="src">&nbsp;            configuration.getRules().addAll(configurationFactory.getRules());</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;81</td>
-  <td class="nbHitsCovered">&nbsp;8</td>
-  <td class="src"><pre class="src">&nbsp;        <span class="keyword">if</span> (configurationFileName != <span class="keyword">null</span> &amp;&amp; configurationFileName.length() &gt; 0) {</pre></td>
-</tr>
-<tr>
-  <td class="numLine">&nbsp;82</td>
-  <td class="nbHits">&nbsp;</td>
+  <td class="nbHitsCovered">&nbsp;32</td>
   <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
+  <td class="numLineCover">&nbsp;82</td>
+  <td class="nbHitsCovered">&nbsp;5</td>
+  <td class="src"><pre class="src">&nbsp;            configuration.getSources()</pre></td>
+</tr>
+<tr>
   <td class="numLineCover">&nbsp;83</td>
-  <td class="nbHitsCovered">&nbsp;8</td>
-  <td class="src"><pre class="src">&nbsp;            configurationFactory</pre></td>
+  <td class="nbHitsCovered">&nbsp;32</td>
+  <td class="src"><pre class="src">&nbsp;                    .addAll(configurationFactory.getSources());</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;84</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;                    = <span class="keyword">new</span> DigesterConfigurationFactory(configurationFileName);</pre></td>
-</tr>
-<tr>
-  <td class="numLine">&nbsp;85</td>
-  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
+  <td class="numLineCover">&nbsp;85</td>
+  <td class="nbHitsCovered">&nbsp;5</td>
+  <td class="src"><pre class="src">&nbsp;            configuration.setDoCyclicDependencyTest(</pre></td>
+</tr>
+<tr>
   <td class="numLineCover">&nbsp;86</td>
-  <td class="nbHitsCovered">&nbsp;8</td>
-  <td class="src"><pre class="src">&nbsp;            configuration.getRules().addAll(configurationFactory.getRules());</pre></td>
+  <td class="nbHitsCovered">&nbsp;32</td>
+  <td class="src"><pre class="src">&nbsp;                    configurationFactory.doCyclicDependencyTest());</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;87</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
+  <td class="src"><pre class="src">&nbsp;        }</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;88</td>
-  <td class="nbHitsCovered">&nbsp;8</td>
-  <td class="src"><pre class="src">&nbsp;            configuration.getSources()</pre></td>
+  <td class="nbHitsCovered">&nbsp;37</td>
+  <td class="src"><pre class="src">&nbsp;    }</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;89</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;                    .addAll(configurationFactory.getSources());</pre></td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;90</td>
@@ -468,258 +468,258 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;91</td>
-  <td class="nbHitsCovered">&nbsp;8</td>
-  <td class="src"><pre class="src">&nbsp;            configuration.setDoCyclicDependencyTest(</pre></td>
+  <td class="nbHitsCovered">&nbsp;32</td>
+  <td class="src"><pre class="src">&nbsp;    <span class="comment">/* ----------------------------------------------------- abstract methods */</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;92</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;                    configurationFactory.doCyclicDependencyTest());</pre></td>
+  <td class="src"><pre class="src">&nbsp;    <span class="comment">/**</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;93</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;        }</pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * &lt;p&gt;Get the name of the xml configuration file that is located in the</span></pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;94</td>
-  <td class="nbHitsCovered">&nbsp;8</td>
-  <td class="src"><pre class="src">&nbsp;    }</pre></td>
+  <td class="nbHitsCovered">&nbsp;32</td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * classpath.&lt;/p&gt; &lt;p/&gt; &lt;p&gt;Recommend value, and the default value, is</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;95</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * &lt;samp&gt;architecture-rules.xml&lt;/samp&gt;&lt;/p&gt;</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;96</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     *</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;97</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;    <span class="comment">/* ----------------------------------------------------- abstract methods */</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @return String name of the xml file including &lt;samp&gt;.xml&lt;/samp&gt;</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;98</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;    <span class="comment">/**</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @see ConfigurationFactory#DEFAULT_CONFIGURATION_FILE_NAME</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;99</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * &lt;p&gt;Get the name of the xml configuration file that is located in the</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;100</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * classpath.&lt;/p&gt; &lt;p/&gt; &lt;p&gt;Recommend value, and the default value, is</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;    <span class="keyword">protected</span> String getConfigurationFileName() {</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;101</td>
-  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * &lt;samp&gt;architecture-rules.xml&lt;/samp&gt;&lt;/p&gt;</span></pre></td>
+  <td class="numLineCover">&nbsp;101</td>
+  <td class="nbHitsCovered">&nbsp;2</td>
+  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> ConfigurationFactory.DEFAULT_CONFIGURATION_FILE_NAME;</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;102</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     *</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;    }</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;103</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @return String name of the xml file including &lt;samp&gt;.xml&lt;/samp&gt;</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;104</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @see ConfigurationFactory#DEFAULT_CONFIGURATION_FILE_NAME</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;105</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;    <span class="comment">/**</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;106</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;    <span class="keyword">protected</span> String getConfigurationFileName() {</pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * Getter for property {@link #configuration}.</span></pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;107</td>
-  <td class="nbHitsCovered">&nbsp;4</td>
-  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> ConfigurationFactory.DEFAULT_CONFIGURATION_FILE_NAME;</pre></td>
+  <td class="nbHitsCovered">&nbsp;16</td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     *</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;108</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;    }</pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @return Value for property &lt;tt&gt;configuration&lt;/tt&gt;.</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;109</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;110</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
+  <td class="src"><pre class="src">&nbsp;    <span class="keyword">protected</span> Configuration getConfiguration() {</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;111</td>
-  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;    <span class="comment">/**</span></pre></td>
+  <td class="numLineCover">&nbsp;111</td>
+  <td class="nbHitsCovered">&nbsp;4</td>
+  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> configuration;</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;112</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * Getter for property {@link #configuration}.</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;    }</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;113</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     *</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;114</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @return Value for property &lt;tt&gt;configuration&lt;/tt&gt;.</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;115</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;    <span class="comment">/**</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;116</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;    <span class="keyword">protected</span> Configuration getConfiguration() {</pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * &lt;p&gt;Runs tests that are configured either programmatically, or by the XML</span></pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;117</td>
-  <td class="nbHitsCovered">&nbsp;5</td>
-  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> configuration;</pre></td>
+  <td class="nbHitsCovered">&nbsp;20</td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * configuration file that is loaded.&lt;/p&gt;</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;118</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;    }</pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     *</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;119</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @return boolean &lt;tt&gt;true&lt;/tt&gt; when the tests all pass.</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;120</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;121</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;    <span class="comment">/**</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;    <span class="keyword">protected</span> <span class="keyword">final</span> <span class="keyword">boolean</span> doTests() {</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;122</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * &lt;p&gt;Runs tests that are configured either programmatically, or by the XML</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;123</td>
-  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * configuration file that is loaded.&lt;/p&gt;</span></pre></td>
+  <td class="numLineCover">&nbsp;123</td>
+  <td class="nbHitsCovered">&nbsp;8</td>
+  <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> RulesService rulesService = <span class="keyword">new</span> RulesServiceImpl(</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;124</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     *</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;                <span class="keyword">new</span> UnmodifiableConfiguration(configuration));</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;125</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @return boolean &lt;tt&gt;true&lt;/tt&gt; when the tests all pass.</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;126</td>
-  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td>
+  <td class="numLineCover">&nbsp;126</td>
+  <td class="nbHitsCovered">&nbsp;8</td>
+  <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> <span class="keyword">boolean</span> rulesResults = rulesService.performRulesTest();</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;127</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;    <span class="keyword">protected</span> <span class="keyword">final</span> <span class="keyword">boolean</span> doTests() {</pre></td>
-</tr>
-<tr>
-  <td class="numLine">&nbsp;128</td>
-  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
-  <td class="numLineCover">&nbsp;129</td>
-  <td class="nbHitsCovered">&nbsp;7</td>
-  <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> RulesService rulesService = <span class="keyword">new</span> RulesServiceImpl(</pre></td>
-</tr>
-<tr>
-  <td class="numLine">&nbsp;130</td>
-  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;                <span class="keyword">new</span> UnmodifiableConfiguration(configuration));</pre></td>
-</tr>
-<tr>
-  <td class="numLine">&nbsp;131</td>
-  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
-</tr>
-<tr>
-  <td class="numLineCover">&nbsp;132</td>
-  <td class="nbHitsCovered">&nbsp;7</td>
-  <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> <span class="keyword">boolean</span> rulesResults = rulesService.performRulesTest();</pre></td>
-</tr>
-<tr>
-  <td class="numLine">&nbsp;133</td>
-  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
-</tr>
-<tr>
-  <td class="numLineCover">&nbsp;134</td>
+  <td class="numLineCover">&nbsp;128</td>
   <td class="nbHitsCovered">&nbsp;7</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">if</span> (configuration.shouldDoCyclicDependencyTest()) {</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;135</td>
-  <td class="nbHits">&nbsp;</td>
+  <td class="numLineCover">&nbsp;129</td>
+  <td class="nbHitsCovered">&nbsp;28</td>
   <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
-  <td class="numLineCover">&nbsp;136</td>
+  <td class="numLineCover">&nbsp;130</td>
   <td class="nbHitsCovered">&nbsp;2</td>
   <td class="src"><pre class="src">&nbsp;            <span class="keyword">final</span> UnmodifiableConfiguration unmodifiableConfiguration</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;137</td>
+  <td class="numLine">&nbsp;131</td>
   <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;                    = <span class="keyword">new</span> UnmodifiableConfiguration(configuration);</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;138</td>
-  <td class="nbHits">&nbsp;</td>
+  <td class="numLineCover">&nbsp;132</td>
+  <td class="nbHitsCovered">&nbsp;28</td>
   <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
-  <td class="numLineCover">&nbsp;139</td>
+  <td class="numLineCover">&nbsp;133</td>
   <td class="nbHitsCovered">&nbsp;2</td>
   <td class="src"><pre class="src">&nbsp;            <span class="keyword">final</span> CyclicRedundancyService redundancyService</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;140</td>
-  <td class="nbHits">&nbsp;</td>
+  <td class="numLineCover">&nbsp;134</td>
+  <td class="nbHitsCovered">&nbsp;28</td>
   <td class="src"><pre class="src">&nbsp;                    = <span class="keyword">new</span> CyclicRedundancyServiceImpl(</pre></td>
+</tr>
+<tr>
+  <td class="numLine">&nbsp;135</td>
+  <td class="nbHits">&nbsp;</td>
+  <td class="src"><pre class="src">&nbsp;                    unmodifiableConfiguration);</pre></td>
+</tr>
+<tr>
+  <td class="numLineCover">&nbsp;136</td>
+  <td class="nbHitsCovered">&nbsp;8</td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
+</tr>
+<tr>
+  <td class="numLineCover">&nbsp;137</td>
+  <td class="nbHitsCovered">&nbsp;2</td>
+  <td class="src"><pre class="src">&nbsp;            redundancyService.performCyclicRedundancyCheck();</pre></td>
+</tr>
+<tr>
+  <td class="numLine">&nbsp;138</td>
+  <td class="nbHits">&nbsp;</td>
+  <td class="src"><pre class="src">&nbsp;        }</pre></td>
+</tr>
+<tr>
+  <td class="numLineCover">&nbsp;139</td>
+  <td class="nbHitsCovered">&nbsp;8</td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
+</tr>
+<tr>
+  <td class="numLineCover">&nbsp;140</td>
+  <td class="nbHitsCovered">&nbsp;6</td>
+  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> rulesResults;</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;141</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;                    unmodifiableConfiguration);</pre></td>
+  <td class="src"><pre class="src">&nbsp;    }</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;142</td>
@@ -728,61 +728,31 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;143</td>
-  <td class="nbHitsCovered">&nbsp;2</td>
-  <td class="src"><pre class="src">&nbsp;            redundancyService.performCyclicRedundancyCheck();</pre></td>
+  <td class="nbHitsCovered">&nbsp;8</td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;144</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;        }</pre></td>
+  <td class="src"><pre class="src">&nbsp;    <span class="comment">/**</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;145</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * &lt;p&gt;Implement this method and call {@link #doTests}&lt;/p&gt;</span></pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;146</td>
-  <td class="nbHitsCovered">&nbsp;6</td>
-  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> rulesResults;</pre></td>
+  <td class="nbHitsCovered">&nbsp;24</td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;147</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;    }</pre></td>
+  <td class="src"><pre class="src">&nbsp;    <span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> testArchitecture();</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;148</td>
-  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
-</tr>
-<tr>
-  <td class="numLine">&nbsp;149</td>
-  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
-</tr>
-<tr>
-  <td class="numLine">&nbsp;150</td>
-  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;    <span class="comment">/**</span></pre></td>
-</tr>
-<tr>
-  <td class="numLine">&nbsp;151</td>
-  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * &lt;p&gt;Implement this method and call {@link #doTests}&lt;/p&gt;</span></pre></td>
-</tr>
-<tr>
-  <td class="numLine">&nbsp;152</td>
-  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td>
-</tr>
-<tr>
-  <td class="numLine">&nbsp;153</td>
-  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;    <span class="keyword">protected</span> <span class="keyword">abstract</span> <span class="keyword">void</span> testArchitecture();</pre></td>
-</tr>
-<tr>
-  <td class="numLine">&nbsp;154</td>
   <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;}</pre></td>
 </tr>

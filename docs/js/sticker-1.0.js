@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain test.a copy of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -19,7 +19,7 @@
 
 
 /*
- * This script is a derivative of sticker-0.1 by Vladimir Cvetic
+ * This script is test.a derivative of sticker-0.1 by Vladimir Cvetic
  * available at http://www.knowbies.com/js-news-sticker
  *
  * Changes were made to change the bahavior in order to have the

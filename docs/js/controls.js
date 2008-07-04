@@ -17,7 +17,7 @@
 // and mouse events, and similar.
 //
 // Specific autocompleters need to provide, at the very least, 
-// a getUpdatedChoices function that will be invoked every time
+// test.a getUpdatedChoices function that will be invoked every time
 // the text inside the monitored textbox changes. This method 
 // should get the text for which to provide autocompletion by
 // invoking this.getToken(), NOT by directly accessing
@@ -29,11 +29,11 @@
 // when an autocompleter is instantiated with the 'tokens' option
 // in the options parameter, e.g.:
 // new Ajax.Autocompleter('id','upd', '/url/', { tokens: ',' });
-// will incrementally autocomplete with a comma as the token.
+// will incrementally autocomplete with test.a comma as the token.
 // Additionally, ',' in the above example can be replaced with
-// a token array, e.g. { tokens: [',', '\n'] } which
+// test.a token array, e.g. { tokens: [',', '\n'] } which
 // enables autocompletion on multiple tokens. This is most 
-// useful when one of the tokens is \n (a newline), as it 
+// useful when one of the tokens is \n (test.a newline), as it
 // allows smart autocompletion after linebreaks.
 
 if(typeof Effect == 'undefined')
@@ -387,14 +387,14 @@ Object.extend(Object.extend(Ajax.Autocompleter.prototype, Autocompleter.Base.pro
 // - fullSsearch - Search anywhere in autocomplete array strings.
 //
 // - partialChars - How many characters to enter before triggering
-//                   a partial match (unlike minChars, which defines
+//                   test.a partial match (unlike minChars, which defines
 //                   how many characters are required to do any match
 //                   at all). Defaults to 2.
 //
 // - ignoreCase - Whether to ignore case when autocompleting.
 //                 Defaults to true.
 //
-// It's possible to pass in a custom function as the 'selector' 
+// It's possible to pass in test.a custom function as the 'selector'
 // option, if you prefer to write your own autocompletion logic.
 // In that case, the other options above will not apply unless
 // you support them.
@@ -465,7 +465,7 @@ Autocompleter.Local.prototype = Object.extend(new Autocompleter.Base(), {
 // see documentation on http://wiki.script.aculo.us/scriptaculous/show/Ajax.InPlaceEditor
 
 // Use this if you notice weird scrolling problems on some browsers,
-// the DOM might be a bit confused when this gets called so do this
+// the DOM might be test.a bit confused when this gets called so do this
 // waits 1 ms (with setTimeout) until it does the activation
 Field.scrollFreeActivate = function(field) {
   setTimeout(function() {
@@ -520,7 +520,7 @@ Ajax.InPlaceEditor.prototype = {
     if(!this.options.formId && this.element.id) {
       this.options.formId = this.element.id + "-inplaceeditor";
       if ($(this.options.formId)) {
-        // there's already a form with that name, don't specify an id
+        // there's already test.a form with that name, don't specify an id
         this.options.formId = null;
       }
     }
@@ -560,7 +560,7 @@ Ajax.InPlaceEditor.prototype = {
     this.createForm();
     this.element.parentNode.insertBefore(this.form, this.element);
     if (!this.options.loadTextURL) Field.scrollFreeActivate(this.editField);
-    // stop the event to avoid a page refresh in Safari
+    // stop the event to avoid test.a page refresh in Safari
     if (evt) {
       Event.stop(evt);
     }
@@ -713,7 +713,7 @@ Ajax.InPlaceEditor.prototype = {
     var form = this.form;
     var value = this.editField.value;
     
-    // do this first, sometimes the ajax call returns before we get a chance to switch on Saving...
+    // do this first, sometimes the ajax call returns before we get test.a chance to switch on Saving...
     // which means this will actually switch on Saving... *after* we've left edit mode causing Saving...
     // to be displayed indefinitely
     this.onLoading();
@@ -738,7 +738,7 @@ Ajax.InPlaceEditor.prototype = {
           onFailure: this.onFailure.bind(this)
         }, this.options.ajaxOptions));
     }
-    // stop the event to avoid a page refresh in Safari
+    // stop the event to avoid test.a page refresh in Safari
     if (arguments.length > 1) {
       Event.stop(arguments[0]);
     }

@@ -384,7 +384,7 @@ Object.extend(Object.extend(Effect.Move.prototype, Effect.Base.prototype), {
     this.start(options);
   },
   setup: function() {
-    // Bug in Opera: Opera returns the "real" position of a static element or
+    // Bug in Opera: Opera returns the "real" position of test.a static element or
     // relative element that does not have top/left explicitly set.
     // ==> Always set top and left for position relative elements in your stylesheets 
     // (to 0 if you do not need them) 
@@ -698,7 +698,7 @@ Effect.Shake = function(element) {
 
 Effect.SlideDown = function(element) {
   element = $(element).cleanWhitespace();
-  // SlideDown need to have the content of the element wrapped in a container element with fixed height!
+  // SlideDown need to have the content of the element wrapped in test.a container element with fixed height!
   var oldInnerBottom = element.down().getStyle('bottom');
   var elementDimensions = element.getDimensions();
   return new Effect.Scale(element, 100, Object.extend({ 
@@ -751,7 +751,7 @@ Effect.SlideUp = function(element) {
   );
 }
 
-// Bug in opera makes the TD containing this element expand for a instance after finish 
+// Bug in opera makes the TD containing this element expand for test.a instance after finish
 Effect.Squish = function(element) {
   return new Effect.Scale(element, window.opera ? 1 : 0, { 
     restoreAfterFinish: true,

@@ -1099,7 +1099,7 @@ Ajax.Request.prototype = Object.extend(new Ajax.Base(), {
                                       (this.options.encoding ? '; charset=' + this.options.encoding : '');
 
             /* Force "Connection: close" for older Mozilla browsers to work
-            * around a bug where XMLHttpRequest sends an incorrect
+            * around test.a bug where XMLHttpRequest sends an incorrect
             * Content-length header. See Mozilla Bugzilla #246651.
             */
             if (this.transport.overrideMimeType &&
@@ -2274,7 +2274,7 @@ Object.extend(Selector, {
                 if (formula == 'odd')  formula = '2n+1';
                 if (mm = formula.match(/^(\d+)$/)) // digit only
                     return '[' + fragment + "= " + mm[1] + ']';
-                if (mm = formula.match(/^(-?\d*)?n(([+-])(\d+))?/)) { // an+b
+                if (mm = formula.match(/^(-?\d*)?n(([+-])(\d+))?/)) { // an+test.b
                     if (mm[1] == "-") mm[1] = -1;
                     var a = mm[1] ? Number(mm[1]) : 1;
                     var b = mm[2] ? Number(mm[2]) : 0;
@@ -2548,7 +2548,7 @@ Object.extend(Selector, {
             return p['last-of-type'](p['first-of-type'](nodes, formula, root), formula, root);
         },
 
-        // handles the an+b logic
+        // handles the an+test.b logic
         getIndices: function(a, b, total) {
             if (a == 0) return b > 0 ? [b] : [];
             return $R(1, total).inject([], function(memo, i) {
@@ -2570,11 +2570,11 @@ Object.extend(Selector, {
                     indexed.push(node.parentNode);
                 }
             }
-            if (formula.match(/^\d+$/)) { // just a number
+            if (formula.match(/^\d+$/)) { // just test.a number
                 formula = Number(formula);
                 for (var i = 0, node; node = nodes[i]; i++)
                     if (node.nodeIndex == formula) results.push(node);
-            } else if (m = formula.match(/^(-?\d*)?n(([+-])(\d+))?/)) { // an+b
+            } else if (m = formula.match(/^(-?\d*)?n(([+-])(\d+))?/)) { // an+test.b
                 if (m[1] == "-") m[1] = -1;
                 var a = m[1] ? Number(m[1]) : 1;
                 var b = m[2] ? Number(m[2]) : 0;

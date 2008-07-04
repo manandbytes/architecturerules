@@ -89,18 +89,26 @@ public class JPackage {
     }
 
 
-    /**
-     * @see Object#equals(Object)
-     */
     public boolean equals(final Object o) {
 
-        return matches(o);
+        if (this == o)
+            return true;
+
+        if (!(o instanceof JPackage))
+            return false;
+
+        final JPackage that = (JPackage) o;
+
+        if (path != null ? !path.equals(
+                that.getPath()) : that.getPath() != null) {
+
+            return false;
+        }
+
+        return true;
     }
 
 
-    /**
-     * @see Object#hashCode()
-     */
     public int hashCode() {
         return (path != null ? path.hashCode() : 0);
     }

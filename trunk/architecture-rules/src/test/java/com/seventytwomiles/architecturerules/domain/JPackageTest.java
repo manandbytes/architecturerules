@@ -70,15 +70,13 @@ public class JPackageTest extends TestCase {
         jPackage2 = new JPackage("com.seventytwomiles.project.dao");
 
         assertTrue(jPackage1.equals(jPackage2));
-        assertTrue(jPackage2.equals("com.seventytwomiles.project.dao"));
-
-        assertTrue(jPackage1.equals(jPackage2));
+        assertTrue(jPackage2.equals(jPackage1));
 
         final List<JPackage> packages = new ArrayList<JPackage>();
-        packages.add(jPackage1);
-        packages.add(jPackage2);
+        assertTrue(packages.add(jPackage1));
 
         assertTrue(packages.contains(jPackage1));
+        assertTrue(packages.contains(jPackage2));
     }
 
 

@@ -11,10 +11,10 @@ import com.seventytwomiles.architecturerules.services.RulesServiceImpl;
 
 import junit.framework.TestCase;
 
-import org.apache.commons.io.FileUtils;
-
 import org.apache.maven.plugin.logging.Log;
 import org.apache.maven.project.MavenProject;
+
+import org.seventytwomiles.springframework.io.FileUtils;
 
 import java.io.File;
 import java.io.IOException;

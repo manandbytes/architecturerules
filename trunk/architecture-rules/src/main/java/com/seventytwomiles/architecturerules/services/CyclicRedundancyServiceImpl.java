@@ -46,7 +46,7 @@ public class CyclicRedundancyServiceImpl extends AbstractArchitecturalRules
      *
      * @parameter log Log
      */
-    private static final Log log = LogFactory.getLog(
+    protected static final Log log = LogFactory.getLog(
             CyclicRedundancyServiceImpl.class);
 
 

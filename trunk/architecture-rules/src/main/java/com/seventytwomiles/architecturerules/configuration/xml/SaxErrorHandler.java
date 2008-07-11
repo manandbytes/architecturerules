@@ -33,7 +33,7 @@ import org.xml.sax.SAXParseException;
 class SaxErrorHandler implements ErrorHandler {
 
 
-    private static final Log log = LogFactory.getLog(SaxErrorHandler.class);
+    protected static final Log log = LogFactory.getLog(SaxErrorHandler.class);
 
 
     /**

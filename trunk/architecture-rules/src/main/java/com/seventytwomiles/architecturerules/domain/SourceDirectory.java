@@ -36,7 +36,7 @@ import java.text.StringCharacterIterator;
 public class SourceDirectory {
 
 
-    private static final Log log = LogFactory.getLog(SourceDirectory.class);
+    protected static final Log log = LogFactory.getLog(SourceDirectory.class);
 
     /**
      * <p>The value, which is set inside of the xml configuration file, which

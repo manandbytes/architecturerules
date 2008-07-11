@@ -46,7 +46,7 @@ public abstract class AbstractArchitectureRulesConfigurationTest
         extends TestCase {
 
 
-    private static final Log log = LogFactory.getLog(
+    protected static final Log log = LogFactory.getLog(
             AbstractArchitectureRulesConfigurationTest.class);
 
     /**

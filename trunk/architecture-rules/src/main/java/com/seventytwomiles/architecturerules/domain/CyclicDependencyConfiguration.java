@@ -30,7 +30,7 @@ import org.apache.commons.logging.LogFactory;
 public class CyclicDependencyConfiguration {
 
 
-    private static final Log log = LogFactory.getLog(
+    protected static final Log log = LogFactory.getLog(
             CyclicDependencyConfiguration.class);
 
     /**

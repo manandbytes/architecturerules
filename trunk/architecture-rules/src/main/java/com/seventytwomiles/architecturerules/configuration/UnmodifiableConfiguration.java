@@ -15,14 +15,13 @@
 package com.seventytwomiles.architecturerules.configuration;
 
 
+import com.seventytwomiles.architecturerules.domain.Rule;
+import com.seventytwomiles.architecturerules.domain.SourceDirectory;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import java.util.Collection;
 import java.util.Collections;
-
-import com.seventytwomiles.architecturerules.domain.SourceDirectory;
-import com.seventytwomiles.architecturerules.domain.Rule;
 
 
 /**
@@ -34,7 +33,7 @@ import com.seventytwomiles.architecturerules.domain.Rule;
 public final class UnmodifiableConfiguration extends Configuration {
 
 
-    private static final Log log = LogFactory.getLog(
+    protected static final Log log = LogFactory.getLog(
             UnmodifiableConfiguration.class);
 
 

@@ -44,7 +44,7 @@ public class RulesServiceImpl extends AbstractArchitecturalRules
      *
      * @parameter log Log
      */
-    private static final Log log = LogFactory.getLog(RulesServiceImpl.class);
+    protected static final Log log = LogFactory.getLog(RulesServiceImpl.class);
 
 
     /**

@@ -35,7 +35,7 @@ import java.util.HashSet;
 public class Rule {
 
 
-    private static final Log log = LogFactory.getLog(Rule.class);
+    protected static final Log log = LogFactory.getLog(Rule.class);
 
     /**
      * <p>Unique id of this Rule as defined. Used to refer to this Rule in

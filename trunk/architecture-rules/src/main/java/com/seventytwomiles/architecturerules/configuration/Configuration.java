@@ -42,7 +42,7 @@ import java.util.HashSet;
 public class Configuration {
 
 
-    private static final Log log = LogFactory.getLog(Configuration.class);
+    protected static final Log log = LogFactory.getLog(Configuration.class);
 
     /**
      * <p><code>Rules</code> that are read from the configuration file or added

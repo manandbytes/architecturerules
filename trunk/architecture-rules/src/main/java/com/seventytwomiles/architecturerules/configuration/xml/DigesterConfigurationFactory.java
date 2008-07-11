@@ -42,7 +42,7 @@ import java.util.List;
 public class DigesterConfigurationFactory extends AbstractConfigurationFactory {
 
 
-    private static final Log log = LogFactory.getLog(
+    protected static final Log log = LogFactory.getLog(
             DigesterConfigurationFactory.class);
 
 

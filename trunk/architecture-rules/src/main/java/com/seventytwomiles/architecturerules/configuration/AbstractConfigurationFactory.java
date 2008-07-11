@@ -42,7 +42,7 @@ public abstract class AbstractConfigurationFactory
         implements ConfigurationFactory {
 
 
-    private static final Log log
+    protected static final Log log
             = LogFactory.getLog(AbstractConfigurationFactory.class);
 
     /**

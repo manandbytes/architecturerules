@@ -52,7 +52,6 @@ public abstract class ResourceUtils {
      * @throws FileNotFoundException if the URL cannot be resolved to a file in
      * the file system
      */
-    @SuppressWarnings({"deprecation", "EqualsBetweenInconvertibleTypes"})
     public static File getFile(final URL resourceUrl, final String description)
             throws FileNotFoundException {
 

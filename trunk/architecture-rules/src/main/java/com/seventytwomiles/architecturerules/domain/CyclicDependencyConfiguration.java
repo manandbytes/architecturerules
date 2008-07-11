@@ -50,6 +50,7 @@ public class CyclicDependencyConfiguration {
      * @return Value for property 'test'.
      */
     public String getTest() {
+
         return test;
     }
 

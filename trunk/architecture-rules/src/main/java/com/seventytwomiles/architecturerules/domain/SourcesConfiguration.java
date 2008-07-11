@@ -30,7 +30,7 @@ import org.apache.commons.logging.LogFactory;
 public class SourcesConfiguration {
 
 
-    private static final Log log
+    protected static final Log log
             = LogFactory.getLog(SourcesConfiguration.class);
 
     /**

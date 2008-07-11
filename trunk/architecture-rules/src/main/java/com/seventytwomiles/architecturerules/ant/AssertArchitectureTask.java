@@ -27,6 +27,7 @@ import org.apache.tools.ant.BuildException;
 import org.apache.tools.ant.Task;
 
 
+
 /**
  * <p>Ant task to assert architecture.</p>
  *
@@ -43,7 +44,7 @@ import org.apache.tools.ant.Task;
  * &lt;/target>
  * </pre>
  *
- * <p>Requires the optionsl dependency</p>
+ * <p>Requires the optional dependency</p>
  *
  * <pre>
  *  &lt;dependency>
@@ -79,7 +80,8 @@ public class AssertArchitectureTask extends Task {
     /**
      * Setter for property 'configurationFileName'.
      *
-     * @param configurationFileName Value to set for property 'configurationFileName'.
+     * @param configurationFileName Value to set for property
+     * 'configurationFileName'.
      */
     public void setConfigurationFileName(final String configurationFileName) {
         this.configurationFileName = configurationFileName;
@@ -96,7 +98,8 @@ public class AssertArchitectureTask extends Task {
         super.execute();
 
         if (null == configurationFileName || "".equals(configurationFileName))
-            throw new IllegalStateException("set configurationFileName property");
+            throw new IllegalStateException(
+                    "set configurationFileName property");
 
         /**
          * 1. load configuration
@@ -104,39 +107,37 @@ public class AssertArchitectureTask extends Task {
         final ConfigurationFactory configurationFactory
                 = new DigesterConfigurationFactory(configurationFileName);
 
-        configuration.getRules().addAll(configurationFactory.getRules());
+        this.configuration.getRules().addAll(configurationFactory.getRules());
 
-        configuration.getSources().addAll(configurationFactory.getSources());
+        this.configuration
+                .getSources().addAll(configurationFactory.getSources());
 
-        configuration.setDoCyclicDependencyTest(
+        this.configuration.setDoCyclicDependencyTest(
                 configurationFactory.doCyclicDependencyTest());
 
-        configuration.setThrowExceptionWhenNoPackages(
+        this.configuration.setThrowExceptionWhenNoPackages(
                 configurationFactory.throwExceptionWhenNoPackages());
 
         /**
          * 2. assert configuration rules
          */
-        UnmodifiableConfiguration unmodifiableConfiguration
-                = new UnmodifiableConfiguration(configuration);
+        Configuration configuration
+                = new UnmodifiableConfiguration(this.configuration);
 
-        final RulesService rulesService;
-        rulesService = new RulesServiceImpl(unmodifiableConfiguration);
+        final RulesService rulesService
+                = new RulesServiceImpl(configuration);
+
         rulesService.performRulesTest();
 
         /**
          * 3. check for cyclic dependency, if requested
          */
-        if (configuration.shouldDoCyclicDependencyTest()) {
+        if (this.configuration.shouldDoCyclicDependencyTest()) {
 
-            unmodifiableConfiguration
-                    = new UnmodifiableConfiguration(configuration);
+            configuration = new UnmodifiableConfiguration(this.configuration);
 
-            final CyclicRedundancyService redundancyService;
-
-            redundancyService
-                    = new CyclicRedundancyServiceImpl(
-                    unmodifiableConfiguration);
+            final CyclicRedundancyService redundancyService
+                    = new CyclicRedundancyServiceImpl(configuration);
 
             redundancyService.performCyclicRedundancyCheck();
         }

@@ -84,7 +84,7 @@ public class Configuration {
      * @return Value for property <tt>rules</tt>.
      */
     public Collection<Rule> getRules() {
-        return rules;
+        return this.rules;
     }
 
 
@@ -94,7 +94,7 @@ public class Configuration {
      * @return Value for property <tt>sources</tt>.
      */
     public Collection<SourceDirectory> getSources() {
-        return sources;
+        return this.sources;
     }
 
 
@@ -158,7 +158,7 @@ public class Configuration {
         Assert.assertFalse("rule violations must not be empty",
                 rule.getViolations().isEmpty());
 
-        boolean added = rules.add(rule);
+        final boolean added = rules.add(rule);
 
         if (added) {
 
@@ -193,7 +193,7 @@ public class Configuration {
             throw new IllegalArgumentException(
                     "sourceDirectory.path can not be empty or null");
 
-        boolean added = sources.add(sourceDirectory);
+        final boolean added = sources.add(sourceDirectory);
 
         if (added) {
 

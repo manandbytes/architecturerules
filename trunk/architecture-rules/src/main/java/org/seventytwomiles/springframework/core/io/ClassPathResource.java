@@ -288,7 +288,6 @@ public class ClassPathResource {
      *
      * @return boolean
      */
-    @SuppressWarnings({"BooleanMethodIsAlwaysInverted"})
     public boolean exists() {
 
         // Try file existence: can we find the file in the file system?
@@ -406,7 +405,7 @@ public class ClassPathResource {
 
 
     /**
-     * <p>Replace all occurences of a substring within a string with another
+     * <p>Replace all occurrences of a substring within a string with another
      * string.</p>
      *
      * @param inString String to examine
@@ -484,12 +483,12 @@ public class ClassPathResource {
      * String. E.g. useful for <code>toString()</code> implementations.</p>
      *
      * @param collection the Collection to display
-     * @param delminator the delimiter to use (probably a ",")
+     * @param deliminator the delimiter to use (probably a ",")
      * @return String
      */
     private String collectionToDelimitedString(final Collection collection,
-                                               final String delminator) {
-        return collectionToDelimitedString(collection, delminator, "", "");
+                                               final String deliminator) {
+        return collectionToDelimitedString(collection, deliminator, "", "");
     }
 
 

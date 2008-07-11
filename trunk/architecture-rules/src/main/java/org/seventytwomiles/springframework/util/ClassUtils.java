@@ -22,7 +22,7 @@ package org.seventytwomiles.springframework.util;
  *
  * <p>This was extracted from Spring in order to remove the dependency on apache
  * commons-io. <a href="http://code.google.com/p/architecturerules/issues/detail?id=2&can=1">
- * issue 2 (remove unneccessary dependencies)</a>/p>
+ * issue 2 (remove unnecessary dependencies)</a>/p>
  *
  * @author Keith Donald
  * @author Rob Harrop

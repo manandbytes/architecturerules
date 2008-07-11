@@ -68,8 +68,7 @@ public class Rule {
      *
      * @parameter violations Collection
      */
-    private final Collection<JPackage> violations
-            = new HashSet<JPackage>();
+    private final Collection<JPackage> violations = new HashSet<JPackage>();
 
 
     /**
@@ -86,6 +85,7 @@ public class Rule {
      * @param id sets the {@link #id}
      */
     public Rule(final String id) {
+
         this.id = id;
     }
 
@@ -100,6 +100,7 @@ public class Rule {
      * @param packageName a {@link @packages} to assert on.
      */
     public Rule(final String id, final String packageName) {
+
         setId(id);
         addPackage(packageName);
     }
@@ -112,6 +113,7 @@ public class Rule {
      * @return Rule this <code>Rule</code> to allow for method chaining.
      */
     public Rule setId(final String id) {
+
         Assert.assertNotNull("id can not be null", id);
         Assert.assertFalse("id can not be empty", "".equals(id));
 
@@ -130,17 +132,22 @@ public class Rule {
      *         already in the Collection of packages.
      */
     public boolean addPackage(final String packageName) {
-        Assert.assertNotNull("null packageName can not be added", packageName);
-        Assert.assertFalse("empty packageName can not be added",
+
+        Assert.assertNotNull(
+                "null packageName can not be added",
+                packageName);
+
+        Assert.assertFalse(
+                "empty packageName can not be added",
                 packageName.equals(""));
 
         final JPackage jPackage = new JPackage(packageName);
 
         if (violations.contains(jPackage))
             throw new IllegalArchitectureRuleException(
-                    "Could not add " + packageName + " package because there " +
-                            "is already a violation with the same package name " +
-                            "for rule " + id);
+                    "Could not add " + packageName + " package because " +
+                            "there is already a violation with the same " +
+                            "package name for rule " + id);
 
         return packages.add(jPackage);
     }
@@ -152,7 +159,7 @@ public class Rule {
      * @return Value for property <tt>comment</tt>.
      */
     public String getComment() {
-        return comment;
+        return this.comment;
     }
 
 
@@ -162,7 +169,7 @@ public class Rule {
      * @return Value for property <tt>id</tt>.
      */
     public String getId() {
-        return id;
+        return this.id;
     }
 
 
@@ -180,7 +187,6 @@ public class Rule {
      * @see Object#equals(Object)
      */
     @Override
-    @SuppressWarnings({"RedundantIfStatement"})
     public boolean equals(final Object object) {
 
         if (this == object)
@@ -224,7 +230,7 @@ public class Rule {
 
         Assert.assertNotNull("null violation can not be added", violation);
         Assert.assertFalse("empty violation can not be added",
-                violation.equals(""));
+                violation.getPath().equals(""));
 
         if (packages.contains(violation))
             throw new IllegalArchitectureRuleException(
@@ -235,13 +241,19 @@ public class Rule {
 
         final boolean added = violations.add(violation);
 
-
         if (added) {
-            log.debug(format("added violation %s to Rule %s",
-                    violation, id));
+
+            final String debug = format("added violation %s to Rule %s",
+                    violation, id);
+
+            log.debug(debug);
+
         } else {
-            log.warn(format("failed to add violation %s to Rule %s",
-                    violation, id));
+
+            final String warn = format("failed to add violation %s to Rule %s",
+                    violation, id);
+
+            log.warn(warn);
         }
 
         return this;
@@ -259,6 +271,7 @@ public class Rule {
      * being checked.
      */
     public Rule addViolation(final String violation) {
+
         Assert.assertNotNull("null violation can not be added", violation);
         Assert.assertFalse("empty violation can not be added",
                 violation.equals(""));
@@ -274,6 +287,7 @@ public class Rule {
      * @return String of xml that describes this <code>Rule</code>.
      */
     public String describe() {
+
         return describe(false);
     }
 
@@ -286,6 +300,7 @@ public class Rule {
      * @return String of xml that describes this <code>Rule</code>.
      */
     private String describe(final boolean outputToConsole) {
+
         final StringBuffer builder = new StringBuffer();
 
         builder.append("<rule>").append("\r\n");
@@ -335,6 +350,7 @@ public class Rule {
      *         <samp>['dao' for 'com.company.dao, com.company.dao.hibernate']</samp>
      */
     public String getDescriptionOfRule() {
+
         final String ruleDescription = "['{0}' for {1}] "
                 .replaceAll("\\{0}", getId())
                 .replaceAll("\\{1}", describePackages());
@@ -390,6 +406,7 @@ public class Rule {
      * #addViolation} and {@link #removeViolation}.
      */
     public Collection<JPackage> getViolations() {
+
         return Collections.unmodifiableCollection(violations);
     }
 
@@ -402,19 +419,33 @@ public class Rule {
      * @return Rule this <code>Rule</code> to allow for method chaining.
      */
     public Rule removePackage(final String packageName) {
-        Assert.assertNotNull("null packageName can not be removed",
+
+        Assert.assertNotNull(
+                "null packageName can not be removed",
                 packageName);
-        Assert.assertFalse("empty packageName can not be removed",
+
+        Assert.assertFalse(
+                "empty packageName can not be removed",
                 "".equals(packageName));
 
-        final boolean removed = packages.remove(packageName);
+        final JPackage jPackage = new JPackage(packageName);
+        final boolean removed = packages.remove(jPackage);
 
         if (removed) {
-            log.debug(format("removed package %s from Rule %s",
-                    packageName, this.id));
+
+            final String debug = format(
+                    "removed package %s from Rule %s",
+                    packageName, this.id);
+
+            log.debug(debug);
+
         } else {
-            log.warn(format("failed to remove package %s from Rule %s ",
-                    packageName, this.id));
+
+            final String warn = format(
+                    "failed to remove package %s from Rule %s ",
+                    packageName, this.id);
+
+            log.warn(warn);
         }
 
         return this;
@@ -429,7 +460,9 @@ public class Rule {
      * @return Rule this <code>Rule</code> to allow for method chaining.
      */
     public Rule removeViolation(final String violation) {
-        Assert.assertFalse("empty violation can not be removed",
+
+        Assert.assertFalse(
+                "empty violation can not be removed",
                 "".equals(violation));
 
         final JPackage jPackage = new JPackage(violation);
@@ -438,19 +471,26 @@ public class Rule {
 
 
     public Rule removeViolation(final JPackage violation) {
+
         Assert.assertNotNull("null violation can not be removed", violation);
 
         final boolean removed = violations.remove(violation);
 
         if (removed) {
 
-            log.debug(format("removed violation %s from Rule %s", violation,
-                    this.id));
+            final String debug = format(
+                    "removed violation %s from Rule %s",
+                    violation, this.id);
+
+            log.debug(debug);
 
         } else {
 
-            log.warn(format("failed to remove violation %s from Rule %s ",
-                    violation, this.id));
+            final String warn = format(
+                    "failed to remove violation %s from Rule %s ",
+                    violation, this.id);
+
+            log.warn(warn);
         }
 
         return this;
@@ -466,6 +506,7 @@ public class Rule {
     public Rule setComment(final String comment) {
 
         Assert.assertNotNull("comment can not be null", comment);
+
         this.comment = comment;
 
         return this;

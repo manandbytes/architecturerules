@@ -26,6 +26,7 @@ import java.text.CharacterIterator;
 import java.text.StringCharacterIterator;
 
 
+
 /**
  * <p>Representation of a source directory to search for packages and .class
  * files in.</p>
@@ -101,6 +102,7 @@ public class SourceDirectory {
      * @param path String {@link #path}
      */
     public SourceDirectory(final String path) {
+
         setPath(path);
     }
 
@@ -110,8 +112,8 @@ public class SourceDirectory {
      * <tt>shouldThrowExceptionWhenNotFound</tt> values</p>
      *
      * @param path String {@link #path}
-     * @param shouldThrowExceptionWhenNotFound
-     *             boolean {@link #shouldThrowExceptionWhenNotFound}
+     * @param shouldThrowExceptionWhenNotFound boolean {@link
+     * #shouldThrowExceptionWhenNotFound}
      */
     public SourceDirectory(final String path,
                            final boolean shouldThrowExceptionWhenNotFound) {
@@ -124,8 +126,8 @@ public class SourceDirectory {
     /**
      * Setter for property {@link #shouldThrowExceptionWhenNotFound}.
      *
-     * @param shouldThrowExceptionWhenNotFound
-     *         Value to set for property <tt>shouldThrowExceptionWhenNotFound</tt>.
+     * @param shouldThrowExceptionWhenNotFound Value to set for property
+     * <tt>shouldThrowExceptionWhenNotFound</tt>.
      */
     public void setShouldThrowExceptionWhenNotFound(
             final boolean shouldThrowExceptionWhenNotFound) {
@@ -152,10 +154,11 @@ public class SourceDirectory {
      * <p>Instantiates a new SourceDirectory with the given <tt>path</tt> and
      * <tt>notFound</tt> values.</p>
      *
-     * @param path     String {@link #path}
+     * @param path String {@link #path}
      * @param notFound boolean {@link @notFound}
      */
     public SourceDirectory(final String path, final String notFound) {
+
         setPath(path);
         setNotFound(notFound);
     }
@@ -183,10 +186,9 @@ public class SourceDirectory {
                 notFound.equalsIgnoreCase(NOT_FOUND_EXCEPTION))) {
 
             throw new IllegalArgumentException(
-                    "'not-found' property of '" + notFound +
-                            "' is invalid. valid values are " +
-                            NOT_FOUND_IGNORE + " and "
-                            + NOT_FOUND_EXCEPTION);
+                    String.format("'not-found' property of '%s' is invalid. " +
+                            "valid values are %s and %s",
+                            notFound, NOT_FOUND_IGNORE, NOT_FOUND_EXCEPTION));
         }
 
         this.notFound = notFound;
@@ -203,7 +205,8 @@ public class SourceDirectory {
 
 
     private String getNotFound() {
-        return notFound;
+
+        return this.notFound;
     }
 
 
@@ -213,7 +216,8 @@ public class SourceDirectory {
      * @return Value for property <tt>path</tt>.
      */
     public String getPath() {
-        return path;
+
+        return this.path;
     }
 
 
@@ -280,7 +284,6 @@ public class SourceDirectory {
      * @see Object#equals(Object)
      */
     @Override
-    @SuppressWarnings({"RedundantIfStatement"})
     public boolean equals(final Object object) {
 
         if (this == object)
@@ -294,8 +297,9 @@ public class SourceDirectory {
 
         final SourceDirectory that = (SourceDirectory) object;
 
-        if (path != null ? !path.equals(
-                that.getPath()) : that.getPath() != null) {
+        if (path != null
+                ? !path.equals(that.getPath())
+                : that.getPath() != null) {
 
             return false;
         }
@@ -309,7 +313,8 @@ public class SourceDirectory {
      */
     @Override
     public int hashCode() {
-        return (path != null ? path.hashCode() : 0);
+
+        return (this.path != null ? this.path.hashCode() : 0);
     }
 
 
@@ -318,7 +323,8 @@ public class SourceDirectory {
      */
     @Override
     public String toString() {
-        return path;
+
+        return this.path;
     }
 
 
@@ -328,6 +334,7 @@ public class SourceDirectory {
      * @return Value for property <tt>shouldThrowExceptionWhenNotFound</tt>.
      */
     public boolean shouldThrowExceptionWhenNotFound() {
-        return shouldThrowExceptionWhenNotFound;
+
+        return this.shouldThrowExceptionWhenNotFound;
     }
 }

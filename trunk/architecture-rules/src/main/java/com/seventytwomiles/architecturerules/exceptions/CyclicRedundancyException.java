@@ -25,7 +25,6 @@ import java.util.Set;
  * @author mikenereson
  * @see ArchitectureException
  */
-@SuppressWarnings({"JavaDoc"})
 public class CyclicRedundancyException extends ArchitectureException {
 
     /**
@@ -75,7 +74,7 @@ public class CyclicRedundancyException extends ArchitectureException {
      * @param packageName     String the name of the package containing the
      *                        cyclic dependency
      * @param efferentPackage String the name of the package the package is
-     *                        cyclicly involved with.
+     *                        cyclically involved with.
      */
     public CyclicRedundancyException(final String packageName,
                                      final String efferentPackage) {

@@ -21,7 +21,6 @@ package com.seventytwomiles.architecturerules.exceptions;
  * @author mikenereson
  * @see ArchitectureException
  */
-@SuppressWarnings({"JavaDoc"})
 public class DependencyConstraintException extends ArchitectureException {
 
 

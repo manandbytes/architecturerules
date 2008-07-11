@@ -21,7 +21,6 @@ package com.seventytwomiles.architecturerules.exceptions;
  * @author mikenereson
  * @see RuntimeException
  */
-@SuppressWarnings({"JavaDoc"})
 public class ArchitectureException extends RuntimeException {
 
 
@@ -35,21 +34,21 @@ public class ArchitectureException extends RuntimeException {
     /**
      * @see RuntimeException#Exception(String)
      */
-    public ArchitectureException(String message) {
+    public ArchitectureException(final String message) {
         super(message);
     }
 
     /**
      * @see RuntimeException#Exception(String, Throwable)
      */
-    public ArchitectureException(String message, Throwable cause) {
+    public ArchitectureException(final String message, final Throwable cause) {
         super(message, cause);
     }
 
     /**
      * @see RuntimeException#Exception(Throwable)
      */
-    public ArchitectureException(Throwable cause) {
+    public ArchitectureException(final Throwable cause) {
         super(cause);
     }
 }

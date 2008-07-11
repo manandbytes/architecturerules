@@ -82,7 +82,7 @@ public abstract class AbstractConfigurationFactory
      * @return Value for property <tt>rules</tt>.
      */
     public Collection<Rule> getRules() {
-        return rules;
+        return this.rules;
     }
 
 
@@ -92,7 +92,7 @@ public abstract class AbstractConfigurationFactory
      * @return Value for property <tt>sources</tt>.
      */
     public List<SourceDirectory> getSources() {
-        return sources;
+        return this.sources;
     }
 
 
@@ -165,7 +165,7 @@ public abstract class AbstractConfigurationFactory
 
         } catch (final IOException e) {
 
-            String path = file.getAbsolutePath();
+            final String path = file.getAbsolutePath();
 
             throw new IllegalArgumentException(
                     "could not load configuration from " + path);

@@ -64,6 +64,7 @@ public class JPackage {
      * @param path String to set for {@link #path}
      */
     public JPackage(final String path) {
+
         setPath(path);
     }
 
@@ -74,6 +75,7 @@ public class JPackage {
      * @return Value for property <tt>path</tt>.
      */
     public String getPath() {
+
         return path;
     }
 
@@ -99,8 +101,9 @@ public class JPackage {
 
         final JPackage that = (JPackage) o;
 
-        if (path != null ? !path.equals(
-                that.getPath()) : that.getPath() != null) {
+        if (path != null
+                ? !path.equals(that.getPath())
+                : that.getPath() != null) {
 
             return false;
         }
@@ -110,6 +113,7 @@ public class JPackage {
 
 
     public int hashCode() {
+
         return (path != null ? path.hashCode() : 0);
     }
 
@@ -118,6 +122,7 @@ public class JPackage {
      * @see Object#toString()
      */
     public String toString() {
+
         return this.path;
     }
 

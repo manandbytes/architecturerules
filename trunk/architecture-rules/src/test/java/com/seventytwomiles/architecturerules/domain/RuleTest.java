@@ -50,6 +50,7 @@ public class RuleTest extends TestCase {
     /**
      * @see TestCase#setUp()
      */
+    @Override
     public void setUp() throws Exception {
         super.setUp();
 
@@ -60,6 +61,7 @@ public class RuleTest extends TestCase {
     /**
      * @see TestCase#tearDown()
      */
+    @Override
     public void tearDown() throws Exception {
         rule = null;
 

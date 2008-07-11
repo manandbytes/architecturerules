@@ -37,7 +37,7 @@ public class Person {
      */
     public Person() {
 
-        final PersonService personService = new PersonServiceImpl();
+        new PersonServiceImpl();
 
     }
 

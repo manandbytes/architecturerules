@@ -63,6 +63,7 @@ public class ArchitectureTest
     /**
      * @see AbstractArchitectureRulesConfigurationTest
      */
+    @Override
     public String getConfigurationFileName() {
 
         /**
@@ -76,6 +77,7 @@ public class ArchitectureTest
     /**
      * @see AbstractArchitectureRulesConfigurationTest#testArchitecture()
      */
+    @Override
     public void testArchitecture() {
 
         /**

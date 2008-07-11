@@ -84,6 +84,7 @@ public class ConfigurationTest extends TestCase {
     /**
      * @see TestCase#setUp()
      */
+    @Override
     public void setUp() throws Exception {
 
         super.setUp();
@@ -95,6 +96,7 @@ public class ConfigurationTest extends TestCase {
     /**
      * @see TestCase#tearDown()
      */
+    @Override
     public void tearDown() throws Exception {
 
         configuration = null;

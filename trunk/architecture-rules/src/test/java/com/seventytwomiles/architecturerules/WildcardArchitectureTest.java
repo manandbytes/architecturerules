@@ -32,6 +32,7 @@ public class WildcardArchitectureTest
     /**
      * @see AbstractArchitectureRulesConfigurationTest
      */
+    @Override
     public String getConfigurationFileName() {
 
         /**
@@ -45,6 +46,7 @@ public class WildcardArchitectureTest
     /**
      * @see AbstractArchitectureRulesConfigurationTest#testArchitecture()
      */
+    @Override
     public void testArchitecture() {
 
         /**

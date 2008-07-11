@@ -34,6 +34,6 @@ class PersonRegistrationController {
      */
     public PersonRegistrationController() {
 
-        final PersonDao personDao = new PersonDaoImpl();
+        new PersonDaoImpl();
     }
 }

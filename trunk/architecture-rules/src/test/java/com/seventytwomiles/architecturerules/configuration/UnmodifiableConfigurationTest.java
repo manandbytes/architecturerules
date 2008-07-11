@@ -43,6 +43,7 @@ public class UnmodifiableConfigurationTest extends TestCase {
     }
 
 
+    @Override
     public void setUp() throws Exception {
 
         configuration.addSource(new SourceDirectory("core/target/classes"));
@@ -63,6 +64,7 @@ public class UnmodifiableConfigurationTest extends TestCase {
     }
 
 
+    @Override
     public void tearDown() throws Exception {
 
         configuration = null;

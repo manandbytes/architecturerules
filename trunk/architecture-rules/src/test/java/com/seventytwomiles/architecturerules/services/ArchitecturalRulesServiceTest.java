@@ -44,6 +44,7 @@ public class ArchitecturalRulesServiceTest extends TestCase {
     }
 
 
+    @Override
     public void setUp() throws Exception {
 
         configuration.addSource(testClassesSourceDirectory);
@@ -60,6 +61,7 @@ public class ArchitecturalRulesServiceTest extends TestCase {
     }
 
 
+    @Override
     public void tearDown() throws Exception {
 
         rulesService = null;

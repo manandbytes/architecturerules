@@ -41,12 +41,14 @@ public class AbstractConfigurationFactoryTest extends TestCase {
     }
 
 
+    @Override
     public void setUp() throws Exception {
 
         super.setUp();
 
         factory = new AbstractConfigurationFactory() {
 
+            @Override
             protected void validateConfiguration(final String configuration) {
                 /* do nothing*/
             }
@@ -54,6 +56,7 @@ public class AbstractConfigurationFactoryTest extends TestCase {
     }
 
 
+    @Override
     public void tearDown() throws Exception {
 
         factory = null;

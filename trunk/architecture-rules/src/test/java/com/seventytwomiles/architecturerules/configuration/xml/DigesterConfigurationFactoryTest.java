@@ -119,7 +119,7 @@ public class DigesterConfigurationFactoryTest extends AbstractDigesterTest {
         /**
          * Validate values of the first Rule
          */
-        final Rule rule0 = (Rule) rules.get(0);
+        final Rule rule0 = rules.get(0);
 
         /* id */
         assertEquals("model", rule0.getId());
@@ -157,7 +157,7 @@ public class DigesterConfigurationFactoryTest extends AbstractDigesterTest {
         /**
          * Validate values of the second Rule
          */
-        final Rule rule1 = (Rule) rules.get(1);
+        final Rule rule1 = rules.get(1);
 
         /* id */
         assertEquals("dao", rule1.getId());

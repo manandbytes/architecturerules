@@ -91,6 +91,7 @@ public class JPackage {
     }
 
 
+    @Override
     public boolean equals(final Object o) {
 
         if (this == o)
@@ -112,6 +113,7 @@ public class JPackage {
     }
 
 
+    @Override
     public int hashCode() {
 
         return (path != null ? path.hashCode() : 0);
@@ -121,6 +123,7 @@ public class JPackage {
     /**
      * @see Object#toString()
      */
+    @Override
     public String toString() {
 
         return this.path;

@@ -47,6 +47,7 @@ public class CyclicRedundancyServiceTest extends TestCase {
     }
 
 
+    @Override
     public void setUp() throws Exception {
 
         super.setUp();
@@ -77,6 +78,7 @@ public class CyclicRedundancyServiceTest extends TestCase {
     }
 
 
+    @Override
     public void tearDown() throws Exception {
 
         cyclicRedundancyService = null;

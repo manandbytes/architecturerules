@@ -28,6 +28,7 @@ public class SimpleArchitectureTest
     /**
      * @see AbstractArchitectureRulesConfigurationTest
      */
+    @Override
     public String getConfigurationFileName() {
 
         /**
@@ -41,6 +42,7 @@ public class SimpleArchitectureTest
     /**
      * @see AbstractArchitectureRulesConfigurationTest#testArchitecture()
      */
+    @Override
     public void testArchitecture() {
 
         /**

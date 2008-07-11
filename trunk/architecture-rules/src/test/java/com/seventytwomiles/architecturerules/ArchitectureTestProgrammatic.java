@@ -36,6 +36,7 @@ public class ArchitectureTestProgrammatic
      * <p>Expect this test to fail because presentationRule will be
      * violated</p>
      */
+    @Override
     public void testArchitecture() {
         /* do nothing, this method is required */
     }

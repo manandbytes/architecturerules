@@ -38,6 +38,7 @@ public class ExtendTest extends AbstractArchitectureRulesConfigurationTest {
      *
      * @return String name of the xml file including <samp>.xml</smmp>
      */
+    @Override
     protected String getConfigurationFileName() {
         return super.getConfigurationFileName();
     }
@@ -46,6 +47,7 @@ public class ExtendTest extends AbstractArchitectureRulesConfigurationTest {
     /**
      * <p>Implement this method and call {@link #doTests}</p>
      */
+    @Override
     public void testArchitecture() {
 
         final Configuration configuration = getConfiguration();

@@ -42,7 +42,7 @@
   
     
             <div class="xleft">
-        Last Published: 2008-07-04
+        Last Published: 2008-07-10
                       </div>
             <div class="xright">            <a href="">Architecture Rules</a>
             
@@ -101,6 +101,8 @@
             
       
             
+      
+            
             
             
       
@@ -122,6 +124,10 @@
             <li class="expanded">
                     <a href="project-reports.html">Project Reports</a>
                   <ul>
+                  
+    <li class="none">
+                    <a href="checkstyle.html">Checkstyle</a>
+          </li>
                   
     <li class="none">
                     <a href="cobertura/index.html">Cobertura Test Coverage</a>
@@ -185,14 +191,10 @@
     <div id="bodyColumn">
       <div id="contentBox">
         <div class="section"><h2>FindBugs Bug Detector Report</h2>
-<p>The following document contains the results of <a href="http://findbugs.sourceforge.net" class="externalLink">FindBugs Report</a>
-</p>
-<p>FindBugs Version is <i>1.2.0</i>
-</p>
-<p>Threshold is <i>Low</i>
-</p>
-<p>Effort is <i>Default</i>
-</p>
+<p>The following document contains the results of <a href="http://findbugs.sourceforge.net" class="externalLink">FindBugs Report</a></p>
+<p>FindBugs Version is <i>1.2.0</i></p>
+<p>Threshold is <i>Low</i></p>
+<p>Effort is <i>Default</i></p>
 </div>
 <h2>Summary</h2>
 <table class="bodyTable"><tr class="a"><th>Classes</th>
@@ -201,7 +203,7 @@
 <th>Missing Classes</th>
 </tr>
 <tr class="b"><td>155</td>
-<td>6</td>
+<td>5</td>
 <td>0</td>
 <td>0</td>
 </tr>
@@ -212,92 +214,73 @@
 <table class="bodyTable"><tr class="a"><th>Class</th>
 <th>Bugs</th>
 </tr>
-<tr class="b"><td><a href="#com.seventytwomiles.architecturerules.domain.Rule">com.seventytwomiles.architecturerules.domain.Rule</a>
-</td>
-<td>2</td>
-</tr>
-<tr class="a"><td><a href="#com.seventytwomiles.architecturerules.services.AbstractArchitecturalRules">com.seventytwomiles.architecturerules.services.AbstractArchitecturalRules</a>
-</td>
+<tr class="b"><td><a href="#com.seventytwomiles.architecturerules.configuration.UnmodifiableConfiguration">com.seventytwomiles.architecturerules.configuration.UnmodifiableConfiguration</a></td>
 <td>1</td>
 </tr>
-<tr class="b"><td><a href="#org.seventytwomiles.springframework.core.io.ClassPathResource">org.seventytwomiles.springframework.core.io.ClassPathResource</a>
-</td>
+<tr class="a"><td><a href="#com.seventytwomiles.architecturerules.services.AbstractArchitecturalRules">com.seventytwomiles.architecturerules.services.AbstractArchitecturalRules</a></td>
+<td>1</td>
+</tr>
+<tr class="b"><td><a href="#org.seventytwomiles.springframework.core.io.ClassPathResource">org.seventytwomiles.springframework.core.io.ClassPathResource</a></td>
 <td>2</td>
 </tr>
-<tr class="a"><td><a href="#org.seventytwomiles.springframework.util.ResourceUtils">org.seventytwomiles.springframework.util.ResourceUtils</a>
-</td>
+<tr class="a"><td><a href="#org.seventytwomiles.springframework.util.ResourceUtils">org.seventytwomiles.springframework.util.ResourceUtils</a></td>
 <td>1</td>
 </tr>
 </table>
-<a name="com.seventytwomiles.architecturerules.domain.Rule"></a>
-<div class="section"><h3>com.seventytwomiles.architecturerules.domain.Rule</h3>
+<a name="com.seventytwomiles.architecturerules.configuration.UnmodifiableConfiguration"></a><div class="section"><h3>com.seventytwomiles.architecturerules.configuration.UnmodifiableConfiguration</h3>
 <table class="bodyTable"><tr class="b"><th>Bug</th>
 <th>Category</th>
 <th>Details</th>
 <th>Line</th>
 </tr>
-<tr class="a"><td>Call to equals() comparing different types in com.seventytwomiles.architecturerules.domain.Rule.addViolation(JPackage)</td>
-<td>CORRECTNESS</td>
-<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#EC_UNRELATED_TYPES" class="externalLink">EC_UNRELATED_TYPES</a>
-</td>
-<td>226</td>
-</tr>
-<tr class="b"><td>java.lang.String is incompatible with expected argument type com.seventytwomiles.architecturerules.domain.JPackage in com.seventytwomiles.architecturerules.domain.Rule.removePackage(String)</td>
-<td>CORRECTNESS</td>
-<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#GC_UNRELATED_TYPES" class="externalLink">GC_UNRELATED_TYPES</a>
-</td>
-<td>410</td>
+<tr class="a"><td>Class com.seventytwomiles.architecturerules.configuration.UnmodifiableConfiguration is final but declares protected field com.seventytwomiles.architecturerules.configuration.UnmodifiableConfiguration.log</td>
+<td>STYLE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#CI_CONFUSED_INHERITANCE" class="externalLink">CI_CONFUSED_INHERITANCE</a></td>
+<td>Not available</td>
 </tr>
 </table>
 </div>
-<a name="com.seventytwomiles.architecturerules.services.AbstractArchitecturalRules"></a>
-<div class="section"><h3>com.seventytwomiles.architecturerules.services.AbstractArchitecturalRules</h3>
-<table class="bodyTable"><tr class="a"><th>Bug</th>
+<a name="com.seventytwomiles.architecturerules.services.AbstractArchitecturalRules"></a><div class="section"><h3>com.seventytwomiles.architecturerules.services.AbstractArchitecturalRules</h3>
+<table class="bodyTable"><tr class="b"><th>Bug</th>
 <th>Category</th>
 <th>Details</th>
 <th>Line</th>
 </tr>
-<tr class="b"><td>Dead store to message in com.seventytwomiles.architecturerules.services.AbstractArchitecturalRules.testLayeringValid(JPackage, Collection)</td>
+<tr class="a"><td>Dead store to message in com.seventytwomiles.architecturerules.services.AbstractArchitecturalRules.testLayeringValid(JPackage, Collection)</td>
 <td>STYLE</td>
-<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#DLS_DEAD_LOCAL_STORE" class="externalLink">DLS_DEAD_LOCAL_STORE</a>
-</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#DLS_DEAD_LOCAL_STORE" class="externalLink">DLS_DEAD_LOCAL_STORE</a></td>
 <td>259</td>
 </tr>
 </table>
 </div>
-<a name="org.seventytwomiles.springframework.core.io.ClassPathResource"></a>
-<div class="section"><h3>org.seventytwomiles.springframework.core.io.ClassPathResource</h3>
-<table class="bodyTable"><tr class="a"><th>Bug</th>
-<th>Category</th>
-<th>Details</th>
-<th>Line</th>
-</tr>
-<tr class="b"><td>org.seventytwomiles.springframework.core.io.ClassPathResource defines equals and uses Object.hashCode()</td>
-<td>BAD_PRACTICE</td>
-<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#HE_EQUALS_USE_HASHCODE" class="externalLink">HE_EQUALS_USE_HASHCODE</a>
-</td>
-<td>216-224</td>
-</tr>
-<tr class="a"><td>Should org.seventytwomiles.springframework.core.io.ClassPathResource.toStringArray(Collection) return a zero length array rather than null?</td>
-<td>STYLE</td>
-<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#PZLA_PREFER_ZERO_LENGTH_ARRAYS" class="externalLink">PZLA_PREFER_ZERO_LENGTH_ARRAYS</a>
-</td>
-<td>555</td>
-</tr>
-</table>
-</div>
-<a name="org.seventytwomiles.springframework.util.ResourceUtils"></a>
-<div class="section"><h3>org.seventytwomiles.springframework.util.ResourceUtils</h3>
+<a name="org.seventytwomiles.springframework.core.io.ClassPathResource"></a><div class="section"><h3>org.seventytwomiles.springframework.core.io.ClassPathResource</h3>
 <table class="bodyTable"><tr class="b"><th>Bug</th>
 <th>Category</th>
 <th>Details</th>
 <th>Line</th>
 </tr>
-<tr class="a"><td>Call to equals() comparing different types in org.seventytwomiles.springframework.util.ResourceUtils.getFile(URL, String)</td>
+<tr class="a"><td>org.seventytwomiles.springframework.core.io.ClassPathResource defines equals and uses Object.hashCode()</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#HE_EQUALS_USE_HASHCODE" class="externalLink">HE_EQUALS_USE_HASHCODE</a></td>
+<td>216-224</td>
+</tr>
+<tr class="b"><td>Should org.seventytwomiles.springframework.core.io.ClassPathResource.toStringArray(Collection) return a zero length array rather than null?</td>
+<td>STYLE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#PZLA_PREFER_ZERO_LENGTH_ARRAYS" class="externalLink">PZLA_PREFER_ZERO_LENGTH_ARRAYS</a></td>
+<td>554</td>
+</tr>
+</table>
+</div>
+<a name="org.seventytwomiles.springframework.util.ResourceUtils"></a><div class="section"><h3>org.seventytwomiles.springframework.util.ResourceUtils</h3>
+<table class="bodyTable"><tr class="a"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+</tr>
+<tr class="b"><td>Call to equals() comparing different types in org.seventytwomiles.springframework.util.ResourceUtils.getFile(URL, String)</td>
 <td>CORRECTNESS</td>
-<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#EC_UNRELATED_TYPES" class="externalLink">EC_UNRELATED_TYPES</a>
-</td>
-<td>59</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#EC_UNRELATED_TYPES" class="externalLink">EC_UNRELATED_TYPES</a></td>
+<td>58</td>
 </tr>
 </table>
 </div>

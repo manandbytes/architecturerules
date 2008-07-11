@@ -12,7 +12,7 @@
 <div class="separator">&nbsp;</div>
 <table class="report">
 <thead><tr>  <td class="heading">Classes in this File</td>  <td class="heading" width="20%"><a class="dfn" href="help.html" onclick="popupwindow('help.html'); return false;">Line Coverage</a></td>  <td class="heading" width="20%"><a class="dfn" href="help.html" onclick="popupwindow('help.html'); return false;">Branch Coverage</a></td>  <td class="heading" width="10%"><a class="dfn" href="help.html" onclick="popupwindow('help.html'); return false;">Complexity</a></td></tr></thead>
-  <tr><td class="text"><a href="com.seventytwomiles.architecturerules.domain.Rule.html">Rule</a></td><td class="value"><table cellpadding="0" cellspacing="0" align="right"><tr><td>91%&nbsp;</td><td><table class="percentGraph" cellpadding="0" cellspacing="0" width="100"><tr><td class="covered" width="90"></td><td class="uncovered" width="9"></td></tr></table></td></tr></table></td><td class="value"><table cellpadding="0" cellspacing="0" align="right"><tr><td>96%&nbsp;</td><td><table class="percentGraph" cellpadding="0" cellspacing="0" width="100"><tr><td class="covered" width="95"></td><td class="uncovered" width="4"></td></tr></table></td></tr></table></td><td class="value"><span class="hidden">0.0;</span>0</td></tr>
+  <tr><td class="text"><a href="com.seventytwomiles.architecturerules.domain.Rule.html">Rule</a></td><td class="value"><table cellpadding="0" cellspacing="0" align="right"><tr><td>89%&nbsp;</td><td><table class="percentGraph" cellpadding="0" cellspacing="0" width="100"><tr><td class="covered" width="89"></td><td class="uncovered" width="10"></td></tr></table></td></tr></table></td><td class="value"><table cellpadding="0" cellspacing="0" align="right"><tr><td>94%&nbsp;</td><td><table class="percentGraph" cellpadding="0" cellspacing="0" width="100"><tr><td class="covered" width="94"></td><td class="uncovered" width="5"></td></tr></table></td></tr></table></td><td class="value"><span class="hidden">0.0;</span>0</td></tr>
 </table>
 <div class="separator">&nbsp;</div>
 <table cellspacing="0" cellpadding="0" class="src">
@@ -203,8 +203,8 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;38</td>
-  <td class="nbHitsCovered">&nbsp;1</td>
-  <td class="src"><pre class="src">&nbsp;    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Log log = LogFactory.getLog(Rule.<span class="keyword">class</span>);</pre></td>
+  <td class="nbHitsCovered">&nbsp;5</td>
+  <td class="src"><pre class="src">&nbsp;    <span class="keyword">protected</span> <span class="keyword">static</span> <span class="keyword">final</span> Log log = LogFactory.getLog(Rule.<span class="keyword">class</span>);</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;39</td>
@@ -288,7 +288,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;55</td>
-  <td class="nbHitsCovered">&nbsp;55</td>
+  <td class="nbHitsCovered">&nbsp;275</td>
   <td class="src"><pre class="src">&nbsp;    <span class="keyword">private</span> <span class="keyword">final</span> Collection&lt;JPackage&gt; packages = <span class="keyword">new</span> HashSet&lt;JPackage&gt;();</pre></td>
 </tr>
 <tr>
@@ -368,13 +368,13 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;71</td>
-  <td class="nbHitsCovered">&nbsp;55</td>
-  <td class="src"><pre class="src">&nbsp;    <span class="keyword">private</span> <span class="keyword">final</span> Collection&lt;JPackage&gt; violations</pre></td>
+  <td class="nbHitsCovered">&nbsp;275</td>
+  <td class="src"><pre class="src">&nbsp;    <span class="keyword">private</span> <span class="keyword">final</span> Collection&lt;JPackage&gt; violations = <span class="keyword">new</span> HashSet&lt;JPackage&gt;();</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;72</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;            = <span class="keyword">new</span> HashSet&lt;JPackage&gt;();</pre></td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;73</td>
@@ -384,37 +384,37 @@
 <tr>
   <td class="numLine">&nbsp;74</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
+  <td class="src"><pre class="src">&nbsp;    <span class="comment">/**</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;75</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;    <span class="comment">/**</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * &lt;p&gt;Constructs a new Rule.&lt;/p&gt;</span></pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;76</td>
   <td class="nbHitsCovered">&nbsp;260</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * &lt;p&gt;Constructs a new Rule.&lt;/p&gt;</span></pre></td>
-</tr>
-<tr>
-  <td class="numLine">&nbsp;77</td>
-  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td>
 </tr>
 <tr>
-  <td class="numLineCover">&nbsp;78</td>
-  <td class="nbHitsCovered">&nbsp;37</td>
+  <td class="numLineCover">&nbsp;77</td>
+  <td class="nbHitsCovered">&nbsp;111</td>
   <td class="src"><pre class="src">&nbsp;    <span class="keyword">public</span> Rule() {</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;79</td>
-  <td class="nbHits">&nbsp;</td>
+  <td class="numLineCover">&nbsp;78</td>
+  <td class="nbHitsCovered">&nbsp;74</td>
   <td class="src"><pre class="src">&nbsp;        <span class="comment">// do nothing</span></pre></td>
 </tr>
 <tr>
-  <td class="numLineCover">&nbsp;80</td>
-  <td class="nbHitsCovered">&nbsp;37</td>
+  <td class="numLineCover">&nbsp;79</td>
+  <td class="nbHitsCovered">&nbsp;111</td>
   <td class="src"><pre class="src">&nbsp;    }</pre></td>
+</tr>
+<tr>
+  <td class="numLineCover">&nbsp;80</td>
+  <td class="nbHitsCovered">&nbsp;74</td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;81</td>
@@ -424,46 +424,46 @@
 <tr>
   <td class="numLineCover">&nbsp;82</td>
   <td class="nbHitsCovered">&nbsp;184</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
+  <td class="src"><pre class="src">&nbsp;    <span class="comment">/**</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;83</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;    <span class="comment">/**</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * &lt;p&gt;Instantiates a new Rule with the given &lt;tt&gt;id&lt;/tt&gt;.&lt;/p&gt;</span></pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;84</td>
   <td class="nbHitsCovered">&nbsp;184</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * &lt;p&gt;Instantiates a new Rule with the given &lt;tt&gt;id&lt;/tt&gt;.&lt;/p&gt;</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     *</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;85</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     *</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @param id sets the {@link #id}</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;86</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @param id sets the {@link #id}</span></pre></td>
-</tr>
-<tr>
-  <td class="numLine">&nbsp;87</td>
-  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td>
 </tr>
 <tr>
-  <td class="numLineCover">&nbsp;88</td>
-  <td class="nbHitsCovered">&nbsp;9</td>
+  <td class="numLineCover">&nbsp;87</td>
+  <td class="nbHitsCovered">&nbsp;27</td>
   <td class="src"><pre class="src">&nbsp;    <span class="keyword">public</span> Rule(<span class="keyword">final</span> String id) {</pre></td>
 </tr>
 <tr>
+  <td class="numLineCover">&nbsp;88</td>
+  <td class="nbHitsCovered">&nbsp;18</td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
+</tr>
+<tr>
   <td class="numLineCover">&nbsp;89</td>
-  <td class="nbHitsCovered">&nbsp;9</td>
+  <td class="nbHitsCovered">&nbsp;45</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">this</span>.id = id;</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;90</td>
-  <td class="nbHitsCovered">&nbsp;9</td>
+  <td class="nbHitsCovered">&nbsp;45</td>
   <td class="src"><pre class="src">&nbsp;    }</pre></td>
 </tr>
 <tr>
@@ -523,28 +523,28 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;102</td>
-  <td class="nbHitsCovered">&nbsp;9</td>
+  <td class="nbHitsCovered">&nbsp;45</td>
   <td class="src"><pre class="src">&nbsp;    <span class="keyword">public</span> Rule(<span class="keyword">final</span> String id, <span class="keyword">final</span> String packageName) {</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;103</td>
-  <td class="nbHitsCovered">&nbsp;9</td>
-  <td class="src"><pre class="src">&nbsp;        setId(id);</pre></td>
+  <td class="nbHitsCovered">&nbsp;18</td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;104</td>
-  <td class="nbHitsCovered">&nbsp;9</td>
-  <td class="src"><pre class="src">&nbsp;        addPackage(packageName);</pre></td>
+  <td class="nbHitsCovered">&nbsp;45</td>
+  <td class="src"><pre class="src">&nbsp;        setId(id);</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;105</td>
-  <td class="nbHitsCovered">&nbsp;9</td>
-  <td class="src"><pre class="src">&nbsp;    }</pre></td>
+  <td class="nbHitsCovered">&nbsp;45</td>
+  <td class="src"><pre class="src">&nbsp;        addPackage(packageName);</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;106</td>
-  <td class="nbHitsCovered">&nbsp;36</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
+  <td class="nbHitsCovered">&nbsp;63</td>
+  <td class="src"><pre class="src">&nbsp;    }</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;107</td>
@@ -554,57 +554,57 @@
 <tr>
   <td class="numLineCover">&nbsp;108</td>
   <td class="nbHitsCovered">&nbsp;36</td>
-  <td class="src"><pre class="src">&nbsp;    <span class="comment">/**</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;109</td>
   <td class="nbHitsCovered">&nbsp;36</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * &lt;p&gt;Setter for property {@link #id}.&lt;/p&gt;</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;    <span class="comment">/**</span></pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;110</td>
   <td class="nbHitsCovered">&nbsp;36</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     *</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * &lt;p&gt;Setter for property {@link #id}.&lt;/p&gt;</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;111</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @param id Value to set for property &lt;tt&gt;id&lt;/tt&gt;.</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     *</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;112</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @return Rule this &lt;code&gt;Rule&lt;/code&gt; to allow for method chaining.</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @param id Value to set for property &lt;tt&gt;id&lt;/tt&gt;.</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;113</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @return Rule this &lt;code&gt;Rule&lt;/code&gt; to allow for method chaining.</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;114</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;    <span class="keyword">public</span> Rule setId(<span class="keyword">final</span> String id) {</pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;115</td>
-  <td class="nbHitsCovered">&nbsp;20</td>
-  <td class="src"><pre class="src">&nbsp;        Assert.assertNotNull(<span class="string">"id can not be null"</span>, id);</pre></td>
+  <td class="nbHitsCovered">&nbsp;40</td>
+  <td class="src"><pre class="src">&nbsp;    <span class="keyword">public</span> Rule setId(<span class="keyword">final</span> String id) {</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;116</td>
-  <td class="nbHitsCovered">&nbsp;19</td>
-  <td class="src"><pre class="src">&nbsp;        Assert.assertFalse(<span class="string">"id can not be empty"</span>, <span class="string">""</span>.equals(id));</pre></td>
-</tr>
-<tr>
-  <td class="numLine">&nbsp;117</td>
-  <td class="nbHits">&nbsp;</td>
+  <td class="nbHitsCovered">&nbsp;38</td>
   <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
+  <td class="numLineCover">&nbsp;117</td>
+  <td class="nbHitsCovered">&nbsp;60</td>
+  <td class="src"><pre class="src">&nbsp;        Assert.assertNotNull(<span class="string">"id can not be null"</span>, id);</pre></td>
+</tr>
+<tr>
   <td class="numLineCover">&nbsp;118</td>
-  <td class="nbHitsCovered">&nbsp;17</td>
-  <td class="src"><pre class="src">&nbsp;        <span class="keyword">this</span>.id = id;</pre></td>
+  <td class="nbHitsCovered">&nbsp;91</td>
+  <td class="src"><pre class="src">&nbsp;        Assert.assertFalse(<span class="string">"id can not be empty"</span>, <span class="string">""</span>.equals(id));</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;119</td>
@@ -613,328 +613,328 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;120</td>
-  <td class="nbHitsCovered">&nbsp;17</td>
-  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> <span class="keyword">this</span>;</pre></td>
+  <td class="nbHitsCovered">&nbsp;85</td>
+  <td class="src"><pre class="src">&nbsp;        <span class="keyword">this</span>.id = id;</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;121</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;    }</pre></td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;122</td>
-  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
+  <td class="numLineCover">&nbsp;122</td>
+  <td class="nbHitsCovered">&nbsp;51</td>
+  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> <span class="keyword">this</span>;</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;123</td>
   <td class="nbHitsCovered">&nbsp;228</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
+  <td class="src"><pre class="src">&nbsp;    }</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;124</td>
   <td class="nbHitsCovered">&nbsp;228</td>
-  <td class="src"><pre class="src">&nbsp;    <span class="comment">/**</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;125</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * &lt;p&gt;Adds a package to the Packages collection.&lt;/p&gt;</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;126</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     *</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;    <span class="comment">/**</span></pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;127</td>
   <td class="nbHitsCovered">&nbsp;228</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @param packageName String</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * &lt;p&gt;Adds a package to the Packages collection.&lt;/p&gt;</span></pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;128</td>
   <td class="nbHitsUncovered">&nbsp;0</td>
-  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<span class="comment">     * @return boolean &lt;tt&gt;true&lt;/tt&gt; when the package is actually added to the</span></span></pre></td>
+  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<span class="comment">     *</span></span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;129</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     *         Collection. &lt;tt&gt;false&lt;/tt&gt; would be returned if the package was</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @param packageName String</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;130</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     *         already in the Collection of packages.</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @return boolean &lt;tt&gt;true&lt;/tt&gt; when the package is actually added to the</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;131</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     *         Collection. &lt;tt&gt;false&lt;/tt&gt; would be returned if the package was</span></pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;132</td>
   <td class="nbHitsCovered">&nbsp;228</td>
-  <td class="src"><pre class="src">&nbsp;    <span class="keyword">public</span> <span class="keyword">boolean</span> addPackage(<span class="keyword">final</span> String packageName) {</pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     *         already in the Collection of packages.</span></pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;133</td>
-  <td class="nbHitsCovered">&nbsp;46</td>
-  <td class="src"><pre class="src">&nbsp;        Assert.assertNotNull(<span class="string">"null packageName can not be added"</span>, packageName);</pre></td>
+  <td class="nbHitsCovered">&nbsp;92</td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;134</td>
-  <td class="nbHitsCovered">&nbsp;46</td>
-  <td class="src"><pre class="src">&nbsp;        Assert.assertFalse(<span class="string">"empty packageName can not be added"</span>,</pre></td>
+  <td class="nbHitsCovered">&nbsp;92</td>
+  <td class="src"><pre class="src">&nbsp;    <span class="keyword">public</span> <span class="keyword">boolean</span> addPackage(<span class="keyword">final</span> String packageName) {</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;135</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;                packageName.equals(<span class="string">""</span>));</pre></td>
-</tr>
-<tr>
-  <td class="numLine">&nbsp;136</td>
-  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
+  <td class="numLineCover">&nbsp;136</td>
+  <td class="nbHitsCovered">&nbsp;138</td>
+  <td class="src"><pre class="src">&nbsp;        Assert.assertNotNull(</pre></td>
+</tr>
+<tr>
   <td class="numLineCover">&nbsp;137</td>
-  <td class="nbHitsCovered">&nbsp;46</td>
-  <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> JPackage jPackage = <span class="keyword">new</span> JPackage(packageName);</pre></td>
+  <td class="nbHitsCovered">&nbsp;92</td>
+  <td class="src"><pre class="src">&nbsp;                <span class="string">"null packageName can not be added"</span>,</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;138</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
+  <td class="src"><pre class="src">&nbsp;                packageName);</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;139</td>
-  <td class="nbHitsCovered">&nbsp;46</td>
-  <td class="src"><pre class="src">&nbsp;        <span class="keyword">if</span> (violations.contains(jPackage))</pre></td>
+  <td class="nbHitsCovered">&nbsp;92</td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;140</td>
-  <td class="nbHitsUncovered">&nbsp;0</td>
-  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;            <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArchitectureRuleException(</span></pre></td>
+  <td class="nbHitsCovered">&nbsp;138</td>
+  <td class="src"><pre class="src">&nbsp;        Assert.assertFalse(</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;141</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;                    <span class="string">"Could not add "</span> + packageName + <span class="string">" package because there "</span> +</pre></td>
+  <td class="src"><pre class="src">&nbsp;                <span class="string">"empty packageName can not be added"</span>,</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;142</td>
   <td class="nbHitsCovered">&nbsp;24</td>
-  <td class="src"><pre class="src">&nbsp;                            <span class="string">"is already a violation with the same package name "</span> +</pre></td>
+  <td class="src"><pre class="src">&nbsp;                packageName.equals(<span class="string">""</span>));</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;143</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;                            <span class="string">"for rule "</span> + id);</pre></td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;144</td>
-  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
+  <td class="numLineCover">&nbsp;144</td>
+  <td class="nbHitsCovered">&nbsp;138</td>
+  <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> JPackage jPackage = <span class="keyword">new</span> JPackage(packageName);</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;145</td>
-  <td class="nbHitsCovered">&nbsp;46</td>
-  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> packages.add(jPackage);</pre></td>
-</tr>
-<tr>
-  <td class="numLine">&nbsp;146</td>
-  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;    }</pre></td>
-</tr>
-<tr>
-  <td class="numLine">&nbsp;147</td>
-  <td class="nbHits">&nbsp;</td>
+  <td class="nbHitsCovered">&nbsp;92</td>
   <td class="src"><pre class="src">&nbsp;</pre></td>
+</tr>
+<tr>
+  <td class="numLineCover">&nbsp;146</td>
+  <td class="nbHitsCovered">&nbsp;138</td>
+  <td class="src"><pre class="src">&nbsp;        <span class="keyword">if</span> (violations.contains(jPackage))</pre></td>
+</tr>
+<tr>
+  <td class="numLineCover">&nbsp;147</td>
+  <td class="nbHitsUncovered">&nbsp;0</td>
+  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;            <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArchitectureRuleException(</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;148</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
+  <td class="src"><pre class="src">&nbsp;                    <span class="string">"Could not add "</span> + packageName + <span class="string">" package because "</span> +</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;149</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;    <span class="comment">/**</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;                            <span class="string">"there is already a violation with the same "</span> +</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;150</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * &lt;p&gt;Getter for property {@link #comment}.&lt;/p&gt;</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;                            <span class="string">"package name for rule "</span> + id);</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;151</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     *</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;152</td>
-  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @return Value for property &lt;tt&gt;comment&lt;/tt&gt;.</span></pre></td>
+  <td class="numLineCover">&nbsp;152</td>
+  <td class="nbHitsCovered">&nbsp;138</td>
+  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> packages.add(jPackage);</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;153</td>
   <td class="nbHitsCovered">&nbsp;140</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;    }</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;154</td>
   <td class="nbHitsCovered">&nbsp;136</td>
-  <td class="src"><pre class="src">&nbsp;    <span class="keyword">public</span> String getComment() {</pre></td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;155</td>
-  <td class="nbHitsCovered">&nbsp;142</td>
-  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> comment;</pre></td>
+  <td class="nbHitsCovered">&nbsp;148</td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;156</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;    }</pre></td>
+  <td class="src"><pre class="src">&nbsp;    <span class="comment">/**</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;157</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * &lt;p&gt;Getter for property {@link #comment}.&lt;/p&gt;</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;158</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     *</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;159</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;    <span class="comment">/**</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @return Value for property &lt;tt&gt;comment&lt;/tt&gt;.</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;160</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * &lt;p&gt;Getter for property {@link #id}.&lt;/p&gt;</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;161</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     *</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;    <span class="keyword">public</span> String getComment() {</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;162</td>
-  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @return Value for property &lt;tt&gt;id&lt;/tt&gt;.</span></pre></td>
+  <td class="numLineCover">&nbsp;162</td>
+  <td class="nbHitsCovered">&nbsp;18</td>
+  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> <span class="keyword">this</span>.comment;</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;163</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;    }</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;164</td>
   <td class="nbHitsCovered">&nbsp;304</td>
-  <td class="src"><pre class="src">&nbsp;    <span class="keyword">public</span> String getId() {</pre></td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;165</td>
-  <td class="nbHitsCovered">&nbsp;79</td>
-  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> id;</pre></td>
+  <td class="nbHitsCovered">&nbsp;158</td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;166</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;    }</pre></td>
+  <td class="src"><pre class="src">&nbsp;    <span class="comment">/**</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;167</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * &lt;p&gt;Getter for property {@link #id}.&lt;/p&gt;</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;168</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     *</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;169</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;    <span class="comment">/**</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @return Value for property &lt;tt&gt;id&lt;/tt&gt;.</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;170</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * &lt;p&gt;Getter for property {@link #packages}&lt;/p&gt;</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;171</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     *</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;    <span class="keyword">public</span> String getId() {</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;172</td>
-  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @return Value for property &lt;tt&gt;packages&lt;/tt&gt;.</span></pre></td>
+  <td class="numLineCover">&nbsp;172</td>
+  <td class="nbHitsCovered">&nbsp;237</td>
+  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> <span class="keyword">this</span>.id;</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;173</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;    }</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;174</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;    <span class="keyword">public</span> Collection&lt;JPackage&gt; getPackages() {</pre></td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;175</td>
-  <td class="nbHitsCovered">&nbsp;257</td>
-  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> <span class="keyword">this</span>.packages;</pre></td>
+  <td class="nbHitsCovered">&nbsp;330</td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;176</td>
   <td class="nbHitsCovered">&nbsp;180</td>
-  <td class="src"><pre class="src">&nbsp;    }</pre></td>
+  <td class="src"><pre class="src">&nbsp;    <span class="comment">/**</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;177</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * &lt;p&gt;Getter for property {@link #packages}&lt;/p&gt;</span></pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;178</td>
   <td class="nbHitsCovered">&nbsp;172</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     *</span></pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;179</td>
   <td class="nbHitsCovered">&nbsp;172</td>
-  <td class="src"><pre class="src">&nbsp;    <span class="comment">/**</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @return Value for property &lt;tt&gt;packages&lt;/tt&gt;.</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;180</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @see Object#equals(Object)</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;181</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;    <span class="keyword">public</span> Collection&lt;JPackage&gt; getPackages() {</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;182</td>
-  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;    @Override</pre></td>
+  <td class="numLineCover">&nbsp;182</td>
+  <td class="nbHitsCovered">&nbsp;219</td>
+  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> <span class="keyword">this</span>.packages;</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;183</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;    @SuppressWarnings({<span class="string">"RedundantIfStatement"</span>})</pre></td>
+  <td class="src"><pre class="src">&nbsp;    }</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;184</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;    <span class="keyword">public</span> <span class="keyword">boolean</span> equals(<span class="keyword">final</span> Object object) {</pre></td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;185</td>
@@ -943,28 +943,28 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;186</td>
-  <td class="nbHitsCovered">&nbsp;3</td>
-  <td class="src"><pre class="src">&nbsp;        <span class="keyword">if</span> (<span class="keyword">this</span> == object)</pre></td>
+  <td class="nbHitsCovered">&nbsp;6</td>
+  <td class="src"><pre class="src">&nbsp;    <span class="comment">/**</span></pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;187</td>
   <td class="nbHitsUncovered">&nbsp;0</td>
-  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;            <span class="keyword">return</span> <span class="keyword">true</span>;</span></pre></td>
+  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<span class="comment">     * @see Object#equals(Object)</span></span></pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;188</td>
   <td class="nbHitsCovered">&nbsp;288</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;189</td>
-  <td class="nbHitsCovered">&nbsp;3</td>
-  <td class="src"><pre class="src">&nbsp;        <span class="keyword">if</span> (object == <span class="keyword">null</span>)</pre></td>
+  <td class="nbHitsCovered">&nbsp;6</td>
+  <td class="src"><pre class="src">&nbsp;    @Override</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;190</td>
   <td class="nbHitsUncovered">&nbsp;0</td>
-  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;            <span class="keyword">return</span> <span class="keyword">false</span>;</span></pre></td>
+  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;    <span class="keyword">public</span> <span class="keyword">boolean</span> equals(<span class="keyword">final</span> Object object) {</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;191</td>
@@ -973,13 +973,13 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;192</td>
-  <td class="nbHitsCovered">&nbsp;3</td>
-  <td class="src"><pre class="src">&nbsp;        <span class="keyword">if</span> (!(object <span class="keyword">instanceof</span> Rule))</pre></td>
+  <td class="nbHitsCovered">&nbsp;15</td>
+  <td class="src"><pre class="src">&nbsp;        <span class="keyword">if</span> (<span class="keyword">this</span> == object)</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;193</td>
   <td class="nbHitsUncovered">&nbsp;0</td>
-  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;            <span class="keyword">return</span> <span class="keyword">false</span>;</span></pre></td>
+  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;            <span class="keyword">return</span> <span class="keyword">true</span>;</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;194</td>
@@ -988,38 +988,38 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;195</td>
-  <td class="nbHitsCovered">&nbsp;3</td>
-  <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> Rule that = (Rule) object;</pre></td>
+  <td class="nbHitsCovered">&nbsp;15</td>
+  <td class="src"><pre class="src">&nbsp;        <span class="keyword">if</span> (object == <span class="keyword">null</span>)</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;196</td>
-  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
+  <td class="numLineCover">&nbsp;196</td>
+  <td class="nbHitsUncovered">&nbsp;0</td>
+  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;            <span class="keyword">return</span> <span class="keyword">false</span>;</span></pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;197</td>
-  <td class="nbHitsCovered">&nbsp;15</td>
-  <td class="src"><pre class="src">&nbsp;        <span class="keyword">if</span> (id != <span class="keyword">null</span> ? !id.equals(that.getId()) : that.getId() != <span class="keyword">null</span>)</pre></td>
-</tr>
-<tr>
-  <td class="numLineCover">&nbsp;198</td>
-  <td class="nbHitsCovered">&nbsp;1</td>
-  <td class="src"><pre class="src">&nbsp;            <span class="keyword">return</span> <span class="keyword">false</span>;</pre></td>
-</tr>
-<tr>
-  <td class="numLine">&nbsp;199</td>
-  <td class="nbHits">&nbsp;</td>
+  <td class="nbHitsCovered">&nbsp;18</td>
   <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
+  <td class="numLineCover">&nbsp;198</td>
+  <td class="nbHitsCovered">&nbsp;11</td>
+  <td class="src"><pre class="src">&nbsp;        <span class="keyword">if</span> (!(object <span class="keyword">instanceof</span> Rule))</pre></td>
+</tr>
+<tr>
+  <td class="numLineCover">&nbsp;199</td>
+  <td class="nbHitsUncovered">&nbsp;0</td>
+  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;            <span class="keyword">return</span> <span class="keyword">false</span>;</span></pre></td>
+</tr>
+<tr>
   <td class="numLineCover">&nbsp;200</td>
-  <td class="nbHitsCovered">&nbsp;14</td>
-  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> <span class="keyword">true</span>;</pre></td>
+  <td class="nbHitsCovered">&nbsp;16</td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;201</td>
-  <td class="nbHitsUncovered">&nbsp;0</td>
-  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;    }</span></pre></td>
+  <td class="nbHitsCovered">&nbsp;9</td>
+  <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> Rule that = (Rule) object;</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;202</td>
@@ -1028,238 +1028,238 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;203</td>
-  <td class="nbHitsCovered">&nbsp;12</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
+  <td class="nbHitsCovered">&nbsp;21</td>
+  <td class="src"><pre class="src">&nbsp;        <span class="keyword">if</span> (id != <span class="keyword">null</span> ? !id.equals(that.getId()) : that.getId() != <span class="keyword">null</span>)</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;204</td>
-  <td class="nbHitsUncovered">&nbsp;0</td>
-  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;    <span class="comment">/**</span></span></pre></td>
+  <td class="nbHitsCovered">&nbsp;3</td>
+  <td class="src"><pre class="src">&nbsp;            <span class="keyword">return</span> <span class="keyword">false</span>;</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;205</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @see Object#hashCode()</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;206</td>
-  <td class="nbHitsCovered">&nbsp;12</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td>
+  <td class="nbHitsCovered">&nbsp;18</td>
+  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> <span class="keyword">true</span>;</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;207</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;    @Override</pre></td>
+  <td class="src"><pre class="src">&nbsp;    }</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;208</td>
   <td class="nbHitsCovered">&nbsp;12</td>
-  <td class="src"><pre class="src">&nbsp;    <span class="keyword">public</span> <span class="keyword">int</span> hashCode() {</pre></td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;209</td>
-  <td class="nbHitsCovered">&nbsp;81</td>
-  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> (id != <span class="keyword">null</span> ? id.hashCode() : 0);</pre></td>
+  <td class="nbHitsCovered">&nbsp;158</td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;210</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;    }</pre></td>
+  <td class="src"><pre class="src">&nbsp;    <span class="comment">/**</span></pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;211</td>
   <td class="nbHitsCovered">&nbsp;8</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @see Object#hashCode()</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;212</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;213</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;    <span class="comment">/**</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;    @Override</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;214</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * &lt;p&gt;Add a new violation to this &lt;code&gt;Rule&lt;/code&gt;.&lt;/p&gt;</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;    <span class="keyword">public</span> <span class="keyword">int</span> hashCode() {</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;215</td>
-  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     *</span></pre></td>
+  <td class="numLineCover">&nbsp;215</td>
+  <td class="nbHitsCovered">&nbsp;231</td>
+  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> (id != <span class="keyword">null</span> ? id.hashCode() : 0);</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;216</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @param violation String a package this this Rule's package may NOT depend</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;    }</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;217</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * upon</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;218</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @return Rule this &lt;code&gt;Rule&lt;/code&gt; to allow for method chaining.</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;219</td>
   <td class="nbHitsCovered">&nbsp;356</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @throws IllegalArchitectureRuleException a RuntimeException when the</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;    <span class="comment">/**</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;220</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * violation could not be added because the violation is one of the packages</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * &lt;p&gt;Add a new violation to this &lt;code&gt;Rule&lt;/code&gt;.&lt;/p&gt;</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;221</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * being checked.</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     *</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;222</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @param violation String a package this this Rule's package may NOT depend</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;223</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;    <span class="keyword">public</span> Rule addViolation(<span class="keyword">final</span> JPackage violation) {</pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * upon</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;224</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @return Rule this &lt;code&gt;Rule&lt;/code&gt; to allow for method chaining.</span></pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;225</td>
-  <td class="nbHitsCovered">&nbsp;92</td>
-  <td class="src"><pre class="src">&nbsp;        Assert.assertNotNull(<span class="string">"null violation can not be added"</span>, violation);</pre></td>
+  <td class="nbHitsCovered">&nbsp;184</td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @throws IllegalArchitectureRuleException a RuntimeException when the</span></pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;226</td>
-  <td class="nbHitsCovered">&nbsp;91</td>
-  <td class="src"><pre class="src">&nbsp;        Assert.assertFalse(<span class="string">"empty violation can not be added"</span>,</pre></td>
+  <td class="nbHitsCovered">&nbsp;182</td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * violation could not be added because the violation is one of the packages</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;227</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;                violation.equals(<span class="string">""</span>));</pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * being checked.</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;228</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;229</td>
-  <td class="nbHitsCovered">&nbsp;91</td>
-  <td class="src"><pre class="src">&nbsp;        <span class="keyword">if</span> (packages.contains(violation))</pre></td>
+  <td class="nbHitsCovered">&nbsp;182</td>
+  <td class="src"><pre class="src">&nbsp;    <span class="keyword">public</span> Rule addViolation(<span class="keyword">final</span> JPackage violation) {</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;230</td>
-  <td class="nbHitsCovered">&nbsp;1</td>
-  <td class="src"><pre class="src">&nbsp;            <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArchitectureRuleException(</pre></td>
+  <td class="nbHitsCovered">&nbsp;2</td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;231</td>
-  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;                    <span class="string">"Could not add architecture rule violation that creates rule "</span> +</pre></td>
+  <td class="numLineCover">&nbsp;231</td>
+  <td class="nbHitsCovered">&nbsp;276</td>
+  <td class="src"><pre class="src">&nbsp;        Assert.assertNotNull(<span class="string">"null violation can not be added"</span>, violation);</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;232</td>
-  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;                            <span class="string">"that says a package can not use itself. Remove "</span> +</pre></td>
+  <td class="numLineCover">&nbsp;232</td>
+  <td class="nbHitsCovered">&nbsp;273</td>
+  <td class="src"><pre class="src">&nbsp;        Assert.assertFalse(<span class="string">"empty violation can not be added"</span>,</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;233</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;                            <span class="string">"&lt;violation&gt;"</span> + violation + <span class="string">"&lt;/violation&gt; "</span> +</pre></td>
+  <td class="src"><pre class="src">&nbsp;                violation.getPath().equals(<span class="string">""</span>));</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;234</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;                            <span class="string">"from rule "</span> + id);</pre></td>
-</tr>
-<tr>
-  <td class="numLine">&nbsp;235</td>
-  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
+  <td class="numLineCover">&nbsp;235</td>
+  <td class="nbHitsCovered">&nbsp;270</td>
+  <td class="src"><pre class="src">&nbsp;        <span class="keyword">if</span> (packages.contains(violation))</pre></td>
+</tr>
+<tr>
   <td class="numLineCover">&nbsp;236</td>
-  <td class="nbHitsCovered">&nbsp;90</td>
-  <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> <span class="keyword">boolean</span> added = violations.add(violation);</pre></td>
+  <td class="nbHitsCovered">&nbsp;183</td>
+  <td class="src"><pre class="src">&nbsp;            <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArchitectureRuleException(</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;237</td>
   <td class="nbHitsCovered">&nbsp;504</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
+  <td class="src"><pre class="src">&nbsp;                    <span class="string">"Could not add architecture rule violation that creates rule "</span> +</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;238</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
+  <td class="src"><pre class="src">&nbsp;                            <span class="string">"that says a package can not use itself. Remove "</span> +</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;239</td>
-  <td class="nbHitsCovered">&nbsp;590</td>
-  <td class="src"><pre class="src">&nbsp;        <span class="keyword">if</span> (added) {</pre></td>
+  <td class="nbHitsCovered">&nbsp;680</td>
+  <td class="src"><pre class="src">&nbsp;                            <span class="string">"&lt;violation&gt;"</span> + violation + <span class="string">"&lt;/violation&gt; "</span> +</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;240</td>
-  <td class="nbHitsCovered">&nbsp;89</td>
-  <td class="src"><pre class="src">&nbsp;            log.debug(format(<span class="string">"added violation %s to Rule %s"</span>,</pre></td>
+  <td class="nbHitsCovered">&nbsp;178</td>
+  <td class="src"><pre class="src">&nbsp;                            <span class="string">"from rule "</span> + id);</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;241</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;                    violation, id));</pre></td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;242</td>
-  <td class="nbHitsCovered">&nbsp;496</td>
-  <td class="src"><pre class="src">&nbsp;        } <span class="keyword">else</span> {</pre></td>
+  <td class="nbHitsCovered">&nbsp;763</td>
+  <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> <span class="keyword">boolean</span> added = violations.add(violation);</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;243</td>
-  <td class="nbHitsCovered">&nbsp;5</td>
-  <td class="src"><pre class="src">&nbsp;            log.warn(format(<span class="string">"failed to add violation %s to Rule %s"</span>,</pre></td>
+  <td class="nbHitsCovered">&nbsp;6</td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;244</td>
-  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;                    violation, id));</pre></td>
+  <td class="numLineCover">&nbsp;244</td>
+  <td class="nbHitsCovered">&nbsp;267</td>
+  <td class="src"><pre class="src">&nbsp;        <span class="keyword">if</span> (added) {</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;245</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;        }</pre></td>
-</tr>
-<tr>
-  <td class="numLine">&nbsp;246</td>
-  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
+  <td class="numLineCover">&nbsp;246</td>
+  <td class="nbHitsCovered">&nbsp;264</td>
+  <td class="src"><pre class="src">&nbsp;            <span class="keyword">final</span> String debug = format(<span class="string">"added violation %s to Rule %s"</span>,</pre></td>
+</tr>
+<tr>
   <td class="numLineCover">&nbsp;247</td>
-  <td class="nbHitsCovered">&nbsp;90</td>
-  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> <span class="keyword">this</span>;</pre></td>
+  <td class="nbHitsCovered">&nbsp;180</td>
+  <td class="src"><pre class="src">&nbsp;                    violation, id);</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;248</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;    }</pre></td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;249</td>
-  <td class="nbHitsCovered">&nbsp;492</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
+  <td class="nbHitsCovered">&nbsp;756</td>
+  <td class="src"><pre class="src">&nbsp;            log.debug(debug);</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;250</td>
@@ -1267,199 +1267,199 @@
   <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;251</td>
-  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;    <span class="comment">/**</span></pre></td>
+  <td class="numLineCover">&nbsp;251</td>
+  <td class="nbHitsCovered">&nbsp;264</td>
+  <td class="src"><pre class="src">&nbsp;        } <span class="keyword">else</span> {</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;252</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * &lt;p&gt;Add a new violation to this &lt;code&gt;Rule&lt;/code&gt;.&lt;/p&gt;</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;253</td>
-  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     *</span></pre></td>
+  <td class="numLineCover">&nbsp;253</td>
+  <td class="nbHitsCovered">&nbsp;3</td>
+  <td class="src"><pre class="src">&nbsp;            <span class="keyword">final</span> String warn = format(<span class="string">"failed to add violation %s to Rule %s"</span>,</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;254</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @param violation String a package this this Rule's package may NOT depend</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;                    violation, id);</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;255</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * upon</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;256</td>
-  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @return Rule this &lt;code&gt;Rule&lt;/code&gt; to allow for method chaining.</span></pre></td>
+  <td class="numLineCover">&nbsp;256</td>
+  <td class="nbHitsCovered">&nbsp;3</td>
+  <td class="src"><pre class="src">&nbsp;            log.warn(warn);</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;257</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @throws IllegalArchitectureRuleException a RuntimeException when the</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;        }</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;258</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * violation could not be added because the violation is one of the packages</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;259</td>
-  <td class="nbHitsCovered">&nbsp;4</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * being checked.</span></pre></td>
+  <td class="nbHitsCovered">&nbsp;271</td>
+  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> <span class="keyword">this</span>;</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;260</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;    }</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;261</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;    <span class="keyword">public</span> Rule addViolation(<span class="keyword">final</span> String violation) {</pre></td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;262</td>
-  <td class="nbHitsCovered">&nbsp;89</td>
-  <td class="src"><pre class="src">&nbsp;        Assert.assertNotNull(<span class="string">"null violation can not be added"</span>, violation);</pre></td>
+  <td class="nbHitsCovered">&nbsp;178</td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;263</td>
-  <td class="nbHitsCovered">&nbsp;88</td>
-  <td class="src"><pre class="src">&nbsp;        Assert.assertFalse(<span class="string">"empty violation can not be added"</span>,</pre></td>
+  <td class="nbHitsCovered">&nbsp;176</td>
+  <td class="src"><pre class="src">&nbsp;    <span class="comment">/**</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;264</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;                violation.equals(<span class="string">""</span>));</pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * &lt;p&gt;Add a new violation to this &lt;code&gt;Rule&lt;/code&gt;.&lt;/p&gt;</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;265</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     *</span></pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;266</td>
-  <td class="nbHitsCovered">&nbsp;87</td>
-  <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> JPackage violationPackage = <span class="keyword">new</span> JPackage(violation);</pre></td>
+  <td class="nbHitsCovered">&nbsp;174</td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @param violation String a package this this Rule's package may NOT depend</span></pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;267</td>
-  <td class="nbHitsCovered">&nbsp;87</td>
-  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> <span class="keyword">this</span>.addViolation(violationPackage);</pre></td>
+  <td class="nbHitsCovered">&nbsp;174</td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * upon</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;268</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;    }</pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @return Rule this &lt;code&gt;Rule&lt;/code&gt; to allow for method chaining.</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;269</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @throws IllegalArchitectureRuleException a RuntimeException when the</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;270</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * violation could not be added because the violation is one of the packages</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;271</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;    <span class="comment">/**</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * being checked.</span></pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;272</td>
   <td class="nbHitsCovered">&nbsp;4</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * &lt;p&gt;Describes the properties of this rule in an xml-like format.&lt;/p&gt;</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;273</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     *</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;    <span class="keyword">public</span> Rule addViolation(<span class="keyword">final</span> String violation) {</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;274</td>
   <td class="nbHitsCovered">&nbsp;4</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @return String of xml that describes this &lt;code&gt;Rule&lt;/code&gt;.</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;275</td>
-  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td>
+  <td class="numLineCover">&nbsp;275</td>
+  <td class="nbHitsCovered">&nbsp;267</td>
+  <td class="src"><pre class="src">&nbsp;        Assert.assertNotNull(<span class="string">"null violation can not be added"</span>, violation);</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;276</td>
-  <td class="nbHitsCovered">&nbsp;4</td>
-  <td class="src"><pre class="src">&nbsp;    <span class="keyword">public</span> String describe() {</pre></td>
+  <td class="nbHitsCovered">&nbsp;268</td>
+  <td class="src"><pre class="src">&nbsp;        Assert.assertFalse(<span class="string">"empty violation can not be added"</span>,</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;277</td>
-  <td class="nbHitsCovered">&nbsp;1</td>
-  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> describe(<span class="keyword">false</span>);</pre></td>
+  <td class="nbHitsCovered">&nbsp;2</td>
+  <td class="src"><pre class="src">&nbsp;                violation.equals(<span class="string">""</span>));</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;278</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;    }</pre></td>
-</tr>
-<tr>
-  <td class="numLine">&nbsp;279</td>
-  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;280</td>
-  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
+  <td class="numLineCover">&nbsp;279</td>
+  <td class="nbHitsCovered">&nbsp;261</td>
+  <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> JPackage violationPackage = <span class="keyword">new</span> JPackage(violation);</pre></td>
+</tr>
+<tr>
+  <td class="numLineCover">&nbsp;280</td>
+  <td class="nbHitsCovered">&nbsp;261</td>
+  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> <span class="keyword">this</span>.addViolation(violationPackage);</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;281</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;    <span class="comment">/**</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;    }</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;282</td>
   <td class="nbHitsCovered">&nbsp;4</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * &lt;p&gt;Describes the properties of this rule in an xml-like format.&lt;/p&gt;</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;283</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     *</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;284</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @param outputToConsole boolean &lt;tt&gt;true&lt;/tt&gt; to output the description to</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;    <span class="comment">/**</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;285</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * the console</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * &lt;p&gt;Describes the properties of this rule in an xml-like format.&lt;/p&gt;</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;286</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @return String of xml that describes this &lt;code&gt;Rule&lt;/code&gt;.</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     *</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;287</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @return String of xml that describes this &lt;code&gt;Rule&lt;/code&gt;.</span></pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;288</td>
   <td class="nbHitsCovered">&nbsp;4</td>
-  <td class="src"><pre class="src">&nbsp;    <span class="keyword">private</span> String describe(<span class="keyword">final</span> <span class="keyword">boolean</span> outputToConsole) {</pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;289</td>
-  <td class="nbHitsCovered">&nbsp;1</td>
-  <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> StringBuffer builder = <span class="keyword">new</span> StringBuffer();</pre></td>
+  <td class="nbHitsCovered">&nbsp;2</td>
+  <td class="src"><pre class="src">&nbsp;    <span class="keyword">public</span> String describe() {</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;290</td>
@@ -1468,143 +1468,143 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;291</td>
-  <td class="nbHitsCovered">&nbsp;1</td>
-  <td class="src"><pre class="src">&nbsp;        builder.append(<span class="string">"&lt;rule&gt;"</span>).append(<span class="string">"\r\n"</span>);</pre></td>
+  <td class="nbHitsCovered">&nbsp;5</td>
+  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> describe(<span class="keyword">false</span>);</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;292</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
+  <td class="src"><pre class="src">&nbsp;    }</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;293</td>
-  <td class="nbHitsCovered">&nbsp;1</td>
-  <td class="src"><pre class="src">&nbsp;        builder.append(<span class="string">"\t"</span>)</pre></td>
+  <td class="nbHitsCovered">&nbsp;2</td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;294</td>
   <td class="nbHitsCovered">&nbsp;4</td>
-  <td class="src"><pre class="src">&nbsp;                .append(<span class="string">"&lt;id&gt;"</span>)</pre></td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;295</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;                .append(id)</pre></td>
+  <td class="src"><pre class="src">&nbsp;    <span class="comment">/**</span></pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;296</td>
   <td class="nbHitsCovered">&nbsp;4</td>
-  <td class="src"><pre class="src">&nbsp;                .append(<span class="string">"&lt;/id&gt;"</span>)</pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * &lt;p&gt;Describes the properties of this rule in an xml-like format.&lt;/p&gt;</span></pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;297</td>
   <td class="nbHitsCovered">&nbsp;8</td>
-  <td class="src"><pre class="src">&nbsp;                .append(<span class="string">"\r\n"</span>);</pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     *</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;298</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @param outputToConsole boolean &lt;tt&gt;true&lt;/tt&gt; to output the description to</span></pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;299</td>
-  <td class="nbHitsCovered">&nbsp;5</td>
-  <td class="src"><pre class="src">&nbsp;        builder.append(<span class="string">"\t"</span>)</pre></td>
+  <td class="nbHitsCovered">&nbsp;6</td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * the console</span></pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;300</td>
   <td class="nbHitsCovered">&nbsp;4</td>
-  <td class="src"><pre class="src">&nbsp;                .append(<span class="string">"&lt;packages&gt;"</span>)</pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @return String of xml that describes this &lt;code&gt;Rule&lt;/code&gt;.</span></pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;301</td>
   <td class="nbHitsCovered">&nbsp;4</td>
-  <td class="src"><pre class="src">&nbsp;                .append(packages)</pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;302</td>
   <td class="nbHitsCovered">&nbsp;4</td>
-  <td class="src"><pre class="src">&nbsp;                .append(<span class="string">"&lt;/packages&gt;"</span>)</pre></td>
+  <td class="src"><pre class="src">&nbsp;    <span class="keyword">private</span> String describe(<span class="keyword">final</span> <span class="keyword">boolean</span> outputToConsole) {</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;303</td>
   <td class="nbHitsCovered">&nbsp;4</td>
-  <td class="src"><pre class="src">&nbsp;                .append(<span class="string">"\r\n"</span>);</pre></td>
-</tr>
-<tr>
-  <td class="numLineCover">&nbsp;304</td>
-  <td class="nbHitsCovered">&nbsp;4</td>
   <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
+  <td class="numLineCover">&nbsp;304</td>
+  <td class="nbHitsCovered">&nbsp;7</td>
+  <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> StringBuffer builder = <span class="keyword">new</span> StringBuffer();</pre></td>
+</tr>
+<tr>
   <td class="numLineCover">&nbsp;305</td>
-  <td class="nbHitsCovered">&nbsp;1</td>
-  <td class="src"><pre class="src">&nbsp;        builder.append(<span class="string">"\t"</span>)</pre></td>
+  <td class="nbHitsCovered">&nbsp;2</td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;306</td>
-  <td class="nbHitsCovered">&nbsp;4</td>
-  <td class="src"><pre class="src">&nbsp;                .append(<span class="string">"&lt;comment&gt;"</span>)</pre></td>
+  <td class="nbHitsCovered">&nbsp;7</td>
+  <td class="src"><pre class="src">&nbsp;        builder.append(<span class="string">"&lt;rule&gt;"</span>).append(<span class="string">"\r\n"</span>);</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;307</td>
   <td class="nbHitsCovered">&nbsp;4</td>
-  <td class="src"><pre class="src">&nbsp;                .append(comment)</pre></td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;308</td>
-  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;                .append(<span class="string">"&lt;/comment&gt;"</span>)</pre></td>
+  <td class="numLineCover">&nbsp;308</td>
+  <td class="nbHitsCovered">&nbsp;3</td>
+  <td class="src"><pre class="src">&nbsp;        builder.append(<span class="string">"\t"</span>)</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;309</td>
   <td class="nbHitsCovered">&nbsp;4</td>
-  <td class="src"><pre class="src">&nbsp;                .append(<span class="string">"\r\n"</span>);</pre></td>
+  <td class="src"><pre class="src">&nbsp;                .append(<span class="string">"&lt;id&gt;"</span>)</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;310</td>
   <td class="nbHitsUncovered">&nbsp;0</td>
-  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;</span></pre></td>
+  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;                .append(id)</span></pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;311</td>
-  <td class="nbHitsCovered">&nbsp;1</td>
-  <td class="src"><pre class="src">&nbsp;        builder.append(<span class="string">"\t"</span>).append(<span class="string">"&lt;violations&gt;"</span>).append(<span class="string">"\r\n"</span>);</pre></td>
+  <td class="nbHitsCovered">&nbsp;2</td>
+  <td class="src"><pre class="src">&nbsp;                .append(<span class="string">"&lt;/id&gt;"</span>)</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;312</td>
   <td class="nbHitsCovered">&nbsp;4</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
+  <td class="src"><pre class="src">&nbsp;                .append(<span class="string">"\r\n"</span>);</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;313</td>
-  <td class="nbHitsCovered">&nbsp;1</td>
-  <td class="src"><pre class="src">&nbsp;        <span class="keyword">for</span> (<span class="keyword">final</span> JPackage violation : violations) {</pre></td>
+  <td class="nbHitsCovered">&nbsp;2</td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;314</td>
-  <td class="nbHitsCovered">&nbsp;1</td>
-  <td class="src"><pre class="src">&nbsp;            builder.append(<span class="string">"\t\t"</span>).append(<span class="string">"&lt;violation&gt;"</span>);</pre></td>
+  <td class="nbHitsCovered">&nbsp;5</td>
+  <td class="src"><pre class="src">&nbsp;        builder.append(<span class="string">"\t"</span>)</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;315</td>
-  <td class="nbHitsCovered">&nbsp;1</td>
-  <td class="src"><pre class="src">&nbsp;            builder.append(violation.getPath());</pre></td>
+  <td class="nbHitsCovered">&nbsp;2</td>
+  <td class="src"><pre class="src">&nbsp;                .append(<span class="string">"&lt;packages&gt;"</span>)</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;316</td>
-  <td class="nbHitsCovered">&nbsp;1</td>
-  <td class="src"><pre class="src">&nbsp;            builder.append(<span class="string">"&lt;/violation&gt;"</span>);</pre></td>
+  <td class="nbHitsCovered">&nbsp;2</td>
+  <td class="src"><pre class="src">&nbsp;                .append(packages)</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;317</td>
-  <td class="nbHitsCovered">&nbsp;1</td>
-  <td class="src"><pre class="src">&nbsp;            builder.append(<span class="string">"\r\n"</span>);</pre></td>
+  <td class="nbHitsCovered">&nbsp;2</td>
+  <td class="src"><pre class="src">&nbsp;                .append(<span class="string">"&lt;/packages&gt;"</span>)</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;318</td>
   <td class="nbHitsCovered">&nbsp;72</td>
-  <td class="src"><pre class="src">&nbsp;        }</pre></td>
+  <td class="src"><pre class="src">&nbsp;                .append(<span class="string">"\r\n"</span>);</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;319</td>
@@ -1613,28 +1613,28 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;320</td>
-  <td class="nbHitsCovered">&nbsp;1</td>
-  <td class="src"><pre class="src">&nbsp;        builder.append(<span class="string">"\t"</span>).append(<span class="string">"&lt;/violations&gt;"</span>).append(<span class="string">"\r\n"</span>);</pre></td>
+  <td class="nbHitsCovered">&nbsp;5</td>
+  <td class="src"><pre class="src">&nbsp;        builder.append(<span class="string">"\t"</span>)</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;321</td>
-  <td class="nbHitsCovered">&nbsp;1</td>
-  <td class="src"><pre class="src">&nbsp;        builder.append(<span class="string">"&lt;/rule&gt;"</span>).append(<span class="string">"\r\n"</span>);</pre></td>
+  <td class="nbHitsCovered">&nbsp;2</td>
+  <td class="src"><pre class="src">&nbsp;                .append(<span class="string">"&lt;comment&gt;"</span>)</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;322</td>
   <td class="nbHitsCovered">&nbsp;72</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
+  <td class="src"><pre class="src">&nbsp;                .append(comment)</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;323</td>
-  <td class="nbHitsCovered">&nbsp;1</td>
-  <td class="src"><pre class="src">&nbsp;        <span class="keyword">if</span> (outputToConsole)</pre></td>
+  <td class="nbHitsCovered">&nbsp;2</td>
+  <td class="src"><pre class="src">&nbsp;                .append(<span class="string">"&lt;/comment&gt;"</span>)</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;324</td>
   <td class="nbHitsUncovered">&nbsp;0</td>
-  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;            System.out.println(builder.toString());</span></pre></td>
+  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;                .append(<span class="string">"\r\n"</span>);</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;325</td>
@@ -1643,93 +1643,93 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;326</td>
-  <td class="nbHitsCovered">&nbsp;1</td>
-  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> builder.toString();</pre></td>
+  <td class="nbHitsCovered">&nbsp;5</td>
+  <td class="src"><pre class="src">&nbsp;        builder.append(<span class="string">"\t"</span>).append(<span class="string">"&lt;violations&gt;"</span>).append(<span class="string">"\r\n"</span>);</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;327</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;    }</pre></td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;328</td>
-  <td class="nbHitsCovered">&nbsp;160</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
+  <td class="nbHitsCovered">&nbsp;163</td>
+  <td class="src"><pre class="src">&nbsp;        <span class="keyword">for</span> (<span class="keyword">final</span> JPackage violation : violations) {</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;329</td>
-  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
+  <td class="numLineCover">&nbsp;329</td>
+  <td class="nbHitsCovered">&nbsp;3</td>
+  <td class="src"><pre class="src">&nbsp;            builder.append(<span class="string">"\t\t"</span>).append(<span class="string">"&lt;violation&gt;"</span>);</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;330</td>
-  <td class="nbHitsCovered">&nbsp;160</td>
-  <td class="src"><pre class="src">&nbsp;    <span class="comment">/**</span></pre></td>
+  <td class="nbHitsCovered">&nbsp;163</td>
+  <td class="src"><pre class="src">&nbsp;            builder.append(violation.getPath());</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;331</td>
-  <td class="nbHitsCovered">&nbsp;160</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * &lt;p&gt;Creates a String representation of this &lt;code&gt;Rule&lt;/code&gt;. Useful for</span></pre></td>
+  <td class="nbHitsCovered">&nbsp;163</td>
+  <td class="src"><pre class="src">&nbsp;            builder.append(<span class="string">"&lt;/violation&gt;"</span>);</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;332</td>
-  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * debugging and logging.&lt;/p&gt;</span></pre></td>
+  <td class="numLineCover">&nbsp;332</td>
+  <td class="nbHitsCovered">&nbsp;3</td>
+  <td class="src"><pre class="src">&nbsp;            builder.append(<span class="string">"\r\n"</span>);</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;333</td>
   <td class="nbHitsCovered">&nbsp;352</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     *</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;        }</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;334</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @return String describes this rule at its current state. Such as</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;335</td>
-  <td class="nbHitsCovered">&nbsp;192</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     *         &lt;samp&gt;['dao' for 'com.company.dao, com.company.dao.hibernate']&lt;/samp&gt;</span></pre></td>
+  <td class="nbHitsCovered">&nbsp;195</td>
+  <td class="src"><pre class="src">&nbsp;        builder.append(<span class="string">"\t"</span>).append(<span class="string">"&lt;/violations&gt;"</span>).append(<span class="string">"\r\n"</span>);</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;336</td>
-  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td>
+  <td class="numLineCover">&nbsp;336</td>
+  <td class="nbHitsCovered">&nbsp;3</td>
+  <td class="src"><pre class="src">&nbsp;        builder.append(<span class="string">"&lt;/rule&gt;"</span>).append(<span class="string">"\r\n"</span>);</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;337</td>
   <td class="nbHitsCovered">&nbsp;192</td>
-  <td class="src"><pre class="src">&nbsp;    <span class="keyword">public</span> String getDescriptionOfRule() {</pre></td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;338</td>
-  <td class="nbHitsCovered">&nbsp;20</td>
-  <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> String ruleDescription = <span class="string">"['{0}' for {1}] "</span></pre></td>
+  <td class="nbHitsCovered">&nbsp;43</td>
+  <td class="src"><pre class="src">&nbsp;        <span class="keyword">if</span> (outputToConsole)</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;339</td>
-  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;                .replaceAll(<span class="string">"\\{0}"</span>, getId())</pre></td>
+  <td class="numLineCover">&nbsp;339</td>
+  <td class="nbHitsUncovered">&nbsp;0</td>
+  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;            System.out.println(builder.toString());</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;340</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;                .replaceAll(<span class="string">"\\{1}"</span>, describePackages());</pre></td>
-</tr>
-<tr>
-  <td class="numLineCover">&nbsp;341</td>
-  <td class="nbHitsCovered">&nbsp;192</td>
   <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
+  <td class="numLineCover">&nbsp;341</td>
+  <td class="nbHitsCovered">&nbsp;195</td>
+  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> builder.toString();</pre></td>
+</tr>
+<tr>
   <td class="numLineCover">&nbsp;342</td>
-  <td class="nbHitsCovered">&nbsp;52</td>
-  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> ruleDescription;</pre></td>
+  <td class="nbHitsCovered">&nbsp;72</td>
+  <td class="src"><pre class="src">&nbsp;    }</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;343</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;    }</pre></td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;344</td>
@@ -1739,82 +1739,82 @@
 <tr>
   <td class="numLineCover">&nbsp;345</td>
   <td class="nbHitsCovered">&nbsp;160</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
+  <td class="src"><pre class="src">&nbsp;    <span class="comment">/**</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;346</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;    <span class="comment">/**</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * &lt;p&gt;Creates a String representation of this &lt;code&gt;Rule&lt;/code&gt;. Useful for</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;347</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * &lt;p&gt;Creates a String representation of this &lt;tt&gt;packages&lt;/tt&gt;. Useful for</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * debugging and logging.&lt;/p&gt;</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;348</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * debugging and logging.&lt;/p&gt;</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     *</span></pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;349</td>
   <td class="nbHitsCovered">&nbsp;160</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     *</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @return String describes this rule at its current state. Such as</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;350</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @return String describes this Rule's packages. Such as</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     *         &lt;samp&gt;['dao' for 'com.company.dao, com.company.dao.hibernate']&lt;/samp&gt;</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;351</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     *         &lt;samp&gt;com.company.dao, com.company.dao.hibernate&lt;/samp&gt;</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;352</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;    <span class="keyword">public</span> String getDescriptionOfRule() {</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;353</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;    <span class="keyword">public</span> String describePackages() {</pre></td>
-</tr>
-<tr>
-  <td class="numLine">&nbsp;354</td>
-  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
+  <td class="numLineCover">&nbsp;354</td>
+  <td class="nbHitsCovered">&nbsp;60</td>
+  <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> String ruleDescription = <span class="string">"['{0}' for {1}] "</span></pre></td>
+</tr>
+<tr>
   <td class="numLineCover">&nbsp;355</td>
-  <td class="nbHitsCovered">&nbsp;44</td>
-  <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> StringBuffer packagesDescription = <span class="keyword">new</span> StringBuffer();</pre></td>
+  <td class="nbHitsCovered">&nbsp;88</td>
+  <td class="src"><pre class="src">&nbsp;                .replaceAll(<span class="string">"\\{0}"</span>, getId())</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;356</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
+  <td class="src"><pre class="src">&nbsp;                .replaceAll(<span class="string">"\\{1}"</span>, describePackages());</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;357</td>
-  <td class="nbHitsCovered">&nbsp;44</td>
-  <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> Object[] packagesArray = packages.toArray();</pre></td>
+  <td class="nbHitsCovered">&nbsp;88</td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;358</td>
-  <td class="nbHitsCovered">&nbsp;44</td>
-  <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> <span class="keyword">int</span> totalPackages = packagesArray.length;</pre></td>
+  <td class="nbHitsCovered">&nbsp;148</td>
+  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> ruleDescription;</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;359</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
+  <td class="src"><pre class="src">&nbsp;    }</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;360</td>
-  <td class="nbHitsCovered">&nbsp;96</td>
-  <td class="src"><pre class="src">&nbsp;        <span class="keyword">for</span> (<span class="keyword">int</span> i = 0; i &lt; totalPackages; i++) {</pre></td>
+  <td class="nbHitsCovered">&nbsp;192</td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;361</td>
@@ -1823,53 +1823,53 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;362</td>
-  <td class="nbHitsCovered">&nbsp;52</td>
-  <td class="src"><pre class="src">&nbsp;            <span class="keyword">final</span> JPackage jPackage = (JPackage) packagesArray[i];</pre></td>
+  <td class="nbHitsCovered">&nbsp;104</td>
+  <td class="src"><pre class="src">&nbsp;    <span class="comment">/**</span></pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;363</td>
-  <td class="nbHitsCovered">&nbsp;52</td>
-  <td class="src"><pre class="src">&nbsp;            <span class="keyword">final</span> String packageName = jPackage.getPath();</pre></td>
+  <td class="nbHitsCovered">&nbsp;104</td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * &lt;p&gt;Creates a String representation of this &lt;tt&gt;packages&lt;/tt&gt;. Useful for</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;364</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * debugging and logging.&lt;/p&gt;</span></pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;365</td>
-  <td class="nbHitsCovered">&nbsp;304</td>
-  <td class="src"><pre class="src">&nbsp;            packagesDescription</pre></td>
+  <td class="nbHitsCovered">&nbsp;356</td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     *</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;366</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;                    .append(packageName.trim())</pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @return String describes this Rule's packages. Such as</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;367</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;                    .append(<span class="string">" "</span>);</pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     *         &lt;samp&gt;com.company.dao, com.company.dao.hibernate&lt;/samp&gt;</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;368</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;369</td>
-  <td class="nbHitsCovered">&nbsp;52</td>
-  <td class="src"><pre class="src">&nbsp;            <span class="keyword">if</span> (i + 1 &lt; totalPackages)</pre></td>
+  <td class="nbHitsCovered">&nbsp;104</td>
+  <td class="src"><pre class="src">&nbsp;    <span class="keyword">public</span> String describePackages() {</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;370</td>
-  <td class="nbHitsCovered">&nbsp;8</td>
-  <td class="src"><pre class="src">&nbsp;                packagesDescription.append(<span class="string">","</span>);</pre></td>
+  <td class="nbHitsCovered">&nbsp;16</td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;371</td>
-  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;        }</pre></td>
+  <td class="numLineCover">&nbsp;371</td>
+  <td class="nbHitsCovered">&nbsp;132</td>
+  <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> StringBuffer packagesDescription = <span class="keyword">new</span> StringBuffer();</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;372</td>
@@ -1878,38 +1878,38 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;373</td>
-  <td class="nbHitsCovered">&nbsp;44</td>
-  <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> String description = packagesDescription.toString()</pre></td>
+  <td class="nbHitsCovered">&nbsp;220</td>
+  <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> Object[] packagesArray = packages.toArray();</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;374</td>
-  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;                .replaceAll(<span class="string">"\\["</span>, <span class="string">""</span>)</pre></td>
+  <td class="numLineCover">&nbsp;374</td>
+  <td class="nbHitsCovered">&nbsp;132</td>
+  <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> <span class="keyword">int</span> totalPackages = packagesArray.length;</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;375</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;                .replaceAll(<span class="string">"\\]"</span>, <span class="string">""</span>);</pre></td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;376</td>
-  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
+  <td class="numLineCover">&nbsp;376</td>
+  <td class="nbHitsCovered">&nbsp;288</td>
+  <td class="src"><pre class="src">&nbsp;        <span class="keyword">for</span> (<span class="keyword">int</span> i = 0; i &lt; totalPackages; i++) {</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;377</td>
-  <td class="nbHitsCovered">&nbsp;44</td>
-  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> description;</pre></td>
+  <td class="nbHitsCovered">&nbsp;88</td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;378</td>
-  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;    }</pre></td>
+  <td class="numLineCover">&nbsp;378</td>
+  <td class="nbHitsCovered">&nbsp;156</td>
+  <td class="src"><pre class="src">&nbsp;            <span class="keyword">final</span> JPackage jPackage = (JPackage) packagesArray[i];</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;379</td>
-  <td class="nbHitsCovered">&nbsp;16</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
+  <td class="nbHitsCovered">&nbsp;172</td>
+  <td class="src"><pre class="src">&nbsp;            <span class="keyword">final</span> String packageName = jPackage.getPath();</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;380</td>
@@ -1918,68 +1918,68 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;381</td>
-  <td class="nbHitsCovered">&nbsp;12</td>
-  <td class="src"><pre class="src">&nbsp;    <span class="comment">/**</span></pre></td>
+  <td class="nbHitsCovered">&nbsp;168</td>
+  <td class="src"><pre class="src">&nbsp;            packagesDescription</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;382</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * &lt;p&gt;Get all of the &lt;tt&gt;violations&lt;/tt&gt;.&lt;/p&gt;</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;                    .append(packageName.trim())</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;383</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     *</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;                    .append(<span class="string">" "</span>);</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;384</td>
   <td class="nbHitsCovered">&nbsp;8</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * &lt;p&gt;Note: this Collection is unmodifiable, use {@link #addViolation} and</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;385</td>
-  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * {@link #removeViolation}&lt;/p&gt;</span></pre></td>
+  <td class="numLineCover">&nbsp;385</td>
+  <td class="nbHitsCovered">&nbsp;156</td>
+  <td class="src"><pre class="src">&nbsp;            <span class="keyword">if</span> (i + 1 &lt; totalPackages)</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;386</td>
-  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     *</span></pre></td>
+  <td class="numLineCover">&nbsp;386</td>
+  <td class="nbHitsCovered">&nbsp;24</td>
+  <td class="src"><pre class="src">&nbsp;                packagesDescription.append(<span class="string">","</span>);</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;387</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @return Collection unmodifiable</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;        }</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;388</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @throws UnsupportedOperationException when &lt;code&gt;getViolations.add(Object)&lt;/code&gt;</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;389</td>
-  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * or &lt;code&gt;getViolations.remove(Object)&lt;/code&gt; is called. Use {@link</span></pre></td>
+  <td class="numLineCover">&nbsp;389</td>
+  <td class="nbHitsCovered">&nbsp;132</td>
+  <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> String description = packagesDescription.toString()</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;390</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * #addViolation} and {@link #removeViolation}.</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;                .replaceAll(<span class="string">"\\["</span>, <span class="string">""</span>)</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;391</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;                .replaceAll(<span class="string">"\\]"</span>, <span class="string">""</span>);</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;392</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;    <span class="keyword">public</span> Collection&lt;JPackage&gt; getViolations() {</pre></td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;393</td>
-  <td class="nbHitsCovered">&nbsp;70</td>
-  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> Collections.unmodifiableCollection(violations);</pre></td>
+  <td class="nbHitsCovered">&nbsp;272</td>
+  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> description;</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;394</td>
@@ -2004,7 +2004,7 @@
 <tr>
   <td class="numLine">&nbsp;398</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * &lt;p&gt;Remove a package from this Rule.&lt;/p&gt;</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * &lt;p&gt;Get all of the &lt;tt&gt;violations&lt;/tt&gt;.&lt;/p&gt;</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;399</td>
@@ -2014,47 +2014,47 @@
 <tr>
   <td class="numLine">&nbsp;400</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @param packageName String a package this this Rule's package should not</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * &lt;p&gt;Note: this Collection is unmodifiable, use {@link #addViolation} and</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;401</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * test on</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * {@link #removeViolation}&lt;/p&gt;</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;402</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @return Rule this &lt;code&gt;Rule&lt;/code&gt; to allow for method chaining.</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     *</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;403</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @return Collection unmodifiable</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;404</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;    <span class="keyword">public</span> Rule removePackage(<span class="keyword">final</span> String packageName) {</pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @throws UnsupportedOperationException when &lt;code&gt;getViolations.add(Object)&lt;/code&gt;</span></pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;405</td>
   <td class="nbHitsUncovered">&nbsp;0</td>
-  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;        Assert.assertNotNull(<span class="string">"null packageName can not be removed"</span>,</span></pre></td>
+  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<span class="comment">     * or &lt;code&gt;getViolations.remove(Object)&lt;/code&gt; is called. Use {@link</span></span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;406</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;                packageName);</pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * #addViolation} and {@link #removeViolation}.</span></pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;407</td>
   <td class="nbHitsUncovered">&nbsp;0</td>
-  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;        Assert.assertFalse(<span class="string">"empty packageName can not be removed"</span>,</span></pre></td>
+  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<span class="comment">     */</span></span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;408</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;                <span class="string">""</span>.equals(packageName));</pre></td>
+  <td class="src"><pre class="src">&nbsp;    <span class="keyword">public</span> Collection&lt;JPackage&gt; getViolations() {</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;409</td>
@@ -2063,63 +2063,63 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;410</td>
-  <td class="nbHitsUncovered">&nbsp;0</td>
-  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;        <span class="keyword">final</span> <span class="keyword">boolean</span> removed = packages.remove(packageName);</span></pre></td>
+  <td class="nbHitsCovered">&nbsp;210</td>
+  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> Collections.unmodifiableCollection(violations);</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;411</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
+  <td class="src"><pre class="src">&nbsp;    }</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;412</td>
   <td class="nbHitsUncovered">&nbsp;0</td>
-  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;        <span class="keyword">if</span> (removed) {</span></pre></td>
+  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;</span></pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;413</td>
   <td class="nbHitsUncovered">&nbsp;0</td>
-  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;            log.debug(format(<span class="string">"removed package %s from Rule %s"</span>,</span></pre></td>
+  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;414</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;                    packageName, <span class="keyword">this</span>.id));</pre></td>
+  <td class="src"><pre class="src">&nbsp;    <span class="comment">/**</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;415</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;        } <span class="keyword">else</span> {</pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * &lt;p&gt;Remove a package from this Rule.&lt;/p&gt;</span></pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;416</td>
   <td class="nbHitsUncovered">&nbsp;0</td>
-  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;            log.warn(format(<span class="string">"failed to remove package %s from Rule %s "</span>,</span></pre></td>
+  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<span class="comment">     *</span></span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;417</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;                    packageName, <span class="keyword">this</span>.id));</pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @param packageName String a package this this Rule's package should not</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;418</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;        }</pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * test on</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;419</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @return Rule this &lt;code&gt;Rule&lt;/code&gt; to allow for method chaining.</span></pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;420</td>
   <td class="nbHitsUncovered">&nbsp;0</td>
-  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;        <span class="keyword">return</span> <span class="keyword">this</span>;</span></pre></td>
+  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<span class="comment">     */</span></span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;421</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;    }</pre></td>
+  <td class="src"><pre class="src">&nbsp;    <span class="keyword">public</span> Rule removePackage(<span class="keyword">final</span> String packageName) {</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;422</td>
@@ -2127,84 +2127,84 @@
   <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;423</td>
-  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
+  <td class="numLineCover">&nbsp;423</td>
+  <td class="nbHitsUncovered">&nbsp;0</td>
+  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;        Assert.assertNotNull(</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;424</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;    <span class="comment">/**</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;                <span class="string">"null packageName can not be removed"</span>,</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;425</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * &lt;p&gt;Remove a violation from this Rule.&lt;/p&gt;</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;                packageName);</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;426</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     *</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;427</td>
-  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @param violation String a package this this Rule's package should not</span></pre></td>
+  <td class="numLineCover">&nbsp;427</td>
+  <td class="nbHitsUncovered">&nbsp;0</td>
+  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;        Assert.assertFalse(</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;428</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * test on</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;                <span class="string">"empty packageName can not be removed"</span>,</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;429</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @return Rule this &lt;code&gt;Rule&lt;/code&gt; to allow for method chaining.</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;                <span class="string">""</span>.equals(packageName));</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;430</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;431</td>
-  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;    <span class="keyword">public</span> Rule removeViolation(<span class="keyword">final</span> String violation) {</pre></td>
+  <td class="numLineCover">&nbsp;431</td>
+  <td class="nbHitsUncovered">&nbsp;0</td>
+  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;        <span class="keyword">final</span> JPackage jPackage = <span class="keyword">new</span> JPackage(packageName);</span></pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;432</td>
-  <td class="nbHitsCovered">&nbsp;2</td>
-  <td class="src"><pre class="src">&nbsp;        Assert.assertFalse(<span class="string">"empty violation can not be removed"</span>,</pre></td>
+  <td class="nbHitsCovered">&nbsp;4</td>
+  <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> <span class="keyword">boolean</span> removed = packages.remove(jPackage);</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;433</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;                <span class="string">""</span>.equals(violation));</pre></td>
-</tr>
-<tr>
-  <td class="numLine">&nbsp;434</td>
-  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
+  <td class="numLineCover">&nbsp;434</td>
+  <td class="nbHitsUncovered">&nbsp;0</td>
+  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;        <span class="keyword">if</span> (removed) {</span></pre></td>
+</tr>
+<tr>
   <td class="numLineCover">&nbsp;435</td>
-  <td class="nbHitsCovered">&nbsp;1</td>
-  <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> JPackage jPackage = <span class="keyword">new</span> JPackage(violation);</pre></td>
+  <td class="nbHitsCovered">&nbsp;2</td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;436</td>
-  <td class="nbHitsCovered">&nbsp;1</td>
-  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> removeViolation(jPackage);</pre></td>
+  <td class="nbHitsCovered">&nbsp;2</td>
+  <td class="src"><pre class="src">&nbsp;            <span class="keyword">final</span> String debug = format(</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;437</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;    }</pre></td>
+  <td class="src"><pre class="src">&nbsp;                    <span class="string">"removed package %s from Rule %s"</span>,</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;438</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
+  <td class="src"><pre class="src">&nbsp;                    packageName, <span class="keyword">this</span>.id);</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;439</td>
@@ -2212,139 +2212,139 @@
   <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;440</td>
-  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;    <span class="keyword">public</span> Rule removeViolation(<span class="keyword">final</span> JPackage violation) {</pre></td>
+  <td class="numLineCover">&nbsp;440</td>
+  <td class="nbHitsUncovered">&nbsp;0</td>
+  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;            log.debug(debug);</span></pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;441</td>
-  <td class="nbHitsCovered">&nbsp;4</td>
-  <td class="src"><pre class="src">&nbsp;        Assert.assertNotNull(<span class="string">"null violation can not be removed"</span>, violation);</pre></td>
+  <td class="nbHitsCovered">&nbsp;8</td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;442</td>
-  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
+  <td class="numLineCover">&nbsp;442</td>
+  <td class="nbHitsUncovered">&nbsp;0</td>
+  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;        } <span class="keyword">else</span> {</span></pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;443</td>
-  <td class="nbHitsCovered">&nbsp;3</td>
-  <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> <span class="keyword">boolean</span> removed = violations.remove(violation);</pre></td>
-</tr>
-<tr>
-  <td class="numLine">&nbsp;444</td>
-  <td class="nbHits">&nbsp;</td>
+  <td class="nbHitsCovered">&nbsp;6</td>
   <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
+  <td class="numLineCover">&nbsp;444</td>
+  <td class="nbHitsUncovered">&nbsp;0</td>
+  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;            <span class="keyword">final</span> String warn = format(</span></pre></td>
+</tr>
+<tr>
   <td class="numLineCover">&nbsp;445</td>
-  <td class="nbHitsCovered">&nbsp;3</td>
-  <td class="src"><pre class="src">&nbsp;        <span class="keyword">if</span> (removed) {</pre></td>
+  <td class="nbHitsCovered">&nbsp;6</td>
+  <td class="src"><pre class="src">&nbsp;                    <span class="string">"failed to remove package %s from Rule %s "</span>,</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;446</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
+  <td class="src"><pre class="src">&nbsp;                    packageName, <span class="keyword">this</span>.id);</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;447</td>
-  <td class="nbHitsCovered">&nbsp;1</td>
-  <td class="src"><pre class="src">&nbsp;            log.debug(format(<span class="string">"removed violation %s from Rule %s"</span>, violation,</pre></td>
+  <td class="nbHitsCovered">&nbsp;2</td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;448</td>
-  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;                    <span class="keyword">this</span>.id));</pre></td>
+  <td class="numLineCover">&nbsp;448</td>
+  <td class="nbHitsUncovered">&nbsp;0</td>
+  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;            log.warn(warn);</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;449</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
+  <td class="src"><pre class="src">&nbsp;        }</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;450</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;        } <span class="keyword">else</span> {</pre></td>
-</tr>
-<tr>
-  <td class="numLine">&nbsp;451</td>
-  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
+  <td class="numLineCover">&nbsp;451</td>
+  <td class="nbHitsUncovered">&nbsp;0</td>
+  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;        <span class="keyword">return</span> <span class="keyword">this</span>;</span></pre></td>
+</tr>
+<tr>
   <td class="numLineCover">&nbsp;452</td>
-  <td class="nbHitsCovered">&nbsp;2</td>
-  <td class="src"><pre class="src">&nbsp;            log.warn(format(<span class="string">"failed to remove violation %s from Rule %s "</span>,</pre></td>
+  <td class="nbHitsCovered">&nbsp;4</td>
+  <td class="src"><pre class="src">&nbsp;    }</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;453</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;                    violation, <span class="keyword">this</span>.id));</pre></td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;454</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;        }</pre></td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;455</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
+  <td class="src"><pre class="src">&nbsp;    <span class="comment">/**</span></pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;456</td>
-  <td class="nbHitsCovered">&nbsp;3</td>
-  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> <span class="keyword">this</span>;</pre></td>
+  <td class="nbHitsCovered">&nbsp;6</td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * &lt;p&gt;Remove a violation from this Rule.&lt;/p&gt;</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;457</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;    }</pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     *</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;458</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @param violation String a package this this Rule's package should not</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;459</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * test on</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;460</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;    <span class="comment">/**</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @return Rule this &lt;code&gt;Rule&lt;/code&gt; to allow for method chaining.</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;461</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * &lt;p&gt;Setter for property {@link #comment}.&lt;/p&gt;</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;462</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     *</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;    <span class="keyword">public</span> Rule removeViolation(<span class="keyword">final</span> String violation) {</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;463</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @param comment Value to set for property &lt;tt&gt;comment&lt;/tt&gt;.</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;464</td>
-  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @return Rule this &lt;code&gt;Rule&lt;/code&gt; to allow for method chaining.</span></pre></td>
+  <td class="numLineCover">&nbsp;464</td>
+  <td class="nbHitsCovered">&nbsp;6</td>
+  <td class="src"><pre class="src">&nbsp;        Assert.assertFalse(</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;465</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;                <span class="string">"empty violation can not be removed"</span>,</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;466</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;    <span class="keyword">public</span> Rule setComment(<span class="keyword">final</span> String comment) {</pre></td>
+  <td class="src"><pre class="src">&nbsp;                <span class="string">""</span>.equals(violation));</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;467</td>
@@ -2353,33 +2353,33 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;468</td>
-  <td class="nbHitsCovered">&nbsp;27</td>
-  <td class="src"><pre class="src">&nbsp;        Assert.assertNotNull(<span class="string">"comment can not be null"</span>, comment);</pre></td>
+  <td class="nbHitsCovered">&nbsp;57</td>
+  <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> JPackage jPackage = <span class="keyword">new</span> JPackage(violation);</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;469</td>
-  <td class="nbHitsCovered">&nbsp;26</td>
-  <td class="src"><pre class="src">&nbsp;        <span class="keyword">this</span>.comment = comment;</pre></td>
+  <td class="nbHitsCovered">&nbsp;55</td>
+  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> removeViolation(jPackage);</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;470</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
+  <td class="src"><pre class="src">&nbsp;    }</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;471</td>
-  <td class="nbHitsCovered">&nbsp;26</td>
-  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> <span class="keyword">this</span>;</pre></td>
+  <td class="nbHitsCovered">&nbsp;52</td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;472</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;    }</pre></td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;473</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
+  <td class="src"><pre class="src">&nbsp;    <span class="keyword">public</span> Rule removeViolation(<span class="keyword">final</span> JPackage violation) {</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;474</td>
@@ -2387,59 +2387,59 @@
   <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;475</td>
-  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;    <span class="comment">/**</span></pre></td>
+  <td class="numLineCover">&nbsp;475</td>
+  <td class="nbHitsCovered">&nbsp;12</td>
+  <td class="src"><pre class="src">&nbsp;        Assert.assertNotNull(<span class="string">"null violation can not be removed"</span>, violation);</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;476</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * &lt;p&gt;Same as {@link #setId(String)}. The &lt;code&gt;DigesterConfiguraitonFactory&lt;/code&gt;</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;477</td>
-  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * that builds the &lt;code&gt;Configuration&lt;code&gt; class can invoke void setter.</span></pre></td>
+  <td class="numLineCover">&nbsp;477</td>
+  <td class="nbHitsCovered">&nbsp;9</td>
+  <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> <span class="keyword">boolean</span> removed = violations.remove(violation);</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;478</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * When we added method chaining at version 2.1.0, we made &lt;tt&gt;setId&lt;/tt&gt;</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;479</td>
-  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * return &lt;code&gt;Rule&lt;/code&gt;, and the configuration factory broke. So this</span></pre></td>
+  <td class="numLineCover">&nbsp;479</td>
+  <td class="nbHitsCovered">&nbsp;9</td>
+  <td class="src"><pre class="src">&nbsp;        <span class="keyword">if</span> (removed) {</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;480</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * method was created to allow for the ConfigurationFactory to work, and for</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;481</td>
-  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * method chaining to be supported.&lt;/p&gt;</span></pre></td>
+  <td class="numLineCover">&nbsp;481</td>
+  <td class="nbHitsCovered">&nbsp;3</td>
+  <td class="src"><pre class="src">&nbsp;            <span class="keyword">final</span> String debug = format(</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;482</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     *</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;                    <span class="string">"removed violation %s from Rule %s"</span>,</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;483</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @param id Value to set for property &lt;tt&gt;id&lt;/tt&gt;.</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;                    violation, <span class="keyword">this</span>.id);</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;484</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;485</td>
-  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;    <span class="keyword">public</span> <span class="keyword">void</span> setIdString(<span class="keyword">final</span> String id) {</pre></td>
+  <td class="numLineCover">&nbsp;485</td>
+  <td class="nbHitsCovered">&nbsp;3</td>
+  <td class="src"><pre class="src">&nbsp;            log.debug(debug);</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;486</td>
@@ -2448,31 +2448,236 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;487</td>
-  <td class="nbHitsCovered">&nbsp;19</td>
-  <td class="src"><pre class="src">&nbsp;        Assert.assertNotNull(<span class="string">"id can not be null"</span>, id);</pre></td>
+  <td class="nbHitsCovered">&nbsp;41</td>
+  <td class="src"><pre class="src">&nbsp;        } <span class="keyword">else</span> {</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;488</td>
-  <td class="nbHitsCovered">&nbsp;19</td>
-  <td class="src"><pre class="src">&nbsp;        Assert.assertFalse(<span class="string">"id can not be empty"</span>, <span class="string">""</span>.equals(id));</pre></td>
+  <td class="nbHitsCovered">&nbsp;38</td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;489</td>
+  <td class="numLineCover">&nbsp;489</td>
+  <td class="nbHitsCovered">&nbsp;6</td>
+  <td class="src"><pre class="src">&nbsp;            <span class="keyword">final</span> String warn = format(</pre></td>
+</tr>
+<tr>
+  <td class="numLineCover">&nbsp;490</td>
+  <td class="nbHitsCovered">&nbsp;38</td>
+  <td class="src"><pre class="src">&nbsp;                    <span class="string">"failed to remove violation %s from Rule %s "</span>,</pre></td>
+</tr>
+<tr>
+  <td class="numLineCover">&nbsp;491</td>
+  <td class="nbHitsCovered">&nbsp;38</td>
+  <td class="src"><pre class="src">&nbsp;                    violation, <span class="keyword">this</span>.id);</pre></td>
+</tr>
+<tr>
+  <td class="numLine">&nbsp;492</td>
   <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
-  <td class="numLineCover">&nbsp;490</td>
-  <td class="nbHitsCovered">&nbsp;19</td>
-  <td class="src"><pre class="src">&nbsp;        <span class="keyword">this</span>.id = id;</pre></td>
+  <td class="numLineCover">&nbsp;493</td>
+  <td class="nbHitsCovered">&nbsp;6</td>
+  <td class="src"><pre class="src">&nbsp;            log.warn(warn);</pre></td>
 </tr>
 <tr>
-  <td class="numLineCover">&nbsp;491</td>
-  <td class="nbHitsCovered">&nbsp;19</td>
+  <td class="numLine">&nbsp;494</td>
+  <td class="nbHits">&nbsp;</td>
+  <td class="src"><pre class="src">&nbsp;        }</pre></td>
+</tr>
+<tr>
+  <td class="numLine">&nbsp;495</td>
+  <td class="nbHits">&nbsp;</td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
+</tr>
+<tr>
+  <td class="numLineCover">&nbsp;496</td>
+  <td class="nbHitsCovered">&nbsp;9</td>
+  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> <span class="keyword">this</span>;</pre></td>
+</tr>
+<tr>
+  <td class="numLine">&nbsp;497</td>
+  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;    }</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;492</td>
+  <td class="numLine">&nbsp;498</td>
+  <td class="nbHits">&nbsp;</td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
+</tr>
+<tr>
+  <td class="numLine">&nbsp;499</td>
+  <td class="nbHits">&nbsp;</td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
+</tr>
+<tr>
+  <td class="numLine">&nbsp;500</td>
+  <td class="nbHits">&nbsp;</td>
+  <td class="src"><pre class="src">&nbsp;    <span class="comment">/**</span></pre></td>
+</tr>
+<tr>
+  <td class="numLine">&nbsp;501</td>
+  <td class="nbHits">&nbsp;</td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * &lt;p&gt;Setter for property {@link #comment}.&lt;/p&gt;</span></pre></td>
+</tr>
+<tr>
+  <td class="numLine">&nbsp;502</td>
+  <td class="nbHits">&nbsp;</td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     *</span></pre></td>
+</tr>
+<tr>
+  <td class="numLine">&nbsp;503</td>
+  <td class="nbHits">&nbsp;</td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @param comment Value to set for property &lt;tt&gt;comment&lt;/tt&gt;.</span></pre></td>
+</tr>
+<tr>
+  <td class="numLine">&nbsp;504</td>
+  <td class="nbHits">&nbsp;</td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @return Rule this &lt;code&gt;Rule&lt;/code&gt; to allow for method chaining.</span></pre></td>
+</tr>
+<tr>
+  <td class="numLine">&nbsp;505</td>
+  <td class="nbHits">&nbsp;</td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td>
+</tr>
+<tr>
+  <td class="numLine">&nbsp;506</td>
+  <td class="nbHits">&nbsp;</td>
+  <td class="src"><pre class="src">&nbsp;    <span class="keyword">public</span> Rule setComment(<span class="keyword">final</span> String comment) {</pre></td>
+</tr>
+<tr>
+  <td class="numLine">&nbsp;507</td>
+  <td class="nbHits">&nbsp;</td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
+</tr>
+<tr>
+  <td class="numLineCover">&nbsp;508</td>
+  <td class="nbHitsCovered">&nbsp;81</td>
+  <td class="src"><pre class="src">&nbsp;        Assert.assertNotNull(<span class="string">"comment can not be null"</span>, comment);</pre></td>
+</tr>
+<tr>
+  <td class="numLine">&nbsp;509</td>
+  <td class="nbHits">&nbsp;</td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
+</tr>
+<tr>
+  <td class="numLineCover">&nbsp;510</td>
+  <td class="nbHitsCovered">&nbsp;78</td>
+  <td class="src"><pre class="src">&nbsp;        <span class="keyword">this</span>.comment = comment;</pre></td>
+</tr>
+<tr>
+  <td class="numLine">&nbsp;511</td>
+  <td class="nbHits">&nbsp;</td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
+</tr>
+<tr>
+  <td class="numLineCover">&nbsp;512</td>
+  <td class="nbHitsCovered">&nbsp;78</td>
+  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> <span class="keyword">this</span>;</pre></td>
+</tr>
+<tr>
+  <td class="numLine">&nbsp;513</td>
+  <td class="nbHits">&nbsp;</td>
+  <td class="src"><pre class="src">&nbsp;    }</pre></td>
+</tr>
+<tr>
+  <td class="numLine">&nbsp;514</td>
+  <td class="nbHits">&nbsp;</td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
+</tr>
+<tr>
+  <td class="numLine">&nbsp;515</td>
+  <td class="nbHits">&nbsp;</td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
+</tr>
+<tr>
+  <td class="numLine">&nbsp;516</td>
+  <td class="nbHits">&nbsp;</td>
+  <td class="src"><pre class="src">&nbsp;    <span class="comment">/**</span></pre></td>
+</tr>
+<tr>
+  <td class="numLine">&nbsp;517</td>
+  <td class="nbHits">&nbsp;</td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * &lt;p&gt;Same as {@link #setId(String)}. The &lt;code&gt;DigesterConfiguraitonFactory&lt;/code&gt;</span></pre></td>
+</tr>
+<tr>
+  <td class="numLine">&nbsp;518</td>
+  <td class="nbHits">&nbsp;</td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * that builds the &lt;code&gt;Configuration&lt;code&gt; class can invoke void setter.</span></pre></td>
+</tr>
+<tr>
+  <td class="numLine">&nbsp;519</td>
+  <td class="nbHits">&nbsp;</td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * When we added method chaining at version 2.1.0, we made &lt;tt&gt;setId&lt;/tt&gt;</span></pre></td>
+</tr>
+<tr>
+  <td class="numLine">&nbsp;520</td>
+  <td class="nbHits">&nbsp;</td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * return &lt;code&gt;Rule&lt;/code&gt;, and the configuration factory broke. So this</span></pre></td>
+</tr>
+<tr>
+  <td class="numLine">&nbsp;521</td>
+  <td class="nbHits">&nbsp;</td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * method was created to allow for the ConfigurationFactory to work, and for</span></pre></td>
+</tr>
+<tr>
+  <td class="numLine">&nbsp;522</td>
+  <td class="nbHits">&nbsp;</td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * method chaining to be supported.&lt;/p&gt;</span></pre></td>
+</tr>
+<tr>
+  <td class="numLine">&nbsp;523</td>
+  <td class="nbHits">&nbsp;</td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     *</span></pre></td>
+</tr>
+<tr>
+  <td class="numLine">&nbsp;524</td>
+  <td class="nbHits">&nbsp;</td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @param id Value to set for property &lt;tt&gt;id&lt;/tt&gt;.</span></pre></td>
+</tr>
+<tr>
+  <td class="numLine">&nbsp;525</td>
+  <td class="nbHits">&nbsp;</td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td>
+</tr>
+<tr>
+  <td class="numLine">&nbsp;526</td>
+  <td class="nbHits">&nbsp;</td>
+  <td class="src"><pre class="src">&nbsp;    <span class="keyword">public</span> <span class="keyword">void</span> setIdString(<span class="keyword">final</span> String id) {</pre></td>
+</tr>
+<tr>
+  <td class="numLine">&nbsp;527</td>
+  <td class="nbHits">&nbsp;</td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
+</tr>
+<tr>
+  <td class="numLineCover">&nbsp;528</td>
+  <td class="nbHitsCovered">&nbsp;57</td>
+  <td class="src"><pre class="src">&nbsp;        Assert.assertNotNull(<span class="string">"id can not be null"</span>, id);</pre></td>
+</tr>
+<tr>
+  <td class="numLineCover">&nbsp;529</td>
+  <td class="nbHitsCovered">&nbsp;57</td>
+  <td class="src"><pre class="src">&nbsp;        Assert.assertFalse(<span class="string">"id can not be empty"</span>, <span class="string">""</span>.equals(id));</pre></td>
+</tr>
+<tr>
+  <td class="numLine">&nbsp;530</td>
+  <td class="nbHits">&nbsp;</td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
+</tr>
+<tr>
+  <td class="numLineCover">&nbsp;531</td>
+  <td class="nbHitsCovered">&nbsp;57</td>
+  <td class="src"><pre class="src">&nbsp;        <span class="keyword">this</span>.id = id;</pre></td>
+</tr>
+<tr>
+  <td class="numLineCover">&nbsp;532</td>
+  <td class="nbHitsCovered">&nbsp;57</td>
+  <td class="src"><pre class="src">&nbsp;    }</pre></td>
+</tr>
+<tr>
+  <td class="numLine">&nbsp;533</td>
   <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;}</pre></td>
 </tr>

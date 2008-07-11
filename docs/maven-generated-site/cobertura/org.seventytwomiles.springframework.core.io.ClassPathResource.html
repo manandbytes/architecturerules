@@ -12,7 +12,7 @@
 <div class="separator">&nbsp;</div>
 <table class="report">
 <thead><tr>  <td class="heading">Classes in this File</td>  <td class="heading" width="20%"><a class="dfn" href="help.html" onclick="popupwindow('help.html'); return false;">Line Coverage</a></td>  <td class="heading" width="20%"><a class="dfn" href="help.html" onclick="popupwindow('help.html'); return false;">Branch Coverage</a></td>  <td class="heading" width="10%"><a class="dfn" href="help.html" onclick="popupwindow('help.html'); return false;">Complexity</a></td></tr></thead>
-  <tr><td class="text"><a href="org.seventytwomiles.springframework.core.io.ClassPathResource.html">ClassPathResource</a></td><td class="value"><table cellpadding="0" cellspacing="0" align="right"><tr><td>54%&nbsp;</td><td><table class="percentGraph" cellpadding="0" cellspacing="0" width="100"><tr><td class="covered" width="54"></td><td class="uncovered" width="45"></td></tr></table></td></tr></table></td><td class="value"><table cellpadding="0" cellspacing="0" align="right"><tr><td>60%&nbsp;</td><td><table class="percentGraph" cellpadding="0" cellspacing="0" width="100"><tr><td class="covered" width="59"></td><td class="uncovered" width="40"></td></tr></table></td></tr></table></td><td class="value"><span class="hidden">0.0;</span>0</td></tr>
+  <tr><td class="text"><a href="org.seventytwomiles.springframework.core.io.ClassPathResource.html">ClassPathResource</a></td><td class="value"><table cellpadding="0" cellspacing="0" align="right"><tr><td>65%&nbsp;</td><td><table class="percentGraph" cellpadding="0" cellspacing="0" width="100"><tr><td class="covered" width="64"></td><td class="uncovered" width="35"></td></tr></table></td></tr></table></td><td class="value"><table cellpadding="0" cellspacing="0" align="right"><tr><td>71%&nbsp;</td><td><table class="percentGraph" cellpadding="0" cellspacing="0" width="100"><tr><td class="covered" width="71"></td><td class="uncovered" width="28"></td></tr></table></td></tr></table></td><td class="value"><span class="hidden">0.0;</span>0</td></tr>
 </table>
 <div class="separator">&nbsp;</div>
 <table cellspacing="0" cellpadding="0" class="src">
@@ -583,7 +583,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;114</td>
-  <td class="nbHitsCovered">&nbsp;11</td>
+  <td class="nbHitsCovered">&nbsp;55</td>
   <td class="src"><pre class="src">&nbsp;    <span class="keyword">public</span> ClassPathResource(String path, <span class="keyword">final</span> ClassLoader classLoader) {</pre></td>
 </tr>
 <tr>
@@ -593,7 +593,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;116</td>
-  <td class="nbHitsCovered">&nbsp;11</td>
+  <td class="nbHitsCovered">&nbsp;55</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">if</span> (<span class="keyword">null</span> == path || <span class="string">""</span>.equals(path))</pre></td>
 </tr>
 <tr>
@@ -608,7 +608,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;119</td>
-  <td class="nbHitsCovered">&nbsp;11</td>
+  <td class="nbHitsCovered">&nbsp;55</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">if</span> (path.startsWith(<span class="string">"/"</span>))</pre></td>
 </tr>
 <tr>
@@ -623,12 +623,12 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;122</td>
-  <td class="nbHitsCovered">&nbsp;11</td>
+  <td class="nbHitsCovered">&nbsp;55</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">this</span>.path = cleanPath(path);</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;123</td>
-  <td class="nbHitsCovered">&nbsp;11</td>
+  <td class="nbHitsCovered">&nbsp;55</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">this</span>.classLoader</pre></td>
 </tr>
 <tr>
@@ -638,7 +638,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;125</td>
-  <td class="nbHitsCovered">&nbsp;11</td>
+  <td class="nbHitsCovered">&nbsp;55</td>
   <td class="src"><pre class="src">&nbsp;    }</pre></td>
 </tr>
 <tr>
@@ -868,7 +868,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;171</td>
-  <td class="nbHitsCovered">&nbsp;21</td>
+  <td class="nbHitsCovered">&nbsp;105</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> <span class="string">"class path resource ["</span> + <span class="keyword">this</span>.path + <span class="string">"]"</span>;</pre></td>
 </tr>
 <tr>
@@ -933,7 +933,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;184</td>
-  <td class="nbHitsCovered">&nbsp;18</td>
+  <td class="nbHitsCovered">&nbsp;90</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> ResourceUtils.getFile(getURL(), getDescription());</pre></td>
 </tr>
 <tr>
@@ -1008,7 +1008,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;199</td>
-  <td class="nbHitsCovered">&nbsp;18</td>
+  <td class="nbHitsCovered">&nbsp;90</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> URL url = clazz != <span class="keyword">null</span> ? clazz.getResource(</pre></td>
 </tr>
 <tr>
@@ -1023,12 +1023,12 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;202</td>
-  <td class="nbHitsCovered">&nbsp;18</td>
+  <td class="nbHitsCovered">&nbsp;90</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">if</span> (url == <span class="keyword">null</span>)</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;203</td>
-  <td class="nbHitsCovered">&nbsp;3</td>
+  <td class="nbHitsCovered">&nbsp;15</td>
   <td class="src"><pre class="src">&nbsp;            <span class="keyword">throw</span> <span class="keyword">new</span> FileNotFoundException(</pre></td>
 </tr>
 <tr>
@@ -1043,7 +1043,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;206</td>
-  <td class="nbHitsCovered">&nbsp;15</td>
+  <td class="nbHitsCovered">&nbsp;75</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> url;</pre></td>
 </tr>
 <tr>
@@ -1469,117 +1469,117 @@
 <tr>
   <td class="numLine">&nbsp;291</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;    @SuppressWarnings({<span class="string">"BooleanMethodIsAlwaysInverted"</span>})</pre></td>
+  <td class="src"><pre class="src">&nbsp;    <span class="keyword">public</span> <span class="keyword">boolean</span> exists() {</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;292</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;    <span class="keyword">public</span> <span class="keyword">boolean</span> exists() {</pre></td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;293</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
+  <td class="src"><pre class="src">&nbsp;        <span class="comment">// Try file existence: can we find the file in the file system?</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;294</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;        <span class="comment">// Try file existence: can we find the file in the file system?</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;        <span class="keyword">try</span> {</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;295</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;        <span class="keyword">try</span> {</pre></td>
-</tr>
-<tr>
-  <td class="numLine">&nbsp;296</td>
-  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
-  <td class="numLineCover">&nbsp;297</td>
+  <td class="numLineCover">&nbsp;296</td>
   <td class="nbHitsCovered">&nbsp;10</td>
   <td class="src"><pre class="src">&nbsp;            <span class="keyword">return</span> getFile().exists();</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;298</td>
-  <td class="nbHits">&nbsp;</td>
+  <td class="numLineCover">&nbsp;297</td>
+  <td class="nbHitsCovered">&nbsp;40</td>
   <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
-  <td class="numLineCover">&nbsp;299</td>
+  <td class="numLineCover">&nbsp;298</td>
   <td class="nbHitsCovered">&nbsp;3</td>
   <td class="src"><pre class="src">&nbsp;        } <span class="keyword">catch</span> (<span class="keyword">final</span> IOException ex) {</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;300</td>
-  <td class="nbHits">&nbsp;</td>
+  <td class="numLineCover">&nbsp;299</td>
+  <td class="nbHitsCovered">&nbsp;12</td>
   <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;301</td>
+  <td class="numLine">&nbsp;300</td>
   <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;            <span class="comment">// Fall back to stream existence: can we open the stream?</span></pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;302</td>
+  <td class="numLine">&nbsp;301</td>
   <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;            <span class="keyword">try</span> {</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;303</td>
+  <td class="numLine">&nbsp;302</td>
   <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
-  <td class="numLineCover">&nbsp;304</td>
+  <td class="numLineCover">&nbsp;303</td>
   <td class="nbHitsCovered">&nbsp;3</td>
   <td class="src"><pre class="src">&nbsp;                <span class="keyword">final</span> InputStream inputStream = getInputStream();</pre></td>
 </tr>
 <tr>
-  <td class="numLineCover">&nbsp;305</td>
-  <td class="nbHitsUncovered">&nbsp;0</td>
-  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;                inputStream.close();</span></pre></td>
+  <td class="numLineCover">&nbsp;304</td>
+  <td class="nbHitsCovered">&nbsp;12</td>
+  <td class="src"><pre class="src">&nbsp;                inputStream.close();</pre></td>
 </tr>
 <tr>
-  <td class="numLineCover">&nbsp;306</td>
+  <td class="numLineCover">&nbsp;305</td>
   <td class="nbHitsUncovered">&nbsp;0</td>
   <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;                <span class="keyword">return</span> <span class="keyword">true</span>;</span></pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;307</td>
-  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
+  <td class="numLineCover">&nbsp;306</td>
+  <td class="nbHitsUncovered">&nbsp;0</td>
+  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;</span></pre></td>
 </tr>
 <tr>
-  <td class="numLineCover">&nbsp;308</td>
+  <td class="numLineCover">&nbsp;307</td>
   <td class="nbHitsCovered">&nbsp;3</td>
   <td class="src"><pre class="src">&nbsp;            } <span class="keyword">catch</span> (<span class="keyword">final</span> Throwable throwable) {</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;309</td>
-  <td class="nbHits">&nbsp;</td>
+  <td class="numLineCover">&nbsp;308</td>
+  <td class="nbHitsCovered">&nbsp;12</td>
   <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
-  <td class="numLineCover">&nbsp;310</td>
+  <td class="numLineCover">&nbsp;309</td>
   <td class="nbHitsCovered">&nbsp;3</td>
   <td class="src"><pre class="src">&nbsp;                <span class="keyword">return</span> <span class="keyword">false</span>;</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;311</td>
-  <td class="nbHits">&nbsp;</td>
+  <td class="numLineCover">&nbsp;310</td>
+  <td class="nbHitsCovered">&nbsp;12</td>
   <td class="src"><pre class="src">&nbsp;            }</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;312</td>
+  <td class="numLine">&nbsp;311</td>
   <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        }</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;313</td>
+  <td class="numLine">&nbsp;312</td>
   <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;    }</pre></td>
+</tr>
+<tr>
+  <td class="numLine">&nbsp;313</td>
+  <td class="nbHits">&nbsp;</td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;314</td>
@@ -1589,57 +1589,57 @@
 <tr>
   <td class="numLine">&nbsp;315</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
+  <td class="src"><pre class="src">&nbsp;    <span class="comment">/**</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;316</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;    <span class="comment">/**</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * &lt;p&gt;This implementation opens an InputStream for the given class path</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;317</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * &lt;p&gt;This implementation opens an InputStream for the given class path</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * resource.&lt;/p&gt;</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;318</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * resource.&lt;/p&gt;</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     *</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;319</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     *</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @return InputStream</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;320</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @return InputStream</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @throws FileNotFoundException when file not found</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;321</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @throws FileNotFoundException when file not found</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @see ClassLoader#getResourceAsStream(String)</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;322</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @see ClassLoader#getResourceAsStream(String)</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @see Class#getResourceAsStream(String)</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;323</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @see Class#getResourceAsStream(String)</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;324</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;    <span class="keyword">private</span> InputStream getInputStream() <span class="keyword">throws</span> FileNotFoundException {</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;325</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;    <span class="keyword">private</span> InputStream getInputStream() <span class="keyword">throws</span> FileNotFoundException {</pre></td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;326</td>
@@ -1647,59 +1647,59 @@
   <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;327</td>
-  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
-</tr>
-<tr>
-  <td class="numLineCover">&nbsp;328</td>
+  <td class="numLineCover">&nbsp;327</td>
   <td class="nbHitsCovered">&nbsp;3</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> InputStream inputStream</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;329</td>
-  <td class="nbHits">&nbsp;</td>
+  <td class="numLineCover">&nbsp;328</td>
+  <td class="nbHitsCovered">&nbsp;12</td>
   <td class="src"><pre class="src">&nbsp;                = clazz != <span class="keyword">null</span> ? clazz.getResourceAsStream(</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;330</td>
+  <td class="numLine">&nbsp;329</td>
   <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;                path) : classLoader.getResourceAsStream(path);</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;331</td>
+  <td class="numLine">&nbsp;330</td>
   <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
-  <td class="numLineCover">&nbsp;332</td>
+  <td class="numLineCover">&nbsp;331</td>
   <td class="nbHitsCovered">&nbsp;3</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">if</span> (inputStream == <span class="keyword">null</span>)</pre></td>
 </tr>
 <tr>
-  <td class="numLineCover">&nbsp;333</td>
-  <td class="nbHitsCovered">&nbsp;3</td>
+  <td class="numLineCover">&nbsp;332</td>
+  <td class="nbHitsCovered">&nbsp;15</td>
   <td class="src"><pre class="src">&nbsp;            <span class="keyword">throw</span> <span class="keyword">new</span> FileNotFoundException(</pre></td>
+</tr>
+<tr>
+  <td class="numLineCover">&nbsp;333</td>
+  <td class="nbHitsCovered">&nbsp;12</td>
+  <td class="src"><pre class="src">&nbsp;                    getDescription() + <span class="string">" cannot be opened because it does not exist"</span>);</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;334</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;                    getDescription() + <span class="string">" cannot be opened because it does not exist"</span>);</pre></td>
-</tr>
-<tr>
-  <td class="numLine">&nbsp;335</td>
-  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
-  <td class="numLineCover">&nbsp;336</td>
+  <td class="numLineCover">&nbsp;335</td>
   <td class="nbHitsUncovered">&nbsp;0</td>
   <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;        <span class="keyword">return</span> inputStream;</span></pre></td>
 </tr>
 <tr>
+  <td class="numLineCover">&nbsp;336</td>
+  <td class="nbHitsUncovered">&nbsp;0</td>
+  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;    }</span></pre></td>
+</tr>
+<tr>
   <td class="numLine">&nbsp;337</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;    }</pre></td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;338</td>
@@ -1709,337 +1709,337 @@
 <tr>
   <td class="numLine">&nbsp;339</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
+  <td class="src"><pre class="src">&nbsp;    <span class="comment">/**</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;340</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;    <span class="comment">/**</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * &lt;p&gt;Normalize the path by suppressing sequences like "path/.." and inner</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;341</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * &lt;p&gt;Normalize the path by suppressing sequences like "path/.." and inner</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * simple dots. &lt;p&gt;The result is convenient for path comparison. For other</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;342</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * simple dots. &lt;p&gt;The result is convenient for path comparison. For other</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * uses, notice that Windows separators ("\") are replaced by simple</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;343</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * uses, notice that Windows separators ("\") are replaced by simple</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * slashes.&lt;/p&gt;</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;344</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * slashes.&lt;/p&gt;</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     *</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;345</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     *</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @param path the original path</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;346</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @param path the original path</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @return the normalized path</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;347</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @return the normalized path</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;348</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;    <span class="keyword">private</span> String cleanPath(<span class="keyword">final</span> String path) {</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;349</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;    <span class="keyword">private</span> String cleanPath(<span class="keyword">final</span> String path) {</pre></td>
-</tr>
-<tr>
-  <td class="numLine">&nbsp;350</td>
-  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
-  <td class="numLineCover">&nbsp;351</td>
+  <td class="numLineCover">&nbsp;350</td>
   <td class="nbHitsCovered">&nbsp;11</td>
   <td class="src"><pre class="src">&nbsp;        String pathToUse = replace(path, WINDOWS_FOLDER_SEPARATOR,</pre></td>
 </tr>
 <tr>
+  <td class="numLineCover">&nbsp;351</td>
+  <td class="nbHitsCovered">&nbsp;44</td>
+  <td class="src"><pre class="src">&nbsp;                FOLDER_SEPARATOR);</pre></td>
+</tr>
+<tr>
   <td class="numLine">&nbsp;352</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;                FOLDER_SEPARATOR);</pre></td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;353</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
+  <td class="src"><pre class="src">&nbsp;        <span class="comment">// Strip prefix from path to analyze, to not treat it as part of the</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;354</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;        <span class="comment">// Strip prefix from path to analyze, to not treat it as part of the</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;        <span class="comment">// first path element. This is necessary to correctly parse paths like</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;355</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;        <span class="comment">// first path element. This is necessary to correctly parse paths like</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;        <span class="comment">// "file:core/../core/io/Resource.class", where the ".." should just</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;356</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;        <span class="comment">// "file:core/../core/io/Resource.class", where the ".." should just</span></pre></td>
-</tr>
-<tr>
-  <td class="numLine">&nbsp;357</td>
-  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        <span class="comment">// strip the first "core" directory while keeping the "file:" prefix.</span></pre></td>
 </tr>
 <tr>
-  <td class="numLineCover">&nbsp;358</td>
+  <td class="numLineCover">&nbsp;357</td>
   <td class="nbHitsCovered">&nbsp;11</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> <span class="keyword">int</span> prefixIndex = pathToUse.indexOf(<span class="string">":"</span>);</pre></td>
 </tr>
 <tr>
-  <td class="numLineCover">&nbsp;359</td>
-  <td class="nbHitsCovered">&nbsp;11</td>
+  <td class="numLineCover">&nbsp;358</td>
+  <td class="nbHitsCovered">&nbsp;55</td>
   <td class="src"><pre class="src">&nbsp;        String prefix = <span class="string">""</span>;</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;360</td>
-  <td class="nbHits">&nbsp;</td>
+  <td class="numLineCover">&nbsp;359</td>
+  <td class="nbHitsCovered">&nbsp;44</td>
   <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
-  <td class="numLineCover">&nbsp;361</td>
+  <td class="numLineCover">&nbsp;360</td>
   <td class="nbHitsCovered">&nbsp;11</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">if</span> (prefixIndex != -1) {</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;362</td>
-  <td class="nbHits">&nbsp;</td>
+  <td class="numLineCover">&nbsp;361</td>
+  <td class="nbHitsCovered">&nbsp;44</td>
   <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
-  <td class="numLineCover">&nbsp;363</td>
+  <td class="numLineCover">&nbsp;362</td>
   <td class="nbHitsCovered">&nbsp;1</td>
   <td class="src"><pre class="src">&nbsp;            prefix = pathToUse.substring(0, prefixIndex + 1);</pre></td>
 </tr>
 <tr>
-  <td class="numLineCover">&nbsp;364</td>
-  <td class="nbHitsCovered">&nbsp;1</td>
+  <td class="numLineCover">&nbsp;363</td>
+  <td class="nbHitsCovered">&nbsp;5</td>
   <td class="src"><pre class="src">&nbsp;            pathToUse = pathToUse.substring(prefixIndex + 1);</pre></td>
+</tr>
+<tr>
+  <td class="numLineCover">&nbsp;364</td>
+  <td class="nbHitsCovered">&nbsp;4</td>
+  <td class="src"><pre class="src">&nbsp;        }</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;365</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;        }</pre></td>
-</tr>
-<tr>
-  <td class="numLine">&nbsp;366</td>
-  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
-  <td class="numLineCover">&nbsp;367</td>
+  <td class="numLineCover">&nbsp;366</td>
   <td class="nbHitsCovered">&nbsp;11</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> String[] pathArray = delimitedListToStringArray(pathToUse,</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;368</td>
-  <td class="nbHits">&nbsp;</td>
+  <td class="numLineCover">&nbsp;367</td>
+  <td class="nbHitsCovered">&nbsp;44</td>
   <td class="src"><pre class="src">&nbsp;                FOLDER_SEPARATOR);</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;369</td>
+  <td class="numLine">&nbsp;368</td>
   <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
-  <td class="numLineCover">&nbsp;370</td>
+  <td class="numLineCover">&nbsp;369</td>
   <td class="nbHitsCovered">&nbsp;11</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> List pathElements = <span class="keyword">new</span> LinkedList();</pre></td>
 </tr>
 <tr>
-  <td class="numLineCover">&nbsp;371</td>
-  <td class="nbHitsCovered">&nbsp;11</td>
+  <td class="numLineCover">&nbsp;370</td>
+  <td class="nbHitsCovered">&nbsp;55</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">int</span> tops = 0;</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;372</td>
-  <td class="nbHits">&nbsp;</td>
+  <td class="numLineCover">&nbsp;371</td>
+  <td class="nbHitsCovered">&nbsp;44</td>
   <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
-  <td class="numLineCover">&nbsp;373</td>
+  <td class="numLineCover">&nbsp;372</td>
   <td class="nbHitsCovered">&nbsp;29</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">for</span> (<span class="keyword">int</span> i = pathArray.length - 1; i &gt;= 0; i--) {</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;374</td>
-  <td class="nbHits">&nbsp;</td>
+  <td class="numLineCover">&nbsp;373</td>
+  <td class="nbHitsCovered">&nbsp;116</td>
   <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
-  <td class="numLineCover">&nbsp;375</td>
+  <td class="numLineCover">&nbsp;374</td>
   <td class="nbHitsCovered">&nbsp;18</td>
   <td class="src"><pre class="src">&nbsp;            <span class="keyword">if</span> (CURRENT_PATH.equals(pathArray[i])) {</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;376</td>
-  <td class="nbHits">&nbsp;</td>
+  <td class="numLineCover">&nbsp;375</td>
+  <td class="nbHitsCovered">&nbsp;72</td>
   <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;377</td>
+  <td class="numLine">&nbsp;376</td>
   <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;                <span class="comment">// Points to current directory - drop it.</span></pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;378</td>
+  <td class="numLine">&nbsp;377</td>
   <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
-  <td class="numLineCover">&nbsp;379</td>
+  <td class="numLineCover">&nbsp;378</td>
   <td class="nbHitsCovered">&nbsp;18</td>
   <td class="src"><pre class="src">&nbsp;            } <span class="keyword">else</span> <span class="keyword">if</span> (TOP_PATH.equals(pathArray[i])) {</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;380</td>
-  <td class="nbHits">&nbsp;</td>
+  <td class="numLineCover">&nbsp;379</td>
+  <td class="nbHitsCovered">&nbsp;72</td>
   <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;381</td>
+  <td class="numLine">&nbsp;380</td>
   <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;                <span class="comment">// Registering top path found.</span></pre></td>
 </tr>
 <tr>
-  <td class="numLineCover">&nbsp;382</td>
+  <td class="numLineCover">&nbsp;381</td>
   <td class="nbHitsUncovered">&nbsp;0</td>
   <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;                tops++;</span></pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;383</td>
-  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
+  <td class="numLineCover">&nbsp;382</td>
+  <td class="nbHitsUncovered">&nbsp;0</td>
+  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;</span></pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;384</td>
+  <td class="numLine">&nbsp;383</td>
   <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;            } <span class="keyword">else</span> {</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;385</td>
+  <td class="numLine">&nbsp;384</td>
   <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
-  <td class="numLineCover">&nbsp;386</td>
+  <td class="numLineCover">&nbsp;385</td>
   <td class="nbHitsCovered">&nbsp;18</td>
   <td class="src"><pre class="src">&nbsp;                <span class="keyword">if</span> (tops &gt; 0) {</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;387</td>
-  <td class="nbHits">&nbsp;</td>
+  <td class="numLineCover">&nbsp;386</td>
+  <td class="nbHitsCovered">&nbsp;72</td>
   <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;388</td>
+  <td class="numLine">&nbsp;387</td>
   <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;                    <span class="comment">// Merging path element with corresponding to top path.</span></pre></td>
 </tr>
 <tr>
-  <td class="numLineCover">&nbsp;389</td>
+  <td class="numLineCover">&nbsp;388</td>
   <td class="nbHitsUncovered">&nbsp;0</td>
   <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;                    tops--;</span></pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;390</td>
-  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
+  <td class="numLineCover">&nbsp;389</td>
+  <td class="nbHitsUncovered">&nbsp;0</td>
+  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;</span></pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;391</td>
+  <td class="numLine">&nbsp;390</td>
   <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;                } <span class="keyword">else</span> {</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;392</td>
+  <td class="numLine">&nbsp;391</td>
   <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;393</td>
+  <td class="numLine">&nbsp;392</td>
   <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;                    <span class="comment">// Normal path element found.</span></pre></td>
 </tr>
 <tr>
-  <td class="numLineCover">&nbsp;394</td>
+  <td class="numLineCover">&nbsp;393</td>
   <td class="nbHitsCovered">&nbsp;18</td>
   <td class="src"><pre class="src">&nbsp;                    pathElements.add(0, pathArray[i]);</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;395</td>
-  <td class="nbHits">&nbsp;</td>
+  <td class="numLineCover">&nbsp;394</td>
+  <td class="nbHitsCovered">&nbsp;72</td>
   <td class="src"><pre class="src">&nbsp;                }</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;396</td>
+  <td class="numLine">&nbsp;395</td>
   <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;            }</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;397</td>
+  <td class="numLine">&nbsp;396</td>
   <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        }</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;398</td>
+  <td class="numLine">&nbsp;397</td>
   <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;399</td>
+  <td class="numLine">&nbsp;398</td>
   <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        <span class="comment">// Remaining top paths need to be retained.</span></pre></td>
 </tr>
 <tr>
-  <td class="numLineCover">&nbsp;400</td>
+  <td class="numLineCover">&nbsp;399</td>
   <td class="nbHitsCovered">&nbsp;11</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">for</span> (<span class="keyword">int</span> i = 0; i &lt; tops; i++)</pre></td>
 </tr>
 <tr>
+  <td class="numLineCover">&nbsp;400</td>
+  <td class="nbHitsCovered">&nbsp;44</td>
+  <td class="src"><pre class="src">&nbsp;            pathElements.add(0, TOP_PATH);</pre></td>
+</tr>
+<tr>
   <td class="numLineCover">&nbsp;401</td>
   <td class="nbHitsUncovered">&nbsp;0</td>
-  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;            pathElements.add(0, TOP_PATH);</span></pre></td>
+  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;</span></pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;402</td>
-  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
-</tr>
-<tr>
-  <td class="numLineCover">&nbsp;403</td>
+  <td class="numLineCover">&nbsp;402</td>
   <td class="nbHitsCovered">&nbsp;11</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> prefix + collectionToDelimitedString(pathElements,</pre></td>
 </tr>
 <tr>
+  <td class="numLineCover">&nbsp;403</td>
+  <td class="nbHitsCovered">&nbsp;44</td>
+  <td class="src"><pre class="src">&nbsp;                FOLDER_SEPARATOR);</pre></td>
+</tr>
+<tr>
   <td class="numLine">&nbsp;404</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;                FOLDER_SEPARATOR);</pre></td>
+  <td class="src"><pre class="src">&nbsp;    }</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;405</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;    }</pre></td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;406</td>
@@ -2049,212 +2049,212 @@
 <tr>
   <td class="numLine">&nbsp;407</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
+  <td class="src"><pre class="src">&nbsp;    <span class="comment">/**</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;408</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;    <span class="comment">/**</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * &lt;p&gt;Replace all occurrences of a substring within a string with another</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;409</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * &lt;p&gt;Replace all occurences of a substring within a string with another</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * string.&lt;/p&gt;</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;410</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * string.&lt;/p&gt;</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     *</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;411</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     *</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @param inString String to examine</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;412</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @param inString String to examine</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @param oldPattern String to replace</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;413</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @param oldPattern String to replace</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @param newPattern String to insert</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;414</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @param newPattern String to insert</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @return a String with the replacements</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;415</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @return a String with the replacements</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;416</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;    <span class="keyword">private</span> <span class="keyword">static</span> String replace(<span class="keyword">final</span> String inString,</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;417</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;    <span class="keyword">private</span> <span class="keyword">static</span> String replace(<span class="keyword">final</span> String inString,</pre></td>
+  <td class="src"><pre class="src">&nbsp;                                  <span class="keyword">final</span> String oldPattern,</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;418</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;                                  <span class="keyword">final</span> String oldPattern,</pre></td>
+  <td class="src"><pre class="src">&nbsp;                                  <span class="keyword">final</span> String newPattern) {</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;419</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;                                  <span class="keyword">final</span> String newPattern) {</pre></td>
-</tr>
-<tr>
-  <td class="numLine">&nbsp;420</td>
-  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
-  <td class="numLineCover">&nbsp;421</td>
+  <td class="numLineCover">&nbsp;420</td>
   <td class="nbHitsCovered">&nbsp;11</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">if</span> (inString == <span class="keyword">null</span>)</pre></td>
 </tr>
 <tr>
+  <td class="numLineCover">&nbsp;421</td>
+  <td class="nbHitsCovered">&nbsp;44</td>
+  <td class="src"><pre class="src">&nbsp;            <span class="keyword">return</span> <span class="keyword">null</span>;</pre></td>
+</tr>
+<tr>
   <td class="numLineCover">&nbsp;422</td>
   <td class="nbHitsUncovered">&nbsp;0</td>
-  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;            <span class="keyword">return</span> <span class="keyword">null</span>;</span></pre></td>
+  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;</span></pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;423</td>
-  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
-</tr>
-<tr>
-  <td class="numLineCover">&nbsp;424</td>
+  <td class="numLineCover">&nbsp;423</td>
   <td class="nbHitsCovered">&nbsp;11</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">if</span> (oldPattern == <span class="keyword">null</span> || newPattern == <span class="keyword">null</span>)</pre></td>
 </tr>
 <tr>
+  <td class="numLineCover">&nbsp;424</td>
+  <td class="nbHitsCovered">&nbsp;44</td>
+  <td class="src"><pre class="src">&nbsp;            <span class="keyword">return</span> inString;</pre></td>
+</tr>
+<tr>
   <td class="numLineCover">&nbsp;425</td>
   <td class="nbHitsUncovered">&nbsp;0</td>
-  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;            <span class="keyword">return</span> inString;</span></pre></td>
+  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;</span></pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;426</td>
-  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
-</tr>
-<tr>
-  <td class="numLineCover">&nbsp;427</td>
+  <td class="numLineCover">&nbsp;426</td>
   <td class="nbHitsCovered">&nbsp;11</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> StringBuffer stringBuffer = <span class="keyword">new</span> StringBuffer();</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;428</td>
-  <td class="nbHits">&nbsp;</td>
+  <td class="numLineCover">&nbsp;427</td>
+  <td class="nbHitsCovered">&nbsp;44</td>
   <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;429</td>
+  <td class="numLine">&nbsp;428</td>
   <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        <span class="comment">// output StringBuffer we'll build up</span></pre></td>
 </tr>
 <tr>
-  <td class="numLineCover">&nbsp;430</td>
+  <td class="numLineCover">&nbsp;429</td>
   <td class="nbHitsCovered">&nbsp;11</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">int</span> position = 0; <span class="comment">// our position in the old string</span></pre></td>
 </tr>
 <tr>
-  <td class="numLineCover">&nbsp;431</td>
-  <td class="nbHitsCovered">&nbsp;11</td>
+  <td class="numLineCover">&nbsp;430</td>
+  <td class="nbHitsCovered">&nbsp;55</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">int</span> index = inString.indexOf(oldPattern);</pre></td>
+</tr>
+<tr>
+  <td class="numLineCover">&nbsp;431</td>
+  <td class="nbHitsCovered">&nbsp;44</td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;432</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
-</tr>
-<tr>
-  <td class="numLine">&nbsp;433</td>
-  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        <span class="comment">// the index of an occurrence we've found, or -1</span></pre></td>
 </tr>
 <tr>
-  <td class="numLineCover">&nbsp;434</td>
+  <td class="numLineCover">&nbsp;433</td>
   <td class="nbHitsCovered">&nbsp;11</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> <span class="keyword">int</span> patternLength = oldPattern.length();</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;435</td>
-  <td class="nbHits">&nbsp;</td>
+  <td class="numLineCover">&nbsp;434</td>
+  <td class="nbHitsCovered">&nbsp;44</td>
   <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
-  <td class="numLineCover">&nbsp;436</td>
+  <td class="numLineCover">&nbsp;435</td>
   <td class="nbHitsCovered">&nbsp;18</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">while</span> (index &gt;= 0) {</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;437</td>
-  <td class="nbHits">&nbsp;</td>
+  <td class="numLineCover">&nbsp;436</td>
+  <td class="nbHitsCovered">&nbsp;72</td>
   <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
-  <td class="numLineCover">&nbsp;438</td>
+  <td class="numLineCover">&nbsp;437</td>
   <td class="nbHitsCovered">&nbsp;7</td>
   <td class="src"><pre class="src">&nbsp;            stringBuffer.append(inString.substring(position, index));</pre></td>
 </tr>
 <tr>
-  <td class="numLineCover">&nbsp;439</td>
-  <td class="nbHitsCovered">&nbsp;7</td>
+  <td class="numLineCover">&nbsp;438</td>
+  <td class="nbHitsCovered">&nbsp;35</td>
   <td class="src"><pre class="src">&nbsp;            stringBuffer.append(newPattern);</pre></td>
 </tr>
 <tr>
-  <td class="numLineCover">&nbsp;440</td>
-  <td class="nbHitsCovered">&nbsp;7</td>
+  <td class="numLineCover">&nbsp;439</td>
+  <td class="nbHitsCovered">&nbsp;35</td>
   <td class="src"><pre class="src">&nbsp;            position = index + patternLength;</pre></td>
 </tr>
 <tr>
-  <td class="numLineCover">&nbsp;441</td>
-  <td class="nbHitsCovered">&nbsp;7</td>
+  <td class="numLineCover">&nbsp;440</td>
+  <td class="nbHitsCovered">&nbsp;35</td>
   <td class="src"><pre class="src">&nbsp;            index = inString.indexOf(oldPattern, position);</pre></td>
+</tr>
+<tr>
+  <td class="numLineCover">&nbsp;441</td>
+  <td class="nbHitsCovered">&nbsp;28</td>
+  <td class="src"><pre class="src">&nbsp;        }</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;442</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;        }</pre></td>
-</tr>
-<tr>
-  <td class="numLine">&nbsp;443</td>
-  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
-  <td class="numLineCover">&nbsp;444</td>
+  <td class="numLineCover">&nbsp;443</td>
   <td class="nbHitsCovered">&nbsp;11</td>
   <td class="src"><pre class="src">&nbsp;        stringBuffer.append(inString.substring(position));</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;445</td>
-  <td class="nbHits">&nbsp;</td>
+  <td class="numLineCover">&nbsp;444</td>
+  <td class="nbHitsCovered">&nbsp;44</td>
   <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;446</td>
+  <td class="numLine">&nbsp;445</td>
   <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        <span class="comment">// remember to append any characters to the right of a matches</span></pre></td>
 </tr>
 <tr>
-  <td class="numLineCover">&nbsp;447</td>
+  <td class="numLineCover">&nbsp;446</td>
   <td class="nbHitsCovered">&nbsp;11</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> stringBuffer.toString();</pre></td>
 </tr>
 <tr>
+  <td class="numLineCover">&nbsp;447</td>
+  <td class="nbHitsCovered">&nbsp;44</td>
+  <td class="src"><pre class="src">&nbsp;    }</pre></td>
+</tr>
+<tr>
   <td class="numLine">&nbsp;448</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;    }</pre></td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;449</td>
@@ -2264,152 +2264,152 @@
 <tr>
   <td class="numLine">&nbsp;450</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
+  <td class="src"><pre class="src">&nbsp;    <span class="comment">/**</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;451</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;    <span class="comment">/**</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * &lt;p&gt;Convenience method to return a Collection as a delimited (e.g. CSV)</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;452</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * &lt;p&gt;Convenience method to return a Collection as a delimited (e.g. CSV)</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * String. E.g. useful for &lt;code&gt;toString()&lt;/code&gt; implementations.&lt;/p&gt;</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;453</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * String. E.g. useful for &lt;code&gt;toString()&lt;/code&gt; implementations.&lt;/p&gt;</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     *</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;454</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     *</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @param collection the Collection to display</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;455</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @param collection the Collection to display</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @param deliminator the delimiter to use (probably a ",")</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;456</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @param deliminator the delimiter to use (probably a ",")</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @param prefix the String to start each element with</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;457</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @param prefix the String to start each element with</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @param suffix the String to end each element with</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;458</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @param suffix the String to end each element with</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @return String</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;459</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @return String</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;460</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;    <span class="keyword">private</span> <span class="keyword">static</span> String collectionToDelimitedString(</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;461</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;    <span class="keyword">private</span> <span class="keyword">static</span> String collectionToDelimitedString(</pre></td>
+  <td class="src"><pre class="src">&nbsp;            <span class="keyword">final</span> Collection collection, <span class="keyword">final</span> String deliminator,</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;462</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;            <span class="keyword">final</span> Collection collection, <span class="keyword">final</span> String deliminator,</pre></td>
+  <td class="src"><pre class="src">&nbsp;            <span class="keyword">final</span> String prefix, <span class="keyword">final</span> String suffix) {</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;463</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;            <span class="keyword">final</span> String prefix, <span class="keyword">final</span> String suffix) {</pre></td>
-</tr>
-<tr>
-  <td class="numLine">&nbsp;464</td>
-  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
-  <td class="numLineCover">&nbsp;465</td>
+  <td class="numLineCover">&nbsp;464</td>
   <td class="nbHitsCovered">&nbsp;11</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">if</span> (collection.isEmpty())</pre></td>
 </tr>
 <tr>
+  <td class="numLineCover">&nbsp;465</td>
+  <td class="nbHitsCovered">&nbsp;44</td>
+  <td class="src"><pre class="src">&nbsp;            <span class="keyword">return</span> <span class="string">""</span>;</pre></td>
+</tr>
+<tr>
   <td class="numLineCover">&nbsp;466</td>
   <td class="nbHitsUncovered">&nbsp;0</td>
-  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;            <span class="keyword">return</span> <span class="string">""</span>;</span></pre></td>
+  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;</span></pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;467</td>
-  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
-</tr>
-<tr>
-  <td class="numLineCover">&nbsp;468</td>
+  <td class="numLineCover">&nbsp;467</td>
   <td class="nbHitsCovered">&nbsp;11</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> StringBuffer stringBuffer = <span class="keyword">new</span> StringBuffer();</pre></td>
 </tr>
 <tr>
-  <td class="numLineCover">&nbsp;469</td>
-  <td class="nbHitsCovered">&nbsp;11</td>
+  <td class="numLineCover">&nbsp;468</td>
+  <td class="nbHitsCovered">&nbsp;55</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> Iterator iterator = collection.iterator();</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;470</td>
-  <td class="nbHits">&nbsp;</td>
+  <td class="numLineCover">&nbsp;469</td>
+  <td class="nbHitsCovered">&nbsp;44</td>
   <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
-  <td class="numLineCover">&nbsp;471</td>
+  <td class="numLineCover">&nbsp;470</td>
   <td class="nbHitsCovered">&nbsp;29</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">while</span> (iterator.hasNext()) {</pre></td>
 </tr>
 <tr>
-  <td class="numLineCover">&nbsp;472</td>
-  <td class="nbHitsCovered">&nbsp;18</td>
+  <td class="numLineCover">&nbsp;471</td>
+  <td class="nbHitsCovered">&nbsp;134</td>
   <td class="src"><pre class="src">&nbsp;            stringBuffer.append(prefix).append(iterator.next()).append(suffix);</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;473</td>
-  <td class="nbHits">&nbsp;</td>
+  <td class="numLineCover">&nbsp;472</td>
+  <td class="nbHitsCovered">&nbsp;72</td>
   <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
-  <td class="numLineCover">&nbsp;474</td>
+  <td class="numLineCover">&nbsp;473</td>
   <td class="nbHitsCovered">&nbsp;18</td>
   <td class="src"><pre class="src">&nbsp;            <span class="keyword">if</span> (iterator.hasNext())</pre></td>
 </tr>
 <tr>
-  <td class="numLineCover">&nbsp;475</td>
-  <td class="nbHitsCovered">&nbsp;7</td>
+  <td class="numLineCover">&nbsp;474</td>
+  <td class="nbHitsCovered">&nbsp;79</td>
   <td class="src"><pre class="src">&nbsp;                stringBuffer.append(deliminator);</pre></td>
+</tr>
+<tr>
+  <td class="numLineCover">&nbsp;475</td>
+  <td class="nbHitsCovered">&nbsp;28</td>
+  <td class="src"><pre class="src">&nbsp;        }</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;476</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;        }</pre></td>
-</tr>
-<tr>
-  <td class="numLine">&nbsp;477</td>
-  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
-  <td class="numLineCover">&nbsp;478</td>
+  <td class="numLineCover">&nbsp;477</td>
   <td class="nbHitsCovered">&nbsp;11</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> stringBuffer.toString();</pre></td>
 </tr>
 <tr>
+  <td class="numLineCover">&nbsp;478</td>
+  <td class="nbHitsCovered">&nbsp;44</td>
+  <td class="src"><pre class="src">&nbsp;    }</pre></td>
+</tr>
+<tr>
   <td class="numLine">&nbsp;479</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;    }</pre></td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;480</td>
@@ -2419,67 +2419,67 @@
 <tr>
   <td class="numLine">&nbsp;481</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
+  <td class="src"><pre class="src">&nbsp;    <span class="comment">/**</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;482</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;    <span class="comment">/**</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * &lt;p&gt;Convenience method to return a Collection as a delimited (e.g. CSV)</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;483</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * &lt;p&gt;Convenience method to return a Collection as a delimited (e.g. CSV)</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * String. E.g. useful for &lt;code&gt;toString()&lt;/code&gt; implementations.&lt;/p&gt;</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;484</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * String. E.g. useful for &lt;code&gt;toString()&lt;/code&gt; implementations.&lt;/p&gt;</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     *</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;485</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     *</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @param collection the Collection to display</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;486</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @param collection the Collection to display</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @param deliminator the delimiter to use (probably a ",")</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;487</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @param delminator the delimiter to use (probably a ",")</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @return String</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;488</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @return String</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;489</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;    <span class="keyword">private</span> String collectionToDelimitedString(<span class="keyword">final</span> Collection collection,</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;490</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;    <span class="keyword">private</span> String collectionToDelimitedString(<span class="keyword">final</span> Collection collection,</pre></td>
+  <td class="src"><pre class="src">&nbsp;                                               <span class="keyword">final</span> String deliminator) {</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;491</td>
-  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;                                               <span class="keyword">final</span> String delminator) {</pre></td>
+  <td class="numLineCover">&nbsp;491</td>
+  <td class="nbHitsCovered">&nbsp;11</td>
+  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> collectionToDelimitedString(collection, deliminator, <span class="string">""</span>, <span class="string">""</span>);</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;492</td>
-  <td class="nbHitsCovered">&nbsp;11</td>
-  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> collectionToDelimitedString(collection, delminator, <span class="string">""</span>, <span class="string">""</span>);</pre></td>
+  <td class="nbHitsCovered">&nbsp;44</td>
+  <td class="src"><pre class="src">&nbsp;    }</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;493</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;    }</pre></td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;494</td>
@@ -2489,237 +2489,237 @@
 <tr>
   <td class="numLine">&nbsp;495</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
+  <td class="src"><pre class="src">&nbsp;    <span class="comment">/**</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;496</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;    <span class="comment">/**</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * Take a String which is a delimited list and convert it to a String array.</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;497</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * Take a String which is a delimited list and convert it to a String array.</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * &lt;p&gt;A single delimiter can consists of more than one character: It will</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;498</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * &lt;p&gt;A single delimiter can consists of more than one character: It will</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * still be considered as single delimiter string, rather than as bunch of</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;499</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * still be considered as single delimiter string, rather than as bunch of</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * potential delimiter characters - in contrast to &lt;code&gt;tokenizeToStringArray&lt;/code&gt;.</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;500</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * potential delimiter characters - in contrast to &lt;code&gt;tokenizeToStringArray&lt;/code&gt;.</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     *</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;501</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     *</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @param string the input String</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;502</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @param string the input String</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @param delimiter the delimiter between elements (this is a single</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;503</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @param delimiter the delimiter between elements (this is a single</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * delimiter, rather than a bunch individual delimiter characters)</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;504</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * delimiter, rather than a bunch individual delimiter characters)</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @return an array of the tokens in the list</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;505</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @return an array of the tokens in the list</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;506</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;    <span class="keyword">private</span> <span class="keyword">static</span> String[] delimitedListToStringArray(<span class="keyword">final</span> String string,</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;507</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;    <span class="keyword">private</span> <span class="keyword">static</span> String[] delimitedListToStringArray(<span class="keyword">final</span> String string,</pre></td>
+  <td class="src"><pre class="src">&nbsp;                                                       <span class="keyword">final</span> String delimiter) {</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;508</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;                                                       <span class="keyword">final</span> String delimiter) {</pre></td>
-</tr>
-<tr>
-  <td class="numLine">&nbsp;509</td>
-  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
-  <td class="numLineCover">&nbsp;510</td>
+  <td class="numLineCover">&nbsp;509</td>
   <td class="nbHitsCovered">&nbsp;11</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">if</span> (string == <span class="keyword">null</span>)</pre></td>
 </tr>
 <tr>
+  <td class="numLineCover">&nbsp;510</td>
+  <td class="nbHitsCovered">&nbsp;44</td>
+  <td class="src"><pre class="src">&nbsp;            <span class="keyword">return</span> <span class="keyword">new</span> String[0];</pre></td>
+</tr>
+<tr>
   <td class="numLineCover">&nbsp;511</td>
   <td class="nbHitsUncovered">&nbsp;0</td>
-  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;            <span class="keyword">return</span> <span class="keyword">new</span> String[0];</span></pre></td>
+  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;</span></pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;512</td>
-  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
-</tr>
-<tr>
-  <td class="numLineCover">&nbsp;513</td>
+  <td class="numLineCover">&nbsp;512</td>
   <td class="nbHitsCovered">&nbsp;11</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">if</span> (delimiter == <span class="keyword">null</span>)</pre></td>
 </tr>
 <tr>
+  <td class="numLineCover">&nbsp;513</td>
+  <td class="nbHitsCovered">&nbsp;44</td>
+  <td class="src"><pre class="src">&nbsp;            <span class="keyword">return</span> <span class="keyword">new</span> String[]{string};</pre></td>
+</tr>
+<tr>
   <td class="numLineCover">&nbsp;514</td>
   <td class="nbHitsUncovered">&nbsp;0</td>
-  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;            <span class="keyword">return</span> <span class="keyword">new</span> String[]{string};</span></pre></td>
+  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;</span></pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;515</td>
-  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
-</tr>
-<tr>
-  <td class="numLineCover">&nbsp;516</td>
+  <td class="numLineCover">&nbsp;515</td>
   <td class="nbHitsCovered">&nbsp;11</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> List result = <span class="keyword">new</span> ArrayList();</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;517</td>
-  <td class="nbHits">&nbsp;</td>
+  <td class="numLineCover">&nbsp;516</td>
+  <td class="nbHitsCovered">&nbsp;44</td>
   <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
-  <td class="numLineCover">&nbsp;518</td>
+  <td class="numLineCover">&nbsp;517</td>
   <td class="nbHitsCovered">&nbsp;11</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">if</span> (<span class="string">""</span>.equals(delimiter)) {</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;519</td>
-  <td class="nbHits">&nbsp;</td>
+  <td class="numLineCover">&nbsp;518</td>
+  <td class="nbHitsCovered">&nbsp;44</td>
   <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
-  <td class="numLineCover">&nbsp;520</td>
+  <td class="numLineCover">&nbsp;519</td>
   <td class="nbHitsUncovered">&nbsp;0</td>
   <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;            <span class="keyword">for</span> (<span class="keyword">int</span> i = 0; i &lt; string.length(); i++)</span></pre></td>
 </tr>
 <tr>
-  <td class="numLineCover">&nbsp;521</td>
+  <td class="numLineCover">&nbsp;520</td>
   <td class="nbHitsUncovered">&nbsp;0</td>
   <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;                result.add(string.substring(i, i + 1));</span></pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;522</td>
-  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
+  <td class="numLineCover">&nbsp;521</td>
+  <td class="nbHitsUncovered">&nbsp;0</td>
+  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;</span></pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;523</td>
+  <td class="numLine">&nbsp;522</td>
   <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        } <span class="keyword">else</span> {</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;524</td>
+  <td class="numLine">&nbsp;523</td>
   <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
-  <td class="numLineCover">&nbsp;525</td>
+  <td class="numLineCover">&nbsp;524</td>
   <td class="nbHitsCovered">&nbsp;11</td>
   <td class="src"><pre class="src">&nbsp;            <span class="keyword">int</span> position = 0;</pre></td>
 </tr>
 <tr>
+  <td class="numLineCover">&nbsp;525</td>
+  <td class="nbHitsCovered">&nbsp;44</td>
+  <td class="src"><pre class="src">&nbsp;            <span class="keyword">int</span> deletePosition;</pre></td>
+</tr>
+<tr>
   <td class="numLine">&nbsp;526</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;            <span class="keyword">int</span> deletePosition;</pre></td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;527</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
-</tr>
-<tr>
-  <td class="numLine">&nbsp;528</td>
-  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;            <span class="keyword">while</span> ((deletePosition = string.indexOf(delimiter,</pre></td>
 </tr>
 <tr>
-  <td class="numLineCover">&nbsp;529</td>
+  <td class="numLineCover">&nbsp;528</td>
   <td class="nbHitsCovered">&nbsp;18</td>
   <td class="src"><pre class="src">&nbsp;                    position)) != -1) {</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;530</td>
-  <td class="nbHits">&nbsp;</td>
+  <td class="numLineCover">&nbsp;529</td>
+  <td class="nbHitsCovered">&nbsp;72</td>
   <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
-  <td class="numLineCover">&nbsp;531</td>
+  <td class="numLineCover">&nbsp;530</td>
   <td class="nbHitsCovered">&nbsp;7</td>
   <td class="src"><pre class="src">&nbsp;                result.add(string.substring(position, deletePosition));</pre></td>
 </tr>
 <tr>
-  <td class="numLineCover">&nbsp;532</td>
-  <td class="nbHitsCovered">&nbsp;7</td>
+  <td class="numLineCover">&nbsp;531</td>
+  <td class="nbHitsCovered">&nbsp;35</td>
   <td class="src"><pre class="src">&nbsp;                position = deletePosition + delimiter.length();</pre></td>
+</tr>
+<tr>
+  <td class="numLineCover">&nbsp;532</td>
+  <td class="nbHitsCovered">&nbsp;28</td>
+  <td class="src"><pre class="src">&nbsp;            }</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;533</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;            }</pre></td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;534</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
-</tr>
-<tr>
-  <td class="numLine">&nbsp;535</td>
-  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;            <span class="comment">// Add rest of String, but not in case of empty input.</span></pre></td>
 </tr>
 <tr>
-  <td class="numLineCover">&nbsp;536</td>
+  <td class="numLineCover">&nbsp;535</td>
   <td class="nbHitsCovered">&nbsp;11</td>
   <td class="src"><pre class="src">&nbsp;            <span class="keyword">if</span> (string.length() &gt; 0 &amp;&amp; position &lt;= string.length())</pre></td>
 </tr>
 <tr>
-  <td class="numLineCover">&nbsp;537</td>
-  <td class="nbHitsCovered">&nbsp;11</td>
+  <td class="numLineCover">&nbsp;536</td>
+  <td class="nbHitsCovered">&nbsp;55</td>
   <td class="src"><pre class="src">&nbsp;                result.add(string.substring(position));</pre></td>
+</tr>
+<tr>
+  <td class="numLineCover">&nbsp;537</td>
+  <td class="nbHitsCovered">&nbsp;44</td>
+  <td class="src"><pre class="src">&nbsp;        }</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;538</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;        }</pre></td>
-</tr>
-<tr>
-  <td class="numLine">&nbsp;539</td>
-  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
-  <td class="numLineCover">&nbsp;540</td>
+  <td class="numLineCover">&nbsp;539</td>
   <td class="nbHitsCovered">&nbsp;11</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> toStringArray(result);</pre></td>
 </tr>
 <tr>
+  <td class="numLineCover">&nbsp;540</td>
+  <td class="nbHitsCovered">&nbsp;44</td>
+  <td class="src"><pre class="src">&nbsp;    }</pre></td>
+</tr>
+<tr>
   <td class="numLine">&nbsp;541</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;    }</pre></td>
+  <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;542</td>
@@ -2729,90 +2729,85 @@
 <tr>
   <td class="numLine">&nbsp;543</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
+  <td class="src"><pre class="src">&nbsp;    <span class="comment">/**</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;544</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;    <span class="comment">/**</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * &lt;p&gt;Copy the given Collection into a String array. The Collection must</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;545</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * &lt;p&gt;Copy the given Collection into a String array. The Collection must</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * contain String elements only.&lt;/p&gt;</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;546</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * contain String elements only.&lt;/p&gt;</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     *</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;547</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     *</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @param collection the Collection to copy</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;548</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @param collection the Collection to copy</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @return the String array (&lt;code&gt;null&lt;/code&gt; if the passed-in Collection</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;549</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     * @return the String array (&lt;code&gt;null&lt;/code&gt; if the passed-in Collection</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     *         was &lt;code&gt;null&lt;/code&gt;)</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;550</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     *         was &lt;code&gt;null&lt;/code&gt;)</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;551</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td>
+  <td class="src"><pre class="src">&nbsp;    <span class="keyword">private</span> <span class="keyword">static</span> String[] toStringArray(<span class="keyword">final</span> Collection collection) {</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;552</td>
   <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;    <span class="keyword">private</span> <span class="keyword">static</span> String[] toStringArray(<span class="keyword">final</span> Collection collection) {</pre></td>
-</tr>
-<tr>
-  <td class="numLine">&nbsp;553</td>
-  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
-  <td class="numLineCover">&nbsp;554</td>
+  <td class="numLineCover">&nbsp;553</td>
   <td class="nbHitsCovered">&nbsp;11</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">if</span> (collection == <span class="keyword">null</span>)</pre></td>
 </tr>
 <tr>
+  <td class="numLineCover">&nbsp;554</td>
+  <td class="nbHitsCovered">&nbsp;44</td>
+  <td class="src"><pre class="src">&nbsp;            <span class="keyword">return</span> <span class="keyword">null</span>;</pre></td>
+</tr>
+<tr>
   <td class="numLineCover">&nbsp;555</td>
   <td class="nbHitsUncovered">&nbsp;0</td>
-  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;            <span class="keyword">return</span> <span class="keyword">null</span>;</span></pre></td>
+  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;</span></pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;556</td>
-  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td>
-</tr>
-<tr>
-  <td class="numLineCover">&nbsp;557</td>
+  <td class="numLineCover">&nbsp;556</td>
   <td class="nbHitsCovered">&nbsp;11</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> (String[]) collection.toArray(<span class="keyword">new</span> String[collection.size()]);</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;558</td>
-  <td class="nbHits">&nbsp;</td>
+  <td class="numLineCover">&nbsp;557</td>
+  <td class="nbHitsCovered">&nbsp;44</td>
   <td class="src"><pre class="src">&nbsp;    }</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;559</td>
+  <td class="numLine">&nbsp;558</td>
   <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td>
 </tr>
 <tr>
-  <td class="numLine">&nbsp;560</td>
+  <td class="numLine">&nbsp;559</td>
   <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;}</pre></td>
 </tr>

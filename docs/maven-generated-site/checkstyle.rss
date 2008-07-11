@@ -1,0 +1,597 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<rss version="0.91">
+  <channel>
+    <title>Architecture Rules - Checkstyle report</title>
+    <link>http://architecturerules.googlecode.com/</link>
+    <description>Architecture Rules - Checkstyle report</description>
+    <language>en-us</language>
+    <copyright>&#169;2007 - 2008</copyright>
+    <item>
+      <title>File: 40,
+             Errors: 696,
+             Warnings: 0,
+             Infos: 0
+      </title>
+            <link>http://architecturerules.googlecode.com//checkstyle.html</link>
+      <description>
+        <p>Click <a href="http://architecturerules.googlecode.com//checkstyle.html">here</a> for the full Checkstyle report.</p>
+
+        <table summary="Files" boder="1">
+          <thead>
+            <tr>
+              <th>Files</th>
+              <th style="width:30px;"><abbr title="Info">I</abbr></th>
+              <th style="width:30px;"><abbr title="Warning">W</abbr></th>
+              <th style="width:30px;"><abbr title="Error">E</abbr></th>
+            </tr>
+          </thead>
+          <tbody>
+                          <tr>
+                <td>
+                  <a href="http://architecturerules.googlecode.com//checkstyle.html#com.seventytwomiles.architecturerules.domain.CyclicDependencyConfiguration.java">com/seventytwomiles/architecturerules/domain/CyclicDependencyConfiguration.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  8
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://architecturerules.googlecode.com//checkstyle.html#com.seventytwomiles.architecturerules.services.package.html">com/seventytwomiles/architecturerules/services/package.html</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://architecturerules.googlecode.com//checkstyle.html#com.seventytwomiles.architecturerules.domain.package.html">com/seventytwomiles/architecturerules/domain/package.html</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://architecturerules.googlecode.com//checkstyle.html#com.seventytwomiles.architecturerules.configuration.xml.XmlConfiguration.java">com/seventytwomiles/architecturerules/configuration/xml/XmlConfiguration.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  23
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://architecturerules.googlecode.com//checkstyle.html#com.seventytwomiles.architecturerules.domain.JPackage.java">com/seventytwomiles/architecturerules/domain/JPackage.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  30
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://architecturerules.googlecode.com//checkstyle.html#com.seventytwomiles.architecturerules.ant.AssertArchitectureTask.java">com/seventytwomiles/architecturerules/ant/AssertArchitectureTask.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  13
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://architecturerules.googlecode.com//checkstyle.html#com.seventytwomiles.architecturerules.configuration.xml.package.html">com/seventytwomiles/architecturerules/configuration/xml/package.html</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://architecturerules.googlecode.com//checkstyle.html#com.seventytwomiles.architecturerules.configuration.AbstractConfigurationFactory.java">com/seventytwomiles/architecturerules/configuration/AbstractConfigurationFactory.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  35
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://architecturerules.googlecode.com//checkstyle.html#com.seventytwomiles.architecturerules.configuration.xml.SaxErrorHandler.java">com/seventytwomiles/architecturerules/configuration/xml/SaxErrorHandler.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  9
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://architecturerules.googlecode.com//checkstyle.html#com.seventytwomiles.architecturerules.AbstractArchitectureRulesConfigurationTest.java">com/seventytwomiles/architecturerules/AbstractArchitectureRulesConfigurationTest.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  11
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://architecturerules.googlecode.com//checkstyle.html#com.seventytwomiles.architecturerules.package.html">com/seventytwomiles/architecturerules/package.html</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://architecturerules.googlecode.com//checkstyle.html#org.seventytwomiles.springframework.io.package.html">org/seventytwomiles/springframework/io/package.html</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  1
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://architecturerules.googlecode.com//checkstyle.html#com.seventytwomiles.architecturerules.configuration.Configuration.java">com/seventytwomiles/architecturerules/configuration/Configuration.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  42
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://architecturerules.googlecode.com//checkstyle.html#com.seventytwomiles.architecturerules.configuration.UnmodifiableConfiguration.java">com/seventytwomiles/architecturerules/configuration/UnmodifiableConfiguration.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  12
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://architecturerules.googlecode.com//checkstyle.html#org.seventytwomiles.springframework.io.FileUtils.java">org/seventytwomiles/springframework/io/FileUtils.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  11
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://architecturerules.googlecode.com//checkstyle.html#org.seventytwomiles.springframework.util.package.html">org/seventytwomiles/springframework/util/package.html</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  1
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://architecturerules.googlecode.com//checkstyle.html#com.seventytwomiles.architecturerules.configuration.package.html">com/seventytwomiles/architecturerules/configuration/package.html</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://architecturerules.googlecode.com//checkstyle.html#com.seventytwomiles.architecturerules.configuration.ConfigurationFactory.java">com/seventytwomiles/architecturerules/configuration/ConfigurationFactory.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  9
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://architecturerules.googlecode.com//checkstyle.html#org.seventytwomiles.springframework.util.ResourceUtils.java">org/seventytwomiles/springframework/util/ResourceUtils.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  5
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://architecturerules.googlecode.com//checkstyle.html#com.seventytwomiles.architecturerules.domain.SourcesConfiguration.java">com/seventytwomiles/architecturerules/domain/SourcesConfiguration.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  9
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://architecturerules.googlecode.com//checkstyle.html#org.seventytwomiles.springframework.core.io.package.html">org/seventytwomiles/springframework/core/io/package.html</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  1
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://architecturerules.googlecode.com//checkstyle.html#org.seventytwomiles.springframework.core.io.ClassPathResource.java">org/seventytwomiles/springframework/core/io/ClassPathResource.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  63
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://architecturerules.googlecode.com//checkstyle.html#com.seventytwomiles.architecturerules.exceptions.package.html">com/seventytwomiles/architecturerules/exceptions/package.html</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://architecturerules.googlecode.com//checkstyle.html#com.seventytwomiles.architecturerules.services.CyclicRedundancyService.java">com/seventytwomiles/architecturerules/services/CyclicRedundancyService.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  3
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://architecturerules.googlecode.com//checkstyle.html#com.seventytwomiles.architecturerules.exceptions.NoPackagesFoundException.java">com/seventytwomiles/architecturerules/exceptions/NoPackagesFoundException.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  5
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://architecturerules.googlecode.com//checkstyle.html#com.seventytwomiles.architecturerules.exceptions.CyclicRedundancyException.java">com/seventytwomiles/architecturerules/exceptions/CyclicRedundancyException.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  32
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://architecturerules.googlecode.com//checkstyle.html#com.seventytwomiles.architecturerules.ant.package.html">com/seventytwomiles/architecturerules/ant/package.html</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://architecturerules.googlecode.com//checkstyle.html#com.seventytwomiles.architecturerules.exceptions.InvalidConfigurationException.java">com/seventytwomiles/architecturerules/exceptions/InvalidConfigurationException.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  4
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://architecturerules.googlecode.com//checkstyle.html#com.seventytwomiles.architecturerules.domain.Rule.java">com/seventytwomiles/architecturerules/domain/Rule.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  74
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://architecturerules.googlecode.com//checkstyle.html#com.seventytwomiles.architecturerules.domain.SourceDirectory.java">com/seventytwomiles/architecturerules/domain/SourceDirectory.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  44
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://architecturerules.googlecode.com//checkstyle.html#com.seventytwomiles.architecturerules.services.RulesService.java">com/seventytwomiles/architecturerules/services/RulesService.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  1
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://architecturerules.googlecode.com//checkstyle.html#org.seventytwomiles.springframework.util.ClassUtils.java">org/seventytwomiles/springframework/util/ClassUtils.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  3
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://architecturerules.googlecode.com//checkstyle.html#com.seventytwomiles.architecturerules.services.CyclicRedundancyServiceImpl.java">com/seventytwomiles/architecturerules/services/CyclicRedundancyServiceImpl.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  113
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://architecturerules.googlecode.com//checkstyle.html#com.seventytwomiles.architecturerules.exceptions.IllegalArchitectureRuleException.java">com/seventytwomiles/architecturerules/exceptions/IllegalArchitectureRuleException.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  5
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://architecturerules.googlecode.com//checkstyle.html#com.seventytwomiles.architecturerules.exceptions.SourceNotFoundException.java">com/seventytwomiles/architecturerules/exceptions/SourceNotFoundException.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  6
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://architecturerules.googlecode.com//checkstyle.html#com.seventytwomiles.architecturerules.exceptions.ArchitectureException.java">com/seventytwomiles/architecturerules/exceptions/ArchitectureException.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  7
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://architecturerules.googlecode.com//checkstyle.html#com.seventytwomiles.architecturerules.exceptions.DependencyConstraintException.java">com/seventytwomiles/architecturerules/exceptions/DependencyConstraintException.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  5
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://architecturerules.googlecode.com//checkstyle.html#com.seventytwomiles.architecturerules.services.RulesServiceImpl.java">com/seventytwomiles/architecturerules/services/RulesServiceImpl.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  17
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://architecturerules.googlecode.com//checkstyle.html#com.seventytwomiles.architecturerules.services.AbstractArchitecturalRules.java">com/seventytwomiles/architecturerules/services/AbstractArchitecturalRules.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  49
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://architecturerules.googlecode.com//checkstyle.html#com.seventytwomiles.architecturerules.configuration.xml.DigesterConfigurationFactory.java">com/seventytwomiles/architecturerules/configuration/xml/DigesterConfigurationFactory.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  45
+                </td>
+              </tr>
+                      </tbody>
+        </table>
+        
+      </description>
+    </item>
+  </channel>
+</rss>
+

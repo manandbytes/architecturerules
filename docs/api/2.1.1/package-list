@@ -1,0 +1,10 @@
+com.seventytwomiles.architecturerules
+com.seventytwomiles.architecturerules.ant
+com.seventytwomiles.architecturerules.configuration
+com.seventytwomiles.architecturerules.configuration.xml
+com.seventytwomiles.architecturerules.domain
+com.seventytwomiles.architecturerules.exceptions
+com.seventytwomiles.architecturerules.services
+org.seventytwomiles.springframework.core.io
+org.seventytwomiles.springframework.io
+org.seventytwomiles.springframework.util

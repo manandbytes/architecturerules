@@ -248,8 +248,8 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;47</td>
-  <td class="nbHitsCovered">&nbsp;1</td>
-  <td class="src"><pre class="src">&nbsp;    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Log log = LogFactory.getLog(RulesServiceImpl.<span class="keyword">class</span>);</pre></td>
+  <td class="nbHitsCovered">&nbsp;5</td>
+  <td class="src"><pre class="src">&nbsp;    <span class="keyword">protected</span> <span class="keyword">static</span> <span class="keyword">final</span> Log log = LogFactory.getLog(RulesServiceImpl.<span class="keyword">class</span>);</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;48</td>
@@ -338,7 +338,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;65</td>
-  <td class="nbHitsCovered">&nbsp;11</td>
+  <td class="nbHitsCovered">&nbsp;55</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">super</span>(configuration);</pre></td>
 </tr>
 <tr>
@@ -348,12 +348,12 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;67</td>
-  <td class="nbHitsCovered">&nbsp;11</td>
+  <td class="nbHitsCovered">&nbsp;55</td>
   <td class="src"><pre class="src">&nbsp;        log.info(<span class="string">"instantiating new RulesService"</span>);</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;68</td>
-  <td class="nbHitsCovered">&nbsp;11</td>
+  <td class="nbHitsCovered">&nbsp;55</td>
   <td class="src"><pre class="src">&nbsp;    }</pre></td>
 </tr>
 <tr>
@@ -408,7 +408,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;79</td>
-  <td class="nbHitsCovered">&nbsp;11</td>
+  <td class="nbHitsCovered">&nbsp;55</td>
   <td class="src"><pre class="src">&nbsp;        log.info(<span class="string">"perform rules test required"</span>);</pre></td>
 </tr>
 <tr>
@@ -418,7 +418,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;81</td>
-  <td class="nbHitsCovered">&nbsp;11</td>
+  <td class="nbHitsCovered">&nbsp;55</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> Collection&lt;Rule&gt; rules = configuration.getRules();</pre></td>
 </tr>
 <tr>
@@ -448,7 +448,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;87</td>
-  <td class="nbHitsCovered">&nbsp;11</td>
+  <td class="nbHitsCovered">&nbsp;55</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">if</span> (log.isDebugEnabled()) {</pre></td>
 </tr>
 <tr>
@@ -458,12 +458,12 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;89</td>
-  <td class="nbHitsCovered">&nbsp;11</td>
+  <td class="nbHitsCovered">&nbsp;55</td>
   <td class="src"><pre class="src">&nbsp;            <span class="keyword">for</span> (<span class="keyword">final</span> Rule rule : rules)</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;90</td>
-  <td class="nbHitsCovered">&nbsp;20</td>
+  <td class="nbHitsCovered">&nbsp;100</td>
   <td class="src"><pre class="src">&nbsp;                log.debug(rule.getDescriptionOfRule());</pre></td>
 </tr>
 <tr>
@@ -478,7 +478,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;93</td>
-  <td class="nbHitsCovered">&nbsp;11</td>
+  <td class="nbHitsCovered">&nbsp;55</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">for</span> (<span class="keyword">final</span> Rule rule : rules) {</pre></td>
 </tr>
 <tr>
@@ -488,7 +488,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;95</td>
-  <td class="nbHitsCovered">&nbsp;20</td>
+  <td class="nbHitsCovered">&nbsp;100</td>
   <td class="src"><pre class="src">&nbsp;            log.info(<span class="string">"checking rule "</span> + rule.getId());</pre></td>
 </tr>
 <tr>
@@ -498,12 +498,12 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;97</td>
-  <td class="nbHitsCovered">&nbsp;20</td>
+  <td class="nbHitsCovered">&nbsp;100</td>
   <td class="src"><pre class="src">&nbsp;            <span class="keyword">final</span> String description = rule.describePackages();</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;98</td>
-  <td class="nbHitsCovered">&nbsp;60</td>
+  <td class="nbHitsCovered">&nbsp;140</td>
   <td class="src"><pre class="src">&nbsp;            log.debug(<span class="string">"checking for dependency violations in "</span> + description);</pre></td>
 </tr>
 <tr>
@@ -523,7 +523,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;102</td>
-  <td class="nbHitsCovered">&nbsp;92</td>
+  <td class="nbHitsCovered">&nbsp;172</td>
   <td class="src"><pre class="src">&nbsp;                <span class="keyword">final</span> Collection&lt;JPackage&gt; packages = rule.getPackages();</pre></td>
 </tr>
 <tr>
@@ -533,12 +533,12 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;104</td>
-  <td class="nbHitsCovered">&nbsp;20</td>
+  <td class="nbHitsCovered">&nbsp;100</td>
   <td class="src"><pre class="src">&nbsp;                <span class="keyword">for</span> (<span class="keyword">final</span> JPackage packageName : packages)</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;105</td>
-  <td class="nbHitsCovered">&nbsp;24</td>
+  <td class="nbHitsCovered">&nbsp;120</td>
   <td class="src"><pre class="src">&nbsp;                    testLayeringValid(packageName, rule.getViolations());</pre></td>
 </tr>
 <tr>
@@ -548,7 +548,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;107</td>
-  <td class="nbHitsCovered">&nbsp;113</td>
+  <td class="nbHitsCovered">&nbsp;117</td>
   <td class="src"><pre class="src">&nbsp;            } <span class="keyword">catch</span> (<span class="keyword">final</span> DependencyConstraintException e) {</pre></td>
 </tr>
 <tr>
@@ -563,7 +563,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;110</td>
-  <td class="nbHitsCovered">&nbsp;1</td>
+  <td class="nbHitsCovered">&nbsp;5</td>
   <td class="src"><pre class="src">&nbsp;                <span class="keyword">throw</span> <span class="keyword">new</span> DependencyConstraintException(</pre></td>
 </tr>
 <tr>
@@ -573,7 +573,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;112</td>
-  <td class="nbHitsCovered">&nbsp;91</td>
+  <td class="nbHitsCovered">&nbsp;167</td>
   <td class="src"><pre class="src">&nbsp;            }</pre></td>
 </tr>
 <tr>
@@ -583,12 +583,12 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;114</td>
-  <td class="nbHitsCovered">&nbsp;19</td>
+  <td class="nbHitsCovered">&nbsp;95</td>
   <td class="src"><pre class="src">&nbsp;            log.debug(<span class="string">"no dependency violations in "</span> + rule.getPackages());</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;115</td>
-  <td class="nbHitsCovered">&nbsp;19</td>
+  <td class="nbHitsCovered">&nbsp;95</td>
   <td class="src"><pre class="src">&nbsp;        }</pre></td>
 </tr>
 <tr>
@@ -598,7 +598,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;117</td>
-  <td class="nbHitsCovered">&nbsp;82</td>
+  <td class="nbHitsCovered">&nbsp;122</td>
   <td class="src"><pre class="src">&nbsp;        log.info(<span class="string">"architecture rules service has completed its tests."</span>);</pre></td>
 </tr>
 <tr>
@@ -608,7 +608,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;119</td>
-  <td class="nbHitsCovered">&nbsp;82</td>
+  <td class="nbHitsCovered">&nbsp;122</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> <span class="keyword">true</span>;</pre></td>
 </tr>
 <tr>

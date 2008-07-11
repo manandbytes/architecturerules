@@ -223,7 +223,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;42</td>
-  <td class="nbHitsCovered">&nbsp;30</td>
+  <td class="nbHitsCovered">&nbsp;150</td>
   <td class="src"><pre class="src">&nbsp;<span class="keyword">public</span> <span class="keyword">class</span> Configuration {</pre></td>
 </tr>
 <tr>
@@ -238,8 +238,8 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;45</td>
-  <td class="nbHitsCovered">&nbsp;1</td>
-  <td class="src"><pre class="src">&nbsp;    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Log log = LogFactory.getLog(Configuration.<span class="keyword">class</span>);</pre></td>
+  <td class="nbHitsCovered">&nbsp;5</td>
+  <td class="src"><pre class="src">&nbsp;    <span class="keyword">protected</span> <span class="keyword">static</span> <span class="keyword">final</span> Log log = LogFactory.getLog(Configuration.<span class="keyword">class</span>);</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;46</td>
@@ -278,7 +278,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;53</td>
-  <td class="nbHitsCovered">&nbsp;30</td>
+  <td class="nbHitsCovered">&nbsp;150</td>
   <td class="src"><pre class="src">&nbsp;    <span class="keyword">private</span> <span class="keyword">final</span> Collection&lt;Rule&gt; rules = <span class="keyword">new</span> HashSet&lt;Rule&gt;();</pre></td>
 </tr>
 <tr>
@@ -318,7 +318,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;61</td>
-  <td class="nbHitsCovered">&nbsp;30</td>
+  <td class="nbHitsCovered">&nbsp;150</td>
   <td class="src"><pre class="src">&nbsp;    <span class="keyword">private</span> <span class="keyword">final</span> Collection&lt;SourceDirectory&gt; sources</pre></td>
 </tr>
 <tr>
@@ -448,8 +448,8 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;87</td>
-  <td class="nbHitsCovered">&nbsp;51</td>
-  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> rules;</pre></td>
+  <td class="nbHitsCovered">&nbsp;255</td>
+  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> <span class="keyword">this</span>.rules;</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;88</td>
@@ -498,8 +498,8 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;97</td>
-  <td class="nbHitsCovered">&nbsp;52</td>
-  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> sources;</pre></td>
+  <td class="nbHitsCovered">&nbsp;260</td>
+  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> <span class="keyword">this</span>.sources;</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;98</td>
@@ -573,7 +573,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;112</td>
-  <td class="nbHitsCovered">&nbsp;23</td>
+  <td class="nbHitsCovered">&nbsp;115</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">this</span>.doCyclicDependencyTest = doCyclicDependencyTest;</pre></td>
 </tr>
 <tr>
@@ -583,7 +583,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;114</td>
-  <td class="nbHitsCovered">&nbsp;123</td>
+  <td class="nbHitsCovered">&nbsp;215</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> <span class="keyword">this</span>;</pre></td>
 </tr>
 <tr>
@@ -658,7 +658,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;129</td>
-  <td class="nbHitsCovered">&nbsp;18</td>
+  <td class="nbHitsCovered">&nbsp;90</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">this</span>.throwExceptionWhenNoPackages = throwExceptionWhenNoPackages;</pre></td>
 </tr>
 <tr>
@@ -668,7 +668,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;131</td>
-  <td class="nbHitsCovered">&nbsp;18</td>
+  <td class="nbHitsCovered">&nbsp;90</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> <span class="keyword">this</span>;</pre></td>
 </tr>
 <tr>
@@ -738,7 +738,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;145</td>
-  <td class="nbHitsCovered">&nbsp;66</td>
+  <td class="nbHitsCovered">&nbsp;122</td>
   <td class="src"><pre class="src">&nbsp;        Assert.assertNotNull(<span class="string">"rule can not be null"</span>, rule);</pre></td>
 </tr>
 <tr>
@@ -748,7 +748,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;147</td>
-  <td class="nbHitsCovered">&nbsp;65</td>
+  <td class="nbHitsCovered">&nbsp;117</td>
   <td class="src"><pre class="src">&nbsp;        Assert.assertNotNull(<span class="string">"rule id can not be null"</span>, rule.getId());</pre></td>
 </tr>
 <tr>
@@ -758,12 +758,12 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;149</td>
-  <td class="nbHitsCovered">&nbsp;12</td>
+  <td class="nbHitsCovered">&nbsp;60</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> String id = rule.getId();</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;150</td>
-  <td class="nbHitsCovered">&nbsp;64</td>
+  <td class="nbHitsCovered">&nbsp;112</td>
   <td class="src"><pre class="src">&nbsp;        Assert.assertFalse(<span class="string">"rule id must not be empty"</span>, id.equals(<span class="string">""</span>));</pre></td>
 </tr>
 <tr>
@@ -773,12 +773,12 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;152</td>
-  <td class="nbHitsCovered">&nbsp;12</td>
+  <td class="nbHitsCovered">&nbsp;60</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> Collection&lt;JPackage&gt; packages = rule.getPackages();</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;153</td>
-  <td class="nbHitsCovered">&nbsp;60</td>
+  <td class="nbHitsCovered">&nbsp;108</td>
   <td class="src"><pre class="src">&nbsp;        Assert.assertNotNull(<span class="string">"rule packages can not be null"</span>, packages);</pre></td>
 </tr>
 <tr>
@@ -788,7 +788,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;155</td>
-  <td class="nbHitsCovered">&nbsp;12</td>
+  <td class="nbHitsCovered">&nbsp;60</td>
   <td class="src"><pre class="src">&nbsp;        Assert.assertFalse(<span class="string">"rule packages must not be empty"</span>,</pre></td>
 </tr>
 <tr>
@@ -803,7 +803,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;158</td>
-  <td class="nbHitsCovered">&nbsp;11</td>
+  <td class="nbHitsCovered">&nbsp;55</td>
   <td class="src"><pre class="src">&nbsp;        Assert.assertFalse(<span class="string">"rule violations must not be empty"</span>,</pre></td>
 </tr>
 <tr>
@@ -818,8 +818,8 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;161</td>
-  <td class="nbHitsCovered">&nbsp;10</td>
-  <td class="src"><pre class="src">&nbsp;        <span class="keyword">boolean</span> added = rules.add(rule);</pre></td>
+  <td class="nbHitsCovered">&nbsp;50</td>
+  <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> <span class="keyword">boolean</span> added = rules.add(rule);</pre></td>
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;162</td>
@@ -828,7 +828,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;163</td>
-  <td class="nbHitsCovered">&nbsp;10</td>
+  <td class="nbHitsCovered">&nbsp;50</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">if</span> (added) {</pre></td>
 </tr>
 <tr>
@@ -838,7 +838,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;165</td>
-  <td class="nbHitsCovered">&nbsp;9</td>
+  <td class="nbHitsCovered">&nbsp;45</td>
   <td class="src"><pre class="src">&nbsp;            log.debug(String.format(<span class="string">"added Rule %s to Configuration"</span>, id));</pre></td>
 </tr>
 <tr>
@@ -858,7 +858,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;169</td>
-  <td class="nbHitsCovered">&nbsp;1</td>
+  <td class="nbHitsCovered">&nbsp;5</td>
   <td class="src"><pre class="src">&nbsp;            log.debug(String.format(<span class="string">"failed to add Rule %s to Configuration"</span>,</pre></td>
 </tr>
 <tr>
@@ -878,7 +878,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;173</td>
-  <td class="nbHitsCovered">&nbsp;10</td>
+  <td class="nbHitsCovered">&nbsp;50</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> <span class="keyword">this</span>;</pre></td>
 </tr>
 <tr>
@@ -943,7 +943,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;186</td>
-  <td class="nbHitsCovered">&nbsp;6</td>
+  <td class="nbHitsCovered">&nbsp;30</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">if</span> (sourceDirectory == <span class="keyword">null</span>)</pre></td>
 </tr>
 <tr>
@@ -963,7 +963,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;190</td>
-  <td class="nbHitsCovered">&nbsp;6</td>
+  <td class="nbHitsCovered">&nbsp;30</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> String path = sourceDirectory.getPath();</pre></td>
 </tr>
 <tr>
@@ -973,7 +973,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;192</td>
-  <td class="nbHitsCovered">&nbsp;54</td>
+  <td class="nbHitsCovered">&nbsp;78</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">if</span> (path == <span class="keyword">null</span> || path.equals(<span class="string">""</span>))</pre></td>
 </tr>
 <tr>
@@ -993,8 +993,8 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;196</td>
-  <td class="nbHitsCovered">&nbsp;6</td>
-  <td class="src"><pre class="src">&nbsp;        <span class="keyword">boolean</span> added = sources.add(sourceDirectory);</pre></td>
+  <td class="nbHitsCovered">&nbsp;30</td>
+  <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> <span class="keyword">boolean</span> added = sources.add(sourceDirectory);</pre></td>
 </tr>
 <tr>
   <td class="numLine">&nbsp;197</td>
@@ -1003,7 +1003,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;198</td>
-  <td class="nbHitsCovered">&nbsp;6</td>
+  <td class="nbHitsCovered">&nbsp;30</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">if</span> (added) {</pre></td>
 </tr>
 <tr>
@@ -1013,7 +1013,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;200</td>
-  <td class="nbHitsCovered">&nbsp;6</td>
+  <td class="nbHitsCovered">&nbsp;30</td>
   <td class="src"><pre class="src">&nbsp;            log.debug(String.format(<span class="string">"added source %s to Configuration"</span>, path));</pre></td>
 </tr>
 <tr>
@@ -1053,7 +1053,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;208</td>
-  <td class="nbHitsCovered">&nbsp;6</td>
+  <td class="nbHitsCovered">&nbsp;30</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> <span class="keyword">this</span>;</pre></td>
 </tr>
 <tr>
@@ -1103,7 +1103,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;218</td>
-  <td class="nbHitsCovered">&nbsp;21</td>
+  <td class="nbHitsCovered">&nbsp;105</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> doCyclicDependencyTest;</pre></td>
 </tr>
 <tr>
@@ -1153,7 +1153,7 @@
 </tr>
 <tr>
   <td class="numLineCover">&nbsp;228</td>
-  <td class="nbHitsCovered">&nbsp;13</td>
+  <td class="nbHitsCovered">&nbsp;65</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> throwExceptionWhenNoPackages;</pre></td>
 </tr>
 <tr>

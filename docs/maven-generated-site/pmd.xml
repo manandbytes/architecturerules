@@ -1,21 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pmd version="4.2.2" timestamp="2008-07-04T11:40:48.526">
-<file name="C:\dev\svnlocal\72miles\architecturerules\trunk\architecture-rules\src\main\java\com\seventytwomiles\architecturerules\AbstractArchitectureRulesConfigurationTest.java">
-<violation beginline="49" endline="49" begincolumn="30" endcolumn="32" rule="UnusedPrivateField" ruleset="Unused Code Rules" package="com.seventytwomiles.architecturerules" class="AbstractArchitectureRulesConfigurationTest" variable="log" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateField" priority="3">
-Avoid unused private fields such as 'log'.
-</violation>
-</file>
-<file name="C:\dev\svnlocal\72miles\architecturerules\trunk\architecture-rules\src\main\java\com\seventytwomiles\architecturerules\domain\CyclicDependencyConfiguration.java">
-<violation beginline="33" endline="33" begincolumn="30" endcolumn="32" rule="UnusedPrivateField" ruleset="Unused Code Rules" package="com.seventytwomiles.architecturerules.domain" class="CyclicDependencyConfiguration" variable="log" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateField" priority="3">
-Avoid unused private fields such as 'log'.
-</violation>
-</file>
-<file name="C:\dev\svnlocal\72miles\architecturerules\trunk\architecture-rules\src\main\java\com\seventytwomiles\architecturerules\domain\SourcesConfiguration.java">
-<violation beginline="33" endline="33" begincolumn="30" endcolumn="32" rule="UnusedPrivateField" ruleset="Unused Code Rules" package="com.seventytwomiles.architecturerules.domain" class="SourcesConfiguration" variable="log" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateField" priority="3">
-Avoid unused private fields such as 'log'.
-</violation>
-</file>
-<file name="C:\dev\svnlocal\72miles\architecturerules\trunk\architecture-rules\src\main\java\org\seventytwomiles\springframework\io\FileUtils.java">
+<pmd version="4.2.2" timestamp="2008-07-10T21:46:05.118">
+<file name="c:\dev\svnlocal\72miles\architecturerules\trunk\architecture-rules\src\main\java\org\seventytwomiles\springframework\io\FileUtils.java">
 <violation beginline="230" endline="233" begincolumn="11" endcolumn="9" rule="EmptyCatchBlock" ruleset="Basic Rules" package="org.seventytwomiles.springframework.io" class="FileUtils" method="closeQuietly" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#EmptyCatchBlock" priority="3">
 Avoid empty catch blocks
 </violation>

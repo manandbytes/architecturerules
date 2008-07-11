@@ -297,276 +297,275 @@
 <a name="288" href="#288">288</a> <em>     *</em>
 <a name="289" href="#289">289</a> <em>     * @return boolean</em>
 <a name="290" href="#290">290</a> <em>     */</em>
-<a name="291" href="#291">291</a>     @SuppressWarnings({<span class="string">"BooleanMethodIsAlwaysInverted"</span>})
-<a name="292" href="#292">292</a>     <strong>public</strong> <strong>boolean</strong> exists() {
-<a name="293" href="#293">293</a> 
-<a name="294" href="#294">294</a>         <em class="comment">// Try file existence: can we find the file in the file system?</em>
-<a name="295" href="#295">295</a>         <strong>try</strong> {
-<a name="296" href="#296">296</a> 
-<a name="297" href="#297">297</a>             <strong>return</strong> getFile().exists();
-<a name="298" href="#298">298</a> 
-<a name="299" href="#299">299</a>         } <strong>catch</strong> (<strong>final</strong> IOException ex) {
-<a name="300" href="#300">300</a> 
-<a name="301" href="#301">301</a>             <em class="comment">// Fall back to stream existence: can we open the stream?</em>
-<a name="302" href="#302">302</a>             <strong>try</strong> {
-<a name="303" href="#303">303</a> 
-<a name="304" href="#304">304</a>                 <strong>final</strong> InputStream inputStream = getInputStream();
-<a name="305" href="#305">305</a>                 inputStream.close();
-<a name="306" href="#306">306</a>                 <strong>return</strong> <strong>true</strong>;
-<a name="307" href="#307">307</a> 
-<a name="308" href="#308">308</a>             } <strong>catch</strong> (<strong>final</strong> Throwable throwable) {
-<a name="309" href="#309">309</a> 
-<a name="310" href="#310">310</a>                 <strong>return</strong> false;
-<a name="311" href="#311">311</a>             }
-<a name="312" href="#312">312</a>         }
-<a name="313" href="#313">313</a>     }
+<a name="291" href="#291">291</a>     <strong>public</strong> <strong>boolean</strong> exists() {
+<a name="292" href="#292">292</a> 
+<a name="293" href="#293">293</a>         <em class="comment">// Try file existence: can we find the file in the file system?</em>
+<a name="294" href="#294">294</a>         <strong>try</strong> {
+<a name="295" href="#295">295</a> 
+<a name="296" href="#296">296</a>             <strong>return</strong> getFile().exists();
+<a name="297" href="#297">297</a> 
+<a name="298" href="#298">298</a>         } <strong>catch</strong> (<strong>final</strong> IOException ex) {
+<a name="299" href="#299">299</a> 
+<a name="300" href="#300">300</a>             <em class="comment">// Fall back to stream existence: can we open the stream?</em>
+<a name="301" href="#301">301</a>             <strong>try</strong> {
+<a name="302" href="#302">302</a> 
+<a name="303" href="#303">303</a>                 <strong>final</strong> InputStream inputStream = getInputStream();
+<a name="304" href="#304">304</a>                 inputStream.close();
+<a name="305" href="#305">305</a>                 <strong>return</strong> <strong>true</strong>;
+<a name="306" href="#306">306</a> 
+<a name="307" href="#307">307</a>             } <strong>catch</strong> (<strong>final</strong> Throwable throwable) {
+<a name="308" href="#308">308</a> 
+<a name="309" href="#309">309</a>                 <strong>return</strong> false;
+<a name="310" href="#310">310</a>             }
+<a name="311" href="#311">311</a>         }
+<a name="312" href="#312">312</a>     }
+<a name="313" href="#313">313</a> 
 <a name="314" href="#314">314</a> 
-<a name="315" href="#315">315</a> 
-<a name="316" href="#316">316</a>     <em>/**<em>*</em></em>
-<a name="317" href="#317">317</a> <em>     * &lt;p>This implementation opens an InputStream for the given class path</em>
-<a name="318" href="#318">318</a> <em>     * resource.&lt;/p></em>
-<a name="319" href="#319">319</a> <em>     *</em>
-<a name="320" href="#320">320</a> <em>     * @return InputStream</em>
-<a name="321" href="#321">321</a> <em>     * @throws FileNotFoundException when file not found</em>
-<a name="322" href="#322">322</a> <em>     * @see ClassLoader#getResourceAsStream(String)</em>
-<a name="323" href="#323">323</a> <em>     * @see Class#getResourceAsStream(String)</em>
-<a name="324" href="#324">324</a> <em>     */</em>
-<a name="325" href="#325">325</a>     <strong>private</strong> InputStream getInputStream() throws FileNotFoundException {
+<a name="315" href="#315">315</a>     <em>/**<em>*</em></em>
+<a name="316" href="#316">316</a> <em>     * &lt;p>This implementation opens an InputStream for the given class path</em>
+<a name="317" href="#317">317</a> <em>     * resource.&lt;/p></em>
+<a name="318" href="#318">318</a> <em>     *</em>
+<a name="319" href="#319">319</a> <em>     * @return InputStream</em>
+<a name="320" href="#320">320</a> <em>     * @throws FileNotFoundException when file not found</em>
+<a name="321" href="#321">321</a> <em>     * @see ClassLoader#getResourceAsStream(String)</em>
+<a name="322" href="#322">322</a> <em>     * @see Class#getResourceAsStream(String)</em>
+<a name="323" href="#323">323</a> <em>     */</em>
+<a name="324" href="#324">324</a>     <strong>private</strong> InputStream getInputStream() throws FileNotFoundException {
+<a name="325" href="#325">325</a> 
 <a name="326" href="#326">326</a> 
-<a name="327" href="#327">327</a> 
-<a name="328" href="#328">328</a>         <strong>final</strong> InputStream inputStream
-<a name="329" href="#329">329</a>                 = clazz != <strong>null</strong> ? clazz.getResourceAsStream(
-<a name="330" href="#330">330</a>                 path) : classLoader.getResourceAsStream(path);
-<a name="331" href="#331">331</a> 
-<a name="332" href="#332">332</a>         <strong>if</strong> (inputStream == <strong>null</strong>)
-<a name="333" href="#333">333</a>             <strong>throw</strong> <strong>new</strong> FileNotFoundException(
-<a name="334" href="#334">334</a>                     getDescription() + <span class="string">" cannot be opened because it does not exist"</span>);
-<a name="335" href="#335">335</a> 
-<a name="336" href="#336">336</a>         <strong>return</strong> inputStream;
-<a name="337" href="#337">337</a>     }
+<a name="327" href="#327">327</a>         <strong>final</strong> InputStream inputStream
+<a name="328" href="#328">328</a>                 = clazz != <strong>null</strong> ? clazz.getResourceAsStream(
+<a name="329" href="#329">329</a>                 path) : classLoader.getResourceAsStream(path);
+<a name="330" href="#330">330</a> 
+<a name="331" href="#331">331</a>         <strong>if</strong> (inputStream == <strong>null</strong>)
+<a name="332" href="#332">332</a>             <strong>throw</strong> <strong>new</strong> FileNotFoundException(
+<a name="333" href="#333">333</a>                     getDescription() + <span class="string">" cannot be opened because it does not exist"</span>);
+<a name="334" href="#334">334</a> 
+<a name="335" href="#335">335</a>         <strong>return</strong> inputStream;
+<a name="336" href="#336">336</a>     }
+<a name="337" href="#337">337</a> 
 <a name="338" href="#338">338</a> 
-<a name="339" href="#339">339</a> 
-<a name="340" href="#340">340</a>     <em>/**<em>*</em></em>
-<a name="341" href="#341">341</a> <em>     * &lt;p>Normalize the path by suppressing sequences like "path/.." and inner</em>
-<a name="342" href="#342">342</a> <em>     * simple dots. &lt;p>The result is convenient for path comparison. For other</em>
-<a name="343" href="#343">343</a> <em>     * uses, notice that Windows separators ("\&quot;) are replaced by simple</em>
-<a name="344" href="#344">344</a> <em>     * slashes.&lt;/p></em>
-<a name="345" href="#345">345</a> <em>     *</em>
-<a name="346" href="#346">346</a> <em>     * @param path the original path</em>
-<a name="347" href="#347">347</a> <em>     * @return the normalized path</em>
-<a name="348" href="#348">348</a> <em>     */</em>
-<a name="349" href="#349">349</a>     <strong>private</strong> String cleanPath(<strong>final</strong> String path) {
-<a name="350" href="#350">350</a> 
-<a name="351" href="#351">351</a>         String pathToUse = replace(path, WINDOWS_FOLDER_SEPARATOR,
-<a name="352" href="#352">352</a>                 FOLDER_SEPARATOR);
-<a name="353" href="#353">353</a> 
-<a name="354" href="#354">354</a>         <em class="comment">// Strip prefix from path to analyze, to not treat it as part of the</em>
-<a name="355" href="#355">355</a>         <em class="comment">// first path element. This is necessary to correctly parse paths like</em>
-<a name="356" href="#356">356</a>         <em class="comment">// "file:core/../core/io/Resource.class", where the ".." should just</em>
-<a name="357" href="#357">357</a>         <em class="comment">// strip the first "core" directory while keeping the "file:" prefix.</em>
-<a name="358" href="#358">358</a>         <strong>final</strong> <strong>int</strong> prefixIndex = pathToUse.indexOf(<span class="string">":"</span>);
-<a name="359" href="#359">359</a>         String prefix = <span class="string">""</span>;
-<a name="360" href="#360">360</a> 
-<a name="361" href="#361">361</a>         <strong>if</strong> (prefixIndex != -1) {
-<a name="362" href="#362">362</a> 
-<a name="363" href="#363">363</a>             prefix = pathToUse.substring(0, prefixIndex + 1);
-<a name="364" href="#364">364</a>             pathToUse = pathToUse.substring(prefixIndex + 1);
-<a name="365" href="#365">365</a>         }
-<a name="366" href="#366">366</a> 
-<a name="367" href="#367">367</a>         <strong>final</strong> String[] pathArray = delimitedListToStringArray(pathToUse,
-<a name="368" href="#368">368</a>                 FOLDER_SEPARATOR);
-<a name="369" href="#369">369</a> 
-<a name="370" href="#370">370</a>         <strong>final</strong> List pathElements = <strong>new</strong> LinkedList();
-<a name="371" href="#371">371</a>         <strong>int</strong> tops = 0;
-<a name="372" href="#372">372</a> 
-<a name="373" href="#373">373</a>         <strong>for</strong> (<strong>int</strong> i = pathArray.length - 1; i >= 0; i--) {
-<a name="374" href="#374">374</a> 
-<a name="375" href="#375">375</a>             <strong>if</strong> (CURRENT_PATH.equals(pathArray[i])) {
-<a name="376" href="#376">376</a> 
-<a name="377" href="#377">377</a>                 <em class="comment">// Points to current directory - drop it.</em>
-<a name="378" href="#378">378</a> 
-<a name="379" href="#379">379</a>             } <strong>else</strong> <strong>if</strong> (TOP_PATH.equals(pathArray[i])) {
-<a name="380" href="#380">380</a> 
-<a name="381" href="#381">381</a>                 <em class="comment">// Registering top path found.</em>
-<a name="382" href="#382">382</a>                 tops++;
-<a name="383" href="#383">383</a> 
-<a name="384" href="#384">384</a>             } <strong>else</strong> {
-<a name="385" href="#385">385</a> 
-<a name="386" href="#386">386</a>                 <strong>if</strong> (tops > 0) {
-<a name="387" href="#387">387</a> 
-<a name="388" href="#388">388</a>                     <em class="comment">// Merging path element with corresponding to top path.</em>
-<a name="389" href="#389">389</a>                     tops--;
-<a name="390" href="#390">390</a> 
-<a name="391" href="#391">391</a>                 } <strong>else</strong> {
-<a name="392" href="#392">392</a> 
-<a name="393" href="#393">393</a>                     <em class="comment">// Normal path element found.</em>
-<a name="394" href="#394">394</a>                     pathElements.add(0, pathArray[i]);
-<a name="395" href="#395">395</a>                 }
-<a name="396" href="#396">396</a>             }
-<a name="397" href="#397">397</a>         }
-<a name="398" href="#398">398</a> 
-<a name="399" href="#399">399</a>         <em class="comment">// Remaining top paths need to be retained.</em>
-<a name="400" href="#400">400</a>         <strong>for</strong> (<strong>int</strong> i = 0; i &lt; tops; i++)
-<a name="401" href="#401">401</a>             pathElements.add(0, TOP_PATH);
-<a name="402" href="#402">402</a> 
-<a name="403" href="#403">403</a>         <strong>return</strong> prefix + collectionToDelimitedString(pathElements,
-<a name="404" href="#404">404</a>                 FOLDER_SEPARATOR);
-<a name="405" href="#405">405</a>     }
+<a name="339" href="#339">339</a>     <em>/**<em>*</em></em>
+<a name="340" href="#340">340</a> <em>     * &lt;p>Normalize the path by suppressing sequences like "path/.." and inner</em>
+<a name="341" href="#341">341</a> <em>     * simple dots. &lt;p>The result is convenient for path comparison. For other</em>
+<a name="342" href="#342">342</a> <em>     * uses, notice that Windows separators ("\&quot;) are replaced by simple</em>
+<a name="343" href="#343">343</a> <em>     * slashes.&lt;/p></em>
+<a name="344" href="#344">344</a> <em>     *</em>
+<a name="345" href="#345">345</a> <em>     * @param path the original path</em>
+<a name="346" href="#346">346</a> <em>     * @return the normalized path</em>
+<a name="347" href="#347">347</a> <em>     */</em>
+<a name="348" href="#348">348</a>     <strong>private</strong> String cleanPath(<strong>final</strong> String path) {
+<a name="349" href="#349">349</a> 
+<a name="350" href="#350">350</a>         String pathToUse = replace(path, WINDOWS_FOLDER_SEPARATOR,
+<a name="351" href="#351">351</a>                 FOLDER_SEPARATOR);
+<a name="352" href="#352">352</a> 
+<a name="353" href="#353">353</a>         <em class="comment">// Strip prefix from path to analyze, to not treat it as part of the</em>
+<a name="354" href="#354">354</a>         <em class="comment">// first path element. This is necessary to correctly parse paths like</em>
+<a name="355" href="#355">355</a>         <em class="comment">// "file:core/../core/io/Resource.class", where the ".." should just</em>
+<a name="356" href="#356">356</a>         <em class="comment">// strip the first "core" directory while keeping the "file:" prefix.</em>
+<a name="357" href="#357">357</a>         <strong>final</strong> <strong>int</strong> prefixIndex = pathToUse.indexOf(<span class="string">":"</span>);
+<a name="358" href="#358">358</a>         String prefix = <span class="string">""</span>;
+<a name="359" href="#359">359</a> 
+<a name="360" href="#360">360</a>         <strong>if</strong> (prefixIndex != -1) {
+<a name="361" href="#361">361</a> 
+<a name="362" href="#362">362</a>             prefix = pathToUse.substring(0, prefixIndex + 1);
+<a name="363" href="#363">363</a>             pathToUse = pathToUse.substring(prefixIndex + 1);
+<a name="364" href="#364">364</a>         }
+<a name="365" href="#365">365</a> 
+<a name="366" href="#366">366</a>         <strong>final</strong> String[] pathArray = delimitedListToStringArray(pathToUse,
+<a name="367" href="#367">367</a>                 FOLDER_SEPARATOR);
+<a name="368" href="#368">368</a> 
+<a name="369" href="#369">369</a>         <strong>final</strong> List pathElements = <strong>new</strong> LinkedList();
+<a name="370" href="#370">370</a>         <strong>int</strong> tops = 0;
+<a name="371" href="#371">371</a> 
+<a name="372" href="#372">372</a>         <strong>for</strong> (<strong>int</strong> i = pathArray.length - 1; i >= 0; i--) {
+<a name="373" href="#373">373</a> 
+<a name="374" href="#374">374</a>             <strong>if</strong> (CURRENT_PATH.equals(pathArray[i])) {
+<a name="375" href="#375">375</a> 
+<a name="376" href="#376">376</a>                 <em class="comment">// Points to current directory - drop it.</em>
+<a name="377" href="#377">377</a> 
+<a name="378" href="#378">378</a>             } <strong>else</strong> <strong>if</strong> (TOP_PATH.equals(pathArray[i])) {
+<a name="379" href="#379">379</a> 
+<a name="380" href="#380">380</a>                 <em class="comment">// Registering top path found.</em>
+<a name="381" href="#381">381</a>                 tops++;
+<a name="382" href="#382">382</a> 
+<a name="383" href="#383">383</a>             } <strong>else</strong> {
+<a name="384" href="#384">384</a> 
+<a name="385" href="#385">385</a>                 <strong>if</strong> (tops > 0) {
+<a name="386" href="#386">386</a> 
+<a name="387" href="#387">387</a>                     <em class="comment">// Merging path element with corresponding to top path.</em>
+<a name="388" href="#388">388</a>                     tops--;
+<a name="389" href="#389">389</a> 
+<a name="390" href="#390">390</a>                 } <strong>else</strong> {
+<a name="391" href="#391">391</a> 
+<a name="392" href="#392">392</a>                     <em class="comment">// Normal path element found.</em>
+<a name="393" href="#393">393</a>                     pathElements.add(0, pathArray[i]);
+<a name="394" href="#394">394</a>                 }
+<a name="395" href="#395">395</a>             }
+<a name="396" href="#396">396</a>         }
+<a name="397" href="#397">397</a> 
+<a name="398" href="#398">398</a>         <em class="comment">// Remaining top paths need to be retained.</em>
+<a name="399" href="#399">399</a>         <strong>for</strong> (<strong>int</strong> i = 0; i &lt; tops; i++)
+<a name="400" href="#400">400</a>             pathElements.add(0, TOP_PATH);
+<a name="401" href="#401">401</a> 
+<a name="402" href="#402">402</a>         <strong>return</strong> prefix + collectionToDelimitedString(pathElements,
+<a name="403" href="#403">403</a>                 FOLDER_SEPARATOR);
+<a name="404" href="#404">404</a>     }
+<a name="405" href="#405">405</a> 
 <a name="406" href="#406">406</a> 
-<a name="407" href="#407">407</a> 
-<a name="408" href="#408">408</a>     <em>/**<em>*</em></em>
-<a name="409" href="#409">409</a> <em>     * &lt;p>Replace all occurences of a substring within a string with another</em>
-<a name="410" href="#410">410</a> <em>     * string.&lt;/p></em>
-<a name="411" href="#411">411</a> <em>     *</em>
-<a name="412" href="#412">412</a> <em>     * @param inString String to examine</em>
-<a name="413" href="#413">413</a> <em>     * @param oldPattern String to replace</em>
-<a name="414" href="#414">414</a> <em>     * @param newPattern String to insert</em>
-<a name="415" href="#415">415</a> <em>     * @return a String with the replacements</em>
-<a name="416" href="#416">416</a> <em>     */</em>
-<a name="417" href="#417">417</a>     <strong>private</strong> <strong>static</strong> String replace(<strong>final</strong> String inString,
-<a name="418" href="#418">418</a>                                   <strong>final</strong> String oldPattern,
-<a name="419" href="#419">419</a>                                   <strong>final</strong> String newPattern) {
-<a name="420" href="#420">420</a> 
-<a name="421" href="#421">421</a>         <strong>if</strong> (inString == <strong>null</strong>)
-<a name="422" href="#422">422</a>             <strong>return</strong> <strong>null</strong>;
-<a name="423" href="#423">423</a> 
-<a name="424" href="#424">424</a>         <strong>if</strong> (oldPattern == <strong>null</strong> || newPattern == <strong>null</strong>)
-<a name="425" href="#425">425</a>             <strong>return</strong> inString;
-<a name="426" href="#426">426</a> 
-<a name="427" href="#427">427</a>         <strong>final</strong> StringBuffer stringBuffer = <strong>new</strong> StringBuffer();
-<a name="428" href="#428">428</a> 
-<a name="429" href="#429">429</a>         <em class="comment">// output StringBuffer we'll build up</em>
-<a name="430" href="#430">430</a>         <strong>int</strong> position = 0; <em class="comment">// our position in the old string</em>
-<a name="431" href="#431">431</a>         <strong>int</strong> index = inString.indexOf(oldPattern);
-<a name="432" href="#432">432</a> 
-<a name="433" href="#433">433</a>         <em class="comment">// the index of an occurrence we've found, or -1</em>
-<a name="434" href="#434">434</a>         <strong>final</strong> <strong>int</strong> patternLength = oldPattern.length();
-<a name="435" href="#435">435</a> 
-<a name="436" href="#436">436</a>         <strong>while</strong> (index >= 0) {
-<a name="437" href="#437">437</a> 
-<a name="438" href="#438">438</a>             stringBuffer.append(inString.substring(position, index));
-<a name="439" href="#439">439</a>             stringBuffer.append(newPattern);
-<a name="440" href="#440">440</a>             position = index + patternLength;
-<a name="441" href="#441">441</a>             index = inString.indexOf(oldPattern, position);
-<a name="442" href="#442">442</a>         }
-<a name="443" href="#443">443</a> 
-<a name="444" href="#444">444</a>         stringBuffer.append(inString.substring(position));
-<a name="445" href="#445">445</a> 
-<a name="446" href="#446">446</a>         <em class="comment">// remember to append any characters to the right of a matches</em>
-<a name="447" href="#447">447</a>         <strong>return</strong> stringBuffer.toString();
-<a name="448" href="#448">448</a>     }
+<a name="407" href="#407">407</a>     <em>/**<em>*</em></em>
+<a name="408" href="#408">408</a> <em>     * &lt;p>Replace all occurrences of a substring within a string with another</em>
+<a name="409" href="#409">409</a> <em>     * string.&lt;/p></em>
+<a name="410" href="#410">410</a> <em>     *</em>
+<a name="411" href="#411">411</a> <em>     * @param inString String to examine</em>
+<a name="412" href="#412">412</a> <em>     * @param oldPattern String to replace</em>
+<a name="413" href="#413">413</a> <em>     * @param newPattern String to insert</em>
+<a name="414" href="#414">414</a> <em>     * @return a String with the replacements</em>
+<a name="415" href="#415">415</a> <em>     */</em>
+<a name="416" href="#416">416</a>     <strong>private</strong> <strong>static</strong> String replace(<strong>final</strong> String inString,
+<a name="417" href="#417">417</a>                                   <strong>final</strong> String oldPattern,
+<a name="418" href="#418">418</a>                                   <strong>final</strong> String newPattern) {
+<a name="419" href="#419">419</a> 
+<a name="420" href="#420">420</a>         <strong>if</strong> (inString == <strong>null</strong>)
+<a name="421" href="#421">421</a>             <strong>return</strong> <strong>null</strong>;
+<a name="422" href="#422">422</a> 
+<a name="423" href="#423">423</a>         <strong>if</strong> (oldPattern == <strong>null</strong> || newPattern == <strong>null</strong>)
+<a name="424" href="#424">424</a>             <strong>return</strong> inString;
+<a name="425" href="#425">425</a> 
+<a name="426" href="#426">426</a>         <strong>final</strong> StringBuffer stringBuffer = <strong>new</strong> StringBuffer();
+<a name="427" href="#427">427</a> 
+<a name="428" href="#428">428</a>         <em class="comment">// output StringBuffer we'll build up</em>
+<a name="429" href="#429">429</a>         <strong>int</strong> position = 0; <em class="comment">// our position in the old string</em>
+<a name="430" href="#430">430</a>         <strong>int</strong> index = inString.indexOf(oldPattern);
+<a name="431" href="#431">431</a> 
+<a name="432" href="#432">432</a>         <em class="comment">// the index of an occurrence we've found, or -1</em>
+<a name="433" href="#433">433</a>         <strong>final</strong> <strong>int</strong> patternLength = oldPattern.length();
+<a name="434" href="#434">434</a> 
+<a name="435" href="#435">435</a>         <strong>while</strong> (index >= 0) {
+<a name="436" href="#436">436</a> 
+<a name="437" href="#437">437</a>             stringBuffer.append(inString.substring(position, index));
+<a name="438" href="#438">438</a>             stringBuffer.append(newPattern);
+<a name="439" href="#439">439</a>             position = index + patternLength;
+<a name="440" href="#440">440</a>             index = inString.indexOf(oldPattern, position);
+<a name="441" href="#441">441</a>         }
+<a name="442" href="#442">442</a> 
+<a name="443" href="#443">443</a>         stringBuffer.append(inString.substring(position));
+<a name="444" href="#444">444</a> 
+<a name="445" href="#445">445</a>         <em class="comment">// remember to append any characters to the right of a matches</em>
+<a name="446" href="#446">446</a>         <strong>return</strong> stringBuffer.toString();
+<a name="447" href="#447">447</a>     }
+<a name="448" href="#448">448</a> 
 <a name="449" href="#449">449</a> 
-<a name="450" href="#450">450</a> 
-<a name="451" href="#451">451</a>     <em>/**<em>*</em></em>
-<a name="452" href="#452">452</a> <em>     * &lt;p>Convenience method to return a Collection as a delimited (e.g. CSV)</em>
-<a name="453" href="#453">453</a> <em>     * String. E.g. useful for &lt;code>toString()&lt;/code> implementations.&lt;/p></em>
-<a name="454" href="#454">454</a> <em>     *</em>
-<a name="455" href="#455">455</a> <em>     * @param collection the Collection to display</em>
-<a name="456" href="#456">456</a> <em>     * @param deliminator the delimiter to use (probably a ",")</em>
-<a name="457" href="#457">457</a> <em>     * @param prefix the String to start each element with</em>
-<a name="458" href="#458">458</a> <em>     * @param suffix the String to end each element with</em>
-<a name="459" href="#459">459</a> <em>     * @return String</em>
-<a name="460" href="#460">460</a> <em>     */</em>
-<a name="461" href="#461">461</a>     <strong>private</strong> <strong>static</strong> String collectionToDelimitedString(
-<a name="462" href="#462">462</a>             <strong>final</strong> Collection collection, <strong>final</strong> String deliminator,
-<a name="463" href="#463">463</a>             <strong>final</strong> String prefix, <strong>final</strong> String suffix) {
-<a name="464" href="#464">464</a> 
-<a name="465" href="#465">465</a>         <strong>if</strong> (collection.isEmpty())
-<a name="466" href="#466">466</a>             <strong>return</strong> <span class="string">""</span>;
-<a name="467" href="#467">467</a> 
-<a name="468" href="#468">468</a>         <strong>final</strong> StringBuffer stringBuffer = <strong>new</strong> StringBuffer();
-<a name="469" href="#469">469</a>         <strong>final</strong> Iterator iterator = collection.iterator();
-<a name="470" href="#470">470</a> 
-<a name="471" href="#471">471</a>         <strong>while</strong> (iterator.hasNext()) {
-<a name="472" href="#472">472</a>             stringBuffer.append(prefix).append(iterator.next()).append(suffix);
-<a name="473" href="#473">473</a> 
-<a name="474" href="#474">474</a>             <strong>if</strong> (iterator.hasNext())
-<a name="475" href="#475">475</a>                 stringBuffer.append(deliminator);
-<a name="476" href="#476">476</a>         }
-<a name="477" href="#477">477</a> 
-<a name="478" href="#478">478</a>         <strong>return</strong> stringBuffer.toString();
-<a name="479" href="#479">479</a>     }
+<a name="450" href="#450">450</a>     <em>/**<em>*</em></em>
+<a name="451" href="#451">451</a> <em>     * &lt;p>Convenience method to return a Collection as a delimited (e.g. CSV)</em>
+<a name="452" href="#452">452</a> <em>     * String. E.g. useful for &lt;code>toString()&lt;/code> implementations.&lt;/p></em>
+<a name="453" href="#453">453</a> <em>     *</em>
+<a name="454" href="#454">454</a> <em>     * @param collection the Collection to display</em>
+<a name="455" href="#455">455</a> <em>     * @param deliminator the delimiter to use (probably a ",")</em>
+<a name="456" href="#456">456</a> <em>     * @param prefix the String to start each element with</em>
+<a name="457" href="#457">457</a> <em>     * @param suffix the String to end each element with</em>
+<a name="458" href="#458">458</a> <em>     * @return String</em>
+<a name="459" href="#459">459</a> <em>     */</em>
+<a name="460" href="#460">460</a>     <strong>private</strong> <strong>static</strong> String collectionToDelimitedString(
+<a name="461" href="#461">461</a>             <strong>final</strong> Collection collection, <strong>final</strong> String deliminator,
+<a name="462" href="#462">462</a>             <strong>final</strong> String prefix, <strong>final</strong> String suffix) {
+<a name="463" href="#463">463</a> 
+<a name="464" href="#464">464</a>         <strong>if</strong> (collection.isEmpty())
+<a name="465" href="#465">465</a>             <strong>return</strong> <span class="string">""</span>;
+<a name="466" href="#466">466</a> 
+<a name="467" href="#467">467</a>         <strong>final</strong> StringBuffer stringBuffer = <strong>new</strong> StringBuffer();
+<a name="468" href="#468">468</a>         <strong>final</strong> Iterator iterator = collection.iterator();
+<a name="469" href="#469">469</a> 
+<a name="470" href="#470">470</a>         <strong>while</strong> (iterator.hasNext()) {
+<a name="471" href="#471">471</a>             stringBuffer.append(prefix).append(iterator.next()).append(suffix);
+<a name="472" href="#472">472</a> 
+<a name="473" href="#473">473</a>             <strong>if</strong> (iterator.hasNext())
+<a name="474" href="#474">474</a>                 stringBuffer.append(deliminator);
+<a name="475" href="#475">475</a>         }
+<a name="476" href="#476">476</a> 
+<a name="477" href="#477">477</a>         <strong>return</strong> stringBuffer.toString();
+<a name="478" href="#478">478</a>     }
+<a name="479" href="#479">479</a> 
 <a name="480" href="#480">480</a> 
-<a name="481" href="#481">481</a> 
-<a name="482" href="#482">482</a>     <em>/**<em>*</em></em>
-<a name="483" href="#483">483</a> <em>     * &lt;p>Convenience method to return a Collection as a delimited (e.g. CSV)</em>
-<a name="484" href="#484">484</a> <em>     * String. E.g. useful for &lt;code>toString()&lt;/code> implementations.&lt;/p></em>
-<a name="485" href="#485">485</a> <em>     *</em>
-<a name="486" href="#486">486</a> <em>     * @param collection the Collection to display</em>
-<a name="487" href="#487">487</a> <em>     * @param delminator the delimiter to use (probably a ",")</em>
-<a name="488" href="#488">488</a> <em>     * @return String</em>
-<a name="489" href="#489">489</a> <em>     */</em>
-<a name="490" href="#490">490</a>     <strong>private</strong> String collectionToDelimitedString(<strong>final</strong> Collection collection,
-<a name="491" href="#491">491</a>                                                <strong>final</strong> String delminator) {
-<a name="492" href="#492">492</a>         <strong>return</strong> collectionToDelimitedString(collection, delminator, <span class="string">""</span>, <span class="string">""</span>);
-<a name="493" href="#493">493</a>     }
+<a name="481" href="#481">481</a>     <em>/**<em>*</em></em>
+<a name="482" href="#482">482</a> <em>     * &lt;p>Convenience method to return a Collection as a delimited (e.g. CSV)</em>
+<a name="483" href="#483">483</a> <em>     * String. E.g. useful for &lt;code>toString()&lt;/code> implementations.&lt;/p></em>
+<a name="484" href="#484">484</a> <em>     *</em>
+<a name="485" href="#485">485</a> <em>     * @param collection the Collection to display</em>
+<a name="486" href="#486">486</a> <em>     * @param deliminator the delimiter to use (probably a ",")</em>
+<a name="487" href="#487">487</a> <em>     * @return String</em>
+<a name="488" href="#488">488</a> <em>     */</em>
+<a name="489" href="#489">489</a>     <strong>private</strong> String collectionToDelimitedString(<strong>final</strong> Collection collection,
+<a name="490" href="#490">490</a>                                                <strong>final</strong> String deliminator) {
+<a name="491" href="#491">491</a>         <strong>return</strong> collectionToDelimitedString(collection, deliminator, <span class="string">""</span>, <span class="string">""</span>);
+<a name="492" href="#492">492</a>     }
+<a name="493" href="#493">493</a> 
 <a name="494" href="#494">494</a> 
-<a name="495" href="#495">495</a> 
-<a name="496" href="#496">496</a>     <em>/**<em>*</em></em>
-<a name="497" href="#497">497</a> <em>     * Take a String which is a delimited list and convert it to a String array.</em>
-<a name="498" href="#498">498</a> <em>     * &lt;p>A single delimiter can consists of more than one character: It will</em>
-<a name="499" href="#499">499</a> <em>     * still be considered as single delimiter string, rather than as bunch of</em>
-<a name="500" href="#500">500</a> <em>     * potential delimiter characters - in contrast to &lt;code>tokenizeToStringArray&lt;/code>.</em>
-<a name="501" href="#501">501</a> <em>     *</em>
-<a name="502" href="#502">502</a> <em>     * @param string the input String</em>
-<a name="503" href="#503">503</a> <em>     * @param delimiter the delimiter between elements (this is a single</em>
-<a name="504" href="#504">504</a> <em>     * delimiter, rather than a bunch individual delimiter characters)</em>
-<a name="505" href="#505">505</a> <em>     * @return an array of the tokens in the list</em>
-<a name="506" href="#506">506</a> <em>     */</em>
-<a name="507" href="#507">507</a>     <strong>private</strong> <strong>static</strong> String[] delimitedListToStringArray(<strong>final</strong> String string,
-<a name="508" href="#508">508</a>                                                        <strong>final</strong> String delimiter) {
-<a name="509" href="#509">509</a> 
-<a name="510" href="#510">510</a>         <strong>if</strong> (string == <strong>null</strong>)
-<a name="511" href="#511">511</a>             <strong>return</strong> <strong>new</strong> String[0];
-<a name="512" href="#512">512</a> 
-<a name="513" href="#513">513</a>         <strong>if</strong> (delimiter == <strong>null</strong>)
-<a name="514" href="#514">514</a>             <strong>return</strong> <strong>new</strong> String[]{string};
-<a name="515" href="#515">515</a> 
-<a name="516" href="#516">516</a>         <strong>final</strong> List result = <strong>new</strong> ArrayList();
-<a name="517" href="#517">517</a> 
-<a name="518" href="#518">518</a>         <strong>if</strong> (<span class="string">""</span>.equals(delimiter)) {
-<a name="519" href="#519">519</a> 
-<a name="520" href="#520">520</a>             <strong>for</strong> (<strong>int</strong> i = 0; i &lt; string.length(); i++)
-<a name="521" href="#521">521</a>                 result.add(string.substring(i, i + 1));
-<a name="522" href="#522">522</a> 
-<a name="523" href="#523">523</a>         } <strong>else</strong> {
-<a name="524" href="#524">524</a> 
-<a name="525" href="#525">525</a>             <strong>int</strong> position = 0;
-<a name="526" href="#526">526</a>             <strong>int</strong> deletePosition;
-<a name="527" href="#527">527</a> 
-<a name="528" href="#528">528</a>             <strong>while</strong> ((deletePosition = string.indexOf(delimiter,
-<a name="529" href="#529">529</a>                     position)) != -1) {
-<a name="530" href="#530">530</a> 
-<a name="531" href="#531">531</a>                 result.add(string.substring(position, deletePosition));
-<a name="532" href="#532">532</a>                 position = deletePosition + delimiter.length();
-<a name="533" href="#533">533</a>             }
-<a name="534" href="#534">534</a> 
-<a name="535" href="#535">535</a>             <em class="comment">// Add rest of String, but not in case of empty input.</em>
-<a name="536" href="#536">536</a>             <strong>if</strong> (string.length() > 0 &amp;&amp; position &lt;= string.length())
-<a name="537" href="#537">537</a>                 result.add(string.substring(position));
-<a name="538" href="#538">538</a>         }
-<a name="539" href="#539">539</a> 
-<a name="540" href="#540">540</a>         <strong>return</strong> toStringArray(result);
-<a name="541" href="#541">541</a>     }
+<a name="495" href="#495">495</a>     <em>/**<em>*</em></em>
+<a name="496" href="#496">496</a> <em>     * Take a String which is a delimited list and convert it to a String array.</em>
+<a name="497" href="#497">497</a> <em>     * &lt;p>A single delimiter can consists of more than one character: It will</em>
+<a name="498" href="#498">498</a> <em>     * still be considered as single delimiter string, rather than as bunch of</em>
+<a name="499" href="#499">499</a> <em>     * potential delimiter characters - in contrast to &lt;code>tokenizeToStringArray&lt;/code>.</em>
+<a name="500" href="#500">500</a> <em>     *</em>
+<a name="501" href="#501">501</a> <em>     * @param string the input String</em>
+<a name="502" href="#502">502</a> <em>     * @param delimiter the delimiter between elements (this is a single</em>
+<a name="503" href="#503">503</a> <em>     * delimiter, rather than a bunch individual delimiter characters)</em>
+<a name="504" href="#504">504</a> <em>     * @return an array of the tokens in the list</em>
+<a name="505" href="#505">505</a> <em>     */</em>
+<a name="506" href="#506">506</a>     <strong>private</strong> <strong>static</strong> String[] delimitedListToStringArray(<strong>final</strong> String string,
+<a name="507" href="#507">507</a>                                                        <strong>final</strong> String delimiter) {
+<a name="508" href="#508">508</a> 
+<a name="509" href="#509">509</a>         <strong>if</strong> (string == <strong>null</strong>)
+<a name="510" href="#510">510</a>             <strong>return</strong> <strong>new</strong> String[0];
+<a name="511" href="#511">511</a> 
+<a name="512" href="#512">512</a>         <strong>if</strong> (delimiter == <strong>null</strong>)
+<a name="513" href="#513">513</a>             <strong>return</strong> <strong>new</strong> String[]{string};
+<a name="514" href="#514">514</a> 
+<a name="515" href="#515">515</a>         <strong>final</strong> List result = <strong>new</strong> ArrayList();
+<a name="516" href="#516">516</a> 
+<a name="517" href="#517">517</a>         <strong>if</strong> (<span class="string">""</span>.equals(delimiter)) {
+<a name="518" href="#518">518</a> 
+<a name="519" href="#519">519</a>             <strong>for</strong> (<strong>int</strong> i = 0; i &lt; string.length(); i++)
+<a name="520" href="#520">520</a>                 result.add(string.substring(i, i + 1));
+<a name="521" href="#521">521</a> 
+<a name="522" href="#522">522</a>         } <strong>else</strong> {
+<a name="523" href="#523">523</a> 
+<a name="524" href="#524">524</a>             <strong>int</strong> position = 0;
+<a name="525" href="#525">525</a>             <strong>int</strong> deletePosition;
+<a name="526" href="#526">526</a> 
+<a name="527" href="#527">527</a>             <strong>while</strong> ((deletePosition = string.indexOf(delimiter,
+<a name="528" href="#528">528</a>                     position)) != -1) {
+<a name="529" href="#529">529</a> 
+<a name="530" href="#530">530</a>                 result.add(string.substring(position, deletePosition));
+<a name="531" href="#531">531</a>                 position = deletePosition + delimiter.length();
+<a name="532" href="#532">532</a>             }
+<a name="533" href="#533">533</a> 
+<a name="534" href="#534">534</a>             <em class="comment">// Add rest of String, but not in case of empty input.</em>
+<a name="535" href="#535">535</a>             <strong>if</strong> (string.length() > 0 &amp;&amp; position &lt;= string.length())
+<a name="536" href="#536">536</a>                 result.add(string.substring(position));
+<a name="537" href="#537">537</a>         }
+<a name="538" href="#538">538</a> 
+<a name="539" href="#539">539</a>         <strong>return</strong> toStringArray(result);
+<a name="540" href="#540">540</a>     }
+<a name="541" href="#541">541</a> 
 <a name="542" href="#542">542</a> 
-<a name="543" href="#543">543</a> 
-<a name="544" href="#544">544</a>     <em>/**<em>*</em></em>
-<a name="545" href="#545">545</a> <em>     * &lt;p>Copy the given Collection into a String array. The Collection must</em>
-<a name="546" href="#546">546</a> <em>     * contain String elements only.&lt;/p></em>
-<a name="547" href="#547">547</a> <em>     *</em>
-<a name="548" href="#548">548</a> <em>     * @param collection the Collection to copy</em>
-<a name="549" href="#549">549</a> <em>     * @return the String array (&lt;code>null&lt;/code> if the passed-in Collection</em>
-<a name="550" href="#550">550</a> <em>     *         was &lt;code>null&lt;/code>)</em>
-<a name="551" href="#551">551</a> <em>     */</em>
-<a name="552" href="#552">552</a>     <strong>private</strong> <strong>static</strong> String[] toStringArray(<strong>final</strong> Collection collection) {
-<a name="553" href="#553">553</a> 
-<a name="554" href="#554">554</a>         <strong>if</strong> (collection == <strong>null</strong>)
-<a name="555" href="#555">555</a>             <strong>return</strong> <strong>null</strong>;
-<a name="556" href="#556">556</a> 
-<a name="557" href="#557">557</a>         <strong>return</strong> (String[]) collection.toArray(<strong>new</strong> String[collection.size()]);
-<a name="558" href="#558">558</a>     }
-<a name="559" href="#559">559</a> 
-<a name="560" href="#560">560</a> }
+<a name="543" href="#543">543</a>     <em>/**<em>*</em></em>
+<a name="544" href="#544">544</a> <em>     * &lt;p>Copy the given Collection into a String array. The Collection must</em>
+<a name="545" href="#545">545</a> <em>     * contain String elements only.&lt;/p></em>
+<a name="546" href="#546">546</a> <em>     *</em>
+<a name="547" href="#547">547</a> <em>     * @param collection the Collection to copy</em>
+<a name="548" href="#548">548</a> <em>     * @return the String array (&lt;code>null&lt;/code> if the passed-in Collection</em>
+<a name="549" href="#549">549</a> <em>     *         was &lt;code>null&lt;/code>)</em>
+<a name="550" href="#550">550</a> <em>     */</em>
+<a name="551" href="#551">551</a>     <strong>private</strong> <strong>static</strong> String[] toStringArray(<strong>final</strong> Collection collection) {
+<a name="552" href="#552">552</a> 
+<a name="553" href="#553">553</a>         <strong>if</strong> (collection == <strong>null</strong>)
+<a name="554" href="#554">554</a>             <strong>return</strong> <strong>null</strong>;
+<a name="555" href="#555">555</a> 
+<a name="556" href="#556">556</a>         <strong>return</strong> (String[]) collection.toArray(<strong>new</strong> String[collection.size()]);
+<a name="557" href="#557">557</a>     }
+<a name="558" href="#558">558</a> 
+<a name="559" href="#559">559</a> }
 </pre>
 <hr/><div id="footer">This page was automatically generated by <a href="http://maven.apache.org/">Maven</a></div></body>
 </html>

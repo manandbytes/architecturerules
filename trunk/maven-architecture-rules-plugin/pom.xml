@@ -161,7 +161,8 @@
                     <debug>true</debug>
                     <showErrors>true</showErrors>
                     <projectsDirectory>src/test/resources/</projectsDirectory>
-                    <cloneProjectsTo>${project.build.directory}/it</cloneProjectsTo>
+                    <cloneProjectsTo>${project.build.directory}/it
+                    </cloneProjectsTo>
                     <pomIncludes>
                         <pomInclude>**/pom.xml</pomInclude>
                     </pomIncludes>
@@ -221,6 +222,14 @@
                     <fileFormat>UNIX</fileFormat>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <version>2.2</version>
+                <configuration>
+                    <configLocation>checkstyle.xml</configLocation>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
@@ -236,6 +245,11 @@
             </plugin>
             <plugin>
                 <artifactId>maven-project-info-reports-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <version>2.2</version>
             </plugin>
             <plugin>
                 <artifactId>maven-jxr-plugin</artifactId>
@@ -288,7 +302,7 @@
             </plugin>
         </plugins>
     </reporting>
-    
+
     <pluginRepositories>
         <pluginRepository>
             <id>m2-snapshot-repository</id>

@@ -75,7 +75,7 @@ abstract class AbstractArchitecturalRules {
      *
      * @parameter configuration Configuration
      */
-    final Configuration configuration;
+    final protected Configuration configuration;
     /**
      * <p>Instance of jdepend to assert architecture with</p>
      *
@@ -273,7 +273,7 @@ abstract class AbstractArchitecturalRules {
 
             log.debug("checking dependencies on package " + javaPackage);
 
-            if (layer.equals(javaPackage))
+            if (layer.matches(javaPackage))
                 testEfferentsValid(violations, analyzedPackage);
         }
     }

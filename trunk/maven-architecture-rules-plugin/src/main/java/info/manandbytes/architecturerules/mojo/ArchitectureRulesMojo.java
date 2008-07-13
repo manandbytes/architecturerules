@@ -1,6 +1,7 @@
 package info.manandbytes.architecturerules.mojo;
 
 import com.seventytwomiles.architecturerules.configuration.ConfigurationFactory;
+import com.seventytwomiles.architecturerules.exceptions.ArchitectureException;
 import com.seventytwomiles.architecturerules.exceptions.CyclicRedundancyException;
 
 import org.apache.maven.model.Resource;
@@ -151,9 +152,17 @@ public class ArchitectureRulesMojo
             }
         }
 
-        if ( ! rulesExceptions.isEmpty(  ) && isFailOnError(  ) )
+        if ( ! rulesExceptions.isEmpty(  ) )
         {
-            throw new MojoExecutionException( rulesExceptions, "", "" );
+            if ( isFailOnError(  ) )
+            {
+                throw new MojoExecutionException( rulesExceptions, "", "" );
+            } else
+            {
+                getLog(  ).warn( new ArchitectureException( rulesExceptions.toString(  ) ) );
+            }
+
+            ;
         }
     }
 

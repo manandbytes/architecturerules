@@ -1,8 +1,8 @@
 package info.manandbytes.architecturerules.mojo;
 
-
 import com.seventytwomiles.architecturerules.configuration.ConfigurationFactory;
 import com.seventytwomiles.architecturerules.exceptions.CyclicRedundancyException;
+
 import org.apache.maven.model.Resource;
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
@@ -16,8 +16,6 @@ import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 
-
-
 /**
  * <p>Assert your architecture</p>
  *
@@ -29,17 +27,15 @@ import java.util.List;
  * @requiresDependencyResolution compile
  */
 public class ArchitectureRulesMojo
-        extends AbstractMojo {
-
-
+    extends AbstractMojo
+{
     /**
      * <p>Name of the configuration file used by Architecture Rules.</p>
      *
      * @todo explain how search for configuration file works
      * @parameter alias="config" default-value="architecture-rules.xml"
      */
-    private String configurationFileName
-            = ConfigurationFactory.DEFAULT_CONFIGURATION_FILE_NAME;
+    private String configurationFileName = ConfigurationFactory.DEFAULT_CONFIGURATION_FILE_NAME;
 
     /**
      * For <a href="http://maven.apache.org/pom.html#Aggregation">Aggregation
@@ -75,7 +71,6 @@ public class ArchitectureRulesMojo
      */
     private Collection<MavenProject> reactorProjects;
 
-
     /**
      * <p>Entry point to this plugin. Finds the configuration files, constructs
      * the tests, and executes the tests.</p>
@@ -84,74 +79,73 @@ public class ArchitectureRulesMojo
      * @throws MojoFailureException
      * @see AbstractMojo#execute()
      */
-    public void execute()
-            throws MojoExecutionException, MojoFailureException {
-        final Collection<CyclicRedundancyException> rulesExceptions
-                = new LinkedList<CyclicRedundancyException>();
+    public void execute(  )
+                 throws MojoExecutionException, MojoFailureException
+    {
+        final Collection<CyclicRedundancyException> rulesExceptions = new LinkedList<CyclicRedundancyException>(  );
 
-        final Log log = getLog();
+        final Log log = getLog(  );
 
         List<Resource> testResources;
         MojoArchitectureRulesConfigurationTest test;
 
-        for (final MavenProject project : reactorProjects) {
-            if (log.isDebugEnabled()) {
-                log.debug("process " + project);
+        for ( final MavenProject project : reactorProjects )
+        {
+            if ( log.isDebugEnabled(  ) )
+            {
+                log.debug( "process " + project );
             }
 
             /**
              * Skip the project resources, if the project is the parent
              * project and the parent project should be skipped.
              **/
-            final boolean isAggregated = !project.getModules().isEmpty()
-                    || "pom".equals(project.getPackaging());
+            final boolean isAggregated =
+                ! project.getModules(  ).isEmpty(  ) || "pom".equals( project.getPackaging(  ) );
 
-            if ((isAggregated && skipRoot) || (!isAggregated && skip)) {
-                if (log.isDebugEnabled()) {
-                    log.debug(
-                            "aggregated = " + isAggregated + "; skip " + project);
+            if ( ( isAggregated && skipRoot ) || ( ! isAggregated && skip ) )
+            {
+                if ( log.isDebugEnabled(  ) )
+                {
+                    log.debug( "aggregated = " + isAggregated + "; skip " + project );
                 }
 
                 continue;
             }
 
-            testResources = project.getTestResources();
-            includeConfigurationFile(testResources);
+            testResources = project.getTestResources(  );
+            includeConfigurationFile( testResources );
 
             File configFile;
 
-            try {
+            try
+            {
+                configFile = findConfigurationFile( testResources, log );
+            } catch ( FileNotFoundException e1 )
+            {
+                log.warn( e1.getMessage(  ) );
+                log.warn( "fallback to use default config" );
 
-                configFile = findConfigurationFile(testResources, log);
-
-            } catch (FileNotFoundException e1) {
-
-                log.warn(e1.getMessage());
-                log.warn("fallback to use default config");
-
-                configFile = new File(
-                        ConfigurationFactory.DEFAULT_CONFIGURATION_FILE_NAME);
+                configFile = new File( ConfigurationFactory.DEFAULT_CONFIGURATION_FILE_NAME );
             }
 
-            test = new MojoArchitectureRulesConfigurationTest(configFile);
-            test.addSourcesFromThisProject(project, log);
+            test = new MojoArchitectureRulesConfigurationTest( configFile );
+            test.addSourcesFromThisProject( project, log );
 
-            try {
-
-                test.testArchitecture();
-
-            } catch (CyclicRedundancyException e) {
-
-                rulesExceptions.add(e);
+            try
+            {
+                test.testArchitecture(  );
+            } catch ( CyclicRedundancyException e )
+            {
+                rulesExceptions.add( e );
             }
         }
 
-        if (!rulesExceptions.isEmpty()) {
-
-            throw new MojoExecutionException(rulesExceptions, "", "");
+        if ( ! rulesExceptions.isEmpty(  ) )
+        {
+            throw new MojoExecutionException( rulesExceptions, "", "" );
         }
     }
-
 
     /**
      * Find the file with given {@link #configurationFileName} in the
@@ -162,67 +156,69 @@ public class ArchitectureRulesMojo
      * @return File which may exist
      * @throws FileNotFoundException
      */
-    private File findConfigurationFile(final List<Resource> testResources,
-                                       final Log log)
-            throws FileNotFoundException {
-
-        for (final Resource resource : testResources) {
-
-            final String directory = resource.getDirectory();
+    private File findConfigurationFile( final List<Resource> testResources, final Log log )
+                                throws FileNotFoundException
+    {
+        for ( final Resource resource : testResources )
+        {
+            final String directory = resource.getDirectory(  );
             // @todo I'm not sure if a resource's directory may be null
-            assert (directory != null);
+            assert( directory != null );
 
-            if (log.isDebugEnabled()) {
-                log.debug("try to find configuration in " + directory);
+            if ( log.isDebugEnabled(  ) )
+            {
+                log.debug( "try to find configuration in " + directory );
             }
 
-            final boolean resourceContainsConfigFile = resource.getIncludes()
-                    .contains(configurationFileName);
+            final boolean resourceContainsConfigFile = resource.getIncludes(  ).contains( configurationFileName );
 
-            final String fileName
-                    = directory + File.separator + configurationFileName;
+            final String fileName = directory + File.separator + configurationFileName;
 
-            final File configFile = new File(fileName);
+            final File configFile = new File( fileName );
 
-            final StringBuffer message = new StringBuffer();
-            message.append(configurationFileName).append(" ");
+            final StringBuffer message = new StringBuffer(  );
+            message.append( configurationFileName ).append( " " );
 
-            if (resourceContainsConfigFile && configFile.exists() && configFile.isFile() &&
-                    configFile.canRead()) {
-                if (log.isDebugEnabled()) {
-                    message.append("found in the directory ");
-                    message.append(configFile.getParent());
+            if ( resourceContainsConfigFile && configFile.exists(  ) && configFile.isFile(  ) &&
+                     configFile.canRead(  ) )
+            {
+                if ( log.isDebugEnabled(  ) )
+                {
+                    message.append( "found in the directory " );
+                    message.append( configFile.getParent(  ) );
 
-                    log.debug(message.toString());
+                    log.debug( message.toString(  ) );
                 }
 
                 return configFile;
-            } else if (log.isDebugEnabled()) {
-                message.append("not found");
-                log.debug(message.toString());
+            } else if ( log.isDebugEnabled(  ) )
+            {
+                message.append( "not found" );
+                log.debug( message.toString(  ) );
             }
         }
 
-        throw new FileNotFoundException(
-                configurationFileName + " not found in " + testResources);
+        throw new FileNotFoundException( configurationFileName + " not found in " + testResources );
     }
-
 
     /**
      * <p>todo: javadocs</p>
      *
      * @param testResources
      */
-    private void includeConfigurationFile(final List<Resource> testResources) {
-        for (final Resource rawResource : testResources) {
-            if (rawResource.getDirectory() != null) {
-                rawResource.addInclude(configurationFileName);
+    private void includeConfigurationFile( final List<Resource> testResources )
+    {
+        for ( final Resource rawResource : testResources )
+        {
+            if ( rawResource.getDirectory(  ) != null )
+            {
+                rawResource.addInclude( configurationFileName );
             }
         }
     }
 
-
-    String getConfigurationFileName() {
+    String getConfigurationFileName(  )
+    {
         return configurationFileName;
     }
 }

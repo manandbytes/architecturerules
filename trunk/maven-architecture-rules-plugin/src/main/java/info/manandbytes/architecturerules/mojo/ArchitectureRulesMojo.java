@@ -47,8 +47,13 @@ public class ArchitectureRulesMojo
     private boolean skipRoot;
 
     /**
+     * If your failed rules shouldn't break a build (you *had* to introduce a
+     * dependency a day before a release, which of course isn't nice, but you can
+     * easily correct the problem a few days after a release) set this parameter
+     *  to <code>false</code>.
+     *
      * @parameter default-value="true" expression="${architecture-rules.failOnError}"
-    */
+     */
     private boolean failOnError;
 
     /**

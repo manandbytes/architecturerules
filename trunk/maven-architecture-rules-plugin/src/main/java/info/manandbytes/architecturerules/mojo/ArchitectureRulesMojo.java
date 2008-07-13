@@ -47,6 +47,11 @@ public class ArchitectureRulesMojo
     private boolean skipRoot;
 
     /**
+     * @parameter default-value="true" expression="${architecture-rules.failOnError}"
+    */
+    private boolean failOnError;
+
+    /**
      * Skip current project (i.e. in <a href="http://maven.apache.org/pom.html#Aggregation">Aggregation
      * (or Multi-Module) project</a>) and don't run Architecture Rules
      * assertions against it.
@@ -141,7 +146,7 @@ public class ArchitectureRulesMojo
             }
         }
 
-        if ( ! rulesExceptions.isEmpty(  ) )
+        if ( ! rulesExceptions.isEmpty(  ) && isFailOnError(  ) )
         {
             throw new MojoExecutionException( rulesExceptions, "", "" );
         }
@@ -220,5 +225,10 @@ public class ArchitectureRulesMojo
     String getConfigurationFileName(  )
     {
         return configurationFileName;
+    }
+
+    private boolean isFailOnError(  )
+    {
+        return failOnError;
     }
 }

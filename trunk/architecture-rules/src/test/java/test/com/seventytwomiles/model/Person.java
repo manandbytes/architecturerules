@@ -11,14 +11,10 @@
  *         http://72miles.com and
  *         http://architecturerules.googlecode.com/svn/docs/index.html
  */
-
 package test.com.seventytwomiles.model;
 
 
-import test.com.seventytwomiles.services.PersonService;
 import test.com.seventytwomiles.services.PersonServiceImpl;
-
-
 
 /**
  * <p>Test model object</p>
@@ -26,33 +22,30 @@ import test.com.seventytwomiles.services.PersonServiceImpl;
  * @author mikenereson
  * @noinspection UnusedDeclaration
  */
-public class Person {
-
-
+public class Person
+{
     private int id;
-
 
     /**
      * @noinspection UnusedAssignment
      */
-    public Person() {
-
-        new PersonServiceImpl();
-
+    public Person(  )
+    {
+        new PersonServiceImpl(  );
     }
 
-
-    public Person(final int id) {
+    public Person( final int id )
+    {
         this.id = id;
     }
-
 
     /**
      * Getter for property 'id'.
      *
      * @return Value for property 'id'.
      */
-    public int getId() {
+    public int getId(  )
+    {
         return id;
     }
 }

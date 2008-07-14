@@ -11,13 +11,9 @@
  *         http://72miles.com and
  *         http://architecturerules.googlecode.com/svn/docs/index.html
  */
-
 package com.seventytwomiles.architecturerules.services;
 
-
 import com.seventytwomiles.architecturerules.exceptions.CyclicRedundancyException;
-
-
 
 /**
  * <p>Interface for the CyclicRedundancyService to provide a contract for
@@ -26,14 +22,14 @@ import com.seventytwomiles.architecturerules.exceptions.CyclicRedundancyExceptio
  *
  * @author mikenereson
  */
-public interface CyclicRedundancyService {
-
-
+public interface CyclicRedundancyService
+{
     /**
      * <p>Check all the packages in all of the source directories and search for
      * any cyclic redundancy</p>
      *
      * @throws CyclicRedundancyException when cyclic redundancy is found
      */
-    void performCyclicRedundancyCheck() throws CyclicRedundancyException;
+    void performCyclicRedundancyCheck(  )
+                               throws CyclicRedundancyException;
 }

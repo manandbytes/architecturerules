@@ -11,7 +11,6 @@
  *         http://72miles.com and
  *         http://architecturerules.googlecode.com/svn/docs/index.html
  */
-
 package org.seventytwomiles.springframework.util;
 
 
@@ -28,9 +27,8 @@ package org.seventytwomiles.springframework.util;
  * @author Rob Harrop
  * @author Juergen Hoeller
  */
-public class ClassUtils {
-
-
+public class ClassUtils
+{
     /**
      * <p>Return a default <code>ClassLoader</code> to use (never
      * <code>null</code>). Returns the thread context ClassLoader, if available.
@@ -44,14 +42,15 @@ public class ClassUtils {
      * @return ClassLoader
      * @see java.lang.Thread#getContextClassLoader()
      */
-    public static ClassLoader getDefaultClassLoader() {
-
-        ClassLoader classLoader = Thread.currentThread()
-                .getContextClassLoader();
+    public static ClassLoader getDefaultClassLoader(  )
+    {
+        ClassLoader classLoader = Thread.currentThread(  ).getContextClassLoader(  );
 
         // No thread context class loader -> use class loader of this class.
-        if (classLoader == null)
-            classLoader = ClassUtils.class.getClassLoader();
+        if ( classLoader == null )
+        {
+            classLoader = ClassUtils.class.getClassLoader(  );
+        }
 
         return classLoader;
     }

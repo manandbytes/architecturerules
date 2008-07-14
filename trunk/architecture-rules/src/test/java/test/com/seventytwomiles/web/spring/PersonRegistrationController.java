@@ -11,14 +11,10 @@
  *         http://72miles.com and
  *         http://architecturerules.googlecode.com/svn/docs/index.html
  */
-
 package test.com.seventytwomiles.web.spring;
 
 
-import test.com.seventytwomiles.dao.PersonDao;
 import test.com.seventytwomiles.dao.hibernate.PersonDaoImpl;
-
-
 
 /**
  * <p>Test Controller that depends on the DAO layer.</p>
@@ -26,14 +22,13 @@ import test.com.seventytwomiles.dao.hibernate.PersonDaoImpl;
  * @author mikenereson
  * @noinspection UnusedDeclaration
  */
-class PersonRegistrationController {
-
-
+class PersonRegistrationController
+{
     /**
      * @noinspection UnusedAssignment
      */
-    public PersonRegistrationController() {
-
-        new PersonDaoImpl();
+    public PersonRegistrationController(  )
+    {
+        new PersonDaoImpl(  );
     }
 }

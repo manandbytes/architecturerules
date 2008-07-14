@@ -11,7 +11,6 @@
  *         http://72miles.com and
  *         http://architecturerules.googlecode.com/svn/docs/index.html
  */
-
 package com.seventytwomiles.architecturerules.configuration;
 
 
@@ -23,37 +22,31 @@ import org.apache.commons.logging.LogFactory;
 import java.util.Collection;
 import java.util.Collections;
 
-
 /**
  * <p>An UnmodifiableConfiguration is a <code>Configuration</code> instance
  * whose setters and collections are unavailable or unmodifiable.</p>
  *
  * @author mikenereson
  */
-public final class UnmodifiableConfiguration extends Configuration {
-
-
-    protected static final Log log = LogFactory.getLog(
-            UnmodifiableConfiguration.class);
-
+public final class UnmodifiableConfiguration
+    extends Configuration
+{
+    protected static final Log log = LogFactory.getLog( UnmodifiableConfiguration.class );
 
     /**
      * <p>Instantiates a new unmodifiable configuration class.</p>
      *
      * @param configuration Configuration to offer as unmodifiable
      */
-    public UnmodifiableConfiguration(final Configuration configuration) {
+    public UnmodifiableConfiguration( final Configuration configuration )
+    {
+        super.getRules(  ).addAll( configuration.getRules(  ) );
+        super.getSources(  ).addAll( configuration.getSources(  ) );
 
-        super.getRules().addAll(configuration.getRules());
-        super.getSources().addAll(configuration.getSources());
+        super.setDoCyclicDependencyTest( configuration.shouldDoCyclicDependencyTest(  ) );
 
-        super.setDoCyclicDependencyTest(
-                configuration.shouldDoCyclicDependencyTest());
-
-        super.setThrowExceptionWhenNoPackages(
-                configuration.shouldThrowExceptionWhenNoPackages());
+        super.setThrowExceptionWhenNoPackages( configuration.shouldThrowExceptionWhenNoPackages(  ) );
     }
-
 
     /**
      * <p>Getter for property {@link #rules}.</p>
@@ -61,10 +54,10 @@ public final class UnmodifiableConfiguration extends Configuration {
      * @return Value for property <tt>rules</tt>.
      */
     @Override
-    public Collection<Rule> getRules() {
-        return Collections.unmodifiableCollection(super.getRules());
+    public Collection<Rule> getRules(  )
+    {
+        return Collections.unmodifiableCollection( super.getRules(  ) );
     }
-
 
     /**
      * <p>Getter for property {@link #sources}.</p>
@@ -72,10 +65,10 @@ public final class UnmodifiableConfiguration extends Configuration {
      * @return Value for property <tt>sources</tt>.
      */
     @Override
-    public Collection<SourceDirectory> getSources() {
-        return Collections.unmodifiableCollection(super.getSources());
+    public Collection<SourceDirectory> getSources(  )
+    {
+        return Collections.unmodifiableCollection( super.getSources(  ) );
     }
-
 
     /**
      * <p>Setter for property {@link #doCyclicDependencyTest}.</p>
@@ -83,12 +76,10 @@ public final class UnmodifiableConfiguration extends Configuration {
      * @param doCyclicDependencyTest Value to set for property <tt>doCyclicDependencyTest</tt>.
      */
     @Override
-    public UnmodifiableConfiguration setDoCyclicDependencyTest(
-            final boolean doCyclicDependencyTest) {
-
-        throw new UnsupportedOperationException("");
+    public UnmodifiableConfiguration setDoCyclicDependencyTest( final boolean doCyclicDependencyTest )
+    {
+        throw new UnsupportedOperationException( "" );
     }
-
 
     /**
      * <p>Setter for property {@link #throwExceptionWhenNoPackages}.</p>
@@ -97,9 +88,8 @@ public final class UnmodifiableConfiguration extends Configuration {
      *                                     <tt>throwExceptionWhenNoPackages</tt>.
      */
     @Override
-    public UnmodifiableConfiguration setThrowExceptionWhenNoPackages(
-            final boolean throwExceptionWhenNoPackages) {
-
-        throw new UnsupportedOperationException("");
+    public UnmodifiableConfiguration setThrowExceptionWhenNoPackages( final boolean throwExceptionWhenNoPackages )
+    {
+        throw new UnsupportedOperationException( "" );
     }
 }

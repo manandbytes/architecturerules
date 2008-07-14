@@ -11,7 +11,6 @@
  *         http://72miles.com and
  *         http://architecturerules.googlecode.com/svn/docs/index.html
  */
-
 package com.seventytwomiles.architecturerules.ant;
 
 
@@ -25,8 +24,6 @@ import com.seventytwomiles.architecturerules.services.RulesService;
 import com.seventytwomiles.architecturerules.services.RulesServiceImpl;
 import org.apache.tools.ant.BuildException;
 import org.apache.tools.ant.Task;
-
-
 
 /**
  * <p>Ant task to assert architecture.</p>
@@ -56,9 +53,9 @@ import org.apache.tools.ant.Task;
  *
  * @author mikenereson
  */
-public class AssertArchitectureTask extends Task {
-
-
+public class AssertArchitectureTask
+    extends Task
+{
     /**
      * <p>The name of the configuration file that is in the classpath that holds
      * the xml configuration. Recommend <samp>architecture-rules.xml</samp></p>
@@ -74,8 +71,7 @@ public class AssertArchitectureTask extends Task {
      *
      * @parameter configuration Configuration
      */
-    final private Configuration configuration = new Configuration();
-
+    final private Configuration configuration = new Configuration(  );
 
     /**
      * Setter for property 'configurationFileName'.
@@ -83,63 +79,58 @@ public class AssertArchitectureTask extends Task {
      * @param configurationFileName Value to set for property
      * 'configurationFileName'.
      */
-    public void setConfigurationFileName(final String configurationFileName) {
+    public void setConfigurationFileName( final String configurationFileName )
+    {
         this.configurationFileName = configurationFileName;
     }
-
 
     /**
      * @throws BuildException
      * @see Task#execute()
      */
     @Override
-    public void execute() throws BuildException {
+    public void execute(  )
+                 throws BuildException
+    {
+        super.execute(  );
 
-        super.execute();
-
-        if (null == configurationFileName || "".equals(configurationFileName))
-            throw new IllegalStateException(
-                    "set configurationFileName property");
+        if ( ( null == configurationFileName ) || "".equals( configurationFileName ) )
+        {
+            throw new IllegalStateException( "set configurationFileName property" );
+        }
 
         /**
          * 1. load configuration
          */
-        final ConfigurationFactory configurationFactory
-                = new DigesterConfigurationFactory(configurationFileName);
+        final ConfigurationFactory configurationFactory = new DigesterConfigurationFactory( configurationFileName );
 
-        this.configuration.getRules().addAll(configurationFactory.getRules());
+        this.configuration.getRules(  ).addAll( configurationFactory.getRules(  ) );
 
-        this.configuration
-                .getSources().addAll(configurationFactory.getSources());
+        this.configuration.getSources(  ).addAll( configurationFactory.getSources(  ) );
 
-        this.configuration.setDoCyclicDependencyTest(
-                configurationFactory.doCyclicDependencyTest());
+        this.configuration.setDoCyclicDependencyTest( configurationFactory.doCyclicDependencyTest(  ) );
 
-        this.configuration.setThrowExceptionWhenNoPackages(
-                configurationFactory.throwExceptionWhenNoPackages());
+        this.configuration.setThrowExceptionWhenNoPackages( configurationFactory.throwExceptionWhenNoPackages(  ) );
 
         /**
          * 2. assert configuration rules
          */
-        Configuration configuration
-                = new UnmodifiableConfiguration(this.configuration);
+        Configuration configuration = new UnmodifiableConfiguration( this.configuration );
 
-        final RulesService rulesService
-                = new RulesServiceImpl(configuration);
+        final RulesService rulesService = new RulesServiceImpl( configuration );
 
-        rulesService.performRulesTest();
+        rulesService.performRulesTest(  );
 
         /**
          * 3. check for cyclic dependency, if requested
          */
-        if (this.configuration.shouldDoCyclicDependencyTest()) {
+        if ( this.configuration.shouldDoCyclicDependencyTest(  ) )
+        {
+            configuration = new UnmodifiableConfiguration( this.configuration );
 
-            configuration = new UnmodifiableConfiguration(this.configuration);
+            final CyclicRedundancyService redundancyService = new CyclicRedundancyServiceImpl( configuration );
 
-            final CyclicRedundancyService redundancyService
-                    = new CyclicRedundancyServiceImpl(configuration);
-
-            redundancyService.performCyclicRedundancyCheck();
+            redundancyService.performCyclicRedundancyCheck(  );
         }
     }
 }

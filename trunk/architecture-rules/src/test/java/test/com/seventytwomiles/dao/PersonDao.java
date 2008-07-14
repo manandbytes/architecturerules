@@ -11,7 +11,6 @@
  *         http://72miles.com and
  *         http://architecturerules.googlecode.com/svn/docs/index.html
  */
-
 package test.com.seventytwomiles.dao;
 
 
@@ -20,7 +19,6 @@ package test.com.seventytwomiles.dao;
  *
  * @author mikenereson
  */
-public interface PersonDao {
-
-
+public interface PersonDao
+{
 }

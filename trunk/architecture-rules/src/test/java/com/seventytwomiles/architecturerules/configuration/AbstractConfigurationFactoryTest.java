@@ -11,7 +11,6 @@
  *         http://72miles.com and
  *         http://architecturerules.googlecode.com/svn/docs/index.html
  */
-
 package com.seventytwomiles.architecturerules.configuration;
 
 
@@ -21,8 +20,6 @@ import org.seventytwomiles.springframework.core.io.ClassPathResource;
 import java.io.File;
 import java.io.IOException;
 
-
-
 /**
  * AbstractConfigurationFactory Tester.
  *
@@ -30,88 +27,83 @@ import java.io.IOException;
  * @version 1.0
  * @since <pre>02/27/2008</pre>
  */
-public class AbstractConfigurationFactoryTest extends TestCase {
-
-
+public class AbstractConfigurationFactoryTest
+    extends TestCase
+{
     private AbstractConfigurationFactory factory;
 
-
-    public AbstractConfigurationFactoryTest(final String name) {
-        super(name);
+    public AbstractConfigurationFactoryTest( final String name )
+    {
+        super( name );
     }
 
-
     @Override
-    public void setUp() throws Exception {
+    public void setUp(  )
+               throws Exception
+    {
+        super.setUp(  );
 
-        super.setUp();
-
-        factory = new AbstractConfigurationFactory() {
-
-            @Override
-            protected void validateConfiguration(final String configuration) {
-                /* do nothing*/
-            }
-        };
+        factory =
+            new AbstractConfigurationFactory(  )
+                {
+                    @Override
+                    protected void validateConfiguration( final String configuration )
+                    {
+                        /* do nothing*/
+                    }
+                };
     }
 
-
     @Override
-    public void tearDown() throws Exception {
-
+    public void tearDown(  )
+                  throws Exception
+    {
         factory = null;
 
-        super.tearDown();
+        super.tearDown(  );
     }
 
-
-    public void testGetConfigurationAsXml_classPathResource() {
-
+    public void testGetConfigurationAsXml_classPathResource(  )
+    {
         final String xml;
 
-        xml = factory.getConfigurationAsXml("architecture-rules.xml");
-        assertTrue(xml.length() > 0);
+        xml = factory.getConfigurationAsXml( "architecture-rules.xml" );
+        assertTrue( xml.length(  ) > 0 );
 
-        try {
-
-            factory.getConfigurationAsXml("some-file-that-does-not-exist.xml");
-            fail("expected IllegalArgumentException because input file does not exist");
-
-        } catch (IllegalArgumentException e) {
-
+        try
+        {
+            factory.getConfigurationAsXml( "some-file-that-does-not-exist.xml" );
+            fail( "expected IllegalArgumentException because input file does not exist" );
+        } catch ( IllegalArgumentException e )
+        {
             /* success */
         }
     }
 
+    public void testGetConfigurationAsXml_absolutePath(  )
+    {
+        final ClassLoader classLoader = getClass(  ).getClassLoader(  );
 
-    public void testGetConfigurationAsXml_absolutePath() {
+        final ClassPathResource resource = new ClassPathResource( "architecture-rules.xml", classLoader );
 
-        final ClassLoader classLoader = getClass().getClassLoader();
-
-        final ClassPathResource resource
-                = new ClassPathResource("architecture-rules.xml", classLoader);
-
-        try {
-
-            final String filepath = resource.getFile().getAbsolutePath();
-            factory.getConfigurationAsXml(filepath);
-
-        } catch (IOException e) {
-
-            fail("could not locate architecture-rules.xml which was expected to exist");
+        try
+        {
+            final String filepath = resource.getFile(  ).getAbsolutePath(  );
+            factory.getConfigurationAsXml( filepath );
+        } catch ( IOException e )
+        {
+            fail( "could not locate architecture-rules.xml which was expected to exist" );
         }
 
+        try
+        {
+            final File file = new File( "some-file-that-does-not-exist.xml" );
+            final String filepath = file.getAbsolutePath(  );
+            factory.getConfigurationAsXml( filepath );
 
-        try {
-
-            final File file = new File("some-file-that-does-not-exist.xml");
-            final String filepath = file.getAbsolutePath();
-            factory.getConfigurationAsXml(filepath);
-
-            fail("expected IllegalArgumentException because input file does not exist");
-
-        } catch (IllegalArgumentException e) {
-
+            fail( "expected IllegalArgumentException because input file does not exist" );
+        } catch ( IllegalArgumentException e )
+        {
             /* success */
         }
     }

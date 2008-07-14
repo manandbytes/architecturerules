@@ -11,7 +11,6 @@
  *         http://72miles.com and
  *         http://architecturerules.googlecode.com/svn/docs/index.html
  */
-
 package com.seventytwomiles.architecturerules.domain;
 
 
@@ -19,19 +18,15 @@ import com.seventytwomiles.architecturerules.configuration.ConfigurationFactory;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-
-
 /**
  * <p>Represents the configuration information read from the XML configuration
  * file.</p>
  *
  * @author mikenereson
  */
-public class SourcesConfiguration {
-
-
-    protected static final Log log
-            = LogFactory.getLog(SourcesConfiguration.class);
+public class SourcesConfiguration
+{
+    protected static final Log log = LogFactory.getLog( SourcesConfiguration.class );
 
     /**
      * <p></p>
@@ -41,13 +36,12 @@ public class SourcesConfiguration {
      */
     private String noPackages = "ignore";
 
-
     /**
      * <p>Instantiate a new SourcesConfiguration</p>
      */
-    public SourcesConfiguration() {
+    public SourcesConfiguration(  )
+    {
     }
-
 
     /**
      * <p>Instantiates a new SourcesConfiguration with the given
@@ -55,27 +49,28 @@ public class SourcesConfiguration {
      *
      * @param noPackages String
      */
-    public SourcesConfiguration(final String noPackages) {
+    public SourcesConfiguration( final String noPackages )
+    {
         this.noPackages = noPackages;
     }
-
 
     /**
      * Getter for property 'noPackages'.
      *
      * @return Value for property 'noPackages'.
      */
-    public String getNoPackages() {
+    public String getNoPackages(  )
+    {
         return noPackages;
     }
-
 
     /**
      * Setter for property 'noPackages'.
      *
      * @param noPackages Value to set for property 'noPackages'.
      */
-    public void setNoPackages(final String noPackages) {
+    public void setNoPackages( final String noPackages )
+    {
         this.noPackages = noPackages;
     }
 }

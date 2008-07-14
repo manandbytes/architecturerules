@@ -11,9 +11,7 @@
  *         http://72miles.com and
  *         http://architecturerules.googlecode.com/svn/docs/index.html
  */
-
 package org.seventytwomiles.springframework.core.io;
-
 
 import org.seventytwomiles.springframework.util.ClassUtils;
 import org.seventytwomiles.springframework.util.ResourceUtils;
@@ -25,8 +23,6 @@ import java.io.InputStream;
 import java.net.URL;
 import java.util.*;
 
-
-
 /**
  * <p>These classes are all extracted from the Spring Framework in order to
  * remove the dependency on the Spring library.</p>
@@ -34,9 +30,8 @@ import java.util.*;
  * @author mikenereson
  * @noinspection SimplifiableIfStatement
  */
-public class ClassPathResource {
-
-
+public class ClassPathResource
+{
     /**
      * <p>symbol that separates folders</p>
      *
@@ -86,7 +81,6 @@ public class ClassPathResource {
      */
     private Class clazz;
 
-
     /**
      * <p>Create a new <code>ClassPathResource</code> for ClassLoader usage. A
      * leading slash will be removed, as the ClassLoader resource access methods
@@ -96,10 +90,10 @@ public class ClassPathResource {
      * @param path the absolute path within the class path
      * @see ClassLoader#getResourceAsStream(String)
      */
-    public ClassPathResource(final String path) {
-        this(path, (ClassLoader) null);
+    public ClassPathResource( final String path )
+    {
+        this( path, (ClassLoader) null );
     }
-
 
     /**
      * <p>Create a new <code>ClassPathResource</code> for ClassLoader usage. A
@@ -111,19 +105,22 @@ public class ClassPathResource {
      * <code>null</code> for the thread context class loader
      * @see ClassLoader#getResourceAsStream(String)
      */
-    public ClassPathResource(String path, final ClassLoader classLoader) {
+    public ClassPathResource( String path, final ClassLoader classLoader )
+    {
+        if ( ( null == path ) || "".equals( path ) )
+        {
+            throw new IllegalArgumentException( "path can not be empty or null" );
+        }
 
-        if (null == path || "".equals(path))
-            throw new IllegalArgumentException("path can not be empty or null");
+        if ( path.startsWith( "/" ) )
+        {
+            path = path.substring( 1 );
+        }
 
-        if (path.startsWith("/"))
-            path = path.substring(1);
+        this.path = cleanPath( path );
 
-        this.path = cleanPath(path);
-        this.classLoader
-                = (classLoader != null ? classLoader : ClassUtils.getDefaultClassLoader());
+        this.classLoader = ( ( classLoader != null ) ? classLoader : ClassUtils.getDefaultClassLoader(  ) );
     }
-
 
     /**
      * <p>Create a new <code>ClassPathResource</code> for Class usage. The path
@@ -134,15 +131,16 @@ public class ClassPathResource {
      * @param clazz the class to load resources with
      * @see Class#getResourceAsStream
      */
-    public ClassPathResource(final String path, final Class clazz) {
+    public ClassPathResource( final String path, final Class clazz )
+    {
+        if ( ( null == path ) || "".equals( path ) )
+        {
+            throw new IllegalArgumentException( "path can not be empty or null" );
+        }
 
-        if (null == path || "".equals(path))
-            throw new IllegalArgumentException("path can not be empty or null");
-
-        this.path = cleanPath(path);
+        this.path = cleanPath( path );
         this.clazz = clazz;
     }
-
 
     /**
      * <p>Create a new <code>ClassPathResource</code> with optional ClassLoader
@@ -152,14 +150,12 @@ public class ClassPathResource {
      * @param classLoader the class loader to load the resource with, if any
      * @param clazz the class to load resources with, if any
      */
-    protected ClassPathResource(final String path,
-                                final ClassLoader classLoader,
-                                final Class clazz) {
+    protected ClassPathResource( final String path, final ClassLoader classLoader, final Class clazz )
+    {
         this.path = path;
         this.classLoader = classLoader;
         this.clazz = clazz;
     }
-
 
     /**
      * <p>This implementation returns a description that includes the class path
@@ -167,10 +163,10 @@ public class ClassPathResource {
      *
      * @return String description of File
      */
-    private String getDescription() {
+    private String getDescription(  )
+    {
         return "class path resource [" + this.path + "]";
     }
-
 
     /**
      * <p>This implementation returns a File reference for the underlying class
@@ -180,10 +176,12 @@ public class ClassPathResource {
      * @throws IOException when file not found
      * @noinspection RedundantThrows
      */
-    public File getFile() throws IOException {
-        return ResourceUtils.getFile(getURL(), getDescription());
+    public File getFile(  )
+                 throws IOException
+    {
+        return ResourceUtils.getFile( getURL(  ),
+                                      getDescription(  ) );
     }
-
 
     /**
      * <p>This implementation returns a URL for the underlying class path
@@ -194,38 +192,41 @@ public class ClassPathResource {
      * @see ClassLoader#getResource(String)
      * @see Class#getResource(String)
      */
-    private URL getURL() throws FileNotFoundException {
+    private URL getURL(  )
+                throws FileNotFoundException
+    {
+        final URL url = ( clazz != null ) ? clazz.getResource( path ) : classLoader.getResource( path );
 
-        final URL url = clazz != null ? clazz.getResource(
-                path) : classLoader.getResource(path);
-
-        if (url == null)
-            throw new FileNotFoundException(
-                    getDescription() + " cannot be resolved to URL because it does not exist");
+        if ( url == null )
+        {
+            throw new FileNotFoundException( getDescription(  ) +
+                                             " cannot be resolved to URL because it does not exist" );
+        }
 
         return url;
     }
-
 
     /**
      * <p>This implementation compares the underlying class path locations.</p>
      */
     @Override
-    public boolean equals(final Object object) {
-
-        if (object == this)
+    public boolean equals( final Object object )
+    {
+        if ( object == this )
+        {
             return true;
+        }
 
-        if (!(object instanceof ClassPathResource))
+        if ( ! ( object instanceof ClassPathResource ) )
+        {
             return false;
+        }
 
         final ClassPathResource that = (ClassPathResource) object;
 
-        return (this.path.equals(that.path) &&
-                nullSafeEquals(this.classLoader, that.classLoader) &&
-                nullSafeEquals(this.clazz, that.clazz));
+        return ( this.path.equals( that.path ) && nullSafeEquals( this.classLoader, that.classLoader ) &&
+               nullSafeEquals( this.clazz, that.clazz ) );
     }
-
 
     /**
      * <p>Determine if the given objects are equal, returning <code>true</code>
@@ -239,47 +240,70 @@ public class ClassPathResource {
      * @return whether the given objects are equal
      * @see java.util.Arrays#equals
      */
-    private boolean nullSafeEquals(final Object object1, final Object object2) {
-
-        if (object1 == object2)
+    private boolean nullSafeEquals( final Object object1, final Object object2 )
+    {
+        if ( object1 == object2 )
+        {
             return true;
+        }
 
-        if (object1 == null || object2 == null)
+        if ( ( object1 == null ) || ( object2 == null ) )
+        {
             return false;
+        }
 
-        if (object1.equals(object2))
+        if ( object1.equals( object2 ) )
+        {
             return true;
+        }
 
-        if (object1 instanceof Object[] && object2 instanceof Object[])
-            return Arrays.equals((Object[]) object1, (Object[]) object2);
+        if ( object1 instanceof Object[] && object2 instanceof Object[] )
+        {
+            return Arrays.equals( (Object[]) object1, (Object[]) object2 );
+        }
 
-        if (object1 instanceof boolean[] && object2 instanceof boolean[])
-            return Arrays.equals((boolean[]) object1, (boolean[]) object2);
+        if ( object1 instanceof boolean[] && object2 instanceof boolean[] )
+        {
+            return Arrays.equals( (boolean[]) object1, (boolean[]) object2 );
+        }
 
-        if (object1 instanceof byte[] && object2 instanceof byte[])
-            return Arrays.equals((byte[]) object1, (byte[]) object2);
+        if ( object1 instanceof byte[] && object2 instanceof byte[] )
+        {
+            return Arrays.equals( (byte[]) object1, (byte[]) object2 );
+        }
 
-        if (object1 instanceof char[] && object2 instanceof char[])
-            return Arrays.equals((char[]) object1, (char[]) object2);
+        if ( object1 instanceof char[] && object2 instanceof char[] )
+        {
+            return Arrays.equals( (char[]) object1, (char[]) object2 );
+        }
 
-        if (object1 instanceof double[] && object2 instanceof double[])
-            return Arrays.equals((double[]) object1, (double[]) object2);
+        if ( object1 instanceof double[] && object2 instanceof double[] )
+        {
+            return Arrays.equals( (double[]) object1, (double[]) object2 );
+        }
 
-        if (object1 instanceof float[] && object2 instanceof float[])
-            return Arrays.equals((float[]) object1, (float[]) object2);
+        if ( object1 instanceof float[] && object2 instanceof float[] )
+        {
+            return Arrays.equals( (float[]) object1, (float[]) object2 );
+        }
 
-        if (object1 instanceof int[] && object2 instanceof int[])
-            return Arrays.equals((int[]) object1, (int[]) object2);
+        if ( object1 instanceof int[] && object2 instanceof int[] )
+        {
+            return Arrays.equals( (int[]) object1, (int[]) object2 );
+        }
 
-        if (object1 instanceof long[] && object2 instanceof long[])
-            return Arrays.equals((long[]) object1, (long[]) object2);
+        if ( object1 instanceof long[] && object2 instanceof long[] )
+        {
+            return Arrays.equals( (long[]) object1, (long[]) object2 );
+        }
 
-        if (object1 instanceof short[] && object2 instanceof short[])
-            return Arrays.equals((short[]) object1, (short[]) object2);
+        if ( object1 instanceof short[] && object2 instanceof short[] )
+        {
+            return Arrays.equals( (short[]) object1, (short[]) object2 );
+        }
 
         return false;
     }
-
 
     /**
      * <p>This implementation checks whether a File can be opened, falling back
@@ -288,29 +312,27 @@ public class ClassPathResource {
      *
      * @return boolean
      */
-    public boolean exists() {
-
+    public boolean exists(  )
+    {
         // Try file existence: can we find the file in the file system?
-        try {
-
-            return getFile().exists();
-
-        } catch (final IOException ex) {
-
+        try
+        {
+            return getFile(  ).exists(  );
+        } catch ( final IOException ex )
+        {
             // Fall back to stream existence: can we open the stream?
-            try {
+            try
+            {
+                final InputStream inputStream = getInputStream(  );
+                inputStream.close(  );
 
-                final InputStream inputStream = getInputStream();
-                inputStream.close();
                 return true;
-
-            } catch (final Throwable throwable) {
-
+            } catch ( final Throwable throwable )
+            {
                 return false;
             }
         }
     }
-
 
     /**
      * <p>This implementation opens an InputStream for the given class path
@@ -321,20 +343,19 @@ public class ClassPathResource {
      * @see ClassLoader#getResourceAsStream(String)
      * @see Class#getResourceAsStream(String)
      */
-    private InputStream getInputStream() throws FileNotFoundException {
+    private InputStream getInputStream(  )
+                                throws FileNotFoundException
+    {
+        final InputStream inputStream =
+            ( clazz != null ) ? clazz.getResourceAsStream( path ) : classLoader.getResourceAsStream( path );
 
-
-        final InputStream inputStream
-                = clazz != null ? clazz.getResourceAsStream(
-                path) : classLoader.getResourceAsStream(path);
-
-        if (inputStream == null)
-            throw new FileNotFoundException(
-                    getDescription() + " cannot be opened because it does not exist");
+        if ( inputStream == null )
+        {
+            throw new FileNotFoundException( getDescription(  ) + " cannot be opened because it does not exist" );
+        }
 
         return inputStream;
     }
-
 
     /**
      * <p>Normalize the path by suppressing sequences like "path/.." and inner
@@ -345,64 +366,59 @@ public class ClassPathResource {
      * @param path the original path
      * @return the normalized path
      */
-    private String cleanPath(final String path) {
-
-        String pathToUse = replace(path, WINDOWS_FOLDER_SEPARATOR,
-                FOLDER_SEPARATOR);
+    private String cleanPath( final String path )
+    {
+        String pathToUse = replace( path, WINDOWS_FOLDER_SEPARATOR, FOLDER_SEPARATOR );
 
         // Strip prefix from path to analyze, to not treat it as part of the
         // first path element. This is necessary to correctly parse paths like
         // "file:core/../core/io/Resource.class", where the ".." should just
         // strip the first "core" directory while keeping the "file:" prefix.
-        final int prefixIndex = pathToUse.indexOf(":");
+        final int prefixIndex = pathToUse.indexOf( ":" );
         String prefix = "";
 
-        if (prefixIndex != -1) {
-
-            prefix = pathToUse.substring(0, prefixIndex + 1);
-            pathToUse = pathToUse.substring(prefixIndex + 1);
+        if ( prefixIndex != -1 )
+        {
+            prefix = pathToUse.substring( 0, prefixIndex + 1 );
+            pathToUse = pathToUse.substring( prefixIndex + 1 );
         }
 
-        final String[] pathArray = delimitedListToStringArray(pathToUse,
-                FOLDER_SEPARATOR);
+        final String[] pathArray = delimitedListToStringArray( pathToUse, FOLDER_SEPARATOR );
 
-        final List pathElements = new LinkedList();
+        final List pathElements = new LinkedList(  );
         int tops = 0;
 
-        for (int i = pathArray.length - 1; i >= 0; i--) {
-
-            if (CURRENT_PATH.equals(pathArray[i])) {
-
+        for ( int i = pathArray.length - 1; i >= 0; i-- )
+        {
+            if ( CURRENT_PATH.equals( pathArray[i] ) )
+            {
                 // Points to current directory - drop it.
-
-            } else if (TOP_PATH.equals(pathArray[i])) {
-
+            } else if ( TOP_PATH.equals( pathArray[i] ) )
+            {
                 // Registering top path found.
                 tops++;
-
-            } else {
-
-                if (tops > 0) {
-
+            } else
+            {
+                if ( tops > 0 )
+                {
                     // Merging path element with corresponding to top path.
                     tops--;
-
-                } else {
-
+                } else
+                {
                     // Normal path element found.
-                    pathElements.add(0, pathArray[i]);
+                    pathElements.add( 0, pathArray[i] );
                 }
             }
         }
 
         // Remaining top paths need to be retained.
-        for (int i = 0; i < tops; i++)
-            pathElements.add(0, TOP_PATH);
+        for ( int i = 0; i < tops; i++ )
+        {
+            pathElements.add( 0, TOP_PATH );
+        }
 
-        return prefix + collectionToDelimitedString(pathElements,
-                FOLDER_SEPARATOR);
+        return prefix + collectionToDelimitedString( pathElements, FOLDER_SEPARATOR );
     }
-
 
     /**
      * <p>Replace all occurrences of a substring within a string with another
@@ -413,39 +429,40 @@ public class ClassPathResource {
      * @param newPattern String to insert
      * @return a String with the replacements
      */
-    private static String replace(final String inString,
-                                  final String oldPattern,
-                                  final String newPattern) {
-
-        if (inString == null)
+    private static String replace( final String inString, final String oldPattern, final String newPattern )
+    {
+        if ( inString == null )
+        {
             return null;
+        }
 
-        if (oldPattern == null || newPattern == null)
+        if ( ( oldPattern == null ) || ( newPattern == null ) )
+        {
             return inString;
+        }
 
-        final StringBuffer stringBuffer = new StringBuffer();
+        final StringBuffer stringBuffer = new StringBuffer(  );
 
         // output StringBuffer we'll build up
         int position = 0; // our position in the old string
-        int index = inString.indexOf(oldPattern);
+        int index = inString.indexOf( oldPattern );
 
         // the index of an occurrence we've found, or -1
-        final int patternLength = oldPattern.length();
+        final int patternLength = oldPattern.length(  );
 
-        while (index >= 0) {
-
-            stringBuffer.append(inString.substring(position, index));
-            stringBuffer.append(newPattern);
+        while ( index >= 0 )
+        {
+            stringBuffer.append( inString.substring( position, index ) );
+            stringBuffer.append( newPattern );
             position = index + patternLength;
-            index = inString.indexOf(oldPattern, position);
+            index = inString.indexOf( oldPattern, position );
         }
 
-        stringBuffer.append(inString.substring(position));
+        stringBuffer.append( inString.substring( position ) );
 
         // remember to append any characters to the right of a matches
-        return stringBuffer.toString();
+        return stringBuffer.toString(  );
     }
-
 
     /**
      * <p>Convenience method to return a Collection as a delimited (e.g. CSV)
@@ -457,26 +474,29 @@ public class ClassPathResource {
      * @param suffix the String to end each element with
      * @return String
      */
-    private static String collectionToDelimitedString(
-            final Collection collection, final String deliminator,
-            final String prefix, final String suffix) {
-
-        if (collection.isEmpty())
+    private static String collectionToDelimitedString( final Collection collection, final String deliminator,
+                                                       final String prefix, final String suffix )
+    {
+        if ( collection.isEmpty(  ) )
+        {
             return "";
-
-        final StringBuffer stringBuffer = new StringBuffer();
-        final Iterator iterator = collection.iterator();
-
-        while (iterator.hasNext()) {
-            stringBuffer.append(prefix).append(iterator.next()).append(suffix);
-
-            if (iterator.hasNext())
-                stringBuffer.append(deliminator);
         }
 
-        return stringBuffer.toString();
-    }
+        final StringBuffer stringBuffer = new StringBuffer(  );
+        final Iterator iterator = collection.iterator(  );
 
+        while ( iterator.hasNext(  ) )
+        {
+            stringBuffer.append( prefix ).append( iterator.next(  ) ).append( suffix );
+
+            if ( iterator.hasNext(  ) )
+            {
+                stringBuffer.append( deliminator );
+            }
+        }
+
+        return stringBuffer.toString(  );
+    }
 
     /**
      * <p>Convenience method to return a Collection as a delimited (e.g. CSV)
@@ -486,11 +506,10 @@ public class ClassPathResource {
      * @param deliminator the delimiter to use (probably a ",")
      * @return String
      */
-    private String collectionToDelimitedString(final Collection collection,
-                                               final String deliminator) {
-        return collectionToDelimitedString(collection, deliminator, "", "");
+    private String collectionToDelimitedString( final Collection collection, final String deliminator )
+    {
+        return collectionToDelimitedString( collection, deliminator, "", "" );
     }
-
 
     /**
      * Take a String which is a delimited list and convert it to a String array.
@@ -503,42 +522,46 @@ public class ClassPathResource {
      * delimiter, rather than a bunch individual delimiter characters)
      * @return an array of the tokens in the list
      */
-    private static String[] delimitedListToStringArray(final String string,
-                                                       final String delimiter) {
-
-        if (string == null)
+    private static String[] delimitedListToStringArray( final String string, final String delimiter )
+    {
+        if ( string == null )
+        {
             return new String[0];
+        }
 
-        if (delimiter == null)
-            return new String[]{string};
+        if ( delimiter == null )
+        {
+            return new String[] { string };
+        }
 
-        final List result = new ArrayList();
+        final List result = new ArrayList(  );
 
-        if ("".equals(delimiter)) {
-
-            for (int i = 0; i < string.length(); i++)
-                result.add(string.substring(i, i + 1));
-
-        } else {
-
+        if ( "".equals( delimiter ) )
+        {
+            for ( int i = 0; i < string.length(  ); i++ )
+            {
+                result.add( string.substring( i, i + 1 ) );
+            }
+        } else
+        {
             int position = 0;
             int deletePosition;
 
-            while ((deletePosition = string.indexOf(delimiter,
-                    position)) != -1) {
-
-                result.add(string.substring(position, deletePosition));
-                position = deletePosition + delimiter.length();
+            while ( ( deletePosition = string.indexOf( delimiter, position ) ) != -1 )
+            {
+                result.add( string.substring( position, deletePosition ) );
+                position = deletePosition + delimiter.length(  );
             }
 
             // Add rest of String, but not in case of empty input.
-            if (string.length() > 0 && position <= string.length())
-                result.add(string.substring(position));
+            if ( ( string.length(  ) > 0 ) && ( position <= string.length(  ) ) )
+            {
+                result.add( string.substring( position ) );
+            }
         }
 
-        return toStringArray(result);
+        return toStringArray( result );
     }
-
 
     /**
      * <p>Copy the given Collection into a String array. The Collection must
@@ -548,12 +571,13 @@ public class ClassPathResource {
      * @return the String array (<code>null</code> if the passed-in Collection
      *         was <code>null</code>)
      */
-    private static String[] toStringArray(final Collection collection) {
-
-        if (collection == null)
+    private static String[] toStringArray( final Collection collection )
+    {
+        if ( collection == null )
+        {
             return null;
+        }
 
-        return (String[]) collection.toArray(new String[collection.size()]);
+        return (String[]) collection.toArray( new String[collection.size(  )] );
     }
-
 }

@@ -11,8 +11,8 @@
  *         http://72miles.com and
  *         http://architecturerules.googlecode.com/svn/docs/index.html
  */
-
 package com.seventytwomiles.architecturerules.exceptions;
+
 
 /**
  * <p>RuntimeException that is thrown when a configuration is invalid. A
@@ -23,38 +23,38 @@ package com.seventytwomiles.architecturerules.exceptions;
  * @noinspection JavaDoc
  * @see ArchitectureException
  */
-public class InvalidConfigurationException extends ArchitectureException {
-
-
+public class InvalidConfigurationException
+    extends ArchitectureException
+{
     /**
      * @see RuntimeException#RuntimeException()
      */
-    public InvalidConfigurationException() {
-        super();
+    public InvalidConfigurationException(  )
+    {
+        super(  );
     }
-
 
     /**
      * @see RuntimeException#RuntimeException(String)
      */
-    public InvalidConfigurationException(final String message) {
-        super(message);
+    public InvalidConfigurationException( final String message )
+    {
+        super( message );
     }
-
 
     /**
      * @see RuntimeException#RuntimeException(Throwable)
      */
-    public InvalidConfigurationException(final Throwable cause) {
-        super(cause);
+    public InvalidConfigurationException( final Throwable cause )
+    {
+        super( cause );
     }
-
 
     /**
      * @see RuntimeException#RuntimeException(String,Throwable)
      */
-    public InvalidConfigurationException(final String message,
-                                         final Throwable cause) {
-        super(message, cause);
+    public InvalidConfigurationException( final String message, final Throwable cause )
+    {
+        super( message, cause );
     }
 }

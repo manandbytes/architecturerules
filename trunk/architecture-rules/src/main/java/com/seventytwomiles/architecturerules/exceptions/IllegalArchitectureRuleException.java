@@ -11,7 +11,6 @@
  *         http://72miles.com and
  *         http://architecturerules.googlecode.com/svn/docs/index.html
  */
-
 package com.seventytwomiles.architecturerules.exceptions;
 
 
@@ -35,41 +34,40 @@ package com.seventytwomiles.architecturerules.exceptions;
  * @author mikenereson
  * @see ArchitectureException
  */
-public class IllegalArchitectureRuleException extends ArchitectureException {
-
-
+public class IllegalArchitectureRuleException
+    extends ArchitectureException
+{
     /**
      * @see RuntimeException#RuntimeException()
      */
-    public IllegalArchitectureRuleException() {
-        super("illegal architecture rule");
+    public IllegalArchitectureRuleException(  )
+    {
+        super( "illegal architecture rule" );
     }
-
 
     /**
      * @see RuntimeException#RuntimeException(String)
      */
-    public IllegalArchitectureRuleException(final String message) {
-        super(message);
+    public IllegalArchitectureRuleException( final String message )
+    {
+        super( message );
     }
-
 
     /**
      * @see RuntimeException#RuntimeException(Throwable)
      */
-    public IllegalArchitectureRuleException(final Throwable cause) {
-        super("illegal architecture rule", cause);
+    public IllegalArchitectureRuleException( final Throwable cause )
+    {
+        super( "illegal architecture rule", cause );
     }
-
 
     /**
      * @see RuntimeException#RuntimeException(String,Throwable)
      */
-    public IllegalArchitectureRuleException(final String message,
-                                            final Throwable cause) {
-        super(message, cause);
+    public IllegalArchitectureRuleException( final String message, final Throwable cause )
+    {
+        super( message, cause );
     }
-
 
     /**
      * <p>Instantiates a new IllegalArchitectureRuleException with the given
@@ -79,11 +77,10 @@ public class IllegalArchitectureRuleException extends ArchitectureException {
      * @param rulePackages String some description of the package rules, such as
      *                     a delimited list
      */
-    public IllegalArchitectureRuleException(final String ruleId,
-                                            final String rulePackages) {
-        this(ruleId, rulePackages, null);
+    public IllegalArchitectureRuleException( final String ruleId, final String rulePackages )
+    {
+        this( ruleId, rulePackages, null );
     }
-
 
     /**
      * <p>Instantiates a new IllegalArchitectureRuleException with the given
@@ -94,15 +91,17 @@ public class IllegalArchitectureRuleException extends ArchitectureException {
      *                     a delimited list
      * @param cause        Throwable root cause
      */
-    public IllegalArchitectureRuleException(final String ruleId,
-                                            final String rulePackages,
-                                            final Throwable cause) {
-
-        super("rule '{id}' contains an invalid violation that refers to itself; remove violation '{violation}' or change package"
-                .replaceAll("\\{id}", ruleId)
-                .replaceAll("\\{violation}", rulePackages.trim())
-                .replaceAll("\\[", "")
-                .replaceAll("\\]", ""),
-                cause);
+    public IllegalArchitectureRuleException( final String ruleId, final String rulePackages, final Throwable cause )
+    {
+        super( "rule '{id}' contains an invalid violation that refers to itself; remove violation '{violation}' or change package".replaceAll( "\\{id}",
+                                                                                                                                               ruleId )
+                                                                                                                                  .replaceAll( 
+                                                                                                                                               "\\{violation}",
+                                                                                                                                               rulePackages.trim(  ) )
+                                                                                                                                  .replaceAll( "\\[",
+                                                                                                                                               "" )
+                                                                                                                                  .replaceAll( "\\]",
+                                                                                                                                               "" ),
+               cause );
     }
 }

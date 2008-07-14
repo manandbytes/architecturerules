@@ -11,7 +11,6 @@
  *         http://72miles.com and
  *         http://architecturerules.googlecode.com/svn/docs/index.html
  */
-
 package com.seventytwomiles.architecturerules.services;
 
 
@@ -21,85 +20,76 @@ import com.seventytwomiles.architecturerules.domain.SourceDirectory;
 import com.seventytwomiles.architecturerules.exceptions.DependencyConstraintException;
 import junit.framework.TestCase;
 
-
-
 /**
  * <p><code>RulesService</code> Tester.</p>
  *
  * @author mikenereson
  */
-public class ArchitecturalRulesServiceTest extends TestCase {
-
-
+public class ArchitecturalRulesServiceTest
+    extends TestCase
+{
     private RulesService rulesService;
-    private Configuration configuration = new Configuration();
-    private final SourceDirectory testClassesSourceDirectory
-            = new SourceDirectory("target\\test-classes", true);
+    private Configuration configuration = new Configuration(  );
+    private final SourceDirectory testClassesSourceDirectory = new SourceDirectory( "target\\test-classes", true );
     private Rule goodModelRule;
     private Rule badControllerRule;
 
-
-    public ArchitecturalRulesServiceTest(final String name) {
-        super(name);
+    public ArchitecturalRulesServiceTest( final String name )
+    {
+        super( name );
     }
 
-
     @Override
-    public void setUp() throws Exception {
+    public void setUp(  )
+               throws Exception
+    {
+        configuration.addSource( testClassesSourceDirectory );
 
-        configuration.addSource(testClassesSourceDirectory);
+        badControllerRule = new Rule( "controller", "test.com.seventytwomiles.web.spring" ).addViolation( "test.com.seventytwomiles.dao" );
 
-        badControllerRule
-                = new Rule("controller", "test.com.seventytwomiles.web.spring")
-                .addViolation("test.com.seventytwomiles.dao");
+        goodModelRule = new Rule( "model", "test.com.seventytwomiles.model" ).addViolation( "test.com.seventytwomiles.dao" )
+                                                                             .addViolation( "test.com.seventytwomiles.dao.hibernate" );
 
-        goodModelRule = new Rule("model", "test.com.seventytwomiles.model")
-                .addViolation("test.com.seventytwomiles.dao")
-                .addViolation("test.com.seventytwomiles.dao.hibernate");
-
-        super.setUp();
+        super.setUp(  );
     }
 
-
     @Override
-    public void tearDown() throws Exception {
-
+    public void tearDown(  )
+                  throws Exception
+    {
         rulesService = null;
         configuration = null;
 
-        super.tearDown();
+        super.tearDown(  );
     }
 
-
-    public void testPerformRulesTest() {
-
+    public void testPerformRulesTest(  )
+    {
         /* setup good configuration */
-        configuration.addRule(goodModelRule);
+        configuration.addRule( goodModelRule );
 
-        rulesService = new RulesServiceImpl(configuration);
+        rulesService = new RulesServiceImpl( configuration );
 
-        assertTrue(rulesService.performRulesTest());
+        assertTrue( rulesService.performRulesTest(  ) );
     }
 
-
-    public void testPerformRulesTest_violations() {
-
+    public void testPerformRulesTest_violations(  )
+    {
         /* setup bad configuration */
-        configuration.addRule(badControllerRule);
+        configuration.addRule( badControllerRule );
 
-        rulesService = new RulesServiceImpl(configuration);
+        rulesService = new RulesServiceImpl( configuration );
 
-        try {
-            assertTrue(rulesService.performRulesTest());
+        try
+        {
+            assertTrue( rulesService.performRulesTest(  ) );
+        } catch ( final Exception e )
+        {
+            assertTrue( e instanceof DependencyConstraintException );
 
-        } catch (final Exception e) {
-
-            assertTrue(e instanceof DependencyConstraintException);
-
-            assertEquals(
-                    "rule controller failed: test.com.seventytwomiles.web.spring " +
-                            "is not allowed to depend upon test.com.seventytwomiles.dao",
-                    e.getMessage());
+            assertEquals( "rule controller failed: test.com.seventytwomiles.web.spring " +
+                          "is not allowed to depend upon test.com.seventytwomiles.dao",
+                          e.getMessage(  ) );
         }
     }
 }

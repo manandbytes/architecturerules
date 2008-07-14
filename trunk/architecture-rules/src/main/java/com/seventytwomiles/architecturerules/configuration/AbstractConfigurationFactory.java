@@ -11,7 +11,6 @@
  *         http://72miles.com and
  *         http://architecturerules.googlecode.com/svn/docs/index.html
  */
-
 package com.seventytwomiles.architecturerules.configuration;
 
 
@@ -29,8 +28,6 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 
-
-
 /**
  * <p>Abstract Factory that provides common functionality for
  * <code>ConfigurationFactory</code> implementations.</p>
@@ -39,26 +36,23 @@ import java.util.List;
  * @see ConfigurationFactory
  */
 public abstract class AbstractConfigurationFactory
-        implements ConfigurationFactory {
-
-
-    protected static final Log log
-            = LogFactory.getLog(AbstractConfigurationFactory.class);
+    implements ConfigurationFactory
+{
+    protected static final Log log = LogFactory.getLog( AbstractConfigurationFactory.class );
 
     /**
      * <p>Set of Rules read from the configuration file</p>
      *
      * @parameter rules Set
      */
-    protected final Collection<Rule> rules = new HashSet<Rule>();
+    protected final Collection<Rule> rules = new HashSet<Rule>(  );
 
     /**
      * <p>Set of  <code>Source</code> read from configuration file</p>
      *
      * @parameter sources Set
      */
-    protected final List<SourceDirectory> sources
-            = new ArrayList<SourceDirectory>();
+    protected final List<SourceDirectory> sources = new ArrayList<SourceDirectory>(  );
 
     /**
      * <p>Weather or not to throw exception when no packages are found for a
@@ -75,46 +69,45 @@ public abstract class AbstractConfigurationFactory
      */
     protected boolean doCyclicDependencyTest = true;
 
-
     /**
      * <p>Getter for property {@link #rules}.</p>
      *
      * @return Value for property <tt>rules</tt>.
      */
-    public Collection<Rule> getRules() {
+    public Collection<Rule> getRules(  )
+    {
         return this.rules;
     }
-
 
     /**
      * <p>Getter for property {@link #sources}.</p>
      *
      * @return Value for property <tt>sources</tt>.
      */
-    public List<SourceDirectory> getSources() {
+    public List<SourceDirectory> getSources(  )
+    {
         return this.sources;
     }
-
 
     /**
      * @return boolean <tt>true</tt> when <samp>&lt;cyclicalDependency
      *         test="true"/> </samp>
      * @see ConfigurationFactory#doCyclicDependencyTest()
      */
-    public boolean doCyclicDependencyTest() {
+    public boolean doCyclicDependencyTest(  )
+    {
         return doCyclicDependencyTest;
     }
-
 
     /**
      * @return boolean <tt>true</tt> when <samp>&lt;sources
      *         no-packages="exception"> </samp>
      * @see ConfigurationFactory#throwExceptionWhenNoPackages()
      */
-    public boolean throwExceptionWhenNoPackages() {
+    public boolean throwExceptionWhenNoPackages(  )
+    {
         return throwExceptionWhenNoPackages;
     }
-
 
     /**
      * <p>Read Xml configuration file to String.</p>
@@ -123,57 +116,51 @@ public abstract class AbstractConfigurationFactory
      * to load and read OR the complete path to the file.
      * @return String returns the contents of the configurationFile
      */
-    protected String getConfigurationAsXml(final String configurationFileName) {
+    protected String getConfigurationAsXml( final String configurationFileName )
+    {
+        File file = new File( configurationFileName );
 
-        File file = new File(configurationFileName);
-
-        if (!file.exists()) {
-
+        if ( ! file.exists(  ) )
+        {
             /**
              * This code kinda sucks. First, an exception is thrown if the resource
              * does not exist, then an exception could be thrown if the resource
              * could not be read.
              */
-            final ClassLoader classLoader = getClass().getClassLoader();
+            final ClassLoader classLoader = getClass(  ).getClassLoader(  );
 
-            final ClassPathResource resource
-                    = new ClassPathResource(configurationFileName, classLoader);
+            final ClassPathResource resource = new ClassPathResource( configurationFileName, classLoader );
 
-            if (!resource.exists())
-                throw new IllegalArgumentException("could not load resource "
-                        + configurationFileName
-                        + " from classpath. File not found.");
+            if ( ! resource.exists(  ) )
+            {
+                throw new IllegalArgumentException( "could not load resource " + configurationFileName +
+                                                    " from classpath. File not found." );
+            }
 
-            try {
-
-                file = resource.getFile();
-
-            } catch (IOException e) {
-
-                throw new IllegalArgumentException("could not locate resource "
-                        + configurationFileName
-                        + " from classpath. File not found.");
+            try
+            {
+                file = resource.getFile(  );
+            } catch ( IOException e )
+            {
+                throw new IllegalArgumentException( "could not locate resource " + configurationFileName +
+                                                    " from classpath. File not found." );
             }
         }
 
-
         final String xml;
 
-        try {
+        try
+        {
+            xml = FileUtils.readFileToString( file, null );
+        } catch ( final IOException e )
+        {
+            final String path = file.getAbsolutePath(  );
 
-            xml = FileUtils.readFileToString(file, null);
-
-        } catch (final IOException e) {
-
-            final String path = file.getAbsolutePath();
-
-            throw new IllegalArgumentException(
-                    "could not load configuration from " + path);
+            throw new IllegalArgumentException( "could not load configuration from " + path );
         }
 
         return xml;
     }
-
 
     /**
      * <p>Validate the configuration.</p>
@@ -181,5 +168,5 @@ public abstract class AbstractConfigurationFactory
      * @param configuration String xml content to validate
      * @see "architecture-rules.dtd"
      */
-    protected abstract void validateConfiguration(final String configuration);
+    protected abstract void validateConfiguration( final String configuration );
 }

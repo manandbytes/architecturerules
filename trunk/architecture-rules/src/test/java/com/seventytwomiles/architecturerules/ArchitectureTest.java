@@ -11,9 +11,7 @@
  *         http://72miles.com and
  *         http://architecturerules.googlecode.com/svn/docs/index.html
  */
-
 package com.seventytwomiles.architecturerules;
-
 
 import com.seventytwomiles.architecturerules.configuration.Configuration;
 import com.seventytwomiles.architecturerules.domain.Rule;
@@ -22,8 +20,6 @@ import com.seventytwomiles.architecturerules.exceptions.CyclicRedundancyExceptio
 
 import java.io.File;
 
-
-
 /**
  * <p>Architecture test example.</p>
  *
@@ -31,12 +27,11 @@ import java.io.File;
  * @see AbstractArchitectureRulesConfigurationTest
  */
 public class ArchitectureTest
-        extends AbstractArchitectureRulesConfigurationTest {
-
-
-    public ArchitectureTest() {
-
-        final Configuration configuration = getConfiguration();
+    extends AbstractArchitectureRulesConfigurationTest
+{
+    public ArchitectureTest(  )
+    {
+        final Configuration configuration = getConfiguration(  );
 
         /**
          * Get the configuration that already has the architecture-rules.xml
@@ -48,24 +43,22 @@ public class ArchitectureTest
          * would override the value in the configuration file, because the
          * configuration file is loaded first.
          */
+        final Rule rule = new Rule( "services" );
+        rule.setComment( "services may not depend on web layer." );
+        rule.addPackage( "com.company.app.core.services" );
+        rule.addViolation( "com.company.app.web" );
+        rule.addViolation( "com.company.app.web.spring" );
+        rule.addViolation( "com.company.app.web.decorators" );
 
-        final Rule rule = new Rule("services");
-        rule.setComment("services may not depend on web layer.");
-        rule.addPackage("com.company.app.core.services");
-        rule.addViolation("com.company.app.web");
-        rule.addViolation("com.company.app.web.spring");
-        rule.addViolation("com.company.app.web.decorators");
-
-        configuration.addRule(rule);
+        configuration.addRule( rule );
     }
-
 
     /**
      * @see AbstractArchitectureRulesConfigurationTest
      */
     @Override
-    public String getConfigurationFileName() {
-
+    public String getConfigurationFileName(  )
+    {
         /**
          * Provide the name of the rules configuration file. File file is
          * loaded from the classpath.
@@ -73,62 +66,57 @@ public class ArchitectureTest
         return "architecture-rules-fail-cyclic.xml";
     }
 
-
     /**
      * @see AbstractArchitectureRulesConfigurationTest#testArchitecture()
      */
     @Override
-    public void testArchitecture() {
-
+    public void testArchitecture(  )
+    {
         /**
          * Finally, run the test via doTest(). If any rules are broken, or if
          * the configuration can not be loaded properly, then the appropriate
          * Exception will be thrown.
          */
+        try
+        {
+            assertTrue( doTests(  ) );
+            fail( "Cycles have not been detected" );
+        } catch ( final CyclicRedundancyException e )
+        {
+            final Stringer message = new Stringer( e.getMessage(  ) );
 
-        try {
-
-            assertTrue(doTests());
-            fail("Cycles have not been detected");
-
-        } catch (final CyclicRedundancyException e) {
-
-            final Stringer message = new Stringer(e.getMessage());
-
-            assertTrue(message.has("test.com.seventytwomiles.services"));
-            assertTrue(message.has("test.com.seventytwomiles.model"));
-            assertTrue(message.has("test.com.seventytwomiles.dao.hibernate"));
+            assertTrue( message.has( "test.com.seventytwomiles.services" ) );
+            assertTrue( message.has( "test.com.seventytwomiles.model" ) );
+            assertTrue( message.has( "test.com.seventytwomiles.dao.hibernate" ) );
         }
 
+        final Configuration configuration = getConfiguration(  );
+        configuration.setDoCyclicDependencyTest( false );
+        assertTrue( doTests(  ) );
 
-        final Configuration configuration = getConfiguration();
-        configuration.setDoCyclicDependencyTest(false);
-        assertTrue(doTests());
-
-        configuration.getSources().clear();
+        configuration.getSources(  ).clear(  );
 
         final String classes = "target" + File.separator + "classes";
-        configuration.getSources().add(new SourceDirectory(classes, true));
+        configuration.getSources(  ).add( new SourceDirectory( classes, true ) );
 
-        assertTrue(doTests());
+        assertTrue( doTests(  ) );
 
-        configuration.getSources().clear();
+        configuration.getSources(  ).clear(  );
 
         final String tests = "target" + File.separator + "test-classes";
-        final SourceDirectory directory = new SourceDirectory(tests, true);
-        configuration.getSources().add(directory);
+        final SourceDirectory directory = new SourceDirectory( tests, true );
+        configuration.getSources(  ).add( directory );
 
-        try {
+        try
+        {
+            assertTrue( doTests(  ) );
+        } catch ( final CyclicRedundancyException e )
+        {
+            final Stringer message = new Stringer( e.getMessage(  ) );
 
-            assertTrue(doTests());
-
-        } catch (final CyclicRedundancyException e) {
-
-            final Stringer message = new Stringer(e.getMessage());
-
-            assertTrue(message.has("test.com.seventytwomiles.services"));
-            assertTrue(message.has("test.com.seventytwomiles.model"));
-            assertTrue(message.has("test.com.seventytwomiles.dao.hibernate"));
+            assertTrue( message.has( "test.com.seventytwomiles.services" ) );
+            assertTrue( message.has( "test.com.seventytwomiles.model" ) );
+            assertTrue( message.has( "test.com.seventytwomiles.dao.hibernate" ) );
         }
     }
 }
@@ -139,19 +127,17 @@ public class ArchitectureTest
  * created simply to prevent assertTrue(message.has("test.com.seventytwomiles.dao.hibernate"));
  * from wrapping to a new line.
  */
-class Stringer {
-
-
+class Stringer
+{
     private final String string;
 
-
-    Stringer(final String string) {
+    Stringer( final String string )
+    {
         this.string = string;
     }
 
-
-    public boolean has(String contains) {
-        return this.string.indexOf(contains) > -1;
+    public boolean has( String contains )
+    {
+        return this.string.indexOf( contains ) > -1;
     }
 }
-

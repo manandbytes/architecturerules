@@ -11,7 +11,6 @@
  *         http://72miles.com and
  *         http://architecturerules.googlecode.com/svn/docs/index.html
  */
-
 package com.seventytwomiles.architecturerules.services;
 
 
@@ -22,14 +21,13 @@ package com.seventytwomiles.architecturerules.services;
  *
  * @author mikenereson
  */
-public interface RulesService {
-
-
+public interface RulesService
+{
     /**
      * <p>Assert that no <code>Rule</code> in the given <code>Configuration</code>
      * has been violated.</p>
      *
      * @return boolean <tt>true</tt> when tests pass
      */
-    boolean performRulesTest();
+    boolean performRulesTest(  );
 }

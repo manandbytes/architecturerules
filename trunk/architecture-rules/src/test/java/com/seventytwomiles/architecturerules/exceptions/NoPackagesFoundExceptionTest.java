@@ -11,96 +11,94 @@
  *         http://72miles.com and
  *         http://architecturerules.googlecode.com/svn/docs/index.html
  */
-
 package com.seventytwomiles.architecturerules.exceptions;
 
 
 import com.seventytwomiles.architecturerules.domain.SourceDirectory;
 import junit.framework.TestCase;
 
-
 /**
  * <code>NoPackagesFoundException Tester.</code>
  *
  * @author mikenereson
  */
-public class NoPackagesFoundExceptionTest extends TestCase {
-
-
-    public NoPackagesFoundExceptionTest(final String name) {
-        super(name);
+public class NoPackagesFoundExceptionTest
+    extends TestCase
+{
+    public NoPackagesFoundExceptionTest( final String name )
+    {
+        super( name );
     }
 
-    public void testInheritance() {
-        assertTrue(ArchitectureException.class.isAssignableFrom(NoPackagesFoundException.class));
+    public void testInheritance(  )
+    {
+        assertTrue( ArchitectureException.class.isAssignableFrom( NoPackagesFoundException.class ) );
     }
 
-    @SuppressWarnings({"ThrowableInstanceNeverThrown"})
-    public void testInterestingConstructors() {
-
+    @SuppressWarnings( {"ThrowableInstanceNeverThrown"
+    } )
+    public void testInterestingConstructors(  )
+    {
         final NoPackagesFoundException exception;
         final String message;
         final Throwable cause;
 
-        final SourceDirectory sourceDirectory = new SourceDirectory();
-        sourceDirectory.setPath("core/target/classes");
+        final SourceDirectory sourceDirectory = new SourceDirectory(  );
+        sourceDirectory.setPath( "core/target/classes" );
 
-        exception = new NoPackagesFoundException(sourceDirectory.getPath());
-        message = exception.getMessage();
-        cause = exception.getCause();
+        exception = new NoPackagesFoundException( sourceDirectory.getPath(  ) );
+        message = exception.getMessage(  );
+        cause = exception.getCause(  );
 
-        assertEquals(
-                "source directory 'core/target/classes' does not exist or can not be found",
-                message);
+        assertEquals( "source directory 'core/target/classes' does not exist or can not be found", message );
 
-        assertEquals(null, cause);
+        assertEquals( null, cause );
     }
 
-
-    @SuppressWarnings({"ThrowableInstanceNeverThrown", "ThrowableInstanceNeverThrown", "ThrowableInstanceNeverThrown", "ThrowableInstanceNeverThrown", "ThrowableInstanceNeverThrown", "ThrowableInstanceNeverThrown"})
-    public void testTypicalConstructors() {
-
+    @SuppressWarnings( 
+            {"ThrowableInstanceNeverThrown",
+        "ThrowableInstanceNeverThrown",
+        "ThrowableInstanceNeverThrown",
+        "ThrowableInstanceNeverThrown",
+        "ThrowableInstanceNeverThrown",
+        "ThrowableInstanceNeverThrown"
+    }
+         )
+    public void testTypicalConstructors(  )
+    {
         NoPackagesFoundException exception;
         String message;
         Throwable cause;
 
+        exception = new NoPackagesFoundException(  );
+        message = exception.getMessage(  );
+        cause = exception.getCause(  );
 
-        exception = new NoPackagesFoundException();
-        message = exception.getMessage();
-        cause = exception.getCause();
+        assertTrue( message.equals( "no packages found" ) );
+        assertEquals( null, cause );
 
-        assertTrue(message.equals("no packages found"));
-        assertEquals(null, cause);
+        exception = new NoPackagesFoundException( "/core/target/classes" );
+        message = exception.getMessage(  );
+        cause = exception.getCause(  );
 
+        assertEquals( "source directory '/core/target/classes' does not exist or can not be found", message );
 
-        exception = new NoPackagesFoundException("/core/target/classes");
-        message = exception.getMessage();
-        cause = exception.getCause();
+        assertEquals( null, cause );
 
-        assertEquals(
-                "source directory '/core/target/classes' does not exist or can not be found",
-                message);
+        exception = new NoPackagesFoundException( new IllegalArgumentException(  ) );
+        message = exception.getMessage(  );
+        cause = exception.getCause(  );
 
-        assertEquals(null, cause);
+        assertTrue( message.equals( "no packages found" ) );
+        assertTrue( cause instanceof IllegalArgumentException );
 
+        exception = new NoPackagesFoundException( "/core/target/classes directory not found",
+                                                  new IllegalArgumentException(  ) );
 
-        exception = new NoPackagesFoundException(
-                new IllegalArgumentException());
-        message = exception.getMessage();
-        cause = exception.getCause();
+        message = exception.getMessage(  );
+        cause = exception.getCause(  );
 
-        assertTrue(message.equals("no packages found"));
-        assertTrue(cause instanceof IllegalArgumentException);
-
-
-        exception = new NoPackagesFoundException(
-                "/core/target/classes directory not found",
-                new IllegalArgumentException());
-
-        message = exception.getMessage();
-        cause = exception.getCause();
-
-        assertTrue(message.equals("/core/target/classes directory not found"));
-        assertTrue(cause instanceof IllegalArgumentException);
+        assertTrue( message.equals( "/core/target/classes directory not found" ) );
+        assertTrue( cause instanceof IllegalArgumentException );
     }
 }

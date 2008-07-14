@@ -11,14 +11,10 @@
  *         http://72miles.com and
  *         http://architecturerules.googlecode.com/svn/docs/index.html
  */
-
 package test.com.seventytwomiles.test;
-
 
 import com.seventytwomiles.architecturerules.AbstractArchitectureRulesConfigurationTest;
 import com.seventytwomiles.architecturerules.configuration.Configuration;
-
-
 
 /**
  * <p>Sample subclass of AbstractArchitectureRulesConfigurationTest that is in a
@@ -27,9 +23,9 @@ import com.seventytwomiles.architecturerules.configuration.Configuration;
  * @author mikenereson
  * @see AbstractArchitectureRulesConfigurationTest
  */
-public class ExtendTest extends AbstractArchitectureRulesConfigurationTest {
-
-
+public class ExtendTest
+    extends AbstractArchitectureRulesConfigurationTest
+{
     /**
      * <p>Get the name of the xml configuration file that is located in the
      * classpath.</p>
@@ -39,21 +35,21 @@ public class ExtendTest extends AbstractArchitectureRulesConfigurationTest {
      * @return String name of the xml file including <samp>.xml</smmp>
      */
     @Override
-    protected String getConfigurationFileName() {
-        return super.getConfigurationFileName();
+    protected String getConfigurationFileName(  )
+    {
+        return super.getConfigurationFileName(  );
     }
-
 
     /**
      * <p>Implement this method and call {@link #doTests}</p>
      */
     @Override
-    public void testArchitecture() {
+    public void testArchitecture(  )
+    {
+        final Configuration configuration = getConfiguration(  );
+        configuration.setDoCyclicDependencyTest( false );
+        configuration.setThrowExceptionWhenNoPackages( false );
 
-        final Configuration configuration = getConfiguration();
-        configuration.setDoCyclicDependencyTest(false);
-        configuration.setThrowExceptionWhenNoPackages(false);
-
-        assertTrue(doTests());
+        assertTrue( doTests(  ) );
     }
 }

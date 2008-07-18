@@ -12,7 +12,7 @@
     <version>2.1.1</version>
 
     <name>Architecture Rules</name>
-    <inceptionYear>2007</inceptionYear>
+    <inceptionYear>2007, 2008</inceptionYear>
 
     <description>
         Leverages an XML configuration file to test your code's architecture via
@@ -279,6 +279,7 @@
                 </executions>
                 <configuration>
                     <fileFormat>UNIX</fileFormat>
+                    <convention>jalopy.xml</convention>
                 </configuration>
             </plugin>
             <plugin>

@@ -1,17 +1,19 @@
 /**
- * Copyright 2007 the original author or authors.
- *
+ * Copyright 2007, 2008 the original author or authors.
+ * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *
+ * 
  *         http://www.apache.org/licenses/LICENSE-2.0
- *
+ * 
  * For more information visit
  *         http://72miles.com and
- *         http://architecturerules.googlecode.com/svn/docs/index.html
+ *         http://architecturerules.googlecode.com/
  */
+
 package com.seventytwomiles.architecturerules.configuration.xml;
+
 
 
 /**
@@ -19,12 +21,13 @@ package com.seventytwomiles.architecturerules.configuration.xml;
  *
  * @author mikenereson
  */
-class XmlConfiguration
-{
+class XmlConfiguration {
+
     /**
      * Cyclic dependency
      */
     public static final String cyclicalDependency = "architecture/configuration/cyclicalDependency";
+
 
     /**
      * Sources
@@ -37,6 +40,7 @@ class XmlConfiguration
     public static final String configuration = "architecture/configuration";
     public static final String sources = "architecture/configuration/sources";
     public static final String source = "architecture/configuration/sources/source";
+
 
     /**
      * Rules

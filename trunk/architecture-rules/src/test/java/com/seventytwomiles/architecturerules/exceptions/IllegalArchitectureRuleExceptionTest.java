@@ -1,121 +1,111 @@
 /**
- * Copyright 2007 the original author or authors.
- *
+ * Copyright 2007, 2008 the original author or authors.
+ * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *
+ * 
  *         http://www.apache.org/licenses/LICENSE-2.0
- *
+ * 
  * For more information visit
  *         http://72miles.com and
- *         http://architecturerules.googlecode.com/svn/docs/index.html
+ *         http://architecturerules.googlecode.com/
  */
+
 package com.seventytwomiles.architecturerules.exceptions;
 
 
 import com.seventytwomiles.architecturerules.domain.Rule;
 import junit.framework.TestCase;
 
+
 /**
  * <code>IllegalArchitectureRuleException Tester.</code>
  *
  * @author mikenereson
  */
-public class IllegalArchitectureRuleExceptionTest
-    extends TestCase
-{
-    public IllegalArchitectureRuleExceptionTest( final String name )
-    {
-        super( name );
+public class IllegalArchitectureRuleExceptionTest extends TestCase {
+
+    public IllegalArchitectureRuleExceptionTest(final String name) {
+        super(name);
     }
 
-    public void testInheritance(  )
-    {
-        assertTrue( ArchitectureException.class.isAssignableFrom( IllegalArchitectureRuleException.class ) );
+    public void testInheritance() {
+
+        assertTrue(ArchitectureException.class.isAssignableFrom(IllegalArchitectureRuleException.class));
     }
 
-    @SuppressWarnings( 
-            {"ThrowableInstanceNeverThrown",
+
+    @SuppressWarnings({"ThrowableInstanceNeverThrown",
         "ThrowableInstanceNeverThrown",
         "ThrowableInstanceNeverThrown"
-    }
-         )
-    public void testInterestingConstructors(  )
-    {
+    })
+    public void testInterestingConstructors() {
+
         IllegalArchitectureRuleException exception;
         String message;
         Throwable cause;
 
-        final Rule rule = new Rule(  );
-        rule.setId( "dao" );
-        rule.setComment( "dao layer" );
-        assertTrue( rule.addPackage( "com.seventytwomiles.dao" ) );
+        final Rule rule = new Rule();
+        rule.setId("dao");
+        rule.setComment("dao layer");
+        assertTrue(rule.addPackage("com.seventytwomiles.dao"));
 
-        exception =
-            new IllegalArchitectureRuleException( rule.getId(  ),
-                                                  rule.describePackages(  ) );
-        message = exception.getMessage(  );
-        cause = exception.getCause(  );
+        exception = new IllegalArchitectureRuleException(rule.getId(), rule.describePackages());
+        message = exception.getMessage();
+        cause = exception.getCause();
 
-        assertEquals( "rule 'dao' contains an invalid violation that refers to itself; remove violation 'com.seventytwomiles.dao' or change package",
-                      message );
-        assertEquals( null, cause );
+        assertEquals("rule 'dao' contains an invalid violation that refers to itself; remove violation 'com.seventytwomiles.dao' or change package", message);
+        assertEquals(null, cause);
 
-        exception =
-            new IllegalArchitectureRuleException( rule.getId(  ),
-                                                  rule.describePackages(  ),
-                                                  new IllegalArgumentException(  ) );
-        message = exception.getMessage(  );
-        cause = exception.getCause(  );
+        exception = new IllegalArchitectureRuleException(rule.getId(), rule.describePackages(), new IllegalArgumentException());
+        message = exception.getMessage();
+        cause = exception.getCause();
 
-        assertEquals( "rule 'dao' contains an invalid violation that refers to itself; remove violation 'com.seventytwomiles.dao' or change package",
-                      message );
-        assertTrue( cause instanceof IllegalArgumentException );
+        assertEquals("rule 'dao' contains an invalid violation that refers to itself; remove violation 'com.seventytwomiles.dao' or change package", message);
+        assertTrue(cause instanceof IllegalArgumentException);
     }
 
-    @SuppressWarnings( 
-            {"ThrowableInstanceNeverThrown",
+
+    @SuppressWarnings({"ThrowableInstanceNeverThrown",
         "ThrowableInstanceNeverThrown",
         "ThrowableInstanceNeverThrown",
         "ThrowableInstanceNeverThrown",
         "ThrowableInstanceNeverThrown",
         "ThrowableInstanceNeverThrown"
-    }
-         )
-    public void testTypicalConstructors(  )
-    {
+    })
+    public void testTypicalConstructors() {
+
         IllegalArchitectureRuleException exception;
         String message;
         Throwable cause;
 
-        exception = new IllegalArchitectureRuleException(  );
-        message = exception.getMessage(  );
-        cause = exception.getCause(  );
+        exception = new IllegalArchitectureRuleException();
+        message = exception.getMessage();
+        cause = exception.getCause();
 
-        assertEquals( "illegal architecture rule", message );
-        assertEquals( null, cause );
+        assertEquals("illegal architecture rule", message);
+        assertEquals(null, cause);
 
-        exception = new IllegalArchitectureRuleException( "oops, you broke an architecture rule" );
-        message = exception.getMessage(  );
-        cause = exception.getCause(  );
+        exception = new IllegalArchitectureRuleException("oops, you broke an architecture rule");
+        message = exception.getMessage();
+        cause = exception.getCause();
 
-        assertEquals( "oops, you broke an architecture rule", message );
-        assertEquals( null, cause );
+        assertEquals("oops, you broke an architecture rule", message);
+        assertEquals(null, cause);
 
-        exception = new IllegalArchitectureRuleException( new IllegalArgumentException(  ) );
-        message = exception.getMessage(  );
-        cause = exception.getCause(  );
+        exception = new IllegalArchitectureRuleException(new IllegalArgumentException());
+        message = exception.getMessage();
+        cause = exception.getCause();
 
-        assertEquals( "illegal architecture rule", message );
-        assertTrue( cause instanceof IllegalArgumentException );
+        assertEquals("illegal architecture rule", message);
+        assertTrue(cause instanceof IllegalArgumentException);
 
-        exception = new IllegalArchitectureRuleException( "oops, you broke an architecture rule",
-                                                          new IllegalArgumentException(  ) );
-        message = exception.getMessage(  );
-        cause = exception.getCause(  );
+        exception = new IllegalArchitectureRuleException("oops, you broke an architecture rule", new IllegalArgumentException());
+        message = exception.getMessage();
+        cause = exception.getCause();
 
-        assertEquals( "oops, you broke an architecture rule", message );
-        assertTrue( cause instanceof IllegalArgumentException );
+        assertEquals("oops, you broke an architecture rule", message);
+        assertTrue(cause instanceof IllegalArgumentException);
     }
 }

@@ -1,16 +1,17 @@
 /**
- * Copyright 2007 the original author or authors.
- *
+ * Copyright 2007, 2008 the original author or authors.
+ * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *
+ * 
  *         http://www.apache.org/licenses/LICENSE-2.0
- *
+ * 
  * For more information visit
  *         http://72miles.com and
- *         http://architecturerules.googlecode.com/svn/docs/index.html
+ *         http://architecturerules.googlecode.com/
  */
+
 package com.seventytwomiles.architecturerules.domain;
 
 
@@ -24,15 +25,17 @@ import java.io.File;
 import java.text.CharacterIterator;
 import java.text.StringCharacterIterator;
 
+
 /**
  * <p>Representation of a source directory to search for packages and .class
  * files in.</p>
  *
  * @author mikenereson
  */
-public class SourceDirectory
-{
-    protected static final Log log = LogFactory.getLog( SourceDirectory.class );
+public class SourceDirectory {
+
+    protected static final Log log = LogFactory.getLog(SourceDirectory.class);
+
 
     /**
      * <p>The value, which is set inside of the xml configuration file, which
@@ -42,6 +45,7 @@ public class SourceDirectory
      * @parameter NOT_FOUND_IGNORE String
      */
     private static final String NOT_FOUND_IGNORE = "ignore";
+
 
     /**
      * <p>The value, which is set inside of the xml configuration file, which
@@ -55,6 +59,7 @@ public class SourceDirectory
      */
     private static final String NOT_FOUND_EXCEPTION = "exception";
 
+
     /**
      * <p>When true, if this source {@link #path} is not found a
      * <code>SourceNotFoundException</code> will be thrown.</p>
@@ -64,8 +69,8 @@ public class SourceDirectory
      *
      * @parameter shouldThrowExceptionWhenNotFound boolean
      */
-    private boolean shouldThrowExceptionWhenNotFound =
-        ConfigurationFactory.DEFAULT_NO_PACKAGES_CONFIGURATION_BOOLEAN_VALUE;
+    private boolean shouldThrowExceptionWhenNotFound = ConfigurationFactory.DEFAULT_NO_PACKAGES_CONFIGURATION_BOOLEAN_VALUE;
+
 
     /**
      * <p>Relative url to the path to search in for .class files.</p>
@@ -73,6 +78,7 @@ public class SourceDirectory
      * @parameter path String
      */
     private String path;
+
 
     /**
      * <p>Holds the value in the xml configuration for the not-found
@@ -83,22 +89,25 @@ public class SourceDirectory
      */
     private String notFound;
 
+
     /**
      * <p>Instantiates a new SourceDirectory entity.</p>
      */
-    public SourceDirectory(  )
-    {
+    public SourceDirectory() {
+
     }
+
 
     /**
      * <p>Instantiates a new SourceDirectory with the given <tt>path</tt></p>
      *
      * @param path String {@link #path}
      */
-    public SourceDirectory( final String path )
-    {
-        setPath( path );
+    public SourceDirectory(final String path) {
+
+        setPath(path);
     }
+
 
     /**
      * <p>Instantiates a new SourceDirectory with the given <tt>path</tt> and
@@ -108,11 +117,12 @@ public class SourceDirectory
      * @param shouldThrowExceptionWhenNotFound boolean {@link
      * #shouldThrowExceptionWhenNotFound}
      */
-    public SourceDirectory( final String path, final boolean shouldThrowExceptionWhenNotFound )
-    {
-        setShouldThrowExceptionWhenNotFound( shouldThrowExceptionWhenNotFound );
-        setPath( path );
+    public SourceDirectory(final String path, final boolean shouldThrowExceptionWhenNotFound) {
+
+        setShouldThrowExceptionWhenNotFound(shouldThrowExceptionWhenNotFound);
+        setPath(path);
     }
+
 
     /**
      * Setter for property {@link #shouldThrowExceptionWhenNotFound}.
@@ -120,22 +130,23 @@ public class SourceDirectory
      * @param shouldThrowExceptionWhenNotFound Value to set for property
      * <tt>shouldThrowExceptionWhenNotFound</tt>.
      */
-    public void setShouldThrowExceptionWhenNotFound( final boolean shouldThrowExceptionWhenNotFound )
-    {
+    public void setShouldThrowExceptionWhenNotFound(final boolean shouldThrowExceptionWhenNotFound) {
+
         /**
          * Update notFound property so that the String value and boolean
          * values coincide
          */
-        if ( shouldThrowExceptionWhenNotFound )
-        {
+        if (shouldThrowExceptionWhenNotFound) {
+
             notFound = NOT_FOUND_EXCEPTION;
-        } else
-        {
+        } else {
+
             notFound = NOT_FOUND_IGNORE;
         }
 
         this.shouldThrowExceptionWhenNotFound = shouldThrowExceptionWhenNotFound;
     }
+
 
     /**
      * <p>Instantiates a new SourceDirectory with the given <tt>path</tt> and
@@ -144,83 +155,88 @@ public class SourceDirectory
      * @param path String {@link #path}
      * @param notFound boolean {@link @notFound}
      */
-    public SourceDirectory( final String path, final String notFound )
-    {
-        setPath( path );
-        setNotFound( notFound );
+    public SourceDirectory(final String path, final String notFound) {
+
+        setPath(path);
+        setNotFound(notFound);
     }
+
 
     /**
      * Setter for property 'notFound'.
      *
      * @param notFound Value to set for property 'notFound'.
      */
-    public void setNotFound( String notFound )
-    {
+    public void setNotFound(String notFound) {
+
         /**
          * When null, set to "null" so that the exception message that is about
          * to be thrown is meaningful.
          */
-        if ( notFound == null )
-        {
+        if (notFound == null) {
+
             notFound = "null";
         }
+
 
         /**
          * Validate input.
          * Expect either 'ignore' or 'exception'
          */
-        if ( ! ( notFound.equalsIgnoreCase( NOT_FOUND_IGNORE ) || notFound.equalsIgnoreCase( NOT_FOUND_EXCEPTION ) ) )
-        {
-            throw new IllegalArgumentException( String.format( "'not-found' property of '%s' is invalid. " +
-                                                               "valid values are %s and %s", notFound,
-                                                               NOT_FOUND_IGNORE, NOT_FOUND_EXCEPTION ) );
+        if (!(notFound.equalsIgnoreCase(NOT_FOUND_IGNORE) || notFound.equalsIgnoreCase(NOT_FOUND_EXCEPTION))) {
+
+            throw new IllegalArgumentException(String.format("'not-found' property of '%s' is invalid. " + "valid values are %s and %s", notFound, NOT_FOUND_IGNORE, NOT_FOUND_EXCEPTION));
         }
 
         this.notFound = notFound;
+
 
         /**
          * Update shouldThrowExceptionWhenNotFound property so that the
          * String value and boolean values coincide
          */
-        final boolean shouldThrowException = getNotFound(  ).equalsIgnoreCase( NOT_FOUND_EXCEPTION );
+        final boolean shouldThrowException = getNotFound().equalsIgnoreCase(NOT_FOUND_EXCEPTION);
 
-        setShouldThrowExceptionWhenNotFound( shouldThrowException );
+        setShouldThrowExceptionWhenNotFound(shouldThrowException);
     }
 
-    private String getNotFound(  )
-    {
+
+    private String getNotFound() {
+
         return this.notFound;
     }
+
 
     /**
      * <p>Getter for property {@link #path}.</p>
      *
      * @return Value for property <tt>path</tt>.
      */
-    public String getPath(  )
-    {
+    public String getPath() {
+
         return this.path;
     }
+
 
     /**
      * <p>Setter for property {@link #path}.</p>
      *
      * @param path Value to set for property <tt>path</tt>.
      */
-    public void setPath( final String path )
-    {
-        try
-        {
-            Assert.assertNotNull( path );
-            Assert.assertFalse( "".equals( path ) );
-        } catch ( final Throwable e )
-        {
-            throw new IllegalArgumentException( e.getMessage(  ) );
+    public void setPath(final String path) {
+
+        try {
+
+            Assert.assertNotNull(path);
+            Assert.assertFalse("".equals(path));
+        } catch (final Throwable e) {
+
+            throw new IllegalArgumentException(e.getMessage());
         }
 
-        this.path = replaceBackslashForOS( path );
+        this.path = replaceBackslashForOS(path);
     }
+
 
     /**
      * <p>Replaces inappropriate backslash with the appropriate slash based on
@@ -238,82 +254,86 @@ public class SourceDirectory
      * @param path String the path to fix
      * @return String the fixed path
      */
-    String replaceBackslashForOS( final String path )
-    {
-        final StringBuffer result = new StringBuffer(  );
+    String replaceBackslashForOS(final String path) {
 
-        final StringCharacterIterator iterator = new StringCharacterIterator( path );
+        final StringBuffer result = new StringBuffer();
 
-        char character = iterator.current(  );
+        final StringCharacterIterator iterator = new StringCharacterIterator(path);
 
-        final char goal = File.separator.toCharArray(  )[0];
-        final char target = ( ( goal == '\\' ) ? '/' : '\\' );
+        char character = iterator.current();
 
-        while ( character != CharacterIterator.DONE )
-        {
-            result.append( ( character == target ) ? goal : character );
-            character = iterator.next(  );
+        final char goal = File.separator.toCharArray()[0];
+        final char target = ((goal == '\\') ? '/' : '\\');
+
+        while (character != CharacterIterator.DONE) {
+
+            result.append((character == target) ? goal : character);
+            character = iterator.next();
         }
 
-        return result.toString(  );
+        return result.toString();
     }
+
 
     /**
      * @see Object#equals(Object)
      */
     @Override
-    public boolean equals( final Object object )
-    {
-        if ( this == object )
-        {
+    public boolean equals(final Object object) {
+
+        if (this == object) {
+
             return true;
         }
 
-        if ( object == null )
-        {
+        if (object == null) {
+
             return false;
         }
 
-        if ( ! ( object instanceof SourceDirectory ) )
-        {
+        if (!(object instanceof SourceDirectory)) {
+
             return false;
         }
 
         final SourceDirectory that = (SourceDirectory) object;
 
-        if ( ( path != null ) ? ( ! path.equals( that.getPath(  ) ) ) : ( that.getPath(  ) != null ) )
-        {
+        if ((path != null) ? (!path.equals(that.getPath())) : (that.getPath() != null)) {
+
             return false;
         }
 
         return true;
     }
 
+
     /**
      * @see Object#hashCode()
      */
     @Override
-    public int hashCode(  )
-    {
-        return ( ( this.path != null ) ? this.path.hashCode(  ) : 0 );
+    public int hashCode() {
+
+        return ((this.path != null) ? this.path.hashCode() : 0);
     }
+
 
     /**
      * @see Object#toString()
      */
     @Override
-    public String toString(  )
-    {
+    public String toString() {
+
         return this.path;
     }
+
 
     /**
      * Getter for property {@link #shouldThrowExceptionWhenNotFound}.
      *
      * @return Value for property <tt>shouldThrowExceptionWhenNotFound</tt>.
      */
-    public boolean shouldThrowExceptionWhenNotFound(  )
-    {
+    public boolean shouldThrowExceptionWhenNotFound() {
+
         return this.shouldThrowExceptionWhenNotFound;
     }
 }

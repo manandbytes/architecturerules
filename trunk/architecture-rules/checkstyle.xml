@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!--
 
-    Copyright 2007 the original author or authors.
+    Copyright 2007, 2008 the original author or authors.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -121,11 +121,11 @@
         <!-- Checks for whitespace                               -->
         <!-- See http://checkstyle.sf.net/config_whitespace.html -->
         <module name="EmptyForIteratorPad"/>
-        <module name="MethodParamPad"/>
+        <!--<module name="MethodParamPad"/>-->
         <module name="NoWhitespaceAfter"/>
         <module name="NoWhitespaceBefore"/>
         <module name="OperatorWrap"/>
-        <module name="ParenPad"/>
+        <!--<module name="ParenPad"/>-->
         <module name="TypecastParenPad"/>
         <module name="TabCharacter"/>
         <module name="WhitespaceAfter"/>

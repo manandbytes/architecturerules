@@ -1,19 +1,22 @@
 /**
- * Copyright 2007 the original author or authors.
- *
+ * Copyright 2007, 2008 the original author or authors.
+ * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *
+ * 
  *         http://www.apache.org/licenses/LICENSE-2.0
- *
+ * 
  * For more information visit
  *         http://72miles.com and
- *         http://architecturerules.googlecode.com/svn/docs/index.html
+ *         http://architecturerules.googlecode.com/
  */
+
 package com.seventytwomiles.architecturerules.exceptions;
 
+
 import java.util.Collection;
+
 
 /**
  * <p>Exception to be thrown when a configured source is not found and
@@ -23,32 +26,31 @@ import java.util.Collection;
  * @noinspection JavaDoc
  * @see ArchitectureException
  */
-public class SourceNotFoundException
-    extends ArchitectureException
-{
+public class SourceNotFoundException extends ArchitectureException {
+
     /**
      * @see RuntimeException#RuntimeException()
      */
-    public SourceNotFoundException(  )
-    {
-        super( "sources not found" );
+    public SourceNotFoundException() {
+        super("sources not found");
     }
+
 
     /**
      * @see RuntimeException#RuntimeException(String)
      */
-    public SourceNotFoundException( final String message )
-    {
-        super( message );
+    public SourceNotFoundException(final String message) {
+        super(message);
     }
+
 
     /**
      * @see RuntimeException#RuntimeException(Throwable)
      */
-    public SourceNotFoundException( final Throwable cause )
-    {
-        super( "sources not found", cause );
+    public SourceNotFoundException(final Throwable cause) {
+        super("sources not found", cause);
     }
+
 
     /**
      * <p>Instantiates a new SourceNotFoundException with a message containing
@@ -56,24 +58,17 @@ public class SourceNotFoundException
      *
      * @param sources
      */
-    public SourceNotFoundException( final Collection sources )
-    {
+    public SourceNotFoundException(final Collection sources) {
         // remove \\ from path because regex replace all removes them
         // remove the [ and ] at the ends of Collection.toString
-        super( "unable to find any source files in given source directories {0}".replaceAll( 
-                                                                                             "\\{0}",
-                                                                                             sources.toString(  )
-                                                                                                    .replaceAll( "\\\\",
-                                                                                                                 "/" ) )
-                                                                                .replaceAll( "\\[", "" )
-                                                                                .replaceAll( "\\]", "" ) );
+        super("unable to find any source files in given source directories {0}".replaceAll("\\{0}", sources.toString().replaceAll("\\\\", "/")).replaceAll("\\[", "").replaceAll("\\]", ""));
     }
+
 
     /**
      * @see RuntimeException#RuntimeException(String,Throwable)
      */
-    public SourceNotFoundException( final String message, final Throwable cause )
-    {
-        super( message, cause );
+    public SourceNotFoundException(final String message, final Throwable cause) {
+        super(message, cause);
     }
 }

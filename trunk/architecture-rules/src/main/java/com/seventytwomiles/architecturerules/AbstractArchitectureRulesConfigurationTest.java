@@ -1,19 +1,17 @@
 /**
  * Copyright 2007, 2008 the original author or authors.
- * 
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  *         http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * For more information visit
  *         http://72miles.com and
  *         http://architecturerules.googlecode.com/
  */
-
 package com.seventytwomiles.architecturerules;
-
 
 import com.seventytwomiles.architecturerules.configuration.Configuration;
 import com.seventytwomiles.architecturerules.configuration.ConfigurationFactory;
@@ -23,10 +21,11 @@ import com.seventytwomiles.architecturerules.services.CyclicRedundancyService;
 import com.seventytwomiles.architecturerules.services.CyclicRedundancyServiceImpl;
 import com.seventytwomiles.architecturerules.services.RulesService;
 import com.seventytwomiles.architecturerules.services.RulesServiceImpl;
+
 import junit.framework.TestCase;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-
 
 /**
  * <p>Abstract class that the users of this library will extend in order to create a unit test that asserts
@@ -39,10 +38,10 @@ import org.apache.commons.logging.LogFactory;
  * @author mikenereson
  * @noinspection PointlessBooleanExpression
  */
-public abstract class AbstractArchitectureRulesConfigurationTest extends TestCase {
-
-    protected static final Log log = LogFactory.getLog(AbstractArchitectureRulesConfigurationTest.class);
-
+public abstract class AbstractArchitectureRulesConfigurationTest
+    extends TestCase
+{
+    protected static final Log log = LogFactory.getLog( AbstractArchitectureRulesConfigurationTest.class );
 
     /**
      * <p>The <code>Configuration</code> containing the <code>SourceDirectory</code> and <code>Rules</code> to
@@ -50,26 +49,26 @@ public abstract class AbstractArchitectureRulesConfigurationTest extends TestCas
      *
      * @parameter configuration Configuration
      */
-    private final Configuration configuration = new Configuration();
+    private final Configuration configuration = new Configuration(  );
 
     /**
      * Upon instantiation, instances a new Configuration by reading the XML configuration file named
      * architecture-rules.xml (by default) or by reading the XMl file name by the <code>getConfigurationFileName</code>
      * method.
      */
-    protected AbstractArchitectureRulesConfigurationTest() {
-
+    protected AbstractArchitectureRulesConfigurationTest(  )
+    {
         /* 1. load configuration if a configuration file name was provided */
-        final String configurationFileName = getConfigurationFileName();
+        final String configurationFileName = getConfigurationFileName(  );
 
         final ConfigurationFactory configurationFactory;
 
-        if ((configurationFileName != null) && (configurationFileName.length() > 0)) {
-
-            configurationFactory = new DigesterConfigurationFactory(configurationFileName);
-            configuration.getRules().addAll(configurationFactory.getRules());
-            configuration.getSources().addAll(configurationFactory.getSources());
-            configuration.setDoCyclicDependencyTest(configurationFactory.doCyclicDependencyTest());
+        if ( ( configurationFileName != null ) && ( configurationFileName.length(  ) > 0 ) )
+        {
+            configurationFactory = new DigesterConfigurationFactory( configurationFileName );
+            configuration.getRules(  ).addAll( configurationFactory.getRules(  ) );
+            configuration.getSources(  ).addAll( configurationFactory.getSources(  ) );
+            configuration.setDoCyclicDependencyTest( configurationFactory.doCyclicDependencyTest(  ) );
         }
     }
 
@@ -81,49 +80,47 @@ public abstract class AbstractArchitectureRulesConfigurationTest extends TestCas
      * @return String name of the xml file including <samp>.xml</samp>
      * @see ConfigurationFactory#DEFAULT_CONFIGURATION_FILE_NAME
      */
-    protected String getConfigurationFileName() {
-
+    protected String getConfigurationFileName(  )
+    {
         return ConfigurationFactory.DEFAULT_CONFIGURATION_FILE_NAME;
     }
-
 
     /**
      * Getter for property {@link #configuration}.
      *
      * @return Value for property <tt>configuration</tt>.
      */
-    protected Configuration getConfiguration() {
-
+    protected Configuration getConfiguration(  )
+    {
         return configuration;
     }
-
 
     /**
      * <p>Runs tests that are configured either programmatically, or by the XML configuration file that is loaded.</p>
      *
      * @return boolean <tt>true</tt> when the tests all pass.
      */
-    protected final boolean doTests() {
+    protected final boolean doTests(  )
+    {
+        final RulesService rulesService = new RulesServiceImpl( new UnmodifiableConfiguration( configuration ) );
 
-        final RulesService rulesService = new RulesServiceImpl(new UnmodifiableConfiguration(configuration));
+        final boolean rulesResults = rulesService.performRulesTest(  );
 
-        final boolean rulesResults = rulesService.performRulesTest();
+        if ( configuration.shouldDoCyclicDependencyTest(  ) )
+        {
+            final UnmodifiableConfiguration unmodifiableConfiguration = new UnmodifiableConfiguration( configuration );
 
-        if (configuration.shouldDoCyclicDependencyTest()) {
+            final CyclicRedundancyService redundancyService =
+                new CyclicRedundancyServiceImpl( unmodifiableConfiguration );
 
-            final UnmodifiableConfiguration unmodifiableConfiguration = new UnmodifiableConfiguration(configuration);
-
-            final CyclicRedundancyService redundancyService = new CyclicRedundancyServiceImpl(unmodifiableConfiguration);
-
-            redundancyService.performCyclicRedundancyCheck();
+            redundancyService.performCyclicRedundancyCheck(  );
         }
 
         return rulesResults;
     }
 
-
     /**
      * <p>Implement this method and call {@link #doTests}</p>
      */
-    public abstract void testArchitecture();
+    public abstract void testArchitecture(  );
 }

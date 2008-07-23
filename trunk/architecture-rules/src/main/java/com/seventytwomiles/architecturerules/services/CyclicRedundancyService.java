@@ -1,22 +1,19 @@
 /**
  * Copyright 2007, 2008 the original author or authors.
- * 
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  *         http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * For more information visit
  *         http://72miles.com and
  *         http://architecturerules.googlecode.com/
  */
-
 package com.seventytwomiles.architecturerules.services;
 
-
 import com.seventytwomiles.architecturerules.exceptions.CyclicRedundancyException;
-
 
 /**
  * <p>Interface for the CyclicRedundancyService to provide a contract for
@@ -25,14 +22,14 @@ import com.seventytwomiles.architecturerules.exceptions.CyclicRedundancyExceptio
  *
  * @author mikenereson
  */
-public interface CyclicRedundancyService {
-
+public interface CyclicRedundancyService
+{
     /**
      * <p>Check all the packages in all of the source directories and search for
      * any cyclic redundancy</p>
      *
      * @throws CyclicRedundancyException when cyclic redundancy is found
      */
-    void performCyclicRedundancyCheck()
-            throws CyclicRedundancyException;
+    void performCyclicRedundancyCheck(  )
+                               throws CyclicRedundancyException;
 }

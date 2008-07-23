@@ -1,19 +1,17 @@
 /**
  * Copyright 2007, 2008 the original author or authors.
- * 
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  *         http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * For more information visit
  *         http://72miles.com and
  *         http://architecturerules.googlecode.com/
  */
-
 package com.seventytwomiles.architecturerules.configuration;
-
 
 import com.seventytwomiles.architecturerules.domain.Rule;
 import com.seventytwomiles.architecturerules.domain.SourceDirectory;
@@ -21,15 +19,14 @@ import com.seventytwomiles.architecturerules.domain.SourceDirectory;
 import java.util.Collection;
 import java.util.List;
 
-
 /**
  * <p>Interface for <code>ConfigurationFactory</code> implementations to adhere
  * to.</p>
  *
  * @author mikenereson
  */
-public interface ConfigurationFactory {
-
+public interface ConfigurationFactory
+{
     /**
      * <p>Holds the default value that should be used when no configuration is
      * entered into the XML configuration file for the cyclic dependency
@@ -38,7 +35,6 @@ public interface ConfigurationFactory {
      * @parameter DEFAULT_CYCLICAL_DEPENDENCY_CONFIGURATION_VALUE String
      */
     public static final String DEFAULT_CYCLICAL_DEPENDENCY_CONFIGURATION_VALUE = "true";
-
 
     /**
      * <p>Holds the default value that should be used when no configuration is
@@ -49,14 +45,12 @@ public interface ConfigurationFactory {
      */
     public static final boolean DEFAULT_NO_PACKAGES_CONFIGURATION_BOOLEAN_VALUE = false;
 
-
     /**
      * <p>The default name of the file containing the XML configuration.</p>
      *
      * @parameter DEFAULT_CONFIGURATION_FILE_NAME String
      */
     public static final String DEFAULT_CONFIGURATION_FILE_NAME = "architecture-rules.xml";
-
 
     /**
      * <p>Holds the value parsed from the XML configuration that indicates
@@ -65,24 +59,21 @@ public interface ConfigurationFactory {
      * @return boolean <tt>true</tt> when <samp>&lt;cyclicalDependency
      *         test="true"/> </samp>
      */
-    boolean doCyclicDependencyTest();
-
+    boolean doCyclicDependencyTest(  );
 
     /**
      * <p>Getter for property {@link //rules}.</p>
      *
      * @return Value for property <tt>rules</tt>.
      */
-    Collection<Rule> getRules();
-
+    Collection<Rule> getRules(  );
 
     /**
      * <p>Getter for property {@link //sources}.</p>
      *
      * @return Value for property <tt>sources</tt>.
      */
-    List<SourceDirectory> getSources();
-
+    List<SourceDirectory> getSources(  );
 
     /**
      * <p>Holds the value parsed from the XML configuration that indicates
@@ -92,5 +83,5 @@ public interface ConfigurationFactory {
      * @return boolean <tt>true</tt> when <samp>&lt;sources
      *         no-packages="exception"> </samp>
      */
-    boolean throwExceptionWhenNoPackages();
+    boolean throwExceptionWhenNoPackages(  );
 }

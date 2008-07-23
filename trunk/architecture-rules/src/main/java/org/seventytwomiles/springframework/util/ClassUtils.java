@@ -1,19 +1,17 @@
 /**
  * Copyright 2007, 2008 the original author or authors.
- * 
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  *         http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * For more information visit
  *         http://72miles.com and
  *         http://architecturerules.googlecode.com/
  */
-
 package org.seventytwomiles.springframework.util;
-
 
 
 /**
@@ -29,8 +27,8 @@ package org.seventytwomiles.springframework.util;
  * @author Rob Harrop
  * @author Juergen Hoeller
  */
-public class ClassUtils {
-
+public class ClassUtils
+{
     /**
      * <p>Return a default <code>ClassLoader</code> to use (never
      * <code>null</code>). Returns the thread context ClassLoader, if available.
@@ -44,14 +42,14 @@ public class ClassUtils {
      * @return ClassLoader
      * @see java.lang.Thread#getContextClassLoader()
      */
-    public static ClassLoader getDefaultClassLoader() {
-
-        ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
+    public static ClassLoader getDefaultClassLoader(  )
+    {
+        ClassLoader classLoader = Thread.currentThread(  ).getContextClassLoader(  );
 
         // No thread context class loader -> use class loader of this class.
-        if (classLoader == null) {
-
-            classLoader = ClassUtils.class.getClassLoader();
+        if ( classLoader == null )
+        {
+            classLoader = ClassUtils.class.getClassLoader(  );
         }
 
         return classLoader;

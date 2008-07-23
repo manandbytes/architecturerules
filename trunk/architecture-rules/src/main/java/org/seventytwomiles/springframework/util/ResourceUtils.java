@@ -1,25 +1,22 @@
 /**
  * Copyright 2007, 2008 the original author or authors.
- * 
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  *         http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * For more information visit
  *         http://72miles.com and
  *         http://architecturerules.googlecode.com/
  */
-
 package org.seventytwomiles.springframework.util;
-
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.net.URL;
 import java.net.URLDecoder;
-
 
 /**
  * <p>Utility methods for resolving resource locations to files in the file
@@ -29,15 +26,14 @@ import java.net.URLDecoder;
  *
  * @author Juergen Hoeller
  */
-public abstract class ResourceUtils {
-
+public abstract class ResourceUtils
+{
     /**
      * <p>URL protocol for a file in the file system: "file"</p>
      *
      * @parameter
      */
     private static final String URL_PROTOCOL_FILE = "file";
-
 
     /**
      * <p>Resolve the given resource URL to a <code>java.io.File</code>, i.e. to
@@ -50,19 +46,21 @@ public abstract class ResourceUtils {
      * @throws FileNotFoundException if the URL cannot be resolved to a file in
      * the file system
      */
-    public static File getFile(final URL resourceUrl, final String description)
-            throws FileNotFoundException {
-
-        if ((null == resourceUrl) || "".equals(resourceUrl)) {
-
-            throw new IllegalArgumentException("resourceUrl must not be null");
+    public static File getFile( final URL resourceUrl, final String description )
+                        throws FileNotFoundException
+    {
+        if ( ( null == resourceUrl ) || "".equals( resourceUrl ) )
+        {
+            throw new IllegalArgumentException( "resourceUrl must not be null" );
         }
 
-        if (!URL_PROTOCOL_FILE.equals(resourceUrl.getProtocol())) {
-
-            throw new FileNotFoundException(description + " cannot be resolved to absolute file path  because it does not reside in the file system: " + resourceUrl);
+        if ( ! URL_PROTOCOL_FILE.equals( resourceUrl.getProtocol(  ) ) )
+        {
+            throw new FileNotFoundException( description +
+                                             " cannot be resolved to absolute file path  because it does not reside in the file system: " +
+                                             resourceUrl );
         }
 
-        return new File(URLDecoder.decode(resourceUrl.getFile()));
+        return new File( URLDecoder.decode( resourceUrl.getFile(  ) ) );
     }
 }

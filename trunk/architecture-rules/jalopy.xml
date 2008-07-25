@@ -139,9 +139,9 @@
                 <braceLeft>1</braceLeft>
                 <caseBlock>1</caseBlock>
                 <comment>
-                    <javadoc>2</javadoc>
-                    <multiline>2</multiline>
-                    <singleline>2</singleline>
+                    <javadoc>1</javadoc>
+                    <multiline>1</multiline>
+                    <singleline>1</singleline>
                 </comment>
                 <controlStatement>1</controlStatement>
                 <declaration>1</declaration>

@@ -9,22 +9,25 @@
  *
  * For more information visit
  *         http://72miles.com and
- *         http://architecturerules.googlecode.com/
+ *         http://architecturerules.googlecode.com
  */
 package test.com.seventytwomiles.services;
+
 
 import test.com.seventytwomiles.model.Person;
 
 import java.util.Collection;
+
 
 /**
  * <p>Test service interface.</p>
  *
  * @author mikenereson
  */
-public interface PersonService
-{
-    void createPerson( final Person person );
+public interface PersonService {
 
-    Collection loadPersons(  );
+    void createPerson(final Person person);
+
+
+    Collection loadPersons();
 }

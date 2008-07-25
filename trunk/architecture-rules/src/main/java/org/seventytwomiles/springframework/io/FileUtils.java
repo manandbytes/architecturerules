@@ -9,11 +9,13 @@
  *
  * For more information visit
  *         http://72miles.com and
- *         http://architecturerules.googlecode.com/
+ *         http://architecturerules.googlecode.com
  */
 package org.seventytwomiles.springframework.io;
 
+
 import java.io.*;
+
 
 /**
  * <p>FileUtils utility class extracted from the Spring Framework in order to
@@ -36,14 +38,15 @@ import java.io.*;
  * @author Niall Pemberton
  * @author Sandy McArthur
  */
-public class FileUtils
-{
+public class FileUtils {
+
     /**
      * <p>The default buffer size to use.</p>
      *
      * @parameter DEFAULT_BUFFER_SIZE int
      */
     private static final int DEFAULT_BUFFER_SIZE = 1024 * 4;
+
 
     /**
      * <p> Reads the contents of a file into a String. There is no
@@ -58,19 +61,20 @@ public class FileUtils
      * @throws UnsupportedEncodingException if the encoding is not supported by
      * the VM
      */
-    public static String readFileToString( final File file, final String encoding )
-                                   throws IOException
-    {
-        final InputStream inputStream = new FileInputStream( file );
+    public static String readFileToString(final File file, final String encoding)
+            throws IOException {
 
-        try
-        {
-            return toString( inputStream, encoding );
-        } finally
-        {
-            closeQuietly( inputStream );
+        final InputStream inputStream = new FileInputStream(file);
+
+        try {
+
+            return toString(inputStream, encoding);
+        } finally {
+
+            closeQuietly(inputStream);
         }
     }
+
 
     /**
      * <p>Get the contents of an <code>InputStream</code> as a String using the
@@ -85,15 +89,16 @@ public class FileUtils
      * @throws NullPointerException if the input is null
      * @throws IOException if an I/O error occurs
      */
-    public static String toString( final InputStream input, final String encoding )
-                           throws IOException
-    {
-        final StringWriter stringWriter = new StringWriter(  );
+    public static String toString(final InputStream input, final String encoding)
+            throws IOException {
 
-        copy( input, stringWriter, encoding );
+        final StringWriter stringWriter = new StringWriter();
 
-        return stringWriter.toString(  );
+        copy(input, stringWriter, encoding);
+
+        return stringWriter.toString();
     }
+
 
     /**
      * <p>Copy bytes from an <code>InputStream</code> to chars on a
@@ -108,12 +113,13 @@ public class FileUtils
      * @throws IOException if an I/O error occurs
      * @since Commons IO 1.1
      */
-    public static void copy( final InputStream input, final Writer output )
-                     throws IOException
-    {
-        final InputStreamReader inputStreamReader = new InputStreamReader( input );
-        copy( inputStreamReader, output );
+    public static void copy(final InputStream input, final Writer output)
+            throws IOException {
+
+        final InputStreamReader inputStreamReader = new InputStreamReader(input);
+        copy(inputStreamReader, output);
     }
+
 
     /**
      * <p>Copy bytes from an <code>InputStream</code> to chars on a
@@ -130,18 +136,19 @@ public class FileUtils
      * @throws IOException if an I/O error occurs
      * @since Commons IO 1.1
      */
-    public static void copy( final InputStream inputStream, final Writer outputStream, final String encoding )
-                     throws IOException
-    {
-        if ( encoding == null )
-        {
-            copy( inputStream, outputStream );
-        } else
-        {
-            final InputStreamReader inputStreamReader = new InputStreamReader( inputStream, encoding );
-            copy( inputStreamReader, outputStream );
+    public static void copy(final InputStream inputStream, final Writer outputStream, final String encoding)
+            throws IOException {
+
+        if (encoding == null) {
+
+            copy(inputStream, outputStream);
+        } else {
+
+            final InputStreamReader inputStreamReader = new InputStreamReader(inputStream, encoding);
+            copy(inputStreamReader, outputStream);
         }
     }
+
 
     /**
      * <p>Copy chars from a <code>Reader</code> to a <code>Writer</code>. <p>
@@ -155,22 +162,23 @@ public class FileUtils
      * @throws IOException if an I/O error occurs
      * @since Commons IO 1.1
      */
-    public static int copy( final Reader input, final Writer output )
-                    throws IOException
-    {
+    public static int copy(final Reader input, final Writer output)
+            throws IOException {
+
         final char[] buffer = new char[DEFAULT_BUFFER_SIZE];
 
         int count = 0;
         int n;
 
-        while ( -1 != ( n = input.read( buffer ) ) )
-        {
-            output.write( buffer, 0, n );
+        while (-1 != (n = input.read(buffer))) {
+
+            output.write(buffer, 0, n);
             count += n;
         }
 
         return count;
     }
+
 
     /**
      * <code>Copy chars from a <code>Reader</code> to bytes on an
@@ -186,14 +194,15 @@ public class FileUtils
      * @throws IOException if an I/O error occurs
      * @since Commons IO 1.1
      */
-    public static void copy( final Reader input, final OutputStream output )
-                     throws IOException
-    {
-        final OutputStreamWriter out = new OutputStreamWriter( output );
+    public static void copy(final Reader input, final OutputStream output)
+            throws IOException {
 
-        copy( input, out );
-        out.flush(  );
+        final OutputStreamWriter out = new OutputStreamWriter(output);
+
+        copy(input, out);
+        out.flush();
     }
+
 
     /**
      * <code>Unconditionally close an <code>InputStream</code>. <p> Equivalent
@@ -202,16 +211,16 @@ public class FileUtils
      *
      * @param input the InputStream to close, may be null or already closed
      */
-    public static void closeQuietly( final InputStream input )
-    {
-        try
-        {
-            if ( input != null )
-            {
-                input.close(  );
+    public static void closeQuietly(final InputStream input) {
+
+        try {
+
+            if (input != null) {
+
+                input.close();
             }
-        } catch ( IOException ioe )
-        {
+        } catch (IOException ioe) {
+
             // ignore
         }
     }

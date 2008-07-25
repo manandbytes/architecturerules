@@ -9,9 +9,10 @@
  *
  * For more information visit
  *         http://72miles.com and
- *         http://architecturerules.googlecode.com/
+ *         http://architecturerules.googlecode.com
  */
 package com.seventytwomiles.architecturerules.exceptions;
+
 
 
 /**
@@ -21,40 +22,36 @@ package com.seventytwomiles.architecturerules.exceptions;
  * @author mikenereson
  * @see ArchitectureException
  */
-public class NoPackagesFoundException
-    extends ArchitectureException
-{
+public class NoPackagesFoundException extends ArchitectureException {
+
     /**
      * @see RuntimeException#RuntimeException()
      */
-    public NoPackagesFoundException(  )
-    {
-        super( "no packages found" );
+    public NoPackagesFoundException() {
+        super("no packages found");
     }
+
 
     /**
      * @see RuntimeException#RuntimeException(Throwable)
      */
-    public NoPackagesFoundException( final Throwable cause )
-    {
-        super( "no packages found", cause );
+    public NoPackagesFoundException(final Throwable cause) {
+        super("no packages found", cause);
     }
+
 
     /**
      * @see RuntimeException#RuntimeException(String)
      */
-    public NoPackagesFoundException( final String path )
-    {
-        super( "source directory '{0}' does not exist or can not be found".replaceAll( 
-                                                                                       "\\{0}",
-                                                                                       path.replaceAll( "\\\\", "/" ) ) );
+    public NoPackagesFoundException(final String path) {
+        super("source directory '{0}' does not exist or can not be found".replaceAll("\\{0}", path.replaceAll("\\\\", "/")));
     }
+
 
     /**
      * @see RuntimeException#RuntimeException(String,Throwable)
      */
-    public NoPackagesFoundException( final String message, final Throwable cause )
-    {
-        super( message, cause );
+    public NoPackagesFoundException(final String message, final Throwable cause) {
+        super(message, cause);
     }
 }

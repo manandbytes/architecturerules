@@ -9,16 +9,17 @@
  *
  * For more information visit
  *         http://72miles.com and
- *         http://architecturerules.googlecode.com/
+ *         http://architecturerules.googlecode.com
  */
 package com.seventytwomiles.architecturerules.configuration.xml;
 
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-
 import org.xml.sax.ErrorHandler;
 import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
+
 
 /**
  * <p>Implementation of <code>ErrorHandler</code> to handle errors within
@@ -27,35 +28,37 @@ import org.xml.sax.SAXParseException;
  * @author mikenereson
  * @see ErrorHandler
  */
-class SaxErrorHandler
-    implements ErrorHandler
-{
-    protected static final Log log = LogFactory.getLog( SaxErrorHandler.class );
+class SaxErrorHandler implements ErrorHandler {
+
+    protected static final Log log = LogFactory.getLog(SaxErrorHandler.class);
+
 
     /**
      * @see ErrorHandler#error(SAXParseException)
      */
-    public void error( final SAXParseException exception )
-               throws SAXException
-    {
-        log.error( "error", exception );
+    public void error(final SAXParseException exception)
+            throws SAXException {
+
+        log.error("error", exception);
     }
+
 
     /**
      * @see ErrorHandler#fatalError(SAXParseException)
      */
-    public void fatalError( final SAXParseException exception )
-                    throws SAXException
-    {
-        log.error( "fatal error", exception );
+    public void fatalError(final SAXParseException exception)
+            throws SAXException {
+
+        log.error("fatal error", exception);
     }
+
 
     /**
      * @see ErrorHandler#warning(SAXParseException)
      */
-    public void warning( final SAXParseException exception )
-                 throws SAXException
-    {
-        log.warn( exception );
+    public void warning(final SAXParseException exception)
+            throws SAXException {
+
+        log.warn(exception);
     }
 }

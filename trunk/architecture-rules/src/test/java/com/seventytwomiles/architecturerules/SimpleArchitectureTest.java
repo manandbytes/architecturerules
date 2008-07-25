@@ -9,9 +9,10 @@
  *
  * For more information visit
  *         http://72miles.com and
- *         http://architecturerules.googlecode.com/
+ *         http://architecturerules.googlecode.com
  */
 package com.seventytwomiles.architecturerules;
+
 
 
 /**
@@ -20,15 +21,14 @@ package com.seventytwomiles.architecturerules;
  * @author mikenereson
  * @see AbstractArchitectureRulesConfigurationTest
  */
-public class SimpleArchitectureTest
-    extends AbstractArchitectureRulesConfigurationTest
-{
+public class SimpleArchitectureTest extends AbstractArchitectureRulesConfigurationTest {
+
     /**
      * @see AbstractArchitectureRulesConfigurationTest
      */
     @Override
-    public String getConfigurationFileName(  )
-    {
+    public String getConfigurationFileName() {
+
         /**
          * Provide the name of the rules configuration file. File file is
          * loaded from the classpath.
@@ -36,17 +36,18 @@ public class SimpleArchitectureTest
         return "architecture-rules.xml";
     }
 
+
     /**
      * @see AbstractArchitectureRulesConfigurationTest#testArchitecture()
      */
     @Override
-    public void testArchitecture(  )
-    {
+    public void testArchitecture() {
+
         /**
          * Run the test via doTest(). If any rules are broken, or if
          * the configuration can not be loaded properly, then the appropriate
          * Exception will be thrown.
          */
-        assertTrue( doTests(  ) );
+        assertTrue(doTests());
     }
 }

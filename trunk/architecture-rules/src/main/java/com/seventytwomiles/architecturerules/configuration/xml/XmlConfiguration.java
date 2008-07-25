@@ -9,9 +9,10 @@
  *
  * For more information visit
  *         http://72miles.com and
- *         http://architecturerules.googlecode.com/
+ *         http://architecturerules.googlecode.com
  */
 package com.seventytwomiles.architecturerules.configuration.xml;
+
 
 
 /**
@@ -19,12 +20,13 @@ package com.seventytwomiles.architecturerules.configuration.xml;
  *
  * @author mikenereson
  */
-class XmlConfiguration
-{
+class XmlConfiguration {
+
     /**
      * Cyclic dependency
      */
     public static final String cyclicalDependency = "architecture/configuration/cyclicalDependency";
+
 
     /**
      * Sources
@@ -37,6 +39,7 @@ class XmlConfiguration
     public static final String configuration = "architecture/configuration";
     public static final String sources = "architecture/configuration/sources";
     public static final String source = "architecture/configuration/sources/source";
+
 
     /**
      * Rules

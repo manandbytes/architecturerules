@@ -9,9 +9,10 @@
  *
  * For more information visit
  *         http://72miles.com and
- *         http://architecturerules.googlecode.com/
+ *         http://architecturerules.googlecode.com
  */
 package com.seventytwomiles.architecturerules;
+
 
 import com.seventytwomiles.architecturerules.configuration.Configuration;
 import com.seventytwomiles.architecturerules.configuration.ConfigurationFactory;
@@ -21,11 +22,10 @@ import com.seventytwomiles.architecturerules.services.CyclicRedundancyService;
 import com.seventytwomiles.architecturerules.services.CyclicRedundancyServiceImpl;
 import com.seventytwomiles.architecturerules.services.RulesService;
 import com.seventytwomiles.architecturerules.services.RulesServiceImpl;
-
 import junit.framework.TestCase;
-
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+
 
 /**
  * <p>Abstract class that the users of this library will extend in order to create a unit test that asserts
@@ -38,10 +38,10 @@ import org.apache.commons.logging.LogFactory;
  * @author mikenereson
  * @noinspection PointlessBooleanExpression
  */
-public abstract class AbstractArchitectureRulesConfigurationTest
-    extends TestCase
-{
-    protected static final Log log = LogFactory.getLog( AbstractArchitectureRulesConfigurationTest.class );
+public abstract class AbstractArchitectureRulesConfigurationTest extends TestCase {
+
+    protected static final Log log = LogFactory.getLog(AbstractArchitectureRulesConfigurationTest.class);
+
 
     /**
      * <p>The <code>Configuration</code> containing the <code>SourceDirectory</code> and <code>Rules</code> to
@@ -49,28 +49,30 @@ public abstract class AbstractArchitectureRulesConfigurationTest
      *
      * @parameter configuration Configuration
      */
-    private final Configuration configuration = new Configuration(  );
+    private final Configuration configuration = new Configuration();
+
 
     /**
      * Upon instantiation, instances a new Configuration by reading the XML configuration file named
      * architecture-rules.xml (by default) or by reading the XMl file name by the <code>getConfigurationFileName</code>
      * method.
      */
-    protected AbstractArchitectureRulesConfigurationTest(  )
-    {
+    protected AbstractArchitectureRulesConfigurationTest() {
+
         /* 1. load configuration if a configuration file name was provided */
-        final String configurationFileName = getConfigurationFileName(  );
+        final String configurationFileName = getConfigurationFileName();
 
         final ConfigurationFactory configurationFactory;
 
-        if ( ( configurationFileName != null ) && ( configurationFileName.length(  ) > 0 ) )
-        {
-            configurationFactory = new DigesterConfigurationFactory( configurationFileName );
-            configuration.getRules(  ).addAll( configurationFactory.getRules(  ) );
-            configuration.getSources(  ).addAll( configurationFactory.getSources(  ) );
-            configuration.setDoCyclicDependencyTest( configurationFactory.doCyclicDependencyTest(  ) );
+        if ((configurationFileName != null) && (configurationFileName.length() > 0)) {
+
+            configurationFactory = new DigesterConfigurationFactory(configurationFileName);
+            configuration.getRules().addAll(configurationFactory.getRules());
+            configuration.getSources().addAll(configurationFactory.getSources());
+            configuration.setDoCyclicDependencyTest(configurationFactory.doCyclicDependencyTest());
         }
     }
+
 
     /* ----------------------------------------------------- abstract methods */
     /**
@@ -80,47 +82,49 @@ public abstract class AbstractArchitectureRulesConfigurationTest
      * @return String name of the xml file including <samp>.xml</samp>
      * @see ConfigurationFactory#DEFAULT_CONFIGURATION_FILE_NAME
      */
-    protected String getConfigurationFileName(  )
-    {
+    protected String getConfigurationFileName() {
+
         return ConfigurationFactory.DEFAULT_CONFIGURATION_FILE_NAME;
     }
+
 
     /**
      * Getter for property {@link #configuration}.
      *
      * @return Value for property <tt>configuration</tt>.
      */
-    protected Configuration getConfiguration(  )
-    {
+    protected Configuration getConfiguration() {
+
         return configuration;
     }
+
 
     /**
      * <p>Runs tests that are configured either programmatically, or by the XML configuration file that is loaded.</p>
      *
      * @return boolean <tt>true</tt> when the tests all pass.
      */
-    protected final boolean doTests(  )
-    {
-        final RulesService rulesService = new RulesServiceImpl( new UnmodifiableConfiguration( configuration ) );
+    protected final boolean doTests() {
 
-        final boolean rulesResults = rulesService.performRulesTest(  );
+        final RulesService rulesService = new RulesServiceImpl(new UnmodifiableConfiguration(configuration));
 
-        if ( configuration.shouldDoCyclicDependencyTest(  ) )
-        {
-            final UnmodifiableConfiguration unmodifiableConfiguration = new UnmodifiableConfiguration( configuration );
+        final boolean rulesResults = rulesService.performRulesTest();
 
-            final CyclicRedundancyService redundancyService =
-                new CyclicRedundancyServiceImpl( unmodifiableConfiguration );
+        if (configuration.shouldDoCyclicDependencyTest()) {
 
-            redundancyService.performCyclicRedundancyCheck(  );
+            final UnmodifiableConfiguration unmodifiableConfiguration = new UnmodifiableConfiguration(configuration);
+
+            final CyclicRedundancyService redundancyService = new CyclicRedundancyServiceImpl(unmodifiableConfiguration);
+
+            redundancyService.performCyclicRedundancyCheck();
         }
 
         return rulesResults;
     }
 
+
     /**
      * <p>Implement this method and call {@link #doTests}</p>
      */
-    public abstract void testArchitecture(  );
+    public abstract void testArchitecture();
 }

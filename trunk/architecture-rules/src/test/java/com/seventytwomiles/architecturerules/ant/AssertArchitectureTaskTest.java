@@ -9,84 +9,86 @@
  *
  * For more information visit
  *         http://72miles.com and
- *         http://architecturerules.googlecode.com/
+ *         http://architecturerules.googlecode.com
  */
 package com.seventytwomiles.architecturerules.ant;
 
-import com.seventytwomiles.architecturerules.exceptions.CyclicRedundancyException;
 
+import com.seventytwomiles.architecturerules.exceptions.CyclicRedundancyException;
 import junit.framework.TestCase;
+
 
 /**
  * <p><code>AssertArchitectureTask</code> Tester.</p>
  *
  * @author mikenereson
  */
-public class AssertArchitectureTaskTest
-    extends TestCase
-{
+public class AssertArchitectureTaskTest extends TestCase {
+
     private AssertArchitectureTask task;
 
-    public AssertArchitectureTaskTest( final String name )
-    {
-        super( name );
+    public AssertArchitectureTaskTest(final String name) {
+        super(name);
     }
+
 
     /**
      * @see TestCase#setUp()
      */
     @Override
-    protected void setUp(  )
-                  throws Exception
-    {
-        super.setUp(  );
+    protected void setUp()
+            throws Exception {
 
-        task = new AssertArchitectureTask(  );
+        super.setUp();
+
+        task = new AssertArchitectureTask();
     }
 
-    public void testExecute(  )
-                     throws Exception
-    {
-        try
-        {
-            task.setConfigurationFileName( "architecture-rules.xml" );
-            task.execute(  );
-        } catch ( Exception e )
-        {
-            assertTrue( e instanceof CyclicRedundancyException );
+
+    public void testExecute()
+            throws Exception {
+
+        try {
+
+            task.setConfigurationFileName("architecture-rules.xml");
+            task.execute();
+        } catch (Exception e) {
+
+            assertTrue(e instanceof CyclicRedundancyException);
         }
     }
 
-    public void testExecute_invalidArguments(  )
-                                      throws Exception
-    {
-        try
-        {
-            task.execute(  );
-            fail( "expected IllegalStateException" );
-        } catch ( Exception e )
-        {
-            assertTrue( e instanceof IllegalStateException );
+
+    public void testExecute_invalidArguments()
+            throws Exception {
+
+        try {
+
+            task.execute();
+            fail("expected IllegalStateException");
+        } catch (Exception e) {
+
+            assertTrue(e instanceof IllegalStateException);
         }
 
-        try
-        {
-            task.setConfigurationFileName( null );
-            task.execute(  );
-            fail( "expected IllegalStateException" );
-        } catch ( Exception e )
-        {
-            assertTrue( e instanceof IllegalStateException );
+        try {
+
+            task.setConfigurationFileName(null);
+            task.execute();
+            fail("expected IllegalStateException");
+        } catch (Exception e) {
+
+            assertTrue(e instanceof IllegalStateException);
         }
 
-        try
-        {
-            task.setConfigurationFileName( "" );
-            task.execute(  );
-            fail( "expected IllegalStateException" );
-        } catch ( Exception e )
-        {
-            assertTrue( e instanceof IllegalStateException );
+        try {
+
+            task.setConfigurationFileName("");
+            task.execute();
+            fail("expected IllegalStateException");
+        } catch (Exception e) {
+
+            assertTrue(e instanceof IllegalStateException);
         }
     }
 }

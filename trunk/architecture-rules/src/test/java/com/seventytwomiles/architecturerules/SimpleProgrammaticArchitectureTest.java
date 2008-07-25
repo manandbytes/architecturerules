@@ -9,13 +9,15 @@
  *
  * For more information visit
  *         http://72miles.com and
- *         http://architecturerules.googlecode.com/
+ *         http://architecturerules.googlecode.com
  */
 package com.seventytwomiles.architecturerules;
+
 
 import com.seventytwomiles.architecturerules.configuration.Configuration;
 import com.seventytwomiles.architecturerules.domain.Rule;
 import com.seventytwomiles.architecturerules.domain.SourceDirectory;
+
 
 /**
  * <p>Architecture test example.</p>
@@ -23,49 +25,51 @@ import com.seventytwomiles.architecturerules.domain.SourceDirectory;
  * @author mikenereson
  * @see AbstractArchitectureRulesConfigurationTest
  */
-public class SimpleProgrammaticArchitectureTest
-    extends AbstractArchitectureRulesConfigurationTest
-{
+public class SimpleProgrammaticArchitectureTest extends AbstractArchitectureRulesConfigurationTest {
+
     /**
      * Sets up the fixture, for example, open a network connection. This method
      * is called before a test is executed.
      */
     @Override
-    protected void setUp(  )
-                  throws Exception
-    {
-        super.setUp(  );
+    protected void setUp()
+            throws Exception {
+
+        super.setUp();
+
 
         /* get the configuration reference */
-        final Configuration configuration = getConfiguration(  );
+        final Configuration configuration = getConfiguration();
 
         /* add sources */
-        configuration.addSource( new SourceDirectory( "target\\test-classes", true ) );
+        configuration.addSource(new SourceDirectory("target\\test-classes", true));
 
         /* set options */
-        configuration.setDoCyclicDependencyTest( false );
-        configuration.setThrowExceptionWhenNoPackages( true );
+        configuration.setDoCyclicDependencyTest(false);
+        configuration.setThrowExceptionWhenNoPackages(true);
+
 
         /* add Rules */
-        final Rule daoRule = new Rule( "dao" );
-        daoRule.setComment( "dao may not access presentation." );
-        daoRule.addPackage( "test.com.seventytwomiles.dao.hibernate" );
-        daoRule.addViolation( "test.com.seventytwomiles.web.spring" );
+        final Rule daoRule = new Rule("dao");
+        daoRule.setComment("dao may not access presentation.");
+        daoRule.addPackage("test.com.seventytwomiles.dao.hibernate");
+        daoRule.addViolation("test.com.seventytwomiles.web.spring");
 
-        configuration.addRule( daoRule );
+        configuration.addRule(daoRule);
     }
+
 
     /**
      * @see AbstractArchitectureRulesConfigurationTest#testArchitecture()
      */
     @Override
-    public void testArchitecture(  )
-    {
+    public void testArchitecture() {
+
         /**
          * Run the test via doTest(). If any rules are broken, or if
          * the configuration can not be loaded properly, then the appropriate
          * Exception will be thrown.
          */
-        assertTrue( doTests(  ) );
+        assertTrue(doTests());
     }
 }

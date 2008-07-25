@@ -9,9 +9,10 @@
  *
  * For more information visit
  *         http://72miles.com and
- *         http://architecturerules.googlecode.com/
+ *         http://architecturerules.googlecode.com
  */
 package com.seventytwomiles.architecturerules.exceptions;
+
 
 
 /**
@@ -21,38 +22,36 @@ package com.seventytwomiles.architecturerules.exceptions;
  * @author mikenereson
  * @see RuntimeException
  */
-public class ArchitectureException
-    extends RuntimeException
-{
+public class ArchitectureException extends RuntimeException {
+
     /**
      * @see RuntimeException#Exception()
      */
-    public ArchitectureException(  )
-    {
-        super(  );
+    public ArchitectureException() {
+        super();
     }
+
 
     /**
      * @see RuntimeException#Exception(String)
      */
-    public ArchitectureException( final String message )
-    {
-        super( message );
+    public ArchitectureException(final String message) {
+        super(message);
     }
+
 
     /**
      * @see RuntimeException#Exception(String, Throwable)
      */
-    public ArchitectureException( final String message, final Throwable cause )
-    {
-        super( message, cause );
+    public ArchitectureException(final String message, final Throwable cause) {
+        super(message, cause);
     }
+
 
     /**
      * @see RuntimeException#Exception(Throwable)
      */
-    public ArchitectureException( final Throwable cause )
-    {
-        super( cause );
+    public ArchitectureException(final Throwable cause) {
+        super(cause);
     }
 }

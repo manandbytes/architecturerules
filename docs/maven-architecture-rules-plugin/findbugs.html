@@ -1,0 +1,340 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Maven2 plugin for Architecture-Rules - FindBugs Bug Detector Report</title>
+    <style type="text/css" media="all">
+      @import url("./css/maven-base.css");
+      @import url("./css/maven-theme.css");
+      @import url("./css/site.css");
+    </style>
+    <link rel="stylesheet" href="./css/print.css" type="text/css" media="print" />
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+      </head>
+  <body class="composite">
+    <div id="banner">
+                    <span id="bannerLeft">
+    
+            Maven2 plugin for Architecture-Rules
+    
+            </span>
+                    <div class="clear">
+        <hr/>
+      </div>
+    </div>
+    <div id="breadcrumbs">
+          
+  
+
+  
+    
+  
+  
+    
+            <div class="xleft">
+        Last Published: 2008-07-25
+                      </div>
+            <div class="xright">            <a href="">Maven2 plugin for Architecture-Rules</a>
+            
+  
+
+  
+    
+  
+  
+    
+  </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+    <div id="leftColumn">
+      <div id="navcolumn">
+           
+  
+
+  
+    
+  
+  
+    
+                             <h5>Project Documentation</h5>
+            <ul>
+              
+                
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+        <li class="collapsed">
+                    <a href="project-info.html">Project Information</a>
+                </li>
+              
+                
+              
+      
+            
+      
+            
+            
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+            <li class="expanded">
+                    <a href="project-reports.html">Project Reports</a>
+                  <ul>
+                  
+    <li class="none">
+                    <a href="checkstyle.html">Checkstyle</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="cobertura/index.html">Cobertura Test Coverage</a>
+          </li>
+                  
+    <li class="none">
+              <strong>FindBugs Report</strong>
+        </li>
+                  
+    <li class="none">
+                    <a href="apidocs/index.html">JavaDocs</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="javancss.html">JavaNCSS Report</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="jdepend-report.html">JDepend</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="surefire-report.html">Maven Surefire Report</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="plugin-info.html">Plugin documentation</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="xref/index.html">Source Xref</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="taglist.html">Tag List</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="xref-test/index.html">Test Source Xref</a>
+          </li>
+              </ul>
+        </li>
+          </ul>
+                                           <a href="http://maven.apache.org/" title="Built by Maven" class="poweredBy">
+            <img alt="Built by Maven" src="./images/logos/maven-feather.png"></img>
+          </a>
+                       
+  
+
+  
+    
+  
+  
+    
+        </div>
+    </div>
+    <div id="bodyColumn">
+      <div id="contentBox">
+        <div class="section"><h2>FindBugs Bug Detector Report</h2>
+<p>The following document contains the results of <a href="http://findbugs.sourceforge.net" class="externalLink">FindBugs Report</a>
+</p>
+<p>FindBugs Version is <i>1.2.0</i>
+</p>
+<p>Threshold is <i>Low</i>
+</p>
+<p>Effort is <i>Default</i>
+</p>
+</div>
+<h2>Summary</h2>
+<table class="bodyTable"><tr class="a"><th>Classes</th>
+<th>Bugs</th>
+<th>Errors</th>
+<th>Missing Classes</th>
+</tr>
+<tr class="b"><td>104</td>
+<td>10</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</table>
+</p>
+</div>
+<h2>Files</h2>
+<table class="bodyTable"><tr class="a"><th>Class</th>
+<th>Bugs</th>
+</tr>
+<tr class="b"><td><a href="#info.manandbytes.architecturerules.mojo.ArchitectureRulesMojo">info.manandbytes.architecturerules.mojo.ArchitectureRulesMojo</a>
+</td>
+<td>6</td>
+</tr>
+<tr class="a"><td><a href="#info.manandbytes.architecturerules.mojo.MojoArchitectureRulesConfigurationTest$FallbackDigesterConfigurationFactory">info.manandbytes.architecturerules.mojo.MojoArchitectureRulesConfigurationTest$FallbackDigesterConfigurationFactory</a>
+</td>
+<td>1</td>
+</tr>
+<tr class="b"><td><a href="#info.manandbytes.architecturerules.report.ArchitectureRulesReport">info.manandbytes.architecturerules.report.ArchitectureRulesReport</a>
+</td>
+<td>3</td>
+</tr>
+</table>
+<a name="info.manandbytes.architecturerules.mojo.ArchitectureRulesMojo"></a>
+<div class="section"><h3>info.manandbytes.architecturerules.mojo.ArchitectureRulesMojo</h3>
+<table class="bodyTable"><tr class="a"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+</tr>
+<tr class="b"><td>Read of unwritten field reactorProjects in info.manandbytes.architecturerules.mojo.ArchitectureRulesMojo.execute()</td>
+<td>CORRECTNESS</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#NP_UNWRITTEN_FIELD" class="externalLink">NP_UNWRITTEN_FIELD</a>
+</td>
+<td><a href=xref/info/manandbytes/architecturerules/mojo/ArchitectureRulesMojo.html#103>103</a></td>
+</tr>
+<tr class="a"><td>Unused field: info.manandbytes.architecturerules.mojo.ArchitectureRulesMojo.mavenProject</td>
+<td>PERFORMANCE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#UUF_UNUSED_FIELD" class="externalLink">UUF_UNUSED_FIELD</a>
+</td>
+<td><a href=xref/info/manandbytes/architecturerules/mojo/ArchitectureRulesMojo.html#-1>Not available</a></td>
+</tr>
+<tr class="b"><td>Unwritten field: info.manandbytes.architecturerules.mojo.ArchitectureRulesMojo.reactorProjects</td>
+<td>CORRECTNESS</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#UWF_UNWRITTEN_FIELD" class="externalLink">UWF_UNWRITTEN_FIELD</a>
+</td>
+<td><a href=xref/info/manandbytes/architecturerules/mojo/ArchitectureRulesMojo.html#103>103</a></td>
+</tr>
+<tr class="a"><td>Unwritten field: info.manandbytes.architecturerules.mojo.ArchitectureRulesMojo.failOnError</td>
+<td>CORRECTNESS</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#UWF_UNWRITTEN_FIELD" class="externalLink">UWF_UNWRITTEN_FIELD</a>
+</td>
+<td><a href=xref/info/manandbytes/architecturerules/mojo/ArchitectureRulesMojo.html#246>246</a></td>
+</tr>
+<tr class="b"><td>Unwritten field: info.manandbytes.architecturerules.mojo.ArchitectureRulesMojo.skip</td>
+<td>CORRECTNESS</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#UWF_UNWRITTEN_FIELD" class="externalLink">UWF_UNWRITTEN_FIELD</a>
+</td>
+<td><a href=xref/info/manandbytes/architecturerules/mojo/ArchitectureRulesMojo.html#117>117</a></td>
+</tr>
+<tr class="a"><td>Unwritten field: info.manandbytes.architecturerules.mojo.ArchitectureRulesMojo.skipRoot</td>
+<td>CORRECTNESS</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#UWF_UNWRITTEN_FIELD" class="externalLink">UWF_UNWRITTEN_FIELD</a>
+</td>
+<td><a href=xref/info/manandbytes/architecturerules/mojo/ArchitectureRulesMojo.html#117>117</a></td>
+</tr>
+</table>
+</div>
+<a name="info.manandbytes.architecturerules.mojo.MojoArchitectureRulesConfigurationTestFallbackDigesterConfigurationFactory"></a>
+<div class="section"><h3>info.manandbytes.architecturerules.mojo.MojoArchitectureRulesConfigurationTest$FallbackDigesterConfigurationFactory</h3>
+<table class="bodyTable"><tr class="b"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+</tr>
+<tr class="a"><td>Should info.manandbytes.architecturerules.mojo.MojoArchitectureRulesConfigurationTest$FallbackDigesterConfigurationFactory be a _static_ inner class?</td>
+<td>PERFORMANCE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SIC_INNER_SHOULD_BE_STATIC" class="externalLink">SIC_INNER_SHOULD_BE_STATIC</a>
+</td>
+<td><a href=xref/info/manandbytes/architecturerules/mojo/MojoArchitectureRulesConfigurationTest.html#-1>Not available</a></td>
+</tr>
+</table>
+</div>
+<a name="info.manandbytes.architecturerules.report.ArchitectureRulesReport"></a>
+<div class="section"><h3>info.manandbytes.architecturerules.report.ArchitectureRulesReport</h3>
+<table class="bodyTable"><tr class="b"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+</tr>
+<tr class="a"><td>Unwritten field: info.manandbytes.architecturerules.report.ArchitectureRulesReport.outputDirectory</td>
+<td>CORRECTNESS</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#UWF_UNWRITTEN_FIELD" class="externalLink">UWF_UNWRITTEN_FIELD</a>
+</td>
+<td><a href=xref/info/manandbytes/architecturerules/report/ArchitectureRulesReport.html#61>61</a></td>
+</tr>
+<tr class="b"><td>Unwritten field: info.manandbytes.architecturerules.report.ArchitectureRulesReport.project</td>
+<td>CORRECTNESS</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#UWF_UNWRITTEN_FIELD" class="externalLink">UWF_UNWRITTEN_FIELD</a>
+</td>
+<td><a href=xref/info/manandbytes/architecturerules/report/ArchitectureRulesReport.html#77>77</a></td>
+</tr>
+<tr class="a"><td>Unwritten field: info.manandbytes.architecturerules.report.ArchitectureRulesReport.siteRenderer</td>
+<td>CORRECTNESS</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#UWF_UNWRITTEN_FIELD" class="externalLink">UWF_UNWRITTEN_FIELD</a>
+</td>
+<td><a href=xref/info/manandbytes/architecturerules/report/ArchitectureRulesReport.html#91>91</a></td>
+</tr>
+</table>
+</div>
+</div>
+
+      </div>
+    </div>
+    <div class="clear">
+      <hr/>
+    </div>
+    <div id="footer">
+      <div class="xright">&#169;  
+          2007-2008
+    
+          
+  
+
+  
+    
+  
+  
+    
+  </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+  </body>
+</html>

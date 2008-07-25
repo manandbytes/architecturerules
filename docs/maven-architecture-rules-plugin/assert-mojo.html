@@ -1,0 +1,272 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Maven2 plugin for Architecture-Rules - maven-architecture-rules-plugin - architecture-rules:assert</title>
+    <style type="text/css" media="all">
+      @import url("./css/maven-base.css");
+      @import url("./css/maven-theme.css");
+      @import url("./css/site.css");
+    </style>
+    <link rel="stylesheet" href="./css/print.css" type="text/css" media="print" />
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+      </head>
+  <body class="composite">
+    <div id="banner">
+                    <span id="bannerLeft">
+    
+            Maven2 plugin for Architecture-Rules
+    
+            </span>
+                    <div class="clear">
+        <hr/>
+      </div>
+    </div>
+    <div id="breadcrumbs">
+          
+  
+
+  
+    
+  
+  
+    
+            <div class="xleft">
+        Last Published: 2008-07-25
+                      </div>
+            <div class="xright">            <a href="">Maven2 plugin for Architecture-Rules</a>
+            
+  
+
+  
+    
+  
+  
+    
+  </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+    <div id="leftColumn">
+      <div id="navcolumn">
+           
+  
+
+  
+    
+  
+  
+    
+                             <h5>Project Documentation</h5>
+            <ul>
+              
+                
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+        <li class="collapsed">
+                    <a href="project-info.html">Project Information</a>
+                </li>
+              
+                
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+        <li class="collapsed">
+                    <a href="project-reports.html">Project Reports</a>
+                </li>
+          </ul>
+                                           <a href="http://maven.apache.org/" title="Built by Maven" class="poweredBy">
+            <img alt="Built by Maven" src="./images/logos/maven-feather.png"></img>
+          </a>
+                       
+  
+
+  
+    
+  
+  
+    
+        </div>
+    </div>
+    <div id="bodyColumn">
+      <div id="contentBox">
+        <div class="section"><h2><a name="architecture-rules:assert"></a>
+architecture-rules:assert</h2>
+<p><strong>Full name</strong>:</p>
+<p>info.manandbytes:maven-architecture-rules-plugin:0.0-SNAPSHOT:assert</p>
+<p><strong>Description</strong>:</p>
+<p><p>Assert your architecture</p>
+</p>
+<p><strong>Attributes</strong>:</p>
+<ul><li>Requires a Maven 2.0 project to be executed.</li>
+<li>Executes as an aggregator plugin.</li>
+<li>Requires dependency resolution of artifacts in scope: <code>compile</code>.</li>
+<li>Binds by default to the lifecycle phase: <code>test</code>.</li>
+<li>Invokes the execution of the lifecycle phase <code>compile</code> prior to executing itself.</li>
+</ul>
+<div class="section"><h3><a name="Optional_Parameters"></a>
+Optional Parameters</h3>
+<table class="bodyTable"><tr class="a"><th>Name</th>
+<th>Type</th>
+<th>Since</th>
+<th>Description</th>
+</tr>
+<tr class="b"><td><strong><a href="#configurationFileName">configurationFileName</a>
+</strong></td>
+<td><code>String</code></td>
+<td><code>-</code></td>
+<td><p>Name of the configuration file used by Architecture Rules.</p>
+ Default value is: <code>architecture-rules.xml</code>.</td>
+</tr>
+<tr class="a"><td><strong><a href="#failOnError">failOnError</a>
+</strong></td>
+<td><code>boolean</code></td>
+<td><code>-</code></td>
+<td>If your failed rules shouldn't break a build (you *had* to
+introduce a dependency a day before a release, which of course
+isn't nice, but you can easily correct the problem a few days after
+a release) set this parameter to <code>false</code>. Default value is: <code>true</code>.</td>
+</tr>
+<tr class="b"><td><strong><a href="#skip">skip</a>
+</strong></td>
+<td><code>boolean</code></td>
+<td><code>-</code></td>
+<td>Skip current project (i.e. in <a href="http://maven.apache.org/pom.html#Aggregation" class="externalLink">Aggregation (or
+Multi-Module) project</a>
+) and don't run Architecture Rules
+assertions against it. Default value is: <code>false</code>.</td>
+</tr>
+<tr class="a"><td><strong><a href="#skipRoot">skipRoot</a>
+</strong></td>
+<td><code>boolean</code></td>
+<td><code>-</code></td>
+<td>For <a href="http://maven.apache.org/pom.html#Aggregation" class="externalLink">Aggregation (or
+Multi-Module) project</a>
+ we don't run Architecture Rules
+assertions by default. To change this behavior use
+<code>-Darchitecture-rules.skipRoot=false</code> Default value is: <code>true</code>.</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="Parameter_Details"></a>
+Parameter Details</h3>
+<p><strong><a name="configurationFileName">configurationFileName</a>
+:</strong></p>
+<p><p>Name of the configuration file used by Architecture Rules.</p>
+</p>
+<ul><li><strong>Type</strong>: <code>java.lang.String</code></li>
+<li><strong>Required</strong>: <code>No</code></li>
+<li><strong>Default</strong>: <code>architecture-rules.xml</code></li>
+</ul>
+<hr />
+<p><strong><a name="failOnError">failOnError</a>
+:</strong></p>
+<p>If your failed rules shouldn't break a build (you *had* to
+introduce a dependency a day before a release, which of course
+isn't nice, but you can easily correct the problem a few days after
+a release) set this parameter to <code>false</code>.</p>
+<ul><li><strong>Type</strong>: <code>boolean</code></li>
+<li><strong>Required</strong>: <code>No</code></li>
+<li><strong>Expression</strong>: <code>${architecture-rules.failOnError}</code></li>
+<li><strong>Default</strong>: <code>true</code></li>
+</ul>
+<hr />
+<p><strong><a name="skip">skip</a>
+:</strong></p>
+<p>Skip current project (i.e. in <a href="http://maven.apache.org/pom.html#Aggregation" class="externalLink">Aggregation (or
+Multi-Module) project</a>
+) and don't run Architecture Rules
+assertions against it.</p>
+<ul><li><strong>Type</strong>: <code>boolean</code></li>
+<li><strong>Required</strong>: <code>No</code></li>
+<li><strong>Expression</strong>: <code>${architecture-rules.skip}</code></li>
+<li><strong>Default</strong>: <code>false</code></li>
+</ul>
+<hr />
+<p><strong><a name="skipRoot">skipRoot</a>
+:</strong></p>
+<p>For <a href="http://maven.apache.org/pom.html#Aggregation" class="externalLink">Aggregation (or
+Multi-Module) project</a>
+ we don't run Architecture Rules
+assertions by default. To change this behavior use
+<code>-Darchitecture-rules.skipRoot=false</code></p>
+<ul><li><strong>Type</strong>: <code>boolean</code></li>
+<li><strong>Required</strong>: <code>No</code></li>
+<li><strong>Expression</strong>: <code>${architecture-rules.skipRoot}</code></li>
+<li><strong>Default</strong>: <code>true</code></li>
+</ul>
+</div>
+</div>
+
+      </div>
+    </div>
+    <div class="clear">
+      <hr/>
+    </div>
+    <div id="footer">
+      <div class="xright">&#169;  
+          2007-2008
+    
+          
+  
+
+  
+    
+  
+  
+    
+  </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+  </body>
+</html>

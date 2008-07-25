@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<rss version="0.91">
+  <channel>
+    <title>Maven2 plugin for Architecture-Rules - Checkstyle report</title>
+    <link>http://architecturerules.googlecode.com/svn/docs/index.html</link>
+    <description>Maven2 plugin for Architecture-Rules - Checkstyle report</description>
+    <language>en-us</language>
+    <copyright>&#169;2007 - 2008</copyright>
+    <item>
+      <title>File: 5,
+             Errors: 468,
+             Warnings: 0,
+             Infos: 0
+      </title>
+            <link>http://architecturerules.googlecode.com/svn/docs/index.html/checkstyle.html</link>
+      <description>
+        <p>Click <a href="http://architecturerules.googlecode.com/svn/docs/index.html/checkstyle.html">here</a> for the full Checkstyle report.</p>
+
+        <table summary="Files" boder="1">
+          <thead>
+            <tr>
+              <th>Files</th>
+              <th style="width:30px;"><abbr title="Info">I</abbr></th>
+              <th style="width:30px;"><abbr title="Warning">W</abbr></th>
+              <th style="width:30px;"><abbr title="Error">E</abbr></th>
+            </tr>
+          </thead>
+          <tbody>
+                          <tr>
+                <td>
+                  <a href="http://architecturerules.googlecode.com/svn/docs/index.html/checkstyle.html#info.manandbytes.architecturerules.report.package.html">info/manandbytes/architecturerules/report/package.html</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  1
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://architecturerules.googlecode.com/svn/docs/index.html/checkstyle.html#info.manandbytes.architecturerules.mojo.package.html">info/manandbytes/architecturerules/mojo/package.html</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://architecturerules.googlecode.com/svn/docs/index.html/checkstyle.html#info.manandbytes.architecturerules.mojo.ArchitectureRulesMojo.java">info/manandbytes/architecturerules/mojo/ArchitectureRulesMojo.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  228
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://architecturerules.googlecode.com/svn/docs/index.html/checkstyle.html#info.manandbytes.architecturerules.report.ArchitectureRulesReport.java">info/manandbytes/architecturerules/report/ArchitectureRulesReport.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  84
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://architecturerules.googlecode.com/svn/docs/index.html/checkstyle.html#info.manandbytes.architecturerules.mojo.MojoArchitectureRulesConfigurationTest.java">info/manandbytes/architecturerules/mojo/MojoArchitectureRulesConfigurationTest.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  155
+                </td>
+              </tr>
+                      </tbody>
+        </table>
+        
+      </description>
+    </item>
+  </channel>
+</rss>
+

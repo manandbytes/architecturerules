@@ -35,7 +35,6 @@ public class SourceDirectoryTest extends TestCase {
         super(name);
     }
 
-
     /**
      * @see TestCase#setName(String)
      */

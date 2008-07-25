@@ -27,7 +27,6 @@ public class Person {
 
     private int id;
 
-
     /**
      * @noinspection UnusedAssignment
      */
@@ -41,7 +40,6 @@ public class Person {
 
         this.id = id;
     }
-
 
     /**
      * Getter for property 'id'.

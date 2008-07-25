@@ -15,6 +15,7 @@ package com.seventytwomiles.architecturerules.domain;
 
 
 import com.seventytwomiles.architecturerules.configuration.ConfigurationFactory;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
@@ -29,7 +30,6 @@ public class SourcesConfiguration {
 
     protected static final Log log = LogFactory.getLog(SourcesConfiguration.class);
 
-
     /**
      * <p></p>
      *
@@ -37,7 +37,6 @@ public class SourcesConfiguration {
      * @see ConfigurationFactory#DEFAULT_NO_PACKAGES_CONFIGURATION_BOOLEAN_VALUE
      */
     private String noPackages = "ignore";
-
 
     /**
      * <p>Instantiate a new SourcesConfiguration</p>
@@ -57,7 +56,6 @@ public class SourcesConfiguration {
 
         this.noPackages = noPackages;
     }
-
 
     /**
      * Getter for property 'noPackages'.

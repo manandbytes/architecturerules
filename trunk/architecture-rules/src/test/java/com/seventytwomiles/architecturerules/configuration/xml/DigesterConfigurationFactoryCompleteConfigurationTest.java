@@ -16,6 +16,7 @@ package com.seventytwomiles.architecturerules.configuration.xml;
 
 import com.seventytwomiles.architecturerules.domain.Rule;
 import com.seventytwomiles.architecturerules.domain.SourceDirectory;
+
 import junit.framework.TestCase;
 
 import java.io.File;
@@ -69,7 +70,6 @@ public class DigesterConfigurationFactoryCompleteConfigurationTest extends TestC
 
         assertEquals(3, rules.size());
 
-
         /**
          * Validate values of the first Rule
          */
@@ -93,7 +93,6 @@ public class DigesterConfigurationFactoryCompleteConfigurationTest extends TestC
         assertEquals("com.seventytwomiles.pagerank.core.strategy", rule0.getViolations().toArray()[3].toString());
         assertEquals("com.seventytwomiles.pagerank.core.dao.hibernate", rule0.getViolations().toArray()[4].toString());
         assertEquals("com.seventytwomiles.pagerank.util", rule0.getViolations().toArray()[5].toString());
-
 
         /**
          * Nothing special about rule1, it is not tested.

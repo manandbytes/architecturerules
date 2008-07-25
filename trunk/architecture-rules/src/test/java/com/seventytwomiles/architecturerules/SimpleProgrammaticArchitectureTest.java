@@ -37,7 +37,6 @@ public class SimpleProgrammaticArchitectureTest extends AbstractArchitectureRule
 
         super.setUp();
 
-
         /* get the configuration reference */
         final Configuration configuration = getConfiguration();
 
@@ -47,7 +46,6 @@ public class SimpleProgrammaticArchitectureTest extends AbstractArchitectureRule
         /* set options */
         configuration.setDoCyclicDependencyTest(false);
         configuration.setThrowExceptionWhenNoPackages(true);
-
 
         /* add Rules */
         final Rule daoRule = new Rule("dao");

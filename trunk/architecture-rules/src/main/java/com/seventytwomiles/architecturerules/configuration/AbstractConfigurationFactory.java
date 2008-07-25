@@ -16,10 +16,6 @@ package com.seventytwomiles.architecturerules.configuration;
 
 import com.seventytwomiles.architecturerules.domain.Rule;
 import com.seventytwomiles.architecturerules.domain.SourceDirectory;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import org.seventytwomiles.springframework.core.io.ClassPathResource;
-import org.seventytwomiles.springframework.io.FileUtils;
 
 import java.io.File;
 import java.io.IOException;
@@ -27,6 +23,12 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
+import org.seventytwomiles.springframework.core.io.ClassPathResource;
+import org.seventytwomiles.springframework.io.FileUtils;
 
 
 /**
@@ -40,7 +42,6 @@ public abstract class AbstractConfigurationFactory implements ConfigurationFacto
 
     protected static final Log log = LogFactory.getLog(AbstractConfigurationFactory.class);
 
-
     /**
      * <p>Set of Rules read from the configuration file</p>
      *
@@ -48,14 +49,12 @@ public abstract class AbstractConfigurationFactory implements ConfigurationFacto
      */
     protected final Collection<Rule> rules = new HashSet<Rule>();
 
-
     /**
      * <p>Set of  <code>Source</code> read from configuration file</p>
      *
      * @parameter sources Set
      */
     protected final List<SourceDirectory> sources = new ArrayList<SourceDirectory>();
-
 
     /**
      * <p>Weather or not to throw exception when no packages are found for a
@@ -65,14 +64,12 @@ public abstract class AbstractConfigurationFactory implements ConfigurationFacto
      */
     protected boolean throwExceptionWhenNoPackages = false;
 
-
     /**
      * <p>Weather or not to check for cyclic dependencies.</p>
      *
      * @parameter doCyclicDependencyTest boolean
      */
     protected boolean doCyclicDependencyTest = true;
-
 
     /**
      * <p>Getter for property {@link #rules}.</p>

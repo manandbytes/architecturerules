@@ -20,10 +20,11 @@ import com.seventytwomiles.architecturerules.domain.Rule;
 import com.seventytwomiles.architecturerules.exceptions.DependencyConstraintException;
 import com.seventytwomiles.architecturerules.exceptions.NoPackagesFoundException;
 import com.seventytwomiles.architecturerules.exceptions.SourceNotFoundException;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 
 import java.util.Collection;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 
 /**
@@ -41,7 +42,6 @@ public class RulesServiceImpl extends AbstractArchitecturalRules implements Rule
      * @parameter log Log
      */
     protected static final Log log = LogFactory.getLog(RulesServiceImpl.class);
-
 
     /**
      * <p>Instantiates a new <code>RulesService</code> which will begin reading
@@ -62,7 +62,6 @@ public class RulesServiceImpl extends AbstractArchitecturalRules implements Rule
         log.info("instantiating new RulesService");
     }
 
-
     /**
      * <p>Assert that no <code>Rule</code> in the given <code>Configuration</code>
      * has been violated.</p>
@@ -74,7 +73,6 @@ public class RulesServiceImpl extends AbstractArchitecturalRules implements Rule
         log.info("perform rules test required");
 
         final Collection<Rule> rules = configuration.getRules();
-
 
         /**
          * If logging is enabled, describe each rule that is going to be

@@ -17,12 +17,14 @@ package com.seventytwomiles.architecturerules.configuration;
 import com.seventytwomiles.architecturerules.domain.JPackage;
 import com.seventytwomiles.architecturerules.domain.Rule;
 import com.seventytwomiles.architecturerules.domain.SourceDirectory;
+
 import junit.framework.Assert;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 
 import java.util.Collection;
 import java.util.HashSet;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 
 /**
@@ -40,14 +42,12 @@ public class Configuration {
 
     protected static final Log log = LogFactory.getLog(Configuration.class);
 
-
     /**
      * <p><code>Rules</code> that are read from the configuration file or added programatically.</p>
      *
      * @parameter rules Set
      */
     private final Collection<Rule> rules = new HashSet<Rule>();
-
 
     /**
      * <p>List of <code>SourceDirectory</code> that are read from the configuration file and or added
@@ -57,7 +57,6 @@ public class Configuration {
      */
     private final Collection<SourceDirectory> sources = new HashSet<SourceDirectory>();
 
-
     /**
      * <p>sets to true when <samp>&lt;sources no-packages="exception"&gt;</samp>, false when <samp>&lt;sources
      * no-packages="ignore"&gt;</samp></p>
@@ -66,7 +65,6 @@ public class Configuration {
      */
     private boolean throwExceptionWhenNoPackages;
 
-
     /**
      * <p>sets to true when <samp>&lt;cyclicalDependency test="true"/> </samp>, false when <samp>&lt;cyclicalDependency
      * test="false"/> </samp></p>
@@ -74,7 +72,6 @@ public class Configuration {
      * @parameter doCyclicDependencyTest boolean
      */
     private boolean doCyclicDependencyTest;
-
 
     /**
      * <p>Getter for property {@link #rules}.</p>

@@ -15,6 +15,7 @@ package com.seventytwomiles.architecturerules.domain;
 
 
 import com.seventytwomiles.architecturerules.configuration.ConfigurationFactory;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
@@ -29,7 +30,6 @@ public class CyclicDependencyConfiguration {
 
     protected static final Log log = LogFactory.getLog(CyclicDependencyConfiguration.class);
 
-
     /**
      * <p>Holds the value for the XML entry <tt>&lt;cyclicalDependency
      * test="true"/&gt;</tt>.</p>
@@ -38,7 +38,6 @@ public class CyclicDependencyConfiguration {
      * is used. {@link ConfigurationFactory#DEFAULT_CYCLICAL_DEPENDENCY_CONFIGURATION_VALUE}</p>
      */
     private String test = ConfigurationFactory.DEFAULT_CYCLICAL_DEPENDENCY_CONFIGURATION_VALUE;
-
 
     /**
      * Getter for property 'test'.

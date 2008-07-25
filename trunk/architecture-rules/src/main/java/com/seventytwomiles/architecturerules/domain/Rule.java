@@ -15,14 +15,15 @@ package com.seventytwomiles.architecturerules.domain;
 
 
 import com.seventytwomiles.architecturerules.exceptions.IllegalArchitectureRuleException;
-import junit.framework.Assert;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 
+import junit.framework.Assert;
 import static java.lang.String.format;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 
 /**
@@ -34,7 +35,6 @@ public class Rule {
 
     protected static final Log log = LogFactory.getLog(Rule.class);
 
-
     /**
      * <p>Unique id of this Rule as defined. Used to refer to this Rule in
      * messages.</p>
@@ -42,7 +42,6 @@ public class Rule {
      * @parameter id String
      */
     private String id;
-
 
     /**
      * <p>Collection of Strings. These Strings are package names. The names of
@@ -53,7 +52,6 @@ public class Rule {
      */
     private final Collection<JPackage> packages = new HashSet<JPackage>();
 
-
     /**
      * <p>Comment about this rule that could be used in messages or just to make
      * the configuration file more readable.</p>
@@ -62,7 +60,6 @@ public class Rule {
      */
     private String comment;
 
-
     /**
      * <p>Collection of Strings. These Strings are package names. The names of
      * the packages that the {@link #packages} may NOT depend upon</p>
@@ -70,7 +67,6 @@ public class Rule {
      * @parameter violations Collection
      */
     private final Collection<JPackage> violations = new HashSet<JPackage>();
-
 
     /**
      * <p>Constructs a new Rule.</p>
@@ -106,7 +102,6 @@ public class Rule {
         setId(id);
         addPackage(packageName);
     }
-
 
     /**
      * <p>Setter for property {@link #id}.</p>

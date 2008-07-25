@@ -14,12 +14,12 @@
 package com.seventytwomiles.architecturerules.domain;
 
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-
 import static java.lang.String.format;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 
 /**
@@ -33,7 +33,6 @@ public class JPackage {
 
     private static final Log log = LogFactory.getLog(JPackage.class);
 
-
     /**
      * <p>All of the symbols or characters that represent a wildcard.</p>
      */
@@ -41,14 +40,12 @@ public class JPackage {
                                                            '*'
     };
 
-
     /**
      * <p>period separated path to package such as <samp>com.seventeytwomiles.architecturerules.domain</samp>.</p>
      *
      * @parameter path String
      */
     private String path;
-
 
     /**
      * <p>Constructs a new <code>JPackage</code></p>
@@ -68,7 +65,6 @@ public class JPackage {
 
         setPath(path);
     }
-
 
     /**
      * <p>Getter for property {@link #path}.</p>

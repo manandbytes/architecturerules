@@ -15,6 +15,7 @@ package com.seventytwomiles.architecturerules.ant;
 
 
 import com.seventytwomiles.architecturerules.exceptions.CyclicRedundancyException;
+
 import junit.framework.TestCase;
 
 
@@ -30,7 +31,6 @@ public class AssertArchitectureTaskTest extends TestCase {
     public AssertArchitectureTaskTest(final String name) {
         super(name);
     }
-
 
     /**
      * @see TestCase#setUp()

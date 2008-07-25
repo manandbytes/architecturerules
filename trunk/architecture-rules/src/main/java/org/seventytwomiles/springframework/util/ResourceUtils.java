@@ -37,7 +37,6 @@ public abstract class ResourceUtils {
      */
     private static final String URL_PROTOCOL_FILE = "file";
 
-
     /**
      * <p>Resolve the given resource URL to a <code>java.io.File</code>, i.e. to
      * a file in the file system.</p>

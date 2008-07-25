@@ -16,6 +16,7 @@ package com.seventytwomiles.architecturerules.configuration;
 
 import com.seventytwomiles.architecturerules.domain.Rule;
 import com.seventytwomiles.architecturerules.domain.SourceDirectory;
+
 import junit.framework.AssertionFailedError;
 import junit.framework.TestCase;
 
@@ -33,7 +34,6 @@ public class ConfigurationTest extends TestCase {
      * @parameter configuration Configuration
      */
     private Configuration configuration;
-
 
     /**
      * <p>Instantiates a new test with the given <tt>name</tt>.</p>
@@ -206,7 +206,6 @@ public class ConfigurationTest extends TestCase {
 
         /* is empty by default */
         assertTrue(configuration.getRules().isEmpty());
-
 
         /* construct a new Rule and add to configuration */
         final Rule rule = new Rule("dao", "com.seventytwomiles.dao");

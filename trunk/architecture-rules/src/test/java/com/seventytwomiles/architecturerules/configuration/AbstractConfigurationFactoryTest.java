@@ -15,10 +15,11 @@ package com.seventytwomiles.architecturerules.configuration;
 
 
 import junit.framework.TestCase;
-import org.seventytwomiles.springframework.core.io.ClassPathResource;
 
 import java.io.File;
 import java.io.IOException;
+
+import org.seventytwomiles.springframework.core.io.ClassPathResource;
 
 
 /**

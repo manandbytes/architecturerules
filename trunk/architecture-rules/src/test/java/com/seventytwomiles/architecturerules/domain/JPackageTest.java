@@ -40,7 +40,6 @@ public class JPackageTest extends TestCase {
         super(name);
     }
 
-
     /**
      * @see TestCase#setName(String)
      */

@@ -34,7 +34,6 @@ public class ArchitectureTest extends AbstractArchitectureRulesConfigurationTest
 
         final Configuration configuration = getConfiguration();
 
-
         /**
          * Get the configuration that already has the architecture-rules.xml
          * configuration loaded.
@@ -54,7 +53,6 @@ public class ArchitectureTest extends AbstractArchitectureRulesConfigurationTest
 
         configuration.addRule(rule);
     }
-
 
     /**
      * @see AbstractArchitectureRulesConfigurationTest

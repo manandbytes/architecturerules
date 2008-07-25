@@ -21,14 +21,16 @@ import com.seventytwomiles.architecturerules.exceptions.CyclicRedundancyExceptio
 import com.seventytwomiles.architecturerules.exceptions.DependencyConstraintException;
 import com.seventytwomiles.architecturerules.exceptions.NoPackagesFoundException;
 import com.seventytwomiles.architecturerules.exceptions.SourceNotFoundException;
+
 import jdepend.framework.JDepend;
 import jdepend.framework.JavaPackage;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.Collection;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 
 /**
@@ -47,14 +49,12 @@ abstract class AbstractArchitecturalRules {
      */
     private static final Log log = LogFactory.getLog(AbstractArchitecturalRules.class);
 
-
     /**
      * <p>The <code>Configuration</code> to test against.</p>
      *
      * @parameter configuration Configuration
      */
     protected final Configuration configuration;
-
 
     /**
      * <p>Instance of jdepend to assert architecture with</p>
@@ -63,14 +63,12 @@ abstract class AbstractArchitecturalRules {
      */
     private final JDepend jdepend;
 
-
     /**
      * <p>All packages that will be analyze</p>
      *
      * @parameter packages Collection
      */
     private Collection<JavaPackage> packages;
-
 
     /**
      * <p>Constructor that loads up the configuration and loads all the packages in the source paths</p>
@@ -91,10 +89,8 @@ abstract class AbstractArchitecturalRules {
         /* instantiate JDepend */
         jdepend = new JDepend();
 
-
         /* read source paths from configuration file */
         final Collection<SourceDirectory> sources = this.configuration.getSources();
-
 
         /* add each source to jdepend */
         for (final SourceDirectory source : sources) {
@@ -104,7 +100,6 @@ abstract class AbstractArchitecturalRules {
 
         analyze();
     }
-
 
     /**
      * <p>Add a sourceDirectory path to JDepend instance. Throws Exception when sourceDirectory path can not be found,

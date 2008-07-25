@@ -15,6 +15,7 @@ package com.seventytwomiles.architecturerules.exceptions;
 
 
 import com.seventytwomiles.architecturerules.domain.SourceDirectory;
+
 import junit.framework.TestCase;
 
 import java.util.Collection;

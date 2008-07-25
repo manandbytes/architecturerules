@@ -18,14 +18,17 @@ import com.seventytwomiles.architecturerules.configuration.Configuration;
 import com.seventytwomiles.architecturerules.exceptions.CyclicRedundancyException;
 import com.seventytwomiles.architecturerules.exceptions.NoPackagesFoundException;
 import com.seventytwomiles.architecturerules.exceptions.SourceNotFoundException;
-import javassist.ClassPool;
-import javassist.NotFoundException;
+
 import jdepend.framework.JavaClass;
 import jdepend.framework.JavaPackage;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 
 import java.util.*;
+
+import javassist.ClassPool;
+import javassist.NotFoundException;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 
 /**
@@ -43,7 +46,6 @@ public class CyclicRedundancyServiceImpl extends AbstractArchitecturalRules impl
      * @parameter log Log
      */
     protected static final Log log = LogFactory.getLog(CyclicRedundancyServiceImpl.class);
-
 
     /**
      * <p>Constructor instantiates a new <code>CyclicRedundancyService</code></p>
@@ -63,7 +65,6 @@ public class CyclicRedundancyServiceImpl extends AbstractArchitecturalRules impl
         log.info("instantiating new CyclicRedundancyService");
     }
 
-
     /**
      * <p>Check all the packages in all of the source directories and search for
      * any cyclic redundancy</p>
@@ -73,7 +74,6 @@ public class CyclicRedundancyServiceImpl extends AbstractArchitecturalRules impl
         log.info("cyclic redundancy check requested");
 
         final Collection<JavaPackage> packages = getPackages();
-
 
         /**
          *  TODO: report classes involved

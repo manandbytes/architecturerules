@@ -20,15 +20,17 @@ import com.seventytwomiles.architecturerules.domain.Rule;
 import com.seventytwomiles.architecturerules.domain.SourceDirectory;
 import com.seventytwomiles.architecturerules.domain.SourcesConfiguration;
 import com.seventytwomiles.architecturerules.exceptions.InvalidConfigurationException;
-import org.apache.commons.digester.Digester;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import org.xml.sax.SAXException;
 
 import java.io.IOException;
 import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.apache.commons.digester.Digester;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
+import org.xml.sax.SAXException;
 
 
 /**
@@ -40,7 +42,6 @@ import java.util.List;
 public class DigesterConfigurationFactory extends AbstractConfigurationFactory {
 
     protected static final Log log = LogFactory.getLog(DigesterConfigurationFactory.class);
-
 
     /**
      * @todo remove this (it's useless)?
@@ -64,7 +65,6 @@ public class DigesterConfigurationFactory extends AbstractConfigurationFactory {
         processConfiguration(configurationXml);
     }
 
-
     /**
      * <p>Validate the configurationXml.</p>
      *
@@ -76,7 +76,6 @@ public class DigesterConfigurationFactory extends AbstractConfigurationFactory {
 
         final Digester digester = new Digester();
         digester.setValidating(false); // TODO: set to true to actually validate
-
 
         /**
          * TODO: apply DTD to configuration then try digester.parse
@@ -215,7 +214,6 @@ public class DigesterConfigurationFactory extends AbstractConfigurationFactory {
         CyclicDependencyConfiguration configuration;
         configuration = (CyclicDependencyConfiguration) digester.parse(configurationReader);
 
-
         /**
          * If no configuration was provided in the xml, then use the default
          * values.
@@ -256,7 +254,6 @@ public class DigesterConfigurationFactory extends AbstractConfigurationFactory {
         digester.addSetProperties(XmlConfiguration.sources, "no-packages", "noPackages");
 
         SourcesConfiguration configuration = (SourcesConfiguration) digester.parse(configurationReader);
-
 
         /**
          * If no configuration was provided in the xml, then use the default

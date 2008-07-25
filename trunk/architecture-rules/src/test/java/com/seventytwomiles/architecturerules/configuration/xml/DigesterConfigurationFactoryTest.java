@@ -100,7 +100,6 @@ public class DigesterConfigurationFactoryTest extends AbstractDigesterTest {
 
         assertEquals(2, rules.size());
 
-
         /**
          * Validate values of the first Rule
          */
@@ -130,7 +129,6 @@ public class DigesterConfigurationFactoryTest extends AbstractDigesterTest {
 
         assertEquals("com.seventytwomiles.pagerank.core.dao.hibernate", rule0.getViolations().toArray()[4].toString());
         assertEquals("com.seventytwomiles.pagerank.util", rule0.getViolations().toArray()[5].toString());
-
 
         /**
          * Validate values of the second Rule

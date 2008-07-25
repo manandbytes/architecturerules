@@ -18,6 +18,7 @@ import com.seventytwomiles.architecturerules.configuration.Configuration;
 import com.seventytwomiles.architecturerules.domain.Rule;
 import com.seventytwomiles.architecturerules.domain.SourceDirectory;
 import com.seventytwomiles.architecturerules.exceptions.CyclicRedundancyException;
+
 import junit.framework.TestCase;
 
 import java.util.Map;

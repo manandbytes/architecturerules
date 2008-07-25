@@ -47,7 +47,6 @@ public class FileUtils {
      */
     private static final int DEFAULT_BUFFER_SIZE = 1024 * 4;
 
-
     /**
      * <p> Reads the contents of a file into a String. There is no
      * readFileToString method without encoding parameter because the default

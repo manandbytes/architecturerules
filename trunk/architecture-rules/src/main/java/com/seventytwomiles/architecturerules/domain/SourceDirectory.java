@@ -16,13 +16,15 @@ package com.seventytwomiles.architecturerules.domain;
 
 import com.seventytwomiles.architecturerules.configuration.ConfigurationFactory;
 import com.seventytwomiles.architecturerules.exceptions.SourceNotFoundException;
+
 import junit.framework.Assert;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 
 import java.io.File;
 import java.text.CharacterIterator;
 import java.text.StringCharacterIterator;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 
 /**
@@ -35,7 +37,6 @@ public class SourceDirectory {
 
     protected static final Log log = LogFactory.getLog(SourceDirectory.class);
 
-
     /**
      * <p>The value, which is set inside of the xml configuration file, which
      * indicates that when a source directory is not found, the source directory
@@ -44,7 +45,6 @@ public class SourceDirectory {
      * @parameter NOT_FOUND_IGNORE String
      */
     private static final String NOT_FOUND_IGNORE = "ignore";
-
 
     /**
      * <p>The value, which is set inside of the xml configuration file, which
@@ -58,7 +58,6 @@ public class SourceDirectory {
      */
     private static final String NOT_FOUND_EXCEPTION = "exception";
 
-
     /**
      * <p>When true, if this source {@link #path} is not found a
      * <code>SourceNotFoundException</code> will be thrown.</p>
@@ -70,14 +69,12 @@ public class SourceDirectory {
      */
     private boolean shouldThrowExceptionWhenNotFound = ConfigurationFactory.DEFAULT_NO_PACKAGES_CONFIGURATION_BOOLEAN_VALUE;
 
-
     /**
      * <p>Relative url to the path to search in for .class files.</p>
      *
      * @parameter path String
      */
     private String path;
-
 
     /**
      * <p>Holds the value in the xml configuration for the not-found
@@ -87,7 +84,6 @@ public class SourceDirectory {
      * @noinspection UnusedDeclaration
      */
     private String notFound;
-
 
     /**
      * <p>Instantiates a new SourceDirectory entity.</p>
@@ -122,7 +118,6 @@ public class SourceDirectory {
         setPath(path);
     }
 
-
     /**
      * Setter for property {@link #shouldThrowExceptionWhenNotFound}.
      *
@@ -146,7 +141,6 @@ public class SourceDirectory {
         this.shouldThrowExceptionWhenNotFound = shouldThrowExceptionWhenNotFound;
     }
 
-
     /**
      * <p>Instantiates a new SourceDirectory with the given <tt>path</tt> and
      * <tt>notFound</tt> values.</p>
@@ -159,7 +153,6 @@ public class SourceDirectory {
         setPath(path);
         setNotFound(notFound);
     }
-
 
     /**
      * Setter for property 'notFound'.
@@ -177,7 +170,6 @@ public class SourceDirectory {
             notFound = "null";
         }
 
-
         /**
          * Validate input.
          * Expect either 'ignore' or 'exception'
@@ -188,7 +180,6 @@ public class SourceDirectory {
         }
 
         this.notFound = notFound;
-
 
         /**
          * Update shouldThrowExceptionWhenNotFound property so that the

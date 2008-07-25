@@ -16,11 +16,12 @@ package com.seventytwomiles.architecturerules.configuration;
 
 import com.seventytwomiles.architecturerules.domain.Rule;
 import com.seventytwomiles.architecturerules.domain.SourceDirectory;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 
 import java.util.Collection;
 import java.util.Collections;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 
 /**
@@ -32,7 +33,6 @@ import java.util.Collections;
 public final class UnmodifiableConfiguration extends Configuration {
 
     protected static final Log log = LogFactory.getLog(UnmodifiableConfiguration.class);
-
 
     /**
      * <p>Instantiates a new unmodifiable configuration class.</p>
@@ -48,7 +48,6 @@ public final class UnmodifiableConfiguration extends Configuration {
 
         super.setThrowExceptionWhenNoPackages(configuration.shouldThrowExceptionWhenNoPackages());
     }
-
 
     /**
      * <p>Getter for property {@link #rules}.</p>

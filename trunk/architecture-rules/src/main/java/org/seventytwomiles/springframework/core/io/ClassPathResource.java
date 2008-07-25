@@ -14,15 +14,15 @@
 package org.seventytwomiles.springframework.core.io;
 
 
-import org.seventytwomiles.springframework.util.ClassUtils;
-import org.seventytwomiles.springframework.util.ResourceUtils;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.*;
+
+import org.seventytwomiles.springframework.util.ClassUtils;
+import org.seventytwomiles.springframework.util.ResourceUtils;
 
 
 /**
@@ -41,14 +41,12 @@ public class ClassPathResource {
      */
     private static final String FOLDER_SEPARATOR = "/";
 
-
     /**
      * <p>symbol that separates folders on the Windows platform</p>
      *
      * @parameter WINDOWS_FOLDER_SEPARATOR String
      */
     private static final String WINDOWS_FOLDER_SEPARATOR = "\\";
-
 
     /**
      * <p>Parent directory path</p>
@@ -57,14 +55,12 @@ public class ClassPathResource {
      */
     private static final String TOP_PATH = "..";
 
-
     /**
      * <p>Current path</p>
      *
      * @parameter CURRENT_PATH String
      */
     private static final String CURRENT_PATH = ".";
-
 
     /**
      * <p>the path that you are in</p>
@@ -73,7 +69,6 @@ public class ClassPathResource {
      */
     private final String path;
 
-
     /**
      * <p>instance of ClassLoader</p>
      *
@@ -81,14 +76,12 @@ public class ClassPathResource {
      */
     private ClassLoader classLoader;
 
-
     /**
      * <p>instance of Class</p>
      *
      * @parameter clazz String
      */
     private Class clazz;
-
 
     /**
      * <p>Create a new <code>ClassPathResource</code> for ClassLoader usage. A
@@ -167,7 +160,6 @@ public class ClassPathResource {
         this.classLoader = classLoader;
         this.clazz = clazz;
     }
-
 
     /**
      * <p>This implementation returns a description that includes the class path
@@ -475,7 +467,6 @@ public class ClassPathResource {
         }
 
         stringBuffer.append(inString.substring(position));
-
 
         // remember to append any characters to the right of a matches
         return stringBuffer.toString();

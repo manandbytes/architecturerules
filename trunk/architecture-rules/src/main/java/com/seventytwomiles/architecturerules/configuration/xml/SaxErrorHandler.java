@@ -16,6 +16,7 @@ package com.seventytwomiles.architecturerules.configuration.xml;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+
 import org.xml.sax.ErrorHandler;
 import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
@@ -31,7 +32,6 @@ import org.xml.sax.SAXParseException;
 class SaxErrorHandler implements ErrorHandler {
 
     protected static final Log log = LogFactory.getLog(SaxErrorHandler.class);
-
 
     /**
      * @see ErrorHandler#error(SAXParseException)

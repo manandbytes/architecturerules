@@ -38,7 +38,6 @@ public interface ConfigurationFactory {
      */
     public static final String DEFAULT_CYCLICAL_DEPENDENCY_CONFIGURATION_VALUE = "true";
 
-
     /**
      * <p>Holds the default value that should be used when no configuration is
      * entered into the XML configuration file for the no packages
@@ -48,14 +47,12 @@ public interface ConfigurationFactory {
      */
     public static final boolean DEFAULT_NO_PACKAGES_CONFIGURATION_BOOLEAN_VALUE = false;
 
-
     /**
      * <p>The default name of the file containing the XML configuration.</p>
      *
      * @parameter DEFAULT_CONFIGURATION_FILE_NAME String
      */
     public static final String DEFAULT_CONFIGURATION_FILE_NAME = "architecture-rules.xml";
-
 
     /**
      * <p>Holds the value parsed from the XML configuration that indicates

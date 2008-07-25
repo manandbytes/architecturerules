@@ -15,6 +15,7 @@ package com.seventytwomiles.architecturerules.domain;
 
 
 import com.seventytwomiles.architecturerules.exceptions.IllegalArchitectureRuleException;
+
 import junit.framework.AssertionFailedError;
 import junit.framework.TestCase;
 
@@ -33,7 +34,6 @@ public class RuleTest extends TestCase {
      */
     private Rule rule;
 
-
     /**
      * <p>Contracts a new test with the given <tt>name</tt></p>
      *
@@ -42,7 +42,6 @@ public class RuleTest extends TestCase {
     public RuleTest(final String name) {
         super(name);
     }
-
 
     /**
      * @see TestCase#setUp()

@@ -33,7 +33,6 @@ public class CyclicRedundancyException extends ArchitectureException {
      */
     protected Map<String, Set<String>> cycles = new HashMap<String, Set<String>>();
 
-
     /**
      * @see RuntimeException#RuntimeException()
      */

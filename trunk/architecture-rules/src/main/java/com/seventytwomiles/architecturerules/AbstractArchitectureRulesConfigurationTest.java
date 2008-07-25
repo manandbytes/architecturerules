@@ -22,7 +22,9 @@ import com.seventytwomiles.architecturerules.services.CyclicRedundancyService;
 import com.seventytwomiles.architecturerules.services.CyclicRedundancyServiceImpl;
 import com.seventytwomiles.architecturerules.services.RulesService;
 import com.seventytwomiles.architecturerules.services.RulesServiceImpl;
+
 import junit.framework.TestCase;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
@@ -42,7 +44,6 @@ public abstract class AbstractArchitectureRulesConfigurationTest extends TestCas
 
     protected static final Log log = LogFactory.getLog(AbstractArchitectureRulesConfigurationTest.class);
 
-
     /**
      * <p>The <code>Configuration</code> containing the <code>SourceDirectory</code> and <code>Rules</code> to
      * assert.</p>
@@ -50,7 +51,6 @@ public abstract class AbstractArchitectureRulesConfigurationTest extends TestCas
      * @parameter configuration Configuration
      */
     private final Configuration configuration = new Configuration();
-
 
     /**
      * Upon instantiation, instances a new Configuration by reading the XML configuration file named
@@ -72,7 +72,6 @@ public abstract class AbstractArchitectureRulesConfigurationTest extends TestCas
             configuration.setDoCyclicDependencyTest(configurationFactory.doCyclicDependencyTest());
         }
     }
-
 
     /* ----------------------------------------------------- abstract methods */
     /**

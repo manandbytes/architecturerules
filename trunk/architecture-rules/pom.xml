@@ -279,7 +279,7 @@
                 </executions>
                 <configuration>
                     <fileFormat>UNIX</fileFormat>
-                    <convention>jalopy.xml</convention>
+                    <convention>${basedir}/jalopy.xml</convention>
                 </configuration>
             </plugin>
             <plugin>

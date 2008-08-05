@@ -38,7 +38,7 @@
     <target name="compile" />
 
     <taskdef name="assertArchitecture"
-             classname="com.seventytwomiles.architecturerules.ant.AssertArchitectureTask">
+             classname="org.architecturerules.ant.AssertArchitectureTask">
         <classpath refid="class.path" />
     </taskdef>
 
@@ -57,7 +57,7 @@
         <junit haltonerror="true">
             <classpath refid="class.path" />
             <formatter type="brief" usefile="false" />
-            <test name="com.seventytwomiles.architecturerules.ArchitectureTest"
+            <test name="org.architecturerules.ArchitectureTest"
                   haltonfailure="true" />
         </junit>
     </target>

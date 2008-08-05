@@ -14,8 +14,8 @@
 package test.com.seventytwomiles.test;
 
 
-import com.seventytwomiles.architecturerules.AbstractArchitectureRulesConfigurationTest;
-import com.seventytwomiles.architecturerules.configuration.Configuration;
+import org.architecturerules.AbstractArchitectureRulesConfigurationTest;
+import org.architecturerules.configuration.Configuration;
 
 
 /**

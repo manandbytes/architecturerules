@@ -300,7 +300,7 @@
                 <artifactId>maven-license-plugin</artifactId>
                 <version>1.2.5</version>
                 <configuration>
-                    <header>../architecture-rules/src/main/resources/file-header.txt</header>
+                    <header>file:../architecture-rules/src/main/resources/file-header.txt</header>
                     <quiet>false</quiet>
                     <excludes>
                         <exclude>**/*.uml</exclude>

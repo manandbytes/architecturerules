@@ -16,7 +16,7 @@
                 <version>2.4</version>
             </plugin>
             <plugin>
-                <groupId>info.manandbytes</groupId>
+            	<groupId>org.architecturerules</groupId>
                 <artifactId>maven-architecture-rules-plugin</artifactId>
 		<version>0.0-it-SNAPSHOT</version>
                 <configuration />

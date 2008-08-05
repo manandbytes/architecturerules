@@ -5,7 +5,7 @@ import junit.framework.TestCase;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
+import java.net.URL;
 import java.util.Collection;
 import java.util.LinkedList;
 
@@ -14,6 +14,7 @@ import javassist.NotFoundException;
 
 import javax.management.ServiceNotFoundException;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.maven.plugin.logging.Log;
 import org.apache.maven.project.MavenProject;
 
@@ -25,8 +26,6 @@ import org.architecturerules.services.CyclicRedundancyService;
 import org.architecturerules.services.CyclicRedundancyServiceImpl;
 import org.architecturerules.services.RulesService;
 import org.architecturerules.services.RulesServiceImpl;
-
-import org.seventytwomiles.springframework.io.FileUtils;
 
 
 /**
@@ -54,12 +53,12 @@ public class MojoArchitectureRulesConfigurationTest extends TestCase {
         @Override
         protected String getConfigurationAsXml(final String configurationFileName) {
 
-            InputStream configStream = getClass().getClassLoader().getResourceAsStream(ConfigurationFactory.DEFAULT_CONFIGURATION_FILE_NAME);
+            URL configStream = getClass().getClassLoader().getResource(ConfigurationFactory.DEFAULT_CONFIGURATION_FILE_NAME);
             String configAsString;
 
             try {
 
-                configAsString = FileUtils.toString(configStream, null);
+                configAsString = FileUtils.readFileToString(new File(configStream.toString()));
 
                 return configAsString;
             } catch (IOException e) {

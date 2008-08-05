@@ -234,7 +234,7 @@
                 </executions>
                 <configuration>
                     <fileFormat>UNIX</fileFormat>
-                    <convention>../architecture-rules/jalopy.xml</convention>
+                    <convention>${basedir}/../architecture-rules/jalopy.xml</convention>
                 </configuration>
             </plugin>
             <plugin>
@@ -300,7 +300,7 @@
                 <artifactId>maven-license-plugin</artifactId>
                 <version>1.2.5</version>
                 <configuration>
-                    <header>file:../architecture-rules/src/main/resources/file-header.txt</header>
+                    <header>file:${basedir}/../architecture-rules/src/main/resources/file-header.txt</header>
                     <quiet>false</quiet>
                     <excludes>
                         <exclude>**/*.uml</exclude>

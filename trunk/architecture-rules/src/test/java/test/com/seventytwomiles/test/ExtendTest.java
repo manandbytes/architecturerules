@@ -9,7 +9,7 @@
  *
  * For more information visit
  *         http://72miles.com and
- *         http://architecturerules.googlecode.com/
+ *         http://architecturerules.googlecode.com
  */
 package test.com.seventytwomiles.test;
 

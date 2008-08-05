@@ -1,0 +1,340 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+
+    <groupId>org.architecturerules</groupId>
+    <artifactId>architecture-rules-maven-plugin</artifactId>
+    <packaging>maven-plugin</packaging>
+    <version>0.1-SNAPSHOT</version>
+
+    <name>Maven 2 plugin for Architecture-Rules</name>
+    <inceptionYear>2007,2008</inceptionYear>
+
+    <description>
+        Maven2 Plugin to ease the execution of architecture rules tests. Architecture rules leverages an XML
+        configuration file to test your code's architecture via unit tests. Able to assert that specific packages do not
+        depend on each other and able to check for cyclic redundancies among your packages.
+    </description>
+
+    <url>http://architecturerules.googlecode.com/svn/docs/index.html</url>
+
+    <issueManagement>
+        <system>Google Code</system>
+        <url>http://code.google.com/p/architecturerules/issues</url>
+    </issueManagement>
+
+    <ciManagement>
+        <system>hudson</system>
+        <url>http://72miles.com/hudson/job/maven-architecture-rules-plugin/
+        </url>
+    </ciManagement>
+
+    <scm>
+        <connection>
+            scm:svn:http://architecturerules.googlecode.com/svn/trunk/${artifactId}/
+        </connection>
+        <developerConnection>
+            scm:svn:https://architecturerules.googlecode.com/svn/trunk/${artifactId}
+        </developerConnection>
+        <url>
+            http://architecturerules.googlecode.com/svn/trunk/${artifactId}
+        </url>
+    </scm>
+
+    <mailingLists>
+        <mailingList>
+            <name>User List</name>
+            <post>architecture-rules-users@googlegroups.com</post>
+            <archive>
+                http://groups.google.com/group/architecture-rules-users
+            </archive>
+            <subscribe>
+                http://groups.google.com/group/architecture-rules-users/subscribe
+            </subscribe>
+        </mailingList>
+        <mailingList>
+            <name>Dev List</name>
+            <post>architecture-rules-dev@googlegroups.com</post>
+            <archive>
+                http://groups.google.com/group/architecture-rules-dev
+            </archive>
+            <subscribe>
+                http://groups.google.com/group/architecture-rules-dev/subscribe
+            </subscribe>
+        </mailingList>
+        <mailingList>
+            <name>Activity List</name>
+            <post>architecture-rules-activity@googlegroups.com</post>
+            <archive>
+                http://groups.google.com/group/architecture-rules-activity
+            </archive>
+            <subscribe>
+                http://groups.google.com/group/architecture-rules-activity/subscribe
+            </subscribe>
+        </mailingList>
+    </mailingLists>
+
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>manual</distribution>
+        </license>
+    </licenses>
+
+    <prerequisites>
+        <maven>2.0+</maven>
+    </prerequisites>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.maven</groupId>
+            <artifactId>maven-plugin-api</artifactId>
+            <version>2.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.maven</groupId>
+            <artifactId>maven-project</artifactId>
+            <version>2.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.maven.reporting</groupId>
+            <artifactId>maven-reporting-impl</artifactId>
+            <version>2.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.architecturerules</groupId>
+            <artifactId>architecture-rules</artifactId>
+            <version>3.0.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.maven.shared</groupId>
+            <artifactId>maven-plugin-testing-harness</artifactId>
+            <version>1.0-beta-1</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.4.2</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-eclipse-plugin</artifactId>
+                <configuration>
+                    <additionalProjectnatures>
+                        <projectnature>
+                            org.eclipse.jdt.core.javanature
+                        </projectnature>
+                        <projectnature>
+                            org.eclipse.wst.common.project.facet.core.nature
+                        </projectnature>
+                    </additionalProjectnatures>
+                    <additionalBuildcommands>
+                        <buildcommand>
+                            org.eclipse.jdt.core.javabuilder
+                        </buildcommand>
+                        <buildcommand>
+                            org.eclipse.wst.common.project.facet.core.builder
+                        </buildcommand>
+                    </additionalBuildcommands>
+                    <downloadSources>true</downloadSources>
+                    <downloadJavadocs>true</downloadJavadocs>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.5</source>
+                    <target>1.5</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-invoker-plugin</artifactId>
+                <version>1.2</version>
+                <configuration>
+                    <debug>true</debug>
+                    <showErrors>true</showErrors>
+                    <projectsDirectory>src/test/resources/</projectsDirectory>
+                    <cloneProjectsTo>${project.build.directory}/it
+                    </cloneProjectsTo>
+                    <pomIncludes>
+                        <pomInclude>**/pom.xml</pomInclude>
+                    </pomIncludes>
+                    <postBuildHookScript>verify.bsh</postBuildHookScript>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>integration-test</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-install-plugin</artifactId>
+                <!--
+                use version 2.2 for which http://jira.codehaus.org/browse/MINSTALL-12 is resolved
+            -->
+                <version>2.2</version>
+                <executions>
+                    <execution>
+                        <id>it-test</id>
+                        <phase>pre-integration-test</phase>
+                        <goals>
+                            <goal>install-file</goal>
+                        </goals>
+                        <configuration>
+                            <groupId>${project.groupId}</groupId>
+                            <artifactId>${project.artifactId}</artifactId>
+                            <version>0.0-it-SNAPSHOT</version>
+                            <!-- IT SNAPSHOT -->
+                            <packaging>maven-plugin</packaging>
+                            <pomFile>${basedir}/pom.xml</pomFile>
+                            <file>
+                                ${basedir}/target/${project.artifactId}-${project.version}.jar
+                            </file>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>jalopy-maven-plugin</artifactId>
+                <version>1.0-alpha-1</version>
+                <executions>
+                    <execution>
+                        <id />
+                        <phase>process-classes</phase>
+                        <goals>
+                            <goal>format</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <fileFormat>UNIX</fileFormat>
+                    <convention>../architecture-rules/jalopy.xml</convention>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <version>2.2</version>
+                <configuration>
+                    <configLocation>checkstyle.xml</configLocation>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <reporting>
+        <plugins>
+            <!-- for maven plugins -->
+            <plugin>
+                <artifactId>maven-plugin-plugin</artifactId>
+            </plugin>
+            <!-- surefire and other -->
+            <plugin>
+                <artifactId>maven-surefire-report-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <artifactId>maven-project-info-reports-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <version>2.2</version>
+            </plugin>
+            <plugin>
+                <artifactId>maven-jxr-plugin</artifactId>
+                <configuration>
+                    <linkJavadoc>true</linkJavadoc>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>findbugs-maven-plugin</artifactId>
+                <version>1.1.1</version>
+            </plugin>
+            <plugin>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <configuration>
+                    <quiet>true</quiet>
+                    <links>
+                        <link>http://java.sun.com/j2se/1.5.0/docs/api/</link>
+                        <link>http://junit.sourceforge.net/javadoc/</link>
+                    </links>
+                </configuration>
+                <reportSets>
+                    <reportSet>
+                        <reports>
+                            <report>javadoc</report>
+                        </reports>
+                    </reportSet>
+                </reportSets>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>jdepend-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>javancss-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>taglist-maven-plugin</artifactId>
+                <configuration>
+                    <tags>
+                        <tag>TODO</tag>
+                    </tags>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>cobertura-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </reporting>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>m2-snapshot-repository</id>
+            <url>
+                http://people.apache.org/repo/m2-snapshot-repository/
+            </url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+        </pluginRepository>
+    </pluginRepositories>
+
+    <repositories>
+        <repository>
+            <id>architect-rules-repo</id>
+            <name>architecture-rules repository hosted by code.google.com</name>
+            <url>http://architecturerules.googlecode.com/svn/maven2/</url>
+            <releases>
+                <checksumPolicy>ignore</checksumPolicy>
+            </releases>
+            <snapshots>
+                <checksumPolicy>ignore</checksumPolicy>
+            </snapshots>
+        </repository>
+    </repositories>
+
+</project>

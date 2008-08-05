@@ -28,6 +28,11 @@ import org.architecturerules.configuration.ConfigurationFactory;
  */
 public class SourcesConfiguration {
 
+    /**
+     * <p>To log with. See <tt>log4j.xml</tt>.</p>
+     *
+     * @parameter log Log
+     */
     protected static final Log log = LogFactory.getLog(SourcesConfiguration.class);
 
     /**

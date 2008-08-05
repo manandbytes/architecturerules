@@ -17,22 +17,17 @@ package org.architecturerules.configuration;
 import java.util.Collection;
 import java.util.Collections;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-
 import org.architecturerules.domain.Rule;
 import org.architecturerules.domain.SourceDirectory;
 
 
 /**
- * <p>An UnmodifiableConfiguration is a <code>Configuration</code> instance
- * whose setters and collections are unavailable or unmodifiable.</p>
+ * <p>An UnmodifiableConfiguration is a <code>Configuration</code> instance whose setters and collections are
+ * unavailable or unmodifiable.</p>
  *
  * @author mikenereson
  */
 public final class UnmodifiableConfiguration extends Configuration {
-
-    protected static final Log log = LogFactory.getLog(UnmodifiableConfiguration.class);
 
     /**
      * <p>Instantiates a new unmodifiable configuration class.</p>
@@ -88,8 +83,7 @@ public final class UnmodifiableConfiguration extends Configuration {
     /**
      * <p>Setter for property {@link #throwExceptionWhenNoPackages}.</p>
      *
-     * @param throwExceptionWhenNoPackages Value to set for property
-     *                                     <tt>throwExceptionWhenNoPackages</tt>.
+     * @param throwExceptionWhenNoPackages Value to set for property <tt>throwExceptionWhenNoPackages</tt>.
      */
     @Override
     public UnmodifiableConfiguration setThrowExceptionWhenNoPackages(final boolean throwExceptionWhenNoPackages) {

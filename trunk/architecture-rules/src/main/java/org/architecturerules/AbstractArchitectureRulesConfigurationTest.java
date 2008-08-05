@@ -42,6 +42,11 @@ import org.architecturerules.services.RulesServiceImpl;
  */
 public abstract class AbstractArchitectureRulesConfigurationTest extends TestCase {
 
+    /**
+     * <p>To log with. See <tt>log4j.xml</tt>.</p>
+     *
+     * @parameter log Log
+     */
     protected static final Log log = LogFactory.getLog(AbstractArchitectureRulesConfigurationTest.class);
 
     /**

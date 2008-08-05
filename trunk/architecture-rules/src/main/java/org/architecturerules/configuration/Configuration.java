@@ -40,6 +40,11 @@ import org.architecturerules.domain.SourceDirectory;
  */
 public class Configuration {
 
+    /**
+     * <p>To log with. See <tt>log4j.xml</tt>.</p>
+     *
+     * @parameter log Log
+     */
     protected static final Log log = LogFactory.getLog(Configuration.class);
 
     /**

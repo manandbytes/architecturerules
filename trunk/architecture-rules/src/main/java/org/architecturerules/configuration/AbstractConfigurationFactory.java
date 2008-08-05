@@ -32,14 +32,18 @@ import org.springframework.core.io.ClassPathResource;
 
 
 /**
- * <p>Abstract Factory that provides common functionality for
- * <code>ConfigurationFactory</code> implementations.</p>
+ * <p>Abstract Factory that provides common functionality for <code>ConfigurationFactory</code> implementations.</p>
  *
  * @author mikenereson
  * @see ConfigurationFactory
  */
 public abstract class AbstractConfigurationFactory implements ConfigurationFactory {
 
+    /**
+     * <p>To log with. See <tt>log4j.xml</tt>.</p>
+     *
+     * @parameter log Log
+     */
     protected static final Log log = LogFactory.getLog(AbstractConfigurationFactory.class);
 
     /**
@@ -57,8 +61,7 @@ public abstract class AbstractConfigurationFactory implements ConfigurationFacto
     protected final List<SourceDirectory> sources = new ArrayList<SourceDirectory>();
 
     /**
-     * <p>Weather or not to throw exception when no packages are found for a
-     * given path.</p>
+     * <p>Weather or not to throw exception when no packages are found for a given path.</p>
      *
      * @parameter throwExceptionWhenNoPackages boolean
      */
@@ -94,8 +97,7 @@ public abstract class AbstractConfigurationFactory implements ConfigurationFacto
 
 
     /**
-     * @return boolean <tt>true</tt> when <samp>&lt;cyclicalDependency
-     *         test="true"/> </samp>
+     * @return boolean <tt>true</tt> when <samp>&lt;cyclicalDependency test="true"/> </samp>
      * @see ConfigurationFactory#doCyclicDependencyTest()
      */
     public boolean doCyclicDependencyTest() {
@@ -105,8 +107,7 @@ public abstract class AbstractConfigurationFactory implements ConfigurationFacto
 
 
     /**
-     * @return boolean <tt>true</tt> when <samp>&lt;sources
-     *         no-packages="exception"> </samp>
+     * @return boolean <tt>true</tt> when <samp>&lt;sources no-packages="exception"> </samp>
      * @see ConfigurationFactory#throwExceptionWhenNoPackages()
      */
     public boolean throwExceptionWhenNoPackages() {
@@ -118,8 +119,8 @@ public abstract class AbstractConfigurationFactory implements ConfigurationFacto
     /**
      * <p>Read Xml configuration file to String.</p>
      *
-     * @param configurationFileName String name of the XML file in the classpath
-     * to load and read OR the complete path to the file.
+     * @param configurationFileName String name of the XML file in the classpath to load and read OR the complete path
+     * to the file.
      * @return String returns the contents of the configurationFile
      */
     protected String getConfigurationAsXml(final String configurationFileName) {

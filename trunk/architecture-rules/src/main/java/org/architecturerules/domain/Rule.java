@@ -33,6 +33,11 @@ import org.architecturerules.exceptions.IllegalArchitectureRuleException;
  */
 public class Rule {
 
+    /**
+     * <p>To log with. See <tt>log4j.xml</tt>.</p>
+     *
+     * @parameter log Log
+     */
     protected static final Log log = LogFactory.getLog(Rule.class);
 
     /**

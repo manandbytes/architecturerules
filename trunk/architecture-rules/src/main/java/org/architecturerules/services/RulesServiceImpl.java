@@ -37,7 +37,7 @@ import org.architecturerules.exceptions.SourceNotFoundException;
 public class RulesServiceImpl extends AbstractArchitecturalRules implements RulesService {
 
     /**
-     * <p>Log to log with.</p>
+     * <p>To log with. See <tt>log4j.xml</tt>.</p>
      *
      * @parameter log Log
      */

@@ -31,6 +31,11 @@ import org.xml.sax.SAXParseException;
  */
 class SaxErrorHandler implements ErrorHandler {
 
+    /**
+     * <p>To log with. See <tt>log4j.xml</tt>.</p>
+     *
+     * @parameter log Log
+     */
     protected static final Log log = LogFactory.getLog(SaxErrorHandler.class);
 
     /**

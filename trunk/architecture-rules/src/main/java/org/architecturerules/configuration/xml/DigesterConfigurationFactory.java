@@ -41,6 +41,11 @@ import org.xml.sax.SAXException;
  */
 public class DigesterConfigurationFactory extends AbstractConfigurationFactory {
 
+    /**
+     * <p>To log with. See <tt>log4j.xml</tt>.</p>
+     *
+     * @parameter log Log
+     */
     protected static final Log log = LogFactory.getLog(DigesterConfigurationFactory.class);
 
     /**

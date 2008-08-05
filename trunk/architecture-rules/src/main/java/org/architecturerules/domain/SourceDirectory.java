@@ -35,6 +35,11 @@ import org.architecturerules.exceptions.SourceNotFoundException;
  */
 public class SourceDirectory {
 
+    /**
+     * <p>To log with. See <tt>log4j.xml</tt>.</p>
+     *
+     * @parameter log Log
+     */
     protected static final Log log = LogFactory.getLog(SourceDirectory.class);
 
     /**

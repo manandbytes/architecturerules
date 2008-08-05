@@ -228,8 +228,7 @@ abstract class AbstractArchitecturalRules {
 
                 log.debug("throwing CyclicRedundancyException");
 
-                final String message = "cyclic redundancy does exist";
-                throw new CyclicRedundancyException(message);
+                throw new CyclicRedundancyException("cyclic redundancy does exist");
             }
         } else {
 

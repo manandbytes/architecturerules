@@ -41,7 +41,7 @@ import org.architecturerules.exceptions.SourceNotFoundException;
 public class CyclicRedundancyServiceImpl extends AbstractArchitecturalRules implements CyclicRedundancyService {
 
     /**
-     * <p>Log to log with</p>
+     * <p>To log with. See <tt>log4j.xml</tt>.</p>
      *
      * @parameter log Log
      */

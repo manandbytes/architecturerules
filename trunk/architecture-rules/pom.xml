@@ -4,9 +4,6 @@
 
 
     <modelVersion>4.0.0</modelVersion>
-
-
-    <groupId>org.architecturerules</groupId>
     <artifactId>architecture-rules</artifactId>
     <packaging>jar</packaging>
     <version>3.0.0-SNAPSHOT</version>
@@ -20,6 +17,12 @@
     </description>
 
     <url>http://architecturerules.googlecode.com/</url>
+    <parent>
+        <artifactId>architecture-rules-parent</artifactId>
+        <groupId>org.architecturerules</groupId>
+        <version>1</version>
+    </parent>
+
 
     <issueManagement>
         <system>Google Code</system>

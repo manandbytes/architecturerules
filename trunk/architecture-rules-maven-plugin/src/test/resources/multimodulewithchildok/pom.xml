@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
 
-    <groupId>info.manandbytes.architecture-rules</groupId>
+    <groupId>org.architecturerules.architecture-rules</groupId>
     <artifactId>multimodulewithchildok</artifactId>
     <packaging>pom</packaging>
     <version>0.0-SNAPSHOT</version>
@@ -37,7 +37,7 @@
                 <version>2.4</version>
             </plugin>
             <plugin>
-                <groupId>info.manandbytes</groupId>
+                <groupId>org.architecturerules</groupId>
                 <artifactId>maven-architecture-rules-plugin</artifactId>
                 <version>0.0-it-SNAPSHOT</version>
                 <executions>
@@ -55,7 +55,7 @@
     <reporting>
         <plugins>
             <plugin>
-                <groupId>info.manandbytes</groupId>
+                <groupId>org.architecturerules</groupId>
                 <artifactId>maven-architecture-rules-plugin</artifactId>
                 <version>0.0-it-SNAPSHOT</version>
             </plugin>

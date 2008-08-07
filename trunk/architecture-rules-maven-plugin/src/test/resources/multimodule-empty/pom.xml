@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
 
-    <groupId>info.manandbytes.architecture-rules</groupId>
+    <groupId>org.architecturerules.architecture-rules</groupId>
     <artifactId>multimodule-empty</artifactId>
     <packaging>pom</packaging>
     <version>0.0-SNAPSHOT</version>
@@ -30,7 +30,7 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>info.manandbytes</groupId>
+                <groupId>org.architecturerules</groupId>
                 <artifactId>maven-architecture-rules-plugin</artifactId>
                 <version>0.0-it-SNAPSHOT</version>
                 <executions>
@@ -48,7 +48,7 @@
     <reporting>
         <plugins>
             <plugin>
-                <groupId>info.manandbytes</groupId>
+                <groupId>org.architecturerules</groupId>
                 <artifactId>maven-architecture-rules-plugin</artifactId>
                 <version>0.0-it-SNAPSHOT</version>
             </plugin>

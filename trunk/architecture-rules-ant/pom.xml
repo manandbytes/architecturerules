@@ -20,11 +20,6 @@
     	<groupId>org.architecturerules</groupId>
     	<version>1</version>
     </parent>
-
-    <ciManagement>
-        <system>hudson</system>
-        <url>http://72miles.com/hudson/job/architecture-rules/</url>
-    </ciManagement>
     <dependencies>
         <dependency>
             <groupId>org.architecturerules</groupId>

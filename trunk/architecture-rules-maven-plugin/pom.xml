@@ -15,13 +15,6 @@
         configuration file to test your code's architecture via unit tests. Able to assert that specific packages do not
         depend on each other and able to check for cyclic redundancies among your packages.
     </description>
-
-    <ciManagement>
-        <system>hudson</system>
-        <url>http://72miles.com/hudson/job/maven-architecture-rules-plugin/
-        </url>
-    </ciManagement>
-
     <scm>
         <connection>
             scm:svn:http://architecturerules.googlecode.com/svn/trunk/${artifactId}/

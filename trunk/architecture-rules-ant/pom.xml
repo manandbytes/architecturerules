@@ -83,50 +83,6 @@
     </dependencies>
 
 
-    <developers>
-        <developer>
-            <id>mnereson</id>
-            <name>mikenereson</name>
-            <email>mikenereson@gmail.com</email>
-            <roles>
-                <role>project leader</role>
-                <role>commiter</role>
-            </roles>
-        </developer>
-        <developer>
-            <name>mykola.nickishov</name>
-            <roles>
-                <role>project member</role>
-            </roles>
-        </developer>
-    </developers>
-    <contributors>
-        <contributor>
-            <name>axel</name>
-            <roles>
-                <role>contributor</role>
-                <role>commiter</role>
-            </roles>
-        </contributor>
-        <contributor>
-            <name>luminary</name>
-            <roles>
-                <role>contributor</role>
-            </roles>
-        </contributor>
-    </contributors>
-
-
-    <scm>
-        <connection>scm:svn:http://architecturerules.googlecode.com/svn/trunk/
-        </connection>
-        <developerConnection>
-            scm:svn:https://architecturerules.googlecode.com/svn/trunk/
-        </developerConnection>
-        <url>http://architecturerules.googlecode.com/svn/trunk/</url>
-    </scm>
-
-
     <reporting>
 
         <plugins>

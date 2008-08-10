@@ -18,11 +18,6 @@
 
     <url>http://architecturerules.googlecode.com/svn/docs/index.html</url>
 
-    <issueManagement>
-        <system>Google Code</system>
-        <url>http://code.google.com/p/architecturerules/issues</url>
-    </issueManagement>
-
     <ciManagement>
         <system>hudson</system>
         <url>http://72miles.com/hudson/job/maven-architecture-rules-plugin/

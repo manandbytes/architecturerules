@@ -7,6 +7,10 @@
     <version>1</version>
     <name>Architecture Rules parent project</name>
     <inceptionYear>2007, 2008</inceptionYear>
+    <issueManagement>
+    	<system>Google Code</system>
+    	<url>http://code.google.com/p/architecturerules/issues</url>
+    </issueManagement>
     <modules>
         <module>architecture-rules</module>
         <module>architecture-rules-ant</module>

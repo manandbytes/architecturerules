@@ -15,7 +15,6 @@
         specific packages do not depend on each other and able to check for cyclic redundancies among your packages.
     </description>
 
-    <url>http://architecturerules.googlecode.com/</url>
     <parent>
     	<artifactId>architecture-rules-parent</artifactId>
     	<groupId>org.architecturerules</groupId>

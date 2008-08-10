@@ -6,6 +6,7 @@
     <packaging>pom</packaging>
     <version>1</version>
     <name>Architecture Rules parent project</name>
+    <url>http://architecturerules.googlecode.com/</url>
     <inceptionYear>2007, 2008</inceptionYear>
     <issueManagement>
     	<system>Google Code</system>

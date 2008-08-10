@@ -16,8 +16,6 @@
         depend on each other and able to check for cyclic redundancies among your packages.
     </description>
 
-    <url>http://architecturerules.googlecode.com/svn/docs/index.html</url>
-
     <ciManagement>
         <system>hudson</system>
         <url>http://72miles.com/hudson/job/maven-architecture-rules-plugin/

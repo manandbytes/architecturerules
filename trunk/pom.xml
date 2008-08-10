@@ -78,6 +78,13 @@
             </subscribe>
         </mailingList>
     </mailingLists>
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>manual</distribution>
+        </license>
+    </licenses>
     <modules>
         <module>architecture-rules</module>
         <module>architecture-rules-ant</module>

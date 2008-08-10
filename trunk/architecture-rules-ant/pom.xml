@@ -25,14 +25,6 @@
         <system>hudson</system>
         <url>http://72miles.com/hudson/job/architecture-rules/</url>
     </ciManagement>
-
-    <licenses>
-        <license>
-            <name>The Apache Software License, Version 2.0</name>
-            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-            <distribution>manual</distribution>
-        </license>
-    </licenses>
     <dependencies>
         <dependency>
             <groupId>org.architecturerules</groupId>

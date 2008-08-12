@@ -8,8 +8,8 @@
  *         http://www.apache.org/licenses/LICENSE-2.0
  *
  * For more information visit
- *         http://72miles.com and
- *         http://architecturerules.googlecode.com/
+ *         http://72miles.com/ and
+ *         http://architecturerules.googlecode.com
  */
 package org.architecturerules.domain;
 
@@ -105,9 +105,8 @@ public class JPackageTest extends TestCase {
 
 
     /**
-     * <p>terminating <tt>*</tt> should only look in one package past the last
-     * package, not any deeper. so <tt>a.b.*</tt> should match <tt>a.b.c</tt>
-     * but NOT <tt>a.b.c.d</tt></p>
+     * <p>terminating <tt>*</tt> should only look in one package past the last package, not any deeper. so
+     * <tt>a.b.*</tt> should match <tt>a.b.c</tt> but NOT <tt>a.b.c.d</tt></p>
      */
     public void testMatchPackage_wildcards_pass()
             throws Exception {
@@ -138,10 +137,9 @@ public class JPackageTest extends TestCase {
 
 
     /**
-     * <p>terminating <tt>..*</tt> should match the last package, and all sub
-     * packages. so <tt>a.b..*</tt> should match <tt>a.b.c</tt> and
-     * <tt>a.b.c.d</tt>, <tt>a.b.c.e</tt>, <tt>a.b.c.f</tt> plus
-     * <tt>a.b.c.d.1</tt>, <tt>a.b.c.d.2</tt>, <tt>a.b.c.d.3</tt></p>
+     * <p>terminating <tt>..*</tt> should match the last package, and all sub packages. so <tt>a.b..*</tt> should match
+     * <tt>a.b.c</tt> and <tt>a.b.c.d</tt>, <tt>a.b.c.e</tt>, <tt>a.b.c.f</tt> plus <tt>a.b.c.d.1</tt>,
+     * <tt>a.b.c.d.2</tt>, <tt>a.b.c.d.3</tt></p>
      */
     public void testMatchSubPackage_wildcards_pass()
             throws Exception {

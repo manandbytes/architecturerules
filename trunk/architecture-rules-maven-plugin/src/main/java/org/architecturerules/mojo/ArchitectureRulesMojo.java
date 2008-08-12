@@ -1,22 +1,22 @@
 package org.architecturerules.mojo;
 
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Collection;
-import java.util.LinkedList;
-import java.util.List;
-
 import org.apache.maven.model.Resource;
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.plugin.logging.Log;
 import org.apache.maven.project.MavenProject;
-
-import org.architecturerules.configuration.ConfigurationFactory;
+import org.architecturerules.api.configuration.ConfigurationFactory;
 import org.architecturerules.exceptions.ArchitectureException;
 import org.architecturerules.exceptions.CyclicRedundancyException;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Collection;
+import java.util.LinkedList;
+import java.util.List;
+
 
 
 /**
@@ -29,7 +29,9 @@ import org.architecturerules.exceptions.CyclicRedundancyException;
  * @execute phase = "compile"
  * @requiresDependencyResolution compile
  */
-public class ArchitectureRulesMojo extends AbstractMojo {
+public class ArchitectureRulesMojo
+        extends AbstractMojo {
+
 
     /**
      * <p>Name of the configuration file used by Architecture Rules.</p>
@@ -40,28 +42,25 @@ public class ArchitectureRulesMojo extends AbstractMojo {
     private String configurationFileName = ConfigurationFactory.DEFAULT_CONFIGURATION_FILE_NAME;
 
     /**
-     * For <a href="http://maven.apache.org/pom.html#Aggregation">Aggregation
-     * (or Multi-Module) project</a> we don't run Architecture Rules assertions
-     * by default. To change this behavior use <code>-Darchitecture-rules.skipRoot=false</code>
+     * For <a href="http://maven.apache.org/pom.html#Aggregation">Aggregation (or Multi-Module) project</a> we don't run
+     * Architecture Rules assertions by default. To change this behavior use <code>-Darchitecture-rules.skipRoot=false</code>
      *
      * @parameter default-value="true" expression="${architecture-rules.skipRoot}"
      */
     private boolean skipRoot;
 
     /**
-     * If your failed rules shouldn't break a build (you *had* to introduce a
-     * dependency a day before a release, which of course isn't nice, but you can
-     * easily correct the problem a few days after a release) set this parameter
-     *  to <code>false</code>.
+     * If your failed rules shouldn't break a build (you *had* to introduce a dependency a day before a release, which
+     * of course isn't nice, but you can easily correct the problem a few days after a release) set this parameter to
+     * <code>false</code>.
      *
      * @parameter default-value="true" expression="${architecture-rules.failOnError}"
      */
     private boolean failOnError;
 
     /**
-     * Skip current project (i.e. in <a href="http://maven.apache.org/pom.html#Aggregation">Aggregation
-     * (or Multi-Module) project</a>) and don't run Architecture Rules
-     * assertions against it.
+     * Skip current project (i.e. in <a href="http://maven.apache.org/pom.html#Aggregation">Aggregation (or
+     * Multi-Module) project</a>) and don't run Architecture Rules assertions against it.
      *
      * @parameter default-value="false" expression="${architecture-rules.skip}"
      */
@@ -83,9 +82,9 @@ public class ArchitectureRulesMojo extends AbstractMojo {
      */
     private Collection<MavenProject> reactorProjects;
 
+
     /**
-     * <p>Entry point to this plugin. Finds the configuration files, constructs
-     * the tests, and executes the tests.</p>
+     * <p>Entry point to this plugin. Finds the configuration files, constructs the tests, and executes the tests.</p>
      *
      * @throws MojoExecutionException
      * @throws MojoFailureException
@@ -157,7 +156,8 @@ public class ArchitectureRulesMojo extends AbstractMojo {
             if (isFailOnError()) {
 
                 throw new MojoExecutionException(rulesExceptions, "", "");
-            } else {
+            }
+            else {
 
                 getLog().warn(new ArchitectureException(rulesExceptions.toString()));
             }
@@ -166,8 +166,7 @@ public class ArchitectureRulesMojo extends AbstractMojo {
 
 
     /**
-     * Find the file with given {@link #configurationFileName} in the
-     * testResources.
+     * Find the file with given {@link #configurationFileName} in the testResources.
      *
      * @param testResources List<Resource>
      * @param log maven log to log with
@@ -209,7 +208,8 @@ public class ArchitectureRulesMojo extends AbstractMojo {
                 }
 
                 return configFile;
-            } else if (log.isDebugEnabled()) {
+            }
+            else if (log.isDebugEnabled()) {
 
                 message.append("not found");
                 log.debug(message.toString());

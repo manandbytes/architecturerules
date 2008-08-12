@@ -8,8 +8,8 @@
  *         http://www.apache.org/licenses/LICENSE-2.0
  *
  * For more information visit
- *         http://72miles.com and
- *         http://architecturerules.googlecode.com/
+ *         http://72miles.com/ and
+ *         http://architecturerules.googlecode.com
  */
 package org.architecturerules;
 
@@ -28,8 +28,7 @@ import org.architecturerules.domain.SourceDirectory;
 public class SimpleProgrammaticArchitectureTest extends AbstractArchitectureRulesConfigurationTest {
 
     /**
-     * Sets up the fixture, for example, open a network connection. This method
-     * is called before a test is executed.
+     * Sets up the fixture, for example, open a network connection. This method is called before a test is executed.
      */
     @Override
     protected void setUp()

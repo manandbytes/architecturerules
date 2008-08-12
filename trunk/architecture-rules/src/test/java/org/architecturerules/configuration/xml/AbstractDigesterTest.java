@@ -8,8 +8,8 @@
  *         http://www.apache.org/licenses/LICENSE-2.0
  *
  * For more information visit
- *         http://72miles.com and
- *         http://architecturerules.googlecode.com/
+ *         http://72miles.com/ and
+ *         http://architecturerules.googlecode.com
  */
 package org.architecturerules.configuration.xml;
 
@@ -18,9 +18,8 @@ import junit.framework.TestCase;
 
 
 /**
- * <p>Abstract class to provide common fields and methods to the various test
- * classes responsible for testing the DigesterConfiguraitonFactory
- * implementation.</p>
+ * <p>Abstract class to provide common fields and methods to the various test classes responsible for testing the
+ * DigesterConfiguraitonFactory implementation.</p>
  *
  * @author mikenereson
  * @see TestCase

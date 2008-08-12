@@ -8,15 +8,14 @@
  *         http://www.apache.org/licenses/LICENSE-2.0
  *
  * For more information visit
- *         http://72miles.com and
- *         http://architecturerules.googlecode.com/
+ *         http://72miles.com/ and
+ *         http://architecturerules.googlecode.com
  */
 package org.architecturerules.configuration;
 
 
 import junit.framework.AssertionFailedError;
 import junit.framework.TestCase;
-
 import org.architecturerules.domain.Rule;
 import org.architecturerules.domain.SourceDirectory;
 
@@ -106,8 +105,7 @@ public class ConfigurationTest extends TestCase {
     /**
      * <p>Test for {@link Configuration#addRule(Rule)} </p>
      *
-     * @throws Exception when <code>Configuration</code> throws unexpected
-     *                   <code>Exception</code>
+     * @throws Exception when <code>Configuration</code> throws unexpected <code>Exception</code>
      */
     public void testAddRule()
             throws Exception {
@@ -128,11 +126,9 @@ public class ConfigurationTest extends TestCase {
 
 
     /**
-     * <p>Test for {@link Configuration#addRule(Rule)} when the Rule is
-     * invalid</p>
+     * <p>Test for {@link Configuration#addRule(Rule)} when the Rule is invalid</p>
      *
-     * @throws Exception when <code>Configuration</code> throws unexpected
-     *                   <code>Exception</code>
+     * @throws Exception when <code>Configuration</code> throws unexpected <code>Exception</code>
      */
     public void testAddRule_illegalArguments()
             throws Exception {
@@ -198,8 +194,7 @@ public class ConfigurationTest extends TestCase {
     /**
      * <p>Test for {@link Configuration#getRules()} </p>
      *
-     * @throws Exception when <code>Configuration</code> throws unexpected
-     *                   <code>Exception</code>
+     * @throws Exception when <code>Configuration</code> throws unexpected <code>Exception</code>
      */
     public void testGetRules()
             throws Exception {
@@ -223,8 +218,7 @@ public class ConfigurationTest extends TestCase {
     /**
      * <p>Test for {@link Configuration#getSources()}</p>
      *
-     * @throws Exception when <code>Configuration</code> throws unexpected
-     *                   <code>Exception</code>
+     * @throws Exception when <code>Configuration</code> throws unexpected <code>Exception</code>
      */
     public void testGetSources()
             throws Exception {
@@ -234,11 +228,9 @@ public class ConfigurationTest extends TestCase {
 
 
     /**
-     * <p>Test for {@link Configuration#setDoCyclicDependencyTest(boolean)}
-     * </p>
+     * <p>Test for {@link Configuration#setDoCyclicDependencyTest(boolean)} </p>
      *
-     * @throws Exception when <code>Configuration</code> throws unexpected
-     *                   <code>Exception</code>
+     * @throws Exception when <code>Configuration</code> throws unexpected <code>Exception</code>
      */
     public void testSetDoCyclicDependencyTest()
             throws Exception {
@@ -248,11 +240,9 @@ public class ConfigurationTest extends TestCase {
 
 
     /**
-     * <p>Test for {@link Configuration#setThrowExceptionWhenNoPackages(boolean)}
-     * </p>
+     * <p>Test for {@link Configuration#setThrowExceptionWhenNoPackages(boolean)} </p>
      *
-     * @throws Exception when <code>Configuration</code> throws unexpected
-     *                   <code>Exception</code>
+     * @throws Exception when <code>Configuration</code> throws unexpected <code>Exception</code>
      */
     public void testSetThrowExceptionWhenNoPackages()
             throws Exception {

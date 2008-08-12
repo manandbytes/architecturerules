@@ -10,7 +10,7 @@
             http://www.apache.org/licenses/LICENSE-2.0
     
     For more information visit
-            http://72miles.com and
+            http://72miles.com/ and
             http://architecturerules.googlecode.com/
 
 -->
@@ -98,7 +98,7 @@
         <module name="LineLength">
             <property name="max" value="120" />
         </module>
-        
+
         <module name="MethodLength" />
         <module name="ParameterNumber" />
 

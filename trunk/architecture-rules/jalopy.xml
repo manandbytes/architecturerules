@@ -10,11 +10,10 @@
             http://www.apache.org/licenses/LICENSE-2.0
     
     For more information visit
-            http://72miles.com and
+            http://72miles.com/ and
             http://architecturerules.googlecode.com/
 
 -->
-
 
 <jalopy>
     <general>
@@ -134,7 +133,7 @@
                 <method>2</method>
                 <package>2</package>
             </after>
-            <before>                
+            <before>
                 <block>1</block>
                 <braceRight>0</braceRight>
                 <braceLeft>1</braceLeft>
@@ -231,15 +230,14 @@
             </separator>
         </comments>
         <environment />
-       <!-- <footer>
+        <!-- <footer>
             <keys>MetaStuff</keys>
             <smartMode>20</smartMode>
             <text>/**
                    * footer text here
                    */</text>
             <use>true</use>
-        </footer>-->
-        <!--<header>
+        </footer>--><!--<header>
             <keys>MetaStuff</keys>
             <smartMode>20</smartMode>
             <text>

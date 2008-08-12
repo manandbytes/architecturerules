@@ -8,8 +8,8 @@
  *         http://www.apache.org/licenses/LICENSE-2.0
  *
  * For more information visit
- *         http://72miles.com and
- *         http://architecturerules.googlecode.com/
+ *         http://72miles.com/ and
+ *         http://architecturerules.googlecode.com
  */
 package org.architecturerules;
 
@@ -29,8 +29,7 @@ import org.architecturerules.exceptions.DependencyConstraintException;
 public class ArchitectureTestProgrammatic extends AbstractArchitectureRulesConfigurationTest {
 
     /**
-     * <p>Expect this test to fail because presentationRule will be
-     * violated</p>
+     * <p>Expect this test to fail because presentationRule will be violated</p>
      */
     @Override
     public void testArchitecture() {
@@ -40,8 +39,7 @@ public class ArchitectureTestProgrammatic extends AbstractArchitectureRulesConfi
 
 
     /**
-     * <p>Expect this test to fail because presentationRule will be
-     * violated</p>
+     * <p>Expect this test to fail because presentationRule will be violated</p>
      */
     public void testArchitecture_fail() {
 
@@ -73,9 +71,8 @@ public class ArchitectureTestProgrammatic extends AbstractArchitectureRulesConfi
 
 
     /**
-     * <p>This test has more than one rule, some that are valid and some that
-     * are invalid. This test ensures that a failure is detected and
-     * reported.</p>
+     * <p>This test has more than one rule, some that are valid and some that are invalid. This test ensures that a
+     * failure is detected and reported.</p>
      */
     public void testArchitecture_mixtureButFails() {
 

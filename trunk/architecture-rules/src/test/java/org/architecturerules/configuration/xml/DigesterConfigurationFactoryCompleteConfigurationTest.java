@@ -8,20 +8,19 @@
  *         http://www.apache.org/licenses/LICENSE-2.0
  *
  * For more information visit
- *         http://72miles.com and
- *         http://architecturerules.googlecode.com/
+ *         http://72miles.com/ and
+ *         http://architecturerules.googlecode.com
  */
 package org.architecturerules.configuration.xml;
 
 
 import junit.framework.TestCase;
+import org.architecturerules.domain.Rule;
+import org.architecturerules.domain.SourceDirectory;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-
-import org.architecturerules.domain.Rule;
-import org.architecturerules.domain.SourceDirectory;
 
 
 /**

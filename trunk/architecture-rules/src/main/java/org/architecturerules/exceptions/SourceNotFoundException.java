@@ -8,8 +8,8 @@
  *         http://www.apache.org/licenses/LICENSE-2.0
  *
  * For more information visit
- *         http://72miles.com and
- *         http://architecturerules.googlecode.com/
+ *         http://72miles.com/ and
+ *         http://architecturerules.googlecode.com
  */
 package org.architecturerules.exceptions;
 
@@ -18,8 +18,8 @@ import java.util.Collection;
 
 
 /**
- * <p>Exception to be thrown when a configured source is not found and
- * <samp>&lt;source not-found="exception"></samp></p>
+ * <p>Exception to be thrown when a configured source is not found and <samp>&lt;source
+ * not-found="exception"></samp></p>
  *
  * @author mikenereson
  * @noinspection JavaDoc
@@ -52,8 +52,8 @@ public class SourceNotFoundException extends ArchitectureException {
 
 
     /**
-     * <p>Instantiates a new SourceNotFoundException with a message containing
-     * all of the sources that were intteroagated.</p>
+     * <p>Instantiates a new SourceNotFoundException with a message containing all of the sources that were
+     * intteroagated.</p>
      *
      * @param sources
      */

@@ -8,15 +8,14 @@
  *         http://www.apache.org/licenses/LICENSE-2.0
  *
  * For more information visit
- *         http://72miles.com and
- *         http://architecturerules.googlecode.com/
+ *         http://72miles.com/ and
+ *         http://architecturerules.googlecode.com
  */
 package org.architecturerules.domain;
 
 
 import junit.framework.AssertionFailedError;
 import junit.framework.TestCase;
-
 import org.architecturerules.exceptions.IllegalArchitectureRuleException;
 
 
@@ -70,11 +69,10 @@ public class RuleTest extends TestCase {
 
 
     /**
-     * <p>Tests for {@link Rule#getViolations()}, {@link
-     * Rule#addViolation(String)} and {@link Rule#removeViolation(String)}</p>
+     * <p>Tests for {@link Rule#getViolations()}, {@link Rule#addViolation(String)} and {@link
+     * Rule#removeViolation(String)}</p>
      *
-     * @throws Exception when <code>Rule</code> throws an unexpected
-     * <code>Exception</code>
+     * @throws Exception when <code>Rule</code> throws an unexpected <code>Exception</code>
      */
     public void testAddGetViolations()
             throws Exception {
@@ -108,11 +106,10 @@ public class RuleTest extends TestCase {
 
 
     /**
-     * <p>Tests for {@link Rule#getViolations()}, {@link
-     * Rule#addViolation(String)} and {@link Rule#removeViolation(String)}</p>
+     * <p>Tests for {@link Rule#getViolations()}, {@link Rule#addViolation(String)} and {@link
+     * Rule#removeViolation(String)}</p>
      *
-     * @throws Exception when <code>Rule</code> throws an unexpected
-     * <code>Exception</code>
+     * @throws Exception when <code>Rule</code> throws an unexpected <code>Exception</code>
      */
     public void testAddGetViolations_illegalArguments()
             throws Exception {
@@ -250,8 +247,7 @@ public class RuleTest extends TestCase {
     /**
      * <p>Tests for {@link Rule#equals(Object)}  </p>
      *
-     * @throws Exception when <code>Rule</code> throws an unexpected
-     * <code>Exception</code>
+     * @throws Exception when <code>Rule</code> throws an unexpected <code>Exception</code>
      */
     public void testEquals()
             throws Exception {
@@ -274,8 +270,7 @@ public class RuleTest extends TestCase {
     /**
      * <p>Tests for {@link Rule#Rule(String)}</p>
      *
-     * @throws Exception when <code>Rule</code> throws an unexpected
-     * <code>Exception</code>
+     * @throws Exception when <code>Rule</code> throws an unexpected <code>Exception</code>
      */
     public void testInterestingConstructors()
             throws Exception {
@@ -311,11 +306,9 @@ public class RuleTest extends TestCase {
 
 
     /**
-     * <p>Tests for {@link Rule#setComment(String)}  and {@link
-     * Rule#getComment()} </p>
+     * <p>Tests for {@link Rule#setComment(String)}  and {@link Rule#getComment()} </p>
      *
-     * @throws Exception when <code>Rule</code> throws an unexpected
-     * <code>Exception</code>
+     * @throws Exception when <code>Rule</code> throws an unexpected <code>Exception</code>
      */
     public void testSetGetComment()
             throws Exception {
@@ -346,8 +339,7 @@ public class RuleTest extends TestCase {
     /**
      * <p>Tests for {@link Rule#setId(String)} and {@link Rule#getId()}</p>
      *
-     * @throws Exception when <code>Rule</code> throws an unexpected
-     * <code>Exception</code>
+     * @throws Exception when <code>Rule</code> throws an unexpected <code>Exception</code>
      */
     public void testSetGetId()
             throws Exception {

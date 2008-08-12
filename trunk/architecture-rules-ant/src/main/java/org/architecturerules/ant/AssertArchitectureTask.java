@@ -9,21 +9,20 @@
  *
  * For more information visit
  *         http://72miles.com and
- *         http://architecturerules.googlecode.com/
+ *         http://architecturerules.googlecode.com
  */
 package org.architecturerules.ant;
 
 
 import org.apache.tools.ant.BuildException;
 import org.apache.tools.ant.Task;
-
+import org.architecturerules.api.configuration.ConfigurationFactory;
+import org.architecturerules.api.services.CyclicRedundancyService;
+import org.architecturerules.api.services.RulesService;
 import org.architecturerules.configuration.Configuration;
-import org.architecturerules.configuration.ConfigurationFactory;
 import org.architecturerules.configuration.UnmodifiableConfiguration;
 import org.architecturerules.configuration.xml.DigesterConfigurationFactory;
-import org.architecturerules.services.CyclicRedundancyService;
 import org.architecturerules.services.CyclicRedundancyServiceImpl;
-import org.architecturerules.services.RulesService;
 import org.architecturerules.services.RulesServiceImpl;
 
 

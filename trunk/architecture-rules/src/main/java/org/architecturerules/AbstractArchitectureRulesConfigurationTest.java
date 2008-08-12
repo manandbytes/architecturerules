@@ -8,24 +8,22 @@
  *         http://www.apache.org/licenses/LICENSE-2.0
  *
  * For more information visit
- *         http://72miles.com and
- *         http://architecturerules.googlecode.com/
+ *         http://72miles.com/ and
+ *         http://architecturerules.googlecode.com
  */
 package org.architecturerules;
 
 
 import junit.framework.TestCase;
-
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-
+import org.architecturerules.api.configuration.ConfigurationFactory;
+import org.architecturerules.api.services.CyclicRedundancyService;
+import org.architecturerules.api.services.RulesService;
 import org.architecturerules.configuration.Configuration;
-import org.architecturerules.configuration.ConfigurationFactory;
 import org.architecturerules.configuration.UnmodifiableConfiguration;
 import org.architecturerules.configuration.xml.DigesterConfigurationFactory;
-import org.architecturerules.services.CyclicRedundancyService;
 import org.architecturerules.services.CyclicRedundancyServiceImpl;
-import org.architecturerules.services.RulesService;
 import org.architecturerules.services.RulesServiceImpl;
 
 

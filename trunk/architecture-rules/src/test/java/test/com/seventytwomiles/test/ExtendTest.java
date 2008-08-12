@@ -8,8 +8,8 @@
  *         http://www.apache.org/licenses/LICENSE-2.0
  *
  * For more information visit
- *         http://72miles.com and
- *         http://architecturerules.googlecode.com/
+ *         http://72miles.com/ and
+ *         http://architecturerules.googlecode.com
  */
 package test.com.seventytwomiles.test;
 
@@ -19,8 +19,8 @@ import org.architecturerules.configuration.Configuration;
 
 
 /**
- * <p>Sample subclass of AbstractArchitectureRulesConfigurationTest that is in a
- * different package. Used to test inheritance.</p>
+ * <p>Sample subclass of AbstractArchitectureRulesConfigurationTest that is in a different package. Used to test
+ * inheritance.</p>
  *
  * @author mikenereson
  * @see AbstractArchitectureRulesConfigurationTest
@@ -28,8 +28,7 @@ import org.architecturerules.configuration.Configuration;
 public class ExtendTest extends AbstractArchitectureRulesConfigurationTest {
 
     /**
-     * <p>Get the name of the xml configuration file that is located in the
-     * classpath.</p>
+     * <p>Get the name of the xml configuration file that is located in the classpath.</p>
      *
      * <p>Recommend <samp>architecture-rules.xml</samp></p>
      *

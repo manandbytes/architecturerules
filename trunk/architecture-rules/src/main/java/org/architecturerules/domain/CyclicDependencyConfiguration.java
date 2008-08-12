@@ -8,21 +8,19 @@
  *         http://www.apache.org/licenses/LICENSE-2.0
  *
  * For more information visit
- *         http://72miles.com and
- *         http://architecturerules.googlecode.com/
+ *         http://72miles.com/ and
+ *         http://architecturerules.googlecode.com
  */
 package org.architecturerules.domain;
 
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-
-import org.architecturerules.configuration.ConfigurationFactory;
+import org.architecturerules.api.configuration.ConfigurationFactory;
 
 
 /**
- * <p>Represents the configuration information read from the XML configuration
- * file.</p>
+ * <p>Represents the configuration information read from the XML configuration file.</p>
  *
  * @author mikenereson
  */
@@ -36,11 +34,10 @@ public class CyclicDependencyConfiguration {
     protected static final Log log = LogFactory.getLog(CyclicDependencyConfiguration.class);
 
     /**
-     * <p>Holds the value for the XML entry <tt>&lt;cyclicalDependency
-     * test="true"/&gt;</tt>.</p>
+     * <p>Holds the value for the XML entry <tt>&lt;cyclicalDependency test="true"/&gt;</tt>.</p>
      *
-     * <p>If the value is not provided in the configuration, the default value
-     * is used. {@link ConfigurationFactory#DEFAULT_CYCLICAL_DEPENDENCY_CONFIGURATION_VALUE}</p>
+     * <p>If the value is not provided in the configuration, the default value is used. {@link
+     * ConfigurationFactory#DEFAULT_CYCLICAL_DEPENDENCY_CONFIGURATION_VALUE}</p>
      */
     private String test = ConfigurationFactory.DEFAULT_CYCLICAL_DEPENDENCY_CONFIGURATION_VALUE;
 

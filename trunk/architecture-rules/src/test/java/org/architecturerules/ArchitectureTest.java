@@ -8,18 +8,18 @@
  *         http://www.apache.org/licenses/LICENSE-2.0
  *
  * For more information visit
- *         http://72miles.com and
- *         http://architecturerules.googlecode.com/
+ *         http://72miles.com/ and
+ *         http://architecturerules.googlecode.com
  */
 package org.architecturerules;
 
-
-import java.io.File;
 
 import org.architecturerules.configuration.Configuration;
 import org.architecturerules.domain.Rule;
 import org.architecturerules.domain.SourceDirectory;
 import org.architecturerules.exceptions.CyclicRedundancyException;
+
+import java.io.File;
 
 
 /**
@@ -126,9 +126,8 @@ public class ArchitectureTest extends AbstractArchitectureRulesConfigurationTest
 
 
 /**
- * Silly little class that allows me to call .contains on a String. It was
- * created simply to prevent assertTrue(message.has("test.com.seventytwomiles.dao.hibernate"));
- * from wrapping to a new line.
+ * Silly little class that allows me to call .contains on a String. It was created simply to prevent
+ * assertTrue(message.has("test.com.seventytwomiles.dao.hibernate")); from wrapping to a new line.
  */
 class Stringer {
 

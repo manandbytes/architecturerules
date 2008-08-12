@@ -8,11 +8,19 @@
  *         http://www.apache.org/licenses/LICENSE-2.0
  *
  * For more information visit
- *         http://72miles.com and
- *         http://architecturerules.googlecode.com/
+ *         http://72miles.com/ and
+ *         http://architecturerules.googlecode.com
  */
 package org.architecturerules.configuration;
 
+
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.architecturerules.api.configuration.ConfigurationFactory;
+import org.architecturerules.domain.Rule;
+import org.architecturerules.domain.SourceDirectory;
+import org.springframework.core.io.ClassPathResource;
 
 import java.io.File;
 import java.io.IOException;
@@ -20,15 +28,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
-
-import org.apache.commons.io.FileUtils;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-
-import org.architecturerules.domain.Rule;
-import org.architecturerules.domain.SourceDirectory;
-
-import org.springframework.core.io.ClassPathResource;
 
 
 /**

@@ -8,32 +8,29 @@
  *         http://www.apache.org/licenses/LICENSE-2.0
  *
  * For more information visit
- *         http://72miles.com and
- *         http://architecturerules.googlecode.com/
+ *         http://72miles.com/ and
+ *         http://architecturerules.googlecode.com
  */
 package org.architecturerules.services;
 
 
-import jdepend.framework.JavaClass;
-import jdepend.framework.JavaPackage;
-
-import java.util.*;
-
 import javassist.ClassPool;
 import javassist.NotFoundException;
-
+import jdepend.framework.JavaClass;
+import jdepend.framework.JavaPackage;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-
+import org.architecturerules.api.services.CyclicRedundancyService;
 import org.architecturerules.configuration.Configuration;
 import org.architecturerules.exceptions.CyclicRedundancyException;
 import org.architecturerules.exceptions.NoPackagesFoundException;
 import org.architecturerules.exceptions.SourceNotFoundException;
 
+import java.util.*;
+
 
 /**
- * <p>Checks for cyclic redundancy among application packages in the source
- * folders.</p>
+ * <p>Checks for cyclic redundancy among application packages in the source folders.</p>
  *
  * @author mikenereson
  * @see AbstractArchitecturalRules
@@ -50,14 +47,11 @@ public class CyclicRedundancyServiceImpl extends AbstractArchitecturalRules impl
     /**
      * <p>Constructor instantiates a new <code>CyclicRedundancyService</code></p>
      *
-     * @param configuration Configuration which contains the source directories
-     * to inspect
-     * @throws SourceNotFoundException when an required source directory does
-     * not exist and when <tt>exception</tt>=<tt>"true"</tt> in the source
-     * configuration
-     * @throws NoPackagesFoundException when none of the source directories
-     * exist and <tt>no-packages</tt>="<tt>ignore</tt>" in the sources
-     * configuration
+     * @param configuration Configuration which contains the source directories to inspect
+     * @throws SourceNotFoundException when an required source directory does not exist and when
+     * <tt>exception</tt>=<tt>"true"</tt> in the source configuration
+     * @throws NoPackagesFoundException when none of the source directories exist and
+     * <tt>no-packages</tt>="<tt>ignore</tt>" in the sources configuration
      */
     public CyclicRedundancyServiceImpl(final Configuration configuration) {
         super(configuration);
@@ -66,8 +60,7 @@ public class CyclicRedundancyServiceImpl extends AbstractArchitecturalRules impl
     }
 
     /**
-     * <p>Check all the packages in all of the source directories and search for
-     * any cyclic redundancy</p>
+     * <p>Check all the packages in all of the source directories and search for any cyclic redundancy</p>
      */
     public void performCyclicRedundancyCheck() {
 
@@ -167,13 +160,12 @@ public class CyclicRedundancyServiceImpl extends AbstractArchitecturalRules impl
 
 
     /**
-     * <p>Updates a Map, or puts a new record into a Map of a JavaPackage and
-     * its cyclic dependency packages.</p>
+     * <p>Updates a Map, or puts a new record into a Map of a JavaPackage and its cyclic dependency packages.</p>
      *
      * @param cycles Map of cycles already discovered.
      * @param javaPackage JavaPackage involved in a cyclic dependency
-     * @param dependencies Collection of JavaPackages involved in a cyclic
-     * dependency with the given javaPackage argument.
+     * @param dependencies Collection of JavaPackages involved in a cyclic dependency with the given javaPackage
+     * argument.
      */
     private void addCycle(final Map cycles, final JavaPackage javaPackage, final Collection dependencies) {
 
@@ -202,12 +194,11 @@ public class CyclicRedundancyServiceImpl extends AbstractArchitecturalRules impl
 
 
     /**
-     * <p>Builds a message detailing all of the java packages that are involved
-     * in a cyclic dependency and the packages involved with.</p>
+     * <p>Builds a message detailing all of the java packages that are involved in a cyclic dependency and the packages
+     * involved with.</p>
      *
      * @param cycles Map of cycles discovered.
-     * @return String a complete message detailing all of the cyclic
-     *         dependencies found.
+     * @return String a complete message detailing all of the cyclic dependencies found.
      */
     private String buildCyclicRedundancyMessage(final Map<JavaPackage, Set<JavaPackage>> cycles) {
 
@@ -253,10 +244,8 @@ public class CyclicRedundancyServiceImpl extends AbstractArchitecturalRules impl
      * <p></p>
      *
      * @param javaPackage <code>JavaPackage</code> package to describe
-     * @param dependency <code>JavaPackage</code> that the javaPackage argument
-     * depends on
-     * @return String that can be output to the console that describes the given
-     *         javaPackages's dependency.
+     * @param dependency <code>JavaPackage</code> that the javaPackage argument depends on
+     * @return String that can be output to the console that describes the given javaPackages's dependency.
      */
     private String buildListOfClasses(final JavaPackage javaPackage, final JavaPackage dependency) {
 
@@ -290,14 +279,11 @@ public class CyclicRedundancyServiceImpl extends AbstractArchitecturalRules impl
 
 
     /**
-     * <p>Builds a List of class names that the given classWithImports argument
-     * are involved with cycle with</p>
+     * <p>Builds a List of class names that the given classWithImports argument are involved with cycle with</p>
      *
      * @param packageInCycle JavaPackage involved in cyclic dependency
-     * @param classWithImports JavaClass that is involved in the cyclic
-     * dependency
-     * @return List of class names which this class imports from the package
-     *         involved in the cycle
+     * @param classWithImports JavaClass that is involved in the cyclic dependency
+     * @return List of class names which this class imports from the package involved in the cycle
      */
     private List buildListOfImports(final JavaPackage packageInCycle, final JavaClass classWithImports) {
 

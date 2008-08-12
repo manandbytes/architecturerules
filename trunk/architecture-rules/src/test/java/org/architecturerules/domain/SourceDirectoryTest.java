@@ -8,8 +8,8 @@
  *         http://www.apache.org/licenses/LICENSE-2.0
  *
  * For more information visit
- *         http://72miles.com and
- *         http://architecturerules.googlecode.com/
+ *         http://72miles.com/ and
+ *         http://architecturerules.googlecode.com
  */
 package org.architecturerules.domain;
 
@@ -64,8 +64,7 @@ public class SourceDirectoryTest extends TestCase {
     /**
      * <p>Test for {@link SourceDirectory#equals(Object)} </p>
      *
-     * @throws Exception when <code>SourceDirectory</code> throws and unexpected
-     * <code>Exception</code>
+     * @throws Exception when <code>SourceDirectory</code> throws and unexpected <code>Exception</code>
      */
     public void testEquals()
             throws Exception {
@@ -86,11 +85,10 @@ public class SourceDirectoryTest extends TestCase {
 
 
     /**
-     * <p>Test for {@link SourceDirectory#SourceDirectory(String)} and {@link
-     * SourceDirectory#SourceDirectory(String,boolean)} </p>
+     * <p>Test for {@link SourceDirectory#SourceDirectory(String)} and {@link SourceDirectory#SourceDirectory(String,boolean)}
+     * </p>
      *
-     * @throws Exception when <code>SourceDirectory</code> throws and unexpected
-     * <code>Exception</code>
+     * @throws Exception when <code>SourceDirectory</code> throws and unexpected <code>Exception</code>
      */
     public void testInterestingConstructors()
             throws Exception {
@@ -131,11 +129,10 @@ public class SourceDirectoryTest extends TestCase {
 
 
     /**
-     * <p>Test for {@link SourceDirectory#SourceDirectory(String)} and {@link
-     * SourceDirectory#SourceDirectory(String,boolean)} </p>
+     * <p>Test for {@link SourceDirectory#SourceDirectory(String)} and {@link SourceDirectory#SourceDirectory(String,boolean)}
+     * </p>
      *
-     * @throws Exception when <code>SourceDirectory</code> throws and unexpected
-     * <code>Exception</code>
+     * @throws Exception when <code>SourceDirectory</code> throws and unexpected <code>Exception</code>
      */
     public void testInterestingConstructors_illegalArguments()
             throws Exception {
@@ -206,11 +203,9 @@ public class SourceDirectoryTest extends TestCase {
 
 
     /**
-     * <p>Test for {@link SourceDirectory#setPath(String)} and {@link
-     * SourceDirectory#getPath()} </p>
+     * <p>Test for {@link SourceDirectory#setPath(String)} and {@link SourceDirectory#getPath()} </p>
      *
-     * @throws Exception when <code>SourceDirectory</code> throws and unexpected
-     * <code>Exception</code>
+     * @throws Exception when <code>SourceDirectory</code> throws and unexpected <code>Exception</code>
      */
     public void testSetGetPath_windows()
             throws Exception {
@@ -227,11 +222,9 @@ public class SourceDirectoryTest extends TestCase {
 
 
     /**
-     * <p>Test for {@link SourceDirectory#setPath(String)} and {@link
-     * SourceDirectory#getPath()} </p>
+     * <p>Test for {@link SourceDirectory#setPath(String)} and {@link SourceDirectory#getPath()} </p>
      *
-     * @throws Exception when <code>SourceDirectory</code> throws and unexpected
-     * <code>Exception</code>
+     * @throws Exception when <code>SourceDirectory</code> throws and unexpected <code>Exception</code>
      */
     public void testSetGetPath_unix()
             throws Exception {
@@ -248,11 +241,9 @@ public class SourceDirectoryTest extends TestCase {
 
 
     /**
-     * <p>Test for {@link SourceDirectory#setPath(String)} and {@link
-     * SourceDirectory#getPath()} </p>
+     * <p>Test for {@link SourceDirectory#setPath(String)} and {@link SourceDirectory#getPath()} </p>
      *
-     * @throws Exception when <code>SourceDirectory</code> throws and unexpected
-     * <code>Exception</code>
+     * @throws Exception when <code>SourceDirectory</code> throws and unexpected <code>Exception</code>
      */
     public void testSetGetPath_illegalArguments()
             throws Exception {
@@ -269,8 +260,7 @@ public class SourceDirectoryTest extends TestCase {
     /**
      * <p>Test for {@link SourceDirectory#setNotFound(String)} </p>
      *
-     * @throws Exception when <code>SourceDirectory</code> throws and unexpected
-     * <code>Exception</code>
+     * @throws Exception when <code>SourceDirectory</code> throws and unexpected <code>Exception</code>
      */
     public void testSetNotFound()
             throws Exception {
@@ -296,11 +286,9 @@ public class SourceDirectoryTest extends TestCase {
 
 
     /**
-     * <p>Test for {@link SourceDirectory#setNotFound(String)} when illegal
-     * arguments are passed</p>
+     * <p>Test for {@link SourceDirectory#setNotFound(String)} when illegal arguments are passed</p>
      *
-     * @throws Exception when <code>SourceDirectory</code> throws and unexpected
-     * <code>Exception</code>
+     * @throws Exception when <code>SourceDirectory</code> throws and unexpected <code>Exception</code>
      */
     public void testSetNotFound_illegalArguments()
             throws Exception {
@@ -335,11 +323,9 @@ public class SourceDirectoryTest extends TestCase {
 
 
     /**
-     * <p>Test for {@link SourceDirectory#setShouldThrowExceptionWhenNotFound(boolean)}
-     * </p>
+     * <p>Test for {@link SourceDirectory#setShouldThrowExceptionWhenNotFound(boolean)} </p>
      *
-     * @throws Exception when <code>SourceDirectory</code> throws and unexpected
-     * <code>Exception</code>
+     * @throws Exception when <code>SourceDirectory</code> throws and unexpected <code>Exception</code>
      */
     public void testSetShouldThrowExceptionWhenNotFound()
             throws Exception {
@@ -355,8 +341,7 @@ public class SourceDirectoryTest extends TestCase {
     /**
      * <p>Test for {@link SourceDirectory#replaceBackslashForOS(String)} </p>
      *
-     * @throws Exception when <code>SourceDirectory</code> throws and unexpected
-     * <code>Exception</code>
+     * @throws Exception when <code>SourceDirectory</code> throws and unexpected <code>Exception</code>
      */
     public void testFixSlashForOS_windows()
             throws Exception {
@@ -376,8 +361,7 @@ public class SourceDirectoryTest extends TestCase {
     /**
      * <p>Test for {@link SourceDirectory#replaceBackslashForOS(String)} </p>
      *
-     * @throws Exception when <code>SourceDirectory</code> throws and unexpected
-     * <code>Exception</code>
+     * @throws Exception when <code>SourceDirectory</code> throws and unexpected <code>Exception</code>
      */
     public void testFixSlashForOS_unix()
             throws Exception {

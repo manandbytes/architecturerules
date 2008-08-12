@@ -8,16 +8,15 @@
  *         http://www.apache.org/licenses/LICENSE-2.0
  *
  * For more information visit
- *         http://72miles.com and
- *         http://architecturerules.googlecode.com/
+ *         http://72miles.com/ and
+ *         http://architecturerules.googlecode.com
  */
 package org.architecturerules.exceptions;
 
 
 
 /**
- * <p>Exception to be thrown when any <code>Rule</code> fails, that is to say,
- * the rule is violoated.</p>
+ * <p>Exception to be thrown when any <code>Rule</code> fails, that is to say, the rule is violoated.</p>
  *
  * @author mikenereson
  * @see ArchitectureException
@@ -57,13 +56,12 @@ public class DependencyConstraintException extends ArchitectureException {
 
 
     /**
-     * <p>Reports which <code>Rule</code> was broken, by its <tt>id</tt>, and
-     * what packages that <code>Rule</code> governs.</p>
+     * <p>Reports which <code>Rule</code> was broken, by its <tt>id</tt>, and what packages that <code>Rule</code>
+     * governs.</p>
      *
-     * @param ruleId   String id of the <code>Rule</code> that was violated.
-     * @param packages String listing each package constrained by the violated
-     *                 <code>Rule</code>
-     * @param cause    Throwable any exception that was thrown
+     * @param ruleId String id of the <code>Rule</code> that was violated.
+     * @param packages String listing each package constrained by the violated <code>Rule</code>
+     * @param cause Throwable any exception that was thrown
      */
     public DependencyConstraintException(final String ruleId, final String packages, final Throwable cause) {
         this("dependency constraint failed in '{id}' rule which constrains packages '{efferent}'".replaceAll("\\{id}", ruleId).replaceAll("\\{efferent}", packages.trim()).replaceAll("\\[", "").replaceAll("\\]", ""), cause);

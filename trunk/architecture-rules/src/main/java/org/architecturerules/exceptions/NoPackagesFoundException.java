@@ -8,16 +8,16 @@
  *         http://www.apache.org/licenses/LICENSE-2.0
  *
  * For more information visit
- *         http://72miles.com and
- *         http://architecturerules.googlecode.com/
+ *         http://72miles.com/ and
+ *         http://architecturerules.googlecode.com
  */
 package org.architecturerules.exceptions;
 
 
 
 /**
- * <p>Exception to be thrown when no packages are found in the given source path
- * if <samp>&lt;sources no-packages="exception"> </samp></p>
+ * <p>Exception to be thrown when no packages are found in the given source path if <samp>&lt;sources
+ * no-packages="exception"> </samp></p>
  *
  * @author mikenereson
  * @see ArchitectureException

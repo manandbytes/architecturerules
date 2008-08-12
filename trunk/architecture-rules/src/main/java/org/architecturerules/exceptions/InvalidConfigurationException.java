@@ -8,17 +8,16 @@
  *         http://www.apache.org/licenses/LICENSE-2.0
  *
  * For more information visit
- *         http://72miles.com and
- *         http://architecturerules.googlecode.com/
+ *         http://72miles.com/ and
+ *         http://architecturerules.googlecode.com
  */
 package org.architecturerules.exceptions;
 
 
 
 /**
- * <p>RuntimeException that is thrown when a configuration is invalid. A
- * configuration could be invalid for a number of reasons but happens most
- * regularly in the creation of <code>Rules</code>.</p>
+ * <p>RuntimeException that is thrown when a configuration is invalid. A configuration could be invalid for a number of
+ * reasons but happens most regularly in the creation of <code>Rules</code>.</p>
  *
  * @author mikenereson
  * @noinspection JavaDoc

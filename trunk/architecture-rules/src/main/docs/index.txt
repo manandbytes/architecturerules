@@ -122,7 +122,7 @@
 
         Downloads and release notes at http://architecturerules.googlecode.com/svn/docs/downloads.html#release-${pom.xml-version}
 
-        Architecture-Rules homepage http://architecturerules.googlecode.com/svn/docs/index.html
+        Architecture-Rules homepage http://72miles.com/architecturerules/
 
         Assert your Architecture!
         ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯

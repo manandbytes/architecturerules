@@ -8,17 +8,16 @@
  *         http://www.apache.org/licenses/LICENSE-2.0
  *
  * For more information visit
- *         http://72miles.com and
- *         http://architecturerules.googlecode.com/
+ *         http://72miles.com/ and
+ *         http://architecturerules.googlecode.com
  */
 package org.architecturerules.exceptions;
 
 
 
 /**
- * <p>Exception to be thrown when a Rule is illegal constructed. That is, an
- * illegal violation is created. One example of an illegal violation is when a
- * violation is added to a rule that matches one of the packages that the rule
+ * <p>Exception to be thrown when a Rule is illegal constructed. That is, an illegal violation is created. One example
+ * of an illegal violation is when a violation is added to a rule that matches one of the packages that the rule
  * constrins.</p>
  *
  * <pre>
@@ -70,12 +69,10 @@ public class IllegalArchitectureRuleException extends ArchitectureException {
 
 
     /**
-     * <p>Instantiates a new IllegalArchitectureRuleException with the given
-     * ruleId and rulePackages.</p>
+     * <p>Instantiates a new IllegalArchitectureRuleException with the given ruleId and rulePackages.</p>
      *
-     * @param ruleId       String id of the Rule
-     * @param rulePackages String some description of the package rules, such as
-     *                     a delimited list
+     * @param ruleId String id of the Rule
+     * @param rulePackages String some description of the package rules, such as a delimited list
      */
     public IllegalArchitectureRuleException(final String ruleId, final String rulePackages) {
         this(ruleId, rulePackages, null);
@@ -83,13 +80,12 @@ public class IllegalArchitectureRuleException extends ArchitectureException {
 
 
     /**
-     * <p>Instantiates a new IllegalArchitectureRuleException with the given
-     * ruleId and rulePackages, and passes on the cause.</p>
+     * <p>Instantiates a new IllegalArchitectureRuleException with the given ruleId and rulePackages, and passes on the
+     * cause.</p>
      *
-     * @param ruleId       String id of the Rule
-     * @param rulePackages String some description of the package rules, such as
-     *                     a delimited list
-     * @param cause        Throwable root cause
+     * @param ruleId String id of the Rule
+     * @param rulePackages String some description of the package rules, such as a delimited list
+     * @param cause Throwable root cause
      */
     public IllegalArchitectureRuleException(final String ruleId, final String rulePackages, final Throwable cause) {
         super("rule '{id}' contains an invalid violation that refers to itself; remove violation '{violation}' or change package".replaceAll("\\{id}", ruleId).replaceAll("\\{violation}", rulePackages.trim()).replaceAll("\\[", "").replaceAll("\\]", ""), cause);

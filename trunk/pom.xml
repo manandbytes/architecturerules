@@ -5,17 +5,17 @@
     <artifactId>architecture-rules-parent</artifactId>
     <packaging>pom</packaging>
     <version>1</version>
-    <name>Architecture Rules parent project</name>
+    <name>Architecture Rules Parent Project</name>
     <url>http://architecturerules.googlecode.com/</url>
     <inceptionYear>2007, 2008</inceptionYear>
     <issueManagement>
     	<system>Google Code</system>
-    	<url>http://code.google.com/p/architecturerules/issues</url>
+    	<url>http://code.google.com/p/architecturerules/issues/</url>
     </issueManagement>
     <scm>
     	<connection>scm:svn:http://architecturerules.googlecode.com/svn/trunk/${artifactId}/</connection>
-    	<developerConnection>scm:svn:https://architecturerules.googlecode.com/svn/trunk/${artifactId}</developerConnection>
-    	<url>http://architecturerules.googlecode.com/svn/trunk/${artifactId}</url>
+    	<developerConnection>scm:svn:https://architecturerules.googlecode.com/svn/trunk/${artifactId}/</developerConnection>
+    	<url>http://architecturerules.googlecode.com/svn/trunk/${artifactId}/</url>
     </scm>
     <developers>
         <developer>
@@ -31,6 +31,7 @@
             <name>mykola.nickishov</name>
             <roles>
                 <role>project member</role>
+                <role>commiter</role>
             </roles>
         </developer>
     </developers>
@@ -46,6 +47,7 @@
             <name>luminary</name>
             <roles>
                 <role>contributor</role>
+                <role>commiter</role>
             </roles>
         </contributor>
     </contributors>

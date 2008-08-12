@@ -8,27 +8,25 @@
  *         http://www.apache.org/licenses/LICENSE-2.0
  *
  * For more information visit
- *         http://72miles.com and
- *         http://architecturerules.googlecode.com/
+ *         http://72miles.com/ and
+ *         http://architecturerules.googlecode.com
  */
-package org.architecturerules.services;
+package org.architecturerules.api.services;
 
 
 import org.architecturerules.exceptions.CyclicRedundancyException;
 
 
 /**
- * <p>Interface for the CyclicRedundancyService to provide a contract for
- * implementations to adhere to. This service provides the functionality
- * necessary to check for cyclic dependencies.</p>
+ * <p>Interface for the CyclicRedundancyService to provide a contract for implementations to adhere to. This service
+ * provides the functionality necessary to check for cyclic dependencies.</p>
  *
  * @author mikenereson
  */
 public interface CyclicRedundancyService {
 
     /**
-     * <p>Check all the packages in all of the source directories and search for
-     * any cyclic redundancy</p>
+     * <p>Check all the packages in all of the source directories and search for any cyclic redundancy</p>
      *
      * @throws CyclicRedundancyException when cyclic redundancy is found
      */

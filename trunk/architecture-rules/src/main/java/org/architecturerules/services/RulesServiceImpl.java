@@ -8,17 +8,15 @@
  *         http://www.apache.org/licenses/LICENSE-2.0
  *
  * For more information visit
- *         http://72miles.com and
- *         http://architecturerules.googlecode.com/
+ *         http://72miles.com/ and
+ *         http://architecturerules.googlecode.com
  */
 package org.architecturerules.services;
 
 
-import java.util.Collection;
-
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-
+import org.architecturerules.api.services.RulesService;
 import org.architecturerules.configuration.Configuration;
 import org.architecturerules.domain.JPackage;
 import org.architecturerules.domain.Rule;
@@ -26,10 +24,11 @@ import org.architecturerules.exceptions.DependencyConstraintException;
 import org.architecturerules.exceptions.NoPackagesFoundException;
 import org.architecturerules.exceptions.SourceNotFoundException;
 
+import java.util.Collection;
+
 
 /**
- * <p>Drives the tests by reading the configuration then asserting each defined
- * <code>Rule</code>.</p>
+ * <p>Drives the tests by reading the configuration then asserting each defined <code>Rule</code>.</p>
  *
  * @author mikenereson
  * @see AbstractArchitecturalRules
@@ -44,16 +43,13 @@ public class RulesServiceImpl extends AbstractArchitecturalRules implements Rule
     protected static final Log log = LogFactory.getLog(RulesServiceImpl.class);
 
     /**
-     * <p>Instantiates a new <code>RulesService</code> which will begin reading
-     * all the configured sources</p>
+     * <p>Instantiates a new <code>RulesService</code> which will begin reading all the configured sources</p>
      *
      * @param configuration Configuration
-     * @throws SourceNotFoundException when an required source directory does
-     * not exist and when <tt>exception</tt>=<tt>"true"</tt> in the source
-     * configuration
-     * @throws NoPackagesFoundException when none of the source directories
-     * exist and <tt>no-packages</tt>="<tt>ignore</tt>" in the sources
-     * configuration
+     * @throws SourceNotFoundException when an required source directory does not exist and when
+     * <tt>exception</tt>=<tt>"true"</tt> in the source configuration
+     * @throws NoPackagesFoundException when none of the source directories exist and
+     * <tt>no-packages</tt>="<tt>ignore</tt>" in the sources configuration
      */
     public RulesServiceImpl(final Configuration configuration)
             throws SourceNotFoundException, NoPackagesFoundException {
@@ -63,8 +59,7 @@ public class RulesServiceImpl extends AbstractArchitecturalRules implements Rule
     }
 
     /**
-     * <p>Assert that no <code>Rule</code> in the given <code>Configuration</code>
-     * has been violated.</p>
+     * <p>Assert that no <code>Rule</code> in the given <code>Configuration</code> has been violated.</p>
      *
      * @return boolean <tt>true</tt> when tests pass
      */

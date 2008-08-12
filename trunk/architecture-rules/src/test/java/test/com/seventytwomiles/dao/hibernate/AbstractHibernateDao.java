@@ -8,8 +8,8 @@
  *         http://www.apache.org/licenses/LICENSE-2.0
  *
  * For more information visit
- *         http://72miles.com and
- *         http://architecturerules.googlecode.com/
+ *         http://72miles.com/ and
+ *         http://architecturerules.googlecode.com
  */
 package test.com.seventytwomiles.dao.hibernate;
 
@@ -19,8 +19,7 @@ import test.com.seventytwomiles.model.Person;
 
 
 /**
- * <p>Test abstract DAO class that depends on the model package and dao
- * package.</p>
+ * <p>Test abstract DAO class that depends on the model package and dao package.</p>
  *
  * @author mikenereson
  */

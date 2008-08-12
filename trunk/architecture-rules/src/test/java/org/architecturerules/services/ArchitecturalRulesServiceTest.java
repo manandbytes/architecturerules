@@ -8,14 +8,14 @@
  *         http://www.apache.org/licenses/LICENSE-2.0
  *
  * For more information visit
- *         http://72miles.com and
- *         http://architecturerules.googlecode.com/
+ *         http://72miles.com/ and
+ *         http://architecturerules.googlecode.com
  */
 package org.architecturerules.services;
 
 
 import junit.framework.TestCase;
-
+import org.architecturerules.api.services.RulesService;
 import org.architecturerules.configuration.Configuration;
 import org.architecturerules.domain.Rule;
 import org.architecturerules.domain.SourceDirectory;
@@ -89,7 +89,7 @@ public class ArchitecturalRulesServiceTest extends TestCase {
 
             assertTrue(e instanceof DependencyConstraintException);
 
-            assertEquals("rule controller failed: test.com.seventytwomiles.web.spring " + "is not allowed to depend upon test.com.seventytwomiles.dao", e.getMessage());
+            assertEquals("rule controller failed: test.com.seventytwomiles.web.spring " + "is not allowed to depend on test.com.seventytwomiles.dao", e.getMessage());
         }
     }
 }

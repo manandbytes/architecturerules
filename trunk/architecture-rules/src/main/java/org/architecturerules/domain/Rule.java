@@ -8,22 +8,21 @@
  *         http://www.apache.org/licenses/LICENSE-2.0
  *
  * For more information visit
- *         http://72miles.com and
- *         http://architecturerules.googlecode.com/
+ *         http://72miles.com/ and
+ *         http://architecturerules.googlecode.com
  */
 package org.architecturerules.domain;
 
 
 import junit.framework.Assert;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.architecturerules.exceptions.IllegalArchitectureRuleException;
+
 import static java.lang.String.format;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
-
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-
-import org.architecturerules.exceptions.IllegalArchitectureRuleException;
 
 
 /**
@@ -41,33 +40,31 @@ public class Rule {
     protected static final Log log = LogFactory.getLog(Rule.class);
 
     /**
-     * <p>Unique id of this Rule as defined. Used to refer to this Rule in
-     * messages.</p>
+     * <p>Unique id of this Rule as defined. Used to refer to this Rule in messages.</p>
      *
      * @parameter id String
      */
     private String id;
 
     /**
-     * <p>Collection of Strings. These Strings are package names. The names of
-     * the packages that will be check against the {@link #violations}. These
-     * packages may NOT depend upon the packages listed in violations.</p>
+     * <p>Collection of Strings. These Strings are package names. The names of the packages that will be check against
+     * the {@link #violations}. These packages may NOT depend on the packages listed in violations.</p>
      *
      * @parameter violations Collection
      */
     private final Collection<JPackage> packages = new HashSet<JPackage>();
 
     /**
-     * <p>Comment about this rule that could be used in messages or just to make
-     * the configuration file more readable.</p>
+     * <p>Comment about this rule that could be used in messages or just to make the configuration file more
+     * readable.</p>
      *
      * @parameter comment String
      */
     private String comment;
 
     /**
-     * <p>Collection of Strings. These Strings are package names. The names of
-     * the packages that the {@link #packages} may NOT depend upon</p>
+     * <p>Collection of Strings. These Strings are package names. The names of the packages that the {@link #packages}
+     * may NOT depend on</p>
      *
      * @parameter violations Collection
      */
@@ -96,8 +93,8 @@ public class Rule {
     /**
      * <p>Instantiates a new Rule with the given <tt>id</tt>.</p>
      *
-     * <p>This constructor is to provide some sense of backwards compatibility
-     * with the releases in series 1 (1.0 and 1.1)</p>
+     * <p>This constructor is to provide some sense of backwards compatibility with the releases in series 1 (1.0 and
+     * 1.1)</p>
      *
      * @param id sets the {@link #id}
      * @param packageName a {@link @packages} to assert on.
@@ -129,9 +126,8 @@ public class Rule {
      * <p>Adds a package to the Packages collection.</p>
      *
      * @param packageName String
-     * @return boolean <tt>true</tt> when the package is actually added to the
-     *         Collection. <tt>false</tt> would be returned if the package was
-     *         already in the Collection of packages.
+     * @return boolean <tt>true</tt> when the package is actually added to the Collection. <tt>false</tt> would be
+     *         returned if the package was already in the Collection of packages.
      */
     public boolean addPackage(final String packageName) {
 
@@ -228,12 +224,10 @@ public class Rule {
     /**
      * <p>Add a new violation to this <code>Rule</code>.</p>
      *
-     * @param violation String a package this this Rule's package may NOT depend
-     * upon
+     * @param violation String a package this this Rule's package may NOT depend upon
      * @return Rule this <code>Rule</code> to allow for method chaining.
-     * @throws IllegalArchitectureRuleException a RuntimeException when the
-     * violation could not be added because the violation is one of the packages
-     * being checked.
+     * @throws IllegalArchitectureRuleException a RuntimeException when the violation could not be added because the
+     * violation is one of the packages being checked.
      */
     public Rule addViolation(final JPackage violation) {
 
@@ -266,12 +260,10 @@ public class Rule {
     /**
      * <p>Add a new violation to this <code>Rule</code>.</p>
      *
-     * @param violation String a package this this Rule's package may NOT depend
-     * upon
+     * @param violation String a package this this Rule's package may NOT depend upon
      * @return Rule this <code>Rule</code> to allow for method chaining.
-     * @throws IllegalArchitectureRuleException a RuntimeException when the
-     * violation could not be added because the violation is one of the packages
-     * being checked.
+     * @throws IllegalArchitectureRuleException a RuntimeException when the violation could not be added because the
+     * violation is one of the packages being checked.
      */
     public Rule addViolation(final String violation) {
 
@@ -298,8 +290,7 @@ public class Rule {
     /**
      * <p>Describes the properties of this rule in an xml-like format.</p>
      *
-     * @param outputToConsole boolean <tt>true</tt> to output the description to
-     * the console
+     * @param outputToConsole boolean <tt>true</tt> to output the description to the console
      * @return String of xml that describes this <code>Rule</code>.
      */
     private String describe(final boolean outputToConsole) {
@@ -337,11 +328,10 @@ public class Rule {
 
 
     /**
-     * <p>Creates a String representation of this <code>Rule</code>. Useful for
-     * debugging and logging.</p>
+     * <p>Creates a String representation of this <code>Rule</code>. Useful for debugging and logging.</p>
      *
-     * @return String describes this rule at its current state. Such as
-     *         <samp>['dao' for 'com.company.dao, com.company.dao.hibernate']</samp>
+     * @return String describes this rule at its current state. Such as <samp>['dao' for 'com.company.dao,
+     *         com.company.dao.hibernate']</samp>
      */
     public String getDescriptionOfRule() {
 
@@ -352,11 +342,9 @@ public class Rule {
 
 
     /**
-     * <p>Creates a String representation of this <tt>packages</tt>. Useful for
-     * debugging and logging.</p>
+     * <p>Creates a String representation of this <tt>packages</tt>. Useful for debugging and logging.</p>
      *
-     * @return String describes this Rule's packages. Such as
-     *         <samp>com.company.dao, com.company.dao.hibernate</samp>
+     * @return String describes this Rule's packages. Such as <samp>com.company.dao, com.company.dao.hibernate</samp>
      */
     public String describePackages() {
 
@@ -387,13 +375,11 @@ public class Rule {
     /**
      * <p>Get all of the <tt>violations</tt>.</p>
      *
-     * <p>Note: this Collection is unmodifiable, use {@link #addViolation} and
-     * {@link #removeViolation}</p>
+     * <p>Note: this Collection is unmodifiable, use {@link #addViolation} and {@link #removeViolation}</p>
      *
      * @return Collection unmodifiable
-     * @throws UnsupportedOperationException when <code>getViolations.add(Object)</code>
-     * or <code>getViolations.remove(Object)</code> is called. Use {@link
-     * #addViolation} and {@link #removeViolation}.
+     * @throws UnsupportedOperationException when <code>getViolations.add(Object)</code> or
+     * <code>getViolations.remove(Object)</code> is called. Use {@link #addViolation} and {@link #removeViolation}.
      */
     public Collection<JPackage> getViolations() {
 
@@ -404,8 +390,7 @@ public class Rule {
     /**
      * <p>Remove a package from this Rule.</p>
      *
-     * @param packageName String a package this this Rule's package should not
-     * test on
+     * @param packageName String a package this this Rule's package should not test on
      * @return Rule this <code>Rule</code> to allow for method chaining.
      */
     public Rule removePackage(final String packageName) {
@@ -436,8 +421,7 @@ public class Rule {
     /**
      * <p>Remove a violation from this Rule.</p>
      *
-     * @param violation String a package this this Rule's package should not
-     * test on
+     * @param violation String a package this this Rule's package should not test on
      * @return Rule this <code>Rule</code> to allow for method chaining.
      */
     public Rule removeViolation(final String violation) {
@@ -489,12 +473,10 @@ public class Rule {
 
 
     /**
-     * <p>Same as {@link #setId(String)}. The <code>DigesterConfiguraitonFactory</code>
-     * that builds the <code>Configuration<code> class can invoke void setter.
-     * When we added method chaining at version 2.1.0, we made <tt>setId</tt>
-     * return <code>Rule</code>, and the configuration factory broke. So this
-     * method was created to allow for the ConfigurationFactory to work, and for
-     * method chaining to be supported.</p>
+     * <p>Same as {@link #setId(String)}. The <code>DigesterConfiguraitonFactory</code> that builds the
+     * <code>Configuration<code> class can invoke void setter. When we added method chaining at version 2.1.0, we made
+     * <tt>setId</tt> return <code>Rule</code>, and the configuration factory broke. So this method was created to allow
+     * for the ConfigurationFactory to work, and for method chaining to be supported.</p>
      *
      * @param id Value to set for property <tt>id</tt>.
      */

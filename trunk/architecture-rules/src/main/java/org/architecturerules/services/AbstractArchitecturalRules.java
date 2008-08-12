@@ -8,22 +8,16 @@
  *         http://www.apache.org/licenses/LICENSE-2.0
  *
  * For more information visit
- *         http://72miles.com and
- *         http://architecturerules.googlecode.com/
+ *         http://72miles.com/ and
+ *         http://architecturerules.googlecode.com
  */
 package org.architecturerules.services;
 
 
 import jdepend.framework.JDepend;
 import jdepend.framework.JavaPackage;
-
-import java.io.File;
-import java.io.IOException;
-import java.util.Collection;
-
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-
 import org.architecturerules.configuration.Configuration;
 import org.architecturerules.domain.JPackage;
 import org.architecturerules.domain.SourceDirectory;
@@ -31,6 +25,10 @@ import org.architecturerules.exceptions.CyclicRedundancyException;
 import org.architecturerules.exceptions.DependencyConstraintException;
 import org.architecturerules.exceptions.NoPackagesFoundException;
 import org.architecturerules.exceptions.SourceNotFoundException;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.Collection;
 
 
 /**
@@ -252,7 +250,7 @@ abstract class AbstractArchitecturalRules {
     /**
      * <p>Test a given layer (java package) against a Collection of <code>Rules</code></p>
      *
-     * @param violations Collection of rules defining which packages the given package may not depend upon
+     * @param violations Collection of rules defining which packages the given package may not depend on
      * @param jPackage JavaPackage
      * @throws DependencyConstraintException when a rule is broken
      */
@@ -270,7 +268,7 @@ abstract class AbstractArchitecturalRules {
 
                 if (violation.matches(efferentJPackage)) {
 
-                    final String message = analyzedPackageName + " is not allowed to depend upon " + efferent.getName();
+                    final String message = String.format("%s is not allowed to depend on %s", analyzedPackageName, efferent.getName());
 
                     log.error(message);
 

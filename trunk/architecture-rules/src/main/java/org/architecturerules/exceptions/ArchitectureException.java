@@ -8,16 +8,15 @@
  *         http://www.apache.org/licenses/LICENSE-2.0
  *
  * For more information visit
- *         http://72miles.com and
- *         http://architecturerules.googlecode.com/
+ *         http://72miles.com/ and
+ *         http://architecturerules.googlecode.com
  */
 package org.architecturerules.exceptions;
 
 
 
 /**
- * <p>Top-level Architecture Rules Exception. All domain Exceptions should
- * extend this class.</p>
+ * <p>Top-level Architecture Rules Exception. All domain Exceptions should extend this class.</p>
  *
  * @author mikenereson
  * @see RuntimeException

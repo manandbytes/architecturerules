@@ -8,24 +8,23 @@
  *         http://www.apache.org/licenses/LICENSE-2.0
  *
  * For more information visit
- *         http://72miles.com and
- *         http://architecturerules.googlecode.com/
+ *         http://72miles.com/ and
+ *         http://architecturerules.googlecode.com
  */
 package org.architecturerules.domain;
 
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 import static java.lang.String.format;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-
 
 /**
- * <p>A java package. This class wraps the java package to give it
- * functionality, such as the ability to check and see if it matches another
- * package.</p>
+ * <p>A java package. This class wraps the java package to give it functionality, such as the ability to check and see
+ * if it matches another package.</p>
  *
  * @author mikenereson
  */
@@ -56,8 +55,7 @@ public class JPackage {
 
 
     /**
-     * <p>Constructs a new <code>JPackage</code> with the given
-     * <tt>path</tt></p>
+     * <p>Constructs a new <code>JPackage</code> with the given <tt>path</tt></p>
      *
      * @param path String to set for {@link #path}
      */
@@ -130,14 +128,13 @@ public class JPackage {
 
 
     /**
-     * <p>Determines if a given <code>JPackage</code> or <code>String</code> is
-     * represented by this <code>JPackage</code>.</p>
+     * <p>Determines if a given <code>JPackage</code> or <code>String</code> is represented by this
+     * <code>JPackage</code>.</p>
      *
      * <p>If given Object is empty String then <tt>false<tt><</p>
      *
      * @param that a String or JPackage
-     * @return boolean <tt>true</tt> when a perfect match is found or when the
-     *         wildcards match.
+     * @return boolean <tt>true</tt> when a perfect match is found or when the wildcards match.
      */
     public boolean matches(final Object that) {
 
@@ -162,11 +159,9 @@ public class JPackage {
 
 
     /**
-     * <p>Determines if this <code>JPackage</code> uses wildcards to match more
-     * than one package.</p>
+     * <p>Determines if this <code>JPackage</code> uses wildcards to match more than one package.</p>
      *
-     * @return boolean <tt>true</tt> when <tt>path</tt> contains any of the
-     *         {@link #WILDCHARS}.
+     * @return boolean <tt>true</tt> when <tt>path</tt> contains any of the {@link #WILDCHARS}.
      */
     private boolean hasWildcards() {
 
@@ -183,23 +178,20 @@ public class JPackage {
 
 
     /**
-     * <p>Manipulates the <tt>path</tt> value to add Regular Expression support
-     * then attempts to match the Reg Ex against the given <tt>Object</tt>.</p>
+     * <p>Manipulates the <tt>path</tt> value to add Regular Expression support then attempts to match the Reg Ex
+     * against the given <tt>Object</tt>.</p>
      *
-     * <p>This supports <dl> <dt>terminating package</dt> <dd>1.2.*</dd>
-     * <dt>terminating package or sub package description</dt> <dd>1.2..*</dd>
-     * <dt>internal package</dt> <dd>1.*.2</dd> <dt>internal package or sub
-     * package</dt> <dd>1.*..4</dd> <dt>internal and terminating</dt>
-     * <dd>1.*.3.*</dd> <dd>1.*.3..*</dd><dd>1..*.5.*</dd> </dl></p>
+     * <p>This supports <dl> <dt>terminating package</dt> <dd>1.2.*</dd> <dt>terminating package or sub package
+     * description</dt> <dd>1.2..*</dd> <dt>internal package</dt> <dd>1.*.2</dd> <dt>internal package or sub
+     * package</dt> <dd>1.*..4</dd> <dt>internal and terminating</dt> <dd>1.*.3.*</dd>
+     * <dd>1.*.3..*</dd><dd>1..*.5.*</dd> </dl></p>
      *
      *
      * <p>TODO: This does not support the single character <tt>*</tt> yet.</p>
      *
-     * @param that <code>Object</code> of type <code>String</code> or
-     * <code>JPackage</code>
-     * @return boolean <tt>true</tt> when the given <tt>Object</tt> is a
-     *         supported type, and then regular expression that is constructed
-     *         matches.
+     * @param that <code>Object</code> of type <code>String</code> or <code>JPackage</code>
+     * @return boolean <tt>true</tt> when the given <tt>Object</tt> is a supported type, and then regular expression
+     *         that is constructed matches.
      */
     private boolean regExMatch(final Object that) {
 
@@ -243,10 +235,9 @@ public class JPackage {
     /**
      * <p>Matches by String equals against a String or JPackage</p>
      *
-     * @param that <code>Object</code> of type <code>String</code> or
-     * <code>JPackage</code>
-     * @return <tt>true</tt> when the given <tt>Object</tt> is a supported type,
-     *         and an exact match to this <code>JPackage</code>.
+     * @param that <code>Object</code> of type <code>String</code> or <code>JPackage</code>
+     * @return <tt>true</tt> when the given <tt>Object</tt> is a supported type, and an exact match to this
+     *         <code>JPackage</code>.
      */
     private boolean prefectMatch(final Object that) {
 

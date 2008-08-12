@@ -8,8 +8,8 @@
  *         http://www.apache.org/licenses/LICENSE-2.0
  *
  * For more information visit
- *         http://72miles.com and
- *         http://architecturerules.googlecode.com/
+ *         http://72miles.com/ and
+ *         http://architecturerules.googlecode.com
  */
 package org.architecturerules.exceptions;
 
@@ -28,8 +28,8 @@ import java.util.Set;
 public class CyclicRedundancyException extends ArchitectureException {
 
     /**
-     * <p>Holds the cycles by package name. The Map key is the full package and
-     * the key is a Set of packages that are involved in the cycle.</p>
+     * <p>Holds the cycles by package name. The Map key is the full package and the key is a Set of packages that are
+     * involved in the cycle.</p>
      */
     protected Map<String, Set<String>> cycles = new HashMap<String, Set<String>>();
 
@@ -66,13 +66,11 @@ public class CyclicRedundancyException extends ArchitectureException {
 
 
     /**
-     * <p>Constructs a new CyclicRedundancyException with a generated message
-     * containing the given <tt>packageName</tt> and <tt>efferentPackage</tt>.</p>
+     * <p>Constructs a new CyclicRedundancyException with a generated message containing the given <tt>packageName</tt>
+     * and <tt>efferentPackage</tt>.</p>
      *
-     * @param packageName     String the name of the package containing the
-     *                        cyclic dependency
-     * @param efferentPackage String the name of the package the package is
-     *                        cyclically involved with.
+     * @param packageName String the name of the package containing the cyclic dependency
+     * @param efferentPackage String the name of the package the package is cyclically involved with.
      */
     public CyclicRedundancyException(final String packageName, final String efferentPackage) {
         super("'{0}' is involved in an cyclically redundant dependency with '{1}'".replaceAll("\\{0}", packageName).replaceAll("\\{1}", efferentPackage));

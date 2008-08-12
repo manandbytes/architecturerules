@@ -1,31 +1,28 @@
 package org.architecturerules.mojo;
 
 
+import javassist.ClassPool;
+import javassist.NotFoundException;
 import junit.framework.TestCase;
+import org.apache.commons.io.IOUtils;
+import org.apache.maven.plugin.logging.Log;
+import org.apache.maven.project.MavenProject;
+import org.architecturerules.api.configuration.ConfigurationFactory;
+import org.architecturerules.api.services.CyclicRedundancyService;
+import org.architecturerules.api.services.RulesService;
+import org.architecturerules.configuration.Configuration;
+import org.architecturerules.configuration.xml.DigesterConfigurationFactory;
+import org.architecturerules.domain.SourceDirectory;
+import org.architecturerules.services.CyclicRedundancyServiceImpl;
+import org.architecturerules.services.RulesServiceImpl;
 
+import javax.management.ServiceNotFoundException;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Collection;
 import java.util.LinkedList;
 
-import javassist.ClassPool;
-import javassist.NotFoundException;
-
-import javax.management.ServiceNotFoundException;
-
-import org.apache.commons.io.IOUtils;
-import org.apache.maven.plugin.logging.Log;
-import org.apache.maven.project.MavenProject;
-
-import org.architecturerules.configuration.Configuration;
-import org.architecturerules.configuration.ConfigurationFactory;
-import org.architecturerules.configuration.xml.DigesterConfigurationFactory;
-import org.architecturerules.domain.SourceDirectory;
-import org.architecturerules.services.CyclicRedundancyService;
-import org.architecturerules.services.CyclicRedundancyServiceImpl;
-import org.architecturerules.services.RulesService;
-import org.architecturerules.services.RulesServiceImpl;
 
 
 /**
@@ -35,13 +32,18 @@ import org.architecturerules.services.RulesServiceImpl;
  * @author mnereson
  * @see TestCase
  */
-public class MojoArchitectureRulesConfigurationTest extends TestCase {
+public class MojoArchitectureRulesConfigurationTest
+        extends TestCase {
+
 
     /**
      * @author mn
-     * @todo read configuration file from jars in classpath in {@link DigesterConfigurationFactory} and remove this workaround
+     * @todo read configuration file from jars in classpath in {@link DigesterConfigurationFactory} and remove this
+     * workaround
      */
-    private final class FallbackDigesterConfigurationFactory extends DigesterConfigurationFactory {
+    private final class FallbackDigesterConfigurationFactory
+            extends DigesterConfigurationFactory {
+
 
         /**
          * @param configurationFileName not used actually
@@ -50,10 +52,12 @@ public class MojoArchitectureRulesConfigurationTest extends TestCase {
             super(configurationFileName);
         }
 
+
         @Override
         protected String getConfigurationAsXml(final String configurationFileName) {
 
-            InputStream configStream = getClass().getClassLoader().getResourceAsStream(ConfigurationFactory.DEFAULT_CONFIGURATION_FILE_NAME);
+            InputStream configStream = getClass().getClassLoader()
+                    .getResourceAsStream(ConfigurationFactory.DEFAULT_CONFIGURATION_FILE_NAME);
             String configAsString;
 
             try {
@@ -72,12 +76,14 @@ public class MojoArchitectureRulesConfigurationTest extends TestCase {
         }
     }
 
+
     /**
      * <p>Holds configuration settings</p>
      *
      * @paramater configuration Configuration
      */
     private final Configuration configuration = new Configuration();
+
 
     /**
      * <p>todo: javadocs</p>
@@ -102,6 +108,7 @@ public class MojoArchitectureRulesConfigurationTest extends TestCase {
         configuration.getSources().addAll(factory.getSources());
         configuration.setDoCyclicDependencyTest(doCyclesTest);
     }
+
 
     /**
      * <p>todo: javadocs</p>
@@ -138,12 +145,10 @@ public class MojoArchitectureRulesConfigurationTest extends TestCase {
 
 
     /**
-     * <p> Add the current project's base directory to all paths from the
-     * configuration file </p>
+     * <p> Add the current project's base directory to all paths from the configuration file </p>
      *
-     * <p> Configuration file uses relative paths from the root of the project.
-     * Invoking build not from the project's root directory (i.e. <code>mvn -f
-     * /some/pom.xml</code>) causes {@link ServiceNotFoundException}} </p>
+     * <p> Configuration file uses relative paths from the root of the project. Invoking build not from the project's
+     * root directory (i.e. <code>mvn -f /some/pom.xml</code>) causes {@link ServiceNotFoundException}} </p>
      *
      * @param baseDir File
      */

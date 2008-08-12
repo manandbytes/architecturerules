@@ -8,8 +8,8 @@
  *         http://www.apache.org/licenses/LICENSE-2.0
  *
  * For more information visit
- *         http://72miles.com and
- *         http://architecturerules.googlecode.com/
+ *         http://72miles.com/ and
+ *         http://architecturerules.googlecode.com
  */
 package test.com.seventytwomiles.services;
 
@@ -24,8 +24,7 @@ import java.util.HashSet;
 
 
 /**
- * <p>Test implementation of the PersonService that depends upon the DAO layer
- * and the model package.</p>
+ * <p>Test implementation of the PersonService that depends upon the DAO layer and the model package.</p>
  *
  * @author mikenereson
  * @noinspection UnusedDeclaration

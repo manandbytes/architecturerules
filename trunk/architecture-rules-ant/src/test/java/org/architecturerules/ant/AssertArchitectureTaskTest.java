@@ -9,13 +9,12 @@
  *
  * For more information visit
  *         http://72miles.com and
- *         http://architecturerules.googlecode.com/
+ *         http://architecturerules.googlecode.com
  */
 package org.architecturerules.ant;
 
 
 import junit.framework.TestCase;
-
 import org.architecturerules.exceptions.CyclicRedundancyException;
 
 

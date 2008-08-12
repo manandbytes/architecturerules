@@ -8,8 +8,8 @@
  *         http://www.apache.org/licenses/LICENSE-2.0
  *
  * For more information visit
- *         http://72miles.com and
- *         http://architecturerules.googlecode.com/
+ *         http://72miles.com/ and
+ *         http://architecturerules.googlecode.com
  */
 package test.com.seventytwomiles.dao.hibernate;
 
@@ -20,8 +20,7 @@ import test.com.seventytwomiles.services.PersonServiceImpl;
 
 
 /**
- * <p>Test implementation of the <code>PersonDao</code> that depends upon the
- * service layer.</p>
+ * <p>Test implementation of the <code>PersonDao</code> that depends upon the service layer.</p>
  *
  * @author mikenereson
  * @noinspection UnusedDeclaration

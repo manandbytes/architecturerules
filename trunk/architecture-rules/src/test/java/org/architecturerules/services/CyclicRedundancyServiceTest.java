@@ -8,21 +8,21 @@
  *         http://www.apache.org/licenses/LICENSE-2.0
  *
  * For more information visit
- *         http://72miles.com and
- *         http://architecturerules.googlecode.com/
+ *         http://72miles.com/ and
+ *         http://architecturerules.googlecode.com
  */
 package org.architecturerules.services;
 
 
 import junit.framework.TestCase;
-
-import java.util.Map;
-import java.util.Set;
-
+import org.architecturerules.api.services.CyclicRedundancyService;
 import org.architecturerules.configuration.Configuration;
 import org.architecturerules.domain.Rule;
 import org.architecturerules.domain.SourceDirectory;
 import org.architecturerules.exceptions.CyclicRedundancyException;
+
+import java.util.Map;
+import java.util.Set;
 
 
 /**

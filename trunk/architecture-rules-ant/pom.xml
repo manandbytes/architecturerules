@@ -210,7 +210,7 @@
             <plugin>
                 <groupId>com.google.code.maven-license-plugin</groupId>
                 <artifactId>maven-license-plugin</artifactId>
-                <version>1.2.5</version>
+                <version>1.3.1</version>
                 <configuration>
                     <header>file:${basedir}/../architecture-rules/src/main/resources/file-header.txt</header>
                     <quiet>false</quiet>
@@ -224,14 +224,14 @@
                         <url>${project.url}</url>
                     </properties>
                 </configuration>
-                <executions>
+               <!-- <executions>
                     <execution>
                         <phase>compile</phase>
                         <goals>
                             <goal>format</goal>
                         </goals>
                     </execution>
-                </executions>
+                </executions>-->
             </plugin>
         </plugins>
     </build>

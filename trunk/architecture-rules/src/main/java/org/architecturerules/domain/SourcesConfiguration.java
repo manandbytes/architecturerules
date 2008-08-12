@@ -8,21 +8,19 @@
  *         http://www.apache.org/licenses/LICENSE-2.0
  *
  * For more information visit
- *         http://72miles.com and
- *         http://architecturerules.googlecode.com/
+ *         http://72miles.com/ and
+ *         http://architecturerules.googlecode.com
  */
 package org.architecturerules.domain;
 
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-
-import org.architecturerules.configuration.ConfigurationFactory;
+import org.architecturerules.api.configuration.ConfigurationFactory;
 
 
 /**
- * <p>Represents the configuration information read from the XML configuration
- * file.</p>
+ * <p>Represents the configuration information read from the XML configuration file.</p>
  *
  * @author mikenereson
  */
@@ -52,8 +50,7 @@ public class SourcesConfiguration {
 
 
     /**
-     * <p>Instantiates a new SourcesConfiguration with the given
-     * <tt>noPackages</tt> value.</p>
+     * <p>Instantiates a new SourcesConfiguration with the given <tt>noPackages</tt> value.</p>
      *
      * @param noPackages String
      */

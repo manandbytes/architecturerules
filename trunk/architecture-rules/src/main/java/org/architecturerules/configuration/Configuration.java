@@ -94,7 +94,7 @@ public class Configuration extends ListenerSupport {
 
         if (!(this instanceof UnmodifiableConfiguration)) {
 
-            for (String defaultListener : ConfigurationFactory.DEFAULT_LISTENERS) {
+            for (String defaultListener : AbstractConfigurationFactory.DEFAULT_LISTENERS) {
 
                 addListener(defaultListener);
             }
@@ -247,10 +247,9 @@ public class Configuration extends ListenerSupport {
         if (added) {
 
             super.onRuleAdded(rule);
-            log.debug(String.format("added Rule %s to Configuration", id));
         } else {
 
-            log.debug(String.format("failed to add Rule %s to Configuration", id));
+            log.warn(String.format("failed to add Rule %s to Configuration", id));
         }
 
         return this;
@@ -282,10 +281,9 @@ public class Configuration extends ListenerSupport {
         if (added) {
 
             super.onSourceDirectoryAdded(sourceDirectory);
-            log.debug(String.format("added source %s to Configuration", path));
         } else {
 
-            log.debug(String.format("failed to add source %s to Configuration", path));
+            log.warn(String.format("failed to add source %s to Configuration", path));
         }
 
         return this;
@@ -314,7 +312,7 @@ public class Configuration extends ListenerSupport {
             log.debug(String.format("removed listener %s from Configuration", name));
         } else {
 
-            log.debug(String.format("failed to add listener %s from Configuration", name));
+            log.warn(String.format("failed to remove listener %s from Configuration", name));
         }
 
         return this;

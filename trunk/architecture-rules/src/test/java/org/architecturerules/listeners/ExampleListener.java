@@ -29,15 +29,15 @@ public class ExampleListener extends EmptyListener {
     private final String name = this.getClass().getSimpleName();
 
     @Override
-    public void register() {
+    public void registerListener() {
 
-        System.out.println("registering " + name);
+        System.out.println("** this Listener is for testing ** #registerListener " + name);
     }
 
 
     @Override
-    public void terminate() {
+    public void terminateListener() {
 
-        System.out.println("terminate " + name);
+        System.out.println("** this Listener is for testing ** #terminateListener " + name);
     }
 }

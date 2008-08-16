@@ -20,6 +20,7 @@ import org.apache.commons.logging.LogFactory;
 import org.architecturerules.api.configuration.ConfigurationFactory;
 import org.architecturerules.api.services.CyclicRedundancyService;
 import org.architecturerules.api.services.RulesService;
+import org.architecturerules.configuration.AbstractConfigurationFactory;
 import org.architecturerules.configuration.Configuration;
 import org.architecturerules.configuration.UnmodifiableConfiguration;
 import org.architecturerules.configuration.xml.DigesterConfigurationFactory;
@@ -73,12 +74,9 @@ public abstract class AbstractArchitectureRulesConfigurationTest extends TestCas
         if ((configurationFileName != null) && (configurationFileName.length() > 0)) {
 
             configurationFactory = new DigesterConfigurationFactory(configurationFileName);
-            configuration.getRules().addAll(configurationFactory.getRules());
-            configuration.getSources().addAll(configurationFactory.getSources());
-            configuration.setDoCyclicDependencyTest(configurationFactory.doCyclicDependencyTest());
 
             Set<String> listeners = new HashSet<String>();
-            listeners.addAll(ConfigurationFactory.DEFAULT_LISTENERS);
+            listeners.addAll(AbstractConfigurationFactory.DEFAULT_LISTENERS);
             listeners.addAll(configurationFactory.getIncludedListeners());
             listeners.removeAll(configurationFactory.getExcludedListeners());
 
@@ -86,6 +84,15 @@ public abstract class AbstractArchitectureRulesConfigurationTest extends TestCas
 
                 configuration.addListener(listenerClassName);
             }
+
+            configuration.registerListener();
+
+            /**
+             * Ensure listeners are added before Rules and Sources so that those events can be listened.
+             */
+            configuration.getRules().addAll(configurationFactory.getRules());
+            configuration.getSources().addAll(configurationFactory.getSources());
+            configuration.setDoCyclicDependencyTest(configurationFactory.doCyclicDependencyTest());
         }
     }
 
@@ -133,6 +140,8 @@ public abstract class AbstractArchitectureRulesConfigurationTest extends TestCas
 
             redundancyService.performCyclicRedundancyCheck();
         }
+
+        configuration.terminateListener();
 
         return rulesResults;
     }

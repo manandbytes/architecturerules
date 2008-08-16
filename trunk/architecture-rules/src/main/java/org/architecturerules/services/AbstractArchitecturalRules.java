@@ -111,30 +111,17 @@ abstract class AbstractArchitecturalRules {
         final String sourcePath = sourceDirectory.getPath();
         final StringBuffer message = new StringBuffer();
 
-        final boolean throwExceptionWhenNotFound = sourceDirectory.shouldThrowExceptionWhenNotFound();
-
         try {
 
             jdepend.addDirectory(sourcePath);
 
-            if (log.isDebugEnabled()) {
-
-                message.append("loaded ");
-                message.append(throwExceptionWhenNotFound ? "required " : "");
-                message.append("sourceDirectory ");
-                message.append(new File("").getAbsolutePath());
-                message.append("\\");
-                message.append(sourcePath);
-
-                log.debug(message.toString());
-            }
+            String path = new File("").getAbsolutePath() + File.separator + sourcePath;
+            configuration.onSourceDirectoryLoaded(path, sourceDirectory);
         } catch (final IOException e) {
 
             configuration.onSourceDirectoryNotFound(sourceDirectory);
 
             if (sourceDirectory.shouldThrowExceptionWhenNotFound()) {
-
-                log.error(sourcePath + " was not found", e);
 
                 throw new SourceNotFoundException(sourcePath + " was not found", e);
             }
@@ -151,28 +138,18 @@ abstract class AbstractArchitecturalRules {
          * Ask jdepend to analyze each package in each of the source
          * directories that were added above.
          */
-        log.debug("fetching packages");
         packages = jdepend.analyze();
-
-        log.debug("checking how many packages were found by JDepend");
 
         if (packages.isEmpty()) {
 
-            log.warn("no packages were found with the given configuration. " + "check your <sources /> configuration");
+            log.warn("no packages were found with the given configuration. check your <sources /> configuration");
 
             final boolean isConfiguredToThrowExceptionWhenNoPackagesFound = configuration.shouldThrowExceptionWhenNoPackages();
 
-            log.debug("throw exception when no packages? " + isConfiguredToThrowExceptionWhenNoPackagesFound);
-
             if (isConfiguredToThrowExceptionWhenNoPackagesFound) {
 
-                log.debug("throwing RuntimeException because no packages " + "were found");
-
-                throw new NoPackagesFoundException("no packages were found " + "with the given configuration. check your <sources /> " + "configuration");
+                throw new NoPackagesFoundException("no packages were found with the given configuration. check your <sources /> configuration");
             }
-        } else {
-
-            log.debug("jdepend found " + packages.size() + " to analyze for cyclic redundancies");
         }
     }
 
@@ -203,8 +180,6 @@ abstract class AbstractArchitecturalRules {
 
         final Collection<JavaPackage> analyzedPackages = jdepend.analyze();
 
-        log.debug("checking how many packages were found by JDepend");
-
         if (analyzedPackages.isEmpty()) {
 
             String message = "no packages were found with the given configuration. check your <sources />";
@@ -212,24 +187,17 @@ abstract class AbstractArchitecturalRules {
 
             final boolean isConfiguredToThrowExceptionWhenNoPackagesFound = this.configuration.shouldThrowExceptionWhenNoPackages();
 
-            log.debug("throw exception when no packages? " + isConfiguredToThrowExceptionWhenNoPackagesFound);
-
             if (isConfiguredToThrowExceptionWhenNoPackagesFound) {
-
-                log.debug("throwing NoPackagesFoundException");
 
                 throw new NoPackagesFoundException(message);
             }
-        } else {
-
-            log.debug("jdepend found " + analyzedPackages.size() + " to analyze for dependency architecture");
         }
 
         for (final JavaPackage analyzedPackage : analyzedPackages) {
 
             final JPackage javaPackage = new JPackage(analyzedPackage.getName());
 
-            log.debug("checking dependencies on package " + javaPackage);
+            configuration.onBeginPackageInvestigation(javaPackage, ruleReference);
 
             if (layer.matches(javaPackage)) {
 
@@ -272,7 +240,6 @@ abstract class AbstractArchitecturalRules {
                     configuration.onPackageDependencyViolationDiscovered(ruleReference, analyzedPackageName, dependencyPackageName);
 
                     final String message = String.format("%s is not allowed to depend on %s", analyzedPackageName, dependencyPackageName);
-
                     throw new DependencyConstraintException(message);
                 }
             }

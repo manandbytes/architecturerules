@@ -21,6 +21,8 @@ import org.architecturerules.domain.JPackage;
 import org.architecturerules.domain.Rule;
 import org.architecturerules.domain.SourceDirectory;
 
+import java.util.Collection;
+
 
 /**
  * <p>todo: javadocs</p>
@@ -32,6 +34,22 @@ import org.architecturerules.domain.SourceDirectory;
 public class LoggerListener extends EmptyListener {
 
     private static final Log log = LogFactory.getLog(LoggerListener.class);
+
+    @Override
+    public void registerListener() {
+
+        String debug = String.format("registered LoggerListener");
+        log.debug(debug);
+    }
+
+
+    @Override
+    public void terminateListener() {
+
+        String debug = String.format("tests complete. good bye.");
+        log.debug(debug);
+    }
+
 
     /**
      * @see Listener#onRuleAdded(Rule)
@@ -186,5 +204,68 @@ public class LoggerListener extends EmptyListener {
         String warn = String.format("'%s' dependency on '%s' violates rule '%s'", packageName, dependencyPackageName, ruleId);
 
         log.warn(warn);
+    }
+
+
+    public void onSourceDirectoryLoaded(final String path, final SourceDirectory sourceDirectory) {
+
+        StringBuffer debug = new StringBuffer();
+
+        debug.append("loaded ");
+        debug.append(sourceDirectory.shouldThrowExceptionWhenNotFound() ? "required " : "");
+        debug.append("sourceDirectory ");
+        debug.append(path);
+
+        log.debug(debug.toString());
+    }
+
+
+    @Override
+    public void onBeginPackageInvestigation(final JPackage javaPackage, final Rule ruleReference) {
+
+        String debug = String.format("checking dependencies on package '%s' for Rule '%s'", javaPackage.getPath(), ruleReference.getId());
+
+        log.debug(debug);
+    }
+
+
+    @Override
+    public void onCyclicDependencyDiscovered(final String package1, final Collection<String> package1DependenciesOnPackage2, final String package2, final Collection<String> package2DependenciesOnPackage1) {
+
+        StringBuffer warn = new StringBuffer();
+
+        warn.append("cycle found between ");
+        warn.append(package1);
+        warn.append(" and ");
+        warn.append(package2);
+        warn.append("\r\n");
+
+        warn.append(package1);
+        warn.append(" depends on ");
+        warn.append(package2);
+        warn.append(" at ");
+        warn.append("\r\n");
+
+        for (String className : package1DependenciesOnPackage2) {
+
+            warn.append("\t");
+            warn.append(className);
+            warn.append("\r\n");
+        }
+
+        warn.append(package2);
+        warn.append(" depends on ");
+        warn.append(package1);
+        warn.append(" at ");
+        warn.append("\r\n");
+
+        for (String className : package2DependenciesOnPackage1) {
+
+            warn.append("\t");
+            warn.append(className);
+            warn.append("\r\n");
+        }
+
+        log.warn(warn.toString());
     }
 }

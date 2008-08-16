@@ -19,6 +19,8 @@ import org.architecturerules.domain.JPackage;
 import org.architecturerules.domain.Rule;
 import org.architecturerules.domain.SourceDirectory;
 
+import java.util.Collection;
+
 
 /**
  * <p>todo: javadocs</p>
@@ -29,18 +31,18 @@ import org.architecturerules.domain.SourceDirectory;
 public class EmptyListener implements Listener {
 
     /**
-     * @see Listener#register
+     * @see Listener#registerListener
      */
-    public void register() {
+    public void registerListener() {
 
         // do nothing.
     }
 
 
     /**
-     * @see Listener#terminate()
+     * @see Listener#terminateListener()
      */
-    public void terminate() {
+    public void terminateListener() {
 
         // do nothing.
     }
@@ -119,9 +121,9 @@ public class EmptyListener implements Listener {
 
 
     /**
-     * @see Listener#onCyclicDependencyDiscovered(JPackage, JPackage)
+     * @see Listener#onCyclicDependencyDiscovered(String, Collection
      */
-    public void onCyclicDependencyDiscovered(final JPackage jPackage1, final JPackage jPackage2) {
+    public void onCyclicDependencyDiscovered(final String jPackage1, final Collection<String> package1DependenciesOnPackage2, final String jPackage2, final Collection<String> package2DependenciesOnPackage1) {
 
         // do nothing
     }
@@ -187,5 +189,20 @@ public class EmptyListener implements Listener {
     public void onPackageDependencyViolationDiscovered(final Rule rule, final String packageName, final String dependencyPackageName) {
 
         /* rules test */
+    }
+
+
+    /**
+     * @see Listener#onSourceDirectoryLoaded(String, SourceDirectory)
+     */
+    public void onSourceDirectoryLoaded(final String path, final SourceDirectory sourceDirectory) {
+
+        /* do nothing*/
+    }
+
+
+    public void onBeginPackageInvestigation(final JPackage javaPackage, final Rule ruleReference) {
+
+        /* do nothing  */
     }
 }

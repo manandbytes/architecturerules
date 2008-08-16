@@ -23,7 +23,8 @@ import java.util.Collection;
 
 
 /**
- * <p>todo: javadocs</p>
+ * <p>Provides the mechanisms neccessary to register and terminate listeners, and to pass messages to all interested
+ * <code>Listener</code> implementations.</p>
  *
  * @author mnereson
  * @see Listener
@@ -31,29 +32,33 @@ import java.util.Collection;
 public abstract class ListenerSupport implements Listener {
 
     /**
-     * @see Listener#register()
+     * TODO: call this somewhere
+     *
+     * @see Listener#registerListener()
      */
-    public void register() {
+    public void registerListener() {
 
         Collection<Listener> listeners = getListeners();
 
         for (Listener listener : listeners) {
 
-            listener.register();
+            listener.registerListener();
         }
     }
 
 
     /**
-     * @see Listener#terminate()
+     * TODO: call this somewhere
+     *
+     * @see Listener#terminateListener()
      */
-    public void terminate() {
+    public void terminateListener() {
 
         Collection<Listener> listeners = getListeners();
 
         for (Listener listener : listeners) {
 
-            listener.terminate();
+            listener.terminateListener();
         }
     }
 
@@ -171,15 +176,15 @@ public abstract class ListenerSupport implements Listener {
 
 
     /**
-     * @see Listener#onCyclicDependencyDiscovered(JPackage, JPackage)
+     * @see Listener#onCyclicDependencyDiscovered(String, Collection, String, Collection)
      */
-    public void onCyclicDependencyDiscovered(final JPackage jPackage1, final JPackage jPackage2) {
+    public void onCyclicDependencyDiscovered(final String jPackage1, final Collection<String> package1DependenciesOnPackage2, final String jPackage2, final Collection<String> package2DependenciesOnPackage1) {
 
         Collection<Listener> listeners = getListeners();
 
         for (Listener listener : listeners) {
 
-            listener.onCyclicDependencyDiscovered(jPackage1, jPackage2);
+            listener.onCyclicDependencyDiscovered(jPackage1, package1DependenciesOnPackage2, jPackage2, package2DependenciesOnPackage1);
         }
     }
 
@@ -278,6 +283,28 @@ public abstract class ListenerSupport implements Listener {
         for (Listener listener : listeners) {
 
             listener.onPackageDependencyViolationDiscovered(rule, packageName, dependencyPackageName);
+        }
+    }
+
+
+    public void onSourceDirectoryLoaded(final String path, final SourceDirectory sourceDirectory) {
+
+        Collection<Listener> listeners = getListeners();
+
+        for (Listener listener : listeners) {
+
+            listener.onSourceDirectoryLoaded(path, sourceDirectory);
+        }
+    }
+
+
+    public void onBeginPackageInvestigation(final JPackage javaPackage, final Rule ruleReference) {
+
+        Collection<Listener> listeners = getListeners();
+
+        for (Listener listener : listeners) {
+
+            listener.onBeginPackageInvestigation(javaPackage, ruleReference);
         }
     }
 

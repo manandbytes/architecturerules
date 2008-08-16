@@ -20,7 +20,6 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.architecturerules.api.services.CyclicRedundancyService;
 import org.architecturerules.configuration.Configuration;
-import org.architecturerules.domain.JPackage;
 import org.architecturerules.exceptions.CyclicRedundancyException;
 import org.architecturerules.exceptions.NoPackagesFoundException;
 import org.architecturerules.exceptions.SourceNotFoundException;
@@ -104,8 +103,6 @@ public class CyclicRedundancyServiceImpl extends AbstractArchitecturalRules impl
             if (cyclesFound) {
 
                 addCycle(cycles, javaPackage, afferents);
-
-                configuration.onCyclicDependencyDiscovered(new JPackage(javaPackage.getName()), new JPackage(afferents.toString())); // TODO: figure out which package, even better which class
             }
         }
 
@@ -116,6 +113,40 @@ public class CyclicRedundancyServiceImpl extends AbstractArchitecturalRules impl
         }
 
         configuration.onCyclicDependencyTestEnd();
+    }
+
+
+    /**
+     * <p>Updates a Map, or puts a new record into a Map of a JavaPackage and its cyclic dependency packages.</p>
+     *
+     * @param cycles Map of cycles already discovered.
+     * @param javaPackage JavaPackage involved in a cyclic dependency
+     * @param dependencies Collection of JavaPackages involved in a cyclic dependency with the given javaPackage
+     * argument.
+     */
+    private void addCycle(final Map cycles, final JavaPackage javaPackage, final Collection dependencies) {
+
+        final boolean exists = cycles.containsKey(javaPackage);
+        final Set cyclicPackages;
+
+        if (exists) {
+
+            /**
+             * Get existing Set, this JavaPackage has already been
+             * discovered for being in a cycle
+             */
+            final Object value = cycles.get(javaPackage);
+            cyclicPackages = (HashSet) value;
+        } else {
+
+            /**
+             * Build a new Set
+             */
+            cyclicPackages = new HashSet();
+        }
+
+        cyclicPackages.addAll(dependencies);
+        cycles.put(javaPackage, cyclicPackages);
     }
 
 
@@ -152,40 +183,6 @@ public class CyclicRedundancyServiceImpl extends AbstractArchitecturalRules impl
         exception.getCycles().putAll(cycleStrings);
 
         return exception;
-    }
-
-
-    /**
-     * <p>Updates a Map, or puts a new record into a Map of a JavaPackage and its cyclic dependency packages.</p>
-     *
-     * @param cycles Map of cycles already discovered.
-     * @param javaPackage JavaPackage involved in a cyclic dependency
-     * @param dependencies Collection of JavaPackages involved in a cyclic dependency with the given javaPackage
-     * argument.
-     */
-    private void addCycle(final Map cycles, final JavaPackage javaPackage, final Collection dependencies) {
-
-        final boolean exists = cycles.containsKey(javaPackage);
-        final Set cyclicPackages;
-
-        if (exists) {
-
-            /**
-             * Get existing Set, this JavaPackage has already been
-             * discovered for being in a cycle
-             */
-            final Object value = cycles.get(javaPackage);
-            cyclicPackages = (HashSet) value;
-        } else {
-
-            /**
-             * Build a new Set
-             */
-            cyclicPackages = new HashSet();
-        }
-
-        cyclicPackages.addAll(dependencies);
-        cycles.put(javaPackage, cyclicPackages);
     }
 
 
@@ -249,14 +246,14 @@ public class CyclicRedundancyServiceImpl extends AbstractArchitecturalRules impl
         Collection<JavaClass> classesInPackage1 = javaPackage.getClasses();
         Collection<JavaClass> classesInPackage2 = dependency.getClasses();
 
-        Collection<JavaClass> package1DependenciesOnPackage2 = new ArrayList<JavaClass>();
-        Collection<JavaClass> package2DependenciesOnPackage1 = new ArrayList<JavaClass>();
+        Collection<String> package1DependenciesOnPackage2 = new ArrayList<String>();
+        Collection<String> package2DependenciesOnPackage1 = new ArrayList<String>();
 
         for (JavaClass javaClass : classesInPackage1) {
 
             if (javaClass.getImportedPackages().contains(new JavaPackage(package2))) {
 
-                package1DependenciesOnPackage2.add(javaClass);
+                package1DependenciesOnPackage2.add(javaClass.getSourceFile());
             }
         }
 
@@ -264,29 +261,44 @@ public class CyclicRedundancyServiceImpl extends AbstractArchitecturalRules impl
 
             if (javaClass.getImportedPackages().contains(new JavaPackage(package1))) {
 
-                package2DependenciesOnPackage1.add(javaClass);
+                package2DependenciesOnPackage1.add(javaClass.getSourceFile());
             }
         }
 
+        configuration.onCyclicDependencyDiscovered(package1, package1DependenciesOnPackage2, package2, package2DependenciesOnPackage1);
+
         final StringBuffer listOfClasses = new StringBuffer();
 
-        for (JavaClass javaClass : package1DependenciesOnPackage2) {
+        for (String javaClassName : package1DependenciesOnPackage2) {
 
-            listOfClasses.append("\t|\t").append(" |-- @ ").append(javaClass.getSourceFile()).append("\n");
+            listOfClasses.append("\t|\t");
+            listOfClasses.append(" |-- @ ");
+            listOfClasses.append(javaClassName);
+            listOfClasses.append("\n");
         }
 
-        listOfClasses.append("\t|\t    ").append(new String(new char[] {
-                                                                92
-                                                            })).append(" while ").append("\n");
+        listOfClasses.append("\t|\t    ");
+        listOfClasses.append(new String(new char[] {
+                                            92
+                                        }));
+        listOfClasses.append(" while ");
+        listOfClasses.append("\n");
 
-        for (JavaClass javaClass : package2DependenciesOnPackage1) {
+        for (String javaClassName : package2DependenciesOnPackage1) {
 
-            listOfClasses.append("\t|\t").append("     |-- ").append(javaClass.getSourceFile()).append("\n");
+            listOfClasses.append("\t|\t");
+            listOfClasses.append("     |-- ");
+            listOfClasses.append(javaClassName);
+            listOfClasses.append("\n");
         }
 
-        listOfClasses.append("\t|\t").append("       ").append(new String(new char[] {
-                                                                              92
-                                                                          })).append(" depends on ").append(package1);
+        listOfClasses.append("\t|\t");
+        listOfClasses.append("       ");
+        listOfClasses.append(new String(new char[] {
+                                            92
+                                        }));
+        listOfClasses.append(" depends on ");
+        listOfClasses.append(package1);
 
         return listOfClasses.toString();
     }

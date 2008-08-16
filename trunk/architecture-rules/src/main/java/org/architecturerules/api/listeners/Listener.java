@@ -18,6 +18,8 @@ import org.architecturerules.domain.JPackage;
 import org.architecturerules.domain.Rule;
 import org.architecturerules.domain.SourceDirectory;
 
+import java.util.Collection;
+
 
 /**
  * <p>todo: javadocs</p>
@@ -29,13 +31,13 @@ public interface Listener {
     /**
      * <p>TODO: javadoc</p>
      */
-    void register();
+    void registerListener();
 
 
     /**
      * <p>TODO: javadoc</p>
      */
-    void terminate();
+    void terminateListener();
 
 
     /* configuration */
@@ -106,9 +108,11 @@ public interface Listener {
      * <p>TODO: javadoc</p>
      *
      * @param jPackage1
+     * @param package1DependenciesOnPackage2
      * @param jPackage2
+     * @param package2DependenciesOnPackage1
      */
-    void onCyclicDependencyDiscovered(JPackage jPackage1, JPackage jPackage2);
+    void onCyclicDependencyDiscovered(String jPackage1, final Collection<String> package1DependenciesOnPackage2, String jPackage2, final Collection<String> package2DependenciesOnPackage1);
 
 
     /* rules test */
@@ -168,4 +172,20 @@ public interface Listener {
      * Rule restricts
      */
     void onPackageDependencyViolationDiscovered(final Rule rule, String packageName, String dependencyPackageName);
+
+
+    /**
+     * <p>TODO: javadoc </p>
+     * @param path todo
+     * @param sourceDirectory todo
+     */
+    void onSourceDirectoryLoaded(final String path, final SourceDirectory sourceDirectory);
+
+
+    /**
+     * <p>TODO: javadoc </p>
+     * @param javaPackage TODO
+     * @param ruleReference TODO
+     */
+    void onBeginPackageInvestigation(final JPackage javaPackage, final Rule ruleReference);
 }

@@ -24,6 +24,6 @@ import org.architecturerules.configuration.Configuration;
  * @author mnereson
  * @see Listener
  */
-public abstract class AbstractListener implements Listener {
+public abstract class AbstractListener extends EmptyListener {
 
 }

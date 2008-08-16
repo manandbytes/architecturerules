@@ -37,6 +37,13 @@ import java.util.*;
  */
 public abstract class AbstractConfigurationFactory implements ConfigurationFactory {
 
+    /**
+     * <p>Instantiated by the implementation of this class.</p>
+     *
+     * @see org.architecturerules.configuration.AbstractConfigurationFactory
+     */
+    public static final Set<String> DEFAULT_LISTENERS = new HashSet<String>();
+
     static {
 
         DEFAULT_LISTENERS.add(LoggerListener.class.getName());

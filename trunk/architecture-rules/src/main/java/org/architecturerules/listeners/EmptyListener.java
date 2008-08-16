@@ -121,7 +121,7 @@ public class EmptyListener implements Listener {
 
 
     /**
-     * @see Listener#onCyclicDependencyDiscovered(String, Collection
+     * @see Listener#onCyclicDependencyDiscovered(String, Collection, String, Collection)
      */
     public void onCyclicDependencyDiscovered(final String jPackage1, final Collection<String> package1DependenciesOnPackage2, final String jPackage2, final Collection<String> package2DependenciesOnPackage1) {
 

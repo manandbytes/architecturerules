@@ -30,8 +30,16 @@
 
         <cyclicalDependency test="true" />
 
+        <listeners>
+            <include>
+                <listener>org.architecturerules.listeners.ExampleListener</listener>
+            </include>
+            <exclude>
+                <listener>org.architecturerules.listeners.LoggerListener</listener>
+            </exclude>
+        </listeners>
+        
     </configuration>
-
 
     <rules>
 

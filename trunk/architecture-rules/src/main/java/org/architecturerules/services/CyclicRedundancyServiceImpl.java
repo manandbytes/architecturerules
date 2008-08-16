@@ -14,14 +14,13 @@
 package org.architecturerules.services;
 
 
-import javassist.ClassPool;
-import javassist.NotFoundException;
 import jdepend.framework.JavaClass;
 import jdepend.framework.JavaPackage;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.architecturerules.api.services.CyclicRedundancyService;
 import org.architecturerules.configuration.Configuration;
+import org.architecturerules.domain.JPackage;
 import org.architecturerules.exceptions.CyclicRedundancyException;
 import org.architecturerules.exceptions.NoPackagesFoundException;
 import org.architecturerules.exceptions.SourceNotFoundException;
@@ -64,6 +63,7 @@ public class CyclicRedundancyServiceImpl extends AbstractArchitecturalRules impl
      */
     public void performCyclicRedundancyCheck() {
 
+        configuration.onCyclicDependencyTestBegin();
         log.info("cyclic redundancy check requested");
 
         final Collection<JavaPackage> packages = getPackages();
@@ -104,22 +104,18 @@ public class CyclicRedundancyServiceImpl extends AbstractArchitecturalRules impl
             if (cyclesFound) {
 
                 addCycle(cycles, javaPackage, afferents);
+
+                configuration.onCyclicDependencyDiscovered(new JPackage(javaPackage.getName()), new JPackage(afferents.toString())); // TODO: figure out which package, even better which class
             }
         }
 
-        if (cycles.isEmpty()) {
-
-            log.info("found no cyclic redundancies");
-        } else {
-
-            log.warn("found " + cycles.size() + " cyclic redundancies");
+        if (!cycles.isEmpty()) {
 
             final CyclicRedundancyException cyclicRedundancyException = buildCyclicRedundancyException(cycles);
-
             throw cyclicRedundancyException;
         }
 
-        log.info("cyclic redundancy test completed");
+        configuration.onCyclicDependencyTestEnd();
     }
 
 
@@ -211,9 +207,9 @@ public class CyclicRedundancyServiceImpl extends AbstractArchitecturalRules impl
             final JavaPackage javaPackage = entry.getKey();
             final Set<JavaPackage> cyclicDependencies = entry.getValue();
 
-            message.append("-- ").append(javaPackage.getName()).append("\r\n\t");
+            message.append("-- ").append(javaPackage.getName()).append(" depends on ").append("\r\n\t");
 
-            message.append("|  |").append(" (depends on one or more of)").append("\r\n\t");
+            message.append("|  |").append("\r\n\t");
 
             for (Iterator dependencyIterator = cyclicDependencies.iterator();
                      dependencyIterator.hasNext();) {
@@ -222,8 +218,6 @@ public class CyclicRedundancyServiceImpl extends AbstractArchitecturalRules impl
 
                 final String listOfClasses = buildListOfClasses(javaPackage, dependency);
 
-                message.append("|  |");
-                message.append("\r\n\t");
                 message.append("|  |-- ");
                 message.append(dependency.getName());
                 message.append("\n").append(listOfClasses);
@@ -249,76 +243,51 @@ public class CyclicRedundancyServiceImpl extends AbstractArchitecturalRules impl
      */
     private String buildListOfClasses(final JavaPackage javaPackage, final JavaPackage dependency) {
 
-        final StringBuffer listOfClasses = new StringBuffer();
-        final Collection<JavaClass> classes = dependency.getClasses();
+        String package1 = javaPackage.getName();
+        String package2 = dependency.getName();
 
-        for (final JavaClass javaClass : classes) {
+        Collection<JavaClass> classesInPackage1 = javaPackage.getClasses();
+        Collection<JavaClass> classesInPackage2 = dependency.getClasses();
 
-            final Collection<JavaPackage> importedPackages = javaClass.getImportedPackages();
+        Collection<JavaClass> package1DependenciesOnPackage2 = new ArrayList<JavaClass>();
+        Collection<JavaClass> package2DependenciesOnPackage1 = new ArrayList<JavaClass>();
 
-            final Collection<JavaClass> referencedClassNames = buildListOfImports(javaPackage, javaClass);
+        for (JavaClass javaClass : classesInPackage1) {
 
-            if (importedPackages.contains(javaPackage)) {
+            if (javaClass.getImportedPackages().contains(new JavaPackage(package2))) {
 
-                final String referencesToPrint;
-
-                if (referencedClassNames.isEmpty()) {
-
-                    referencesToPrint = "referenced classes not found";
-                } else {
-
-                    referencesToPrint = referencedClassNames.toString();
-                }
-
-                listOfClasses.append("\t|\t").append(javaClass.getName()).append(": ").append(referencesToPrint).append("\n");
+                package1DependenciesOnPackage2.add(javaClass);
             }
         }
+
+        for (JavaClass javaClass : classesInPackage2) {
+
+            if (javaClass.getImportedPackages().contains(new JavaPackage(package1))) {
+
+                package2DependenciesOnPackage1.add(javaClass);
+            }
+        }
+
+        final StringBuffer listOfClasses = new StringBuffer();
+
+        for (JavaClass javaClass : package1DependenciesOnPackage2) {
+
+            listOfClasses.append("\t|\t").append(" |-- @ ").append(javaClass.getSourceFile()).append("\n");
+        }
+
+        listOfClasses.append("\t|\t    ").append(new String(new char[] {
+                                                                92
+                                                            })).append(" while ").append("\n");
+
+        for (JavaClass javaClass : package2DependenciesOnPackage1) {
+
+            listOfClasses.append("\t|\t").append("     |-- ").append(javaClass.getSourceFile()).append("\n");
+        }
+
+        listOfClasses.append("\t|\t").append("       ").append(new String(new char[] {
+                                                                              92
+                                                                          })).append(" depends on ").append(package1);
 
         return listOfClasses.toString();
-    }
-
-
-    /**
-     * <p>Builds a List of class names that the given classWithImports argument are involved with cycle with</p>
-     *
-     * @param packageInCycle JavaPackage involved in cyclic dependency
-     * @param classWithImports JavaClass that is involved in the cyclic dependency
-     * @return List of class names which this class imports from the package involved in the cycle
-     */
-    private List buildListOfImports(final JavaPackage packageInCycle, final JavaClass classWithImports) {
-
-        final List<String> referencedClassNames = new LinkedList<String>();
-
-        try {
-
-            final ClassPool classPool = ClassPool.getDefault();
-            final String name = classWithImports.getName();
-            final Collection<String> refClasses = classPool.get(name).getRefClasses();
-
-            for (final String importedClass : refClasses) {
-
-                final boolean notSelfClass = !name.equals(importedClass);
-
-                try {
-
-                    final String packageName = classPool.get(importedClass).getPackageName();
-
-                    final boolean importFromCycle = packageName.equals(packageInCycle.getName());
-
-                    if (notSelfClass && importFromCycle) {
-
-                        referencedClassNames.add(importedClass);
-                    }
-                } catch (NotFoundException e) {
-
-                    log.error("could not load reference class", e);
-                }
-            }
-        } catch (NotFoundException e) {
-
-            log.error("could not load reference class", e);
-        }
-
-        return referencedClassNames;
     }
 }

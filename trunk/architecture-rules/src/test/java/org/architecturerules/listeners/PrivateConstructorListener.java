@@ -15,177 +15,128 @@ package org.architecturerules.listeners;
 
 
 import org.architecturerules.api.listeners.Listener;
+import org.architecturerules.configuration.Configuration;
 import org.architecturerules.domain.JPackage;
 import org.architecturerules.domain.Rule;
 import org.architecturerules.domain.SourceDirectory;
 
 
 /**
- * <p>todo: javadocs</p>
+ * /** <p>To test {@link Configuration#addListener(String)} <code>IllegalAccessException</code> handling</p>
  *
  * @author mnereson
  * @see Listener
  */
-public class EmptyListener implements Listener {
+public class PrivateConstructorListener implements Listener {
 
-    /**
-     * @see Listener#register
-     */
+    private PrivateConstructorListener() {
+
+    }
+
     public void register() {
 
-        // do nothing.
+        // do nothing
     }
 
 
-    /**
-     * @see Listener#terminate()
-     */
     public void terminate() {
 
-        // do nothing.
+        // do nothing
     }
 
 
-    /**
-     * @see Listener#onRuleAdded(Rule)
-     */
     public void onRuleAdded(final Rule rule) {
 
-        // do nothing.
+        // do nothing
     }
 
 
-    /**
-     * @see Listener#onRuleRemoved(Rule)
-     */
     public void onRuleRemoved(final Rule rule) {
 
-        // do nothing.
+        // do nothing
     }
 
 
-    /**
-     * @see Listener#onSourceDirectoryAdded(SourceDirectory)
-     */
     public void onSourceDirectoryAdded(final SourceDirectory sourceDirectory) {
 
-        // do nothing.
+        // do nothing
     }
 
 
-    /**
-     * @see Listener#onSourceDirectoryRemoved(SourceDirectory)
-     */
     public void onSourceDirectoryRemoved(final SourceDirectory sourceDirectory) {
 
-        // do nothing.
+        // do nothing
     }
 
 
-    /**
-     * @see Listener#onSourceDirectoryNotFound(SourceDirectory)
-     */
     public void onSourceDirectoryNotFound(final SourceDirectory sourceDirectory) {
 
         // do nothing
     }
 
 
-    /**
-     * @see Listener#onSourceDirectoryEmpty(SourceDirectory)
-     */
     public void onSourceDirectoryEmpty(final SourceDirectory sourceDirectory) {
 
         // do nothing
     }
 
 
-    /**
-     * @see Listener#onCyclicDependencyTestBegin()
-     */
     public void onCyclicDependencyTestBegin() {
 
-        // do nothing.
+        // do nothing
     }
 
 
-    /**
-     * @see Listener#onCyclicDependencyTestEnd()
-     */
     public void onCyclicDependencyTestEnd() {
 
-        // do nothing.
+        // do nothing
     }
 
 
-    /**
-     * @see Listener#onCyclicDependencyDiscovered(JPackage, JPackage)
-     */
     public void onCyclicDependencyDiscovered(final JPackage jPackage1, final JPackage jPackage2) {
 
         // do nothing
     }
 
 
-    /**
-     * @see Listener#onBeginTestingRules()
-     */
     public void onBeginTestingRules() {
 
-        /* rules test */
+        // do nothing
     }
 
 
-    /**
-     * @see Listener#onEndTestingRules()
-     */
     public void onEndTestingRules() {
 
-        /* rules test */
+        // do nothing
     }
 
 
-    /**
-     * @see Listener#onWildcardPatternMatched(JPackage, JPackage)
-     */
     public void onWildcardPatternMatched(final JPackage wildcard, final JPackage jPackage) {
 
-        /* rules test */
+        // do nothing
     }
 
 
-    /**
-     * @see Listener#onBeginRuleTest(Rule)
-     */
     public void onBeginRuleTest(final Rule rule) {
 
-        /* rules test */
+        // do nothing
     }
 
 
-    /**
-     * @see Listener#onEndRuleTest(Rule)
-     */
     public void onEndRuleTest(final Rule rule) {
 
-        /* rules test */
+        // do nothing
     }
 
 
-    /**
-     * @see Listener#onPackageDependencyDiscovered(String, String)
-     */
-    public void onPackageDependencyDiscovered(final String packageName, final String dependency) {
+    public void onPackageDependencyDiscovered(final String packageName, final String dependencyPackageName) {
 
-        /* rules test */
+        // do nothing
     }
 
 
-    /**
-     * @see Listener#onPackageDependencyViolationDiscovered(Rule, String, String)
-     */
     public void onPackageDependencyViolationDiscovered(final Rule rule, final String packageName, final String dependencyPackageName) {
 
-        /* rules test */
+        // do nothing
     }
 }

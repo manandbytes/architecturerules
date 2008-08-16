@@ -19,6 +19,7 @@ import junit.framework.TestCase;
 import junit.framework.TestSuite;
 import org.architecturerules.domain.Rule;
 import org.architecturerules.domain.SourceDirectory;
+import org.architecturerules.listeners.EmptyListener;
 
 
 /**
@@ -86,7 +87,25 @@ public class UnmodifiableConfigurationTest extends TestCase {
 
         try {
 
+            unmodifiableConfiguration.addRule(new Rule("test"));
+            fail("expected UnsupportedOperationException");
+        } catch (Exception e) {
+
+            assertTrue(e instanceof UnsupportedOperationException);
+        }
+
+        try {
+
             unmodifiableConfiguration.getSources().add(new SourceDirectory("web/target/classes"));
+            fail("expected UnsupportedOperationException");
+        } catch (Exception e) {
+
+            assertTrue(e instanceof UnsupportedOperationException);
+        }
+
+        try {
+
+            unmodifiableConfiguration.addSource(new SourceDirectory("web/target/classes"));
             fail("expected UnsupportedOperationException");
         } catch (Exception e) {
 
@@ -105,6 +124,60 @@ public class UnmodifiableConfigurationTest extends TestCase {
         try {
 
             unmodifiableConfiguration.setThrowExceptionWhenNoPackages(false);
+            fail("expected UnsupportedOperationException");
+        } catch (Exception e) {
+
+            assertTrue(e instanceof UnsupportedOperationException);
+        }
+
+        try {
+
+            unmodifiableConfiguration.addListener(new EmptyListener());
+            fail("expected UnsupportedOperationException");
+        } catch (Exception e) {
+
+            assertTrue(e instanceof UnsupportedOperationException);
+        }
+
+        try {
+
+            unmodifiableConfiguration.addListener(EmptyListener.class.getName());
+            fail("expected UnsupportedOperationException");
+        } catch (Exception e) {
+
+            assertTrue(e instanceof UnsupportedOperationException);
+        }
+
+        try {
+
+            unmodifiableConfiguration.getListeners().add(new EmptyListener());
+            fail("expected UnsupportedOperationException");
+        } catch (Exception e) {
+
+            assertTrue(e instanceof UnsupportedOperationException);
+        }
+
+        try {
+
+            unmodifiableConfiguration.removeListener(new EmptyListener());
+            fail("expected UnsupportedOperationException");
+        } catch (Exception e) {
+
+            assertTrue(e instanceof UnsupportedOperationException);
+        }
+
+        try {
+
+            unmodifiableConfiguration.removeListener(EmptyListener.class.getName());
+            fail("expected UnsupportedOperationException");
+        } catch (Exception e) {
+
+            assertTrue(e instanceof UnsupportedOperationException);
+        }
+
+        try {
+
+            unmodifiableConfiguration.getListeners().remove(new EmptyListener());
             fail("expected UnsupportedOperationException");
         } catch (Exception e) {
 

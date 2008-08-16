@@ -16,6 +16,7 @@ package org.architecturerules.ant;
 
 import org.apache.tools.ant.BuildException;
 import org.apache.tools.ant.Task;
+
 import org.architecturerules.api.configuration.ConfigurationFactory;
 import org.architecturerules.api.services.CyclicRedundancyService;
 import org.architecturerules.api.services.RulesService;

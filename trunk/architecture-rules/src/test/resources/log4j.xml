@@ -28,7 +28,7 @@
     </appender>
 
     <!-- ___________________________________________________________________ --><!--                                                             loggers --><!--¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ -->
-    <logger name="com.seventytwomiles" additivity="false">
+    <logger name="org.architecturerules" additivity="false">
         <level value="TRACE" />
         <appender-ref ref="console" />
     </logger>

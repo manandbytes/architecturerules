@@ -26,6 +26,9 @@ import org.architecturerules.configuration.xml.DigesterConfigurationFactory;
 import org.architecturerules.services.CyclicRedundancyServiceImpl;
 import org.architecturerules.services.RulesServiceImpl;
 
+import java.util.HashSet;
+import java.util.Set;
+
 
 /**
  * <p>Abstract class that the users of this library will extend in order to create a unit test that asserts
@@ -73,6 +76,16 @@ public abstract class AbstractArchitectureRulesConfigurationTest extends TestCas
             configuration.getRules().addAll(configurationFactory.getRules());
             configuration.getSources().addAll(configurationFactory.getSources());
             configuration.setDoCyclicDependencyTest(configurationFactory.doCyclicDependencyTest());
+
+            Set<String> listeners = new HashSet<String>();
+            listeners.addAll(ConfigurationFactory.DEFAULT_LISTENERS);
+            listeners.addAll(configurationFactory.getIncludedListeners());
+            listeners.removeAll(configurationFactory.getExcludedListeners());
+
+            for (String listenerClassName : listeners) {
+
+                configuration.addListener(listenerClassName);
+            }
         }
     }
 

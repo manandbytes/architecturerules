@@ -1,12 +1,23 @@
 package org.architecturerules.mojo;
 
 
+import junit.framework.TestCase;
+
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Collection;
+import java.util.LinkedList;
+
 import javassist.ClassPool;
 import javassist.NotFoundException;
-import junit.framework.TestCase;
+
+import javax.management.ServiceNotFoundException;
+
 import org.apache.commons.io.IOUtils;
 import org.apache.maven.plugin.logging.Log;
 import org.apache.maven.project.MavenProject;
+
 import org.architecturerules.api.configuration.ConfigurationFactory;
 import org.architecturerules.api.services.CyclicRedundancyService;
 import org.architecturerules.api.services.RulesService;
@@ -16,14 +27,6 @@ import org.architecturerules.domain.SourceDirectory;
 import org.architecturerules.services.CyclicRedundancyServiceImpl;
 import org.architecturerules.services.RulesServiceImpl;
 
-import javax.management.ServiceNotFoundException;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.Collection;
-import java.util.LinkedList;
-
-
 
 /**
  * <p>todo: javadocs</p>
@@ -32,18 +35,14 @@ import java.util.LinkedList;
  * @author mnereson
  * @see TestCase
  */
-public class MojoArchitectureRulesConfigurationTest
-        extends TestCase {
-
+public class MojoArchitectureRulesConfigurationTest extends TestCase {
 
     /**
      * @author mn
      * @todo read configuration file from jars in classpath in {@link DigesterConfigurationFactory} and remove this
      * workaround
      */
-    private final class FallbackDigesterConfigurationFactory
-            extends DigesterConfigurationFactory {
-
+    private final class FallbackDigesterConfigurationFactory extends DigesterConfigurationFactory {
 
         /**
          * @param configurationFileName not used actually
@@ -52,12 +51,10 @@ public class MojoArchitectureRulesConfigurationTest
             super(configurationFileName);
         }
 
-
         @Override
         protected String getConfigurationAsXml(final String configurationFileName) {
 
-            InputStream configStream = getClass().getClassLoader()
-                    .getResourceAsStream(ConfigurationFactory.DEFAULT_CONFIGURATION_FILE_NAME);
+            InputStream configStream = getClass().getClassLoader().getResourceAsStream(ConfigurationFactory.DEFAULT_CONFIGURATION_FILE_NAME);
             String configAsString;
 
             try {
@@ -76,14 +73,12 @@ public class MojoArchitectureRulesConfigurationTest
         }
     }
 
-
     /**
      * <p>Holds configuration settings</p>
      *
      * @paramater configuration Configuration
      */
     private final Configuration configuration = new Configuration();
-
 
     /**
      * <p>todo: javadocs</p>
@@ -108,7 +103,6 @@ public class MojoArchitectureRulesConfigurationTest
         configuration.getSources().addAll(factory.getSources());
         configuration.setDoCyclicDependencyTest(doCyclesTest);
     }
-
 
     /**
      * <p>todo: javadocs</p>

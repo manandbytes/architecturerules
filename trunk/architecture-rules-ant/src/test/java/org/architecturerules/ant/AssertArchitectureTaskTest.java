@@ -15,6 +15,7 @@ package org.architecturerules.ant;
 
 
 import junit.framework.TestCase;
+
 import org.architecturerules.exceptions.CyclicRedundancyException;
 
 

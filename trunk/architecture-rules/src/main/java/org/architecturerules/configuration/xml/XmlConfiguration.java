@@ -40,6 +40,21 @@ class XmlConfiguration {
     public static final String source = "architecture/configuration/sources/source";
 
     /**
+     * Listeners
+     * <pre>
+     * - configuration
+     *   - listeners
+     *     - include
+     *      - listener
+     *     - exclude
+     *      - listener
+     * </pre>
+     */
+    public static final String listeners = "architecture/configuration/listeners";
+    public static final String includedListeners = "architecture/configuration/listeners/include/listener";
+    public static final String excludedListeners = "architecture/configuration/listeners/exclude/listener";
+
+    /**
      * Rules
      * <pre>
      * - rules

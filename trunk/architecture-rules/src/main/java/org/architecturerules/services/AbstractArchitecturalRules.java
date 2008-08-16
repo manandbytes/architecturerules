@@ -20,6 +20,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.architecturerules.configuration.Configuration;
 import org.architecturerules.domain.JPackage;
+import org.architecturerules.domain.Rule;
 import org.architecturerules.domain.SourceDirectory;
 import org.architecturerules.exceptions.CyclicRedundancyException;
 import org.architecturerules.exceptions.DependencyConstraintException;
@@ -129,18 +130,7 @@ abstract class AbstractArchitecturalRules {
             }
         } catch (final IOException e) {
 
-            /* sourceDirectory not found */
-            if (log.isWarnEnabled()) {
-
-                message.append(throwExceptionWhenNotFound ? "required " : "");
-                message.append("sourceDirectory ");
-                message.append(new File("").getAbsolutePath());
-                message.append("\\");
-                message.append(sourcePath);
-                message.append(" does not exist");
-
-                log.warn(message.toString());
-            }
+            configuration.onSourceDirectoryNotFound(sourceDirectory);
 
             if (sourceDirectory.shouldThrowExceptionWhenNotFound()) {
 
@@ -204,10 +194,11 @@ abstract class AbstractArchitecturalRules {
      *
      * @param layer String the package to test
      * @param violations Collection of packages defining which packages the layer may not use
+     * @param ruleReference Rule just for reference to which Rule is being tested
      * @throws DependencyConstraintException when a rule is broken
      * @throws CyclicRedundancyException when cyclic redundancy is found
      */
-    void testLayeringValid(final JPackage layer, final Collection<JPackage> violations)
+    void testLayeringValid(final JPackage layer, final Collection<JPackage> violations, final Rule ruleReference)
             throws DependencyConstraintException, CyclicRedundancyException {
 
         final Collection<JavaPackage> analyzedPackages = jdepend.analyze();
@@ -216,7 +207,8 @@ abstract class AbstractArchitecturalRules {
 
         if (analyzedPackages.isEmpty()) {
 
-            log.warn("no packages were found with the given configuration. " + "check your <sources />");
+            String message = "no packages were found with the given configuration. check your <sources />";
+            log.warn(message);
 
             final boolean isConfiguredToThrowExceptionWhenNoPackagesFound = this.configuration.shouldThrowExceptionWhenNoPackages();
 
@@ -224,9 +216,9 @@ abstract class AbstractArchitecturalRules {
 
             if (isConfiguredToThrowExceptionWhenNoPackagesFound) {
 
-                log.debug("throwing CyclicRedundancyException");
+                log.debug("throwing NoPackagesFoundException");
 
-                throw new CyclicRedundancyException("cyclic redundancy does exist");
+                throw new NoPackagesFoundException(message);
             }
         } else {
 
@@ -241,7 +233,12 @@ abstract class AbstractArchitecturalRules {
 
             if (layer.matches(javaPackage)) {
 
-                testEfferentsValid(violations, analyzedPackage);
+                if (layer.hasWildcards()) {
+
+                    configuration.onWildcardPatternMatched(layer, javaPackage);
+                }
+
+                testEfferentsValid(violations, analyzedPackage, ruleReference);
             }
         }
     }
@@ -252,9 +249,10 @@ abstract class AbstractArchitecturalRules {
      *
      * @param violations Collection of rules defining which packages the given package may not depend on
      * @param jPackage JavaPackage
+     * @param ruleReference Rule just for reference to which Rule is being tested
      * @throws DependencyConstraintException when a rule is broken
      */
-    private void testEfferentsValid(final Collection<JPackage> violations, final JavaPackage jPackage)
+    private void testEfferentsValid(final Collection<JPackage> violations, final JavaPackage jPackage, final Rule ruleReference)
             throws DependencyConstraintException {
 
         final Collection<JavaPackage> efferents = jPackage.getEfferents();
@@ -262,15 +260,18 @@ abstract class AbstractArchitecturalRules {
         for (final JavaPackage efferent : efferents) {
 
             final String analyzedPackageName = jPackage.getName();
-            final JPackage efferentJPackage = new JPackage(efferent.getName());
+            final String dependencyPackageName = efferent.getName();
+            configuration.onPackageDependencyDiscovered(analyzedPackageName, dependencyPackageName);
+
+            final JPackage efferentJPackage = new JPackage(dependencyPackageName);
 
             for (final JPackage violation : violations) {
 
                 if (violation.matches(efferentJPackage)) {
 
-                    final String message = String.format("%s is not allowed to depend on %s", analyzedPackageName, efferent.getName());
+                    configuration.onPackageDependencyViolationDiscovered(ruleReference, analyzedPackageName, dependencyPackageName);
 
-                    log.error(message);
+                    final String message = String.format("%s is not allowed to depend on %s", analyzedPackageName, dependencyPackageName);
 
                     throw new DependencyConstraintException(message);
                 }

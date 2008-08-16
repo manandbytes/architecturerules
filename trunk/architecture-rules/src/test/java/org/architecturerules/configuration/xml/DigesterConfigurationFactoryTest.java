@@ -17,10 +17,14 @@ package org.architecturerules.configuration.xml;
 import org.architecturerules.domain.Rule;
 import org.architecturerules.domain.SourceDirectory;
 import org.architecturerules.exceptions.InvalidConfigurationException;
+import org.architecturerules.listeners.ExampleListener;
+import org.architecturerules.listeners.LoggerListener;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 
 /**
@@ -244,5 +248,53 @@ public class DigesterConfigurationFactoryTest extends AbstractDigesterTest {
             assertTrue(e instanceof InvalidConfigurationException);
             assertEquals("'INVLALID' is not a valid value for the sources " + "no-packages configuration. Use <sources no-packages=\"ignore\">, " + "<sources no-packages=\"exception\"> or " + "leave the property unset.", e.getMessage());
         }
+    }
+
+
+    public void testListeners_included()
+            throws Exception {
+
+        final DigesterConfigurationFactory factory = new DigesterConfigurationFactory();
+        Set<String> includedListeners = new HashSet<String>();
+        Set<String> excludedListeners = new HashSet<String>();
+
+        factory.processListeners(withIncludeListenersConfiguration);
+        includedListeners.addAll(factory.getIncludedListeners());
+        excludedListeners.addAll(factory.getExcludedListeners());
+
+        assertTrue(includedListeners.contains(ExampleListener.class.getName()));
+        assertTrue(excludedListeners.isEmpty());
+    }
+
+
+    public void testListeners_excluded()
+            throws Exception {
+
+        final DigesterConfigurationFactory factory = new DigesterConfigurationFactory();
+        Set<String> includedListeners = new HashSet<String>();
+        Set<String> excludedListeners = new HashSet<String>();
+
+        factory.processListeners(withExcludeListenersConfiguration);
+        includedListeners.addAll(factory.getIncludedListeners());
+        excludedListeners.addAll(factory.getExcludedListeners());
+
+        assertTrue(excludedListeners.contains(LoggerListener.class.getName()));
+        assertTrue(includedListeners.isEmpty());
+    }
+
+
+    public void testListeners_undefined()
+            throws Exception {
+
+        final DigesterConfigurationFactory factory = new DigesterConfigurationFactory();
+        Set<String> includedListeners = new HashSet<String>();
+        Set<String> excludedListeners = new HashSet<String>();
+
+        factory.processListeners(withNoListenersConfiguration);
+        includedListeners.addAll(factory.getIncludedListeners());
+        excludedListeners.addAll(factory.getExcludedListeners());
+
+        assertTrue(includedListeners.isEmpty());
+        assertTrue(excludedListeners.isEmpty());
     }
 }

@@ -20,14 +20,13 @@ import org.apache.commons.logging.LogFactory;
 import org.architecturerules.api.configuration.ConfigurationFactory;
 import org.architecturerules.domain.Rule;
 import org.architecturerules.domain.SourceDirectory;
+import org.architecturerules.listeners.LoggerListener;
+import org.architecturerules.listeners.ReportListener;
 import org.springframework.core.io.ClassPathResource;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.List;
+import java.util.*;
 
 
 /**
@@ -37,6 +36,12 @@ import java.util.List;
  * @see ConfigurationFactory
  */
 public abstract class AbstractConfigurationFactory implements ConfigurationFactory {
+
+    static {
+
+        DEFAULT_LISTENERS.add(LoggerListener.class.getName());
+        DEFAULT_LISTENERS.add(ReportListener.class.getName());
+    }
 
     /**
      * <p>To log with. See <tt>log4j.xml</tt>.</p>
@@ -72,6 +77,22 @@ public abstract class AbstractConfigurationFactory implements ConfigurationFacto
      * @parameter doCyclicDependencyTest boolean
      */
     protected boolean doCyclicDependencyTest = true;
+
+    /**
+     * <p>Fully qualified class name of <code>Listener</code> class implementations to add to the
+     * <code>Configuration</code>.</p>
+     *
+     * @paramerter listeners Set<String> full class name to <code>Listeners</code> implementation
+     */
+    protected final Set<String> includedListeners = new HashSet<String>();
+
+    /**
+     * <p>Fully qualified class name of <code>Listener</code> class implementations to remove to the
+     * <code>Configuration</code>. This allows you to remove the default Listeners.</p>
+     *
+     * @paramerter listeners Set<String> full class name to <code>Listeners</code> implementation
+     */
+    protected final Set<String> excludedListeners = new HashSet<String>();
 
     /**
      * <p>Getter for property {@link #rules}.</p>
@@ -112,6 +133,28 @@ public abstract class AbstractConfigurationFactory implements ConfigurationFacto
     public boolean throwExceptionWhenNoPackages() {
 
         return throwExceptionWhenNoPackages;
+    }
+
+
+    /**
+     * <p>Getter for property {@link #includedListeners}.</p>
+     *
+     * @return Value for property <tt>includedListeners</tt>.
+     */
+    public Set<String> getIncludedListeners() {
+
+        return includedListeners;
+    }
+
+
+    /**
+     * <p>Getter for property {@link #excludedListeners}.</p>
+     *
+     * @return Value for property <tt>excludedListeners</tt>.
+     */
+    public Set<String> getExcludedListeners() {
+
+        return excludedListeners;
     }
 
 

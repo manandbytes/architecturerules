@@ -18,7 +18,9 @@ import org.architecturerules.domain.Rule;
 import org.architecturerules.domain.SourceDirectory;
 
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 
 /**
@@ -52,6 +54,13 @@ public interface ConfigurationFactory {
     public static final String DEFAULT_CONFIGURATION_FILE_NAME = "architecture-rules.xml";
 
     /**
+     * <p>Instantiated by the implementation of this class.</p>
+     *
+     * @see org.architecturerules.configuration.AbstractConfigurationFactory
+     */
+    public static final Set<String> DEFAULT_LISTENERS = new HashSet<String>();
+
+    /**
      * <p>Holds the value parsed from the XML configuration that indicates weather or not the cyclic dependency test
      * should be run.</p>
      *
@@ -74,6 +83,22 @@ public interface ConfigurationFactory {
      * @return Value for property <tt>sources</tt>.
      */
     List<SourceDirectory> getSources();
+
+
+    /**
+     * <p>Getter for property {@link //includedListeners}.</p>
+     *
+     * @return Value for property <tt>includedListeners</tt>.
+     */
+    public Set<String> getIncludedListeners();
+
+
+    /**
+     * <p>Getter for property {@link //excludedListeners}.</p>
+     *
+     * @return Value for property <tt>excludedListeners</tt>.
+     */
+    public Set<String> getExcludedListeners();
 
 
     /**

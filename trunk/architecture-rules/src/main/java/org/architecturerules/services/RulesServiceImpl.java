@@ -54,8 +54,6 @@ public class RulesServiceImpl extends AbstractArchitecturalRules implements Rule
     public RulesServiceImpl(final Configuration configuration)
             throws SourceNotFoundException, NoPackagesFoundException {
         super(configuration);
-
-        log.info("instantiating new RulesService");
     }
 
     /**
@@ -65,7 +63,7 @@ public class RulesServiceImpl extends AbstractArchitecturalRules implements Rule
      */
     public boolean performRulesTest() {
 
-        log.info("perform rules test required");
+        configuration.onBeginTestingRules();
 
         final Collection<Rule> rules = configuration.getRules();
 
@@ -83,10 +81,7 @@ public class RulesServiceImpl extends AbstractArchitecturalRules implements Rule
 
         for (final Rule rule : rules) {
 
-            log.info("checking rule " + rule.getId());
-
-            final String description = rule.describePackages();
-            log.debug("checking for dependency violations in " + description);
+            configuration.onBeginRuleTest(rule);
 
             try {
 
@@ -94,7 +89,7 @@ public class RulesServiceImpl extends AbstractArchitecturalRules implements Rule
 
                 for (final JPackage packageName : packages) {
 
-                    testLayeringValid(packageName, rule.getViolations());
+                    testLayeringValid(packageName, rule.getViolations(), rule);
                 }
             } catch (final DependencyConstraintException e) {
 
@@ -102,10 +97,10 @@ public class RulesServiceImpl extends AbstractArchitecturalRules implements Rule
                 throw new DependencyConstraintException("rule " + rule.getId() + " failed: " + e.getMessage());
             }
 
-            log.debug("no dependency violations in " + rule.getPackages());
+            configuration.onEndRuleTest(rule);
         }
 
-        log.info("architecture rules service has completed its tests.");
+        configuration.onEndTestingRules();
 
         return true;
     }

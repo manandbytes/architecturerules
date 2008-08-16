@@ -74,12 +74,12 @@ public class LoggerListener extends EmptyListener {
 
 
     /**
-    * @see Listener#onSourceDirectoryNotFound(SourceDirectory)
-    */
+     * @see Listener#onSourceDirectoryNotFound(SourceDirectory)
+     */
     public void onSourceDirectoryNotFound(final SourceDirectory sourceDirectory) {
 
-        String debug = String.format("SourceDirectory '%s' was not found", sourceDirectory.getPath());
-        log.debug(debug);
+        String warn = String.format("SourceDirectory '%s' was not found", sourceDirectory.getPath());
+        log.warn(warn);
     }
 
 
@@ -88,8 +88,8 @@ public class LoggerListener extends EmptyListener {
      */
     public void onSourceDirectoryEmpty(final SourceDirectory sourceDirectory) {
 
-        String debug = String.format("SourceDirectory '%s' is empty", sourceDirectory.getPath());
-        log.debug(debug);
+        String warn = String.format("SourceDirectory '%s' is empty", sourceDirectory.getPath());
+        log.warn(warn);
     }
 
 
@@ -182,7 +182,9 @@ public class LoggerListener extends EmptyListener {
     public void onPackageDependencyViolationDiscovered(final Rule rule, final String packageName, final String dependencyPackageName) {
 
         String ruleId = rule.getId();
+
         String warn = String.format("'%s' dependency on '%s' violates rule '%s'", packageName, dependencyPackageName, ruleId);
+
         log.warn(warn);
     }
 }

@@ -163,7 +163,7 @@ public class JPackage {
      *
      * @return boolean <tt>true</tt> when <tt>path</tt> contains any of the {@link #WILDCHARS}.
      */
-    private boolean hasWildcards() {
+    public boolean hasWildcards() {
 
         for (final char wildChar : WILDCHARS) {
 

@@ -18,12 +18,14 @@ import junit.framework.Assert;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.architecturerules.api.configuration.ConfigurationFactory;
+import org.architecturerules.api.listeners.Listener;
 import org.architecturerules.domain.JPackage;
 import org.architecturerules.domain.Rule;
 import org.architecturerules.domain.SourceDirectory;
 
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.Set;
 
 
 /**
@@ -37,7 +39,7 @@ import java.util.HashSet;
  * @see ConfigurationFactory
  * @see UnmodifiableConfiguration
  */
-public class Configuration {
+public class Configuration extends ListenerSupport {
 
     /**
      * <p>To log with. See <tt>log4j.xml</tt>.</p>
@@ -78,6 +80,94 @@ public class Configuration {
     private boolean doCyclicDependencyTest;
 
     /**
+     * <p>Listeners are notified when specified events occur. Each listener implementation in this collection is
+     * notified in no specific order.</p>
+     *
+     * @paramerter listeners Set<Listener>
+     */
+    private final Set<Listener> listeners = new HashSet<Listener>();
+
+    /**
+     * <p>Instantiate a new <code>Configuration</code> and load up default values.</p>
+     */
+    public Configuration() {
+
+        if (!(this instanceof UnmodifiableConfiguration)) {
+
+            for (String defaultListener : ConfigurationFactory.DEFAULT_LISTENERS) {
+
+                addListener(defaultListener);
+            }
+        }
+    }
+
+    /**
+     * <p>Add a new <code>Listener</code> to {@link #listeners} by its class name</p>
+     *
+     * @param listenerClass Fully qualified class name of a <code>Listener</code> implementation.
+     * @return Configuration this <code>Configuration</code> to allow for method chaining.
+     */
+    public Configuration addListener(final String listenerClass) {
+
+        if (listenerClass == null) {
+
+            throw new IllegalArgumentException("listener can not be null");
+        }
+
+        if (listenerClass.equals("")) {
+
+            throw new IllegalArgumentException("listener can not be empty String");
+        }
+
+        try {
+
+            Class<?> clazz = Class.forName(listenerClass);
+
+            if (!Listener.class.isAssignableFrom(clazz)) {
+
+                String message = String.format("%s is not a Listener implementation. See %s", listenerClass, Listener.class.getName());
+
+                throw new IllegalArgumentException(message);
+            }
+
+            if (clazz.getName().equals(Configuration.class.getName())) {
+
+                String message = String.format("%s is not a valid Listener implementation.", listenerClass, Listener.class.getName());
+
+                throw new IllegalArgumentException(message);
+            }
+
+            Listener implementation = (Listener) Class.forName(listenerClass).newInstance();
+
+            return addListener(implementation);
+        } catch (ClassNotFoundException e) {
+
+            String message = String.format("can not locate listener %s in classpath", listenerClass);
+            throw new IllegalArgumentException(message);
+        } catch (IllegalAccessException e) {
+
+            String message = String.format("can not access listener %s in classpath", listenerClass);
+            throw new IllegalArgumentException(message);
+        } catch (InstantiationException e) {
+
+            String message = String.format("can not instantiate listener %s in classpath", listenerClass);
+            throw new IllegalArgumentException(message);
+        }
+    }
+
+
+    /**
+     * <p>Getter for property {@link #listeners}.</p>
+     *
+     * @return Value for property <tt>listeners</tt>.
+     */
+    public Set<Listener> getListeners() {
+
+        return listeners;
+    }
+
+
+    /**
      * <p>Getter for property {@link #rules}.</p>
      *
      * @return Value for property <tt>rules</tt>.
@@ -96,6 +186,36 @@ public class Configuration {
     public Collection<SourceDirectory> getSources() {
 
         return this.sources;
+    }
+
+
+    /**
+     * <p>Add a new <code>Listener</code> to {@link #listeners}</p>
+     *
+     * @param listener Listener to add
+     * @return Configuration this <code>Configuration</code> to allow for method chaining.
+     * @throws IllegalArgumentException when <tt>listener</tt> is <tt>null</tt>
+     */
+    public Configuration addListener(final Listener listener) {
+
+        if (listener == null) {
+
+            throw new IllegalArgumentException("listener can not be null");
+        }
+
+        String name = listener.getClass().getSimpleName();
+
+        final boolean added = listeners.add(listener);
+
+        if (added) {
+
+            log.debug(String.format("added listener %s to Configuration", name));
+        } else {
+
+            log.debug(String.format("failed to add source %s to Configuration", name));
+        }
+
+        return this;
     }
 
 
@@ -126,6 +246,7 @@ public class Configuration {
 
         if (added) {
 
+            super.onRuleAdded(rule);
             log.debug(String.format("added Rule %s to Configuration", id));
         } else {
 
@@ -160,10 +281,79 @@ public class Configuration {
 
         if (added) {
 
+            super.onSourceDirectoryAdded(sourceDirectory);
             log.debug(String.format("added source %s to Configuration", path));
         } else {
 
             log.debug(String.format("failed to add source %s to Configuration", path));
+        }
+
+        return this;
+    }
+
+
+    /**
+     * <p>Try to remove an exiting <code>Listener</code> from {@link #listeners}. Given Listener will not be removed if
+     * it is not in the set of Listeners.</p>
+     *
+     * @param listener Listener to try to remove
+     * @return Configuration this <code>Configuration</code> to allow for method chaining.
+     */
+    public Configuration removeListener(final Listener listener) {
+
+        if (listener == null) {
+
+            throw new IllegalArgumentException("listener can not be null");
+        }
+
+        String name = listener.getClass().getSimpleName();
+        boolean removed = listeners.remove(listener);
+
+        if (removed) {
+
+            log.debug(String.format("removed listener %s from Configuration", name));
+        } else {
+
+            log.debug(String.format("failed to add listener %s from Configuration", name));
+        }
+
+        return this;
+    }
+
+
+    /**
+     * <p>Tries to remove all Listeners in  in {@link #listeners} that are the given listenerClass.</p>
+     *
+     * @param listenerClass Fully qualified class name of a <code>Listener</code> implementation.
+     * @return Configuration this <code>Configuration</code> to allow for method chaining.
+     */
+    public Configuration removeListener(final String listenerClass) {
+
+        if (listenerClass == null) {
+
+            throw new IllegalArgumentException("listener can not be null");
+        }
+
+        if (listenerClass.equals("")) {
+
+            throw new IllegalArgumentException("listener can not be empty String");
+        }
+
+        try {
+
+            Class clazz = Class.forName(listenerClass);
+
+            for (Listener listener : listeners) {
+
+                if (listener.getClass().isAssignableFrom(clazz)) {
+
+                    removeListener(listener);
+                }
+            }
+        } catch (ClassNotFoundException e) {
+
+            String message = String.format("can not locate listener %s in classpath", listenerClass);
+            throw new IllegalArgumentException(message);
         }
 
         return this;

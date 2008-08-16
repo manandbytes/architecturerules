@@ -16,8 +16,12 @@ package org.architecturerules.configuration;
 
 import junit.framework.AssertionFailedError;
 import junit.framework.TestCase;
+import org.architecturerules.api.listeners.Listener;
 import org.architecturerules.domain.Rule;
 import org.architecturerules.domain.SourceDirectory;
+import org.architecturerules.listeners.AbstractListener;
+import org.architecturerules.listeners.EmptyListener;
+import org.architecturerules.listeners.PrivateConstructorListener;
 
 
 /**
@@ -86,6 +90,7 @@ public class ConfigurationTest extends TestCase {
         super.setUp();
 
         configuration = new Configuration();
+        configuration.getListeners().clear(); // clear default listeners
     }
 
 
@@ -248,5 +253,204 @@ public class ConfigurationTest extends TestCase {
             throws Exception {
 
         //TOO: Test goes here...
+    }
+
+
+    /**
+     * <p>Test for {@link Configuration#addListener(Listener)} </p>
+     *
+     * @throws Exception when <code>Configuration</code> throws unexpected <code>Exception</code>
+     */
+    public void testAddListenerByClass()
+            throws Exception {
+
+        Listener emptyListener = new EmptyListener();
+
+        assertTrue(configuration.getListeners().isEmpty());
+        configuration.addListener(emptyListener);
+
+        assertEquals(1, configuration.getListeners().size());
+        assertTrue(configuration.getListeners().contains(emptyListener));
+    }
+
+
+    /**
+     * <p>Test for {@link Configuration#addListener(Listener)}. Tests for illegal arguments like empty strings and
+     * <tt>null</tt></p>
+     *
+     * @throws Exception when <code>Configuration</code> throws unexpected <code>Exception</code>
+     */
+    public void testAddListenerByClass_illegalArguments()
+            throws Exception {
+
+        Listener nullListener = null;
+
+        assertTrue(configuration.getListeners().isEmpty());
+
+        try {
+
+            configuration.addListener(nullListener);
+            fail("expected IllegalArgumentException for null argument");
+        } catch (IllegalArgumentException e) {
+
+            // expected
+        } catch (Exception e) {
+
+            fail("expected IllegalArgumentException");
+        }
+    }
+
+
+    /**
+     * <p>Test for {@link Configuration#addListener(String)} </p>
+     *
+     * @throws Exception when <code>Configuration</code> throws unexpected <code>Exception</code>
+     */
+    public void testAddListenerByClassName()
+            throws Exception {
+
+        String validClassName = EmptyListener.class.getName();
+
+        assertTrue(configuration.getListeners().isEmpty());
+        configuration.addListener(validClassName);
+
+        assertEquals(1, configuration.getListeners().size());
+
+        Listener theListener = configuration.getListeners().iterator().next();
+        assertTrue(theListener.getClass().getName().equals(validClassName));
+    }
+
+
+    /**
+     * <p>Test for {@link Configuration#addListener(String)}. Tests for illegal arguments like empty strings and
+     * <tt>null</tt>/p>
+     *
+     * @throws Exception when <code>Configuration</code> throws unexpected <code>Exception</code>
+     */
+    public void testAddListenerByClassName_illegalArguments()
+            throws Exception {
+
+        assertTrue(configuration.getListeners().isEmpty());
+
+        String nullString = null;
+
+        try {
+
+            configuration.addListener(nullString);
+            fail("expected IllegalArgumentException for null argument");
+        } catch (IllegalArgumentException e) {
+
+            // expected
+        } catch (Exception e) {
+
+            fail("expected IllegalArgumentException");
+        }
+
+        assertTrue(configuration.getListeners().isEmpty());
+
+        String emptyString = "";
+
+        try {
+
+            configuration.addListener(emptyString);
+            fail("expected IllegalArgumentException for empty String argument");
+        } catch (IllegalArgumentException e) {
+
+            // expected
+        } catch (Exception e) {
+
+            fail("expected IllegalArgumentException");
+        }
+    }
+
+
+    /**
+     * <p>Test for {@link Configuration#addListener(String)}. Tests valid arguments that would cause a failure, such as
+     * illegal and invalid classes.</p>
+     *
+     * @throws Exception when <code>Configuration</code> throws unexpected <code>Exception</code>
+     */
+    public void testAddListenerByClassName_fail()
+            throws Exception {
+
+        String invalidClass = Configuration.class.getName();
+
+        assertTrue(configuration.getListeners().isEmpty());
+
+        try {
+
+            configuration.addListener(invalidClass);
+            fail("expected IllegalArgumentException for empty String argument");
+        } catch (IllegalArgumentException e) {
+
+            assertTrue(e.getMessage().contains("valid Listener implementation"));
+        } catch (Exception e) {
+
+            fail("expected IllegalArgumentException");
+        }
+
+        String classDoesNotExist = "org.architecturerules.listeners.ItsAWonderfulListener";
+
+        assertTrue(configuration.getListeners().isEmpty());
+
+        try {
+
+            configuration.addListener(classDoesNotExist);
+            fail("expected IllegalArgumentException for empty String argument");
+        } catch (IllegalArgumentException e) {
+
+            assertTrue(e.getMessage().contains("classpath"));
+        } catch (Exception e) {
+
+            fail("expected IllegalArgumentException");
+        }
+
+        String whatTheHeck = "HarrrrrveyThePirate";
+
+        assertTrue(configuration.getListeners().isEmpty());
+
+        try {
+
+            configuration.addListener(whatTheHeck);
+            fail("expected IllegalArgumentException for empty String argument");
+        } catch (IllegalArgumentException e) {
+
+            assertTrue(e.getMessage().contains("classpath"));
+        } catch (Exception e) {
+
+            fail("expected IllegalArgumentException");
+        }
+
+        String abstractClassThrowsInstantiationException = AbstractListener.class.getName();
+
+        assertTrue(configuration.getListeners().isEmpty());
+
+        try {
+
+            configuration.addListener(abstractClassThrowsInstantiationException);
+            fail("expected IllegalArgumentException for empty String argument");
+        } catch (IllegalArgumentException e) {
+
+            assertTrue(e.getMessage().contains("instantiate"));
+        } catch (Exception e) {
+
+            fail("expected IllegalArgumentException");
+        }
+
+        String privateConstructorThrowsIllegalAccessException = PrivateConstructorListener.class.getName();
+
+        assertTrue(configuration.getListeners().isEmpty());
+
+        try {
+
+            configuration.addListener(privateConstructorThrowsIllegalAccessException);
+            fail("expected IllegalArgumentException for empty String argument");
+        } catch (IllegalArgumentException e) {
+
+            assertTrue(e.getMessage().contains("access"));
+        } catch (Exception e) {
+
+            fail("expected IllegalArgumentException");
+        }
     }
 }

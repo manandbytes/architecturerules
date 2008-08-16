@@ -1,22 +1,22 @@
 package org.architecturerules.mojo;
 
 
-import org.apache.maven.model.Resource;
-import org.apache.maven.plugin.AbstractMojo;
-import org.apache.maven.plugin.MojoExecutionException;
-import org.apache.maven.plugin.MojoFailureException;
-import org.apache.maven.plugin.logging.Log;
-import org.apache.maven.project.MavenProject;
-import org.architecturerules.api.configuration.ConfigurationFactory;
-import org.architecturerules.exceptions.ArchitectureException;
-import org.architecturerules.exceptions.CyclicRedundancyException;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 
+import org.apache.maven.model.Resource;
+import org.apache.maven.plugin.AbstractMojo;
+import org.apache.maven.plugin.MojoExecutionException;
+import org.apache.maven.plugin.MojoFailureException;
+import org.apache.maven.plugin.logging.Log;
+import org.apache.maven.project.MavenProject;
+
+import org.architecturerules.api.configuration.ConfigurationFactory;
+import org.architecturerules.exceptions.ArchitectureException;
+import org.architecturerules.exceptions.CyclicRedundancyException;
 
 
 /**
@@ -29,9 +29,7 @@ import java.util.List;
  * @execute phase = "compile"
  * @requiresDependencyResolution compile
  */
-public class ArchitectureRulesMojo
-        extends AbstractMojo {
-
+public class ArchitectureRulesMojo extends AbstractMojo {
 
     /**
      * <p>Name of the configuration file used by Architecture Rules.</p>
@@ -81,7 +79,6 @@ public class ArchitectureRulesMojo
      * @readonly
      */
     private Collection<MavenProject> reactorProjects;
-
 
     /**
      * <p>Entry point to this plugin. Finds the configuration files, constructs the tests, and executes the tests.</p>
@@ -156,8 +153,7 @@ public class ArchitectureRulesMojo
             if (isFailOnError()) {
 
                 throw new MojoExecutionException(rulesExceptions, "", "");
-            }
-            else {
+            } else {
 
                 getLog().warn(new ArchitectureException(rulesExceptions.toString()));
             }
@@ -208,8 +204,7 @@ public class ArchitectureRulesMojo
                 }
 
                 return configFile;
-            }
-            else if (log.isDebugEnabled()) {
+            } else if (log.isDebugEnabled()) {
 
                 message.append("not found");
                 log.debug(message.toString());

@@ -27,8 +27,7 @@ import org.xml.sax.SAXException;
 
 import java.io.IOException;
 import java.io.StringReader;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 
 /**
@@ -109,6 +108,7 @@ public class DigesterConfigurationFactory extends AbstractConfigurationFactory {
 
         try {
 
+            processListeners(configurationXml);
             processSources(configurationXml);
             processRules(configurationXml);
             processCyclicDependencyConfiguration(configurationXml);
@@ -122,6 +122,54 @@ public class DigesterConfigurationFactory extends AbstractConfigurationFactory {
             /* Can this be handled better? Should it be? */
             throw new RuntimeException(e);
         }
+    }
+
+
+    void processListeners(final String xml)
+            throws IOException, SAXException {
+
+        final Set<String> includedListenerClassNames = new HashSet<String>();
+        final Set<String> excludeListenerClassNames = new HashSet<String>();
+
+        includedListenerClassNames.addAll(getListenerClassNames(xml, XmlConfiguration.includedListeners));
+        excludeListenerClassNames.addAll(getListenerClassNames(xml, XmlConfiguration.excludedListeners));
+
+        includedListeners.clear();
+        excludedListeners.clear();
+
+        includedListeners.addAll(includedListenerClassNames);
+        excludedListeners.addAll(excludeListenerClassNames);
+    }
+
+
+    private Set<String> getListenerClassNames(final String xml, final String path)
+            throws IOException, SAXException {
+
+        final Digester digester = getDigester();
+        digester.addObjectCreate(XmlConfiguration.listeners, ArrayList.class);
+        digester.addObjectCreate(path, StringBuffer.class); // TODO rather than StringBuffer can
+        digester.addCallMethod(path, "append", 0); // TODO this be a String?
+        digester.addSetRoot(path, "add");
+
+        final Set<String> classNames = new HashSet<String>();
+
+        final StringReader includeReader = new StringReader(xml);
+        Collection<StringBuffer> classNamesAsStringBuffers = (Collection<StringBuffer>) digester.parse(includeReader);
+
+        /**
+         * When the configuration contains no listener settings, return the empty Set
+         */
+        if (classNamesAsStringBuffers == null) {
+
+            return classNames;
+        }
+
+        for (StringBuffer classNamesAsStringBuffer : classNamesAsStringBuffers) {
+
+            classNames.add(classNamesAsStringBuffer.toString());
+        }
+
+        return classNames;
     }
 
 
@@ -140,17 +188,12 @@ public class DigesterConfigurationFactory extends AbstractConfigurationFactory {
         final Digester digester = getDigester();
 
         digester.addObjectCreate(XmlConfiguration.sources, ArrayList.class);
-
         digester.addObjectCreate(XmlConfiguration.source, SourceDirectory.class);
-
         digester.addCallMethod(XmlConfiguration.source, "setPath", 0);
-
         digester.addSetProperties(XmlConfiguration.source, "not-found", "notFound");
-
         digester.addSetNext(XmlConfiguration.source, "add");
 
         final StringReader reader = new StringReader(xml);
-
         final List<SourceDirectory> parsedSources = (ArrayList<SourceDirectory>) digester.parse(reader);
 
         sources.clear();

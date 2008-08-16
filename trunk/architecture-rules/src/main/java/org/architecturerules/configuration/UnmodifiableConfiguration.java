@@ -14,11 +14,13 @@
 package org.architecturerules.configuration;
 
 
+import org.architecturerules.api.listeners.Listener;
 import org.architecturerules.domain.Rule;
 import org.architecturerules.domain.SourceDirectory;
 
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Set;
 
 
 /**
@@ -42,7 +44,44 @@ public final class UnmodifiableConfiguration extends Configuration {
         super.setDoCyclicDependencyTest(configuration.shouldDoCyclicDependencyTest());
 
         super.setThrowExceptionWhenNoPackages(configuration.shouldThrowExceptionWhenNoPackages());
+
+        super.getListeners().addAll(configuration.getListeners());
     }
+
+    @Override
+    public Configuration addListener(final Listener listener) {
+
+        throw new UnsupportedOperationException("This configuration can not be modified");
+    }
+
+
+    @Override
+    public Configuration addListener(final String listenerClass) {
+
+        throw new UnsupportedOperationException("This configuration can not be modified");
+    }
+
+
+    @Override
+    public Configuration addRule(final Rule rule) {
+
+        throw new UnsupportedOperationException("This configuration can not be modified");
+    }
+
+
+    @Override
+    public Configuration addSource(final SourceDirectory sourceDirectory) {
+
+        throw new UnsupportedOperationException("This configuration can not be modified");
+    }
+
+
+    @Override
+    public Set<Listener> getListeners() {
+
+        return Collections.unmodifiableSet(super.getListeners());
+    }
+
 
     /**
      * <p>Getter for property {@link #rules}.</p>
@@ -65,6 +104,20 @@ public final class UnmodifiableConfiguration extends Configuration {
     public Collection<SourceDirectory> getSources() {
 
         return Collections.unmodifiableCollection(super.getSources());
+    }
+
+
+    @Override
+    public Configuration removeListener(final Listener listener) {
+
+        throw new UnsupportedOperationException("This configuration can not be modified");
+    }
+
+
+    @Override
+    public Configuration removeListener(final String listenerClass) {
+
+        throw new UnsupportedOperationException("This configuration can not be modified");
     }
 
 

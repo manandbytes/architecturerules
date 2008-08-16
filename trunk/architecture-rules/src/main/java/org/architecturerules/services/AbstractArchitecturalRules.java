@@ -109,7 +109,6 @@ abstract class AbstractArchitecturalRules {
     private void addSourceToJdepend(final SourceDirectory sourceDirectory) {
 
         final String sourcePath = sourceDirectory.getPath();
-        final StringBuffer message = new StringBuffer();
 
         try {
 

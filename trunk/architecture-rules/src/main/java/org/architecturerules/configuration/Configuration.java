@@ -11,24 +11,24 @@
  *         http://72miles.com/ and
  *         http://architecturerules.googlecode.com
  */
-
 package org.architecturerules.configuration;
 
 
 import junit.framework.Assert;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import org.architecturerules.api.configuration.ConfigurationFactory;
-import org.architecturerules.api.listeners.Listener;
-import org.architecturerules.domain.JPackage;
-import org.architecturerules.domain.Rule;
-import org.architecturerules.domain.SourceDirectory;
 
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Properties;
 import java.util.Set;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
+import org.architecturerules.api.configuration.ConfigurationFactory;
+import org.architecturerules.api.listeners.Listener;
+import org.architecturerules.domain.JPackage;
+import org.architecturerules.domain.Rule;
+import org.architecturerules.domain.SourceDirectory;
 
 
 /**
@@ -42,9 +42,7 @@ import java.util.Set;
  * @see ConfigurationFactory
  * @see UnmodifiableConfiguration
  */
-public class Configuration
-        extends ListenerSupport {
-
+public class Configuration extends ListenerSupport {
 
     /**
      * <p>To log with. See <tt>log4j.xml</tt>.</p>
@@ -103,14 +101,12 @@ public class Configuration
      */
     private Properties properties = new Properties();
 
-
     /**
      * <p>Instantiate a new <code>Configuration</code> and load up default values.</p>
      */
     public Configuration() {
 
     }
-
 
     /**
      * <p>Add a new <code>Listener</code> to {@link #listeners} by its class name</p>
@@ -136,16 +132,14 @@ public class Configuration
 
             if (!Listener.class.isAssignableFrom(clazz)) {
 
-                String message = String.format("%s is not a Listener implementation. See %s", listenerClass,
-                        Listener.class.getName());
+                String message = String.format("%s is not a Listener implementation. See %s", listenerClass, Listener.class.getName());
 
                 throw new IllegalArgumentException(message);
             }
 
             if (clazz.getName().equals(Configuration.class.getName())) {
 
-                String message = String.format("%s is not a valid Listener implementation.", listenerClass,
-                        Listener.class.getName());
+                String message = String.format("%s is not a valid Listener implementation.", listenerClass, Listener.class.getName());
 
                 throw new IllegalArgumentException(message);
             }
@@ -223,8 +217,7 @@ public class Configuration
         if (added) {
 
             log.debug(String.format("added listener %s to Configuration", name));
-        }
-        else {
+        } else {
 
             log.debug(String.format("failed to add source %s to Configuration", name));
         }
@@ -261,8 +254,7 @@ public class Configuration
         if (added) {
 
             super.onRuleAdded(rule);
-        }
-        else {
+        } else {
 
             log.warn(String.format("failed to add Rule %s to Configuration", id));
         }
@@ -296,8 +288,7 @@ public class Configuration
         if (added) {
 
             super.onSourceDirectoryAdded(sourceDirectory);
-        }
-        else {
+        } else {
 
             log.warn(String.format("failed to add source %s to Configuration", path));
         }
@@ -326,8 +317,7 @@ public class Configuration
         if (removed) {
 
             log.debug(String.format("removed listener %s from Configuration", name));
-        }
-        else {
+        } else {
 
             log.warn(String.format("failed to remove listener %s from Configuration", name));
         }

@@ -15,6 +15,7 @@ package org.architecturerules.configuration.xml;
 
 
 import java.io.File;
+import java.io.IOException;
 import java.util.*;
 
 import org.architecturerules.domain.Rule;
@@ -22,6 +23,8 @@ import org.architecturerules.domain.SourceDirectory;
 import org.architecturerules.exceptions.InvalidConfigurationException;
 import org.architecturerules.listeners.ExampleListener;
 import org.architecturerules.listeners.LoggerListener;
+
+import org.xml.sax.SAXException;
 
 
 /**
@@ -180,25 +183,21 @@ public class DigesterConfigurationFactoryTest extends AbstractDigesterTest {
         final SourceDirectory source0 = (SourceDirectory) sources.get(0);
 
         assertEquals("core" + File.separator + "target" + File.separator + "classes", source0.getPath());
-
         assertFalse(source0.shouldThrowExceptionWhenNotFound());
 
         final SourceDirectory source1 = (SourceDirectory) sources.get(1);
 
         assertEquals("util" + File.separator + "target" + File.separator + "classes", source1.getPath());
-
         assertTrue(source1.shouldThrowExceptionWhenNotFound());
 
         final SourceDirectory source2 = (SourceDirectory) sources.get(2);
 
         assertEquals("parent-pom" + File.separator + "target" + File.separator + "classes", source2.getPath());
-
         assertFalse(source2.shouldThrowExceptionWhenNotFound());
 
         final SourceDirectory source3 = (SourceDirectory) sources.get(3);
 
         assertEquals("web" + File.separator + "target" + File.separator + "classes", source3.getPath());
-
         assertFalse(source3.shouldThrowExceptionWhenNotFound());
     }
 
@@ -212,19 +211,16 @@ public class DigesterConfigurationFactoryTest extends AbstractDigesterTest {
         assertFalse(factory.throwExceptionWhenNoPackages());
 
         factory = new DigesterConfigurationFactory();
-
         factory.processSourcesNotFoundConfiguration(noPackagesIgnoreConfiguration);
 
         assertFalse(factory.throwExceptionWhenNoPackages());
 
         factory = new DigesterConfigurationFactory();
-
         factory.processSourcesNotFoundConfiguration(noPackagesExceptionConfiguration);
 
         assertTrue(factory.throwExceptionWhenNoPackages());
 
         factory = new DigesterConfigurationFactory();
-
         factory.processSourcesNotFoundConfiguration(noPackagesBlankConfiguration);
 
         assertFalse(factory.throwExceptionWhenNoPackages());
@@ -302,8 +298,59 @@ public class DigesterConfigurationFactoryTest extends AbstractDigesterTest {
         final DigesterConfigurationFactory factory = new DigesterConfigurationFactory();
         factory.processProperties(withProperties);
 
-        Properties properties = factory.getProperties();
+        final Properties properties = factory.getProperties();
 
         assertEquals(2, properties.size());
+        assertTrue(properties.containsKey("report.output.directory"));
+        assertEquals(properties.getProperty("report.output.directory"), "target/architecture");
+
+        assertTrue(properties.containsKey("report.output.format"));
+        assertEquals(properties.getProperty("report.output.format"), "xml");
+    }
+
+
+    public void testProperties_wrongAttributes()
+            throws Exception {
+
+        final DigesterConfigurationFactory factory = new DigesterConfigurationFactory();
+
+        try {
+
+            factory.processProperties(withPropertiesWrongAttributes);
+            fail("expected InvalidConfigurationException");
+        } catch (InvalidConfigurationException e) {
+
+            // expected
+            assertTrue(e.getMessage().contains("a key and a value attribute"));
+        }
+    }
+
+
+    public void testProperties_missingAttributes()
+            throws Exception {
+
+        final DigesterConfigurationFactory factory = new DigesterConfigurationFactory();
+
+        try {
+
+            factory.processProperties(withPropertiesMissingAttributes);
+            fail("expected InvalidConfigurationException");
+        } catch (InvalidConfigurationException e) {
+
+            // expected
+            assertTrue(e.getMessage().contains("a key and a value attribute"));
+        }
+    }
+
+
+    public void testProperties_nonePresent()
+            throws Exception {
+
+        final DigesterConfigurationFactory factory = new DigesterConfigurationFactory();
+        factory.processProperties(rulesXmlConfiguration);
+
+        final Properties properties = factory.getProperties();
+
+        assertTrue(properties.isEmpty());
     }
 }

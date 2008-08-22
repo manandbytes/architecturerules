@@ -49,8 +49,7 @@ class XmlConfiguration {
      * </pre>
      */
     public static final String properties = "architecture/configuration/properties";
-    public static final String propertyKey = "architecture/configuration/properties/*";
-    public static final String propertyValue = "architecture/configuration/properties/*/*";
+    public static String property = "architecture/configuration/properties/property";
 
     /**
      * Listeners

@@ -1,5 +1,5 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.architecturerules</groupId>
     <artifactId>architecture-rules-parent</artifactId>
@@ -9,13 +9,14 @@
     <url>http://architecturerules.googlecode.com/</url>
     <inceptionYear>2007, 2008</inceptionYear>
     <issueManagement>
-    	<system>Google Code</system>
-    	<url>http://code.google.com/p/architecturerules/issues/</url>
+        <system>Google Code</system>
+        <url>http://code.google.com/p/architecturerules/issues/</url>
     </issueManagement>
     <scm>
-    	<connection>scm:svn:http://architecturerules.googlecode.com/svn/trunk/${artifactId}/</connection>
-    	<developerConnection>scm:svn:https://architecturerules.googlecode.com/svn/trunk/${artifactId}/</developerConnection>
-    	<url>http://architecturerules.googlecode.com/svn/trunk/${artifactId}/</url>
+        <connection>scm:svn:http://architecturerules.googlecode.com/svn/trunk/${artifactId}/</connection>
+        <developerConnection>scm:svn:https://architecturerules.googlecode.com/svn/trunk/${artifactId}/
+        </developerConnection>
+        <url>http://architecturerules.googlecode.com/svn/trunk/${artifactId}/</url>
     </scm>
     <developers>
         <developer>

@@ -19,14 +19,9 @@
 
     <configuration>
 
-        <sources no-packages="ignore" />
+        <sources no-packages="ignore"/>
 
-        <cyclicalDependency test="true" />
-
-        <properties>
-            <report.output.directory>target/architecture</report.output.directory>
-            <report.output.format>xml</report.output.format>
-        </properties>
+        <cyclicalDependency test="true"/>
 
         <listeners>
             <include>
@@ -34,6 +29,11 @@
                 <listener>org.architecturerules.listeners.ReportListener</listener>
             </include>
         </listeners>
+
+        <properties>
+            <property key="report.output.directory" value="target/architecture"/>
+            <property key="report.output.format" value="xml"/>
+        </properties>
 
     </configuration>
 

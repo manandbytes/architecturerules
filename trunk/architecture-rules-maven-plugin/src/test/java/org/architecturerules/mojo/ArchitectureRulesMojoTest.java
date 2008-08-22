@@ -2,13 +2,11 @@ package org.architecturerules.mojo;
 
 
 import org.apache.maven.plugin.testing.AbstractMojoTestCase;
+
 import org.architecturerules.api.configuration.ConfigurationFactory;
 
 
-
-public class ArchitectureRulesMojoTest
-        extends AbstractMojoTestCase {
-
+public class ArchitectureRulesMojoTest extends AbstractMojoTestCase {
 
     public void testAssert()
             throws Exception {

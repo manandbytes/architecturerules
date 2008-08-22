@@ -14,19 +14,21 @@
 package org.architecturerules.configuration;
 
 
+import java.io.File;
+import java.io.IOException;
+import java.util.*;
+
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+
 import org.architecturerules.api.configuration.ConfigurationFactory;
 import org.architecturerules.domain.Rule;
 import org.architecturerules.domain.SourceDirectory;
 import org.architecturerules.listeners.LoggerListener;
 import org.architecturerules.listeners.ReportListener;
-import org.springframework.core.io.ClassPathResource;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.*;
+import org.springframework.core.io.ClassPathResource;
 
 
 /**
@@ -41,14 +43,9 @@ public abstract class AbstractConfigurationFactory implements ConfigurationFacto
      * <p>Instantiated by the implementation of this class.</p>
      *
      * @see org.architecturerules.configuration.AbstractConfigurationFactory
+     * @deprecated see default-architecture-rules.xml
      */
     public static final Set<String> DEFAULT_LISTENERS = new HashSet<String>();
-
-    static {
-
-        DEFAULT_LISTENERS.add(LoggerListener.class.getName());
-        DEFAULT_LISTENERS.add(ReportListener.class.getName());
-    }
 
     /**
      * <p>To log with. See <tt>log4j.xml</tt>.</p>
@@ -62,28 +59,28 @@ public abstract class AbstractConfigurationFactory implements ConfigurationFacto
      *
      * @parameter rules Set
      */
-    protected final Collection<Rule> rules = new HashSet<Rule>();
+    private final Collection<Rule> rules = new HashSet<Rule>();
 
     /**
      * <p>Set of  <code>Source</code> read from configuration file</p>
      *
      * @parameter sources Set
      */
-    protected final List<SourceDirectory> sources = new ArrayList<SourceDirectory>();
+    private final List<SourceDirectory> sources = new ArrayList<SourceDirectory>();
 
     /**
      * <p>Weather or not to throw exception when no packages are found for a given path.</p>
      *
      * @parameter throwExceptionWhenNoPackages boolean
      */
-    protected boolean throwExceptionWhenNoPackages = false;
+    private boolean throwExceptionWhenNoPackages = false;
 
     /**
      * <p>Weather or not to check for cyclic dependencies.</p>
      *
      * @parameter doCyclicDependencyTest boolean
      */
-    protected boolean doCyclicDependencyTest = true;
+    private boolean doCyclicDependencyTest = true;
 
     /**
      * <p>Fully qualified class name of <code>Listener</code> class implementations to add to the
@@ -91,7 +88,7 @@ public abstract class AbstractConfigurationFactory implements ConfigurationFacto
      *
      * @paramerter listeners Set<String> full class name to <code>Listeners</code> implementation
      */
-    protected final Set<String> includedListeners = new HashSet<String>();
+    private final Set<String> includedListeners = new HashSet<String>();
 
     /**
      * <p>Fully qualified class name of <code>Listener</code> class implementations to remove to the
@@ -99,7 +96,50 @@ public abstract class AbstractConfigurationFactory implements ConfigurationFacto
      *
      * @paramerter listeners Set<String> full class name to <code>Listeners</code> implementation
      */
-    protected final Set<String> excludedListeners = new HashSet<String>();
+    private final Set<String> excludedListeners = new HashSet<String>();
+
+    /**
+     * <p>Properties defined by the user or default configuration which can be used by other entities such as
+     * <tt>Listener</tt> implementations or services</p>
+     *
+     * <p>Instantiates to empty properties.</p>
+     *
+     * @parameter properties Properties
+     */
+    private Properties properties = new Properties();
+
+    /**
+     * <p>Getter for property {@link #excludedListeners}.</p>
+     *
+     * @return Value for property <tt>excludedListeners</tt>.
+     */
+    public Set<String> getExcludedListeners() {
+
+        return excludedListeners;
+    }
+
+
+    /**
+     * <p>Getter for property {@link #includedListeners}.</p>
+     *
+     * @return Value for property <tt>includedListeners</tt>.
+     */
+    public Set<String> getIncludedListeners() {
+
+        return includedListeners;
+    }
+
+
+    /**
+     * Getter for property 'properties'.
+     *
+     * @return Value for property 'properties'.
+     */
+    public Properties getProperties() {
+
+        return properties;
+    }
+
 
     /**
      * <p>Getter for property {@link #rules}.</p>
@@ -124,6 +164,50 @@ public abstract class AbstractConfigurationFactory implements ConfigurationFacto
 
 
     /**
+     * <p>Getter for property {@link #doCyclicDependencyTest}.</p>
+     *
+     * @return Value for property <tt>doCyclicDependencyTest</tt>.
+     */
+    public boolean isDoCyclicDependencyTest() {
+
+        return doCyclicDependencyTest;
+    }
+
+
+    /**
+     * <p>Setter for property {@link #doCyclicDependencyTest}.</p>
+     *
+     * @param doCyclicDependencyTest Value to set for property <tt>doCyclicDependencyTest</tt>.
+     */
+    public void setDoCyclicDependencyTest(final boolean doCyclicDependencyTest) {
+
+        this.doCyclicDependencyTest = doCyclicDependencyTest;
+    }
+
+
+    /**
+     * <p>Getter for property {@link #throwExceptionWhenNoPackages}.</p>
+     *
+     * @return Value for property <tt>throwExceptionWhenNoPackages</tt>.
+     */
+    public boolean isThrowExceptionWhenNoPackages() {
+
+        return throwExceptionWhenNoPackages;
+    }
+
+
+    /**
+     * <p>Setter for property {@link #throwExceptionWhenNoPackages}.</p>
+     *
+     * @param throwExceptionWhenNoPackages Value to set for property <tt>throwExceptionWhenNoPackages</tt>.
+     */
+    public void setThrowExceptionWhenNoPackages(final boolean throwExceptionWhenNoPackages) {
+
+        this.throwExceptionWhenNoPackages = throwExceptionWhenNoPackages;
+    }
+
+
+    /**
      * @return boolean <tt>true</tt> when <samp>&lt;cyclicalDependency test="true"/> </samp>
      * @see ConfigurationFactory#doCyclicDependencyTest()
      */
@@ -144,24 +228,23 @@ public abstract class AbstractConfigurationFactory implements ConfigurationFacto
 
 
     /**
-     * <p>Getter for property {@link #includedListeners}.</p>
+     * <p>Adds the given <tt>properties</tt> to this {@link #properties}.</p>
      *
-     * @return Value for property <tt>includedListeners</tt>.
+     * @param properties Value to add to property <tt>properties</tt>.
      */
-    public Set<String> getIncludedListeners() {
+    public void addProperties(final Properties properties) {
 
-        return includedListeners;
-    }
+        if (properties == null) {
 
+            throw new IllegalArgumentException("properties can not be null");
+        }
 
-    /**
-     * <p>Getter for property {@link #excludedListeners}.</p>
-     *
-     * @return Value for property <tt>excludedListeners</tt>.
-     */
-    public Set<String> getExcludedListeners() {
+        Set<Map.Entry<Object, Object>> entries = properties.entrySet();
 
-        return excludedListeners;
+        for (Map.Entry<Object, Object> property : entries) {
+
+            this.properties.put(property.getKey(), property.getValue());
+        }
     }
 
 

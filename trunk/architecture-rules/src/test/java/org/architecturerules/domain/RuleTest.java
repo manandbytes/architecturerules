@@ -16,6 +16,7 @@ package org.architecturerules.domain;
 
 import junit.framework.AssertionFailedError;
 import junit.framework.TestCase;
+
 import org.architecturerules.exceptions.IllegalArchitectureRuleException;
 
 

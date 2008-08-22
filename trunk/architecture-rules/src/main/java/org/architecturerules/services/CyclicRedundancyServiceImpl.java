@@ -16,15 +16,17 @@ package org.architecturerules.services;
 
 import jdepend.framework.JavaClass;
 import jdepend.framework.JavaPackage;
+
+import java.util.*;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+
 import org.architecturerules.api.services.CyclicRedundancyService;
 import org.architecturerules.configuration.Configuration;
 import org.architecturerules.exceptions.CyclicRedundancyException;
 import org.architecturerules.exceptions.NoPackagesFoundException;
 import org.architecturerules.exceptions.SourceNotFoundException;
-
-import java.util.*;
 
 
 /**

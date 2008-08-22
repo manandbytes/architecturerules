@@ -14,12 +14,13 @@
 package org.architecturerules.configuration;
 
 
+import java.util.Collection;
+import java.util.Properties;
+
 import org.architecturerules.api.listeners.Listener;
 import org.architecturerules.domain.JPackage;
 import org.architecturerules.domain.Rule;
 import org.architecturerules.domain.SourceDirectory;
-
-import java.util.Collection;
 
 
 /**
@@ -32,24 +33,21 @@ import java.util.Collection;
 public abstract class ListenerSupport implements Listener {
 
     /**
-     * TODO: call this somewhere
-     *
-     * @see Listener#registerListener()
+     * @see Listener#registerListener(Properties)
+     * @param properties
      */
-    public void registerListener() {
+    public void registerListener(final Properties properties) {
 
         Collection<Listener> listeners = getListeners();
 
         for (Listener listener : listeners) {
 
-            listener.registerListener();
+            listener.registerListener(properties);
         }
     }
 
 
     /**
-     * TODO: call this somewhere
-     *
      * @see Listener#terminateListener()
      */
     public void terminateListener() {

@@ -14,12 +14,12 @@
 package org.architecturerules.api.configuration;
 
 
-import org.architecturerules.domain.Rule;
-import org.architecturerules.domain.SourceDirectory;
-
 import java.util.Collection;
 import java.util.List;
 import java.util.Set;
+
+import org.architecturerules.domain.Rule;
+import org.architecturerules.domain.SourceDirectory;
 
 
 /**
@@ -34,6 +34,7 @@ public interface ConfigurationFactory {
      * for the cyclic dependency test.</p>
      *
      * @parameter DEFAULT_CYCLICAL_DEPENDENCY_CONFIGURATION_VALUE String
+     * @deprecated see default-architecture-rules.xml
      */
     public static final String DEFAULT_CYCLICAL_DEPENDENCY_CONFIGURATION_VALUE = "true";
 
@@ -51,6 +52,16 @@ public interface ConfigurationFactory {
      * @parameter DEFAULT_CONFIGURATION_FILE_NAME String
      */
     public static final String DEFAULT_CONFIGURATION_FILE_NAME = "architecture-rules.xml";
+
+    /**
+     * <p>The name of the XML file containing the default configuration to start with before loading the user's custom
+     * configuration. Not to be confused with {@link #DEFAULT_CONFIGURATION_FILE_NAME} which is the name of the file
+     * that the user should put their custom configuration in. {@link #DEFAULT_CONFIGURATION_FILE_NAME} is processed
+     * after <tt>DEFAULT_CONFIGURATION_CONFIGURATION_FILE_NAME</tt>.</p>
+     *
+     * @parameter DEFAULT_CONFIGURATION_FILE_NAME String
+     */
+    public static final String DEFAULT_CONFIGURATION_CONFIGURATION_FILE_NAME = "default-architecture-rules.xml";
 
     /**
      * <p>Holds the value parsed from the XML configuration that indicates weather or not the cyclic dependency test

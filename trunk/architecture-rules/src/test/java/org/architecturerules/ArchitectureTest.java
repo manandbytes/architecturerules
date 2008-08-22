@@ -14,12 +14,12 @@
 package org.architecturerules;
 
 
+import java.io.File;
+
 import org.architecturerules.configuration.Configuration;
 import org.architecturerules.domain.Rule;
 import org.architecturerules.domain.SourceDirectory;
 import org.architecturerules.exceptions.CyclicRedundancyException;
-
-import java.io.File;
 
 
 /**

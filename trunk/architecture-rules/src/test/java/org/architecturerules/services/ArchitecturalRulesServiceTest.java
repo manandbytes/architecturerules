@@ -15,6 +15,7 @@ package org.architecturerules.services;
 
 
 import junit.framework.TestCase;
+
 import org.architecturerules.api.services.RulesService;
 import org.architecturerules.configuration.Configuration;
 import org.architecturerules.domain.Rule;

@@ -14,14 +14,18 @@
 package org.architecturerules.listeners;
 
 
+import java.util.Collection;
+import java.util.Map;
+import java.util.Properties;
+import java.util.Set;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+
 import org.architecturerules.api.listeners.Listener;
 import org.architecturerules.domain.JPackage;
 import org.architecturerules.domain.Rule;
 import org.architecturerules.domain.SourceDirectory;
-
-import java.util.Collection;
 
 
 /**
@@ -31,19 +35,34 @@ import java.util.Collection;
  * @see EmptyListener
  * @see Listener
  */
-public class LoggerListener extends EmptyListener {
+public class LoggerListener implements Listener {
 
     private static final Log log = LogFactory.getLog(LoggerListener.class);
+    private Properties properties;
 
-    @Override
-    public void registerListener() {
+    public void registerListener(final Properties properties) {
 
         String debug = String.format("registered LoggerListener");
         log.debug(debug);
+
+        Set<Map.Entry<Object, Object>> entries = properties.entrySet();
+
+        for (Map.Entry<Object, Object> property : entries) {
+
+            this.properties.put(property.getKey(), property.getValue());
+        }
+
+        entries = properties.entrySet();
+
+        log.debug("Properties: ");
+
+        for (Map.Entry<Object, Object> property : entries) {
+
+            log.debug("   " + property.getKey() + " => " + property.getValue());
+        }
     }
 
 
-    @Override
     public void terminateListener() {
 
         String debug = String.format("tests complete. good bye.");
@@ -220,7 +239,6 @@ public class LoggerListener extends EmptyListener {
     }
 
 
-    @Override
     public void onBeginPackageInvestigation(final JPackage javaPackage, final Rule ruleReference) {
 
         String debug = String.format("checking dependencies on package '%s' for Rule '%s'", javaPackage.getPath(), ruleReference.getId());
@@ -229,7 +247,6 @@ public class LoggerListener extends EmptyListener {
     }
 
 
-    @Override
     public void onCyclicDependencyDiscovered(final String package1, final Collection<String> package1DependenciesOnPackage2, final String package2, final Collection<String> package2DependenciesOnPackage1) {
 
         StringBuffer warn = new StringBuffer();

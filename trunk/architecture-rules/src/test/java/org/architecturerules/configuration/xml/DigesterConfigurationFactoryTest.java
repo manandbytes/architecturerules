@@ -14,17 +14,14 @@
 package org.architecturerules.configuration.xml;
 
 
+import java.io.File;
+import java.util.*;
+
 import org.architecturerules.domain.Rule;
 import org.architecturerules.domain.SourceDirectory;
 import org.architecturerules.exceptions.InvalidConfigurationException;
 import org.architecturerules.listeners.ExampleListener;
 import org.architecturerules.listeners.LoggerListener;
-
-import java.io.File;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
 
 /**
@@ -296,5 +293,17 @@ public class DigesterConfigurationFactoryTest extends AbstractDigesterTest {
 
         assertTrue(includedListeners.isEmpty());
         assertTrue(excludedListeners.isEmpty());
+    }
+
+
+    public void testProperties()
+            throws Exception {
+
+        final DigesterConfigurationFactory factory = new DigesterConfigurationFactory();
+        factory.processProperties(withProperties);
+
+        Properties properties = factory.getProperties();
+
+        assertEquals(2, properties.size());
     }
 }

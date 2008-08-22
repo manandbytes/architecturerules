@@ -16,6 +16,7 @@ package org.architecturerules.configuration;
 
 import junit.framework.AssertionFailedError;
 import junit.framework.TestCase;
+
 import org.architecturerules.api.listeners.Listener;
 import org.architecturerules.domain.Rule;
 import org.architecturerules.domain.SourceDirectory;

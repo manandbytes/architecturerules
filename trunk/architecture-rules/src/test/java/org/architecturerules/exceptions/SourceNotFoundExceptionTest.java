@@ -15,10 +15,11 @@ package org.architecturerules.exceptions;
 
 
 import junit.framework.TestCase;
-import org.architecturerules.domain.SourceDirectory;
 
 import java.util.Collection;
 import java.util.HashSet;
+
+import org.architecturerules.domain.SourceDirectory;
 
 
 /**

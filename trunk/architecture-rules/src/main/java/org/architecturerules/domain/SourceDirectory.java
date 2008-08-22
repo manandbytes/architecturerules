@@ -15,14 +15,16 @@ package org.architecturerules.domain;
 
 
 import junit.framework.Assert;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import org.architecturerules.api.configuration.ConfigurationFactory;
-import org.architecturerules.exceptions.SourceNotFoundException;
 
 import java.io.File;
 import java.text.CharacterIterator;
 import java.text.StringCharacterIterator;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
+import org.architecturerules.api.configuration.ConfigurationFactory;
+import org.architecturerules.exceptions.SourceNotFoundException;
 
 
 /**

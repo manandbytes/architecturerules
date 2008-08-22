@@ -14,13 +14,13 @@
 package org.architecturerules.configuration;
 
 
-import org.architecturerules.api.listeners.Listener;
-import org.architecturerules.domain.Rule;
-import org.architecturerules.domain.SourceDirectory;
-
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Set;
+
+import org.architecturerules.api.listeners.Listener;
+import org.architecturerules.domain.Rule;
+import org.architecturerules.domain.SourceDirectory;
 
 
 /**

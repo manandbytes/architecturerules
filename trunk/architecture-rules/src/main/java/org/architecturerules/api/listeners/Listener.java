@@ -14,11 +14,12 @@
 package org.architecturerules.api.listeners;
 
 
+import java.util.Collection;
+import java.util.Properties;
+
 import org.architecturerules.domain.JPackage;
 import org.architecturerules.domain.Rule;
 import org.architecturerules.domain.SourceDirectory;
-
-import java.util.Collection;
 
 
 /**
@@ -30,8 +31,9 @@ public interface Listener {
 
     /**
      * <p>TODO: javadoc</p>
+     * @param properties
      */
-    void registerListener();
+    void registerListener(final Properties properties);
 
 
     /**

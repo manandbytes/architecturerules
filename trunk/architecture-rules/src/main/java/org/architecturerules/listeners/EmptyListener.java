@@ -14,12 +14,15 @@
 package org.architecturerules.listeners;
 
 
+import java.util.Collection;
+import java.util.Map;
+import java.util.Properties;
+import java.util.Set;
+
 import org.architecturerules.api.listeners.Listener;
 import org.architecturerules.domain.JPackage;
 import org.architecturerules.domain.Rule;
 import org.architecturerules.domain.SourceDirectory;
-
-import java.util.Collection;
 
 
 /**
@@ -30,12 +33,20 @@ import java.util.Collection;
  */
 public class EmptyListener implements Listener {
 
+    private Properties properties;
+
     /**
+     * @param properties
      * @see Listener#registerListener
      */
-    public void registerListener() {
+    public void registerListener(final Properties properties) {
 
-        // do nothing.
+        Set<Map.Entry<Object, Object>> entries = properties.entrySet();
+
+        for (Map.Entry<Object, Object> property : entries) {
+
+            this.properties.put(property.getKey(), property.getValue());
+        }
     }
 
 
@@ -204,5 +215,11 @@ public class EmptyListener implements Listener {
     public void onBeginPackageInvestigation(final JPackage javaPackage, final Rule ruleReference) {
 
         /* do nothing  */
+    }
+
+
+    protected Properties getProperties() {
+
+        return this.properties;
     }
 }

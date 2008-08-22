@@ -15,8 +15,14 @@ package org.architecturerules;
 
 
 import junit.framework.TestCase;
+
+import java.util.HashSet;
+import java.util.Properties;
+import java.util.Set;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+
 import org.architecturerules.api.configuration.ConfigurationFactory;
 import org.architecturerules.api.services.CyclicRedundancyService;
 import org.architecturerules.api.services.RulesService;
@@ -26,9 +32,6 @@ import org.architecturerules.configuration.UnmodifiableConfiguration;
 import org.architecturerules.configuration.xml.DigesterConfigurationFactory;
 import org.architecturerules.services.CyclicRedundancyServiceImpl;
 import org.architecturerules.services.RulesServiceImpl;
-
-import java.util.HashSet;
-import java.util.Set;
 
 
 /**
@@ -76,7 +79,6 @@ public abstract class AbstractArchitectureRulesConfigurationTest extends TestCas
             configurationFactory = new DigesterConfigurationFactory(configurationFileName);
 
             Set<String> listeners = new HashSet<String>();
-            listeners.addAll(AbstractConfigurationFactory.DEFAULT_LISTENERS);
             listeners.addAll(configurationFactory.getIncludedListeners());
             listeners.removeAll(configurationFactory.getExcludedListeners());
 
@@ -85,7 +87,8 @@ public abstract class AbstractArchitectureRulesConfigurationTest extends TestCas
                 configuration.addListener(listenerClassName);
             }
 
-            configuration.registerListener();
+            final Properties properties = configuration.getProperties();
+            configuration.registerListener(properties);
 
             /**
              * Ensure listeners are added before Rules and Sources so that those events can be listened.

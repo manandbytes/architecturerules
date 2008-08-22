@@ -14,6 +14,8 @@
 package org.architecturerules.listeners;
 
 
+import java.util.Properties;
+
 import org.architecturerules.api.listeners.Listener;
 
 
@@ -29,7 +31,7 @@ public class ExampleListener extends EmptyListener {
     private final String name = this.getClass().getSimpleName();
 
     @Override
-    public void registerListener() {
+    public void registerListener(final Properties properties) {
 
         System.out.println("** this Listener is for testing ** #registerListener " + name);
     }

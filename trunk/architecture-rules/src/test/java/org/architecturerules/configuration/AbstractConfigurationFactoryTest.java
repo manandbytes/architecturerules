@@ -15,10 +15,11 @@ package org.architecturerules.configuration;
 
 
 import junit.framework.TestCase;
-import org.springframework.core.io.ClassPathResource;
 
 import java.io.File;
 import java.io.IOException;
+
+import org.springframework.core.io.ClassPathResource;
 
 
 /**

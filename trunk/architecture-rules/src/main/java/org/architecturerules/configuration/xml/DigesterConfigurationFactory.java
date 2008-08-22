@@ -14,20 +14,23 @@
 package org.architecturerules.configuration.xml;
 
 
+import java.io.IOException;
+import java.io.StringReader;
+import java.util.*;
+
 import org.apache.commons.digester.Digester;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+
+import org.architecturerules.api.configuration.ConfigurationFactory;
 import org.architecturerules.configuration.AbstractConfigurationFactory;
 import org.architecturerules.domain.CyclicDependencyConfiguration;
 import org.architecturerules.domain.Rule;
 import org.architecturerules.domain.SourceDirectory;
 import org.architecturerules.domain.SourcesConfiguration;
 import org.architecturerules.exceptions.InvalidConfigurationException;
-import org.xml.sax.SAXException;
 
-import java.io.IOException;
-import java.io.StringReader;
-import java.util.*;
+import org.xml.sax.SAXException;
 
 
 /**
@@ -54,18 +57,35 @@ public class DigesterConfigurationFactory extends AbstractConfigurationFactory {
 
 
     /**
-     * <p>Instantiates a new <code>ConfigurationFactory</code> and processes the configuration found in the
-     * <code>File</code> with the given <tt>configurationFileName</tt>.</p>
+     * <p>Instantiates a new <code>ConfigurationFactory</code>. First loads up the default settings and then processes
+     * the configuration found in the <code>File</code> with the given <tt>configurationFileName</tt>.</p>
      *
      * @param fileName name of the <code>File</code> in the classpath to load configuration from.
      */
     public DigesterConfigurationFactory(final String fileName) {
+
+        /* load the default settings into the configuration */
+        final String defaultFileName = ConfigurationFactory.DEFAULT_CONFIGURATION_CONFIGURATION_FILE_NAME;
+        loadConfigurationFromFile(defaultFileName);
+
+        /* load the user's settings into the configuration which may or maynot override the defautl settings*/
+        String userFileName = fileName;
+        loadConfigurationFromFile(userFileName);
+    }
+
+    /**
+     * <p>Load configuration from an external XML file.</p>
+     *
+     * @param fileName String name of file to load such as <samp>architecture-rules.xml</samp>
+     */
+    private void loadConfigurationFromFile(String fileName) {
 
         final String configurationXml = getConfigurationAsXml(fileName);
 
         validateConfiguration(configurationXml);
         processConfiguration(configurationXml);
     }
+
 
     /**
      * <p>Validate the configurationXml.</p>
@@ -108,6 +128,7 @@ public class DigesterConfigurationFactory extends AbstractConfigurationFactory {
 
         try {
 
+            processProperties(configurationXml);
             processListeners(configurationXml);
             processSources(configurationXml);
             processRules(configurationXml);
@@ -125,6 +146,35 @@ public class DigesterConfigurationFactory extends AbstractConfigurationFactory {
     }
 
 
+    void processProperties(final String xml)
+            throws IOException, SAXException {
+
+        // todo code this method http://www.nabble.com/read-java.util.Properties-from-XML-with-digester-td19025271.html
+        /*if (1 == 1) {
+            throw new UnsupportedOperationException("code not written yet");
+        }*/
+        final Digester digester = getDigester();
+        digester.addObjectCreate(XmlConfiguration.properties, Properties.class);
+        digester.addCallMethod(XmlConfiguration.propertyKey, "put", 2);
+        digester.addCallParam(XmlConfiguration.propertyKey, 0, "key");
+        digester.addCallParam(XmlConfiguration.propertyValue, 1, "value");
+
+        // add key
+        // set value
+        final StringReader reader = new StringReader(xml);
+        Object o = digester.parse(reader);
+
+        if (o == null) {
+
+            return;
+        }
+
+        final Properties properties = (Properties) o;
+
+        addProperties(properties);
+    }
+
+
     void processListeners(final String xml)
             throws IOException, SAXException {
 
@@ -134,11 +184,8 @@ public class DigesterConfigurationFactory extends AbstractConfigurationFactory {
         includedListenerClassNames.addAll(getListenerClassNames(xml, XmlConfiguration.includedListeners));
         excludeListenerClassNames.addAll(getListenerClassNames(xml, XmlConfiguration.excludedListeners));
 
-        includedListeners.clear();
-        excludedListeners.clear();
-
-        includedListeners.addAll(includedListenerClassNames);
-        excludedListeners.addAll(excludeListenerClassNames);
+        getIncludedListeners().addAll(includedListenerClassNames);
+        getExcludedListeners().addAll(excludeListenerClassNames);
     }
 
 
@@ -154,7 +201,15 @@ public class DigesterConfigurationFactory extends AbstractConfigurationFactory {
         final Set<String> classNames = new HashSet<String>();
 
         final StringReader includeReader = new StringReader(xml);
-        Collection<StringBuffer> classNamesAsStringBuffers = (Collection<StringBuffer>) digester.parse(includeReader);
+        Object o = digester.parse(includeReader);
+
+        if (o == null) {
+
+            // return empty Set
+            return classNames;
+        }
+
+        Collection<StringBuffer> classNamesAsStringBuffers = (Collection<StringBuffer>) o;
 
         /**
          * When the configuration contains no listener settings, return the empty Set
@@ -194,13 +249,16 @@ public class DigesterConfigurationFactory extends AbstractConfigurationFactory {
         digester.addSetNext(XmlConfiguration.source, "add");
 
         final StringReader reader = new StringReader(xml);
-        final List<SourceDirectory> parsedSources = (ArrayList<SourceDirectory>) digester.parse(reader);
+        Object o = digester.parse(reader);
 
-        sources.clear();
+        if ((o != null) && o instanceof List) {
 
-        for (final SourceDirectory sourceDirectory : parsedSources) {
+            final List<SourceDirectory> parsedSources = (ArrayList<SourceDirectory>) o;
 
-            sources.add(sourceDirectory);
+            for (final SourceDirectory sourceDirectory : parsedSources) {
+
+                getSources().add(sourceDirectory);
+            }
         }
     }
 
@@ -224,16 +282,18 @@ public class DigesterConfigurationFactory extends AbstractConfigurationFactory {
         digester.addSetProperties(XmlConfiguration.rule, "id", "idString");
         digester.addCallMethod(XmlConfiguration.ruleComment, "setComment", 0);
         digester.addCallMethod(XmlConfiguration.rulePackage, "addPackage", 0);
-
         digester.addCallMethod(XmlConfiguration.ruleViolation, "addViolation", 0);
-
         digester.addSetNext(XmlConfiguration.rule, "add");
 
         final StringReader reader = new StringReader(xml);
-        final List<Rule> parsedRules = (ArrayList<Rule>) digester.parse(reader);
 
-        rules.clear();
-        rules.addAll(parsedRules);
+        Object o = digester.parse(reader);
+
+        if (o != null) {
+
+            final List<Rule> parsedRules = (ArrayList<Rule>) o;
+            getRules().addAll(parsedRules);
+        }
     }
 
 
@@ -254,7 +314,6 @@ public class DigesterConfigurationFactory extends AbstractConfigurationFactory {
         final StringReader configurationReader = new StringReader(configurationXml);
 
         digester.addObjectCreate(XmlConfiguration.cyclicalDependency, CyclicDependencyConfiguration.class);
-
         digester.addSetProperties(XmlConfiguration.cyclicalDependency, "test", "test");
 
         CyclicDependencyConfiguration configuration;
@@ -273,7 +332,7 @@ public class DigesterConfigurationFactory extends AbstractConfigurationFactory {
 
         if (test.equalsIgnoreCase("true") || test.equalsIgnoreCase("false")) {
 
-            doCyclicDependencyTest = Boolean.valueOf(test);
+            setDoCyclicDependencyTest(Boolean.valueOf(test));
         } else {
 
             throw new InvalidConfigurationException("'" + test + "' is not a valid value for " + "cyclicalDependency configuration. " + "Use <cyclicalDependency test=\"true\"/> " + "or <cyclicalDependency test=\"false\"/>");
@@ -317,7 +376,8 @@ public class DigesterConfigurationFactory extends AbstractConfigurationFactory {
 
         if (isIgnore || isException) {
 
-            throwExceptionWhenNoPackages = value.equalsIgnoreCase("exception");
+            boolean shouldThrowException = value.equalsIgnoreCase("exception");
+            setThrowExceptionWhenNoPackages(shouldThrowException);
         } else {
 
             throw new InvalidConfigurationException("'" + value + "' is not a valid value for the " + "sources no-packages configuration. " + "Use <sources no-packages=\"ignore\">, " + "<sources no-packages=\"exception\"> or " + "leave the property unset.");

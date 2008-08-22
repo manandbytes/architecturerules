@@ -14,8 +14,11 @@
 package org.architecturerules.services;
 
 
+import java.util.Collection;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+
 import org.architecturerules.api.services.RulesService;
 import org.architecturerules.configuration.Configuration;
 import org.architecturerules.domain.JPackage;
@@ -23,8 +26,6 @@ import org.architecturerules.domain.Rule;
 import org.architecturerules.exceptions.DependencyConstraintException;
 import org.architecturerules.exceptions.NoPackagesFoundException;
 import org.architecturerules.exceptions.SourceNotFoundException;
-
-import java.util.Collection;
 
 
 /**

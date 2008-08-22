@@ -11,6 +11,7 @@
  *         http://72miles.com/ and
  *         http://architecturerules.googlecode.com
  */
+
 package org.architecturerules.configuration;
 
 
@@ -25,7 +26,9 @@ import org.architecturerules.domain.SourceDirectory;
 
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.Properties;
 import java.util.Set;
+
 
 
 /**
@@ -39,7 +42,9 @@ import java.util.Set;
  * @see ConfigurationFactory
  * @see UnmodifiableConfiguration
  */
-public class Configuration extends ListenerSupport {
+public class Configuration
+        extends ListenerSupport {
+
 
     /**
      * <p>To log with. See <tt>log4j.xml</tt>.</p>
@@ -88,18 +93,24 @@ public class Configuration extends ListenerSupport {
     private final Set<Listener> listeners = new HashSet<Listener>();
 
     /**
+     * <p>Properties defined by the user or default configuration which can be used by other entities such as
+     * <tt>Listener</tt> implementations at {@link Listener#registerListener(Properties)} or services (which can access
+     * {@link #getProperties()}.</p>
+     *
+     * <p>Instantiates to empty properties.</p>
+     *
+     * @parameter properties Properties
+     */
+    private Properties properties = new Properties();
+
+
+    /**
      * <p>Instantiate a new <code>Configuration</code> and load up default values.</p>
      */
     public Configuration() {
 
-        if (!(this instanceof UnmodifiableConfiguration)) {
-
-            for (String defaultListener : AbstractConfigurationFactory.DEFAULT_LISTENERS) {
-
-                addListener(defaultListener);
-            }
-        }
     }
+
 
     /**
      * <p>Add a new <code>Listener</code> to {@link #listeners} by its class name</p>
@@ -125,14 +136,16 @@ public class Configuration extends ListenerSupport {
 
             if (!Listener.class.isAssignableFrom(clazz)) {
 
-                String message = String.format("%s is not a Listener implementation. See %s", listenerClass, Listener.class.getName());
+                String message = String.format("%s is not a Listener implementation. See %s", listenerClass,
+                        Listener.class.getName());
 
                 throw new IllegalArgumentException(message);
             }
 
             if (clazz.getName().equals(Configuration.class.getName())) {
 
-                String message = String.format("%s is not a valid Listener implementation.", listenerClass, Listener.class.getName());
+                String message = String.format("%s is not a valid Listener implementation.", listenerClass,
+                        Listener.class.getName());
 
                 throw new IllegalArgumentException(message);
             }
@@ -210,7 +223,8 @@ public class Configuration extends ListenerSupport {
         if (added) {
 
             log.debug(String.format("added listener %s to Configuration", name));
-        } else {
+        }
+        else {
 
             log.debug(String.format("failed to add source %s to Configuration", name));
         }
@@ -247,7 +261,8 @@ public class Configuration extends ListenerSupport {
         if (added) {
 
             super.onRuleAdded(rule);
-        } else {
+        }
+        else {
 
             log.warn(String.format("failed to add Rule %s to Configuration", id));
         }
@@ -281,7 +296,8 @@ public class Configuration extends ListenerSupport {
         if (added) {
 
             super.onSourceDirectoryAdded(sourceDirectory);
-        } else {
+        }
+        else {
 
             log.warn(String.format("failed to add source %s to Configuration", path));
         }
@@ -310,7 +326,8 @@ public class Configuration extends ListenerSupport {
         if (removed) {
 
             log.debug(String.format("removed listener %s from Configuration", name));
-        } else {
+        }
+        else {
 
             log.warn(String.format("failed to remove listener %s from Configuration", name));
         }
@@ -405,5 +422,32 @@ public class Configuration extends ListenerSupport {
     public boolean shouldThrowExceptionWhenNoPackages() {
 
         return throwExceptionWhenNoPackages;
+    }
+
+
+    /**
+     * <p>Setter for property {@link #properties}.</p>
+     *
+     * @param properties Value to set for property <tt>properties</tt>.
+     */
+    public void setProperties(final Properties properties) {
+
+        if (properties == null) {
+
+            throw new IllegalArgumentException("properties can not be null");
+        }
+
+        this.properties = properties;
+    }
+
+
+    /**
+     * <p> Getter for property {@link #properties}.</p>
+     *
+     * @return Value for property <tt>properties</tt>.
+     */
+    public Properties getProperties() {
+
+        return properties;
     }
 }

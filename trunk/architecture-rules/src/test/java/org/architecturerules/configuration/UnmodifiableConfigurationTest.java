@@ -17,6 +17,7 @@ package org.architecturerules.configuration;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
+
 import org.architecturerules.domain.Rule;
 import org.architecturerules.domain.SourceDirectory;
 import org.architecturerules.listeners.EmptyListener;

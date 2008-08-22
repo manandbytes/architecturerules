@@ -15,6 +15,7 @@ package org.architecturerules.exceptions;
 
 
 import junit.framework.TestCase;
+
 import org.architecturerules.domain.SourceDirectory;
 
 

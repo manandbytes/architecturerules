@@ -25,8 +25,6 @@ import org.apache.commons.logging.LogFactory;
 import org.architecturerules.api.configuration.ConfigurationFactory;
 import org.architecturerules.domain.Rule;
 import org.architecturerules.domain.SourceDirectory;
-import org.architecturerules.listeners.LoggerListener;
-import org.architecturerules.listeners.ReportListener;
 
 import org.springframework.core.io.ClassPathResource;
 
@@ -38,14 +36,6 @@ import org.springframework.core.io.ClassPathResource;
  * @see ConfigurationFactory
  */
 public abstract class AbstractConfigurationFactory implements ConfigurationFactory {
-
-    /**
-     * <p>Instantiated by the implementation of this class.</p>
-     *
-     * @see org.architecturerules.configuration.AbstractConfigurationFactory
-     * @deprecated see default-architecture-rules.xml
-     */
-    public static final Set<String> DEFAULT_LISTENERS = new HashSet<String>();
 
     /**
      * <p>To log with. See <tt>log4j.xml</tt>.</p>

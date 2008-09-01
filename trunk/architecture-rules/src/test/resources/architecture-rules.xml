@@ -39,7 +39,10 @@
             </exclude>
         </listeners>
 
-
+        <properties>
+            <property key="report.output.directory" value="target/architecture" />
+            <property key="report.output.format" value="xml" />
+        </properties>
 
     </configuration>
 
@@ -71,18 +74,14 @@
         </rule>
 
         <rule id="strategy">
-
             <comment>
                 Strategies should be as pluggable as possible
             </comment>
-
             <packages>
                 <package>
                     com.seventytwomiles.pagerank.serviceproviders.startegies
                 </package>
             </packages>
-
-
             <violations>
                 <violation>
                     com.seventytwomiles.pagerank.core.services
@@ -94,17 +93,14 @@
         </rule>
 
         <rule id="model">
-
             <comment>
                 Model should remain completely isolated
             </comment>
-
             <packages>
                 <package>
                     com.seventytwomiles.pagerank.core.model
                 </package>
             </packages>
-
             <violations>
                 <violation>
                     com.seventytwomiles.pagerank.core.dao

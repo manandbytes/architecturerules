@@ -19,6 +19,7 @@ import junit.framework.TestCase;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 
 import org.architecturerules.domain.Rule;
 import org.architecturerules.domain.SourceDirectory;
@@ -31,7 +32,7 @@ import org.architecturerules.domain.SourceDirectory;
  */
 public class DigesterConfigurationFactoryCompleteConfigurationTest extends TestCase {
 
-    private final String completeConfiguration = "<?xml version=\"1.0\"?><!--<!DOCTYPE architecture SYSTEM        \"http://architecturerules.googlecode.com/svn/trunk/src/main/resources/architecture-rules.dtd\">--><architecture>    <configuration>        <sources no-packages=\"exception\"> <source not-found=\"ignore\">parent-pom\\target\\classes</source> <source not-found=\"exception\">util\\target\\classes</source> <source not-found=\"ignore\">web\\target\\classes</source> <source not-found=\"ignore\">core\\target\\classes</source>        </sources>        <cyclicalDependency test=\"false\"/><listeners> <include>     <listener>org.architecturerules.listeners.ExampleListener</listener>     <listener>org.architecturerules.listeners.LoggerListener</listener> </include> <exclude>     <listener>org.architecturerules.listeners.LoggerListener</listener> </exclude>        </listeners>" + "    </configuration>    <rules>        <rule id=\"dao\"> <comment>     The dao interface package should rely on nothing. </comment> <packages>     <package>         com.seventytwomiles.pagerank.core.dao     </package>     <package>         com.seventytwomiles.pagerank.core.dao.hibernate     </package> </packages> <violations>     <violation>         com.seventytwomiles.pagerank.core.services     </violation>     <violation>         com.seventytwomiles.pagerank.core.builder     </violation>     <violation>         com.seventytwomiles.pagerank.util     </violation> </violations>        </rule>        <rule id=\"strategy\"> <comment>     Strategies should be as pluggable as possible </comment> <packages>     <package>         com.seventytwomiles.pagerank.serviceproviders.startegies     </package> </packages> <violations>     <violation>         com.seventytwomiles.pagerank.core.services     </violation>     <violation>         com.seventytwomiles.pagerank.core.dao.hibernate     </violation> </violations>        </rule>        <rule id=\"model\"> <comment>     Model should remain completely isolated </comment> <packages>     <package>         com.seventytwomiles.pagerank.core.model     </package> </packages> <violations>     <violation>         com.seventytwomiles.pagerank.core.dao     </violation>     <violation>         com.seventytwomiles.pagerank.core.dao.hibernate     </violation>     <violation>         com.seventytwomiles.pagerank.core.services     </violation>     <violation>         com.seventytwomiles.pagerank.core.strategy     </violation>     <violation>         com.seventytwomiles.pagerank.core.builder     </violation>     <violation>         com.seventytwomiles.pagerank.util     </violation> </violations>        </rule>    </rules></architecture>";
+    private final String completeConfiguration = "<?xml version=\"1.0\"?> <architecture> " + "<configuration> " + "<sources no-packages=\"exception\"> <source not-found=\"ignore\">parent-pom\\target\\classes</source> <source not-found=\"exception\">util\\target\\classes</source> <source not-found=\"ignore\">web\\target\\classes</source> <source not-found=\"ignore\">core\\target\\classes</source> </sources> " + "<cyclicalDependency test=\"false\"/> " + "<listeners> <include> <listener>org.architecturerules.listeners.ExampleEventListener</listener> <listener>org.architecturerules.listeners.LoggerEventListener</listener> </include> <exclude> <listener>org.architecturerules.listeners.LoggerEventListener</listener> </exclude> </listeners> " + "<properties> <property key=\"report.output.directory\" value=\"target/architecture\" /> <property key=\"report.output.format\" value=\"xml\" /> <property key=\"example.property\" value=\"example.value\" /> </properties> " + "</configuration> " + "<rules> " + "<rule id=\"dao\"> <comment>The dao interface package should rely on nothing.</comment> <packages> <package>com.seventytwomiles.pagerank.core.dao</package> <package>com.seventytwomiles.pagerank.core.dao.hibernate</package> </packages> <violations> <violation>com.seventytwomiles.pagerank.core.services</violation> <violation> com.seventytwomiles.pagerank.core.builder</violation> <violation> com.seventytwomiles.pagerank.util</violation> </violations> </rule> " + "<rule id=\"strategy\"> <comment>Strategies should be as pluggable as possible </comment> <packages> <package>com.seventytwomiles.pagerank.serviceproviders.startegies</package> </packages> <violations> <violation>com.seventytwomiles.pagerank.core.services </violation> <violation>com.seventytwomiles.pagerank.core.dao.hibernate</violation> </violations> </rule> " + "<rule id=\"model\"> <comment>Model should remain completely isolated </comment> <packages> <package>com.seventytwomiles.pagerank.core.model</package> </packages> <violations> <violation>com.seventytwomiles.pagerank.core.dao </violation> <violation>com.seventytwomiles.pagerank.core.dao.hibernate </violation> <violation>com.seventytwomiles.pagerank.core.services </violation> <violation>com.seventytwomiles.pagerank.core.strategy </violation> <violation>com.seventytwomiles.pagerank.core.builder </violation> <violation>com.seventytwomiles.pagerank.util </violation> </violations> </rule> " + "</rules> " + "</architecture>";
 
     public DigesterConfigurationFactoryCompleteConfigurationTest(final String name) {
         super(name);
@@ -44,26 +45,25 @@ public class DigesterConfigurationFactoryCompleteConfigurationTest extends TestC
 
         factory.processConfiguration(completeConfiguration);
 
-        final List sources = new ArrayList();
-        sources.addAll(factory.getSources());
+        testSources(factory);
+        testProperties(factory);
+        testRules(factory);
 
-        assertEquals(4, sources.size());
+        /**
+         * Test should perform cyclicalDependency
+         * The default is true, so the configuration should make it false.
+         */
+        assertFalse(factory.doCyclicDependencyTest());
 
-        final SourceDirectory source0 = (SourceDirectory) sources.get(0);
-        assertEquals("parent-pom" + File.separator + "target" + File.separator + "classes", source0.getPath());
-        assertFalse(source0.shouldThrowExceptionWhenNotFound());
+        /**
+         * Test no-packages
+         * The default is false, so the configuration should make it true.
+         */
+        assertTrue(factory.throwExceptionWhenNoPackages());
+    }
 
-        final SourceDirectory source1 = (SourceDirectory) sources.get(1);
-        assertEquals("util" + File.separator + "target" + File.separator + "classes", source1.getPath());
-        assertTrue(source1.shouldThrowExceptionWhenNotFound());
 
-        final SourceDirectory source2 = (SourceDirectory) sources.get(2);
-        assertEquals("web" + File.separator + "target" + File.separator + "classes", source2.getPath());
-        assertFalse(source2.shouldThrowExceptionWhenNotFound());
-
-        final SourceDirectory source3 = (SourceDirectory) sources.get(3);
-        assertEquals("core" + File.separator + "target" + File.separator + "classes", source3.getPath());
-        assertFalse(source3.shouldThrowExceptionWhenNotFound());
+    private void testRules(final DigesterConfigurationFactory factory) {
 
         final List rules = new ArrayList();
         rules.addAll(factory.getRules());
@@ -121,17 +121,48 @@ public class DigesterConfigurationFactoryCompleteConfigurationTest extends TestC
         assertEquals("com.seventytwomiles.pagerank.core.services", rule2.getViolations().toArray()[0].toString());
         assertEquals("com.seventytwomiles.pagerank.core.builder", rule2.getViolations().toArray()[1].toString());
         assertEquals("com.seventytwomiles.pagerank.util", rule2.getViolations().toArray()[2].toString());
+    }
 
-        /**
-         * Test should perform cyclicalDependency
-         * The default is true, so the configuration should make it false.
-         */
-        assertFalse(factory.doCyclicDependencyTest());
 
-        /**
-         * Test no-packages
-         * The default is false, so the configuration should make it true.
-         */
-        assertTrue(factory.throwExceptionWhenNoPackages());
+    private void testProperties(final DigesterConfigurationFactory factory) {
+
+        final Properties properties = new Properties();
+        properties.putAll(factory.getProperties());
+
+        assertEquals(3, properties.size());
+
+        assertTrue(properties.containsKey("example.property"));
+        assertEquals(properties.get("example.property").toString(), "example.value");
+
+        assertTrue(properties.containsKey("report.output.format"));
+        assertEquals(properties.get("report.output.format").toString(), "xml");
+
+        assertTrue(properties.containsKey("report.output.directory"));
+        assertEquals(properties.get("report.output.directory").toString(), "target/architecture");
+    }
+
+
+    private void testSources(final DigesterConfigurationFactory factory) {
+
+        final List sources = new ArrayList();
+        sources.addAll(factory.getSources());
+
+        assertEquals(4, sources.size());
+
+        final SourceDirectory source0 = (SourceDirectory) sources.get(0);
+        assertEquals("parent-pom" + File.separator + "target" + File.separator + "classes", source0.getPath());
+        assertFalse(source0.shouldThrowExceptionWhenNotFound());
+
+        final SourceDirectory source1 = (SourceDirectory) sources.get(1);
+        assertEquals("util" + File.separator + "target" + File.separator + "classes", source1.getPath());
+        assertTrue(source1.shouldThrowExceptionWhenNotFound());
+
+        final SourceDirectory source2 = (SourceDirectory) sources.get(2);
+        assertEquals("web" + File.separator + "target" + File.separator + "classes", source2.getPath());
+        assertFalse(source2.shouldThrowExceptionWhenNotFound());
+
+        final SourceDirectory source3 = (SourceDirectory) sources.get(3);
+        assertEquals("core" + File.separator + "target" + File.separator + "classes", source3.getPath());
+        assertFalse(source3.shouldThrowExceptionWhenNotFound());
     }
 }

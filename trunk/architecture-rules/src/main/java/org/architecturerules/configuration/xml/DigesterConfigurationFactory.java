@@ -69,7 +69,7 @@ public class DigesterConfigurationFactory extends AbstractConfigurationFactory {
         loadConfigurationFromFile(defaultFileName);
 
         /* load the user's settings into the configuration which may or maynot override the defautl settings*/
-        String userFileName = fileName;
+        final String userFileName = fileName;
         loadConfigurationFromFile(userFileName);
     }
 

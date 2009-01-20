@@ -1,8 +1,6 @@
 package org.architecturerules.mojo;
 
 
-import junit.framework.TestCase;
-
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -14,10 +12,11 @@ import javassist.NotFoundException;
 
 import javax.management.ServiceNotFoundException;
 
+import junit.framework.TestCase;
+
 import org.apache.commons.io.IOUtils;
 import org.apache.maven.plugin.logging.Log;
 import org.apache.maven.project.MavenProject;
-
 import org.architecturerules.api.configuration.ConfigurationFactory;
 import org.architecturerules.api.services.CyclicRedundancyService;
 import org.architecturerules.api.services.RulesService;
@@ -45,10 +44,9 @@ public class MojoArchitectureRulesConfigurationTest extends TestCase {
     private final class FallbackDigesterConfigurationFactory extends DigesterConfigurationFactory {
 
         /**
-         * @param configurationFileName not used actually
          */
-        public FallbackDigesterConfigurationFactory(final String configurationFileName) {
-            super(configurationFileName);
+        public FallbackDigesterConfigurationFactory() {
+            super("");
         }
 
         @Override
@@ -94,7 +92,7 @@ public class MojoArchitectureRulesConfigurationTest extends TestCase {
             factory = new DigesterConfigurationFactory(file.getAbsolutePath());
         } catch (IllegalArgumentException e) {
 
-            factory = new FallbackDigesterConfigurationFactory("");
+            factory = new FallbackDigesterConfigurationFactory();
         }
 
         final boolean doCyclesTest = factory.doCyclicDependencyTest();

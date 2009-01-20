@@ -3,7 +3,7 @@
 <architecture>
     <configuration>
         <sources no-packages="exception">
-            <source not-found="exception">target/classes</source>
+            <source not-found="ignore">target/classes</source>
         </sources>
     </configuration>
     <rules></rules>

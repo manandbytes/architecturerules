@@ -1,0 +1,96 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.architecturerules</groupId>
+    <artifactId>architecture-rules-parent</artifactId>
+    <packaging>pom</packaging>
+    <version>1</version>
+    <name>Architecture Rules Parent Project</name>
+    <url>http://architecturerules.googlecode.com/</url>
+    <inceptionYear>2007, 2008</inceptionYear>
+    <issueManagement>
+        <system>Google Code</system>
+        <url>http://code.google.com/p/architecturerules/issues/</url>
+    </issueManagement>
+    <scm>
+        <connection>scm:svn:http://architecturerules.googlecode.com/svn/trunk/${artifactId}/</connection>
+        <developerConnection>scm:svn:https://architecturerules.googlecode.com/svn/trunk/${artifactId}/
+        </developerConnection>
+        <url>http://architecturerules.googlecode.com/svn/trunk/${artifactId}/</url>
+    </scm>
+    <developers>
+        <developer>
+            <id>mnereson</id>
+            <name>mikenereson</name>
+            <email>mikenereson@gmail.com</email>
+            <roles>
+                <role>project leader</role>
+                <role>commiter</role>
+            </roles>
+        </developer>
+        <developer>
+            <name>mykola.nickishov</name>
+            <roles>
+                <role>project member</role>
+                <role>commiter</role>
+            </roles>
+        </developer>
+    </developers>
+    <contributors>
+        <contributor>
+            <name>axel</name>
+            <roles>
+                <role>contributor</role>
+                <role>commiter</role>
+            </roles>
+        </contributor>
+        <contributor>
+            <name>luminary</name>
+            <roles>
+                <role>contributor</role>
+                <role>commiter</role>
+            </roles>
+        </contributor>
+    </contributors>
+    <mailingLists>
+        <mailingList>
+            <name>User List</name>
+            <post>architecture-rules-users@googlegroups.com</post>
+            <archive>http://groups.google.com/group/architecture-rules-users
+            </archive>
+            <subscribe>
+                http://groups.google.com/group/architecture-rules-users/subscribe
+            </subscribe>
+        </mailingList>
+        <mailingList>
+            <name>Dev List</name>
+            <post>architecture-rules-dev@googlegroups.com</post>
+            <archive>http://groups.google.com/group/architecture-rules-dev
+            </archive>
+            <subscribe>
+                http://groups.google.com/group/architecture-rules-dev/subscribe
+            </subscribe>
+        </mailingList>
+        <mailingList>
+            <name>Activity List</name>
+            <post>architecture-rules-activity@googlegroups.com</post>
+            <archive>http://groups.google.com/group/architecture-rules-activity
+            </archive>
+            <subscribe>
+                http://groups.google.com/group/architecture-rules-activity/subscribe
+            </subscribe>
+        </mailingList>
+    </mailingLists>
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>manual</distribution>
+        </license>
+    </licenses>
+    <modules>
+        <module>architecture-rules</module>
+        <module>architecture-rules-ant</module>
+        <module>architecture-rules-maven-plugin</module>
+    </modules>
+</project>

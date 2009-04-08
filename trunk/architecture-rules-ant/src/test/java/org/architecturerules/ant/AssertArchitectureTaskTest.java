@@ -52,9 +52,10 @@ public class AssertArchitectureTaskTest extends TestCase {
 
             task.setConfigurationFileName("ant-architecture-rules.xml");
             task.execute();
-        } catch (Exception e) {
+            fail(CyclicRedundancyException.class.getName() + " not thrown");
+        } catch (CyclicRedundancyException e) {
 
-            assertTrue(e instanceof CyclicRedundancyException);
+            // it's expected
         }
     }
 
@@ -66,9 +67,9 @@ public class AssertArchitectureTaskTest extends TestCase {
 
             task.execute();
             fail("expected IllegalStateException");
-        } catch (Exception e) {
+        } catch (IllegalStateException e) {
 
-            assertTrue(e instanceof IllegalStateException);
+            // it's expected
         }
 
         try {

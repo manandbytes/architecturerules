@@ -82,7 +82,21 @@ public class AbstractConfigurationFactoryTest extends TestCase {
     }
 
 
-    public void testGetConfigurationAsXml_absolutePath() {
+    public void testGetConfigurationAsXmlWithAbsolutePathNotExist() {
+
+        try {
+
+            final File file = new File("some-file-that-does-not-exist.xml");
+            final String filepath = file.getAbsolutePath();
+            factory.getConfigurationAsXml(filepath);
+
+            fail("expected IllegalArgumentException because input file does not exist");
+        } catch (IllegalArgumentException e) {
+
+            /* success */
+        }
+    }
+    public void testGetConfigurationAsXmlAbsolutePath() {
 
         final ClassLoader classLoader = getClass().getClassLoader();
 
@@ -95,18 +109,6 @@ public class AbstractConfigurationFactoryTest extends TestCase {
         } catch (IOException e) {
 
             fail("could not locate architecture-rules.xml which was expected to exist");
-        }
-
-        try {
-
-            final File file = new File("some-file-that-does-not-exist.xml");
-            final String filepath = file.getAbsolutePath();
-            factory.getConfigurationAsXml(filepath);
-
-            fail("expected IllegalArgumentException because input file does not exist");
-        } catch (IllegalArgumentException e) {
-
-            /* success */
         }
     }
 }

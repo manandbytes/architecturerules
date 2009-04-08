@@ -72,6 +72,10 @@ public class AssertArchitectureTaskTest extends TestCase {
             // it's expected
         }
 
+    }
+
+
+    public void testExecuteWithNullConfig() {
         try {
 
             task.setConfigurationFileName(null);
@@ -81,14 +85,15 @@ public class AssertArchitectureTaskTest extends TestCase {
 
             assertTrue(e instanceof IllegalStateException);
         }
-
+    }
+    public void testExecuteWithEmptyConfig() {
         try {
-
+            
             task.setConfigurationFileName("");
             task.execute();
             fail("expected IllegalStateException");
         } catch (Exception e) {
-
+            
             assertTrue(e instanceof IllegalStateException);
         }
     }

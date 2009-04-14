@@ -116,15 +116,6 @@
                     <linkJavadoc>true</linkJavadoc>
                 </configuration>
             </plugin>
-             <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>findbugs-maven-plugin</artifactId>
-                <version>1.2</version>
-                   <configuration>
-                      <findbugsXmlOutput>true</findbugsXmlOutput>
-                      <xmlOutput>true</xmlOutput>
-                   </configuration>
-            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>

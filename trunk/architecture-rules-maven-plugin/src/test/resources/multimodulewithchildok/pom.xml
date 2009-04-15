@@ -39,7 +39,7 @@
             <plugin>
                 <groupId>org.architecturerules</groupId>
                 <artifactId>maven-architecture-rules-plugin</artifactId>
-                <version>0.0-it-SNAPSHOT</version>
+                <version>@project.version@</version>
                 <executions>
                     <execution>
                         <phase>test</phase>
@@ -57,7 +57,7 @@
             <plugin>
                 <groupId>org.architecturerules</groupId>
                 <artifactId>maven-architecture-rules-plugin</artifactId>
-                <version>0.0-it-SNAPSHOT</version>
+                <version>@project.version@</version>
             </plugin>
         </plugins>
     </reporting>

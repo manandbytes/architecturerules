@@ -17,7 +17,7 @@
             <plugin>
                 <groupId>org.architecturerules</groupId>
                 <artifactId>maven-architecture-rules-plugin</artifactId>
-                <version>0.0-it-SNAPSHOT</version>
+                <version>@project.version@</version>
                 <configuration />
                 <executions>
                     <execution>

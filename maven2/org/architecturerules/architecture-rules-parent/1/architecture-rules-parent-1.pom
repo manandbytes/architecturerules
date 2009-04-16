@@ -88,6 +88,39 @@
             <distribution>manual</distribution>
         </license>
     </licenses>
+    <reporting>
+      <plugins>
+	<plugin>
+	  <groupId>org.codehaus.mojo</groupId>
+	  <artifactId>findbugs-maven-plugin</artifactId>
+	  <version>1.2</version>
+	  <configuration>
+	    <findbugsXmlOutput>true</findbugsXmlOutput>
+	    <xmlOutput>true</xmlOutput>
+	  </configuration>
+	</plugin>
+      </plugins>
+    </reporting>
+    <build>
+      <extensions>
+	<extension>
+	  <groupId>org.apache.maven.wagon</groupId>
+	  <artifactId>wagon-webdav</artifactId>
+	</extension>
+      </extensions>
+    </build>
+    <distributionManagement>
+      <repository>
+	<id>release.a-r.googlecode</id>
+	<name>@GoogleCode</name>
+	<url>dav:https://architecturerules.googlecode.com/svn/maven2/</url>
+      </repository>
+      <snapshotRepository>
+	<id>snapshot.a-r.googlecode</id>
+	<name>@GoogleCode</name>
+	<url>dav:https://architecturerules.googlecode.com/svn/maven2/</url>
+      </snapshotRepository>
+    </distributionManagement>
     <modules>
         <module>architecture-rules</module>
         <module>architecture-rules-ant</module>

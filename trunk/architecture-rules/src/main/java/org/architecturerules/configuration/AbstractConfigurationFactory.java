@@ -15,10 +15,18 @@ package org.architecturerules.configuration;
 
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.*;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Properties;
+import java.util.Set;
 
-import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.IOUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
@@ -248,6 +256,7 @@ public abstract class AbstractConfigurationFactory implements ConfigurationFacto
     protected String getConfigurationAsXml(final String configurationFileName) {
 
         File file = new File(configurationFileName);
+        InputStream stream = null;
 
         if (!file.exists()) {
 
@@ -267,26 +276,27 @@ public abstract class AbstractConfigurationFactory implements ConfigurationFacto
 
             try {
 
-                file = resource.getFile();
+                stream = resource.getInputStream();
             } catch (IOException e) {
 
-                throw new IllegalArgumentException("could not locate resource " + configurationFileName + " from classpath. File not found.");
+                throw new IllegalArgumentException("could not locate resource " + configurationFileName + " from classpath. File not found.", e);
             }
         }
 
-        final String xml;
-
         try {
 
-            xml = FileUtils.readFileToString(file, null);
+            if (stream == null) {
+
+                stream = new FileInputStream(file);
+            }
+
+            return IOUtils.toString(stream);
         } catch (final IOException e) {
 
             final String path = file.getAbsolutePath();
 
-            throw new IllegalArgumentException("could not load configuration from " + path);
+            throw new IllegalArgumentException("could not load configuration from " + path, e);
         }
-
-        return xml;
     }
 
 

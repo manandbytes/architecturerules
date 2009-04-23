@@ -17,6 +17,7 @@ package org.architecturerules.configuration;
 import junit.framework.TestCase;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import org.springframework.core.io.ClassPathResource;
@@ -64,7 +65,7 @@ public class AbstractConfigurationFactoryTest extends TestCase {
     }
 
 
-    public void testGetConfigurationAsXml_classPathResource() {
+    public void testGetConfigurationAsXmlFromClassPathResource() {
 
         final String xml;
 
@@ -82,33 +83,29 @@ public class AbstractConfigurationFactoryTest extends TestCase {
     }
 
 
-    public void testGetConfigurationAsXmlWithAbsolutePathNotExist() {
+    public void testGetConfigurationAsXmlFromNotExistedAbsolutePath()
+            throws FileNotFoundException {
 
         try {
 
             final File file = new File("some-file-that-does-not-exist.xml");
             final String filepath = file.getAbsolutePath();
             factory.getConfigurationAsXml(filepath);
-
-            fail("expected IllegalArgumentException because input file does not exist");
         } catch (IllegalArgumentException e) {
 
             /* success */
         }
     }
-    public void testGetConfigurationAsXmlAbsolutePath() {
+
+
+    public void testGetConfigurationAsXmlFromAbsolutePath()
+            throws IOException {
 
         final ClassLoader classLoader = getClass().getClassLoader();
 
         final ClassPathResource resource = new ClassPathResource("architecture-rules.xml", classLoader);
 
-        try {
-
-            final String filepath = resource.getFile().getAbsolutePath();
-            factory.getConfigurationAsXml(filepath);
-        } catch (IOException e) {
-
-            fail("could not locate architecture-rules.xml which was expected to exist");
-        }
+        final String filepath = resource.getFile().getAbsolutePath();
+        factory.getConfigurationAsXml(filepath);
     }
 }

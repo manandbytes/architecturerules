@@ -101,6 +101,33 @@
 	</plugin>
       </plugins>
     </reporting>
+    <repositories>
+      <repository>
+	<id>java.net2</id>
+	<url>http://download.java.net/maven/2/</url>
+      </repository>
+    </repositories>
+    <build>
+      <extensions>
+	<extension>
+	  <groupId>org.jvnet.wagon-svn</groupId>
+	  <artifactId>wagon-svn</artifactId>
+	  <version>1.9</version>
+	</extension>
+      </extensions>
+    </build>
+    <distributionManagement>
+      <repository>
+	<id>release.a-r.googlecode</id>
+	<name>@GoogleCode</name>
+	<url>svn:https://architecturerules.googlecode.com/svn/maven2/</url>
+      </repository>
+      <snapshotRepository>
+	<id>snapshot.a-r.googlecode</id>
+	<name>@GoogleCode</name>
+	<url>svn:https://architecturerules.googlecode.com/svn/maven2/</url>
+      </snapshotRepository>
+    </distributionManagement>
     <modules>
         <module>architecture-rules</module>
         <module>architecture-rules-ant</module>

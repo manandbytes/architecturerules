@@ -112,6 +112,8 @@
                     </pomIncludes>
                     <postBuildHookScript>verify.bsh</postBuildHookScript>
 		    <streamLogs>true</streamLogs>
+                    <localRepositoryPath>${project.build.directory}/it-repository</localRepositoryPath>
+                    <settingsFile>src/test/resources/settings.xml</settingsFile>
                 </configuration>
                 <executions>
                     <execution>

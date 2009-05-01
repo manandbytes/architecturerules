@@ -115,9 +115,16 @@
                 </configuration>
                 <executions>
                     <execution>
-                        <phase>integration-test</phase>
+                        <id>pre-it</id>
+                        <phase>pre-integration-test</phase>
                         <goals>
                             <goal>install</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>it</id>
+                        <phase>integration-test</phase>
+                        <goals>
                             <goal>run</goal>
                         </goals>
                     </execution>

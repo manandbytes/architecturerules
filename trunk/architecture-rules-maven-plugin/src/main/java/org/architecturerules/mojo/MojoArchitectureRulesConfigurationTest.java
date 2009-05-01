@@ -1,6 +1,8 @@
 package org.architecturerules.mojo;
 
 
+import junit.framework.TestCase;
+
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -12,11 +14,10 @@ import javassist.NotFoundException;
 
 import javax.management.ServiceNotFoundException;
 
-import junit.framework.TestCase;
-
 import org.apache.commons.io.IOUtils;
 import org.apache.maven.plugin.logging.Log;
 import org.apache.maven.project.MavenProject;
+
 import org.architecturerules.api.configuration.ConfigurationFactory;
 import org.architecturerules.api.services.CyclicRedundancyService;
 import org.architecturerules.api.services.RulesService;

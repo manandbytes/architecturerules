@@ -89,17 +89,24 @@
         </license>
     </licenses>
     <reporting>
-      <plugins>
-	<plugin>
-	  <groupId>org.codehaus.mojo</groupId>
-	  <artifactId>findbugs-maven-plugin</artifactId>
-	  <version>1.2</version>
-	  <configuration>
-	    <findbugsXmlOutput>true</findbugsXmlOutput>
-	    <xmlOutput>true</xmlOutput>
-	  </configuration>
-	</plugin>
-      </plugins>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>findbugs-maven-plugin</artifactId>
+                <version>1.2</version>
+                <configuration>
+                    <findbugsXmlOutput>true</findbugsXmlOutput>
+                    <xmlOutput>true</xmlOutput>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-pmd-plugin</artifactId>
+                <configuration>
+                    <targetJdk>1.5</targetJdk>
+                </configuration>
+            </plugin>
+        </plugins>
     </reporting>
     <repositories>
       <repository>

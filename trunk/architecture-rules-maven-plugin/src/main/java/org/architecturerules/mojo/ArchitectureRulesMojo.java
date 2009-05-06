@@ -1,6 +1,8 @@
 package org.architecturerules.mojo;
 
 
+import com.pyx4j.log4j.MavenLogAppender;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Collection;
@@ -90,73 +92,81 @@ public class ArchitectureRulesMojo extends AbstractMojo {
     public void execute()
             throws MojoExecutionException, MojoFailureException {
 
-        final Collection<CyclicRedundancyException> rulesExceptions = new LinkedList<CyclicRedundancyException>();
+        MavenLogAppender.startPluginLog(this);
 
-        final Log log = getLog();
+        try {
 
-        List<Resource> testResources;
-        MojoArchitectureRulesConfigurationTest test;
+            final Collection<CyclicRedundancyException> rulesExceptions = new LinkedList<CyclicRedundancyException>();
 
-        for (final MavenProject project : reactorProjects) {
+            final Log log = getLog();
 
-            if (log.isDebugEnabled()) {
+            List<Resource> testResources;
+            MojoArchitectureRulesConfigurationTest test;
 
-                log.debug("process " + project);
-            }
-
-            /**
-             * Skip the project resources, if the project is the parent
-             * project and the parent project should be skipped.
-             **/
-            final boolean isAggregated = !project.getModules().isEmpty() || "pom".equals(project.getPackaging());
-
-            if ((isAggregated && skipRoot) || (!isAggregated && skip)) {
+            for (final MavenProject project : reactorProjects) {
 
                 if (log.isDebugEnabled()) {
 
-                    log.debug("aggregated = " + isAggregated + "; skip " + project);
+                    log.debug("process " + project);
                 }
 
-                continue;
+                /**
+                 * Skip the project resources, if the project is the parent
+                 * project and the parent project should be skipped.
+                 **/
+                final boolean isAggregated = !project.getModules().isEmpty() || "pom".equals(project.getPackaging());
+
+                if ((isAggregated && skipRoot) || (!isAggregated && skip)) {
+
+                    if (log.isDebugEnabled()) {
+
+                        log.debug("aggregated = " + isAggregated + "; skip " + project);
+                    }
+
+                    continue;
+                }
+
+                testResources = project.getTestResources();
+                includeConfigurationFile(testResources);
+
+                File configFile;
+
+                try {
+
+                    configFile = findConfigurationFile(testResources, log);
+                } catch (FileNotFoundException e1) {
+
+                    log.warn(e1.getMessage());
+                    log.warn("fallback to use default config");
+
+                    configFile = new File(ConfigurationFactory.DEFAULT_CONFIGURATION_FILE_NAME);
+                }
+
+                test = new MojoArchitectureRulesConfigurationTest(configFile);
+                test.addSourcesFromThisProject(project, log);
+
+                try {
+
+                    test.testArchitecture();
+                } catch (CyclicRedundancyException e) {
+
+                    rulesExceptions.add(e);
+                }
             }
 
-            testResources = project.getTestResources();
-            includeConfigurationFile(testResources);
+            if (!rulesExceptions.isEmpty()) {
 
-            File configFile;
+                if (isFailOnError()) {
 
-            try {
+                    throw new MojoExecutionException(rulesExceptions, "", "");
+                } else {
 
-                configFile = findConfigurationFile(testResources, log);
-            } catch (FileNotFoundException e1) {
-
-                log.warn(e1.getMessage());
-                log.warn("fallback to use default config");
-
-                configFile = new File(ConfigurationFactory.DEFAULT_CONFIGURATION_FILE_NAME);
+                    getLog().warn(new ArchitectureException(rulesExceptions.toString()));
+                }
             }
+        } finally {
 
-            test = new MojoArchitectureRulesConfigurationTest(configFile);
-            test.addSourcesFromThisProject(project, log);
-
-            try {
-
-                test.testArchitecture();
-            } catch (CyclicRedundancyException e) {
-
-                rulesExceptions.add(e);
-            }
-        }
-
-        if (!rulesExceptions.isEmpty()) {
-
-            if (isFailOnError()) {
-
-                throw new MojoExecutionException(rulesExceptions, "", "");
-            } else {
-
-                getLog().warn(new ArchitectureException(rulesExceptions.toString()));
-            }
+            MavenLogAppender.endPluginLog(this);
         }
     }
 

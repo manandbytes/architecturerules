@@ -57,6 +57,11 @@
             <artifactId>doxia-sink-api</artifactId>
             <version>1.0-alpha-5</version>
         </dependency>
+	<dependency>
+	    <groupId>com.pyx4j</groupId>
+	    <artifactId>maven-plugin-log4j</artifactId>
+	    <version>1.0.1</version>
+	</dependency>
     </dependencies>
 
     <build>

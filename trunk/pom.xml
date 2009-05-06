@@ -21,7 +21,7 @@
     <developers>
         <developer>
             <id>mnereson</id>
-            <name>mikenereson</name>
+            <name>Mike Nereson</name>
             <email>mikenereson@gmail.com</email>
             <roles>
                 <role>project leader</role>
@@ -29,7 +29,9 @@
             </roles>
         </developer>
         <developer>
-            <name>mykola.nickishov</name>
+        	<id>mykola.nickishov</id>
+            <name>Mykola Nikishov</name>
+            <email>mn@mn.com.ua</email>
             <roles>
                 <role>project member</role>
                 <role>commiter</role>
@@ -106,7 +108,12 @@
                     <targetJdk>1.5</targetJdk>
                 </configuration>
             </plugin>
-        </plugins>
+	    <plugin>
+	        <groupId>org.apache.maven.plugins</groupId>
+		<artifactId>maven-jxr-plugin</artifactId>
+		<inherited>true</inherited>
+	    </plugin>
+	</plugins>
     </reporting>
     <repositories>
       <repository>
@@ -122,6 +129,29 @@
 	  <version>1.9</version>
 	</extension>
       </extensions>
+      <plugins>
+	<plugin>
+	  <groupId>org.apache.maven.plugins</groupId>
+	  <artifactId>maven-compiler-plugin</artifactId>
+	  <configuration>
+	    <source>1.5</source>
+	    <target>1.5</target>
+	  </configuration>
+	</plugin>
+	<plugin>
+	  <groupId>org.apache.maven.plugins</groupId>
+	  <artifactId>maven-source-plugin</artifactId>
+	  <executions>
+	    <execution>
+	      <phase>package</phase>
+	      <goals>
+		<goal>jar</goal>
+		<goal>test-jar</goal>
+	      </goals>
+	    </execution>
+	  </executions>
+	</plugin>
+      </plugins>
     </build>
     <distributionManagement>
       <repository>

@@ -67,14 +67,6 @@ public class ArchitectureRulesMojo extends AbstractMojo {
     private boolean skip;
 
     /**
-     * <p> Reference to the Maven project that is being tested. </p>
-     *
-     * @parameter expression="${project}"
-     * @readonly
-     */
-    private MavenProject mavenProject;
-
-    /**
      * <p> Reference to the Maven's reactor that is being tested. </p>
      *
      * @parameter expression="${reactorProjects}"

@@ -6,26 +6,18 @@ import junit.framework.TestCase;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Collection;
-import java.util.LinkedList;
 
 import javassist.ClassPool;
 import javassist.NotFoundException;
-
-import javax.management.ServiceNotFoundException;
 
 import org.apache.commons.io.IOUtils;
 import org.apache.maven.plugin.logging.Log;
 import org.apache.maven.project.MavenProject;
 
+import org.architecturerules.AbstractArchitectureRulesConfigurationTest;
 import org.architecturerules.api.configuration.ConfigurationFactory;
-import org.architecturerules.api.services.CyclicRedundancyService;
-import org.architecturerules.api.services.RulesService;
-import org.architecturerules.configuration.Configuration;
 import org.architecturerules.configuration.xml.DigesterConfigurationFactory;
 import org.architecturerules.domain.SourceDirectory;
-import org.architecturerules.services.CyclicRedundancyServiceImpl;
-import org.architecturerules.services.RulesServiceImpl;
 
 
 /**
@@ -35,7 +27,7 @@ import org.architecturerules.services.RulesServiceImpl;
  * @author mnereson
  * @see TestCase
  */
-public class MojoArchitectureRulesConfigurationTest extends TestCase {
+public class MojoArchitectureRulesConfigurationTest extends AbstractArchitectureRulesConfigurationTest {
 
     /**
      * @author mn
@@ -73,13 +65,6 @@ public class MojoArchitectureRulesConfigurationTest extends TestCase {
     }
 
     /**
-     * <p>Holds configuration settings</p>
-     *
-     * @paramater configuration Configuration
-     */
-    private final Configuration configuration = new Configuration();
-
-    /**
      * <p>todo: javadocs</p>
      *
      * @param file
@@ -98,9 +83,9 @@ public class MojoArchitectureRulesConfigurationTest extends TestCase {
 
         final boolean doCyclesTest = factory.doCyclicDependencyTest();
 
-        configuration.getRules().addAll(factory.getRules());
-        configuration.getSources().addAll(factory.getSources());
-        configuration.setDoCyclicDependencyTest(doCyclesTest);
+        getConfiguration().getRules().addAll(factory.getRules());
+        getConfiguration().getSources().addAll(factory.getSources());
+        getConfiguration().setDoCyclicDependencyTest(doCyclesTest);
     }
 
     /**
@@ -111,16 +96,11 @@ public class MojoArchitectureRulesConfigurationTest extends TestCase {
      */
     public void addSourcesFromThisProject(final MavenProject mavenProject, final Log log) {
 
-        final Collection<SourceDirectory> currentSources = new LinkedList<SourceDirectory>();
-
-        appendBaseDir(mavenProject.getBasedir());
-
-        String path = mavenProject.getBuild().getOutputDirectory();
-        SourceDirectory outputDirectory = new SourceDirectory(path);
+        SourceDirectory outputDirectory = new SourceDirectory(mavenProject.getBuild().getOutputDirectory());
 
         try {
 
-            currentSources.add(outputDirectory);
+            getConfiguration().getSources().add(outputDirectory);
             ClassPool.getDefault().appendPathList(outputDirectory.getPath());
 
             if (log.isDebugEnabled()) {
@@ -131,31 +111,6 @@ public class MojoArchitectureRulesConfigurationTest extends TestCase {
         } catch (NotFoundException e) {
 
             log.error(e);
-
-            // e.printStackTrace();
-        }
-    }
-
-
-    /**
-     * <p> Add the current project's base directory to all paths from the configuration file </p>
-     *
-     * <p> Configuration file uses relative paths from the root of the project. Invoking build not from the project's
-     * root directory (i.e. <code>mvn -f /some/pom.xml</code>) causes {@link ServiceNotFoundException}} </p>
-     *
-     * @param baseDir File
-     */
-    private void appendBaseDir(final File baseDir) {
-
-        Collection<SourceDirectory> sourcesFromConfig = configuration.getSources();
-
-        /**
-         * TODO: this loop setPath on baseDir +. What is it calling on
-         * baseDir? toString? lets be explicit in whatever it is...
-         */
-        for (SourceDirectory directory : sourcesFromConfig) {
-
-            directory.setPath(baseDir + File.separator + directory.getPath());
         }
     }
 
@@ -163,17 +118,9 @@ public class MojoArchitectureRulesConfigurationTest extends TestCase {
     /**
      * <p>todo: javadocs</p>
      */
+    @Override
     public void testArchitecture() {
 
-        final RulesService rulesService = new RulesServiceImpl(configuration);
-
-        rulesService.performRulesTest();
-
-        if (configuration.shouldDoCyclicDependencyTest()) {
-
-            final CyclicRedundancyService redundancyService = new CyclicRedundancyServiceImpl(configuration);
-
-            redundancyService.performCyclicRedundancyCheck();
-        }
+        doTests();
     }
 }

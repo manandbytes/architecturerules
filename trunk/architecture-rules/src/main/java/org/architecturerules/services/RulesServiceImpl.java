@@ -84,18 +84,11 @@ public class RulesServiceImpl extends AbstractArchitecturalRules implements Rule
 
             configuration.onBeginRuleTest(rule);
 
-            try {
+            final Collection<JPackage> packages = rule.getPackages();
 
-                final Collection<JPackage> packages = rule.getPackages();
+            for (final JPackage packageName : packages) {
 
-                for (final JPackage packageName : packages) {
-
-                    testLayeringValid(packageName, rule.getViolations(), rule);
-                }
-            } catch (final DependencyConstraintException e) {
-
-                /* just creates a more descriptive message which identifies the rule by its id */
-                throw new DependencyConstraintException("rule " + rule.getId() + " failed: " + e.getMessage());
+                testLayeringValid(packageName, rule.getViolations(), rule);
             }
 
             configuration.onEndRuleTest(rule);

@@ -240,8 +240,7 @@ abstract class AbstractArchitecturalRules {
 
                     configuration.onPackageDependencyViolationDiscovered(ruleReference, analyzedPackageName, dependencyPackageName);
 
-                    final String message = String.format("%s is not allowed to depend on %s", analyzedPackageName, dependencyPackageName);
-                    throw new DependencyConstraintException(message);
+                    throw new DependencyConstraintException(ruleReference.getId(), analyzedPackageName, dependencyPackageName, null);
                 }
             }
         }

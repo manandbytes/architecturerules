@@ -23,47 +23,65 @@ package org.architecturerules.exceptions;
  */
 public class DependencyConstraintException extends ArchitectureException {
 
-    /**
-     * @see RuntimeException#RuntimeException()
-     */
-    public DependencyConstraintException() {
-        super("dependency constraint");
-    }
-
-
-    /**
-     * @see RuntimeException#RuntimeException(String)
-     */
-    public DependencyConstraintException(final String message) {
-        super(message);
-    }
-
-
-    /**
-     * @see RuntimeException#RuntimeException(Throwable)
-     */
-    public DependencyConstraintException(final Throwable cause) {
-        super("dependency constraint", cause);
-    }
-
-
-    /**
-     * @see RuntimeException#RuntimeException(String,Throwable)
-     */
-    public DependencyConstraintException(final String message, final Throwable cause) {
-        super(message, cause);
-    }
-
+    private String analyzedPackage;
+    private String packages;
+    private String ruleId;
 
     /**
      * <p>Reports which <code>Rule</code> was broken, by its <tt>id</tt>, and what packages that <code>Rule</code>
      * governs.</p>
      *
-     * @param ruleId String id of the <code>Rule</code> that was violated.
+     * @param aRuleId String id of the <code>Rule</code> that was violated.
      * @param packages String listing each package constrained by the violated <code>Rule</code>
      * @param cause Throwable any exception that was thrown
+     * @param anAnalyzedPackage name of the package under govern
      */
-    public DependencyConstraintException(final String ruleId, final String packages, final Throwable cause) {
-        this("dependency constraint failed in '{id}' rule which constrains packages '{efferent}'".replaceAll("\\{id}", ruleId).replaceAll("\\{efferent}", packages.trim()).replaceAll("\\[", "").replaceAll("\\]", ""), cause);
+    public DependencyConstraintException(String aRuleId, String anAnalyzedPackage, String packages, final Throwable cause) {
+        super(cause);
+        setRuleId(aRuleId);
+        setAnalyzedPackage(anAnalyzedPackage);
+        setPackages(packages);
+    }
+
+    @Override
+    public String getMessage() {
+
+        return String.format("dependency constraint failed in '%s' rule which constrains packages '%s'", getRuleId(), getPackages().trim());
+    }
+
+
+    private void setAnalyzedPackage(String analyzedPackage) {
+
+        this.analyzedPackage = analyzedPackage;
+    }
+
+
+    public String getAnalyzedPackage() {
+
+        return analyzedPackage;
+    }
+
+
+    private void setPackages(String dependendentPackage) {
+
+        this.packages = dependendentPackage;
+    }
+
+
+    public String getPackages() {
+
+        return packages;
+    }
+
+
+    private void setRuleId(String ruleId) {
+
+        this.ruleId = ruleId;
+    }
+
+
+    private String getRuleId() {
+
+        return ruleId;
     }
 }

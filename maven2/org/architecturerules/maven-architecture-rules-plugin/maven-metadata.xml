@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<metadata>
+<metadata xsi:schemaLocation="http://maven.apache.org/METADATA/1.0.0 http://maven.apache.org/xsd/metadata-1.0.0.xsd" xmlns="http://maven.apache.org/METADATA/1.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <groupId>org.architecturerules</groupId>
   <artifactId>maven-architecture-rules-plugin</artifactId>
   <version>0.1-SNAPSHOT</version>
   <versioning>
+    <latest>0.1-SNAPSHOT</latest>
     <versions>
       <version>0.1-SNAPSHOT</version>
     </versions>
-    <lastUpdated>20090120003026</lastUpdated>
+    <lastUpdated>20090511123653</lastUpdated>
   </versioning>
 </metadata>

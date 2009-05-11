@@ -21,7 +21,7 @@
     <developers>
         <developer>
             <id>mnereson</id>
-            <name>mikenereson</name>
+            <name>Mike Nereson</name>
             <email>mikenereson@gmail.com</email>
             <roles>
                 <role>project leader</role>
@@ -29,7 +29,9 @@
             </roles>
         </developer>
         <developer>
-            <name>mykola.nickishov</name>
+        	<id>mykola.nickishov</id>
+            <name>Mykola Nikishov</name>
+            <email>mn@mn.com.ua</email>
             <roles>
                 <role>project member</role>
                 <role>commiter</role>
@@ -89,17 +91,29 @@
         </license>
     </licenses>
     <reporting>
-      <plugins>
-	<plugin>
-	  <groupId>org.codehaus.mojo</groupId>
-	  <artifactId>findbugs-maven-plugin</artifactId>
-	  <version>1.2</version>
-	  <configuration>
-	    <findbugsXmlOutput>true</findbugsXmlOutput>
-	    <xmlOutput>true</xmlOutput>
-	  </configuration>
-	</plugin>
-      </plugins>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>findbugs-maven-plugin</artifactId>
+                <version>1.2</version>
+                <configuration>
+                    <findbugsXmlOutput>true</findbugsXmlOutput>
+                    <xmlOutput>true</xmlOutput>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-pmd-plugin</artifactId>
+                <configuration>
+                    <targetJdk>1.5</targetJdk>
+                </configuration>
+            </plugin>
+	    <plugin>
+	        <groupId>org.apache.maven.plugins</groupId>
+		<artifactId>maven-jxr-plugin</artifactId>
+		<inherited>true</inherited>
+	    </plugin>
+	</plugins>
     </reporting>
     <repositories>
       <repository>
@@ -108,11 +122,58 @@
       </repository>
     </repositories>
     <build>
+      <plugins>
+	<plugin>
+	  <groupId>org.apache.maven.plugins</groupId>
+	  <artifactId>maven-compiler-plugin</artifactId>
+	  <configuration>
+	    <source>1.5</source>
+	    <target>1.5</target>
+	  </configuration>
+	</plugin>
+	<plugin>
+		<groupId>org.apache.maven.plugins</groupId>
+		<artifactId>maven-dependency-plugin</artifactId>
+	</plugin>
+	<plugin>
+	  <groupId>org.apache.maven.plugins</groupId>
+	  <artifactId>maven-source-plugin</artifactId>
+	  <executions>
+	    <execution>
+	      <phase>package</phase>
+	      <goals>
+		<goal>jar</goal>
+		<goal>test-jar</goal>
+	      </goals>
+	    </execution>
+	  </executions>
+	</plugin>
+	<plugin>
+		<groupId>org.apache.maven.plugins</groupId>
+		<artifactId>maven-surefire-plugin</artifactId>
+		<version>2.4.2</version>
+	</plugin>
+      </plugins>
       <extensions>
 	<extension>
-	  <groupId>org.jvnet.wagon-svn</groupId>
-	  <artifactId>wagon-svn</artifactId>
-	  <version>1.9</version>
+	  <groupId>org.apache.maven.wagon</groupId>
+	  <artifactId>wagon-scm</artifactId>
+	  <version>1.0-beta-5</version>
+	</extension>
+	<extension>
+	  <groupId>org.apache.maven.scm</groupId>
+	  <artifactId>maven-scm-manager-plexus</artifactId>
+	  <version>1.2</version>
+	</extension>
+	<extension>
+	  <groupId>org.apache.maven.scm</groupId>
+	  <artifactId>maven-scm-provider-svnexe</artifactId>
+	  <version>1.0</version>
+	</extension>
+	<extension>
+	  <groupId>org.apache.maven.scm</groupId>
+	  <artifactId>maven-scm-provider-svn</artifactId>
+	  <version>1.0-beta-2</version>
 	</extension>
       </extensions>
     </build>
@@ -120,12 +181,12 @@
       <repository>
 	<id>release.a-r.googlecode</id>
 	<name>@GoogleCode</name>
-	<url>svn:https://architecturerules.googlecode.com/svn/maven2/</url>
+	<url>scm:svn:https://architecturerules.googlecode.com/svn/maven2/</url>
       </repository>
       <snapshotRepository>
 	<id>snapshot.a-r.googlecode</id>
 	<name>@GoogleCode</name>
-	<url>svn:https://architecturerules.googlecode.com/svn/maven2/</url>
+	<url>scm:svn:https://architecturerules.googlecode.com/svn/maven2/</url>
       </snapshotRepository>
     </distributionManagement>
     <modules>

@@ -15,6 +15,7 @@ package org.architecturerules.services;
 
 
 import jdepend.framework.JDepend;
+import jdepend.framework.JavaClass;
 import jdepend.framework.JavaPackage;
 
 import java.io.File;
@@ -240,9 +241,31 @@ abstract class AbstractArchitecturalRules {
 
                     configuration.onPackageDependencyViolationDiscovered(ruleReference, analyzedPackageName, dependencyPackageName);
 
-                    throw new DependencyConstraintException(ruleReference.getId(), analyzedPackageName, dependencyPackageName, null);
+                    final String ruleId = ruleReference.getId();
+                    final Collection<String> listOfClasses = buildListOfClasses(ruleReference, jPackage, efferent);
+                    throw new DependencyConstraintException(ruleId, dependencyPackageName, listOfClasses, null);
                 }
             }
         }
+    }
+
+
+    /**
+     * just copy-n-pasted
+     * <code>org.architecturerules.services.CyclicRedundancyServiceImpl.buildListOfClasses(JavaPackage, JavaPackage)</code>
+     * method from {@link CyclicRedundancyServiceImpl}
+     * @param rule TODO
+     */
+    @SuppressWarnings("unchecked")
+    private Collection<String> buildListOfClasses(Rule rule, final JavaPackage javaPackage, final JavaPackage dependency) {
+
+        Collection<JavaClass> classesInPackage1 = javaPackage.getClasses();
+
+        Collection<String> package1DependenciesOnPackage2 = JDependUtils.buildClasses(dependency.getName(), classesInPackage1);
+
+        Collection<JavaClass> classesInPackage2 = dependency.getClasses();
+        configuration.onPackageDependencyViolationDiscovered(rule, classesInPackage1.toString(), classesInPackage2.toString());
+
+        return package1DependenciesOnPackage2;
     }
 }

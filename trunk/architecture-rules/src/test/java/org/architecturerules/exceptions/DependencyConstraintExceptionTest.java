@@ -14,9 +14,16 @@
 package org.architecturerules.exceptions;
 
 
-import junit.framework.TestCase;
+import static junit.framework.Assert.*;
 
-import org.architecturerules.domain.Rule;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.LinkedList;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+import org.junit.runners.Parameterized.Parameters;
 
 
 /**
@@ -24,46 +31,48 @@ import org.architecturerules.domain.Rule;
  *
  * @author mikenereson
  */
-public class DependencyConstraintExceptionTest extends TestCase {
+@RunWith(Parameterized.class)
+public class DependencyConstraintExceptionTest {
 
-    public DependencyConstraintExceptionTest(final String name) {
-        super(name);
+    public DependencyConstraintExceptionTest(Throwable expectedRootCause) {
+
+        this.expectedRootCause = expectedRootCause;
     }
 
+    private static final LinkedList<String> AFFECTED_CLASSES = new LinkedList<String>(Arrays.asList("com.seventytwomiles.dao"));
+    private static final String SOME_RULE_ID = "dao";
+
+    @Test
     public void testInheritance() {
 
         assertTrue(ArchitectureException.class.isAssignableFrom(DependencyConstraintException.class));
     }
 
+    private Throwable expectedRootCause;
 
-    @SuppressWarnings({"ThrowableInstanceNeverThrown",
-        "ThrowableInstanceNeverThrown",
-        "ThrowableInstanceNeverThrown"
-    })
+    @Parameters
+    public static Collection<Object[]> buildParameters() {
+
+        return Arrays.asList(new Object[][] {
+                                 {
+                                     new IllegalArgumentException()
+                                 },
+                                 {
+                                     null
+                                 }
+                             });
+    }
+
+
+    @Test
     public void testInterestingConstructors() {
 
-        DependencyConstraintException exception;
-        String message;
-        Throwable cause;
+        DependencyConstraintException exception = new DependencyConstraintException(SOME_RULE_ID, "", AFFECTED_CLASSES, expectedRootCause);
 
-        final Rule rule = new Rule();
-        rule.setId("dao");
-        rule.setComment("dao layer");
-        assertTrue(rule.addPackage("com.seventytwomiles.dao"));
-        rule.addViolation("com.seventytwomiles.web.controllers");
+        String message = exception.getMessage();
+        assertEquals("dependency constraint failed in 'dao' rule: package '' should not be imported by [com.seventytwomiles.dao]", message);
 
-        exception = new DependencyConstraintException(rule.getId(), "", rule.describePackages(), null);
-        message = exception.getMessage();
-        cause = exception.getCause();
-
-        assertEquals("dependency constraint failed in 'dao' rule which constrains packages 'com.seventytwomiles.dao'", message);
-        assertEquals(null, cause);
-
-        exception = new DependencyConstraintException(rule.getId(), "", rule.describePackages(), new IllegalArgumentException());
-        message = exception.getMessage();
-        cause = exception.getCause();
-
-        assertEquals("dependency constraint failed in 'dao' rule which constrains packages 'com.seventytwomiles.dao'", message);
-        assertTrue(cause instanceof IllegalArgumentException);
+        Throwable cause = exception.getCause();
+        assertEquals(expectedRootCause, cause);
     }
 }

@@ -17,7 +17,12 @@ package org.architecturerules.services;
 import jdepend.framework.JavaClass;
 import jdepend.framework.JavaPackage;
 
-import java.util.*;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -36,6 +41,10 @@ import org.architecturerules.exceptions.SourceNotFoundException;
  * @see AbstractArchitecturalRules
  */
 public class CyclicRedundancyServiceImpl extends AbstractArchitecturalRules implements CyclicRedundancyService {
+
+    private static final String CHAR_92 = new String(new char[] {
+                                                         92
+                                                     });
 
     /**
      * <p>To log with. See <tt>log4j.xml</tt>.</p>
@@ -248,41 +257,16 @@ public class CyclicRedundancyServiceImpl extends AbstractArchitecturalRules impl
         Collection<JavaClass> classesInPackage1 = javaPackage.getClasses();
         Collection<JavaClass> classesInPackage2 = dependency.getClasses();
 
-        Collection<String> package1DependenciesOnPackage2 = new ArrayList<String>();
-        Collection<String> package2DependenciesOnPackage1 = new ArrayList<String>();
+        Collection<String> package1DependenciesOnPackage2 = JDependUtils.buildClasses(package2, classesInPackage1);
 
-        for (JavaClass javaClass : classesInPackage1) {
-
-            if (javaClass.getImportedPackages().contains(new JavaPackage(package2))) {
-
-                package1DependenciesOnPackage2.add(javaClass.getSourceFile());
-            }
-        }
-
-        for (JavaClass javaClass : classesInPackage2) {
-
-            if (javaClass.getImportedPackages().contains(new JavaPackage(package1))) {
-
-                package2DependenciesOnPackage1.add(javaClass.getSourceFile());
-            }
-        }
+        Collection<String> package2DependenciesOnPackage1 = JDependUtils.buildClasses(package1, classesInPackage2);
 
         configuration.onCyclicDependencyDiscovered(package1, package1DependenciesOnPackage2, package2, package2DependenciesOnPackage1);
 
-        final StringBuffer listOfClasses = new StringBuffer();
-
-        for (String javaClassName : package1DependenciesOnPackage2) {
-
-            listOfClasses.append("\t|\t");
-            listOfClasses.append(" |-- @ ");
-            listOfClasses.append(javaClassName);
-            listOfClasses.append("\n");
-        }
+        final StringBuffer listOfClasses = JDependUtils.prettyPrintListOfClasses(package1DependenciesOnPackage2);
 
         listOfClasses.append("\t|\t    ");
-        listOfClasses.append(new String(new char[] {
-                                            92
-                                        }));
+        listOfClasses.append(CHAR_92);
         listOfClasses.append(" while ");
         listOfClasses.append("\n");
 
@@ -296,9 +280,7 @@ public class CyclicRedundancyServiceImpl extends AbstractArchitecturalRules impl
 
         listOfClasses.append("\t|\t");
         listOfClasses.append("       ");
-        listOfClasses.append(new String(new char[] {
-                                            92
-                                        }));
+        listOfClasses.append(CHAR_92);
         listOfClasses.append(" depends on ");
         listOfClasses.append(package1);
 

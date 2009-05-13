@@ -14,6 +14,10 @@
 package org.architecturerules.exceptions;
 
 
+import java.util.Collection;
+
+import org.architecturerules.domain.Rule;
+
 
 /**
  * <p>Exception to be thrown when any <code>Rule</code> fails, that is to say, the rule is violoated.</p>
@@ -24,29 +28,29 @@ package org.architecturerules.exceptions;
 public class DependencyConstraintException extends ArchitectureException {
 
     private String analyzedPackage;
-    private String packages;
+    private Collection<String> classes;
     private String ruleId;
 
     /**
-     * <p>Reports which <code>Rule</code> was broken, by its <tt>id</tt>, and what packages that <code>Rule</code>
+     * <p>Reports which {@link Rule} was broken, by its <tt>id</tt>, and what packages that <code>Rule</code>
      * governs.</p>
      *
      * @param aRuleId String id of the <code>Rule</code> that was violated.
-     * @param packages String listing each package constrained by the violated <code>Rule</code>
-     * @param cause Throwable any exception that was thrown
      * @param anAnalyzedPackage name of the package under govern
+     * @param classes String listing each package constrained by the violated <code>Rule</code>
+     * @param cause Throwable any exception that was thrown
      */
-    public DependencyConstraintException(String aRuleId, String anAnalyzedPackage, String packages, final Throwable cause) {
+    public DependencyConstraintException(String aRuleId, String anAnalyzedPackage, Collection<String> classes, final Throwable cause) {
         super(cause);
         setRuleId(aRuleId);
         setAnalyzedPackage(anAnalyzedPackage);
-        setPackages(packages);
+        setClasses(classes);
     }
 
     @Override
     public String getMessage() {
 
-        return String.format("dependency constraint failed in '%s' rule which constrains packages '%s'", getRuleId(), getPackages().trim());
+        return String.format("dependency constraint failed in '%s' rule: package '%s' should not be imported by %s", getRuleId(), getAnalyzedPackage().trim(), getClasses());
     }
 
 
@@ -62,15 +66,15 @@ public class DependencyConstraintException extends ArchitectureException {
     }
 
 
-    private void setPackages(String dependendentPackage) {
+    private void setClasses(Collection<String> affectedClasses) {
 
-        this.packages = dependendentPackage;
+        this.classes = affectedClasses;
     }
 
 
-    public String getPackages() {
+    public Collection<String> getClasses() {
 
-        return packages;
+        return classes;
     }
 
 

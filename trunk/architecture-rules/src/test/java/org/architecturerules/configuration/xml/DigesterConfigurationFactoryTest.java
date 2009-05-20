@@ -15,7 +15,6 @@ package org.architecturerules.configuration.xml;
 
 
 import java.io.File;
-import java.io.IOException;
 import java.util.*;
 
 import org.architecturerules.domain.Rule;
@@ -24,8 +23,6 @@ import org.architecturerules.exceptions.InvalidConfigurationException;
 import org.architecturerules.listeners.ExampleListener;
 import org.architecturerules.listeners.LoggerListener;
 
-import org.xml.sax.SAXException;
-
 
 /**
  * DigesterConfigurationFactory Tester.
@@ -33,6 +30,8 @@ import org.xml.sax.SAXException;
  * @author mikenereson
  */
 public class DigesterConfigurationFactoryTest extends AbstractDigesterTest {
+
+    private static final String THIS_FILE_DOES_NOT_EXIST_XML = "this_file_does_not_exist.xml";
 
     public DigesterConfigurationFactoryTest(final String name) {
         super(name);
@@ -43,12 +42,12 @@ public class DigesterConfigurationFactoryTest extends AbstractDigesterTest {
 
         try {
 
-            new DigesterConfigurationFactory("this_file_does_not_exist.xml");
+            new DigesterConfigurationFactory(THIS_FILE_DOES_NOT_EXIST_XML);
             fail("expected IllegalArgumentException");
         } catch (final Exception e) {
 
             assertTrue(e instanceof IllegalArgumentException);
-            assertEquals("could not load resource this_file_does_not_exist.xml " + "from classpath. File not found.", e.getMessage());
+            assertEquals("could not load resource " + THIS_FILE_DOES_NOT_EXIST_XML + " from classpath. File not found.", e.getMessage());
         }
     }
 

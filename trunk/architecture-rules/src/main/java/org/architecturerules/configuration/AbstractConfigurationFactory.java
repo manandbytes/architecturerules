@@ -34,8 +34,6 @@ import org.architecturerules.api.configuration.ConfigurationFactory;
 import org.architecturerules.domain.Rule;
 import org.architecturerules.domain.SourceDirectory;
 
-import org.springframework.core.io.ClassPathResource;
-
 
 /**
  * <p>Abstract Factory that provides common functionality for <code>ConfigurationFactory</code> implementations.</p>
@@ -267,19 +265,11 @@ public abstract class AbstractConfigurationFactory implements ConfigurationFacto
              */
             final ClassLoader classLoader = getClass().getClassLoader();
 
-            final ClassPathResource resource = new ClassPathResource(configurationFileName, classLoader);
+            stream = classLoader.getResourceAsStream(configurationFileName);
 
-            if (!resource.exists()) {
+            if (stream == null) {
 
                 throw new IllegalArgumentException("could not load resource " + configurationFileName + " from classpath. File not found.");
-            }
-
-            try {
-
-                stream = resource.getInputStream();
-            } catch (IOException e) {
-
-                throw new IllegalArgumentException("could not locate resource " + configurationFileName + " from classpath. File not found.", e);
             }
         }
 

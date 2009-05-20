@@ -105,6 +105,7 @@ public class AbstractConfigurationFactoryTest extends TestCase {
 
         final ClassPathResource resource = new ClassPathResource("architecture-rules.xml", classLoader);
 
+        // TODO find other ways to compute absolute path to configuration file
         final String filepath = resource.getFile().getAbsolutePath();
         factory.getConfigurationAsXml(filepath);
     }

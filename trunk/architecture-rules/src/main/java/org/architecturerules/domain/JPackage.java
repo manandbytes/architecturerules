@@ -1,5 +1,5 @@
 /**
- * Copyright 2007, 2008 the original author or authors.
+ * Copyright 2007 - 2009 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -9,17 +9,17 @@
  *
  * For more information visit
  *         http://wiki.architecturerules.org/ and
- *         http://blog.architecturerules.org
+ *         http://blog.architecturerules.org/
  */
 package org.architecturerules.domain;
 
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-
 import static java.lang.String.format;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 
 /**

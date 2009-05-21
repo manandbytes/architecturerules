@@ -1,5 +1,5 @@
 /**
- * Copyright 2007, 2008 the original author or authors.
+ * Copyright 2007 - 2009 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -9,14 +9,19 @@
  *
  * For more information visit
  *         http://wiki.architecturerules.org/ and
- *         http://blog.architecturerules.org
+ *         http://blog.architecturerules.org/
  */
 package org.architecturerules.configuration.xml;
 
 
+import java.io.IOException;
+import java.io.StringReader;
+import java.util.*;
+
 import org.apache.commons.digester.Digester;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+
 import org.architecturerules.api.configuration.ConfigurationFactory;
 import org.architecturerules.configuration.AbstractConfigurationFactory;
 import org.architecturerules.domain.CyclicDependencyConfiguration;
@@ -24,11 +29,8 @@ import org.architecturerules.domain.Rule;
 import org.architecturerules.domain.SourceDirectory;
 import org.architecturerules.domain.SourcesConfiguration;
 import org.architecturerules.exceptions.InvalidConfigurationException;
-import org.xml.sax.SAXException;
 
-import java.io.IOException;
-import java.io.StringReader;
-import java.util.*;
+import org.xml.sax.SAXException;
 
 
 /**

@@ -13,12 +13,12 @@
  *      http://blog.architecturerules.org/
  *
  */
-
 package org.architecturerules.ant;
 
 
 import org.apache.tools.ant.BuildException;
 import org.apache.tools.ant.Task;
+
 import org.architecturerules.api.configuration.ConfigurationFactory;
 import org.architecturerules.api.services.CyclicRedundancyService;
 import org.architecturerules.api.services.RulesService;
@@ -27,7 +27,6 @@ import org.architecturerules.configuration.UnmodifiableConfiguration;
 import org.architecturerules.configuration.xml.DigesterConfigurationFactory;
 import org.architecturerules.services.CyclicRedundancyServiceImpl;
 import org.architecturerules.services.RulesServiceImpl;
-
 
 
 /**
@@ -58,10 +57,7 @@ import org.architecturerules.services.RulesServiceImpl;
  *
  * @author mikenereson
  */
-public class AssertArchitectureTask
-        extends Task
-{
-
+public class AssertArchitectureTask extends Task {
 
     /**
      * <p>The name of the configuration file that is in the classpath that holds the xml configuration. Recommend <samp>architecture-rules.xml</samp></p>
@@ -77,14 +73,12 @@ public class AssertArchitectureTask
      */
     private final Configuration configuration = new Configuration();
 
-
     /**
      * Setter for property 'configurationFileName'.
      *
      * @param configurationFileName Value to set for property 'configurationFileName'.
      */
-    public void setConfigurationFileName(final String configurationFileName)
-    {
+    public void setConfigurationFileName(final String configurationFileName) {
 
         this.configurationFileName = configurationFileName;
     }
@@ -96,13 +90,11 @@ public class AssertArchitectureTask
      */
     @Override
     public void execute()
-            throws BuildException
-    {
+            throws BuildException {
 
         super.execute();
 
-        if ((null == configurationFileName) || "".equals(configurationFileName))
-        {
+        if ((null == configurationFileName) || "".equals(configurationFileName)) {
 
             throw new IllegalStateException("set configurationFileName property");
         }
@@ -126,8 +118,7 @@ public class AssertArchitectureTask
         /**
          * 3. check for cyclic dependency, if requested
          */
-        if (this.configuration.shouldDoCyclicDependencyTest())
-        {
+        if (this.configuration.shouldDoCyclicDependencyTest()) {
 
             configuration = new UnmodifiableConfiguration(this.configuration);
 

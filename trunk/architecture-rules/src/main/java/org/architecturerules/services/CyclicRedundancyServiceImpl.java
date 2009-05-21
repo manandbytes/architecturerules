@@ -1,5 +1,5 @@
 /**
- * Copyright 2007, 2008 the original author or authors.
+ * Copyright 2007 - 2009 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -9,22 +9,24 @@
  *
  * For more information visit
  *         http://wiki.architecturerules.org/ and
- *         http://blog.architecturerules.org
+ *         http://blog.architecturerules.org/
  */
 package org.architecturerules.services;
 
 
 import jdepend.framework.JavaClass;
 import jdepend.framework.JavaPackage;
+
+import java.util.*;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+
 import org.architecturerules.api.services.CyclicRedundancyService;
 import org.architecturerules.configuration.Configuration;
 import org.architecturerules.exceptions.CyclicRedundancyException;
 import org.architecturerules.exceptions.NoPackagesFoundException;
 import org.architecturerules.exceptions.SourceNotFoundException;
-
-import java.util.*;
 
 
 /**

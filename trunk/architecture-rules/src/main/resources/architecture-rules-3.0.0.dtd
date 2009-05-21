@@ -1,0 +1,48 @@
+<!--
+
+    Copyright 2007, 2008 the original author or authors.
+    
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+    
+            http://www.apache.org/licenses/LICENSE-2.0
+    
+    For more information visit
+            http://wiki.architecturerules.org/ and
+            http://blog.architecturerules.org/
+
+-->
+
+<!DOCTYPE architecture [
+        <!ELEMENT architecture (configuration|rules)*>
+
+        <!ELEMENT configuration (sources|cyclicalDependency|listeners|properties)*>
+
+        <!ELEMENT sources (source)*>
+        <!ELEMENT source (#PCDATA)>
+
+        <!ELEMENT cyclicalDependency (#PCDATA)>
+
+        <!ELEMENT listeners (include|exclude)*>
+        <!ELEMENT include (listener)*>
+        <!ELEMENT listener (#PCDATA)>
+        <!ELEMENT exclude (listener)*>
+
+        <!ELEMENT properties (property)*>
+        <!ELEMENT property (#PCDATA)>
+
+        <!ELEMENT rules (rule)*>
+        <!ELEMENT rule (comment|packages|violations)*>
+        <!ELEMENT comment (#PCDATA)>
+        <!ELEMENT packages (package)*>
+        <!ELEMENT package (#PCDATA)>
+        <!ELEMENT violations (violation)*>
+        <!ELEMENT violation (#PCDATA)>
+
+        <!ATTLIST sources no-packages (ignore|exception) "exception">
+        <!ATTLIST source not-found (ignore|exception) "exception">
+        <!ATTLIST cyclicalDependency test (true|false) "true">
+        <!ATTLIST property key CDATA #REQUIRED value CDATA #REQUIRED>
+        <!ATTLIST rule id CDATA #REQUIRED>
+        ]>

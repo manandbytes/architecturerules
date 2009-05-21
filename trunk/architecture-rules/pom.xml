@@ -9,7 +9,7 @@
     <version>3.0.0-SNAPSHOT</version>
 
     <name>Architecture Rules</name>
-    <inceptionYear>2007, 2008</inceptionYear>
+    <inceptionYear>2007 - 2009</inceptionYear>
 
     <description>
         Leverages an XML configuration file to test your code's architecture via unit tests. Able to assert that

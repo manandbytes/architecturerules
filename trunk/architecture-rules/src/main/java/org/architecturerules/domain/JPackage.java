@@ -8,18 +8,18 @@
  *         http://www.apache.org/licenses/LICENSE-2.0
  *
  * For more information visit
- *         http://72miles.com/ and
- *         http://architecturerules.googlecode.com/
+ *         http://wiki.architecturerules.org/ and
+ *         http://blog.architecturerules.org
  */
 package org.architecturerules.domain;
 
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
 import static java.lang.String.format;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 
 
 /**

@@ -8,8 +8,8 @@
  *         http://www.apache.org/licenses/LICENSE-2.0
  *
  * For more information visit
- *         http://72miles.com/ and
- *         http://architecturerules.googlecode.com/
+ *         http://wiki.architecturerules.org/ and
+ *         http://blog.architecturerules.org
  */
 package org.architecturerules.configuration;
 
@@ -17,7 +17,6 @@ package org.architecturerules.configuration;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
-
 import org.architecturerules.domain.Rule;
 import org.architecturerules.domain.SourceDirectory;
 import org.architecturerules.listeners.EmptyListener;

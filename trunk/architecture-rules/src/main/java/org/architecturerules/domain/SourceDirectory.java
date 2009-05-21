@@ -8,23 +8,21 @@
  *         http://www.apache.org/licenses/LICENSE-2.0
  *
  * For more information visit
- *         http://72miles.com/ and
- *         http://architecturerules.googlecode.com/
+ *         http://wiki.architecturerules.org/ and
+ *         http://blog.architecturerules.org
  */
 package org.architecturerules.domain;
 
 
 import junit.framework.Assert;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.architecturerules.api.configuration.ConfigurationFactory;
+import org.architecturerules.exceptions.SourceNotFoundException;
 
 import java.io.File;
 import java.text.CharacterIterator;
 import java.text.StringCharacterIterator;
-
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-
-import org.architecturerules.api.configuration.ConfigurationFactory;
-import org.architecturerules.exceptions.SourceNotFoundException;
 
 
 /**

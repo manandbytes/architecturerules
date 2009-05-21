@@ -8,18 +8,18 @@
  *         http://www.apache.org/licenses/LICENSE-2.0
  *
  * For more information visit
- *         http://72miles.com/ and
- *         http://architecturerules.googlecode.com/
+ *         http://wiki.architecturerules.org/ and
+ *         http://blog.architecturerules.org
  */
 package org.architecturerules.api.configuration;
 
 
+import org.architecturerules.domain.Rule;
+import org.architecturerules.domain.SourceDirectory;
+
 import java.util.Collection;
 import java.util.List;
 import java.util.Set;
-
-import org.architecturerules.domain.Rule;
-import org.architecturerules.domain.SourceDirectory;
 
 
 /**

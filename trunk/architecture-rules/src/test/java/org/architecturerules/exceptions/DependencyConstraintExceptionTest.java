@@ -8,22 +8,22 @@
  *         http://www.apache.org/licenses/LICENSE-2.0
  *
  * For more information visit
- *         http://72miles.com/ and
- *         http://architecturerules.googlecode.com/
+ *         http://wiki.architecturerules.org/ and
+ *         http://blog.architecturerules.org
  */
 package org.architecturerules.exceptions;
 
 
-import static junit.framework.Assert.*;
-
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.LinkedList;
-
+import static junit.framework.Assert.assertEquals;
+import static junit.framework.Assert.assertTrue;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
+
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.LinkedList;
 
 
 /**

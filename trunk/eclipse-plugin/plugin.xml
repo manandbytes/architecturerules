@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         id="org.architecture-rules.architectureRulesNature"
+         name="Architecture Rules Project Nature"
+         point="org.eclipse.core.resources.natures">
+      <runtime>
+         <run
+               class="org.architecture_rules_eclipse_plugin.builder.ArchitectureRulesNature">
+         </run>
+      </runtime>
+      <requires-nature
+            id="org.eclipse.jdt.core.javanature">
+      </requires-nature>
+   </extension>
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            adaptable="true"
+            id="architecture-rules.project.actions.addNature"
+            nameFilter="*"
+            objectClass="org.eclipse.core.resources.IProject">
+         <action
+               class="org.architecture_rules_eclipse_plugin.builder.ToggleNatureAction"
+               enablesFor="+"
+               id="org.architecture_rules_eclipse_plugin.addRemoveNatureAction"
+               label="Add Architecture Rules Nature"
+               menubarPath="architecture-rules.project.popup/addNature"
+               style="push">
+         </action>
+         <visibility>
+            <not>
+               <objectState
+                     name="projectNature"
+                     value="org.architecture-rules.architectureRulesNature">
+               </objectState>
+            </not>
+         </visibility>
+      </objectContribution>
+      <objectContribution
+            adaptable="true"
+            id="architecture-rules.project.actions.removeNature"
+            nameFilter="*"
+            objectClass="org.eclipse.core.resources.IProject">
+         <action
+               class="org.architecture_rules_eclipse_plugin.builder.ToggleNatureAction"
+               enablesFor="+"
+               id="architecture-rules-eclipse-plugin.action1"
+               label="Remove Architecture Rules Nature"
+               menubarPath="architecture-rules.project.popup/removeNature"
+               style="push">
+         </action>
+         <visibility>
+               <objectState
+                     name="projectNature"
+                     value="org.architecture-rules.architectureRulesNature">
+               </objectState>
+         </visibility>
+      </objectContribution>
+      <objectContribution
+            adaptable="true"
+            id="architecture-rules.project"
+            objectClass="org.eclipse.jdt.core.IJavaProject">
+         <menu
+               id="architecture-rules.project.popup"
+               label="Architecture Rules">
+         </menu>
+      </objectContribution>
+   </extension>
+
+</plugin>

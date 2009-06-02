@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.architecturerules.eclipse</groupId>
+  <artifactId>parent</artifactId>
+  <name>Parent project for Eclipse integration</name>
+  <version>1.0.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <modules>
+    <module>eclipse-plugin</module>
+  </modules>
+
+  <repositories>
+    <repository>
+      <id>ganymede</id>
+      <layout>p2</layout>
+      <url>http://download.eclipse.org/releases/ganymede</url>
+    </repository>
+  </repositories>
+
+</project>
+

@@ -1,13 +1,12 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Eclipse plugin for Architecture Rules
+Bundle-Name: Architecture Rules integration for Eclipse
 Bundle-SymbolicName: org.architecture-rules.eclipse.core;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.core.resources
-Bundle-RequiredExecutionEnvironment: J2SE-1.5,
- JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Export-Package: org.architecture_rules_eclipse_plugin.builder;
   uses:="org.eclipse.jface.action,
    org.eclipse.ui,

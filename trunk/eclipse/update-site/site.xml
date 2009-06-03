@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <description name="Architecture Rules integration for Eclipse">
+      Architecture Rules integration for Eclipse
+   </description>
+   <feature url="features/org.architecturerules.eclipse.feature_1.0.0.qualifier.jar" id="org.architecturerules.eclipse.feature" version="1.0.0.qualifier"/>
+</site>

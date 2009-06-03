@@ -8,8 +8,7 @@
     <groupId>org.architecturerules.eclipse</groupId>
     <version>1.0.0-SNAPSHOT</version>
   </parent>
-  <groupId>org.architecture-rules.eclipse.core</groupId>
-  <artifactId>org.architecture-rules.eclipse.core</artifactId>
+  <artifactId>core</artifactId>
   <name>Architecture Rules integration for Eclipse</name>
   <version>1.0.0.qualifier</version>
   <packaging>eclipse-plugin</packaging>

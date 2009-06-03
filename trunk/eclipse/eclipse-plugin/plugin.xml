@@ -8,7 +8,7 @@
          point="org.eclipse.core.resources.natures">
       <runtime>
          <run
-               class="org.architecture_rules_eclipse_plugin.builder.ArchitectureRulesNature">
+               class="org.architecturerules.eclipse.plugin.builder.ArchitectureRulesNature">
          </run>
       </runtime>
       <requires-nature
@@ -23,7 +23,7 @@
             nameFilter="*"
             objectClass="org.eclipse.core.resources.IProject">
          <action
-               class="org.architecture_rules_eclipse_plugin.builder.ToggleNatureAction"
+               class="org.architecturerules.eclipse.plugin.builder.ToggleNatureAction"
                enablesFor="+"
                id="org.architecture_rules_eclipse_plugin.addRemoveNatureAction"
                label="Add Architecture Rules Nature"
@@ -45,7 +45,7 @@
             nameFilter="*"
             objectClass="org.eclipse.core.resources.IProject">
          <action
-               class="org.architecture_rules_eclipse_plugin.builder.ToggleNatureAction"
+               class="org.architecturerules.eclipse.plugin.builder.ToggleNatureAction"
                enablesFor="+"
                id="architecture-rules-eclipse-plugin.action1"
                label="Remove Architecture Rules Nature"
@@ -68,6 +68,41 @@
                label="Architecture Rules">
          </menu>
       </objectContribution>
+   </extension>
+   <extension
+         point="org.eclipse.core.contenttype.contentTypes">
+      <content-type
+            base-type="org.eclipse.core.runtime.xml"
+            default-charset="UTF-8"
+            file-names="architecture-rules.xml"
+            id="architectureRulesXMLDefinition"
+            name="Architecture Rules XML Definition"
+            priority="high">
+      </content-type>
+   </extension>
+   <extension
+         point="org.eclipse.wst.xml.core.catalogContributions">
+      <catalogContribution>
+         <system
+               systemId="http://architecturerules.org/architecture-rules-3.0.0.dtd"
+               uri="architecture-rules-3.0.0.dtd">
+         </system>
+         <uri
+               name="architecture-rules-3.0.0.dtd"
+               uri="architecture-rules-3.0.0.dtd">
+         </uri></catalogContribution>
+   </extension>
+   <extension
+         point="org.eclipse.wst.xml.core.catalogContributions">
+      <catalogContribution>
+         <system
+               systemId="http://architecturerules.org/architecture-rules-2.0.1.dtd"
+               uri="architecture-rules-2.0.1.dtd">
+         </system>
+         <uri
+               name="architecture-rules-2.0.1.dtd"
+               uri="architecture-rules-2.0.1.dtd">
+         </uri></catalogContribution>
    </extension>
 
 </plugin>

@@ -3,11 +3,15 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Architecture Rules integration for Eclipse
 Bundle-SymbolicName: org.architecturerules.eclipse.core;singleton:=true
 Bundle-Version: 1.0.0.qualifier
-Require-Bundle: org.eclipse.ui,
- org.eclipse.core.runtime,
- org.eclipse.core.resources
+Require-Bundle: org.eclipse.core.runtime;bundle-version="3.4.0",
+ org.eclipse.wst.xml.ui;bundle-version="1.0.430",
+ org.eclipse.ui.forms;bundle-version="3.3.103",
+ org.eclipse.ui;bundle-version="3.4.2",
+ org.eclipse.core.resources;bundle-version="3.4.2",
+ org.eclipse.wst.sse.ui;bundle-version="1.1.4"
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
-Export-Package: org.architecture_rules_eclipse_plugin.builder;
+Export-Package: org.architecturerules.eclipse.core.editors;uses:="org.eclipse.ui.forms.editor,org.eclipse.core.runtime,org.eclipse.wst.xml.ui.internal.tabletree",
+ org.architecturerules.eclipse.plugin.builder;
   uses:="org.eclipse.jface.action,
    org.eclipse.ui,
    org.eclipse.core.resources,

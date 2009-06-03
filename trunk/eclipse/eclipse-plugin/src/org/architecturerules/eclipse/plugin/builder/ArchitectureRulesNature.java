@@ -1,4 +1,4 @@
-package org.architecture_rules_eclipse_plugin.builder;
+package org.architecturerules.eclipse.plugin.builder;
 
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IProjectNature;

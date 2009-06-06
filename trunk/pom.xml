@@ -152,6 +152,11 @@
             	<artifactId>jdepend-maven-plugin</artifactId>
             	<inherited>true</inherited>
             </plugin>
+            <plugin>
+            	<groupId>org.apache.maven.plugins</groupId>
+            	<artifactId>maven-project-info-reports-plugin</artifactId>
+            	<inherited>true</inherited>
+            </plugin>
 	</plugins>
     </reporting>
     <repositories>

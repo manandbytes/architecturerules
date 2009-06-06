@@ -47,14 +47,6 @@ public class JPackage {
     private String path;
 
     /**
-     * <p>Constructs a new <code>JPackage</code></p>
-     */
-    public JPackage() {
-
-    }
-
-
-    /**
      * <p>Constructs a new <code>JPackage</code> with the given <tt>path</tt></p>
      *
      * @param path String to set for {@link #path}
@@ -80,7 +72,7 @@ public class JPackage {
      *
      * @param path Value to set for property <tt>path</tt>
      */
-    public void setPath(final String path) {
+    private void setPath(final String path) {
 
         this.path = path;
     }

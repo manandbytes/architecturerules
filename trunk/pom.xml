@@ -157,6 +157,11 @@
             	<artifactId>maven-project-info-reports-plugin</artifactId>
             	<inherited>true</inherited>
             </plugin>
+            <plugin>
+            	<groupId>org.codehaus.mojo</groupId>
+            	<artifactId>javancss-maven-plugin</artifactId>
+            	<inherited>true</inherited>
+            </plugin>
 	</plugins>
     </reporting>
     <repositories>

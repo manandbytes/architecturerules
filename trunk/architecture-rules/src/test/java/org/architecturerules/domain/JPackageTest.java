@@ -247,4 +247,24 @@ public class JPackageTest extends TestCase {
 
         assertFalse(new JPackage("com.*").matches(new JPackage("com.seventytwomiles.project1")));
     }
+
+
+    public void testCompareEquals() {
+
+        final JPackage package1 = new JPackage("");
+        final JPackage package2 = new JPackage("");
+        assertEquals(0, package1.compareTo(package2));
+        assertEquals(0, package2.compareTo(package1));
+    }
+
+
+    public void testCompareAgainstNull() {
+
+        try {
+
+            new JPackage("").compareTo(null);
+        } catch (NullPointerException e) {
+
+        }
+    }
 }

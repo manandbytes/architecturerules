@@ -98,7 +98,7 @@ public class DigesterConfigurationFactoryTest extends AbstractDigesterTest {
 
         factory.processRules(rulesXmlConfiguration);
 
-        final List<Rule> rules = new ArrayList();
+        final List<Rule> rules = new ArrayList<Rule>();
         rules.addAll(factory.getRules());
 
         assertEquals(2, rules.size());
@@ -119,19 +119,21 @@ public class DigesterConfigurationFactoryTest extends AbstractDigesterTest {
 
         assertEquals("com.seventytwomiles.pagerank.core.model", rule0.getPackages().toArray()[0].toString());
 
-        /* violations */
+        Object[] violations = rule0.getViolations().toArray();
+        Arrays.sort(violations);
+
         assertEquals(6, rule0.getViolations().size());
 
-        assertEquals("com.seventytwomiles.pagerank.core.services", rule0.getViolations().toArray()[0].toString());
+        assertEquals("com.seventytwomiles.pagerank.core.services", violations[3].toString());
 
-        assertEquals("com.seventytwomiles.pagerank.core.builder", rule0.getViolations().toArray()[1].toString());
+        assertEquals("com.seventytwomiles.pagerank.core.builder", violations[0].toString());
 
-        assertEquals("com.seventytwomiles.pagerank.core.dao", rule0.getViolations().toArray()[2].toString());
+        assertEquals("com.seventytwomiles.pagerank.core.dao", violations[1].toString());
 
-        assertEquals("com.seventytwomiles.pagerank.core.strategy", rule0.getViolations().toArray()[3].toString());
+        assertEquals("com.seventytwomiles.pagerank.core.strategy", violations[4].toString());
 
-        assertEquals("com.seventytwomiles.pagerank.core.dao.hibernate", rule0.getViolations().toArray()[4].toString());
-        assertEquals("com.seventytwomiles.pagerank.util", rule0.getViolations().toArray()[5].toString());
+        assertEquals("com.seventytwomiles.pagerank.core.dao.hibernate", violations[2].toString());
+        assertEquals("com.seventytwomiles.pagerank.util", violations[5].toString());
 
         /**
          * Validate values of the second Rule
@@ -147,18 +149,24 @@ public class DigesterConfigurationFactoryTest extends AbstractDigesterTest {
         /* packages */
         assertEquals(2, rule1.getPackages().size());
 
-        assertEquals("com.seventytwomiles.pagerank.core.dao", rule1.getPackages().toArray()[0].toString());
+        Object[] packagesToTest = rule1.getPackages().toArray();
+        Arrays.sort(packagesToTest);
 
-        assertEquals("com.seventytwomiles.pagerank.core.dao.hibernate", rule1.getPackages().toArray()[1].toString());
+        assertEquals("com.seventytwomiles.pagerank.core.dao", packagesToTest[0].toString());
+
+        assertEquals("com.seventytwomiles.pagerank.core.dao.hibernate", packagesToTest[1].toString());
 
         /* violations */
         assertEquals(3, rule1.getViolations().size());
 
-        assertEquals("com.seventytwomiles.pagerank.core.services", rule1.getViolations().toArray()[0].toString());
+        violations = rule1.getViolations().toArray();
+        Arrays.sort(violations);
 
-        assertEquals("com.seventytwomiles.pagerank.core.builder", rule1.getViolations().toArray()[1].toString());
+        assertEquals("com.seventytwomiles.pagerank.core.services", violations[1].toString());
 
-        assertEquals("com.seventytwomiles.pagerank.util", rule1.getViolations().toArray()[2].toString());
+        assertEquals("com.seventytwomiles.pagerank.core.builder", violations[0].toString());
+
+        assertEquals("com.seventytwomiles.pagerank.util", violations[2].toString());
     }
 
 
@@ -174,7 +182,7 @@ public class DigesterConfigurationFactoryTest extends AbstractDigesterTest {
 
         factory.processSources(sourcesXmlConfiguration);
 
-        final List sources = new ArrayList();
+        final List<SourceDirectory> sources = new ArrayList<SourceDirectory>();
         sources.addAll(factory.getSources());
 
         assertEquals(4, sources.size());

@@ -18,6 +18,7 @@ import junit.framework.TestCase;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Properties;
 
@@ -65,7 +66,7 @@ public class DigesterConfigurationFactoryCompleteConfigurationTest extends TestC
 
     private void testRules(final DigesterConfigurationFactory factory) {
 
-        final List rules = new ArrayList();
+        final List<Rule> rules = new ArrayList<Rule>();
         rules.addAll(factory.getRules());
 
         assertEquals(3, rules.size());
@@ -87,12 +88,15 @@ public class DigesterConfigurationFactoryCompleteConfigurationTest extends TestC
 
         /* violations */
         assertEquals(6, rule0.getViolations().size());
-        assertEquals("com.seventytwomiles.pagerank.core.services", rule0.getViolations().toArray()[0].toString());
-        assertEquals("com.seventytwomiles.pagerank.core.builder", rule0.getViolations().toArray()[1].toString());
-        assertEquals("com.seventytwomiles.pagerank.core.dao", rule0.getViolations().toArray()[2].toString());
-        assertEquals("com.seventytwomiles.pagerank.core.strategy", rule0.getViolations().toArray()[3].toString());
-        assertEquals("com.seventytwomiles.pagerank.core.dao.hibernate", rule0.getViolations().toArray()[4].toString());
-        assertEquals("com.seventytwomiles.pagerank.util", rule0.getViolations().toArray()[5].toString());
+
+        Object[] violations = rule0.getViolations().toArray();
+        Arrays.sort(violations);
+        assertEquals("com.seventytwomiles.pagerank.core.services", violations[3].toString());
+        assertEquals("com.seventytwomiles.pagerank.core.builder", violations[0].toString());
+        assertEquals("com.seventytwomiles.pagerank.core.dao", violations[1].toString());
+        assertEquals("com.seventytwomiles.pagerank.core.strategy", violations[4].toString());
+        assertEquals("com.seventytwomiles.pagerank.core.dao.hibernate", violations[2].toString());
+        assertEquals("com.seventytwomiles.pagerank.util", violations[5].toString());
 
         /**
          * Nothing special about rule1, it is not tested.
@@ -103,7 +107,7 @@ public class DigesterConfigurationFactoryCompleteConfigurationTest extends TestC
         /**
          * Validate values of the second Rule
          */
-        final Rule rule2 = (Rule) rules.get(2);
+        final Rule rule2 = (Rule) rules.get(1);
 
         /* id */
         assertEquals("dao", rule2.getId());
@@ -113,14 +117,18 @@ public class DigesterConfigurationFactoryCompleteConfigurationTest extends TestC
 
         /* packages */
         assertEquals(2, rule2.getPackages().size());
-        assertEquals("com.seventytwomiles.pagerank.core.dao", rule2.getPackages().toArray()[0].toString());
-        assertEquals("com.seventytwomiles.pagerank.core.dao.hibernate", rule2.getPackages().toArray()[1].toString());
+
+        Object[] packages = rule2.getPackages().toArray();
+        Arrays.sort(packages);
+
+        assertEquals("com.seventytwomiles.pagerank.core.dao", packages[0].toString());
+        assertEquals("com.seventytwomiles.pagerank.core.dao.hibernate", packages[1].toString());
 
         /* violations */
         assertEquals(3, rule2.getViolations().size());
-        assertEquals("com.seventytwomiles.pagerank.core.services", rule2.getViolations().toArray()[0].toString());
+        assertEquals("com.seventytwomiles.pagerank.core.services", rule2.getViolations().toArray()[2].toString());
         assertEquals("com.seventytwomiles.pagerank.core.builder", rule2.getViolations().toArray()[1].toString());
-        assertEquals("com.seventytwomiles.pagerank.util", rule2.getViolations().toArray()[2].toString());
+        assertEquals("com.seventytwomiles.pagerank.util", rule2.getViolations().toArray()[0].toString());
     }
 
 
@@ -144,7 +152,7 @@ public class DigesterConfigurationFactoryCompleteConfigurationTest extends TestC
 
     private void testSources(final DigesterConfigurationFactory factory) {
 
-        final List sources = new ArrayList();
+        final List<SourceDirectory> sources = new ArrayList<SourceDirectory>();
         sources.addAll(factory.getSources());
 
         assertEquals(4, sources.size());

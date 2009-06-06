@@ -28,7 +28,7 @@ import org.apache.commons.logging.LogFactory;
  *
  * @author mikenereson
  */
-public class JPackage {
+public class JPackage implements Comparable<JPackage> {
 
     private static final Log log = LogFactory.getLog(JPackage.class);
 
@@ -248,5 +248,11 @@ public class JPackage {
         }
 
         return false;
+    }
+
+
+    public int compareTo(JPackage packageToCompareWith) {
+
+        return getPath().compareTo(packageToCompareWith.getPath());
     }
 }

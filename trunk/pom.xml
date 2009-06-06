@@ -137,6 +137,16 @@
                     </reportSet>
                 </reportSets>
             </plugin>
+            <plugin>
+            	<groupId>org.codehaus.mojo</groupId>
+            	<artifactId>taglist-maven-plugin</artifactId>
+            	<inherited>true</inherited>
+                <configuration>
+                    <tags>
+                        <tag>TODO</tag>
+                    </tags>
+                </configuration>
+            </plugin>
 	</plugins>
     </reporting>
     <repositories>

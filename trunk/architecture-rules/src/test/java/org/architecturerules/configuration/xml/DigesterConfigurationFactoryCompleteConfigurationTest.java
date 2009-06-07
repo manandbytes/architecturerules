@@ -19,6 +19,7 @@ import junit.framework.TestCase;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Properties;
 
@@ -34,21 +35,24 @@ import org.architecturerules.domain.SourceDirectory;
 public class DigesterConfigurationFactoryCompleteConfigurationTest extends TestCase {
 
     private final String completeConfiguration = "<?xml version=\"1.0\"?> <architecture> " + "<configuration> " + "<sources no-packages=\"exception\"> <source not-found=\"ignore\">parent-pom\\target\\classes</source> <source not-found=\"exception\">util\\target\\classes</source> <source not-found=\"ignore\">web\\target\\classes</source> <source not-found=\"ignore\">core\\target\\classes</source> </sources> " + "<cyclicalDependency test=\"false\"/> " + "<listeners> <include> <listener>org.architecturerules.listeners.ExampleEventListener</listener> <listener>org.architecturerules.listeners.LoggerEventListener</listener> </include> <exclude> <listener>org.architecturerules.listeners.LoggerEventListener</listener> </exclude> </listeners> " + "<properties> <property key=\"report.output.directory\" value=\"target/architecture\" /> <property key=\"report.output.format\" value=\"xml\" /> <property key=\"example.property\" value=\"example.value\" /> </properties> " + "</configuration> " + "<rules> " + "<rule id=\"dao\"> <comment>The dao interface package should rely on nothing.</comment> <packages> <package>com.seventytwomiles.pagerank.core.dao</package> <package>com.seventytwomiles.pagerank.core.dao.hibernate</package> </packages> <violations> <violation>com.seventytwomiles.pagerank.core.services</violation> <violation> com.seventytwomiles.pagerank.core.builder</violation> <violation> com.seventytwomiles.pagerank.util</violation> </violations> </rule> " + "<rule id=\"strategy\"> <comment>Strategies should be as pluggable as possible </comment> <packages> <package>com.seventytwomiles.pagerank.serviceproviders.startegies</package> </packages> <violations> <violation>com.seventytwomiles.pagerank.core.services </violation> <violation>com.seventytwomiles.pagerank.core.dao.hibernate</violation> </violations> </rule> " + "<rule id=\"model\"> <comment>Model should remain completely isolated </comment> <packages> <package>com.seventytwomiles.pagerank.core.model</package> </packages> <violations> <violation>com.seventytwomiles.pagerank.core.dao </violation> <violation>com.seventytwomiles.pagerank.core.dao.hibernate </violation> <violation>com.seventytwomiles.pagerank.core.services </violation> <violation>com.seventytwomiles.pagerank.core.strategy </violation> <violation>com.seventytwomiles.pagerank.core.builder </violation> <violation>com.seventytwomiles.pagerank.util </violation> </violations> </rule> " + "</rules> " + "</architecture>";
+    private DigesterConfigurationFactory factory;
 
     public DigesterConfigurationFactoryCompleteConfigurationTest(final String name) {
         super(name);
     }
 
-    public void testProcessConfiguration()
+    @Override
+    protected void setUp()
             throws Exception {
 
-        final DigesterConfigurationFactory factory = new DigesterConfigurationFactory();
-
+        super.setUp();
+        factory = new DigesterConfigurationFactory();
         factory.processConfiguration(completeConfiguration);
+    }
 
-        testSources(factory);
-        testProperties(factory);
-        testRules(factory);
+
+    public void testProcessConfiguration()
+            throws Exception {
 
         /**
          * Test should perform cyclicalDependency
@@ -64,17 +68,25 @@ public class DigesterConfigurationFactoryCompleteConfigurationTest extends TestC
     }
 
 
-    private void testRules(final DigesterConfigurationFactory factory) {
+    public void testRules() {
 
         final List<Rule> rules = new ArrayList<Rule>();
-        rules.addAll(factory.getRules());
+        final Rule[] array = factory.getRules().toArray(new Rule[0]);
+        Arrays.sort(array, new Comparator<Rule>() {
+
+                public int compare(Rule o1, Rule o2) {
+
+                    return o1.getId().compareTo(o2.getId());
+                }
+            });
+        rules.addAll(Arrays.asList(array));
 
         assertEquals(3, rules.size());
 
         /**
          * Validate values of the first Rule
          */
-        final Rule rule0 = (Rule) rules.get(0);
+        final Rule rule0 = (Rule) rules.get(1);
 
         /* id */
         assertEquals("model", rule0.getId());
@@ -107,7 +119,7 @@ public class DigesterConfigurationFactoryCompleteConfigurationTest extends TestC
         /**
          * Validate values of the second Rule
          */
-        final Rule rule2 = (Rule) rules.get(1);
+        final Rule rule2 = (Rule) rules.get(0);
 
         /* id */
         assertEquals("dao", rule2.getId());
@@ -126,13 +138,17 @@ public class DigesterConfigurationFactoryCompleteConfigurationTest extends TestC
 
         /* violations */
         assertEquals(3, rule2.getViolations().size());
-        assertEquals("com.seventytwomiles.pagerank.core.services", rule2.getViolations().toArray()[2].toString());
-        assertEquals("com.seventytwomiles.pagerank.core.builder", rule2.getViolations().toArray()[1].toString());
-        assertEquals("com.seventytwomiles.pagerank.util", rule2.getViolations().toArray()[0].toString());
+
+        final Object[] array2 = rule2.getViolations().toArray();
+        Arrays.sort(array2);
+
+        assertEquals("com.seventytwomiles.pagerank.core.services", array2[1].toString());
+        assertEquals("com.seventytwomiles.pagerank.core.builder", array2[0].toString());
+        assertEquals("com.seventytwomiles.pagerank.util", array2[2].toString());
     }
 
 
-    private void testProperties(final DigesterConfigurationFactory factory) {
+    public void testProperties() {
 
         final Properties properties = new Properties();
         properties.putAll(factory.getProperties());
@@ -150,7 +166,7 @@ public class DigesterConfigurationFactoryCompleteConfigurationTest extends TestC
     }
 
 
-    private void testSources(final DigesterConfigurationFactory factory) {
+    public void testSources() {
 
         final List<SourceDirectory> sources = new ArrayList<SourceDirectory>();
         sources.addAll(factory.getSources());

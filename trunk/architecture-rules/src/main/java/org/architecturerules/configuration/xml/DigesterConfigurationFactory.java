@@ -49,7 +49,7 @@ public class DigesterConfigurationFactory extends AbstractConfigurationFactory {
     protected static final Log log = LogFactory.getLog(DigesterConfigurationFactory.class);
 
     /**
-     * @todo remove this (it's useless)?
+     * @see AbstractConfigurationFactory#AbstractConfigurationFactory()
      */
     public DigesterConfigurationFactory() {
 
@@ -64,26 +64,14 @@ public class DigesterConfigurationFactory extends AbstractConfigurationFactory {
      */
     public DigesterConfigurationFactory(final String fileName) {
 
-        /* load the default settings into the configuration */
-        final String defaultFileName = ConfigurationFactory.DEFAULT_CONFIGURATION_CONFIGURATION_FILE_NAME;
-        loadConfigurationFromFile(defaultFileName);
-
-        /* load the user's settings into the configuration which may or maynot override the defautl settings*/
-        final String userFileName = fileName;
-        loadConfigurationFromFile(userFileName);
+        loadConfiguration(fileName);
     }
 
-    /**
-     * <p>Load configuration from an external XML file.</p>
-     *
-     * @param fileName String name of file to load such as <samp>architecture-rules.xml</samp>
-     */
-    private void loadConfigurationFromFile(String fileName) {
+    @Override
+    protected void loadDefaultConfiguration() {
 
-        final String configurationXml = getConfigurationAsXml(fileName);
-
-        validateConfiguration(configurationXml);
-        processConfiguration(configurationXml);
+        final String defaultFileName = ConfigurationFactory.DEFAULT_CONFIGURATION_CONFIGURATION_FILE_NAME;
+        loadConfiguration(defaultFileName);
     }
 
 
@@ -94,7 +82,7 @@ public class DigesterConfigurationFactory extends AbstractConfigurationFactory {
      * @see "architecture-rules.dtd"
      */
     @Override
-    protected void validateConfiguration(final String configurationXml) {
+    public void validateConfiguration(final String configurationXml) {
 
         final Digester digester = new Digester();
         digester.setValidating(false); // TODO: set to true to actually validate
@@ -124,7 +112,8 @@ public class DigesterConfigurationFactory extends AbstractConfigurationFactory {
      *
      * @param configurationXml String of xml configuration
      */
-    void processConfiguration(final String configurationXml) {
+    @Override
+    protected void processConfiguration(final String configurationXml) {
 
         try {
 

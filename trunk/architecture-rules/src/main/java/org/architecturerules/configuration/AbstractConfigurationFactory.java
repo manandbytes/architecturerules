@@ -30,12 +30,24 @@ import org.architecturerules.domain.SourceDirectory;
 
 
 /**
- * <p>Abstract Factory that provides common functionality for <code>ConfigurationFactory</code> implementations.</p>
+ * <p>Abstract Factory that provides common functionality for <code>ConfigurationFactory</code> implementations:</p>
+ * <ul>
+ * <li>notion of {@link #loadDefaultConfiguration() the default configuration} to use when there is no one provided by user</li>
+ * <li>{@link #loadConfiguration(String) unified way to load configuration} from external file</li>
+ * </ul
  *
  * @author mikenereson
  * @see ConfigurationFactory
  */
 public abstract class AbstractConfigurationFactory implements ConfigurationFactory {
+
+    /**
+     * Creates new instance and loads default configuration.
+     */
+    public AbstractConfigurationFactory() {
+
+        loadDefaultConfiguration();
+    }
 
     /**
      * <p>To log with. See <tt>log4j.xml</tt>.</p>
@@ -239,13 +251,13 @@ public abstract class AbstractConfigurationFactory implements ConfigurationFacto
 
 
     /**
-     * <p>Read Xml configuration file to String.</p>
+     * <p>Read configuration file's content to String.</p>
      *
-     * @param configurationFileName String name of the XML file in the classpath to load and read OR the complete path
+     * @param configurationFileName String name of the file in the classpath to load and read OR the complete path
      * to the file.
      * @return String returns the contents of the configurationFile
      */
-    protected String getConfigurationAsXml(final String configurationFileName) {
+    protected String getConfigurationContent(final String configurationFileName) {
 
         File file = new File(configurationFileName);
         InputStream stream = null;
@@ -287,8 +299,48 @@ public abstract class AbstractConfigurationFactory implements ConfigurationFacto
     /**
      * <p>Validate the configuration.</p>
      *
-     * @param configuration String xml content to validate
-     * @see "architecture-rules.dtd"
+     * @param configuration String content to validate
      */
     protected abstract void validateConfiguration(final String configuration);
+
+
+    /**
+     * @param configuration
+     */
+    protected abstract void processConfiguration(final String configuration);
+
+
+    /**
+     * <p>
+     * Load configuration from an external file.
+     * </p>
+     * <p>
+     * This template method:
+     * <ul>
+     * <li>reads configuration file using {@link #getConfigurationContent(String)}</li>
+     * <li>validates loaded configuration with {@link #validateConfiguration(String)}</li>
+     * <li>processes validated configuration with {@link #processConfiguration(String)}</li>
+     * </p>
+     *
+     * @param fileName
+     *            String name of file to load such as
+     *            <samp>architecture-rules.xml</samp> or
+     *            <samp>architecture-rules.yaml</samp>
+     */
+    protected final void loadConfiguration(final String fileName) {
+
+        final String configuration = getConfigurationContent(fileName);
+
+        validateConfiguration(configuration);
+        processConfiguration(configuration);
+    }
+
+
+    /**
+     * Load the default settings into the configuration. There is no default
+     * configuration, override this method if your implementation provides one.
+     */
+    protected void loadDefaultConfiguration() {
+
+    }
 }

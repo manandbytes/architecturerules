@@ -43,7 +43,7 @@ public class MojoArchitectureRulesConfigurationTest extends AbstractArchitecture
         }
 
         @Override
-        protected String getConfigurationAsXml(final String configurationFileName) {
+        protected String getConfigurationContent(final String configurationFileName) {
 
             InputStream configStream = getClass().getClassLoader().getResourceAsStream(ConfigurationFactory.DEFAULT_CONFIGURATION_FILE_NAME);
             String configAsString;

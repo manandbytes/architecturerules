@@ -279,14 +279,23 @@ public class DigesterConfigurationFactoryTest extends AbstractDigesterTest {
         excludedListeners.addAll(factory.getExcludedListeners());
 
         assertTrue(excludedListeners.contains(LoggerListener.class.getName()));
-        assertTrue(includedListeners.isEmpty());
     }
 
 
     public void testListeners_undefined()
             throws Exception {
 
-        final DigesterConfigurationFactory factory = new DigesterConfigurationFactory();
+        final DigesterConfigurationFactory factory = new DigesterConfigurationFactory() {
+
+            /**
+             * provides no default configuration
+             */
+            @Override
+            protected void loadDefaultConfiguration() {
+
+            }
+        };
+
         Set<String> includedListeners = new HashSet<String>();
         Set<String> excludedListeners = new HashSet<String>();
 
@@ -294,8 +303,8 @@ public class DigesterConfigurationFactoryTest extends AbstractDigesterTest {
         includedListeners.addAll(factory.getIncludedListeners());
         excludedListeners.addAll(factory.getExcludedListeners());
 
-        assertTrue(includedListeners.isEmpty());
-        assertTrue(excludedListeners.isEmpty());
+        assertTrue("there are included listeners", includedListeners.isEmpty());
+        assertTrue("there are excluded listeners", excludedListeners.isEmpty());
     }
 
 
@@ -353,7 +362,17 @@ public class DigesterConfigurationFactoryTest extends AbstractDigesterTest {
     public void testProperties_nonePresent()
             throws Exception {
 
-        final DigesterConfigurationFactory factory = new DigesterConfigurationFactory();
+        final DigesterConfigurationFactory factory = new DigesterConfigurationFactory() {
+
+            /**
+             * provides no default configuration
+             */
+            @Override
+            protected void loadDefaultConfiguration() {
+
+            }
+        };
+
         factory.processProperties(rulesXmlConfiguration);
 
         final Properties properties = factory.getProperties();

@@ -23,6 +23,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Properties;
 
+import org.architecturerules.configuration.AbstractConfigurationFactory;
 import org.architecturerules.domain.Rule;
 import org.architecturerules.domain.SourceDirectory;
 
@@ -34,8 +35,9 @@ import org.architecturerules.domain.SourceDirectory;
  */
 public class DigesterConfigurationFactoryCompleteConfigurationTest extends TestCase {
 
+    private static final String CUSTOM_XML_FILE = "some-custom-non-existent.xml";
     private final String completeConfiguration = "<?xml version=\"1.0\"?> <architecture> " + "<configuration> " + "<sources no-packages=\"exception\"> <source not-found=\"ignore\">parent-pom\\target\\classes</source> <source not-found=\"exception\">util\\target\\classes</source> <source not-found=\"ignore\">web\\target\\classes</source> <source not-found=\"ignore\">core\\target\\classes</source> </sources> " + "<cyclicalDependency test=\"false\"/> " + "<listeners> <include> <listener>org.architecturerules.listeners.ExampleEventListener</listener> <listener>org.architecturerules.listeners.LoggerEventListener</listener> </include> <exclude> <listener>org.architecturerules.listeners.LoggerEventListener</listener> </exclude> </listeners> " + "<properties> <property key=\"report.output.directory\" value=\"target/architecture\" /> <property key=\"report.output.format\" value=\"xml\" /> <property key=\"example.property\" value=\"example.value\" /> </properties> " + "</configuration> " + "<rules> " + "<rule id=\"dao\"> <comment>The dao interface package should rely on nothing.</comment> <packages> <package>com.seventytwomiles.pagerank.core.dao</package> <package>com.seventytwomiles.pagerank.core.dao.hibernate</package> </packages> <violations> <violation>com.seventytwomiles.pagerank.core.services</violation> <violation> com.seventytwomiles.pagerank.core.builder</violation> <violation> com.seventytwomiles.pagerank.util</violation> </violations> </rule> " + "<rule id=\"strategy\"> <comment>Strategies should be as pluggable as possible </comment> <packages> <package>com.seventytwomiles.pagerank.serviceproviders.startegies</package> </packages> <violations> <violation>com.seventytwomiles.pagerank.core.services </violation> <violation>com.seventytwomiles.pagerank.core.dao.hibernate</violation> </violations> </rule> " + "<rule id=\"model\"> <comment>Model should remain completely isolated </comment> <packages> <package>com.seventytwomiles.pagerank.core.model</package> </packages> <violations> <violation>com.seventytwomiles.pagerank.core.dao </violation> <violation>com.seventytwomiles.pagerank.core.dao.hibernate </violation> <violation>com.seventytwomiles.pagerank.core.services </violation> <violation>com.seventytwomiles.pagerank.core.strategy </violation> <violation>com.seventytwomiles.pagerank.core.builder </violation> <violation>com.seventytwomiles.pagerank.util </violation> </violations> </rule> " + "</rules> " + "</architecture>";
-    private DigesterConfigurationFactory factory;
+    private AbstractConfigurationFactory factory;
 
     public DigesterConfigurationFactoryCompleteConfigurationTest(final String name) {
         super(name);
@@ -46,8 +48,14 @@ public class DigesterConfigurationFactoryCompleteConfigurationTest extends TestC
             throws Exception {
 
         super.setUp();
-        factory = new DigesterConfigurationFactory();
-        factory.processConfiguration(completeConfiguration);
+        factory = new DigesterConfigurationFactory(CUSTOM_XML_FILE) {
+
+                    @Override
+                    protected String getConfigurationContent(String configurationFileName) {
+
+                        return configurationFileName.equals(CUSTOM_XML_FILE) ? completeConfiguration : super.getConfigurationContent(configurationFileName);
+                    }
+                };
     }
 
 

@@ -51,6 +51,13 @@ public class AbstractConfigurationFactoryTest extends TestCase {
 
                         /* do nothing*/
                     }
+
+
+                    @Override
+                    protected void processConfiguration(String configuration) {
+
+                        /* do nothing*/
+                    }
                 };
     }
 
@@ -67,14 +74,9 @@ public class AbstractConfigurationFactoryTest extends TestCase {
 
     public void testGetConfigurationAsXmlFromClassPathResource() {
 
-        final String xml;
-
-        xml = factory.getConfigurationAsXml("architecture-rules.xml");
-        assertTrue(xml.length() > 0);
-
         try {
 
-            factory.getConfigurationAsXml("some-file-that-does-not-exist.xml");
+            factory.loadConfiguration("some-file-that-does-not-exist.xml");
             fail("expected IllegalArgumentException because input file does not exist");
         } catch (IllegalArgumentException e) {
 
@@ -90,7 +92,7 @@ public class AbstractConfigurationFactoryTest extends TestCase {
 
             final File file = new File("some-file-that-does-not-exist.xml");
             final String filepath = file.getAbsolutePath();
-            factory.getConfigurationAsXml(filepath);
+            factory.loadConfiguration(filepath);
         } catch (IllegalArgumentException e) {
 
             /* success */
@@ -107,6 +109,11 @@ public class AbstractConfigurationFactoryTest extends TestCase {
 
         // TODO find other ways to compute absolute path to configuration file
         final String filepath = resource.getFile().getAbsolutePath();
-        factory.getConfigurationAsXml(filepath);
+        factory.loadConfiguration(filepath);
+    }
+
+
+    protected void processConfiguration(final String configurationXml) {
+
     }
 }

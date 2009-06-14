@@ -34,10 +34,9 @@ import org.architecturerules.exceptions.CyclicRedundancyException;
 public class CyclicRedundancyServiceTest extends TestCase {
 
     private CyclicRedundancyService cyclicRedundancyService;
-    private Configuration configuration = new Configuration();
-    private final Rule controllerRule = new Rule();
-    private final Rule modelRule = new Rule();
-    private final SourceDirectory testClassesSourceDirectory = new SourceDirectory("target\\test-classes", true);
+    private Configuration configuration;
+    private Rule controllerRule;
+    private Rule modelRule;
 
     public CyclicRedundancyServiceTest(final String name) {
         super(name);
@@ -48,12 +47,13 @@ public class CyclicRedundancyServiceTest extends TestCase {
             throws Exception {
 
         super.setUp();
-
-        configuration.addSource(testClassesSourceDirectory);
+        configuration = new Configuration();
+        configuration.addSource(new SourceDirectory("target\\test-classes", true));
 
         /**
          * Expect that ..web.spring depends on both ..dao and ..dao.hibernate
          */
+        controllerRule = new Rule();
         controllerRule.setId("controllers");
         controllerRule.addPackage("test.com.seventytwomiles.web.spring");
         controllerRule.addViolation("test.com.seventytwomiles.dao");
@@ -61,13 +61,13 @@ public class CyclicRedundancyServiceTest extends TestCase {
         configuration.addRule(controllerRule);
 
         /**
-         * Expect model to have cyclical dependency with services
+         * Expect model to have cyclic dependency with services
          */
+        modelRule = new Rule();
         modelRule.setId("model");
         modelRule.addPackage("test.com.seventytwomiles.model");
         modelRule.addViolation("test.com.seventytwomiles.services");
         configuration.addRule(modelRule);
-
         configuration.setThrowExceptionWhenNoPackages(true);
 
         cyclicRedundancyService = new CyclicRedundancyServiceImpl(configuration);

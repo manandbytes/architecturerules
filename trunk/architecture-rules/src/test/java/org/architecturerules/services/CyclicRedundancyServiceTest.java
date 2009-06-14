@@ -74,17 +74,6 @@ public class CyclicRedundancyServiceTest extends TestCase {
     }
 
 
-    @Override
-    public void tearDown()
-            throws Exception {
-
-        cyclicRedundancyService = null;
-        configuration = null;
-
-        super.tearDown();
-    }
-
-
     public void testPerformCyclicRedundancyCheck()
             throws Exception {
 

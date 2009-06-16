@@ -15,7 +15,10 @@ package org.architecturerules.configuration.xml;
 
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.StringReader;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.*;
 
 import org.apache.commons.digester.Digester;
@@ -28,8 +31,11 @@ import org.architecturerules.domain.CyclicDependencyConfiguration;
 import org.architecturerules.domain.Rule;
 import org.architecturerules.domain.SourceDirectory;
 import org.architecturerules.domain.SourcesConfiguration;
+import org.architecturerules.exceptions.ArchitectureException;
 import org.architecturerules.exceptions.InvalidConfigurationException;
 
+import org.xml.sax.EntityResolver;
+import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
 
@@ -40,6 +46,31 @@ import org.xml.sax.SAXException;
  * @see AbstractConfigurationFactory
  */
 public class DigesterConfigurationFactory extends AbstractConfigurationFactory {
+
+    private final class DtdEntityResolver implements EntityResolver {
+
+        private final HashMap<String, String> DTD_TO_PUBLICID_MAP = new HashMap<String, String>();
+
+        {
+
+            DTD_TO_PUBLICID_MAP.put("-//A-R//DTD Rules 3.0.0//EN", "/architecture-rules-3.0.0.dtd");
+        }
+
+        public InputSource resolveEntity(String publicId, String systemId)
+                throws SAXException, IOException {
+
+            final InputStream dtd = getClass().getResourceAsStream(DTD_TO_PUBLICID_MAP.get(publicId));
+            InputSource inputSource = null;
+
+            if (dtd != null) {
+
+                inputSource = new InputSource(dtd);
+                inputSource.setEncoding("UTF-8");
+            }
+
+            return inputSource;
+        }
+    }
 
     /**
      * <p>To log with. See <tt>log4j.xml</tt>.</p>
@@ -84,12 +115,8 @@ public class DigesterConfigurationFactory extends AbstractConfigurationFactory {
     @Override
     public void validateConfiguration(final String configurationXml) {
 
-        final Digester digester = new Digester();
-        digester.setValidating(false); // TODO: set to true to actually validate
+        final Digester digester = getDigester();
 
-        /**
-         * TODO: apply DTD to configuration then try digester.parse
-         */
         final StringReader configurationReader = new StringReader(configurationXml);
 
         try {
@@ -394,6 +421,8 @@ public class DigesterConfigurationFactory extends AbstractConfigurationFactory {
 
         final Digester digester = new Digester();
         digester.setErrorHandler(errorHandler);
+        digester.setValidating(true);
+        digester.setEntityResolver(new DtdEntityResolver());
 
         return digester;
     }

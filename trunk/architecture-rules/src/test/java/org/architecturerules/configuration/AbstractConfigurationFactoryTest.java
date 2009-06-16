@@ -19,6 +19,7 @@ import junit.framework.TestCase;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Set;
 
 import org.springframework.core.io.ClassPathResource;
 
@@ -57,6 +58,14 @@ public class AbstractConfigurationFactoryTest extends TestCase {
                     protected void processConfiguration(String configuration) {
 
                         /* do nothing*/
+                    }
+
+
+                    @Override
+                    protected Set<String> getSupportedFileTypes() {
+
+                        // TODO Auto-generated method stub
+                        return null;
                     }
                 };
     }
@@ -115,5 +124,11 @@ public class AbstractConfigurationFactoryTest extends TestCase {
 
     protected void processConfiguration(final String configurationXml) {
 
+    }
+
+
+    protected Set<String> getSupportedFileTypes() {
+
+        return null;
     }
 }

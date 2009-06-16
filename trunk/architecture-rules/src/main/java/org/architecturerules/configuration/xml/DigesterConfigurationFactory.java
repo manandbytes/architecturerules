@@ -397,4 +397,18 @@ public class DigesterConfigurationFactory extends AbstractConfigurationFactory {
 
         return digester;
     }
+
+    private static final Set<String> SUPPORTED_FILE_TYPES = new TreeSet<String>(String.CASE_INSENSITIVE_ORDER) {
+
+        {
+
+            add("xml");
+        }
+    };
+
+    @Override
+    public Set<String> getSupportedFileTypes() {
+
+        return SUPPORTED_FILE_TYPES;
+    }
 }

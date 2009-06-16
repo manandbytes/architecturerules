@@ -343,4 +343,22 @@ public abstract class AbstractConfigurationFactory implements ConfigurationFacto
     protected void loadDefaultConfiguration() {
 
     }
+
+
+    /**
+     * @param fileType
+     * @return <code>true</code> if that configuration factory supports that file type
+     */
+
+    // TODO make it protected
+    public final boolean acceptsFileType(final String fileType) {
+
+        return getSupportedFileTypes().contains(fileType);
+    }
+
+
+    /**
+     * @return set of the supported file types (actually, file extensions without dot like 'xml' and not '.xml')
+     */
+    protected abstract Set<String> getSupportedFileTypes();
 }

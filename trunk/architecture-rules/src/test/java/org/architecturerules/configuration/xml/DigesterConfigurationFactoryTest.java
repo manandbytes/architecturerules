@@ -187,22 +187,22 @@ public class DigesterConfigurationFactoryTest extends AbstractDigesterTest {
 
         assertEquals(4, sources.size());
 
-        final SourceDirectory source0 = (SourceDirectory) sources.get(0);
+        final SourceDirectory source0 = sources.get(0);
 
         assertEquals("core" + File.separator + "target" + File.separator + "classes", source0.getPath());
         assertFalse(source0.shouldThrowExceptionWhenNotFound());
 
-        final SourceDirectory source1 = (SourceDirectory) sources.get(1);
+        final SourceDirectory source1 = sources.get(1);
 
         assertEquals("util" + File.separator + "target" + File.separator + "classes", source1.getPath());
         assertTrue(source1.shouldThrowExceptionWhenNotFound());
 
-        final SourceDirectory source2 = (SourceDirectory) sources.get(2);
+        final SourceDirectory source2 = sources.get(2);
 
         assertEquals("parent-pom" + File.separator + "target" + File.separator + "classes", source2.getPath());
         assertFalse(source2.shouldThrowExceptionWhenNotFound());
 
-        final SourceDirectory source3 = (SourceDirectory) sources.get(3);
+        final SourceDirectory source3 = sources.get(3);
 
         assertEquals("web" + File.separator + "target" + File.separator + "classes", source3.getPath());
         assertFalse(source3.shouldThrowExceptionWhenNotFound());

@@ -36,6 +36,7 @@ public interface ConfigurationFactory {
      * @parameter DEFAULT_CYCLICAL_DEPENDENCY_CONFIGURATION_VALUE String
      * @deprecated see default-architecture-rules.xml
      */
+    @Deprecated
     public static final String DEFAULT_CYCLICAL_DEPENDENCY_CONFIGURATION_VALUE = "true";
 
     /**

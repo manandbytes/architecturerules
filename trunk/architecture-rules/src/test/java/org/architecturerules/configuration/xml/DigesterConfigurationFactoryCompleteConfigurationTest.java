@@ -94,7 +94,7 @@ public class DigesterConfigurationFactoryCompleteConfigurationTest extends TestC
         /**
          * Validate values of the first Rule
          */
-        final Rule rule0 = (Rule) rules.get(1);
+        final Rule rule0 = rules.get(1);
 
         /* id */
         assertEquals("model", rule0.getId());
@@ -127,7 +127,7 @@ public class DigesterConfigurationFactoryCompleteConfigurationTest extends TestC
         /**
          * Validate values of the second Rule
          */
-        final Rule rule2 = (Rule) rules.get(0);
+        final Rule rule2 = rules.get(0);
 
         /* id */
         assertEquals("dao", rule2.getId());
@@ -181,19 +181,19 @@ public class DigesterConfigurationFactoryCompleteConfigurationTest extends TestC
 
         assertEquals(4, sources.size());
 
-        final SourceDirectory source0 = (SourceDirectory) sources.get(0);
+        final SourceDirectory source0 = sources.get(0);
         assertEquals("parent-pom" + File.separator + "target" + File.separator + "classes", source0.getPath());
         assertFalse(source0.shouldThrowExceptionWhenNotFound());
 
-        final SourceDirectory source1 = (SourceDirectory) sources.get(1);
+        final SourceDirectory source1 = sources.get(1);
         assertEquals("util" + File.separator + "target" + File.separator + "classes", source1.getPath());
         assertTrue(source1.shouldThrowExceptionWhenNotFound());
 
-        final SourceDirectory source2 = (SourceDirectory) sources.get(2);
+        final SourceDirectory source2 = sources.get(2);
         assertEquals("web" + File.separator + "target" + File.separator + "classes", source2.getPath());
         assertFalse(source2.shouldThrowExceptionWhenNotFound());
 
-        final SourceDirectory source3 = (SourceDirectory) sources.get(3);
+        final SourceDirectory source3 = sources.get(3);
         assertEquals("core" + File.separator + "target" + File.separator + "classes", source3.getPath());
         assertFalse(source3.shouldThrowExceptionWhenNotFound());
     }

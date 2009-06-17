@@ -168,6 +168,7 @@ public class Configuration extends ListenerSupport {
      *
      * @return Value for property <tt>listeners</tt>.
      */
+    @Override
     public Set<Listener> getListeners() {
 
         return listeners;

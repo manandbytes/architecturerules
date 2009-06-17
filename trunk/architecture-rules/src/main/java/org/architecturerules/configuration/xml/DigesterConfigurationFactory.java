@@ -17,8 +17,6 @@ package org.architecturerules.configuration.xml;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.StringReader;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.*;
 
 import org.apache.commons.digester.Digester;
@@ -31,7 +29,6 @@ import org.architecturerules.domain.CyclicDependencyConfiguration;
 import org.architecturerules.domain.Rule;
 import org.architecturerules.domain.SourceDirectory;
 import org.architecturerules.domain.SourcesConfiguration;
-import org.architecturerules.exceptions.ArchitectureException;
 import org.architecturerules.exceptions.InvalidConfigurationException;
 
 import org.xml.sax.EntityResolver;

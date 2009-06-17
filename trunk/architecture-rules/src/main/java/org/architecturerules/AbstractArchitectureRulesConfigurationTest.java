@@ -35,11 +35,11 @@ import org.architecturerules.services.RulesServiceImpl;
 
 /**
  * <p>Abstract class that the users of this library will extend in order to create a unit test that asserts
- * architecture. </p> <p/> <p>Once extended, implement <tt>testArchitecture</tt> and call <tt>doTest()</tt>. Also
- * override <tt>getConfigurationFileName()</tt> if you want to load an XML configuration file.</p> <p/> <p>If you want
+ * architecture.</p><p>Once extended, implement {@link #testArchitecture()} and call {@link #doTests()}. Also
+ * override {@link #getConfigurationFileName()} if you want to load an XML configuration file.</p><p>If you want
  * to define the configuration programmatically in addition to the xml configuration, or want to solely use programmatic
- * configuration, you may call <tt>getConfiguration</tt> which will return <code>Configuration</code> that you may then
- * add new <code>Rule</code>, or <code>SourceDirectory</code> to. </p>
+ * configuration, you may call {@link #getConfiguration()} which will return <code>Configuration</code> that you may then
+ * add new <code>Rule</code>, or <code>SourceDirectory</code> to.</p>
  *
  * @author mikenereson
  * @noinspection PointlessBooleanExpression

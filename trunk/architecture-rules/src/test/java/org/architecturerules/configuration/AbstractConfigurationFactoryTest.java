@@ -21,6 +21,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Set;
 
+import org.architecturerules.configuration.AbstractConfigurationFactory;
+
 import org.springframework.core.io.ClassPathResource;
 
 
@@ -122,7 +124,7 @@ public class AbstractConfigurationFactoryTest extends TestCase {
     }
 
 
-    protected void processConfiguration(final String configurationXml) {
+    protected void processConfiguration(final String configuration) {
 
     }
 

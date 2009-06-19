@@ -76,23 +76,13 @@ public class DigesterConfigurationFactory extends AbstractConfigurationFactory {
      */
     protected static final Log log = LogFactory.getLog(DigesterConfigurationFactory.class);
 
-    /**
-     * @see AbstractConfigurationFactory#AbstractConfigurationFactory()
-     */
     public DigesterConfigurationFactory() {
 
     }
 
 
-    /**
-     * <p>Instantiates a new <code>ConfigurationFactory</code>. First loads up the default settings and then processes
-     * the configuration found in the <code>File</code> with the given <tt>configurationFileName</tt>.</p>
-     *
-     * @param fileName name of the <code>File</code> in the classpath to load configuration from.
-     */
     public DigesterConfigurationFactory(final String fileName) {
-
-        loadConfiguration(fileName);
+        super(fileName);
     }
 
     @Override
@@ -110,7 +100,7 @@ public class DigesterConfigurationFactory extends AbstractConfigurationFactory {
      * @see "architecture-rules.dtd"
      */
     @Override
-    public void validateConfiguration(final String configurationXml) {
+    protected void validateConfiguration(final String configurationXml) {
 
         final Digester digester = getDigester();
 

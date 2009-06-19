@@ -27,8 +27,8 @@ import org.architecturerules.api.configuration.ConfigurationFactory;
 import org.architecturerules.api.services.CyclicRedundancyService;
 import org.architecturerules.api.services.RulesService;
 import org.architecturerules.configuration.Configuration;
+import org.architecturerules.configuration.DefaultConfigurationFactory;
 import org.architecturerules.configuration.UnmodifiableConfiguration;
-import org.architecturerules.configuration.xml.DigesterConfigurationFactory;
 import org.architecturerules.services.CyclicRedundancyServiceImpl;
 import org.architecturerules.services.RulesServiceImpl;
 
@@ -75,7 +75,7 @@ public abstract class AbstractArchitectureRulesConfigurationTest extends TestCas
 
         if ((configurationFileName != null) && (configurationFileName.length() > 0)) {
 
-            configurationFactory = new DigesterConfigurationFactory(configurationFileName);
+            configurationFactory = DefaultConfigurationFactory.createInstance(configurationFileName);
 
             Set<String> listeners = new HashSet<String>();
             listeners.addAll(configurationFactory.getIncludedListeners());

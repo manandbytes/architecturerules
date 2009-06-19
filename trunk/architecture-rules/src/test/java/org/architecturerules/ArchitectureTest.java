@@ -30,7 +30,11 @@ import org.architecturerules.exceptions.CyclicRedundancyException;
  */
 public class ArchitectureTest extends AbstractArchitectureRulesConfigurationTest {
 
-    public ArchitectureTest() {
+    @Override
+    protected void setUp()
+            throws Exception {
+
+        super.setUp();
 
         final Configuration configuration = getConfiguration();
 
@@ -53,6 +57,7 @@ public class ArchitectureTest extends AbstractArchitectureRulesConfigurationTest
 
         configuration.addRule(rule);
     }
+
 
     /**
      * @see AbstractArchitectureRulesConfigurationTest

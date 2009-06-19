@@ -16,6 +16,7 @@ package org.architecturerules.configuration;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.*;
@@ -34,19 +35,32 @@ import org.architecturerules.domain.SourceDirectory;
  * <ul>
  * <li>notion of {@link #loadDefaultConfiguration() the default configuration} to use when there is no one provided by user</li>
  * <li>{@link #loadConfiguration(String) unified way to load configuration} from external file</li>
- * </ul
+ * </ul>
  *
  * @author mikenereson
  * @see ConfigurationFactory
+ * @see DefaultConfigurationFactory#createInstance(String)
  */
 public abstract class AbstractConfigurationFactory implements ConfigurationFactory {
 
     /**
      * Creates new instance and loads default configuration.
      */
-    public AbstractConfigurationFactory() {
+    protected AbstractConfigurationFactory() {
 
         loadDefaultConfiguration();
+    }
+
+
+    /**
+     * <p>Instantiates a new <code>ConfigurationFactory</code>. First loads up the default settings and then processes
+     * the configuration found in the <code>File</code> with the given <tt>configurationFileName</tt>.</p>
+     *
+     * @param fileName name of the <code>File</code> in the classpath to load configuration from.
+     */
+    public AbstractConfigurationFactory(String fileName) {
+
+        loadConfiguration(fileName);
     }
 
     /**
@@ -275,7 +289,7 @@ public abstract class AbstractConfigurationFactory implements ConfigurationFacto
 
             if (stream == null) {
 
-                throw new IllegalArgumentException("could not load resource " + configurationFileName + " from classpath. File not found.");
+                throw new IllegalArgumentException("could not load resource " + configurationFileName + " from classpath. File not found.", new FileNotFoundException(configurationFileName));
             }
         }
 

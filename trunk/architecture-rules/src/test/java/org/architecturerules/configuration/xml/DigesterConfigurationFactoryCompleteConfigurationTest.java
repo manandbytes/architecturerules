@@ -24,6 +24,7 @@ import java.util.List;
 import java.util.Properties;
 
 import org.architecturerules.configuration.AbstractConfigurationFactory;
+import org.architecturerules.configuration.xml.DigesterConfigurationFactory;
 import org.architecturerules.domain.Rule;
 import org.architecturerules.domain.SourceDirectory;
 

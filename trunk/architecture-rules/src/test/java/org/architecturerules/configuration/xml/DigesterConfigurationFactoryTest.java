@@ -17,6 +17,7 @@ package org.architecturerules.configuration.xml;
 import java.io.File;
 import java.util.*;
 
+import org.architecturerules.configuration.xml.DigesterConfigurationFactory;
 import org.architecturerules.domain.Rule;
 import org.architecturerules.domain.SourceDirectory;
 import org.architecturerules.exceptions.InvalidConfigurationException;

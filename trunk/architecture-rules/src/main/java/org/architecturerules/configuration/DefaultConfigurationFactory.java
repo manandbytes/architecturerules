@@ -21,7 +21,6 @@ import java.util.Set;
 
 import org.apache.commons.discovery.tools.Service;
 
-import org.architecturerules.configuration.xml.DigesterConfigurationFactory;
 import org.architecturerules.exceptions.ArchitectureException;
 
 
@@ -44,9 +43,7 @@ public class DefaultConfigurationFactory {
      * @param fileName
      *            name of the configuration file
      * @return configuration factory which is able to process specified
-     *         configuration file. As a fallback and for a backward
-     *         compatibility returns {@link DigesterConfigurationFactory} if
-     *         there is no factory to handle configuration file.
+     *         configuration file or <code>null</code> otherwise.
      * @throws IllegalArgumentException
      *             if <code>fileName</code> is illegal
      * @see #ILLEGAL_FILE_NAMES
@@ -80,7 +77,7 @@ public class DefaultConfigurationFactory {
             }
         }
 
-        return new DigesterConfigurationFactory(fileName);
+        return null;
     }
 
 

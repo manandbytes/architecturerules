@@ -29,6 +29,7 @@ import org.architecturerules.api.services.RulesService;
 import org.architecturerules.configuration.Configuration;
 import org.architecturerules.configuration.DefaultConfigurationFactory;
 import org.architecturerules.configuration.UnmodifiableConfiguration;
+import org.architecturerules.configuration.xml.DigesterConfigurationFactory;
 import org.architecturerules.services.CyclicRedundancyServiceImpl;
 import org.architecturerules.services.RulesServiceImpl;
 
@@ -71,11 +72,17 @@ public abstract class AbstractArchitectureRulesConfigurationTest extends TestCas
         /* 1. load configuration if a configuration file name was provided */
         final String configurationFileName = getConfigurationFileName();
 
-        final ConfigurationFactory configurationFactory;
+        ConfigurationFactory configurationFactory;
 
         if ((configurationFileName != null) && (configurationFileName.length() > 0)) {
 
             configurationFactory = DefaultConfigurationFactory.createInstance(configurationFileName);
+
+            // TODO handle default in a some other way
+            if (configurationFactory == null) {
+
+                configurationFactory = new DigesterConfigurationFactory(configurationFileName);
+            }
 
             Set<String> listeners = new HashSet<String>();
             listeners.addAll(configurationFactory.getIncludedListeners());

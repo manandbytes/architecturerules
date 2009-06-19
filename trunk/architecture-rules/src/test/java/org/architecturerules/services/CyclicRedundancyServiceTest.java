@@ -34,9 +34,6 @@ import org.architecturerules.exceptions.CyclicRedundancyException;
 public class CyclicRedundancyServiceTest extends TestCase {
 
     private CyclicRedundancyService cyclicRedundancyService;
-    private Configuration configuration;
-    private Rule controllerRule;
-    private Rule modelRule;
 
     public CyclicRedundancyServiceTest(final String name) {
         super(name);
@@ -47,13 +44,14 @@ public class CyclicRedundancyServiceTest extends TestCase {
             throws Exception {
 
         super.setUp();
-        configuration = new Configuration();
+
+        Configuration configuration = new Configuration();
         configuration.addSource(new SourceDirectory("target\\test-classes", true));
 
         /**
          * Expect that ..web.spring depends on both ..dao and ..dao.hibernate
          */
-        controllerRule = new Rule();
+        Rule controllerRule = new Rule();
         controllerRule.setId("controllers");
         controllerRule.addPackage("test.com.seventytwomiles.web.spring");
         controllerRule.addViolation("test.com.seventytwomiles.dao");
@@ -63,7 +61,7 @@ public class CyclicRedundancyServiceTest extends TestCase {
         /**
          * Expect model to have cyclic dependency with services
          */
-        modelRule = new Rule();
+        Rule modelRule = new Rule();
         modelRule.setId("model");
         modelRule.addPackage("test.com.seventytwomiles.model");
         modelRule.addViolation("test.com.seventytwomiles.services");

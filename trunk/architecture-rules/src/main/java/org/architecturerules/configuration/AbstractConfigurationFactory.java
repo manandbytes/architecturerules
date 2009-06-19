@@ -349,9 +349,7 @@ public abstract class AbstractConfigurationFactory implements ConfigurationFacto
      * @param fileType
      * @return <code>true</code> if that configuration factory supports that file type
      */
-
-    // TODO make it protected
-    public final boolean acceptsFileType(final String fileType) {
+    protected final boolean acceptsFileType(final String fileType) {
 
         return getSupportedFileTypes().contains(fileType);
     }

@@ -14,12 +14,12 @@
 package org.architecturerules.configuration;
 
 
-import sun.misc.Service;
-
 import java.lang.reflect.Constructor;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
+
+import javax.imageio.spi.ServiceRegistry;
 
 import org.architecturerules.exceptions.ArchitectureException;
 
@@ -55,7 +55,7 @@ public class DefaultConfigurationFactory {
             throw new IllegalArgumentException(fileName);
         }
 
-        Iterator<AbstractConfigurationFactory> providers = Service.providers(AbstractConfigurationFactory.class);
+        Iterator<AbstractConfigurationFactory> providers = ServiceRegistry.lookupProviders(AbstractConfigurationFactory.class);
 
         while (providers.hasNext()) {
 

@@ -14,12 +14,12 @@
 package org.architecturerules.configuration;
 
 
-import java.lang.reflect.Constructor;
-import java.util.Enumeration;
-import java.util.HashSet;
-import java.util.Set;
+import sun.misc.Service;
 
-import org.apache.commons.discovery.tools.Service;
+import java.lang.reflect.Constructor;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
 
 import org.architecturerules.exceptions.ArchitectureException;
 
@@ -55,11 +55,11 @@ public class DefaultConfigurationFactory {
             throw new IllegalArgumentException(fileName);
         }
 
-        Enumeration<AbstractConfigurationFactory> providers = Service.providers(AbstractConfigurationFactory.class);
+        Iterator<AbstractConfigurationFactory> providers = Service.providers(AbstractConfigurationFactory.class);
 
-        while (providers.hasMoreElements()) {
+        while (providers.hasNext()) {
 
-            AbstractConfigurationFactory configurationFactory = providers.nextElement();
+            AbstractConfigurationFactory configurationFactory = providers.next();
 
             if (configurationFactory.acceptsFileType(getFileExtension(fileName))) {
 

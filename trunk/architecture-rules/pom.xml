@@ -63,12 +63,6 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>commons-discovery</groupId>
-            <artifactId>commons-discovery</artifactId>
-            <version>0.4</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
           <groupId>SnakeYAML</groupId>
           <artifactId>SnakeYAML</artifactId>
           <version>1.2</version>

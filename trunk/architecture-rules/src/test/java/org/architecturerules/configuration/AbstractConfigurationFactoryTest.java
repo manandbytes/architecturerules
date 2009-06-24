@@ -122,15 +122,4 @@ public class AbstractConfigurationFactoryTest extends TestCase {
         final String filepath = resource.getFile().getAbsolutePath();
         factory.loadConfiguration(filepath);
     }
-
-
-    protected void processConfiguration(final String configuration) {
-
-    }
-
-
-    protected Set<String> getSupportedFileTypes() {
-
-        return null;
-    }
 }

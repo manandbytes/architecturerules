@@ -99,7 +99,9 @@ public class Rule {
      *
      * @param id sets the {@link #id}
      * @param packageName a {@link @packages} to assert on.
+     * @deprecated
      */
+    @Deprecated
     public Rule(final String id, final String packageName) {
 
         setId(id);

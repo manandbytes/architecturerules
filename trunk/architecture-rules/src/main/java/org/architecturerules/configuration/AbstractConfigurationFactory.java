@@ -49,7 +49,6 @@ public abstract class AbstractConfigurationFactory implements ConfigurationFacto
      */
     protected AbstractConfigurationFactory() {
 
-        loadDefaultConfiguration();
     }
 
 
@@ -348,15 +347,6 @@ public abstract class AbstractConfigurationFactory implements ConfigurationFacto
 
         validateConfiguration(configuration);
         processConfiguration(configuration);
-    }
-
-
-    /**
-     * Load the default settings into the configuration. There is no default
-     * configuration, override this method if your implementation provides one.
-     */
-    protected void loadDefaultConfiguration() {
-
     }
 
 

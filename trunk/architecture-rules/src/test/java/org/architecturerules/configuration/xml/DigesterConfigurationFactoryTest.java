@@ -286,16 +286,7 @@ public class DigesterConfigurationFactoryTest extends AbstractDigesterTest {
     public void testListeners_undefined()
             throws Exception {
 
-        final DigesterConfigurationFactory factory = new DigesterConfigurationFactory() {
-
-            /**
-             * provides no default configuration
-             */
-            @Override
-            protected void loadDefaultConfiguration() {
-
-            }
-        };
+        final DigesterConfigurationFactory factory = new DigesterConfigurationFactory();
 
         Set<String> includedListeners = new HashSet<String>();
         Set<String> excludedListeners = new HashSet<String>();
@@ -363,16 +354,7 @@ public class DigesterConfigurationFactoryTest extends AbstractDigesterTest {
     public void testProperties_nonePresent()
             throws Exception {
 
-        final DigesterConfigurationFactory factory = new DigesterConfigurationFactory() {
-
-            /**
-             * provides no default configuration
-             */
-            @Override
-            protected void loadDefaultConfiguration() {
-
-            }
-        };
+        final DigesterConfigurationFactory factory = new DigesterConfigurationFactory();
 
         factory.processProperties(rulesXmlConfiguration);
 

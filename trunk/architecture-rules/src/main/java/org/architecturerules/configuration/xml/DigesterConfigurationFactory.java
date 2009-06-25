@@ -23,7 +23,6 @@ import org.apache.commons.digester.Digester;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import org.architecturerules.api.configuration.ConfigurationFactory;
 import org.architecturerules.configuration.AbstractConfigurationFactory;
 import org.architecturerules.domain.CyclicDependencyConfiguration;
 import org.architecturerules.domain.Rule;
@@ -84,14 +83,6 @@ public class DigesterConfigurationFactory extends AbstractConfigurationFactory {
     public DigesterConfigurationFactory(final String fileName) {
         super(fileName);
     }
-
-    @Override
-    protected void loadDefaultConfiguration() {
-
-        final String defaultFileName = ConfigurationFactory.DEFAULT_CONFIGURATION_CONFIGURATION_FILE_NAME;
-        loadConfiguration(defaultFileName);
-    }
-
 
     /**
      * <p>Validate the configurationXml.</p>

@@ -33,7 +33,7 @@ import org.architecturerules.domain.SourceDirectory;
  */
 public class EmptyListener implements Listener {
 
-    private Properties properties;
+    private Properties properties = new Properties();
 
     /**
      * @param properties

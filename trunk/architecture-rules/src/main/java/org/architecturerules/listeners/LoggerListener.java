@@ -38,7 +38,7 @@ import org.architecturerules.domain.SourceDirectory;
 public class LoggerListener implements Listener {
 
     private static final Log log = LogFactory.getLog(LoggerListener.class);
-    private Properties properties;
+    private Properties properties = new Properties();
 
     public void registerListener(final Properties properties) {
 

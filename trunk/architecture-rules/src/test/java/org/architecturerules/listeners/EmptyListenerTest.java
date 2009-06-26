@@ -24,7 +24,7 @@ public class EmptyListenerTest {
 
     private EmptyListener listenerToTest;
 
-    @Test
+    @Test(expected = NullPointerException.class)
     public void testRegisterWithNullProperties() {
 
         listenerToTest.registerListener(null);

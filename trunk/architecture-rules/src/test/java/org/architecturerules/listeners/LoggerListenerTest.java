@@ -24,7 +24,7 @@ public class LoggerListenerTest {
 
     private LoggerListener listenerToTest;
 
-    @Test
+    @Test(expected = NullPointerException.class)
     public void testRegisterWithNullProperties() {
 
         listenerToTest.registerListener(null);

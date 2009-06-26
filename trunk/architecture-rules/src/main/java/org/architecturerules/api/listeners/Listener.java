@@ -32,6 +32,7 @@ public interface Listener {
     /**
      * <p>TODO: javadoc</p>
      * @param properties
+     * @throws NullPointerException if <code>properties</code> is <code>null</code>
      */
     void registerListener(final Properties properties);
 

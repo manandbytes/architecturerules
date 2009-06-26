@@ -9,34 +9,25 @@
  *
  * For more information visit
  *         http://wiki.architecturerules.org/ and
- *         http://blog.architecturerules.org/
+ *         http://blog.architecturerules.org
  */
 package org.architecturerules.configuration;
 
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.*;
-
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-
 import org.architecturerules.api.configuration.ConfigurationFactory;
-import org.architecturerules.configuration.DefaultConfigurationFactory;
 import org.architecturerules.domain.Rule;
 import org.architecturerules.domain.SourceDirectory;
 
+import java.io.*;
+import java.util.*;
+
 
 /**
- * <p>Abstract Factory that provides common functionality for <code>ConfigurationFactory</code> implementations:</p>
- * <ul>
- * <li>notion of {@link #loadDefaultConfiguration() the default configuration} to use when there is no one provided by user</li>
- * <li>{@link #loadConfiguration(String) unified way to load configuration} from external file</li>
- * </ul>
+ * <p>Abstract Factory that provides common functionality for <code>ConfigurationFactory</code> implementations:</p> <ul> <li>notion of {@link #loadDefaultConfiguration() the
+ * default configuration} to use when there is no one provided by user</li> <li>{@link #loadConfiguration(String) unified way to load configuration} from external file</li> </ul>
  *
  * @author mikenereson
  * @see ConfigurationFactory
@@ -49,12 +40,13 @@ public abstract class AbstractConfigurationFactory implements ConfigurationFacto
      */
     protected AbstractConfigurationFactory() {
 
+        loadConfiguration(ConfigurationFactory.DEFAULT_CONFIGURATION_CONFIGURATION_FILE_NAME);
     }
 
 
     /**
-     * <p>Instantiates a new <code>ConfigurationFactory</code>. First loads up the default settings and then processes
-     * the configuration found in the <code>File</code> with the given <tt>configurationFileName</tt>.</p>
+     * <p>Instantiates a new <code>ConfigurationFactory</code>. First loads up the default settings and then processes the configuration found in the <code>File</code> with the
+     * given <tt>configurationFileName</tt>.</p>
      *
      * @param fileName name of the <code>File</code> in the classpath to load configuration from.
      */
@@ -99,24 +91,22 @@ public abstract class AbstractConfigurationFactory implements ConfigurationFacto
     private boolean doCyclicDependencyTest = true;
 
     /**
-     * <p>Fully qualified class name of <code>Listener</code> class implementations to add to the
-     * <code>Configuration</code>.</p>
+     * <p>Fully qualified class name of <code>Listener</code> class implementations to add to the <code>Configuration</code>.</p>
      *
      * @paramerter listeners Set<String> full class name to <code>Listeners</code> implementation
      */
     private final Set<String> includedListeners = new HashSet<String>();
 
     /**
-     * <p>Fully qualified class name of <code>Listener</code> class implementations to remove to the
-     * <code>Configuration</code>. This allows you to remove the default Listeners.</p>
+     * <p>Fully qualified class name of <code>Listener</code> class implementations to remove to the <code>Configuration</code>. This allows you to remove the default
+     * Listeners.</p>
      *
      * @paramerter listeners Set<String> full class name to <code>Listeners</code> implementation
      */
     private final Set<String> excludedListeners = new HashSet<String>();
 
     /**
-     * <p>Properties defined by the user or default configuration which can be used by other entities such as
-     * <tt>Listener</tt> implementations or services</p>
+     * <p>Properties defined by the user or default configuration which can be used by other entities such as <tt>Listener</tt> implementations or services</p>
      *
      * <p>Instantiates to empty properties.</p>
      *
@@ -267,8 +257,7 @@ public abstract class AbstractConfigurationFactory implements ConfigurationFacto
     /**
      * <p>Read configuration file's content to String.</p>
      *
-     * @param configurationFileName String name of the file in the classpath to load and read OR the complete path
-     * to the file.
+     * @param configurationFileName String name of the file in the classpath to load and read OR the complete path to the file.
      * @return String returns the contents of the configurationFile
      */
     protected String getConfigurationContent(final String configurationFileName) {
@@ -325,21 +314,11 @@ public abstract class AbstractConfigurationFactory implements ConfigurationFacto
 
 
     /**
-     * <p>
-     * Load configuration from an external file.
-     * </p>
-     * <p>
-     * This template method:
-     * <ul>
-     * <li>reads configuration file using {@link #getConfigurationContent(String)}</li>
-     * <li>validates loaded configuration with {@link #validateConfiguration(String)}</li>
-     * <li>processes validated configuration with {@link #processConfiguration(String)}</li>
+     * <p> Load configuration from an external file. </p> <p> This template method: <ul> <li>reads configuration file using {@link #getConfigurationContent(String)}</li>
+     * <li>validates loaded configuration with {@link #validateConfiguration(String)}</li> <li>processes validated configuration with {@link #processConfiguration(String)}</li>
      * </p>
      *
-     * @param fileName
-     *            String name of file to load such as
-     *            <samp>architecture-rules.xml</samp> or
-     *            <samp>architecture-rules.yaml</samp>
+     * @param fileName String name of file to load such as <samp>architecture-rules.xml</samp> or <samp>architecture-rules.yaml</samp>
      */
     protected final void loadConfiguration(final String fileName) {
 

@@ -150,15 +150,15 @@ public class Configuration extends ListenerSupport {
         } catch (ClassNotFoundException e) {
 
             String message = String.format("can not locate listener %s in classpath", listenerClass);
-            throw new IllegalArgumentException(message);
+            throw new IllegalArgumentException(message, e);
         } catch (IllegalAccessException e) {
 
             String message = String.format("can not access listener %s in classpath", listenerClass);
-            throw new IllegalArgumentException(message);
+            throw new IllegalArgumentException(message, e);
         } catch (InstantiationException e) {
 
             String message = String.format("can not instantiate listener %s in classpath", listenerClass);
-            throw new IllegalArgumentException(message);
+            throw new IllegalArgumentException(message, e);
         }
     }
 

@@ -23,6 +23,7 @@ import org.architecturerules.domain.SourceDirectory;
 import org.architecturerules.exceptions.InvalidConfigurationException;
 import org.architecturerules.listeners.ExampleListener;
 import org.architecturerules.listeners.LoggerListener;
+import org.architecturerules.listeners.ReportListener;
 
 
 /**
@@ -283,7 +284,7 @@ public class DigesterConfigurationFactoryTest extends AbstractDigesterTest {
     }
 
 
-    public void testListeners_undefined()
+    public void testDefaultListeners()
             throws Exception {
 
         final DigesterConfigurationFactory factory = new DigesterConfigurationFactory();
@@ -295,25 +296,28 @@ public class DigesterConfigurationFactoryTest extends AbstractDigesterTest {
         includedListeners.addAll(factory.getIncludedListeners());
         excludedListeners.addAll(factory.getExcludedListeners());
 
-        assertTrue("there are included listeners", includedListeners.isEmpty());
-        assertTrue("there are excluded listeners", excludedListeners.isEmpty());
+        assertEquals(2, includedListeners.size());
+        assertTrue(includedListeners.contains(LoggerListener.class.getName()));
+        assertTrue(includedListeners.contains(ReportListener.class.getName()));
+        assertTrue(excludedListeners.isEmpty());
     }
 
 
-    public void testProperties()
+    public void testCustomProperties()
             throws Exception {
 
         final DigesterConfigurationFactory factory = new DigesterConfigurationFactory();
+
+        final Properties defaultProperties = factory.getProperties();
+        assertEquals("default properties", 2, defaultProperties.size());
+
         factory.processProperties(withProperties);
 
         final Properties properties = factory.getProperties();
 
-        assertEquals(2, properties.size());
-        assertTrue(properties.containsKey("report.output.directory"));
-        assertEquals(properties.getProperty("report.output.directory"), "target/architecture");
-
-        assertTrue(properties.containsKey("report.output.format"));
-        assertEquals(properties.getProperty("report.output.format"), "xml");
+        assertEquals("custom properties", 4, properties.size());
+        assertEquals("custom/target/architecture", properties.getProperty("custom.report.output.directory"));
+        assertEquals("custom/xml", properties.getProperty("custom.report.output.format"));
     }
 
 
@@ -351,7 +355,7 @@ public class DigesterConfigurationFactoryTest extends AbstractDigesterTest {
     }
 
 
-    public void testProperties_nonePresent()
+    public void testDefaultProperties()
             throws Exception {
 
         final DigesterConfigurationFactory factory = new DigesterConfigurationFactory();
@@ -360,6 +364,8 @@ public class DigesterConfigurationFactoryTest extends AbstractDigesterTest {
 
         final Properties properties = factory.getProperties();
 
-        assertTrue(properties.isEmpty());
+        assertEquals(2, properties.size());
+        assertEquals("target/architecture", properties.getProperty("report.output.directory"));
+        assertEquals("xml", properties.getProperty("report.output.format"));
     }
 }

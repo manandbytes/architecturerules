@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>architecture-rules</artifactId>
     <packaging>jar</packaging>
-    <version>3.0.0-rc1</version>
+    <version>3.0.0-SNAPSHOT</version>
 
     <name>Architecture Rules</name>
     <inceptionYear>2007 - 2009</inceptionYear>
@@ -316,11 +316,4 @@
             </releases>
         </pluginRepository>
     </pluginRepositories>
-
-
-  <scm>
-    <connection>scm:svn:http://architecturerules.googlecode.com/svn/tags/architecture-rules-3.0.0-rc1</connection>
-    <developerConnection>scm:svn:https://architecturerules.googlecode.com/svn/tags/architecture-rules-3.0.0-rc1</developerConnection>
-    <url>http://architecturerules.googlecode.com/svn/tags/architecture-rules-3.0.0-rc1</url>
-  </scm>
 </project>

@@ -1,0 +1,19 @@
+doCyclicDependencyTest: false
+throwExceptionWhenNoPackages: true
+rules:
+  - id: dao
+    packages:
+      - a.b.c
+      - d.e.f
+      - q.a.z
+    violations:
+      - w.s.x
+      - e.d.c
+properties:
+  prop.a.b.c: 1
+  prop.z.x.c: qwerty
+  prop.a.s: true
+sources:
+  - path: target/classes
+listeners:
+  - z.x.c

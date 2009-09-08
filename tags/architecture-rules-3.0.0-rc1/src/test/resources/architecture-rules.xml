@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE architecture PUBLIC "-//A-R//DTD Rules 3.0.0//EN" "http://architecturerules.org/architecture-rules-3.0.0.dtd">
+<!--
+
+    Copyright 2007 - 2009 the original author or authors.
+    
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+    
+            http://www.apache.org/licenses/LICENSE-2.0
+    
+    For more information visit
+            http://wiki.architecturerules.org/ and
+            http://blog.architecturerules.org/
+
+-->
+
+<architecture>
+
+    <configuration>
+
+        <sources no-packages="exception">
+            <source not-found="ignore">core\target\classes</source>
+            <source not-found="ignore">util\target\classes</source>
+            <source not-found="ignore">parent-pom\target\classes</source>
+            <source not-found="ignore">web\target\classes</source>
+            <source not-found="ignore">web\target\classes</source>
+            <source not-found="exception">target\classes</source>
+        </sources>
+
+        <cyclicalDependency test="true" />
+
+        <listeners>
+            <include>
+                <listener>org.architecturerules.listeners.ExampleListener</listener>
+            </include>
+            <exclude>
+                <listener>org.architecturerules.listeners.LoggerListener</listener>
+            </exclude>
+        </listeners>
+
+        <properties>
+            <property key="report.output.directory" value="target/architecture" />
+            <property key="report.output.format" value="xml" />
+        </properties>
+
+    </configuration>
+
+    <rules>
+
+        <rule id="dao">
+            <comment>
+                The dao interface package should rely on nothing.
+            </comment>
+            <packages>
+                <package>
+                    com.seventytwomiles.pagerank.core.dao
+                </package>
+                <package>
+                    com.seventytwomiles.pagerank.core.dao.hibernate
+                </package>
+            </packages>
+            <violations>
+                <violation>
+                    com.seventytwomiles.pagerank.core.services
+                </violation>
+                <violation>
+                    com.seventytwomiles.pagerank.core.builder
+                </violation>
+                <violation>
+                    com.seventytwomiles.pagerank.util
+                </violation>
+            </violations>
+        </rule>
+
+        <rule id="strategy">
+            <comment>
+                Strategies should be as pluggable as possible
+            </comment>
+            <packages>
+                <package>
+                    com.seventytwomiles.pagerank.serviceproviders.startegies
+                </package>
+            </packages>
+            <violations>
+                <violation>
+                    com.seventytwomiles.pagerank.core.services
+                </violation>
+                <violation>
+                    com.seventytwomiles.pagerank.core.dao.hibernate
+                </violation>
+            </violations>
+        </rule>
+
+        <rule id="model">
+            <comment>
+                Model should remain completely isolated
+            </comment>
+            <packages>
+                <package>
+                    com.seventytwomiles.pagerank.core.model
+                </package>
+            </packages>
+            <violations>
+                <violation>
+                    com.seventytwomiles.pagerank.core.dao
+                </violation>
+                <violation>
+                    com.seventytwomiles.pagerank.core.dao.hibernate
+                </violation>
+                <violation>
+                    com.seventytwomiles.pagerank.core.services
+                </violation>
+                <violation>
+                    com.seventytwomiles.pagerank.core.strategy
+                </violation>
+                <violation>
+                    com.seventytwomiles.pagerank.core.builder
+                </violation>
+                <violation>
+                    com.seventytwomiles.pagerank.util
+                </violation>
+            </violations>
+        </rule>
+
+    </rules>
+
+</architecture>
+
+

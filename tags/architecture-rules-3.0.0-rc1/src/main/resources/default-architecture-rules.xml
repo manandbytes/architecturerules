@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+
+    Copyright 2007 - 2009 the original author or authors.
+    
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+    
+            http://www.apache.org/licenses/LICENSE-2.0
+    
+    For more information visit
+            http://wiki.architecturerules.org/ and
+            http://blog.architecturerules.org/
+
+-->
+
+<architecture>
+
+    <configuration>
+
+        <sources no-packages="ignore"/>
+
+        <cyclicalDependency test="true"/>
+
+        <listeners>
+            <include>
+                <listener>org.architecturerules.listeners.LoggerListener</listener>
+                <listener>org.architecturerules.listeners.ReportListener</listener>
+            </include>
+        </listeners>
+
+        <properties>
+            <property key="report.output.directory" value="target/architecture"/>
+            <property key="report.output.format" value="xml"/>
+        </properties>
+
+    </configuration>
+
+</architecture>
+
+

@@ -192,18 +192,6 @@
             </releases>
         </pluginRepository>
         <pluginRepository>
-            <id>stat-scm-sourceforge</id>
-            <url>http://stat-scm.sourceforge.net/maven2</url>
-            <snapshots>
-                <enabled>true</enabled>
-                <updatePolicy>always</updatePolicy>
-                <checksumPolicy>ignore</checksumPolicy>
-            </snapshots>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-        </pluginRepository>
-        <pluginRepository>
             <id>stat-scm-sourceforge-snapshot</id>
             <url>http://stat-scm.sourceforge.net/maven2-snapshots</url>
             <snapshots>
